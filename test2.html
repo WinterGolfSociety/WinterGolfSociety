@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+}
+
+#msg {
+    font-family: arial, sans-serif;
+    font-size: 30px;
+    color: DodgerBlue;
+    text-align: center;
+}
+   
+  
+.progress{
+    position: relative;
+    height: 20px;
+    width: 100%;
+    border: 10px solid #f4a261;
+    border-radius: 30px;
+}
+.progress .color{
+    position: absolute;
+    background-color: DodgerBlue;
+    width: 0px;
+    height: 20px;
+    border-radius: 15px;
+    animation: progres 30s infinite linear;
+    animation-delay: 2s;
+}
+@keyframes progres{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 50%;
+    }
+    50%{
+        width: 75%;
+    }
+    75%{
+        width: 85%;
+    }
+    100%{
+        width: 100%;
+    }
+}; 
+  
+
+  
+</style> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+ function myFunction(){    
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+   
+    const id = urlParams.get('id')
+    
+    // as early as possible 
+    window.location.href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSWgEPXrmTeHqYSetyXQr2fV1hOnQgU-iBJiClb_ZXfpf1rkTW2jrDbtEpoIbJ-Ywozf2kE5SdPVYUe/pubhtml?gid=" + id + "&single=true";
+    
+    // now get name
+    var fname = urlParams.get('fname')
+   
+    if (fname.valueOf() == "null") {
+      fname = "all users";
+    }
+  
+    document.getElementById("msg").innerHTML = "... accessing data for " + fname;  
+    
+ }  
+   
+ // simple jQuery fade in  
+ $(document).ready(function(){  
+ $('body').css('display', 'none');
+ $('body').fadeIn(3000); 
+ }) 
+ 
+</script>
+
+</head>
+<body onload="myFunction()">
+  <div class="progress">
+    <div class="color"></div>
+  </div>
+  <br><br>
+  <div id="msg"></div> 
+</body>
+</html>
+
+
