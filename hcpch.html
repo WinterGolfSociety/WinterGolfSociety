@@ -1,0 +1,485 @@
+ <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <style type="text/css">
+  body {
+  background: Gray;
+  font-family: arial, sans-serif;
+  font-size: 30px;
+  color: white;
+  }   
+  .atitle {
+  font-size:60px;
+  }
+  .asubtitle {
+  font-size:12px;
+  }   
+  .dropbtn {
+  background: DodgerBlue;
+  color: LightGray;
+  width: 400px;
+  padding: 10px;
+  font-size: 30px;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  }
+  .dropbtn:hover {
+  background-color: DodgerBlue; color: white;
+  background: DodgerBlue url(updown7.png) 5px 15px no-repeat;
+  background-position: right center;
+  }
+  .dropbtn:focus {
+  background-color: SlateGray; color: LightGray;
+  
+  }
+  
+  
+  
+  
+  .dropdown {
+  position: relative;
+  display: inline-block;
+  }
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: DodgerBlue;
+  min-width: 400px;
+  overflow: auto;
+  z-index: 1;
+  }
+  .dropdown-content a {
+  color: LightGray;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+  }
+  .dropdown a:hover {
+  //background-color: SlateGray; color: white;
+  background: SlateGray url(avatar.png) 10px 0px no-repeat;
+  background-position: right center;
+  }
+  .show {
+  display: block;
+  }
+  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1, shrink-to-fit=yes" />
+  <meta name="description" content="Longhirst seniors" />
+  <meta name="author" content="Bryan M" />
+  <title>Longhirst seniors</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <script src="jquery-3.6.0.min.js" type="text/javascript">
+</script>
+</head>
+
+<body>
+  <div class="atitle">
+    Seniors <img src="fallovergolfer.gif" alt="Golfer" width="70" height="90" /><br />
+    Winter Golf
+
+    <div class="asubtitle">
+      (1st November 2021 to 28th March 2022)     
+    </div>
+  </div>
+  <br />
+  <!-- 1st dropdown -->
+  <div class="dropdown">
+    <button onclick="myFunction(this);" class="dropbtn">Main menu</button>
+
+    <div id="myDropdown1" class="dropdown-content">
+      <a href="javascript:window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfj9pbWik1yqiDC8O3sirPxU4qk_a_V4l0GJlPAdgXyNuo0Rg/viewform'; ">Score entry</a>
+      <a href="javascript:getScreen(1933806866,'Tony');">Tony (compact)</a>
+      <a href="javascript:getScreen(2046602312,'Tony');">Tony (full)</a>
+      <a href="javascript:getScreen(1036897751,'everyone');">HCP list</a>
+      <a href="javascript:getScreen(827505463,'everyone');">latest results</a>
+      <a href="javascript:getScreen(1455933323,'everyone');">all results</a>
+      <a href="javascript:window.location.href='rules.html';">Rules</a>
+      <a href="javascript:getScreen(107376536,'everyone');">HCP adjustments</a>
+      <a href="javascript:getScreen(2090709960,'everyone');">lakes hole stats</a>
+      <a href="javascript:getScreen(1064431565,'everyone');">dawson hole stats</a>
+      <a href="javascript:getScreen(1809757953,'everyone');">lakes</a>
+      <a href="javascript:getScreen(910026648,'everyone');">dawson</a>
+      <a href="javascript:getScreen(1270023006,'everyone');">twos</a>
+      <a href="javascript:getScreen(138098929,'everyone');">legend</a>
+      <a href="#" style="background: DodgerBlue">
+      <img border="0" src="uparrow.png" width=75 height=50 style="float:right"></img> 
+      </a>
+    </div>
+  </div>
+  <br />
+  <!-- 2nd dropdown -->
+  <div class="dropdown">
+    <button onclick="myFunction(this);" class="dropbtn">Players (compact)</button>
+
+    <div id="myDropdown2" class="dropdown-content">
+      <!--  Graham Airey -->
+      <a href="javascript:getScreen(156897594,'Graham');">Graham Airey</a> 
+      <!--  Dale Aitkenhead -->
+      <a href="javascript:getScreen(165938187,'Dale');">Dale Aitkenhead</a> 
+      <!--  Stephen Alldridge -->
+      <a href="javascript:getScreen(1392714940,'Stephen');">Stephen Alldridge</a>
+      <!--  Keith Belshaw -->
+      <a href="javascript:getScreen(552321852,'Keith');">Keith Belshaw</a> 
+      <!--  Stewart Brodie -->
+      <a href="javascript:getScreen(719099678,'Stewart');">Stewart Brodie</a> 
+      <!--  Craig Caesar -->
+      <a href="javascript:getScreen(1979980210,'Craig');">Craig Caesar</a> 
+      <!--  Clive Caisley -->
+      <a href="javascript:getScreen(575599066,'Clive');">Clive Caisley</a> 
+      <!--  Dave Cave -->
+      <a href="javascript:getScreen(13517490,'Dave');">Dave Cave</a> 
+      <!--  Ken Clark -->
+      <a href="javascript:getScreen(1619103930,'Ken');">Ken Clark</a> 
+      <!--  Robert Connelly -->
+      <a href="javascript:getScreen(238400350,'Robert');">Robert Connelly</a> 
+      <!--  Jed Cornhill -->
+      <a href="javascript:getScreen(500720523,'Jed');">Jed Cornhill</a> 
+      <!--  Alex Coupland -->
+      <a href="javascript:getScreen(481828501,'Alex');">Alex Coupland</a> 
+      <!--  Michael Courtney -->
+      <a href="javascript:getScreen(922909015,'Michael');">Michael Courtney</a>
+      <!--  Gary Cowman -->
+      <a href="javascript:getScreen(962389719,'Gary');">Gary Cowman</a> 
+      <!--  Tom Cox -->
+      <a href="javascript:getScreen(277936891,'Tom');">Tom Cox</a> 
+      <!--  Neil Coxon -->
+      <a href="javascript:getScreen(1715234631,'Neil');">Neil Coxon</a> 
+      <!--  Andy Davison -->
+      <a href="javascript:getScreen(813242427,'Andy');">Andy Davison</a> 
+      <!--  John Dean -->
+      <a href="javascript:getScreen(1777600406,'John');">John Dean</a> 
+      <!--  Trevor Dodds -->
+      <a href="javascript:getScreen(1090739168,'Trevor');">Trevor Dodds</a> 
+      <!--  Joe Fletcher -->
+      <a href="javascript:getScreen(1041408689,'Joe');">Joe Fletcher</a> 
+      <!--  Norman Ford -->
+      <a href="javascript:getScreen(1767674598,'Norman');">Norman Ford</a> 
+      <!--  Bill French -->
+      <a href="javascript:getScreen(1445987263,'Bill');">Bill French</a> 
+      <!--  Norman Gilholm -->
+      <a href="javascript:getScreen(1629488915,'Norman');">Norman Gilholm</a> 
+      <!--  David Gilroy -->
+      <a href="javascript:getScreen(582425188,'David');">David Gilroy</a> 
+      <!--  Vince Graham -->
+      <a href="javascript:getScreen(579400130,'Vince');">Vince Graham</a> 
+      <!--  Chris Green -->
+      <a href="javascript:getScreen(1620137411,'Chris');">Chris Green</a> 
+      <!--  Rob Green -->
+      <a href="javascript:getScreen(2001086312,'Rob');">Rob Green</a> 
+      <!--  Richard Hedley -->
+      <a href="javascript:getScreen(725554658,'Richard');">Richard Hedley</a> 
+      <!--  Barry Henderson -->
+      <a href="javascript:getScreen(178297246,'Barry');">Barry Henderson</a> 
+      <!--  Clive Herbert -->
+      <a href="javascript:getScreen(1105955869,'Clive');">Clive Herbert</a> 
+      <!--  Colin Hillary -->
+      <a href="javascript:getScreen(1536940009,'Colin');">Colin Hillary</a> 
+      <!--  Peter Holleran -->
+      <a href="javascript:getScreen(5152859,'Peter');">Peter Holleran</a> 
+      <!--  Chris Houghton -->
+      <a href="javascript:getScreen(1099424405,'Chris');">Chris Houghton</a> 
+      <!--  Ken Houghton -->
+      <a href="javascript:getScreen(440319872,'Ken');">Ken Houghton</a> 
+      <!--  Roger Ireland -->
+      <a href="javascript:getScreen(496926817,'Roger');">Roger Ireland</a> 
+      <!--  David.T Jackson -->
+      <a href="javascript:getScreen(1804705556,'David.T');">David.T Jackson</a>
+      <!--  John Jackson -->
+      <a href="javascript:getScreen(154628821,'John');">John Jackson</a> 
+      <!--  Dave Jackson -->
+      <a href="javascript:getScreen(1882911148,'Dave');">Dave Jackson</a> 
+      <!--  John Langan -->
+      <a href="javascript:getScreen(1217304111,'John');">John Langan</a> 
+      <!--  Tom Lemin -->
+      <a href="javascript:getScreen(1700756964,'Tom');">Tom Lemin</a> 
+      <!--  Jim Little -->
+      <a href="javascript:getScreen(905434958,'Jim');">Jim Little</a> 
+      <!--  Bryan Maddison -->
+      <a href="javascript:getScreen(764553715,'Bryan');">Bryan Maddison</a> 
+      <!--  James Main -->
+      <a href="javascript:getScreen(152055981,'James');">James Main</a> 
+      <!--  Tony Martin -->
+      <a href="javascript:getScreen(907881164,'Tony');">Tony Martin</a> 
+      <!--  John Matthews -->
+      <a href="javascript:getScreen(2118845560,'John');">John Matthews</a> 
+      <!--  Tony McLure -->
+      <a href="javascript:getScreen(1623648063,'Tony');">Tony McLure</a> 
+      <!--  Tom McNally -->
+      <a href="javascript:getScreen(1258535021,'Tom');">Tom McNally</a> 
+      <!--  Darren Nelson -->
+      <a href="javascript:getScreen(1355231868,'Darren');">Darren Nelson</a> 
+      <!--  Danny Norman -->
+      <a href="javascript:getScreen(977511010,'Danny');">Danny Norman</a> 
+      <!--  Trevor Ord -->
+      <a href="javascript:getScreen(1369079410,'Trevor');">Trevor Ord</a> 
+      <!--  Dennis Patterson -->
+      <a href="javascript:getScreen(293134352,'Dennis');">Dennis Patterson</a> 
+      <!--  John Pattison -->
+      <a href="javascript:getScreen(821912725,'John');">John Pattison</a> 
+      <!--  Duncan Platts -->
+      <a href="javascript:getScreen(914651746,'Duncan');">Duncan Platts</a> 
+      <!--  Ray Purdy -->
+      <a href="javascript:getScreen(110879922,'Ray');">Ray Purdy</a> 
+      <!--  Mike Riddell -->
+      <a href="javascript:getScreen(621797901,'Mike');">Mike Riddell</a> 
+      <!--  Martin Rogers -->
+      <a href="javascript:getScreen(1373818227,'Martin');">Martin Rogers</a> 
+      <!--  David Scurfield -->
+      <a href="javascript:getScreen(1162847051,'David');">David Scurfield</a> 
+      <!--  Brian Simpson -->
+      <a href="javascript:getScreen(1204986242,'Brian');">Brian Simpson</a> 
+      <!--  John.E Smith -->
+      <a href="javascript:getScreen(192320516,'John.E');">John.E Smith</a> 
+      <!--  Tony Smith -->
+      <a href="javascript:getScreen(1933806866,'Tony');">Tony Smith</a> 
+      <!--  Ray Straker -->
+      <a href="javascript:getScreen(264071346,'Ray');">Ray Straker</a> 
+      <!--  Tom Straker -->
+      <a href="javascript:getScreen(257181713,'Tom');">Tom Straker</a> 
+      <!--  John Summerbell -->
+      <a href="javascript:getScreen(1483426099,'John');">John Summerbell</a> 
+      <!--  Neil Tait -->
+      <a href="javascript:getScreen(1304306147,'Neil');">Neil Tait</a> 
+      <!--  Roly Thompson -->
+      <a href="javascript:getScreen(756093086,'Roly');">Roly Thompson</a> 
+      <!--  Bob Toward -->
+      <a href="javascript:getScreen(105389378,'Bob');">Bob Toward</a> 
+      <!--  Michael Varnom -->
+      <a href="javascript:getScreen(1640157406,'Michael');">Michael Varnom</a>
+      <!--  Glen Watson -->
+      <a href="javascript:getScreen(285790374,'Glen');">Glen Watson</a> 
+      <!--  Phil Wegner -->
+      <a href="javascript:getScreen(1022160908,'Phil');">Phil Wegner</a> 
+      <!--  Ron Woodcock -->
+      <a href="javascript:getScreen(1407819280,'Ron');">Ron Woodcock</a> 
+      <!--  Brian Wray -->
+      <a href="javascript:getScreen(229355317,'Brian');">Brian Wray</a> 
+      <!--  John Wright -->
+      <a href="javascript:getScreen(1571644150,'John');">John Wright</a> 
+      <!--  Jim Young -->
+      <a href="javascript:getScreen(935006119,'Jim');">Jim Young</a>
+      <a href="#" style="background: DodgerBlue">
+      <img border="0" src="uparrow.png" width=75 height=50 style="float:right"></img> 
+      </a>
+    </div>
+  </div>
+  <br />
+  <!-- 3rd dropdown -->
+  <div class="dropdown">
+  <button onclick="myFunction(this);" class="dropbtn">Players (full)</button>
+  <div id="myDropdown3" class="dropdown-content">
+      <!--  Graham Airey -->
+      <a href="javascript:getScreen(754604201,'Graham');">Graham Airey</a> 
+      <!--  Dale Aitkenhead -->
+      <a href="javascript:getScreen(1509555875,'Dale');;">Dale Aitkenhead</a> 
+      <!--  Stephen Alldridge -->
+      <a href="javascript:getScreen(136402569,'Stephen');">Stephen Alldridge</a>
+      <!--  Keith Belshaw -->
+      <a href="javascript:getScreen(595875691,'Keith');">Keith Belshaw</a> 
+      <!--  Stewart Brodie -->
+      <a href="javascript:getScreen(1858681860,'Stewart');">Stewart Brodie</a> 
+      <!--  Craig Caesar -->
+      <a href="javascript:getScreen(1292392088,'Craig');">Craig Caesar</a> 
+      <!--  Clive Caisley -->
+      <a href="javascript:getScreen(668705844,'Clive');">Clive Caisley</a> 
+      <!--  Dave Cave -->
+      <a href="javascript:getScreen(1225505216,'Dave');">Dave Cave</a> 
+      <!--  Ken Clark -->
+      <a href="javascript:getScreen(63686915,'Ken');">Ken Clark</a> 
+      <!--  Robert Connelly -->
+      <a href="javascript:getScreen(2063925832,'Robert');">Robert Connelly</a> 
+      <!--  Jed Cornhill -->
+      <a href="javascript:getScreen(1139060609,'Jed');">Jed Cornhill</a> 
+      <!--  Alex Coupland -->
+      <a href="javascript:getScreen(1770991226,'Alex');">Alex Coupland</a> 
+      <!--  Michael Courtney -->
+      <a href="javascript:getScreen(1883020167,'Michael');">Michael Courtney</a>
+      <!--  Gary Cowman -->
+      <a href="javascript:getScreen(52138449,'Gary');">Gary Cowman</a> 
+      <!--  Tom Cox -->
+      <a href="javascript:getScreen(258573102,'Tom');">Tom Cox</a> 
+      <!--  Neil Coxon -->
+      <a href="javascript:getScreen(927669307,'Neil');">Neil Coxon</a> 
+      <!--  Andy Davison -->
+      <a href="javascript:getScreen(1058016022,'Andy');">Andy Davison</a> 
+      <!--  John Dean -->
+      <a href="javascript:getScreen(1716536578,'John');">John Dean</a> 
+      <!--  Trevor Dodds -->
+      <a href="javascript:getScreen(393412315,'Trevor');">Trevor Dodds</a> 
+      <!--  Joe Fletcher -->
+      <a href="javascript:getScreen(1516661828,'Joe');">Joe Fletcher</a> 
+      <!--  Norman Ford -->
+      <a href="javascript:getScreen(763072042,'Norman');">Norman Ford</a> 
+      <!--  Bill French -->
+      <a href="javascript:getScreen(794565869,'Bill');">Bill French</a> 
+      <!--  Norman Gilholm -->
+      <a href="javascript:getScreen(15342806,'Norman');">Norman Gilholm</a> 
+      <!--  David Gilroy -->
+      <a href="javascript:getScreen(1489648590,'David');">David Gilroy</a> 
+      <!--  Vince Graham -->
+      <a href="javascript:getScreen(2115681868,'Vince');">Vince Graham</a> 
+      <!--  Chris Green -->
+      <a href="javascript:getScreen(296677356,'Chris');">Chris Green</a> 
+      <!--  Rob Green -->
+      <a href="javascript:getScreen(1895391147,'Rob');">Rob Green</a> 
+      <!--  Richard Hedley -->
+      <a href="javascript:getScreen(1301544687,'Richard');">Richard Hedley</a> 
+      <!--  Barry Henderson -->
+      <a href="javascript:getScreen(1632749992,'Barry');">Barry Henderson</a> 
+      <!--  Clive Herbert -->
+      <a href="javascript:getScreen(1878764260,'Clive');">Clive Herbert</a> 
+      <!--  Colin Hillary -->
+      <a href="javascript:getScreen(617713971,'Colin');">Colin Hillary</a> 
+      <!--  Peter Holleran -->
+      <a href="javascript:getScreen(1711154082,'Peter');">Peter Holleran</a> 
+      <!--  Chris Houghton -->
+      <a href="javascript:getScreen(501822339,'Chris');">Chris Houghton</a> 
+      <!--  Ken Houghton -->
+      <a href="javascript:getScreen(178924738,'Ken');">Ken Houghton</a> 
+      <!--  Roger Ireland -->
+      <a href="javascript:getScreen(905355792,'Roger');">Roger Ireland</a> 
+      <!--  David.T Jackson -->
+      <a href="javascript:getScreen(2092885105,'David.T');">David.T Jackson</a>
+      <!--  John Jackson -->
+      <a href="javascript:getScreen(1092229509,'John');">John Jackson</a> 
+      <!--  Dave Jackson -->
+      <a href="javascript:getScreen(2140095723,'Dave');">Dave Jackson</a> 
+      <!--  John Langan -->
+      <a href="javascript:getScreen(714050100,'John');">John Langan</a> 
+      <!--  Tom Lemin -->
+      <a href="javascript:getScreen(1970862421,'Tom');">Tom Lemin</a> 
+      <!--  Jim Little -->
+      <a href="javascript:getScreen(1008580234,'Jim');">Jim Little</a> 
+      <!--  Bryan Maddison -->
+      <a href="javascript:getScreen(1376200182,'Bryan');">Bryan Maddison</a> 
+      <!--  James Main -->
+      <a href="javascript:getScreen(1823774893,'James');">James Main</a> 
+      <!--  Tony Martin -->
+      <a href="javascript:getScreen(1828081837,'Tony');">Tony Martin</a> 
+      <!--  John Matthews -->
+      <a href="javascript:getScreen(1260033790,'John');">John Matthews</a> 
+      <!--  Tony McLure -->
+      <a href="javascript:getScreen(162681198,'Tony');">Tony McLure</a> 
+      <!--  Tom McNally -->
+      <a href="javascript:getScreen(90722389,'Tom');">Tom McNally</a> 
+      <!--  Darren Nelson -->
+      <a href="javascript:getScreen(1212626884,'Darren');">Darren Nelson</a> 
+      <!--  Danny Norman -->
+      <a href="javascript:getScreen(1093747366,'Danny');">Danny Norman</a> 
+      <!--  Trevor Ord -->
+      <a href="javascript:getScreen(637559290,'Trevor');">Trevor Ord</a> 
+      <!--  Dennis Patterson -->
+      <a href="javascript:getScreen(319643249,'Dennis');">Dennis Patterson</a> 
+      <!--  John Pattison -->
+      <a href="javascript:getScreen(206663147,'John');">John Pattison</a> 
+      <!--  Duncan Platts -->
+      <a href="javascript:getScreen(2127683859,'Duncan');">Duncan Platts</a> 
+      <!--  Ray Purdy -->
+      <a href="javascript:getScreen(553195217,'Ray');">Ray Purdy</a> 
+      <!--  Mike Riddell -->
+      <a href="javascript:getScreen(927845633,'Mike');">Mike Riddell</a> 
+      <!--  Martin Rogers -->
+      <a href="javascript:getScreen(1983437789,'Martin');">Martin Rogers</a> 
+      <!--  David Scurfield -->
+      <a href="javascript:getScreen(1001185908,'David');">David Scurfield</a> 
+      <!--  Brian Simpson -->
+      <a href="javascript:getScreen(508024669,'Brian');">Brian Simpson</a> 
+      <!--  John.E Smith -->
+      <a href="javascript:getScreen(604017523,'John.E');">John.E Smith</a> 
+      <!--  Tony Smith -->
+      <a href="javascript:getScreen(2046602312,'Tony');">Tony Smith</a> 
+      <!--  Ray Straker -->
+      <a href="javascript:getScreen(1401901982,'Ray');">Ray Straker</a> 
+      <!--  Tom Straker -->
+      <a href="javascript:getScreen(1140997998,'Tom');">Tom Straker</a> 
+      <!--  John Summerbell -->
+      <a href="javascript:getScreen(200822097,'John');">John Summerbell</a> 
+      <!--  Neil Tait -->
+      <a href="javascript:getScreen(343267406,'Neil');">Neil Tait</a> 
+      <!--  Roly Thompson -->
+      <a href="javascript:getScreen(442044176,'Roly');">Roly Thompson</a> 
+      <!--  Bob Toward -->
+      <a href="javascript:getScreen(560942106,'Bob');">Bob Toward</a> 
+      <!--  Michael Varnom -->
+      <a href="javascript:getScreen(1563807702,'Michael');">Michael Varnom</a>
+      <!--  Glen Watson -->
+      <a href="javascript:getScreen(647778803,'Glen');">Glen Watson</a> 
+      <!--  Phil Wegner -->
+      <a href="javascript:getScreen(1420819587,'Phil');">Phil Wegner</a> 
+      <!--  Ron Woodcock -->
+      <a href="javascript:getScreen(1852224826,'Ron');">Ron Woodcock</a> 
+      <!--  Brian Wray -->
+      <a href="javascript:getScreen(2143836123,'Brian');">Brian Wray</a> 
+      <!--  John Wright -->
+      <a href="javascript:getScreen(1764824175,'John');">John Wright</a> 
+      <!--  Jim Young -->
+      <a href="javascript:getScreen(985959306,'Jim');">Jim Young</a>
+      <a href="#" style="background: DodgerBlue">
+      <img border="0" src="uparrow.png" width=75 height=50 style="float:right"></img> 
+      </a>
+    </div>
+  </div>
+  <br />
+  
+  
+  
+  <!-- 4th dropdown -->
+  <div class="dropdown">
+    <button onclick="myFunction(this);" class="dropbtn">Admin menu</button>
+    <div id="myDropdown4" class="dropdown-content">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScla0GWmCK3OwPz32PHqHerTpnhTkXEeM9WJx5opo14FuCDlQ/viewform">HCP adjustments</a>
+      <a href="javascript:getScreen(682713647,'admin');">Browse data (slow)</a>
+      <a href="javascript:getScreen(1257975779,'admin');">Check CH</a>
+      <a href="#" style="background: DodgerBlue">
+      <img border="0" src="uparrow.png" width=75 height=50 style="float:right"></img> 
+      </a>
+    </div>
+  </div>
+  <br /> 
+  
+  
+  <script type="text/javascript">
+  function getScreen(gid,playername) {
+         window.location.href ='link.html?id=' + gid + "&fname=" + playername;             
+  }              
+    
+  // When the user clicks on the button, closes every dropdown and only opens the one passed as argument
+  function myFunction(element) {
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  // element.nextSibling is the carriage return& The dropdown menu is the next next.
+  var thisDropdown = element.nextSibling.nextSibling;
+  if (!thisDropdown.classList.contains('show')) {  // hide dropdown if clicking on the one already open
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+
+  // Toggle the dropdown on the element clicked
+  thisDropdown.classList.toggle("show");
+  }
+
+  // close the dropdown when clicked outside
+  window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+  }
+  </script>
+ <a class="weatherwidget-io" href="https://forecast7.com/en/55d20n1d65/longhirst/" data-label_1="LONGHIRST" data-label_2="GOLF" data-font="Arial" data-textcolor="#ffffff" data-highcolor="#ffffff" data-lowcolor="#ffffff" data-suncolor="#ffffff" data-mooncolor="#ffffff" data-cloudcolor="#ffffff" data-cloudfill="#ffffff" data-raincolor="#ffffff" data-snowcolor="#ffffff" ></a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+</body>
+</html>
+
+  

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ body {
+  background-image: url('hole.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%; 
+}
+
+</style> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+ function myFunction(){    
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+    // as early as possible 
+    window.location.href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ8GEyK6idfI3K0p_4jEJyI6pM5wv_0S20FvUzDWHEO6eucfpmZ0YoJDNcMPJ9RPKtOqISwHZXb3BL3/pubhtml?gid=" + id + "&single=true";
+    
+ }
+ 
+</script>
+
+</head>
+<body onload="myFunction()">
+  
+</body>
+</html>
+
+

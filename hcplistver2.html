@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    
+body {
+background-color: white;
+position: absolute;
+background-color: white;
+font-family: arial, sans-serif;
+font-size: 20px;
+color: black;
+}  
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:20px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:20px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1{border-color:inherit;font-family:Arial, Helvetica, sans-serif !important;;text-align:center;vertical-align:top}
+.tg .tg-2{background-color:#efefef;border-color:inherit;font-family:Arial, Helvetica, sans-serif !important;;text-align:center;
+  vertical-align:top}
+
+</style>
+</head>
+<body>
+
+<p id="info"></p>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js">
+</script>
+<script type="text/javascript">
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSWgEPXrmTeHqYSetyXQr2fV1hOnQgU-iBJiClb_ZXfpf1rkTW2jrDbtEpoIbJ-Ywozf2kE5SdPVYUe/pub?gid=1369603037&single=true&output=csv';
+
+function init() {
+Papa.parse(public_spreadsheet_url, {
+	download: true,
+    header: true,
+    complete: showInfo
+});
+}
+
+window.addEventListener('DOMContentLoaded', init)
+
+function showInfo(results) {
+    var datax = results.data
+
+    document.getElementById("info").innerHTML = "<strong>Latest handicap list</strong> ";
+    
+    document.getElementById("hcp").innerHTML += '<td class="tg-1">' + "Player name" + '</td><td class="tg-1">' + "HCP" + '</td><td class="tg-1">' + "Lakes Course HCP" + '</td><td class="tg-1">' + "Dawson Course HCP" + "</td>" ;
+     
+    for (i = 0; i < datax.length; i++) { 
+        if(i & 1) {
+            document.getElementById("hcp").innerHTML += "<tr>";
+            document.getElementById("hcp").innerHTML += '<td class="tg-1">' + datax[i].Name + '</td><td class="tg-1">' + datax[i].Handicap + '</td><td class="tg-1">' + datax[i].Lakes + '</td><td class="tg-1">' + datax[i].Dawson + "</td>" ; }
+        else {
+            document.getElementById("hcp").innerHTML += "<tr>";
+            document.getElementById("hcp").innerHTML += '<td class="tg-2">' + datax[i].Name + '</td><td class="tg-2">' + datax[i].Handicap + '</td><td class="tg-2">' + datax[i].Lakes + '</td><td class="tg-2">' + datax[i].Dawson + "</td>" ;
+        }
+    }    
+}
+       
+</script>
+<br><br>
+<p id="info"></p>
+<table id="hcp"  class="tg"> </table>
+<br><br><br>
+</body>
+</html>
+
