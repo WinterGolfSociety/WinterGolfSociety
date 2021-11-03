@@ -112,25 +112,25 @@ Golf Society
 <a href="javascript:getScreenPlayer(525466082,'Neil');">Neil Coxon</a>
 <a href="javascript:getScreenPlayer(349132389,'Andy');">Andy Davison</a>
 <a href="javascript:getScreenPlayer(1296154515,'John');">John Dean</a>
-<a href="javascript:getScreenPlayer(1698856879,'Bill');">Bill French</a>
-<a href="javascript:getScreenPlayer(15342806,'Norman';">Norman Gilholm</a>
-<a href="javascript:getScreenPlayer(560056738,'Vince');">Vince Graham</a>
-<a href="javascript:getScreenPlayer(973216981,'Richard');">Richard Hedley</a>
-<a href="javascript:getScreenPlayer(1088254711,'Clive');">Clive Herbert</a>
-<a href="javascript:getScreenPlayer(699345160,'Peter');">Peter Holleran</a>
-<a href="javascript:getScreenPlayer(894418121,'Roger');">Roger Ireland</a>
-<a href="javascript:getScreenPlayer(744089486,'David.T');">David.T Jackson</a>
-<a href="javascript:getScreenPlayer(1060829809,'John');">John Jackson</a>
 <a href="javascript:getScreenPlayer(1599175137,'Trevor');">Trevor Dodds</a>
 <a href="javascript:getScreenPlayer(633634243,'Joe');">Joe Fletcher</a>
 <a href="javascript:getScreenPlayer(146058231,'Norman';">Norman Ford</a>
+<a href="javascript:getScreenPlayer(1698856879,'Bill');">Bill French</a>
+<a href="javascript:getScreenPlayer(15342806,'Norman';">Norman Gilholm</a>
+<a href="javascript:getScreenPlayer(560056738,'Vince');">Vince Graham</a>
 <a href="javascript:getScreenPlayer(1671398661,'Chris');">Chris Green</a>
 <a href="javascript:getScreenPlayer(1092148386,'Rob');">Rob Green</a>
+<a href="javascript:getScreenPlayer(973216981,'Richard');">Richard Hedley</a>
 <a href="javascript:getScreenPlayer(1359973574,'Barry');">Barry Henderson</a>
+<a href="javascript:getScreenPlayer(1088254711,'Clive');">Clive Herbert</a>
 <a href="javascript:getScreenPlayer(1399120364,'Colin');">Colin Hillary</a>
+<a href="javascript:getScreenPlayer(699345160,'Peter');">Peter Holleran</a>
 <a href="javascript:getScreenPlayer(1841764857,'Chris');">Chris Houghton</a>
 <a href="javascript:getScreenPlayer(478755437,'Ken');">Ken Houghton</a>
+<a href="javascript:getScreenPlayer(894418121,'Roger');">Roger Ireland</a>
 <a href="javascript:getScreenPlayer(133478977,'Dave');">Dave Jackson</a>
+<a href="javascript:getScreenPlayer(744089486,'David.T');">David.T Jackson</a>
+<a href="javascript:getScreenPlayer(1060829809,'John');">John Jackson</a>
 <a href="javascript:getScreenPlayer(2055245958,'John');">John Langan</a>
 <a href="javascript:getScreenPlayer(1532033678,'Tom');">Tom Lemin</a>
 <a href="javascript:getScreenPlayer(1163440447,'Jim');">Jim Little</a>
@@ -260,21 +260,21 @@ window.location.href ='link.html?id=' + gid + "&fname=" + playername;
 function getScreenFaster(gid,playername) {
 window.location.href ='linkfaster.html?id=' + gid + "&fname=" + playername;
 }
- 
+
 function getScreenPlayer(gid,playername) {
 window.location.href ='linkplayer.html?id=' + gid + "&fname=" + playername;
-} 
- 
+}
+
 function getScreenPlayerFull(gid,playername) {
 window.location.href ='linkplayerFull.html?id=' + gid + "&fname=" + playername;
-}  
- 
+}
+
 // When the user clicks on the button, closes every dropdown and only opens the one passed as argument
 function myFunction(element) {
 var dropdowns = document.getElementsByClassName("dropdown-content");
 // element.nextSibling is the carriage return& The dropdown menu is the next next.
 var thisDropdown = element.nextSibling.nextSibling;
-if (!thisDropdown.classList.contains('show')) {  // hide dropdown if clicking on the one already open
+if (!thisDropdown.classList.contains('show')) { // hide dropdown if clicking on the one already open
 var i;
 for (i = 0; i < dropdowns.length; i++) {
 dropdowns[i].classList.remove('show');
