@@ -1,0 +1,112 @@
+<html>
+<head>
+<style>
+body {
+background: Gray;
+font-family: arial, sans-serif;
+font-size: 30px;
+color: white;
+}    
+    
+    
+#idnum {
+    background: dodgerBlue;
+font-size: 50px; 
+color: white;   
+    
+}
+
+
+
+
+
+</style>
+
+
+
+
+</head>    
+    
+    
+    
+    
+    <body>
+
+
+<!--
+visibility: hidden
+height: 1px;
+
+-->
+
+
+<form id="my-form" target="my-response-iframe" action="https://docs.google.com/forms/d/e/1FAIpQLSe90TEuhQ8VD-rEBAyY6DD48cVyYRaIK0tX3zo4Siu50w5umA/formResponse" method="post">
+<!--1st field name-->    
+  <input type="text" name="entry.774576915" value="">
+<!--2nd field who--> 
+  <input type="text" name="entry.12767417" value="">
+<!--3rd field hole1--> 
+  <input type="text" name="entry.489893079" value=""> 
+<br> 
+<br>
+<br> 
+Hole 1
+<br>
+<br>  
+<input type="button" id="idnum" name="name1" value="1">
+<input type="button" id="idnum" name="name2" value="2">
+<input type="button" id="idnum" name="name3" value="3">
+<br>
+<br>
+<input type="button" id="idnum" name="name4" value="4">
+<input type="button" id="idnum" name="name5" value="5">
+<input type="button" id="idnum" name="name9" value="6">
+<br>
+<br>
+<input type="button" id="idnum" name="name7" value="7">
+<input type="button" id="idnum" name="name8" value="8">
+<input type="button" id="idnum" name="name9" value="9">
+<br>
+<br>
+
+<input type="radio" id="hole 1" name="hole 1" value="0" unchecked>
+<label for="hole 1">hole 1</label>
+<br>
+<input type="radio" id="hole 2" name="hole 2" value="0" unchecked> 
+<label for="hole 2">hole 2</label> 
+<br>
+<input type="radio" id="hole 3" name="hole 1" value="0" unchecked>  
+<label for="hole 3">hole 3</label> 
+  <input type="submit">
+</form>
+
+
+
+<iframe id="my-response-iframe" name="my-response-iframe"></iframe>
+
+
+
+<script type="text/javascript">
+   // set the target on the form to point to a hidden iframe
+   // some browsers need the target set via JavaScript, no idea why...
+   document.getElementById('my-form').target = 'my-response-iframe';
+   // detect when the iframe reloads
+   var iframe = document.getElementById('my-response-iframe');
+   if (iframe) {
+     iframe.onload = function () {
+       // now you can do stuff, such as displaying a message or redirecting to a new page.
+       alert("loaded")
+     }
+   }
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
