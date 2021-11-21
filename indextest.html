@@ -16,6 +16,12 @@ font-size: 20px;
 color: white;
 }     
 
+#xwarn {
+background: red;
+color: yellow;
+font-size: 50px;
+} 
+ 
 #playername, #coursehandicap {
 background: DodgerBlue 5px 15px no-repeat;
 color: LightGray;
@@ -107,7 +113,10 @@ border: 2px solid darkSlateGray;
 }
 </style>
 </head>     
-<body>
+<body onload="getd()">
+
+ <div id="xwarn"></div>
+ 
 <h2 >Score input</h2>
 <br>      
 <br> 
@@ -546,7 +555,65 @@ alert(chv);
 }   
       
      
+
+function getd() {
+ 
+const d = new Date();
+var arrmonth = ["November","December","January","February","March"];
+var arrcourse = ["Lakes","Dawson","Lakes","Dawson","Lakes"];
+var arrday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+var tmonth = d.getMonth();
+
+if (tmonth == 10) {
+    var mmonth = arrmonth[0];
+    var mcourse = arrcourse[0];
+}
+
+if (tmonth == 11) {
+    var mmonth = arrmonth[1];
+    var mcourse = arrcourse[1];
+}
+
+if (tmonth == 0) {
+    var mmonth = arrmonth[2];
+    var mcourse = arrcourse[2];
+}
+
+if (tmonth == 1) {
+    var mmonth = arrmonth[3];
+    var mcourse = arrcourse[3];
+}
+
+if (tmonth == 2) {
+    var mmonth = arrmonth[4];
+    var mcourse = arrcourse[4];
+}
+
+// got the month and course
+
+var tdate = d.getDate();
+// got the date
+
+var tday = d.getDay();
+// if its 5 ok its friday
+if (tday != 5) {
+    document.getElementById("xwarn").innerHTML = "Score entry opens on Friday";
+    return;
+}
+
+var mday = arrday[tday];
+// got the day
+alert(mmonth+mday+mcourse+tdate);
+// put it all together
+var mcurr = mcourse + " stableford " + mday + " " + tdate + " " + mmonth
+document.getElementById("xdate").innerHTML = mcurr;
+
+}
+
+    
      
+     
+          
      
      
      
