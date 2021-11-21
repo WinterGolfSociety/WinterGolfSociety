@@ -25,7 +25,7 @@ font-size: 50px;
 #playername, #coursehandicap {
 background: DodgerBlue 5px 15px no-repeat;
 color: LightGray;
-width: 300px;
+width: 400px;
 padding: 10px;
 font-size: 30px;
 border: none;
@@ -98,8 +98,8 @@ padding:1px 1px;
 white-space: nowrap;
 }
 
-#inputlong, #idtxtplayer {
-width: 70%;
+#inputlong, #idtxtplayer, #idtxtcomp {
+width: 400px;
 padding: 8px 8px;
 margin: 8px 10px;
 box-sizing: border-box;
@@ -315,7 +315,7 @@ border: 2px solid darkSlateGray;
 
 <input type="text" id="idtxtch" size="10" class="resulttxt" name="entry.1437106021" value="0">
 
-
+<input type="text" id="idtxtcomp" size="10" class="resulttxt" name="entry.1437106021" value="0">
 
 <br>
 <br> 
@@ -606,7 +606,7 @@ var mday = arrday[tday];
 alert(mmonth+mday+mcourse+tdate);
 // put it all together
 var mcurr = mcourse + " stableford " + mday + " " + tdate + " " + mmonth
-document.getElementById("xdate").innerHTML = mcurr;
+idtxtcomp.value=mcurr;
 
 }
 
