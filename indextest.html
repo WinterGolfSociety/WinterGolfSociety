@@ -1,8 +1,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="Longhirst seniors" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+<meta name="description" content="Score input" />
 <meta name="author" content="Bryan M" />
 <title>Score Entry</title>
 <!-- Favicon-->
@@ -13,7 +14,45 @@ background: Gray;
 font-family: arial, sans-serif;
 font-size: 20px;
 color: white;
-}      
+}     
+
+
+
+
+
+
+
+
+
+
+
+#playername, #coursehandicap {
+background: DodgerBlue url(downarrow.png) 5px 15px no-repeat;
+color: LightGray;
+width: 300px;
+padding: 10px;
+font-size: 20px;
+border: none;
+cursor: pointer;
+border-radius: 15px;
+border: 2px solid darkSlateGray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
  
 .resulttxt {
    width: 20%; 
@@ -97,22 +136,45 @@ border: 2px solid darkSlateGray;
 <h2 >Score input</h2>
 <br>      
 <br> 
-<table>
-<!--1st field name--> 
-<tr>
-<td>Player name</td>
-<td>
-<input type="text" id="inputlong" name="entry.774576915" value="">
-</td>
-</tr>
-<!--2nd field CI-->
-<tr>
-<td>Course Index</td>
-<td>
-<input type="text" id="inputshort" name="entry.12767417" value="">
-</td>
-</tr>
-</table>
+<br> 
+<br> 
+
+
+
+
+<label for="playername">Player name</label>
+
+<select name="playername" id="playername" onChange="runmenu(this.value);">
+    <option value="">Select Player name</option>
+    <option value="Bryan Maddison">Bryan Maddison</option>
+    <option value="Pete Holleran">Pete Holleran</option>
+    <option value="Tony Smith">Tony Smith</option>
+</select>
+
+
+
+<br>      
+<br> 
+<br> 
+<br>
+
+<label for="coursehandicap">Course Handicap</label>
+
+<select name="coursehandicap" id="coursehandicap" onChange="runch(this.value);">
+    <option value="">Select Course Handicap</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+
+
+<br>
+<br>
+
+
+
+
+
 
 <!--3rd field hole1
   <input type="text" name="entry.489893079" value=""> --> 
@@ -423,12 +485,105 @@ border: 2px solid darkSlateGray;
      document.getElementById("idtxthole2").value = txt;
      }
    
-   
+   function getnum3(txt) {
+     document.getElementById("idtxthole3").value = txt;
+     }
+     
+   function getnum4(txt) {
+     document.getElementById("idtxthole4").value = txt;
+     }  
+     
+   function getnum5(txt) {
+     document.getElementById("idtxthole5").value = txt;
+     } 
+     
+    function getnum6(txt) {
+     document.getElementById("idtxthole6").value = txt;
+     }
+     
+    function getnum7(txt) {
+     document.getElementById("idtxthole7").value = txt;
+     } 
+     
+    function getnum8(txt) {
+     document.getElementById("idtxthole8").value = txt;
+     } 
+     
+    function getnum9(txt) {
+     document.getElementById("idtxthole9").value = txt;
+     } 
+     
+    function getnum10(txt) {
+     document.getElementById("idtxthole10").value = txt;
+     } 
+   function getnum11(txt) {
+     document.getElementById("idtxthole11").value = txt;
+     }  
+    
+    function getnum12(txt) {
+     document.getElementById("idtxthole12").value = txt;
+     }
+    
+    function getnum13(txt) {
+     document.getElementById("idtxthole13").value = txt;
+     }
+    
+   function getnum14(txt) {
+     document.getElementById("idtxthole14").value = txt;
+     } 
+    
+    function getnum15(txt) {
+        document.getElementById("idtxthole15").value = txt;
+     }
+    
+    function getnum16(txt) {
+     document.getElementById("idtxthole16").value = txt;
+     }
+    
+    function getnum17(txt) {
+     document.getElementById("idtxthole17").value = txt;
+     }
+    function getnum18(txt) {
+     document.getElementById("idtxthole18").value = txt;
+     }  
+     
+     
+     
+     
+     
+ function runmenu(tv) {
+         
+//  var e = document.getElementById("playername");
+//var strUser = e.value; 
+//alert(strUser);
+alert(tv);  
+}   
+     
+     
+  function runch(chv) {
+         
+//  var e = document.getElementById("playername");
+//var strUser = e.value; 
+//alert(strUser);
+alert(chv);  
+}   
+      
+     
+     
+     
+     
+     
+     
+     
 </script>
 
 
 </body>
 </html>
+
+
+
+
 
 
 
