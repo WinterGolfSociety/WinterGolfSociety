@@ -64,13 +64,13 @@ border: 2px solid darkSlateGray;
 background-color: blue; color: cyan;
 }
 
-#inputshort, #idtxthole1, #idtxthole2, #idtxthole3, #idtxthole4, #idtxthole5, #idtxthole6, #idtxthole7, #idtxthole8, #idtxthole9, #idtxthole10, #idtxthole11, #idtxthole12, #idtxthole13, #idtxthole14, #idtxthole15, #idtxthole16, #idtxthole17, #idtxthole18, #idtxtch {
+#inputshort, #idtxthole1, #idtxthole2, #idtxthole3, #idtxthole4, #idtxthole5, #idtxthole6, #idtxthole7, #idtxthole8, #idtxthole9, #idtxthole10, #idtxthole11, #idtxthole12, #idtxthole13, #idtxthole14, #idtxthole15, #idtxthole16, #idtxthole17, #idtxthole18 {
 width: 30%;
 padding: 8px 8px;
 margin: 8px 10px;
 box-sizing: border-box;
 border: none;
-background-color: dodgerBlue;
+background-color: SlateGray;
 color: yellow;
 font-size: 30px; 
 border-radius: 10px;
@@ -98,13 +98,13 @@ padding:1px 1px;
 white-space: nowrap;
 }
 
-#inputlong, #idtxtplayer, #idtxtcomp {
+#inputlong, #idtxtplayer, #idtxtcomp, #idtxtch {
 width: 400px;
 padding: 8px 8px;
 margin: 8px 10px;
 box-sizing: border-box;
 border: none;
-background-color: dodgerBlue;
+background-color: SlateGray;
 color: yellow;
 font-size: 30px; 
 border-radius: 10px;
@@ -432,7 +432,7 @@ border: 2px solid darkSlateGray;
 
 
 
-  Check scores are correct, then submit.<br><br>
+  Submit aftwr checking.<br><br>
   <input type="submit" id="submitbtn">
 </form>
 
@@ -596,7 +596,7 @@ var tdate = d.getDate();
 var tday = d.getDay();
 // if its 5 ok its friday
 if (tday != 5) {
-    document.getElementById("xwarn").innerHTML = "Score entry opens on Friday";
+    document.getElementById("xwarn").innerHTML = "Score input opens on Friday";
     return;
 }
 
