@@ -9,7 +9,6 @@ color: white;
 }
 .atitle {
 font-size:60px;
-white-space:nowrap;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
@@ -96,9 +95,8 @@ Golf Society
 <a href="javascript:getScreenFaster(231470135,'Main');">All results</a>
 <a href="javascript:getScreenFaster(633395439,'Main');">twos</a>
 <a href="javascript:window.location.href='rules.html';">rules and info</a>
-<a href="javascript:getScreenPlayer(131908568,'Bryan');">my golf info</a>
-<a href="javascript:getScreenPlayerFull(980612912,'Bryan');">my golf info (full)</a>
-
+<a href="javascript:getScreenPlayerName();" id="nom1">my info</a>
+<a href="javascript:getScreenPlayerFullName();" id="nom2">my info (full)</a>
 <a href="#" style="background: DodgerBlue">
 <img border="0" src="uparrow.png" width=33 height=33 style="float:right"></img>
 </a>
@@ -341,7 +339,464 @@ openDropdown.classList.remove('show');
 }
 }
 }
+
+function getScreenPlayerName() {
+var uu = window.location.href;
+uu = "https://wintergolfsociety.github.io/WinterGolfSociety/menuTonySmith.html"
+var n = uu.split("/");
+var nn = n[4].split(/(?=[A-Z])/);
+var testname=nn[1] + nn[2];
+var ggg="";
+switch(testname) {
+case "GrahamAirey.html":
+ggg="1394470804";
+break;
+case "DaleAitkenhead.html":
+ggg="705919124";
+break;
+case "StephenAlldridge.html":
+ggg="22538704";
+break;
+case "KeithBelshaw.html":
+ggg="1408868902";
+break;
+case "StewartBrodie.html":
+ggg="1902353837";
+break;
+case "CraigCaesar.html":
+ggg="1773986802";
+break;
+case "CliveCaisley.html":
+ggg="820445655";
+break;
+case "DaveCave.html":
+ggg="752704893";
+break;
+case "KenClark.html":
+ggg="719343941";
+break;
+case "RobertConnelly.html":
+ggg="1910739996";
+break;
+case "JedCornhill.html":
+ggg="1556813579";
+break;
+case "AlexCoupland.html":
+ggg="1724741221";
+break;
+case "MichaelCourtney.html":
+ggg="1940457509";
+break;
+case "GaryCowman.html":
+ggg="2015489359";
+break;
+case "TomCox.html":
+ggg="2051898808";
+break;
+case "NeilCoxon.html":
+ggg="525466082";
+break;
+case "AndyDavison.html":
+ggg="349132389";
+break;
+case "JohnDean.html":
+ggg="1296154515";
+break;
+case "TrevorDodds.html":
+ggg="1599175137";
+break;
+case "JoeFletcher.html":
+ggg="146058231";
+break;
+case "NormanFord.html":
+ggg="146058231";
+break;
+case "BillFrench.html":
+ggg="1698856879";
+break;
+case "NormanGilholm.html":
+ggg="15342806";
+break;
+case "VinceGraham.html":
+ggg="560056738";
+break;
+case "RichardHedley.html":
+ggg="973216981";
+break;
+case "CliveHerbert.html":
+ggg="1088254711";
+break;
+case "PeterHolleran.html":
+ggg="699345160";
+break;
+case "RogerIreland.html":
+ggg="894418121";
+break;
+case "David.TJackson.html":
+ggg="744089486";
+break;
+case "JohnJackson.html":
+ggg="1060829809";
+break;
+case "ChrisGreen.html":
+ggg="1671398661";
+break;
+case "RobGreen.html":
+ggg="1092148386";
+break;
+case "BarryHenderson.html":
+ggg="1359973574";
+break;
+case "ColinHillary.html":
+ggg="1399120364";
+break;
+case "ChrisHoughton.html":
+ggg="1841764857";
+break;
+case "KenHoughton.html":
+ggg="478755437";
+break;
+case "DaveJackson.html":
+ggg="133478977";
+break;
+case "JohnLangan.html":
+ggg="2055245958";
+break;
+case "TomLemin.html":
+ggg="1532033678";
+break;
+case "JimLittle.html":
+ggg="1163440447";
+break;
+case "BryanMaddison.html":
+ggg="131908568";
+break;
+case "JamesMain.html":
+ggg="238527462";
+break;
+case "JohnMatthews.html":
+ggg="398601094";
+break;
+case "TonyMartin.html":
+ggg="998426635";
+break;
+case "TonyMcLure.html":
+ggg="1897261013";
+break;
+case "TomMcNally.html":
+ggg="897857949";
+break;
+case "DarrenNelson.html":
+ggg="1092823751";
+break;
+case "DannyNorman.html":
+ggg="744633772";
+break;
+case "TrevorOrd.html":
+ggg="596481478";
+break;
+case "DennisPatterson.html":
+ggg="1650859843";
+break;
+case "JohnPattison.html":
+ggg="338286093";
+break;
+case "MikeRiddell.html":
+ggg="1232214035";
+break;
+case "MartinRogers.html":
+ggg="582825681";
+break;
+case "DavidScurfield.html":
+ggg="577444279";
+break;
+case "BrianSimpson.html":
+ggg="317551447";
+break;
+case "RayStraker.html":
+ggg="635074435";
+break;
+case "TomStraker.html":
+ggg="386540439";
+break;
+case "John.ESmith.html":
+ggg="2032237860";
+break;
+case "TonySmith.html":
+ggg="75533274";
+break;
+case "JohnSummerbell.html":
+ggg="1285449097";
+break;
+case "NeilTait.html":
+ggg="1410005635";
+break;
+case "RolyThompson.html":
+ggg="948881714";
+break;
+case "BobToward.html":
+ggg="1157876764";
+break;
+case "MichaelVarnom.html":
+ggg="1127073061";
+break;
+case "GlenWatson.html":
+ggg="1254598927";
+break;
+case "PhilWegner.html":
+ggg="952605854";
+break;
+case "RonWoodcock.html":
+ggg="1083213717";
+break;
+case "BrianWray.html":
+ggg="3879095";
+break;
+case "JohnWright.html":
+ggg="41714878";
+break;
+case "JimYoung.html":
+ggg="195226134"
+break;
+default:
+    alert("user not setup");
+}
+   
+getScreenPlayer(ggg,nn[1])  
+
+}
+
+function getScreenPlayerFullName() {
+var uu = window.location.href;
+uu = "https://wintergolfsociety.github.io/WinterGolfSociety/menuTonySmith.html"
+var n = uu.split("/");
+var nn = n[4].split(/(?=[A-Z])/);
+var testname=nn[1] + nn[2];
+var ggg="";
+switch(testname) {
+case "GrahamAirey.html":
+ggg="1555941163";
+break;
+case "DaleAitkenhead.html":
+ggg="2113124178";
+break;
+case "StephenAlldridge.html":
+ggg="505565494";
+break;
+case "KeithBelshaw.html":
+ggg="357255523";
+break;
+case "StewartBrodie.html":
+ggg="274846957";
+break;
+case "CraigCaesar.html":
+ggg="136484828";
+break;
+case "CliveCaisley.html":
+ggg="562547020";
+break;
+case "DaveCave.html":
+ggg="62835453";
+break;
+case "KenClark.html":
+ggg="890542607";
+break;
+case "RobertConnelly.html":
+ggg="1533206125";
+break;
+case "JedCornhill.html":
+ggg="361100112";
+break;
+case "AlexCoupland.html":
+ggg="1724741221";
+break;
+case "MichaelCourtney.html":
+ggg="2047262852";
+break;
+case "GaryCowman.html":
+ggg="673002680";
+break;
+case "TomCox.html":
+ggg="2031671726";
+break;
+case "NeilCoxon.html":
+ggg="20289116322";
+break;
+case "AndyDavison.html":
+ggg="753999934";
+break;
+case "JohnDean.html":
+ggg="1040619535";
+break;
+case "TrevorDodds.html":
+ggg="1635809352";
+break;
+case "JoeFletcher.html":
+ggg="1161756862";
+break;
+case "NormanFord.html":
+ggg="221300119";
+break;
+case "BillFrench.html":
+ggg="29945625";
+break;
+case "NormanGilholm.html":
+ggg="1416879487";
+break;
+case "GraemeGow.html":
+ggg="1951726465";
+break;
+case "VinceGraham.html":
+ggg="1667915321";
+break;
+case "ChrisGreen.html":
+ggg="763311294";
+break;
+case "RobGreen.html":
+ggg="1843087026";
+break;
+case "RichardHedley.html":
+ggg="467862057";
+break;
+case "BarryHenderson.html":
+ggg="401300686";
+break;
+case "CliveHerbert.html":
+ggg="1088254711";
+break;
+case "ColinHillary.html":
+ggg="1314263907";
+break;
+case "PeterHolleran.html":
+ggg="699345160";
+break;
+case "ChrisHoughton.html":
+ggg="1096989694";
+break;
+case "KenHoughton.html":
+ggg="297923361";
+break;
+case "RogerIreland.html":
+ggg="894418121";
+break;
+case "DaveJackson.html":
+ggg="898961747";
+break;
+case "David.TJackson.html":
+ggg="744089486";
+break;
+case "JohnJackson.html":
+ggg="1060829809";
+break;
+case "JohnLangan.html":
+ggg="841034327";
+break;
+case "TomLemin.html":
+ggg="555828190";
+break;
+case "JimLittle.html":
+ggg="2038313691";
+break;
+case "BryanMaddison.html":
+ggg="980612912";
+break;
+case "JamesMain.html":
+ggg="238527462";
+break;
+case "JohnMatthews.html":
+ggg="1230606703";
+break;
+case "TonyMartin.html":
+ggg="1831369181";
+break;
+case "TonyMcLure.html":
+ggg="18290800";
+break;
+case "TomMcNally.html":
+ggg="417235683";
+break;
+case "DarrenNelson.html":
+ggg="1614436966";
+break;
+case "DannyNorman.html":
+ggg="486197537";
+break;
+case "TrevorOrd.html":
+ggg="1938152793";
+break;
+case "DennisPatterson.html":
+ggg="148559787";
+break;
+case "JohnPattison.html":
+ggg="1665119547";
+break;
+case "MikeRiddell.html":
+ggg="363434010";
+break;
+case "MartinRogers.html":
+ggg="395900693";
+break;
+case "DavidScurfield.html":
+ggg="1379211265";
+break;
+case "BrianSimpson.html":
+ggg="1344665465";
+break;
+case "RayStraker.html":
+ggg="635074435";
+break;
+case "TomStraker.html":
+ggg="1005117978";
+break;
+case "John.ESmith.html":
+ggg="9611700";
+break;
+case "TonySmith.html":
+ggg="1147676816";
+break;
+case "JohnSummerbell.html":
+ggg="1591044316";
+break;
+case "NeilTait.html":
+ggg="1699398175";
+break;
+case "RolyThompson.html":
+ggg="765336519";
+break;
+case "BobToward.html":
+ggg="46874864";
+break;
+case "MichaelVarnom.html":
+ggg="729767292";
+break;
+case "GlenWatson.html":
+ggg="45906530";
+break;
+case "PhilWegner.html":
+ggg="627920977";
+break;
+case "RonWoodcock.html":
+ggg="1731404715";
+break;
+case "BrianWray.html":
+ggg="1584678676";
+break;
+case "JohnWright.html":
+ggg="995597942";
+break;
+case "JimYoung.html":
+ggg="118697703";
+break;
+default:
+    alert("user not setup");
+}
+  
+getScreenPlayerFull(ggg,nn[1])  
+
+}
+ 
 </script>
 <br><br>
 </body>
 </html>
+
