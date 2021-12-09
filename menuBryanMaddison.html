@@ -445,6 +445,21 @@ notes</a>
 </div>
 </div>
 <br />
+<!-- 5th dropdown -->
+<div class="dropdown">
+<button onclick="myFunction(this);" class="dropbtn">Stats</button>
+<div id="myDropdown5" class="dropdown-content">
+<a href="javascript:getScreenStats(1833051029,'admin');">
+Dawson</a>
+<a href="javascript:getScreenStats(1495763490,'admin');">
+Lakes</a>
+<a href="#" style="background: DodgerBlue">
+<img border="0" src="uparrow.png" width=33 height=33 style="float:right"></img>
+</a>
+</div>
+</div>
+<br />
+<br />
 <br />
 <script type="text/javascript">
 function getScreen(gid,playername) {
@@ -458,6 +473,9 @@ window.location.href ='linkplayer.html?id=' + gid + "&fname=" + playername;
 }
 function getScreenPlayerFull(gid,playername) {
 window.location.href ='linkplayerFull.html?id=' + gid + "&fname=" + playername;
+}
+function getScreenStats(gid,playername) {
+window.location.href ='linkStats.html?id=' + gid + "&fname=" + playername;
 }
 // When the user clicks on the button, closes every dropdown and only opens the one passed as argument
 function myFunction(element) {
@@ -941,5 +959,3 @@ getScreenPlayerFull(ggg,nn[1])
 <br><br>
 </body>
 </html>
-
-

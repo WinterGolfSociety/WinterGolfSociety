@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {   
+
+// background-image: url('hole.gif');
+background-color: dodgerblue;
+     
+     
+  transition-property: background-color;
+  transition-duration: 1s;
+     
+     
+     
+ //  background-image: url('hole.gif');
+//  background-repeat: no-repeat;
+//  background-attachment: fixed;
+//  background-size: 100% 100%; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes FadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate {
+  animation-duration: 0.5s;
+  animation-name: animate-blur;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes animate-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes animate-blur {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+
+
+
+
+
+
+
+
+</style> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+ function myFunction(){    
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const id = urlParams.get('id')
+    // as early as possible 
+    window.location.replace("https://docs.google.com/spreadsheets/d/e/2PACX-1vQYaERBPLp2tECYuJoedkby4_MB5rzichJpdIw9TbqYnvBWQS4p7ETi6X5z7XxxIUGdzi3bwpM0dMLL/pubhtml?gid=" + id + "&single=true");
+    
+ 
+ 
+ 
+ 
+ 
+
+
+    body.style.backgroundColor = 'red';
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ }
+ 
+</script>
+
+</head>
+<body onload="myFunction()">
+  
+</body>
+</html>
+
+
