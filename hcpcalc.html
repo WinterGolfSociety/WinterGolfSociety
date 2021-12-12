@@ -1,0 +1,242 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+body {
+background: Gray;
+font-family: arial, sans-serif;
+font-size: 30px;
+color: white;
+}
+.atitle {
+font-size:60px;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+white-space: nowrap;
+}
+.asubtitle {
+font-size:12px;
+}
+#Hindex #Hlakes, #Hdawson, #Plakes95, #Pdawson95 {
+  font-size: 30px;
+  color: blue;
+  background: gray;
+  //border: 0;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  width: 3em;
+}
+
+.col1 {
+  float: left;
+  width: 15%;
+}
+.col2 {
+  float: left;
+  width: 85%;
+}
+#rangeHindex {
+    width: 90%;
+}
+#Hindex, #Hlakes {
+  font-size: 30px;
+  color: blue;
+  background: gray;
+  //border: 0;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  width: 3em;
+}
+
+/* Clear floats after the columns */
+/*
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+*/
+
+</style>
+<meta charset="utf-8" />
+<meta name="viewport" content=
+"width=device-width, initial-scale=1, shrink-to-fit=yes" />
+<meta name="description" content="My Golf Society" />
+<meta name="author" content="Bryan M" />
+<title>My Golf Society</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<script src="jquery-3.6.0.min.js" type="text/javascript">
+</script>
+</head>
+<body>  
+<br><br>   
+Find your Course Handicap by using the blue slider (or entering manually) your Handicap Index. 
+<br><br>
+
+<p>      
+<input
+type="range"
+value="20.1"
+min="5.0"
+max="40.0"
+step="0.1"
+id="rangeHindex"
+class="slider"
+oninput="newrange()"
+/>
+</p>
+
+<div class="row"> 
+<div class="col1"> 
+     
+<input
+type="text"
+size="4"
+maxlength="4"
+id="Hindex"
+name="Hindex"
+title="Handicap Index"
+value="20.1"
+onchange="recalchandicap()"
+/>  
+  
+</div>   
+  
+<div class="col2">     
+enter your Handicap Index here
+</div>
+
+<br><br>
+
+<div class="col1"> 
+     
+<input
+type="text"
+size="4"
+id="Hlakes"
+name="Hlakes"
+value="$hlakes"
+readonly
+/>
+  
+</div>   
+  
+<div class="col2">     
+lakes course hcp
+</div>
+
+<br><br>
+
+<div class="col1"> 
+     
+<input
+type="text"
+size="4"
+id="Hdawson"
+name="Hdawson"
+value="$hdawson"
+readonly
+/>
+  
+</div>   
+  
+<div class="col2">     
+dawson course hcp
+</div>
+
+<br><br>
+
+<div class="col1"> 
+     
+<input
+type="text"
+size="4"
+id="Plakes95"
+name="Plakes95"
+value="$hhlakes95"
+readonly
+/>
+  
+</div>   
+  
+<div class="col2">     
+lakes 95% adjusted course hcp
+</div>
+
+<br><br>
+
+<div class="col1"> 
+     
+<input
+type="text"
+size="4"
+id="Pdawson95"
+name="Pdawson95"
+value="$hhdawson95"
+readonly
+/>
+  
+</div>   
+  
+<div class="col2">     
+dawson 95% adjusted course hcp
+</div>
+
+<br><br>
+
+</div>
+<br><br><br>
+      
+<script>
+function recalchandicap() {
+    var hindex = document.getElementById("Hindex").value;
+    var hlakes = (hindex * (116 / 113.0));
+    var hdawson = (hindex * (120 / 113.0));
+    var hhlakes = (hindex * (116 / 113.0));
+    var hhdawson = (hindex * (120 / 113.0));
+    var rhlakes = Math.round(hlakes);
+    var rhdawson = Math.round(hdawson);
+    var rhhlakes = Number.parseFloat(hlakes).toFixed(1);
+    var rhhdawson = Number.parseFloat(hdawson).toFixed(1);
+    var hhlakes95 = (hhlakes * 0.95);
+    var hhdawson95 = (hhdawson * 0.95);
+                
+    document.getElementById("Hlakes").value = rhlakes;
+    document.getElementById("Hdawson").value = rhdawson;
+    //document.getElementById("Plakes").value = rhhlakes;
+    //document.getElementById("Pdawson").value = rhhdawson;
+    document.getElementById("Plakes95").value = Number.parseFloat(hhlakes95).toFixed();
+    document.getElementById("Pdawson95").value = Number.parseFloat(hhdawson95).toFixed();
+            
+    updategreet();
+}
+            
+function newrange() {
+    var rHindex = document.getElementById("rangeHindex").value;
+    document.getElementById("Hindex").value = rHindex;
+    recalchandicap();
+}
+            
+function greet() {
+    savedhcp = localStorage.getItem("savedhcp");
+    if (savedhcp == null || savedhcp == "null") {
+        savedhcp = "20.5";
+        localStorage.setItem("savedhcp", savedhcp);
+    }          
+    document.getElementById("Hindex").value = savedhcp;
+    document.getElementById("rangeHindex").value = savedhcp;
+}
+            
+function updategreet() {
+    var savedhcp = document.getElementById("Hindex").value;
+    localStorage.setItem("savedhcp", savedhcp);
+}
+            
+// Main()
+greet();
+window.onload = recalchandicap();
+            
+            
+</script>
+</body>
+</html>
