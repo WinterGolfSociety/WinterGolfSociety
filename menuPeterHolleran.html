@@ -170,6 +170,8 @@ Colin Hillary</a>
 Peter Holleran</a>
 <a href="javascript:getScreenPlayer(1841764857,'Chris');">
 Chris Houghton</a>
+<a href="javascript:getScreenPlayer(478755437,'Ken');">
+Ken Houghton</a>
 <a href="javascript:getScreenPlayer(894418121,'Roger');">
 Roger Ireland</a>
 <a href="javascript:getScreenPlayer(133478977,'Dave');">
@@ -238,8 +240,6 @@ Bob Toward</a>
 Michael Varnom</a>
 <a href="javascript:getScreenPlayer(1254598927,'Glen');">
 Glen Watson</a>
-<a href="javascript:getScreenPlayer(478755437,'Phil');">
-Phil Wegner</a>
 <a href="javascript:getScreenPlayer(952605854,'Gordon');">
 Gordon Willis</a>
 <a href="javascript:getScreenPlayer(1083213717,'Ron');">
@@ -326,6 +326,8 @@ Colin Hillary</a>
 Peter Holleran</a>
 <a href="javascript:getScreenPlayerFull(1096989694,'Chris');">
 Chris Houghton</a>
+<a href="javascript:getScreenPlayerFull(297923361,'Ken');">
+Ken Houghton</a>
 <a href="javascript:getScreenPlayerFull(1367823252,'Roger');">
 Roger Ireland</a>
 <a href="javascript:getScreenPlayerFull(898961747,'Dave');">
@@ -352,10 +354,8 @@ Tony Martin</a>
 Tony McLure</a>
 <a href="javascript:getScreenPlayerFull(417235683,'Tom');">
 Tom McNally</a>
-<a href="javascript:getScreenPlayerFull(1060329474,'Stephen');">
-Stephen Murray</a>
-<a href="javascript:getScreenPlayerFull(1614436966,'Darren');">
-Darren Nelson</a>
+<a href="javascript:getScreenPlayerFull(1060329474,'Stephen');">Stephen Murray</a>
+<a href="javascript:getScreenPlayerFull(1614436966,'Darren');">Darren Nelson</a>
 <a href="javascript:getScreenPlayerFull(486197537,'Danny');">
 Danny Norman</a>
 <a href="javascript:getScreenPlayerFull(1938152793,'Trevor');">
@@ -396,8 +396,6 @@ Bob Toward</a>
 Michael Varnom</a>
 <a href="javascript:getScreenPlayerFull(45906530,'Glen');">
 Glen Watson</a>
-<a href="javascript:getScreenPlayerFull(297923361,'Phil');">
-Phil Wegner</a>
 <a href="javascript:getScreenPlayerFull(627920977,'Gordon');">
 Gordon Willis</a>
 <a href="javascript:getScreenPlayerFull(1731404715,'Ron');">
@@ -414,6 +412,55 @@ Jim Young</a>
 </div>
 </div>
 <br />
+<!-- 4th dropdown -->
+<div class="dropdown">
+<button onclick="myFunction(this);" class="dropbtn">Admin menu</button>
+<div id="myDropdown4" class="dropdown-content">
+<a href="javascript:getScreenFaster(1545602455,'admin');">
+Money</a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScla0GWmCK3OwPz32PHqHerTpnhTkXEeM9WJx5opo14FuCDlQ/viewform">
+Add HCP adjustment</a>
+<a href="javascript:getScreenFaster(417476586,'admin');">
+ESR adjustments</a>
+<a href="javascript:getScreenFaster(896433412,'admin');">
+HCP adjustments list</a>
+<a href="javascript:getScreenFaster(608380907,'admin');">
+HCP review</a>
+<a href="javascript:getScreenFaster(1424699021,'admin');">
+HCP review positions</a>
+<a href="javascript:getScreenFaster(2044962809,'admin');">
+Browse last 50 records</a>
+<a href="javascript:getScreenFaster(2061324180,'admin');">
+Check CH</a>
+<a href="javascript:getScreenFaster(777153918,'admin');">
+Eclectics</a> 
+<a href="hcpcalc.html">
+HCP calculator</a>
+<a href="javascript:window.location.href='pageupdates.html';">
+notes</a>
+<a href="#" style="background: DodgerBlue">
+<img border="0" src="uparrow.png" width=33 height=33 style="float:right"></img>
+</a>
+</div>
+</div>
+<br />
+<!-- 5th dropdown -->
+<div class="dropdown">
+<button onclick="myFunction(this);" class="dropbtn">Stats</button>
+<div id="myDropdown5" class="dropdown-content">
+<a href="javascript:getScreenStats(1833051029,'admin');">
+Dawson</a>
+<a href="javascript:getScreenStats(1495763490,'admin');">
+Lakes</a>
+<a href="javascript:getScreenFaster(49777350,'admin');">
+probability</a> 
+<a href="#" style="background: DodgerBlue">
+<img border="0" src="uparrow.png" width=33 height=33 style="float:right"></img>
+</a>
+</div>
+</div>
+<br />
+<br />
 <br />
 <script type="text/javascript">
 function getScreen(gid,playername) {
@@ -428,6 +475,13 @@ window.location.href ='linkplayer.html?id=' + gid + "&fname=" + playername;
 function getScreenPlayerFull(gid,playername) {
 window.location.href ='linkplayerFull.html?id=' + gid + "&fname=" + playername;
 }
+function getScreenStats(gid,playername) {
+window.location.href ='linkStats.html?id=' + gid + "&fname=" + playername;
+}
+
+
+
+
 // When the user clicks on the button, closes every dropdown and only opens the one passed as argument
 function myFunction(element) {
 var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -533,9 +587,6 @@ break;
 case "NormanGilholm.html":
 ggg="15342806";
 break;
-case "GraemeGow.html":
-ggg="431320212";
-break;
 case "VinceGraham.html":
 ggg="560056738";
 break;
@@ -557,6 +608,9 @@ break;
 case "JohnJackson.html":
 ggg="1060829809";
 break;
+case "GraemeGow.html":
+ggg="431320212";
+break;
 case "ChrisGreen.html":
 ggg="1671398661";
 break;
@@ -571,6 +625,9 @@ ggg="1399120364";
 break;
 case "ChrisHoughton.html":
 ggg="1841764857";
+break;
+case "KenHoughton.html":
+ggg="478755437";
 break;
 case "DaveJackson.html":
 ggg="133478977";
@@ -658,9 +715,6 @@ ggg="1127073061";
 break;
 case "GlenWatson.html":
 ggg="1254598927";
-break;
-case "PhilWegner.html":
-ggg="478755437";
 break;
 case "GordonWillis.html":
 ggg="952605854";
@@ -790,6 +844,9 @@ break;
 case "ChrisHoughton.html":
 ggg="1096989694";
 break;
+case "KenHoughton.html":
+ggg="297923361";
+break;
 case "RogerIreland.html":
 ggg="894418121";
 break;
@@ -886,9 +943,6 @@ break;
 case "GlenWatson.html":
 ggg="45906530";
 break;
-case "PhilWegner.html":
-ggg="297923361";
-break;
 case "GordonWillis.html":
 ggg="627920977";
 break;
@@ -913,3 +967,4 @@ getScreenPlayerFull(ggg,nn[1])
 <br><br>
 </body>
 </html>
+
