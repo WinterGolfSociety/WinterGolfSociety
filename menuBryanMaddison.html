@@ -12,7 +12,6 @@ font-size:60px;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
-white-space: nowrap;
 }
 .asubtitle {
 font-size:12px;
@@ -20,7 +19,7 @@ font-size:12px;
 .dropbtn {
 background: DodgerBlue url(downarrow.png) 5px 15px no-repeat;
 color: white;
-width: 360px;
+width: 330px;
 padding: 10px;
 font-size: 30px;
 border: none;
@@ -44,7 +43,7 @@ display: inline-block;
 display: none;
 position: absolute;
 background-color: DodgerBlue;
-min-width: 360px;
+min-width: 330px;
 overflow: auto;
 z-index: 1;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
@@ -355,10 +354,8 @@ Tony Martin</a>
 Tony McLure</a>
 <a href="javascript:getScreenPlayerFull(417235683,'Tom');">
 Tom McNally</a>
-<a href="javascript:getScreenPlayerFull(1060329474,'Stephen');">
-Stephen Murray</a>
-<a href="javascript:getScreenPlayerFull(1614436966,'Darren');">
-Darren Nelson</a>
+<a href="javascript:getScreenPlayerFull(1060329474,'Stephen');">Stephen Murray</a>
+<a href="javascript:getScreenPlayerFull(1614436966,'Darren');">Darren Nelson</a>
 <a href="javascript:getScreenPlayerFull(486197537,'Danny');">
 Danny Norman</a>
 <a href="javascript:getScreenPlayerFull(1938152793,'Trevor');">
@@ -477,9 +474,6 @@ window.location.href ='linkplayer.html?id=' + gid + "&fname=" + playername;
 }
 function getScreenPlayerFull(gid,playername) {
 window.location.href ='linkplayerFull.html?id=' + gid + "&fname=" + playername;
-}
-function getScreenStats(gid,playername) {
-window.location.href ='linkStats.html?id=' + gid + "&fname=" + playername;
 }
 // When the user clicks on the button, closes every dropdown and only opens the one passed as argument
 function myFunction(element) {
