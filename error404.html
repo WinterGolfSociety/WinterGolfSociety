@@ -1,0 +1,133 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<style>
+body {
+background: Gray url(golf-ball.png) no-repeat;
+background-size: 500px 500px;
+background-attachment: fixed;
+background-position: 50% 50%;    
+}
+</style>
+</head>
+<body>
+<span></span>
+<script>
+
+let theList = 
+['404','error',
+'Graham','Airey',
+'Dale','Aitkenhead',
+'Stephen','Alldridge',
+'Keith','Belshaw',
+'404','error',
+'Stewart','Brodie',
+'Craig','Caesar',
+'Clive','Caisley',
+'404','error',
+'Dave','Cave',
+'Ken','Clark',
+'Robert','Connelly',
+'Jed','Cornhill',
+'Alex','Coupland',
+'Michael','Courtney',
+'404','error',
+'Gary','Cowman',
+'Tom','Cox',
+'Neil','Coxon',
+'Andy','Davison',
+'John','Dean',
+'Trevor','Dodds',
+'404','error',
+'Joe','Fletcher',
+'Norman','Ford',
+'Bill','French',
+'Norman','Gilholm',
+'404','error',
+'Vince','Graham',
+'Chris','Green',
+'Rob','Green',
+'Richard','Hedley',
+'404','error',
+'Barry','Henderson',
+'Clive','Herbert',
+'Colin','Hillary',
+'Peter','Holleran',
+'Chris','Houghton',
+'Ken','Houghton',
+'Roger','Ireland',
+'404','error',
+'Dave','Jackson',
+'David.T','Jackson',
+'John','Jackson',
+'John','Langan',
+'404','error',
+'Tom','Lemin',
+'Jim','Little',
+'Bryan','Maddison',
+'James','Main',
+'Tony','Martin',
+'John','Matthews',
+'Tony','McLure',
+'Tom','McNally',
+'Darren','Nelson',
+'Danny','Norman',
+'Trevor','Ord',
+'Dennis','Patterson',
+'John','Pattison',
+'Duncan','Platts',
+'Ray','Purdy',
+'Mike','Riddell',
+'404','error',
+'Martin','Rogers',
+'David','Scurfield',
+'Brian','Simpson',
+'John.E','Smith',
+'Tony','Smith',
+'Ray','Straker',
+'Tom','Straker',
+'John','Summerbell',
+'Neil','Tait',
+'Roly','Thompson',
+'Bob','Toward',
+'Michael','Varnom',
+'Glen','Watson',
+'Phil','Wegner',
+'404','error',
+'Ron','Woodcock',
+'Brian','Wray',
+'John','Wright',
+'Jim','Young']
+
+theTxt = ['<span style="color:red; font-size:150%;">','<span style="color:green; font-size:150%;">','<span style="color:blue; font-size:150%;">','<span style="color:red; font-size:100%;">','<span style="color:green; font-size:100%;">','<span style="color:blue; font-size:100%;">']
+
+function randomWordPicker(aList){
+    let theListLength = theList.length / 10
+    let theAnswer = Math.floor( ( Math.random( ) * 10 ) * theListLength  ) 
+    return aList[theAnswer]
+}
+function randomColorPicker(aTxt){
+    let theTxtListLength = theTxt.length / 10
+    let txtAnswer = Math.floor( ( Math.random( ) * 10 ) * theTxtListLength  )
+    return aTxt[txtAnswer]
+}
+
+var resultlist = ""
+
+for (let j = 0; j < 6; j++) {
+
+for (let i = 0; i < 60; i++) {
+    resultlist = resultlist + " " + randomColorPicker(theTxt) + randomWordPicker(theList) + "</span>"
+}
+resultlist = resultlist + " " + '<span style="color:black; font-size:200%; font-weight: bold;">' + "INCORRECT URL" + "</span>"
+}
+
+document.querySelector("span").innerHTML = resultlist
+
+setTimeout(function(){
+   window.location.reload(1);
+}, 15000);
+
+</script>
+</body>
+</html>
