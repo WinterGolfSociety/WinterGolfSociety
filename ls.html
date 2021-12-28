@@ -10,39 +10,58 @@ body, html {
     color: white;
 }
 
-#intro {
- color: white;
-        font-size: 20px;
-        padding-left: 20px;   
-}
-
-
-
-.Container {
-    width: 100%;
-    min-width: 300px;
-    margin: auto;
-}
-
 header {
     width: 100%;
     height: 150px;
     line-height: 20px;
     align-items: center;
     padding-left: 20px;
-    background-color: dodgerBlue;
+    //background-color: dodgerBlue;
+    background-color: Gray;
 }
 
-    header span {
-        color: white;
-        font-size: 40px;
-        padding-left: 20px;
-    }
+header span {
+    color: white;
+    font-size: 40px;
+    padding-left: 20px;
+}
 
 nav {
     width: 100%;
-    height: 40px;
+    height: auto;
+    background-color: Gray;    
+}
+
+footer {
+    width: 100%;
+    height: 80px;
     background-color: Gray;
+    margin-bottom: 20px;
+}
+
+#intro {
+    width:100%;
+    color: white;
+    font-size: 20px;
+    padding-left: 0px; 
+    padding-right: 0px; 
+    position: relative;
+    text-align: center;
+}
+
+.text-block {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Container {
+    width: 100%;
+    min-width: 300px;
+    margin: auto;
 }
 
 .content {
@@ -52,12 +71,6 @@ nav {
     background-color: Gray;
 }
 
-footer {
-    width: 100%;
-    height: 80px;
-    background-color: Gray;
-    margin-bottom: 20px;
-}
 
 .main_articles {
     width: 70%;
@@ -84,23 +97,6 @@ footer {
     height: 120px;
 }
 
-.desImage {
-    -webkit-box-ordinal-group: 1;   /* iOS 6-, Safari, Opera*/
-    -moz-box-ordinal-group: 1;      /* Firefox*/
-    -ms-flex-order: 1;              /* IE 10 */
-    -webkit-order: 1;               /* Chrome */
-    flex-order: 1;
-    width: 200px;
-    height: 100px;
-}
-
-    .desImage img {
-        width: 200px;
-        height: 100px;
-        margin-left: 5px;
-        border: none;
-    }
-
 .des {
     margin-left: 15px;
     -webkit-box-ordinal-group: 2;   /* iOS 6-, Safari, Opera*/
@@ -125,21 +121,22 @@ footer {
     -webkit-order: 1;               /* Chrome */
     flex-order: 1;
     width: 200px;
-    height: 100px;
+    height: 70px;
     background-color: Gray;
     color: white;
     font-size: 20px;
     padding: 5px;
-    text-align: center;
+    text-align: left;
 }
 
 .ads {
     width: 90%;
     margin: auto;
     margin-top: 10px;
-    height: 150px;
-    text-align: center;
+    height: 400px;
+    text-align: left;
     padding-top: 10px;
+    padding-left: 10px;
     background-color: lightGray;
     color: darkSlateGray;
 }
@@ -154,355 +151,162 @@ footer {
     color: white;
     font-size: 20px;
 }
-@media all and (max-width: 900px) {
-    .side_article { /* Hide advertisement panel*/
-        display: none;
-        visibility: hidden;
-    }
 
-    .siteDescription {
-        width: 100%; /* Earlier 70%*/
-    }
 
-    .main_articles {
-        width: 90%;/* Earlier 95%*/
-    }
+
+@media all and (max-width: 900px){
+.side_article { /* Hide advertisement panel*/
+    display: none;
+    visibility: hidden;
+}
+
+.siteDescription {
+    width: 100%; /* Earlier 95%*/
+}
+
+.main_articles {
+    width: 90%;/* Earlier 70%*/
+}
 }
 
 @media all and (max-width: 700px) {
-
-    header {
-        height: 150px; 
-        line-height: 20px;  
-    }
-
-        header span {
-            font-size: 30px; /* Earlier 30px*/
-        }
-
-    .des {
-        width: 50%; /* Earlier 70%*/
-        background-color: Gray;
-    }
-    .desL {
-        width: 50%; /* Earlier 70%*/
-        background-color: Gray;
-    }
+header {
+    height: 110px; 
+    line-height: 20px;  
 }
+
+header span {
+    font-size: 30px; /* Earlier 40px*/
+}
+
+.des {
+    width: 50%; /* Earlier 70%*/
+    background-color: Gray;
+}
+
+.desL {
+    width: 50%; /* Earlier 200px*/
+    background-color: Gray;
+}
+}
+
 @media all and (max-width: 500px) {
-    header {
-        height: 150px;
-        line-height: 20px;
-    }
-
-        header span {
-            font-size: 30px;
-        }
-
-    .side_article {
-        display: none;
-        visibility: hidden;
-    }
-
-    .main_articles {
-        width: 90%;
-    }
-
-    .siteDescription {
-        width: 95%;
-        height: auto;
-        display: block;
-    }
-
-    .desImage {
-        margin: none;
-        width: 90%;
-        height: auto;
-    }
-
-        .desImage img {
-            width: 95%;
-            margin-left: 5px;
-        }
-
-    .des {
-        margin: auto;
-        margin-top: 10px;
-        width: 100%;
-        height: 100px;
-        background-color: Gray;
-    }
-    
-    
-    
-    
-    
-    
-    
-    .desL {
-        margin: none;
-        margin-top: 10px;
-        width: 100%;
-        height: 100px;
-        background-color: Gray;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+header {
+    height: 80px;
+    line-height: 20px;
 }
 
-@media only screen and (max-device-width: 500px), only screen and (-webkit-min-device-pixel-ratio: 2) , screen and (-webkit-device-pixel-ratio:1.5){
-    .Container {
-        width: 98%;
-        min-width: 300px;
-        margin: auto;
-    }
-
-    header {
-            width: 100%;
-        height: 65px;
-        line-height: 20px;
-        align-items: center;
-        background-color: dodgerBlue;
-    }
-
-        header span {
-            color: white;
-            font-size: 20px;
-            padding-left: 2px;
-        }
-
-    nav {
-        width: 100%;
-        height: 10px;
-        background-color: Gray;
-    }
-
-    .content {
-        width: 100%;
-        height: 900px;
-        clear:both;
-        padding: 10px 0px;
-        background-color: Gray;
-        font-size:14px;
-    }
-
-    footer {
-        width: 100%;
-        height: 80px;
-        background-color: Gray;
-        margin-bottom: 20px;
-    }
-
-    .main_articles {
-        width: 100%;
-        float: left;
-        height: auto;
-        margin:auto;
-    }
-
-    .side_article {
-        display: none;
-        visibility: hidden;
-    }
-
-    .siteDescription {
-        width: 100%;
-        height: auto;
-        display: block;
-        margin:auto;
-    }
-
-    .desImage {
-        margin: auto;
-        width: 10%;
-        height: auto;
-    }
-
-        .desImage img {
-            width: 10%;
-            height: auto;
-            margin-left: 2px;
-            border: none;
-        }
-
-    .des {
-        margin: auto;
-        margin-top: 10px;
-        width: 100%;
-        height: auto;
-        background-color: Gray;
-        padding: 2px;
-        text-align: center;
-    }
-    
-    
-     .desL {
-        margin: none;
-        margin-top: 10px;
-        width: 100%;
-        height: auto;
-        background-color: Gray;
-        padding: 2px;
-         text-align: center;
-    }
-    
-    
-    #intro {
- color: white;
-        font-size: 14px;
-        padding-left: 2px;  
-        text-align: center;
-}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+header span {
+    font-size: 30px;
 }
 
+.side_article {
+    display: none;
+    visibility: hidden;
+}
+
+.main_articles {
+    width: 90%;
+}
+
+.siteDescription {
+    width: 95%;
+    height: auto;
+    display: block;
+}
+
+.des {
+    margin: auto;
+    margin-top: 10px;
+    width: 100%; /* Earlier 50%*/
+    height: 70px;
+    background-color: Gray;
+}
+     
+.desL {
+    margin: none;
+    margin-top: 10px;
+    width: 100%; /* Earlier 50%*/
+    height: 70px;
+    background-color: Gray;
+}
+}
 </style>    
 <head>
     <meta name="viewport" content="device-width,initial-scale=1">
-    <title>Test CSS3 HTML5</title>
-
-    <!--[if IE]>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-
-    <link href="IEStyleSheet.css" rel="stylesheet" />
-    <![endif]-->
-
-    <!--[if !IE]> -->
-        <link href="StyleSheet.css" rel="stylesheet" type="text/css" media="only screen" />
-        <link href="MobileStyleSheet.css" rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px) , only screen and (-webkit-min-device-pixel-ratio: 2) , screen and (-webkit-device-pixel-ratio:1.5)" />
-        <!-- <![endif]-->
-
-    <!--[if IEMobile]> 
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-
-        <link href="MobileStyleSheet.css" rel="stylesheet" />
-    <![endif]-->
-
+    <title>ls test</title>
 </head>
 <body>
-        <div class="Container">
-            
-            <header>
-                <span><br><img src="golf-ball.png" alt="Golfer" style="vertical-align:middle"; width="10%" height="auto"/> &nbsp&nbspLonghirst Seniors Section</span>
-            </header>
-            <nav>
-            </nav>
-            
-            <div id="intro">
-            Longhirst Seniors Section normally meets on a Monday to play a stableford competition.
-            <br><br>
-            From the web site:
-            <br><br>
-            <i>
-            Longhirst Hall Golf Club, boasting two beautiful but different courses, offering the challenge of the American style Lakeland courses, coupled with the stunning surroundings of the Northumberland countryside.
-            <br><br>
-            Both courses have hosted the PGA Europro tour and feature the best in practice facilities with our new driving range, golf academy and teaching studio.
-            </i>
-            </div>
-            <br>
-           
-            <br>
-            
-            <div class="content">
-                <section class="main_articles">
-                    
-                     <hr>
-                    <article class="siteDescription">
-                        <div class="desL">
-                            some text heresome text here. some text here. some text heresome text here. some text here
-                        </div>
-                        <div class="des">
-                            Longhirst Seniors Section normally meets on a Monday to play a stableford competition. Longhirst Seniors Section normally meets on a Monday to play a stableford competition.
-                        </div>
-                        
-                    </article>
-                    
-                    
-                    <hr>
-                    
-                    
-                    
-                    <article class="siteDescription">
-                        <div class="desL">
-                            Some other report or article
-                        </div>
-                        <div class="des">
-                            Some other report or article.Some other report or article.Some other report or article.Some other report or article.Some other report or article.
-                        </div>
-                        
-                    </article>
-                    
-                    <hr>
-                    
-                    <article class="siteDescription">
-                        <div class="desL">
-                            Some other report or article
-                        </div>
-                        <div class="des">
-                            Some other report or article.Some other report or article.Some other report or article.Some other report or article.Some other report or article.
-                        </div>
-                        
-                    </article>
-                    
-                    
-                    <hr>
-                  
-                    
-                    
-                    
-                    
-                </section>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-
-                <aside class="side_article">
-                    <div class="adsheading">
-                        Latest information and news.
-                    </div>
-
-                    <div class="ads">
-                        3 ball texas on Wednesday 29th December.
-                    </div>
-                </aside>
-            </div>
-            <footer>
-            </footer>
+<div class="Container">
+    <header>
+    <span><br><img src="golf-ball.png" alt="Golfer" style="vertical-align:middle"; width="10%" height="auto"/> &nbsp&nbspLonghirst Seniors Section</span>
+    </header>
+    <nav>
+    </nav>
+    <div id="intro">
+        <img src="andyphoto.jpg" alt="a" style="vertical-align:middle"; width="100%" height="auto"/>  
+            <div class="text-block">   
+                <img src="welcome.png" alt="w" style="vertical-align:middle"; width="30%" height="auto"/>   
+                <br><br><br> 
+                Longhirst Seniors Section normally meets on a Monday to play a stableford competition.
+                <br><br>
+                </i>
+            </div> 
         </div>
-
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="content">
+        <section class="main_articles">
+            <article class="siteDescription">
+                <div class="desL">
+                    Wednesday 29th December, 3 ball Texas competition.
+                </div>
+                <div class="des">
+                    Monday and Tuesday are a Bank Holiday so the normal Monday event is moved to the Wednesday.
+                </div>
+            </article>
+            <hr>
+            <br>
+            <article class="siteDescription">
+                <div class="desL">
+                    Monday 20th December, stableford competition.
+                </div>
+                <div class="des">
+                    Stableford competition on the Lakes course.
+                </div>
+            </article>
+            <hr>
+            <br>
+            <article class="siteDescription">
+                <div class="desL">
+                    Monday 13th December, Christmas lunch and 9 hole Texas competition.
+                </div>
+                <div class="des">
+                    Bring a raffle prize. 9 hole texas competition with a shotgun start. Dawson course holes 1,2,3,6,12,13,14,15 and 18. Christmas lunch follows and includes trophy presentations.
+                </div>
+            </article>
+            <hr>
+            <br>
+        </section>
+        <aside class="side_article">
+            <div class="adsheading">
+                Latest information and news.
+            </div>
+            <div class="ads">
+                Venues for Spring Cup and Autumn Cup are under consideration<br>
+                Bamburgh £40<br> coffee, soup &amp; sandwiches<br><br>
+                Ramside	£40<br>	coffee, bacon roll &amp; 1 course meal<br><br>
+                Hirsel	£45<br>	coffee, bacon roll &amp; 2 course meal<br><br>
+                Dunstanburgh £46.50<br> coffee, bacon roll &amp; 1 course meal<br><br>
+                Brancepeth £35<br>	coffee, bacon roll &amp; 1 course meal<br>
+            </div>
+        </aside>
+    </div>
+    <footer>
+    </footer>
+</div>
 </body>
 </html>
+
