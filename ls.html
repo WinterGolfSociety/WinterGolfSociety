@@ -16,6 +16,246 @@ header {
     line-height: 20px;
     align-items: center;
     padding-left: 20px;
+    //background-color: dodgerBlue;
+    background-color: Gray;
+
+}
+
+header span {
+    color: white;
+    font-size: 40px;
+    padding-left: 20px;
+}
+
+nav {
+    width: 100%;
+    height: auto;
+    background-color: Gray;    
+}
+
+footer {
+    width: 100%;
+    height: 130px;
+    background-color: dodgerBlue;
+    padding-top: 5px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#intro {
+    width:100%;
+    color: white;
+    font-size: 20px;
+    padding-left: 0px; 
+    padding-right: 0px; 
+    position: relative;
+    text-align: center;
+}
+
+.text-block {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Container {
+    width: 100%;
+    min-width: 300px;
+    margin: auto;
+}
+
+.content {
+    width: 100%;
+    height: 700px;
+    padding: 10px 0px;
+    background-color: Gray;
+}
+
+
+.main_articles {
+    width: 70%;
+    float: left;
+    height: 650px;
+    margin-left: 10px;
+}
+
+.side_article {
+    width: 25%;
+    float: right;
+    height: 600px;
+    border-left: 1px dotted lightGray;
+}
+
+.siteDescription {
+    display: -moz-box;      /* Firefox*/
+    display: -webkit-box;   /* Chrome */
+    display: -ms-flexbox;   /* IE 10 */
+    display: flexbox;
+    flex-direction: row;
+    flex-align:start;
+    width: 95%;
+    height: auto; //120px;
+}
+
+.des {
+    margin-left: 15px;
+    -webkit-box-ordinal-group: 2;   /* iOS 6-, Safari, Opera*/
+    -moz-box-ordinal-group: 2;      /* Firefox*/
+    -ms-flex-order: 2;              /* IE 10 */
+    -webkit-order: 2;               /* Chrome */
+    flex-order: 2;
+    width: 70%;
+    height: auto; // 100px;
+    background-color: Gray;
+    color: white;
+    padding: 5px;
+}
+
+
+
+.desL {
+    //margin-left: 15px;
+    -webkit-box-ordinal-group: 1;   /* iOS 6-, Safari, Opera*/
+    -moz-box-ordinal-group: 1;      /* Firefox*/
+    -ms-flex-order: 1;              /* IE 10 */
+    -webkit-order: 1;               /* Chrome */
+    flex-order: 1;
+    width: 200px;
+    height: auto; //70px;
+    background-color: Gray;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    text-align: left;
+}
+
+.ads {
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    height: 400px;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: lightGray;
+    color: darkSlateGray;
+}
+.adsheading {
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: Gray;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+@media all and (max-width: 900px){
+.side_article { /* Hide advertisement panel*/
+    display: none;
+    visibility: hidden;
+}
+
+.siteDescription {
+    width: 100%; /* Earlier 95%*/
+}
+
+.main_articles {
+    width: 90%;/* Earlier 70%*/
+}
+}
+
+@media all and (max-width: 700px) {
+header {
+    height: 110px; 
+    line-height: 20px;  
+}
+
+header span {
+    font-size: 30px; /* Earlier 40px*/
+}
+
+.des {
+    width: 50%; /* Earlier 70%*/
+    background-color: Gray;
+}
+
+.desL {
+    width: 50%; /* Earlier 200px*/
+    background-color: Gray;
+}
+}
+
+@media all and (max-width: 500px) {
+header {
+    height: 80px;
+    line-height: 20px;
+}
+
+header span {
+    font-size: 20px;
+}
+
+.side_article {
+    display: none;
+    visibility: hidden;
+}
+
+.main_articles {
+    width: 90%;
+}
+
+.siteDescription {
+    width: 95%;
+    height: auto;
+    display: block;
+}
+
+.des {
+    margin: auto;
+    margin-top: 10px;
+    width: 100%; /* Earlier 50%*/
+    height: auto; //70px;
+    background-color: Gray;
+}
+     
+.desL {
+    margin: none;
+    margin-top: 10px;
+    width: 100%; /* Earlier 50%*/
+    height: auto; //70px;
+    background-color: Gray;
+}
+}
+</style>    
+<head>
+    <meta name="viewport" content="device-width,initial-scale=1">
+    <title>ls test</title>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style>
+body, html {
+    margin: 0px;
+    padding: 0px;
+    background-color: Gray;
+    font-family: 'arial';
+    color: white;
+}
+
+header {
+    width: 100%;
+    height: 150px;
+    line-height: 20px;
+    align-items: center;
+    padding-left: 20px;
     border-style: none none solid none;
     background-color: Gray;
 }
@@ -259,7 +499,7 @@ header span {
             <div class="text-block">   
                 <img src="welcome.png" alt="w" style="vertical-align:middle"; width="30%" height="auto"/>   
                 <br><br><br> 
-                Longhirst Seniors Section normally meets on a Monday to play a stableford competition.
+                Longhirst Seniors Section usually meets on a Monday to play a stableford competition.
                 <br><br>
                 </i>
             </div> 
@@ -274,17 +514,35 @@ header span {
             <!-- from here to here (see below)-->
             <article class="siteDescription">
                 <div class="desL">
-                    <b>Wednesday 29th December, 3-ball Texas competition.</b>
+                    <b>Monday 10th December, some sort of competition.</b>
                 </div>
                 <div class="des">
-                    Monday and Tuesday are a Bank Holiday so the normal Monday event is moved to the Wednesday.
+                    Monday competition on the Lakes course.
                 </div>
             </article>
             <hr>
             <!-- to here (see above)-->
             
             <!-- is a complete news item. To add another, copy the above article to between the INSERT HERE markers and edit to create a new entry. -->
-            
+       
+            <article class="siteDescription">
+                <div class="desL">
+                    <b>Tuesday 4th January, stableford competition.</b>
+                </div>
+                <div class="des">
+                    Stableford competition on the Lakes course.
+                </div>
+            </article>
+            <hr>
+            <article class="siteDescription">
+                <div class="desL">
+                    <b>Wednesday 29th December, 3-ball texas competition.</b>
+                </div>
+                <div class="des">
+                    Monday and Tuesday are a Bank Holiday so the normal Monday event is moved to the Wednesday.
+                </div>
+            </article>
+            <hr>
             <article class="siteDescription">
                 <div class="desL">
                     <b>Monday 20th December, stableford competition.</b>
@@ -328,4 +586,5 @@ header span {
 </div>
 </body>
 </html>
+
 
