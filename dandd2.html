@@ -1,0 +1,241 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content=
+"width=device-width, initial-scale=1, shrink-to-fit=yes" />
+<meta name="description" content="My Golf Society" />
+<meta name="author" content="Bryan M" />
+<title>My Golf Society</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<script src="jquery-3.6.0.min.js" type="text/javascript">
+</script>
+<style>
+body {
+background: Gray;
+font-family: arial, sans-serif;
+font-size: 18px;
+color: white;
+}   
+#right {
+    float: right;
+}
+ 
+ 
+#availablePlayers {
+  float: right;
+  width: 176px;
+  height: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: .5em;
+}  
+    
+#div1, #div2, #div3, #div4 {
+  float: left;
+  width: 176px;
+  height: 190px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: .5em;
+}
+
+.dragitem {
+  border: 3px solid #666;
+  background-color: #ddd;
+  color: blue;
+  width: 150px;
+  border-radius: .5em;
+  padding: 10px;
+  cursor: move;
+  white-space: nowrap;
+  
+  
+}
+
+.dragitem.over {
+  border: 3px dotted #666;
+}
+
+[draggable] {
+  user-select: none;
+}
+
+#allmembers {
+    line-height: 20px;
+}
+
+
+
+.allmembers {
+  width: 50%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<h2>Drag and Drop the players to create teams.</h2>
+
+
+
+
+<div id="right">
+<div id="availablePlayers" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
+
+<div class="container"> 
+     
+<div id="drag3" class="dragitem" draggable="true" ondragstart="drag(event)">Tony Smith</div>
+<div id=="drag4" class="dragitem" draggable="true" ondragstart="drag(event)">Pete Holleran</div>
+<div id="drag5" class="dragitem" draggable="true" ondragstart="drag(event)">Bryan Maddison</div>
+<div id="drag6" class="dragitem" draggable="true" ondragstart="drag(event)">Graham Airey</div>
+<div id="drag7" class="dragitem" draggable="true" ondragstart="drag(event)">Bob Connelly</div> 
+<div id="drag8" class="dragitem" draggable="true" ondragstart="drag(event)">Craig Caesar</div>
+<div id="drag9" class="dragitem" draggable="true" ondragstart="drag(event)">Trevor Ord</div>
+<div id="drag10" class="dragitem" draggable="true" ondragstart="drag(event)">Neil Coxon</div>
+<div id="drag11" class="dragitem" draggable="true" ondragstart="drag(event)">Stephen Alldridge</div>
+<div id="drag12" class="dragitem" draggable="true" ondragstart="drag(event)">Bob Toward</div>
+<div id="drag13" class="dragitem" draggable="true" ondragstart="drag(event)">Darren Nelson</div>
+<div id="drag14" class="dragitem" draggable="true" ondragstart="drag(event)">Keith Belshaw</div>
+
+</div>
+
+
+
+<br><br><br><br><br><br><br><br>
+<p>Created 4 balls.</p>
+
+
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+Available Players<div id="demo0"></div>
+<br><br><br>
+group1<div id="demo1"></div>
+<br>
+group2<div id="demo2"></div>
+<br>
+group3<div id="demo3"></div>
+<br>
+group4<div id="demo4"></div>
+<br>
+
+
+
+
+
+<script>
+    
+    
+    
+    
+    
+  $(document).ready( function() {
+    $('#insertButton').click(function(){
+alert("11111");
+        $('#receiver').append('<h1>Hi,</h1>','<p>How are you?</p>');
+
+        // Save the page's HTML to a file that is automatically downloaded.
+
+        // We make a Blob that contains the data to download.
+        var file = new window.Blob([document.documentElement.innerHTML], { type: "text/html" });
+        var URL = window.webkitURL || window.URL;
+
+        // This is the URL that will download the data.
+        var downloadUrl = URL.createObjectURL(file);
+
+        var a = document.createElement("a");
+        // This sets the file name.
+        //a.download = "source.htm";
+        a.download = "dandd2mark2.htm";
+        a.href = downloadUrl;
+
+        // Actually perform the download.
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    })
+});  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+  
+  var x = document.getElementById('availablePlayers').innerHTML;
+  document.getElementById("demo0").innerHTML = x; 
+  
+  
+ var x = document.getElementById('div1').innerHTML;
+  document.getElementById("demo1").innerHTML = x; 
+  
+   
+  var x = document.getElementById('div2').innerHTML;
+  document.getElementById("demo2").innerHTML = x;
+  
+   var x = document.getElementById('div3').innerHTML;
+  document.getElementById("demo3").innerHTML = x;
+  
+   var x = document.getElementById('div4').innerHTML;
+  document.getElementById("demo4").innerHTML = x;
+  
+
+  
+}
+</script>
+
+
+
+
+</body>
+</html>
+
