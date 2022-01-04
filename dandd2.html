@@ -628,15 +628,9 @@ rungroup(globalcounter);
     
 function rungroup(groupnum) {
    var y = document.getElementById('div' + groupnum).innerText;
-   alert("-" + y + "-");
-   y = y + '\n';
-   alert("-" + y + "-");
+   //y = y + '\n';
    yarray = y.split('\n');
-   
- alert("y = " + y.length + " - " + document.getElementById('mx582430225').value);
-   
-   
-   
+  
    if (y.length > 1) {
     var todayscomp = "Lakes stableford Friday 26 November";
     var todaysgroup = "group" + groupnum;
