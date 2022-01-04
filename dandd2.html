@@ -20,6 +20,12 @@ color: white;
     float: right;
 }
  
+#spacer {
+  width: 100%;
+  height: 50%;
+  margin:10px;
+}
+ 
 #availablePlayers {
   float: right;
   width: 176px;
@@ -32,6 +38,31 @@ color: white;
   background: url("waitingroom.png") center center no-repeat;
   background-size: 80%; 
 }  
+   
+#title {
+  float: left;
+  font-size: 25px;
+  width: auto;
+  height: 25px;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 10px 10px 25px black;
+}
+   
+#submitted {
+  float: left;
+  font-size: 18px;
+  width: auto;
+  height: auto;
+  margin: 100px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 10px 10px 25px black;
+} 
+ 
     
 #div1 {
   float: left;
@@ -179,6 +210,7 @@ background-text{
   background-image: linear-gradient(lightslategray,darkslateGray);
   color: white;
   width: 150px;
+  border: 1px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 25px black;
   padding: 10px;
@@ -202,7 +234,8 @@ background-text{
   white-space: nowrap;
   text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
                 0px 8px 13px rgba(0,0,0,0.1),
-                0px 18px 23px rgba(0,0,0,0.1);  
+                0px 18px 23px rgba(0,0,0,0.1); 
+  margin: 3px;             
 }
 
 .dragitem.over {
@@ -227,179 +260,308 @@ background-text{
   gap: 10px;
 }
 
+/* players */
+.container1 {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  height 100%;
+}
+
+/* create 4balls */
+.container2 {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  height 100%;
+}
+
+/* available players */
+.container3a {
+  display: grid;
+  grid-template-columns: 200px auto 200px auto;
+    grid-row-gap: 50px;
+    /* line-height:50px; */
+}
+
+.container3 {
+  display: grid;
+  grid-template-columns: 200px auto 200px auto; 
+  grid-row-gap: 20px;
+}
+
+.container4 {
+  visibility: hidden;
+}
+
+#my-response-iframex {
+visibility: hidden
+height: 1px;
+}
+
+
+#my-formx {
+visibility: hidden
+height: 1px;
+}
+
+.button {
+  background-color: dodgerBlue;
+  background-image: linear-gradient(lightslategray,darkslateGray);
+  color: white;
+  font-size:25px;
+  width: auto;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 10px 10px 25px black;
+  padding: 10px;
+  cursor: move;
+  white-space: nowrap;
+  text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
+                0px 8px 13px rgba(0,0,0,0.1),
+                0px 18px 23px rgba(0,0,0,0.1);
+}
+
 </style>
 
 </head>
 <body>
-
-<h2>Drag and Drop the players to create teams.</h2>
-
-<br>
-
-
+<div id="title">Drag and Drop the players to create 4balls.</div>
+<br><br><br><br><br>
 <div id="right">
-<div id="availablePlayers" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="availablePlayers" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 </div>
 
-<div class="container"> 
+<div class="container1"> 
+    
+    <div id="drag1" class="dragitem" draggable="true" ondragstart="drag(event)">Graham Airey</div>
+    
+    <div id="drag2" class="dragitem" draggable="true" ondragstart="drag(event)">Dale Aitkenhead</div>
 
-<div id="drag1" class="dragitem" draggable="true" ondragstart="drag(event)">Graham Airey</div>
-<div id="drag2" class="dragitem" draggable="true" ondragstart="drag(event)">Dale Aitkenhead</div>
-<div id="drag3" class="dragitem" draggable="true" ondragstart="drag(event)">Stephen Alldridge</div>
-<div id="drag4" class="dragitem" draggable="true" ondragstart="drag(event)">Keith Belshaw</div>
-<div id="drag5" class="dragitem" draggable="true" ondragstart="drag(event)">Stewart Brodie</div>
-<div id="drag6" class="dragitem" draggable="true" ondragstart="drag(event)">Craig Caesar</div>
-<div id="drag7" class="dragitem" draggable="true" ondragstart="drag(event)">Clive Caisley</div>
-<div id="drag8" class="dragitem" draggable="true" ondragstart="drag(event)">Dave Cave</div>
-<div id="drag9" class="dragitem" draggable="true" ondragstart="drag(event)">Ken Clark</div>
-<div id="drag10" class="dragitem" draggable="true" ondragstart="drag(event)">Robert Connelly</div>
-<div id="drag11" class="dragitem" draggable="true" ondragstart="drag(event)">Jed Cornhill</div>
-<div id="drag12" class="dragitem" draggable="true" ondragstart="drag(event)">Alex Coupland</div>
-<div id="drag13" class="dragitem" draggable="true" ondragstart="drag(event)">Michael Courtney</div>
-<div id="drag14" class="dragitem" draggable="true" ondragstart="drag(event)">Gary Cowman</div>
-<div id="drag15" class="dragitem" draggable="true" ondragstart="drag(event)">Tom Cox</div>
-<div id="drag16" class="dragitem" draggable="true" ondragstart="drag(event)">Neil Coxon</div>
-<div id="drag17" class="dragitem" draggable="true" ondragstart="drag(event)">Andy Davison</div>
-<div id="drag18" class="dragitem" draggable="true" ondragstart="drag(event)">John Dean</div>
-<div id="drag19" class="dragitem" draggable="true" ondragstart="drag(event)">Trevor Dodds</div>
-<div id="drag20" class="dragitem" draggable="true" ondragstart="drag(event)">Joe Fletcher</div>
-<div id="drag21" class="dragitem" draggable="true" ondragstart="drag(event)">Norman Ford</div>
-<div id="drag22" class="dragitem" draggable="true" ondragstart="drag(event)">Bill French</div>
-<div id="drag23" class="dragitem" draggable="true" ondragstart="drag(event)">Norman Gilholm</div>
-<div id="drag24" class="dragitem" draggable="true" ondragstart="drag(event)">Vince Graham</div>
-<div id="drag25" class="dragitem" draggable="true" ondragstart="drag(event)">Chris Green</div>
-<div id="drag26" class="dragitem" draggable="true" ondragstart="drag(event)">Rob Green</div>
-<div id="drag27" class="dragitem" draggable="true" ondragstart="drag(event)">Richard Hedley</div>
-<div id="drag28" class="dragitem" draggable="true" ondragstart="drag(event)">Barry Henderson</div>
-<div id="drag29" class="dragitem" draggable="true" ondragstart="drag(event)">Clive Herbert</div>
-<div id="drag30" class="dragitem" draggable="true" ondragstart="drag(event)">Colin Hillary</div>
-<div id="drag31" class="dragitem" draggable="true" ondragstart="drag(event)">Peter Holleran</div>
-<div id="drag32" class="dragitem" draggable="true" ondragstart="drag(event)">Chris Houghton</div>
-<div id="drag33" class="dragitem" draggable="true" ondragstart="drag(event)">Ken Houghton</div>
-<div id="drag34" class="dragitem" draggable="true" ondragstart="drag(event)">Roger Ireland</div>
-<div id="drag35" class="dragitem" draggable="true" ondragstart="drag(event)">Dave Jackson</div>
-<div id="drag36" class="dragitem" draggable="true" ondragstart="drag(event)">David.T Jackson</div>
-<div id="drag37" class="dragitem" draggable="true" ondragstart="drag(event)">John Jackson</div>
-<div id="drag38" class="dragitem" draggable="true" ondragstart="drag(event)">John Langan</div>
-<div id="drag39" class="dragitem" draggable="true" ondragstart="drag(event)">Tom Lemin</div>
-<div id="drag40" class="dragitem" draggable="true" ondragstart="drag(event)">Jim Little</div>
-<div id="drag41" class="dragitem" draggable="true" ondragstart="drag(event)">Bryan Maddison</div>
-<div id="drag42" class="dragitem" draggable="true" ondragstart="drag(event)">James Main</div>
-<div id="drag43" class="dragitem" draggable="true" ondragstart="drag(event)">Tony Martin</div>
-<div id="drag44" class="dragitem" draggable="true" ondragstart="drag(event)">John Matthews</div>
-<div id="drag45" class="dragitem" draggable="true" ondragstart="drag(event)">Tony McLure</div>
-<div id="drag46" class="dragitem" draggable="true" ondragstart="drag(event)">Tom McNally</div>
-<div id="drag47" class="dragitem" draggable="true" ondragstart="drag(event)">Darren Nelson</div>
-<div id="drag48" class="dragitem" draggable="true" ondragstart="drag(event)">Danny Norman</div>
-<div id="drag49" class="dragitem" draggable="true" ondragstart="drag(event)">Trevor Ord</div>
-<div id="drag50" class="dragitem" draggable="true" ondragstart="drag(event)">Dennis Patterson</div>
-<div id="drag51" class="dragitem" draggable="true" ondragstart="drag(event)">John Pattison</div>
-<div id="drag52" class="dragitem" draggable="true" ondragstart="drag(event)">Duncan Platts</div>
-<div id="drag53" class="dragitem" draggable="true" ondragstart="drag(event)">Ray Purdy</div>
-<div id="drag54" class="dragitem" draggable="true" ondragstart="drag(event)">Mike Riddell</div>
-<div id="drag55" class="dragitem" draggable="true" ondragstart="drag(event)">Martin Rogers</div>
-<div id="drag56" class="dragitem" draggable="true" ondragstart="drag(event)">David Scurfield</div>
-<div id="drag57" class="dragitem" draggable="true" ondragstart="drag(event)">Brian Simpson</div>
-<div id="drag58" class="dragitem" draggable="true" ondragstart="drag(event)">John.E Smith</div>
-<div id="drag59" class="dragitem" draggable="true" ondragstart="drag(event)">Tony Smith</div>
-<div id="drag60" class="dragitem" draggable="true" ondragstart="drag(event)">Ray Straker</div>
-<div id="drag61" class="dragitem" draggable="true" ondragstart="drag(event)">Tom Straker</div>
-<div id="drag62" class="dragitem" draggable="true" ondragstart="drag(event)">John Summerbell</div>
-<div id="drag63" class="dragitem" draggable="true" ondragstart="drag(event)">Neil Tait</div>
-<div id="drag64" class="dragitem" draggable="true" ondragstart="drag(event)">Roly Thompson</div>
-<div id="drag65" class="dragitem" draggable="true" ondragstart="drag(event)">Bob Toward</div>
-<div id="drag66" class="dragitem" draggable="true" ondragstart="drag(event)">Michael Varnom</div>
-<div id="drag67" class="dragitem" draggable="true" ondragstart="drag(event)">Glen Watson</div>
-<div id="drag68" class="dragitem" draggable="true" ondragstart="drag(event)">Phil Wegner</div>
-<div id="drag69" class="dragitem" draggable="true" ondragstart="drag(event)">Ron Woodcock</div>
-<div id="drag70" class="dragitem" draggable="true" ondragstart="drag(event)">Brian Wray</div>
-<div id="drag71" class="dragitem" draggable="true" ondragstart="drag(event)">John Wright</div>
-<div id="drag72" class="dragitem" draggable="true" ondragstart="drag(event)">Jim Young</div>
+    <div id="drag3" class="dragitem" draggable="true" ondragstart="drag(event)">Stephen Alldridge</div>
+
+    <div id="drag4" class="dragitem" draggable="true" ondragstart="drag(event)">Keith Belshaw</div>
+
+    <div id="drag5" class="dragitem" draggable="true" ondragstart="drag(event)">Stewart Brodie</div>
+
+    <div id="drag6" class="dragitem" draggable="true" ondragstart="drag(event)">Craig Caesar</div>
+
+    <div id="drag7" class="dragitem" draggable="true" ondragstart="drag(event)">Clive Caisley</div>
+
+    <div id="drag8" class="dragitem" draggable="true" ondragstart="drag(event)">Dave Cave</div>
+
+    <div id="drag9" class="dragitem" draggable="true" ondragstart="drag(event)">Ken Clark</div>
+
+    <div id="drag10" class="dragitem" draggable="true" ondragstart="drag(event)">Robert Connelly</div>
+
+    <div id="drag11" class="dragitem" draggable="true" ondragstart="drag(event)">Jed Cornhill</div>
+
+    <div id="drag12" class="dragitem" draggable="true" ondragstart="drag(event)">Alex Coupland</div>
+
+    <div id="drag13" class="dragitem" draggable="true" ondragstart="drag(event)">Michael Courtney</div>
+
+    <div id="drag14" class="dragitem" draggable="true" ondragstart="drag(event)">Gary Cowman</div>
+
+    <div id="drag15" class="dragitem" draggable="true" ondragstart="drag(event)">Tom Cox</div>
+
+    <div id="drag16" class="dragitem" draggable="true" ondragstart="drag(event)">Neil Coxon</div>
+
+    <div id="drag17" class="dragitem" draggable="true" ondragstart="drag(event)">Andy Davison</div>
+
+    <div id="drag18" class="dragitem" draggable="true" ondragstart="drag(event)">John Dean</div>
+
+    <div id="drag19" class="dragitem" draggable="true" ondragstart="drag(event)">Trevor Dodds</div>
+
+    <div id="drag20" class="dragitem" draggable="true" ondragstart="drag(event)">Joe Fletcher</div>
+
+    <div id="drag21" class="dragitem" draggable="true" ondragstart="drag(event)">Norman Ford</div>
+
+    <div id="drag22" class="dragitem" draggable="true" ondragstart="drag(event)">Bill French</div>
+
+    <div id="drag23" class="dragitem" draggable="true" ondragstart="drag(event)">Norman Gilholm</div>
+
+    <div id="drag24" class="dragitem" draggable="true" ondragstart="drag(event)">Vince Graham</div>
+
+    <div id="drag25" class="dragitem" draggable="true" ondragstart="drag(event)">Chris Green</div>
+
+    <div id="drag26" class="dragitem" draggable="true" ondragstart="drag(event)">Rob Green</div>
+
+    <div id="drag27" class="dragitem" draggable="true" ondragstart="drag(event)">Richard Hedley</div>
+
+    <div id="drag28" class="dragitem" draggable="true" ondragstart="drag(event)">Barry Henderson</div>
+
+    <div id="drag29" class="dragitem" draggable="true" ondragstart="drag(event)">Clive Herbert</div>
+
+    <div id="drag30" class="dragitem" draggable="true" ondragstart="drag(event)">Colin Hillary</div>
+
+    <div id="drag31" class="dragitem" draggable="true" ondragstart="drag(event)">Peter Holleran</div>
+
+    <div id="drag32" class="dragitem" draggable="true" ondragstart="drag(event)">Chris Houghton</div>
+
+    <div id="drag33" class="dragitem" draggable="true" ondragstart="drag(event)">Ken Houghton</div>
+
+    <div id="drag34" class="dragitem" draggable="true" ondragstart="drag(event)">Roger Ireland</div>
+
+    <div id="drag35" class="dragitem" draggable="true" ondragstart="drag(event)">Dave Jackson</div>
+
+    <div id="drag36" class="dragitem" draggable="true" ondragstart="drag(event)">David.T Jackson</div>
+
+    <div id="drag37" class="dragitem" draggable="true" ondragstart="drag(event)">John Jackson</div>
+
+    <div id="drag38" class="dragitem" draggable="true" ondragstart="drag(event)">John Langan</div>
+
+    <div id="drag39" class="dragitem" draggable="true" ondragstart="drag(event)">Tom Lemin</div>
+
+    <div id="drag40" class="dragitem" draggable="true" ondragstart="drag(event)">Jim Little</div>
+
+    <div id="drag41" class="dragitem" draggable="true" ondragstart="drag(event)">Bryan Maddison</div>
+
+    <div id="drag42" class="dragitem" draggable="true" ondragstart="drag(event)">James Main</div>
+
+    <div id="drag43" class="dragitem" draggable="true" ondragstart="drag(event)">Tony Martin</div>
+
+    <div id="drag44" class="dragitem" draggable="true" ondragstart="drag(event)">John Matthews</div>
+
+    <div id="drag45" class="dragitem" draggable="true" ondragstart="drag(event)">Tony McLure</div>
+
+    <div id="drag46" class="dragitem" draggable="true" ondragstart="drag(event)">Tom McNally</div>
+
+    <div id="drag47" class="dragitem" draggable="true" ondragstart="drag(event)">Darren Nelson</div>
+
+    <div id="drag48" class="dragitem" draggable="true" ondragstart="drag(event)">Danny Norman</div>
+
+    <div id="drag49" class="dragitem" draggable="true" ondragstart="drag(event)">Trevor Ord</div>
+
+    <div id="drag50" class="dragitem" draggable="true" ondragstart="drag(event)">Dennis Patterson</div>
+
+    <div id="drag51" class="dragitem" draggable="true" ondragstart="drag(event)">John Pattison</div>
+
+    <div id="drag52" class="dragitem" draggable="true" ondragstart="drag(event)">Duncan Platts</div>
+
+    <div id="drag53" class="dragitem" draggable="true" ondragstart="drag(event)">Ray Purdy</div>
+
+    <div id="drag54" class="dragitem" draggable="true" ondragstart="drag(event)">Mike Riddell</div>
+
+    <div id="drag55" class="dragitem" draggable="true" ondragstart="drag(event)">Martin Rogers</div>
+
+    <div id="drag56" class="dragitem" draggable="true" ondragstart="drag(event)">David Scurfield</div>
+
+    <div id="drag57" class="dragitem" draggable="true" ondragstart="drag(event)">Brian Simpson</div>
+
+    <div id="drag58" class="dragitem" draggable="true" ondragstart="drag(event)">John.E Smith</div>
+
+    <div id="drag59" class="dragitem" draggable="true" ondragstart="drag(event)">Tony Smith</div>
+
+    <div id="drag60" class="dragitem" draggable="true" ondragstart="drag(event)">Ray Straker</div>
+
+    <div id="drag61" class="dragitem" draggable="true" ondragstart="drag(event)">Tom Straker</div>
+
+    <div id="drag62" class="dragitem" draggable="true" ondragstart="drag(event)">John Summerbell</div>
+
+    <div id="drag63" class="dragitem" draggable="true" ondragstart="drag(event)">Neil Tait</div>
+
+    <div id="drag64" class="dragitem" draggable="true" ondragstart="drag(event)">Roly Thompson</div>
+
+    <div id="drag65" class="dragitem" draggable="true" ondragstart="drag(event)">Bob Toward</div>
+
+    <div id="drag66" class="dragitem" draggable="true" ondragstart="drag(event)">Michael Varnom</div>
+
+    <div id="drag67" class="dragitem" draggable="true" ondragstart="drag(event)">Glen Watson</div>
+
+    <div id="drag68" class="dragitem" draggable="true" ondragstart="drag(event)">Phil Wegner</div>
+
+    <div id="drag69" class="dragitem" draggable="true" ondragstart="drag(event)">Ron Woodcock</div>
+
+    <div id="drag70" class="dragitem" draggable="true" ondragstart="drag(event)">Brian Wray</div>
+
+    <div id="drag71" class="dragitem" draggable="true" ondragstart="drag(event)">John Wright</div>
+
+    <div id="drag72" class="dragitem" draggable="true" ondragstart="drag(event)">Jim Young</div>
 
 </div>
 
-<br><br><br>
-<div class="labelx" id="group0">created 4balls</div>
 <br><br>
+<div class="labelxx" id="title">players are dropped here to create the 4balls</div>
+<br><br><br><br><br>
 
+<div class="container2"> 
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>1</background-text></div>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>2</background-text></div>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>3</background-text></div>
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>4</background-text></div>
+    <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>5</background-text></div>
+    <div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>6</background-text></div>
+    <div id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>7</background-text></div>
+    <div id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>8</background-text></div>
+    <div id="div8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>9</background-text></div>
+    <div id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>10</background-text></div>
+    <div id="div10" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>11</background-text></div>
+    <div id="div11" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)"><background-text>12</background-text></div>
+    <div id="div12" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<div class="labelx" id="group0">available players</div><div id="demo0"></div>
-
-<br><br><br>
-
-<div class="labelx" id="group1">group1</div><div id="demo1"></div>
-<br>
-<div class="labelx" id="group2">group2</div><div id="demo2"></div>
-<br>
-<div class="labelx" id="group3">group3</div><div id="demo3"></div>
-<br>
-<div class="labelx" id="group4">group4</div><div id="demo4"></div>
-<br>
-<div class="labelx" id="group5">group5</div><div id="demo5"></div>
-<br>
-<div class="labelx" id="group6">group6</div><div id="demo6"></div>
-<br>
-<div class="labelx" id="group7">group7</div><div id="demo7"></div>
-<br>
-<div class="labelx" id="group8">group8</div><div id="demo8"></div>
-<br>
-<div class="labelx" id="group9">group9</div><div id="demo9"></div>
-<br>
-<div class="labelx" id="group10">group10</div><div id="demo10"></div>
-<br>
-<div class="labelx" id="group11">group11</div><div id="demo11"></div>
-<br>
-<div class="labelx" id="group12">group12</div><div id="demo12"></div>
+</div>
 
 <br><br>
 
-<button onclick="setup4balls()">Setup 4balls</button>
+<div class="labelxx" id="title">these are the 4balls created ready for Submitting</div>
+<br><br><br><br><br><br>
 
+<div class="container3a"> 
+
+    <div class="labelx" id="group0">available players</div><div id="demo0"></div>
+
+</div>
 
 <br><br>
 
+<div class="container3"> 
 
+    <div class="labelx" id="group1">group1</div><div id="demo1"></div>
 
+    <div class="labelx" id="group2">group2</div><div id="demo2"></div>
 
+    <div class="labelx" id="group3">group3</div><div id="demo3"></div>
 
+    <div class="labelx" id="group4">group4</div><div id="demo4"></div>
 
+    <div class="labelx" id="group5">group5</div><div id="demo5"></div>
 
- something .....<br><br>
-    
-    
-<form id="my-form" 
+    <div class="labelx" id="group6">group6</div><div id="demo6"></div>
+
+    <div class="labelx" id="group7">group7</div><div id="demo7"></div>
+
+    <div class="labelx" id="group8">group8</div><div id="demo8"></div>
+
+    <div class="labelx" id="group9">group9</div><div id="demo9"></div>
+
+    <div class="labelx" id="group10">group10</div><div id="demo10"></div>
+
+    <div class="labelx" id="group11">group11</div><div id="demo11"></div>
+
+    <div class="labelx" id="group12">group12</div><div id="demo12"></div>
+
+</div>
+
+<div class="container4"> 
+
+    <br><br>
+        
+    <form id="my-form" 
     target="my-response-iframe" 
     action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSf8_iNvbT5U-cEdjJbNHppZpPYTRwnTkSIwMITnt2KnNQezGA/formResponse" 
-    method="post" 
-    //onSubmit="JavaScript:fixdata()">
-        
+    method="POST">
         <input type="text" 
         name="entry.582430225" 
         value="default" 
@@ -419,54 +581,87 @@ background-text{
         required>
             
     <input type="submit">
-</form>
-
+    </form>
 
 <!--
 Hide this later
 -->
-<iframe id="my-response-iframe" 
+    <iframe id="my-response-iframe" 
     name="my-response-iframe"
     src="https://docs.google.com/forms/d/e/1FAIpQLSf8_iNvbT5U-cEdjJbNHppZpPYTRwnTkSIwMITnt2KnNQezGA/viewform?embedded=true" 
     width="640" 
-    height="407" 
+    height="1" 
     frameborder="0" 
     marginheight="0" 
     marginwidth="0">
     Loading…
-</iframe>
+    </iframe>
  
-<!--  
-https://docs.google.com/forms/d/e/1FAIpQLSf8_iNvbT5U-cEdjJbNHppZpPYTRwnTkSIwMITnt2KnNQezGA/viewform?usp=pp_url&entry.582430225=competition&entry.118046208=player&entry.479294276=group
--->
+    
 
 
-<br><br><br><br>
+</div>
+<br>
+<button class="button" onclick="setup4balls()">Click this button to Submit the 4balls as designated above</button>
+<br></br>
 
-<div id="info1"></div>
-<div id="info2"></div>
-<div id="info3"></div>
 <div id="info4"></div>
-
-<br><br><br><br><br><br><br><br>
-
+<br></br><br></br>
 
 
 <script>
-    
-    
-    
-    
+//allow for original iframe load   
+var globalcounter = -1;  
+var globalstxt = ""; 
   
     
+document.getElementById('my-form').target = 'my-response-iframe';
+// detect when the iframe reloads
+var iframe = document.getElementById('my-response-iframe');
+if (iframe) {
+iframe.onload = function () {
+// now you can do stuff, such as displaying a message or redirecting to a new page.
+globalcounter++  
+rungroup(globalcounter);
+}
+}  
     
-    
-    
-    
-    
-    
-    
-    
+function rungroup(groupnum) {
+   var y = document.getElementById('div' + groupnum).innerText;
+   alert("-" + y + "-");
+   y = y + '\n';
+   alert("-" + y + "-");
+   yarray = y.split('\n');
+   
+ alert("y = " + y.length + " - " + document.getElementById('mx582430225').value);
+   
+   
+   
+   if (y.length > 1) {
+    var todayscomp = "Lakes stableford Friday 26 November";
+    var todaysgroup = "group" + groupnum;
+    //competition
+    document.getElementById('mx582430225').value = todayscomp;
+    //players
+    document.getElementById('mx118046208').value = yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3];
+    document.getElementById('mx479294276').value = todaysgroup;  
+   document.forms[0].submit() 
+   var stxt = todayscomp + ", " + yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3] + ", " + todaysgroup;
+   var startx = '<div id="submitted">Submitted:<br><br><br>';
+   var endx = '</div>';
+   globalstxt = globalstxt + stxt + '<br><br>';
+   submitted = startx + globalstxt + endx;
+   document.getElementById('info4').innerHTML = submitted; 
+  // wait - probably not required
+  // but helps with timestamp etc.
+  const milliseconds = 500;
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+} 
+}
     
 function allowDrop(ev) {
   ev.preventDefault();
@@ -480,119 +675,68 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
-  
   var x = document.getElementById('availablePlayers').innerHTML;
   document.getElementById("demo0").innerHTML = x; 
   
-  
   var x = document.getElementById('div1').innerHTML;
-  if ( x !== "<background-text>1</background-text>" ) {
+ 
     document.getElementById("demo1").innerHTML = x;   
-  }
+  
   var x = document.getElementById('div2').innerHTML;
-  if ( x !== "<background-text>2</background-text>" ) {
+ 
     document.getElementById("demo2").innerHTML = x;   
-  }
+  
   var x = document.getElementById('div3').innerHTML;
-  if ( x !== "<background-text>3</background-text>" ) {
+
     document.getElementById("demo3").innerHTML = x;   
-  }
+  
   var x = document.getElementById('div4').innerHTML;
-  if ( x !== "<background-text>4</background-text>" ) {
+ 
     document.getElementById("demo4").innerHTML = x;   
-  }
+  
   var x = document.getElementById('div5').innerHTML;
-  if ( x !== "<background-text>5</background-text>" ) {
+ 
     document.getElementById("demo5").innerHTML = x;   
-  } 
+ 
   var x = document.getElementById('div6').innerHTML;
-  if ( x !== "<background-text>6</background-text>" ) {
+
     document.getElementById("demo6").innerHTML = x;   
-  }
+ 
   var x = document.getElementById('div7').innerHTML;
-  if ( x !== "<background-text>7</background-text>" ) {
     document.getElementById("demo7").innerHTML = x;   
-  }
+  
   var x = document.getElementById('div8').innerHTML;
-  if ( x !== "<background-text>8</background-text>" ) {
+
     document.getElementById("demo8").innerHTML = x;   
-  }
+  
   var x = document.getElementById('div9').innerHTML;
-  if ( x !== "<background-text>9</background-text>" ) {
+
     document.getElementById("demo9").innerHTML = x;   
-  }
+  
   var x = document.getElementById('div10').innerHTML;
-  if ( x !== "<background-text>10</background-text>" ) {
+
     document.getElementById("demo10").innerHTML = x;   
-  } 
+  
   var x = document.getElementById('div11').innerHTML;
-  if ( x !== "<background-text>11</background-text>" ) {
+ 
     document.getElementById("demo11").innerHTML = x;   
-  }
+  
   var x = document.getElementById('div12').innerHTML;
-  if ( x !== "<background-text>12</background-text>" ) {
+ 
     document.getElementById("demo12").innerHTML = x;   
-  } 
- 
- 
- 
   
 }
+
 
 function setup4balls() {
-    
- var y = document.getElementById('div4').innerText;
-  yarray = y.split('\n');
-  alert("1 - " + yarray[0] + " 2 - " + yarray[1] + " 3 - " + yarray[2] + " 4 - " + yarray[3]); 
-
-  //var y = x;
-  alert(y);   
-    
-  // POST data
-  
-  // get date&comp from somewhere
-  todayscomp = "Friday 21st November 2021";
-  //competition
-  document.getElementById('mx582430225').value = todayscomp;
-  //players
-  document.getElementById('mx118046208').value = yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3];
-  // get group from somewhere
-  var todaysgroup = document.getElementById('group4').innerText;
-  //group
-  document.getElementById('mx479294276').value = todaysgroup;  
-    
-    
-    
-    
-  document.getElementById('info4').innerHTML = todayscomp + ", " + yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3] + ", " + todaysgroup; 
-    
-  document.forms[0].submit()  
-  
-  // wait
-  const milliseconds = 1000;
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-  
-  
-  
-  
-  
-    
+ document.getElementById('my-form').target = 'my-response-iframe';
+// reload the iframe to start data transfer
+var iframe = document.getElementById('my-response-iframe');
+iframe.src = iframe.src;    
+       
 }
-
-
-
-
-
 
 </script>
 
-
-
-
 </body>
 </html>
-
