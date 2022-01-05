@@ -498,20 +498,44 @@ rungroup(globalcounter);
     
 function rungroup(groupnum) {
    var y = document.getElementById('div' + groupnum).innerText;
-   //y = y + '\n';
    yarray = y.split('\n');
-  
+   
+  // alert("a length = " + yarray.length);
+   
+   if (yarray.length == 3) {
+       yarray[3] = "tba";
+   }
+   if (yarray.length == 2) {
+       yarray[2] = "tba";
+       yarray[3] = "tba";
+   }
+   if (yarray.length == 1) {
+       yarray[1] = "tba";
+       yarray[2] = "tba";
+       yarray[3] = "tba";
+   }
+   if (yarray.length == 0) {
+       yarray[0] = "tba";
+       yarray[1] = "tba";
+       yarray[2] = "tba";
+       yarray[3] = "tba";
+   }
+   
+   // remove '/tba'
+   var yy = yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3];
+   var yyy = yy.replace(/\/tba/g,'');
+   
    if (y.length > 1) {
     var todayscomp = "Lakes stableford Friday 26 November";
     var todaysgroup = "group" + groupnum;
     //competition
     document.getElementById('mx582430225').value = todayscomp;
     //players
-    document.getElementById('mx118046208').value = yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3];
+    document.getElementById('mx118046208').value = yyy;
     document.getElementById('mx479294276').value = todaysgroup;  
    document.forms[0].submit() 
-   var stxt = todayscomp + ", " + yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3] + ", " + todaysgroup;
-   var startx = '<div id="submitted">Submitted:<br><br><br>';
+   var stxt = todayscomp + " " + yyy + " " + todaysgroup;
+   var startx = '<div id="submitted">Submitted:<br><br>';
    var endx = '</div>';
    globalstxt = globalstxt + stxt + '<br><br>';
    submitted = startx + globalstxt + endx;
