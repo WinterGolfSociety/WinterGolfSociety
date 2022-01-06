@@ -30,6 +30,7 @@ color: white;
   float: right;
   width: 176px;
   height: 60%;
+  //margin: 10px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
@@ -55,12 +56,13 @@ color: white;
   font-size: 18px;
   width: auto;
   height: auto;
-  //margin: 10px;
+  margin: 10px;
   padding: 20px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 25px black;
 } 
+ 
  
 #div1, #div2, #div3, #div4, #div5, #div6, #div7, #div8, #div9, #div10, #div11, #div12 {
   float: left;
@@ -137,16 +139,8 @@ background-text{
   gap: 10px;
 }
 
-/* players */
-.container1 {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  gap: 10px;
-  height 100%;
-}
-
-/* create 4balls */
-.container2 {
+/* players create 4balls */
+.container1, .container2 {
   display: grid;
   grid-template-columns: auto auto auto auto;
   gap: 10px;
@@ -158,6 +152,12 @@ background-text{
   display: grid;
   grid-template-columns: 200px auto 200px auto;
     grid-row-gap: 20px;
+}
+
+.container3xxx {
+  display: grid;
+  grid-template-columns: 200px auto 200px auto; 
+  grid-row-gap: 20px;
 }
 
 .container4 {
@@ -181,11 +181,12 @@ height: 1px;
   color: white;
   font-size:25px;
   width: auto;
-  height: 150px;
+  height: 60px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 25px black;
-  padding: 10px;
+  //margin: 10px;
+  //padding: 20px;
   cursor: move;
   white-space: nowrap;
   text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
