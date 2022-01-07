@@ -429,7 +429,14 @@ var iiconst = xxarray.length;
 var countgroups = 0;
 var xstr="";
 var count4balls = 0;
-
+         
+// cope with 3 players as an invalid option
+if (iiconst == 3) {
+    starthtml = '<div id="five">';
+    endhtml='</div>';
+    document.getElementById('res1').innerHTML = starthtml + "Groups cannot be allocated<br>with 34 players. Try adding<br>3 more players." + endhtml; 
+    return;   
+}
 // cope with 4 players as an invalid option
 if (iiconst == 4) {
     starthtml = '<div id="five">';
