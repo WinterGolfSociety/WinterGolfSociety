@@ -281,7 +281,18 @@ display: grid;
 
 
 
-
+.buttonSubmit {
+background-color: dodgerBlue;
+  color: white;
+  font-size: 25px;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+  white-space: nowrap;
+  padding: 40px;    
+    
+    
+}
 
 
 </style>
@@ -550,7 +561,7 @@ display: grid;
 </div>
 
 <br><br>
-Scores (shots taken) to submit
+These are the scores (shots taken) you have entered
 <br><br>
 
 
@@ -598,7 +609,7 @@ hole 18
 
 
 <br><br><br><br><br><br>
-
+<button class="buttonSubmit" onclick="buttonSubmit()">check scores then ...<h1> Submit</h1></button>
 
 
 
@@ -1222,6 +1233,7 @@ function shuffleArray() {
 
 </body>
 </html>
+
 
 
 
