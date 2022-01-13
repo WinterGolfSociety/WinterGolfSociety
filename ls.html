@@ -1494,6 +1494,21 @@ if (s1.length > 0) {
     sub = document.getElementById("submitButton");
     sub.style.backgroundColor = "blue";
     sub.innerText = "Updated OK"; 
+    
+ // wait - probably not required
+  // but helps with timestamp etc.
+  const milliseconds = 5000;
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);    
+    
+  location.reload();  
+    
+    
+    
+       
 }       
 }
 }
@@ -1677,6 +1692,7 @@ function fixdata() {
 </script>
 </body>
 </html>
+
 
 
 
