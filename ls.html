@@ -585,6 +585,184 @@ hole 18
 
 
 
+
+
+
+
+
+
+
+
+<!--
+
+https://docs.google.com/forms/d/e/1FAIpQLSeFFRRUpKSj2vYLAIvT7VOfsxYculjvb5L4iHuBvttF4hOjNQ/viewform?usp=pp_url&entry.202631125=1&entry.1220170043=2&entry.1343461718=3&entry.870943983=4&entry.1941601160=5&entry.720850778=6&entry.626160595=7&entry.841825168=8&entry.118396704=9&entry.2120326569=10&entry.1864857846=11&entry.248316274=12&entry.1905651830=13&entry.1207580033=14&entry.1923832800=15&entry.909418688=16&entry.1073367537=17&entry.358314165=18
+
+
+
+
+https://docs.google.com/forms/d/1jUR5jhgT-2anQm3fQW8eWvmqpIZwNnoCJedzWwg2bag/edit#responses
+  
+-->  
+  
+   
+    
+<form id="my-form" 
+    target="my-response-iframe" 
+    action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeFFRRUpKSj2vYLAIvT7VOfsxYculjvb5L4iHuBvttF4hOjNQ/formResponse" 
+    method="post" 
+    onSubmit="JavaScript:fixdata()">
+        <!-- hole 1 -->
+        <input type="text" 
+        name="entry.202631125" 
+        value="default" 
+        id="mx202631125" >
+        <!-- hole 2 -->
+        <input type="text" 
+        name="entry.1220170043" 
+        value="default" 
+        id="mx1220170043" >
+        <!-- hole 3 -->
+        <input type="text" 
+        name="entry.1343461718" 
+        value="default" 
+        id="mx1343461718" >
+        <!-- hole 4 -->
+        <input type="text" 
+        name="entry.870943983" 
+        value="default" 
+        id="mx870943983" >
+        <!-- hole 5 -->
+        <input type="text" 
+        name="entry.1941601160" 
+        value="default" 
+        id="mx1941601160" >
+        <!-- hole 6 -->
+        <input type="text" 
+        name="entry.720850778" 
+        value="default" 
+        id="mx720850778" >
+        <!-- hole 7 -->
+        <input type="text" 
+        name="entry.626160595" 
+        value="default" 
+        id="mx626160595" >
+        <!-- hole 8 -->
+        <input type="text" 
+        name="entry.841825168" 
+        value="default" 
+        id="mx841825168" >
+        <!-- hole 9 -->
+        <input type="text" 
+        name="entry.118396704" 
+        value="default" 
+        id="mx118396704" >
+        <!-- hole 10 -->
+        <input type="text" 
+        name="entry.2120326569" 
+        value="default" 
+        id="mx2120326569" >
+        <!-- hole 11 -->
+        <input type="text" 
+        name="entry.1864857846" 
+        value="default" 
+        id="mx1864857846" >
+        <!-- hole 12 -->
+        <input type="text" 
+        name="entry.248316274" 
+        value="default" 
+        id="mx248316274" >
+        <!-- hole 13 -->
+        <input type="text" 
+        name="entry.1905651830" 
+        value="default" 
+        id="mx1905651830" >
+        <!-- hole 14 -->
+        <input type="text" 
+        name="entry.1207580033" 
+        value="default" 
+        id="mx1207580033" >
+        <!-- hole 15 -->
+        <input type="text" 
+        name="entry.1923832800" 
+        value="default" 
+        id="mx1923832800" >
+        <!-- hole 16 -->
+        <input type="text" 
+        name="entry.909418688" 
+        value="default" 
+        id="mx909418688" >
+        <!-- hole 17 -->
+        <input type="text" 
+        name="entry.1073367537" 
+        value="default" 
+        id="mx1073367537" >
+        <!-- hole 18 -->
+        <input type="text" 
+        name="entry.358314165" 
+        value="default" 
+        id="mx358314165" >
+        
+       
+    <input type="submit">
+</form>
+
+
+
+<iframe id="my-response-iframe" 
+    name="my-response-iframe"
+    src="https://docs.google.com/forms/d/e/1FAIpQLSeFFRRUpKSj2vYLAIvT7VOfsxYculjvb5L4iHuBvttF4hOjNQ/viewform?embedded=true" 
+    width="640" 
+    height="407" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0">
+    Loading…
+</iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <button id="submitButton" onclick="buttonSubmit()">Submit</button>
 <div id="submitConfirm"></div>
 
@@ -1067,18 +1245,439 @@ function buttonSubmit() {
   if (document.getElementById("submitButton").innerText == "Submit") {
   
     // do submit stuff here
+        var ok = "yes";
+    var s1 = document.getElementById("score1").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx202631125").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score2").innerText;
+    if (s1.length  > 0) {  
+        document.getElementById("mx1220170043").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score3").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1343461718").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score4").innerText;
+    if (s1.length  > 0) {  
+        document.getElementById("mx870943983").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score5").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1941601160").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score6").innerText;
+    if (s1.length  > 0) {  
+        document.getElementById("mx720850778").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score7").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx626160595").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score8").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx841825168").value = s1; 
+    } else {
+        ok = "no";
+    }  
+    
+    s1 = document.getElementById("score9").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx118396704").value = s1; 
+    } else {
+        ok = "no";
+    }    
+    
+    s1 = document.getElementById("score10").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx2120326569").value = s1; 
+    } else {
+        ok = "no";
+    }
+       
+    s1 = document.getElementById("score11").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1864857846").value = s1; 
+    } else {
+        ok = "no";
+    }
+        
+    s1 = document.getElementById("score12").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx248316274").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score13").innerText;
+    if (s1.length  > 0) {  
+        document.getElementById("mx1905651830").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score14").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1207580033").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score15").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1923832800").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score16").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx909418688").value = s1; 
+    } else {
+        ok = "no";
+    }
+       
+    s1 = document.getElementById("score17").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1073367537").value = s1; 
+    } else {
+        ok = "no";
+    }
+     
+    s1 = document.getElementById("score18").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx358314165").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    
+    if (ok == "yes") {
+        alert("do submit");
+        document.forms[0].submit()
+        
     
     sub = document.getElementById("submitButton");
     sub.style.backgroundColor = "blue";
     sub.innerText = "Submitted";
+    
+    
+    } else {
+        alert("message about missing data so no submit");
+    }
+    
+    // press the form submit button
+    //document.forms[0].submit()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
   }
   
   
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// set the target on the form to point to a hidden iframe
+// some browsers need the target set via JavaScript, no idea why...
+document.getElementById('my-form').target = 'my-response-iframe';
+// detect when the iframe reloads
+var iframe = document.getElementById('my-response-iframe');
+if (iframe) {
+iframe.onload = function () {
+// at this point the iframe reloads which is equivalent to a success.
+       
+//alert("success");
+var s1 = document.getElementById("score18").innerText; 
+if (s1.length > 0) {
+    
+    
+ // wait - probably not required
+  // but helps with timestamp etc.
+  const milliseconds = 1000;
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);    
+    
+    
+    
+    
+    
+    
+    
+    sub = document.getElementById("submitButton");
+    sub.style.backgroundColor = "blue";
+    sub.innerText = "Updated OK"; 
+}       
+}
+}
+   
+function fixdata() {
+// copied to buttonSubmit()
+// only for testing - get rid when finished with
+
+
+
+    var ok = "yes";
+    var s1 = document.getElementById("score1").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx202631125").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score2").innerText;
+    if (s1.length  > 0) {  
+        document.getElementById("mx1220170043").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score3").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1343461718").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score4").innerText;
+    if (s1.length  > 0) {  
+        document.getElementById("mx870943983").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score5").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1941601160").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score6").innerText;
+    if (s1.length  > 0) {  
+        document.getElementById("mx720850778").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score7").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx626160595").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score8").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx841825168").value = s1; 
+    } else {
+        ok = "no";
+    }  
+    
+    s1 = document.getElementById("score9").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx118396704").value = s1; 
+    } else {
+        ok = "no";
+    }    
+    
+    s1 = document.getElementById("score10").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx2120326569").value = s1; 
+    } else {
+        ok = "no";
+    }
+       
+    s1 = document.getElementById("score11").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1864857846").value = s1; 
+    } else {
+        ok = "no";
+    }
+        
+    s1 = document.getElementById("score12").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx248316274").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score13").innerText;
+    if (s1.length  > 0) {  
+        document.getElementById("mx1905651830").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score14").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1207580033").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score15").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1923832800").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    s1 = document.getElementById("score16").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx909418688").value = s1; 
+    } else {
+        ok = "no";
+    }
+       
+    s1 = document.getElementById("score17").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1073367537").value = s1; 
+    } else {
+        ok = "no";
+    }
+     
+    s1 = document.getElementById("score18").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx358314165").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    
+    if (ok == "yes") {
+        alert("do submit");
+    }
+    
+    
+    
+    
+    
+}   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>
+
 
 
 
