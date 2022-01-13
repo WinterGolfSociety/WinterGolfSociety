@@ -1390,10 +1390,74 @@ function buttonSubmit() {
     // press the form submit button
     //document.forms[0].submit()
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
   }
   
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1404,24 +1468,40 @@ document.getElementById('my-form').target = 'my-response-iframe';
 // detect when the iframe reloads
 var iframe = document.getElementById('my-response-iframe');
 if (iframe) {
-    iframe.onload = function () {
-    // at this point the iframe reloads which is equivalent to a success.
+iframe.onload = function () {
+// at this point the iframe reloads which is equivalent to a success.
        
-    //alert("success");
-    var s1 = document.getElementById("score18").innerText; 
-    if (s1.length > 0) {
-     
-        // wait - probably not required
-        // but helps with timestamp etc.
-        const milliseconds = 1000;
-        const date = Date.now();
-        let currentDate = null;
-        do {
-            currentDate = Date.now();
-        } while (currentDate - date < milliseconds);     
+//alert("success");
+var s1 = document.getElementById("score18").innerText; 
+if (s1.length > 0) {
+    
+    
+ // wait - probably not required
+  // but helps with timestamp etc.
+  const milliseconds = 1000;
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);    
+    
+    
+    
+    
+    
+    
+    
+    sub = document.getElementById("submitButton");
+    sub.style.backgroundColor = "blue";
+    sub.innerText = "Updated OK"; 
+    
+  
+    
+    
+    
        
-    }       
-    }
+}       
+}
 }
    
 function fixdata() {
@@ -1603,6 +1683,8 @@ function fixdata() {
 </script>
 </body>
 </html>
+
+
 
 
 
