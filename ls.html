@@ -1497,12 +1497,12 @@ if (s1.length > 0) {
     
  // wait - probably not required
   // but helps with timestamp etc.
-  const milliseconds = 5000;
-  const date = Date.now();
-  let currentDate = null;
+  const xmilliseconds = 5000;
+  const xdate = Date.now();
+  let xcurrentDate = null;
   do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);    
+    xcurrentDate = Date.now();
+  } while (xcurrentDate - xdate < xmilliseconds);    
     
   location.reload();  
     
