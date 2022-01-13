@@ -4,25 +4,23 @@
     
 <style>
 body {
- font: normal 18px Arial, sans-serif;  
- color: White; 
+  font: normal 18px Arial, sans-serif;  
+  color: White; 
   background: Gray;  
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  //background-color: Gray;
   padding: 10px;
 }
+
 .grid-item {
   color: White;
   background-color: dodgerBlue;
   border: 1px solid darkSlateGray;
   border-radius: 10px;
   box-shadow: 10px 10px 25px black;
-  //padding: 30px;
-  //font-size: 50px;
   text-align: center;
 }
 
@@ -235,16 +233,8 @@ body {
   padding: 40px;
 }
 
-
-
-
-
-
-
-
-
 .classB {
-   background-color: Blue;
+  background-color: Blue;
   color: white;
   font-size: 100px;
   width: 100%;
@@ -254,45 +244,29 @@ body {
   padding: 40px; 
 }
 
-
-
-
-
-
-
-
-
-
 #scores1to9, #scores10to18 {
-
-color: white;
-font-size: 25px;
-
+  color: white;
+  font-size: 25px;
 }
-
 
 .scoreContainer {
-display: grid;
-  grid-template-columns: auto auto;
-  //background-color: Gray;
-  padding: 20px;    
-    
+  display: grid;
+  grid-template-columns: 200px auto;
+  padding: 20px;        
 }
 
-
-
-.buttonSubmit {
-background-color: dodgerBlue;
+#submitButton {
+  background-color: dodgerBlue;
   color: white;
-  font-size: 40px;
+  font-size: 50px;
   width: 100%;
-  height: 100%;
+  height: 300px;
   cursor: move;
-  white-space: nowrap;
-  padding: 40px;    
-    
-    
+  padding: 0px;    
 }
+
+
+
 
 
 </style>
@@ -564,7 +538,6 @@ background-color: dodgerBlue;
 These are the scores (shots taken) you have entered
 <br><br>
 
-
 <div class="scoreContainer" id="scores1to9">
 hole 1    
 <div id="score1"></div>
@@ -585,6 +558,7 @@ hole 8
 hole 9
 <div id="score9"></div>
 </div>
+
 <div class="scoreContainer" id="scores10to18">
 hole 10
 <div id="score10"></div>
@@ -607,636 +581,505 @@ hole 18
 
 </div>
 
-
 <br><br><br><br><br><br>
-<button class="buttonSubmit" onclick="buttonSubmit()">check scores then ...<h1> Submit</h1></button>
+
+
+
+<button id="submitButton" onclick="buttonSubmit()">Submit</button>
+<div id="submitConfirm"></div>
 
 <br><br><br><br>
-
-
 
 <script>
 
 function blueButton1(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole1");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id2hole1");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole1");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole1");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole1");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole1");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole1");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole1");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole1");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole1");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id2hole1");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole1");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole1");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole1");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole1");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole1");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole1");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole1");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score1").innerText = el.innerText;
-    
 }
 
 function blueButton2(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole2");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id2hole2");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole2");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole2");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole2");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole2");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole2");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole2");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole2");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole2");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id2hole2");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole2");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole2");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole2");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole2");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole2");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole2");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole2");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score2").innerText = el.innerText;
-    
 }
 
 function blueButton3(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole3");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole3");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole3");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole3");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole3");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole3");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole3");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole3");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole3");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole3");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole3");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole3");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole3");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole3");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole3");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole3");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole3");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole3");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score3").innerText = el.innerText;
-    
 }
 
 
 function blueButton4(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole4");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole4");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole4");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole4");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole4");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole4");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole4");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole4");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole4");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole4");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole4");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole4");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole4");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole4");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole4");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole4");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole4");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole4");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score4").innerText = el.innerText;
-    
 }
 
 function blueButton5(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole5");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole5");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole5");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole5");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole5");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole5");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole5");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole5");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole5");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole5");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole5");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole5");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole5");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole5");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole5");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole5");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole5");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole5");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score5").innerText = el.innerText;
-    
 }
 
 function blueButton6(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole6");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole6");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole6");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole6");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole6");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole6");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole6");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole6");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole6");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole6");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole6");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole6");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole6");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole6");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole6");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole6");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole6");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole6");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score6").innerText = el.innerText;
-    
 }
 
 function blueButton7(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole7");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole7");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole7");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole7");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole7");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole7");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole7");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole7");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole7");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole7");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole7");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole7");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole7");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole7");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole7");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole7");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole7");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole7");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score7").innerText = el.innerText;
-    
 }
 
 function blueButton8(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole8");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole8");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole8");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole8");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole8");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole8");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole8");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole8");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole8");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole8");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole8");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole8");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole8");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole8");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole8");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole8");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole8");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole8");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score8").innerText = el.innerText;
-    
 }
 
 function blueButton9(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole9");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole9");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole9");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole9");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole9");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole9");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole9");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole9");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole9");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole9");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole9");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole9");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole9");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole9");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole9");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole9");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole9");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole9");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score9").innerText = el.innerText;
-    
 }
 
 function blueButton10(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole10");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole10");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole10");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole10");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole10");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole10");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole10");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole10");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole10");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole10");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole10");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole10");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole10");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole10");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole10");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole10");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole10");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole10");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score10").innerText = el.innerText;
-    
 }
 
 function blueButton11(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole11");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole11");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole11");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole11");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole11");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole11");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole11");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole11");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole11");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole11");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole11");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole11");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole11");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole11");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole11");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole11");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole11");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole11");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score11").innerText = el.innerText;
-    
 }
 
 function blueButton12(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole12");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole12");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole12");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole12");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole12");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole12");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole12");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole12");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole12");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole12");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole12");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole12");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole12");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole12");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole12");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole12");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole12");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole12");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score12").innerText = el.innerText;
-    
 }
 
 function blueButton13(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole13");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole13");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole13");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole13");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole13");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole13");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole13");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole13");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole13");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole13");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole13");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole13");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole13");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole13");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole13");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole13");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole13");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole13");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score13").innerText = el.innerText;
     
 }
 
 function blueButton14(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole14");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole14");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole14");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole14");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole14");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole14");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole14");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole14");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole14");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole14");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole14");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole14");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole14");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole14");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole14");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole14");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole14");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole14");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score14").innerText = el.innerText;
-    
 }
 
 function blueButton15(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole15");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole15");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole15");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole15");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole15");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole15");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole15");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole15");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole15");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole15");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole15");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole15");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole15");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole15");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole15");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole15");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole15");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole15");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score15").innerText = el.innerText;
-    
 }
 
 function blueButton16(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole16");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole16");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole16");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole16");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole16");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole16");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole16");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole16");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole16");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole16");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole16");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole16");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole16");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole16");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole16");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole16");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole16");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole16");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score16").innerText = el.innerText;
-    
 }
 
 function blueButton17(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole17");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole17");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole17");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole17");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole17");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole17");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole17");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole17");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole17");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole17");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole17");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole17");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole17");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole17");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole17");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole17");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole17");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole17");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score17").innerText = el.innerText;
-    
 }
 
 function blueButton18(id) {    
-    
-    //var currentClass = el.getAttribute("class");
-    // set the buttons off
-    var allel = document.getElementById("id1hole18");
-    allel.setAttribute("class", "button3");
-    allel = document.getElementById("id2hole18");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id3hole18");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id4hole18");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id5hole18");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id6hole18");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id7hole18");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("id8hole18");
-    allel.setAttribute("class", "button1");
-    allel = document.getElementById("idxhole18");
-    allel.setAttribute("class", "button1");      
+    // reset buttons for this hole
+    var buttonElement = document.getElementById("id1hole18");
+    buttonElement.setAttribute("class", "button3");
+    buttonElement = document.getElementById("id2hole18");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id3hole18");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id4hole18");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id5hole18");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id6hole18");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id7hole18");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("id8hole18");
+    buttonElement.setAttribute("class", "button1");
+    buttonElement = document.getElementById("idxhole18");
+    buttonElement.setAttribute("class", "button1");      
     // then set current button on
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
-    
-    
     document.getElementById("score18").innerText = el.innerText;
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function buttonSubmit() {
-
-alert("submit procedure goes here");
-
+  
+  if (document.getElementById("submitButton").innerText == "Submit") {
+  
+    // do submit stuff here
+    
+    sub = document.getElementById("submitButton");
+    sub.style.backgroundColor = "blue";
+    sub.innerText = "Submitted";
+  }
+  
+  
 }
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-function shuffleArray() {
-
-    
- 
-}
-
-
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
+
 
 
 
