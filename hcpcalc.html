@@ -37,8 +37,30 @@ font-size:12px;
   font-size: 15px;
 }
 #rangeHindex {
-    width: 100%;
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%;
+  height: 25px;
+  background: dodgerBlue;
+  outline: none;
 }
+
+#rangeHindex::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 50px; /* Slider handle height */
+  background: Blue; 
+  cursor: pointer; /* Cursor on hover */
+}
+
+#rangeHindex::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 50px; /* Slider handle height */
+  background: Blue;
+  cursor: pointer; /* Cursor on hover */
+}
+
 #Hindex, #Hlakes {
   font-size: 30px;
   color: blue;
@@ -57,6 +79,7 @@ font-size:12px;
   clear: both;
 }
 */
+
 
 </style>
 <meta charset="utf-8" />
