@@ -74,7 +74,7 @@ body {
 .button-m{
   background-color: dodgerBlue;
   color: white;
-  font-size: 60px;
+  font-size: 30px;
   width: 100%;
   height: 100%;  
   cursor: move;
@@ -355,7 +355,7 @@ body {
 
 
 </head>
-<body>
+<body onload="Startup()">
 
 <h1>Score entry</h1>
 
@@ -388,6 +388,20 @@ body {
 
 
 <script>
+    
+function Startup() {
+ 
+HideAll(); 
+  
+// move to hole 1    
+var element = document.getElementById("hole1");
+element.style.display = "grid";
+    
+}
+
+    
+    
+    
 function MoveButton2(thisid) {
  
 HideAll(); 
@@ -2017,6 +2031,8 @@ function fixdata() {
 </script>
 </body>
 </html>
+
+
 
 
 
