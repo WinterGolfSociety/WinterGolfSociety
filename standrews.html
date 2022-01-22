@@ -54,16 +54,13 @@
                 <h1>Select gross scores</h1>
                 <br>
                 <div id="roundslider1" class="roundslider"></div>
-                <br>
+                <br><br><br>
                 <div id="roundslider2" class="roundslider"></div>
-                
-                <br>
-                
+                <br><br><br>
                 <div id="roundslider3" class="roundslider"></div>
-                <br><br>
+                <br><br><br>
                 <div id="roundslider4" class="roundslider"></div>
-                
-                <br><br>
+                <br><br><br>
                 <div id="roundslider5" class="roundslider"></div>
                 
                 
@@ -77,16 +74,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="roundslider.min.js"></script>
         <script>
-/*
-        $("#roundslider1").roundSlider({
-            sliderType: "default",
-            value: 50
-        });
 
-*/
+
        $("#roundslider1").roundSlider({
             sliderType: "min-range",
-            value: 3,
+            value: 8,
             min: 0,
             max: 8,
             radius: 200,
@@ -101,7 +93,7 @@
 
     $("#roundslider2").roundSlider({
             sliderType: "min-range",
-            value: 3,
+            value: 8,
             min: 0,
             max: 8,
             radius: 200,
@@ -118,7 +110,7 @@
 
 $("#roundslider3").roundSlider({
             sliderType: "min-range",
-            value: 3,
+            value: 8,
             min: 0,
             max: 8,
             radius: 200,
@@ -133,7 +125,7 @@ $("#roundslider3").roundSlider({
 
 $("#roundslider4").roundSlider({
             sliderType: "min-range",
-            value: 3,
+            value: 8,
             min: 0,
             max: 8,
             radius: 200,
@@ -150,7 +142,7 @@ $("#roundslider4").roundSlider({
 
     $("#roundslider5").roundSlider({
             sliderType: "min-range",
-            value: 3,
+            value: 8,
             min: 0,
             max: 8,
             radius: 200,
@@ -171,15 +163,12 @@ $("#roundslider4").roundSlider({
 
 
 
-
-
-
-
+    
 
 
 function ttformatscore1(tt) {
- return "<h1>hole 1 = " + tt.value + "</h1>";   
-    
+ return "<h1>hole 1 = " + tt.value + "</h1>"; 
+ 
 }
 
 function ttformatscore2(tt) {
@@ -225,5 +214,4 @@ function ttformatscore5(tt) {
 
     </body>
 </html>
-
 
