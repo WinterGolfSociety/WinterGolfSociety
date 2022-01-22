@@ -85,6 +85,8 @@
                 <br><br>
                 <div id="roundslider4" class="roundslider"></div>
                 
+                <br><br>
+                <div id="roundslider5" class="roundslider"></div>
                 
                 
                 
@@ -106,9 +108,9 @@
 */
         $("#roundslider1").roundSlider({
             sliderType: "min-range",
-            value: 15,
-            min: 5,
-            max: 30,
+            value: 3,
+            min: 0,
+            max: 8,
             radius: 100,
             handleSize: +50,
             showTooltip: false,
@@ -139,9 +141,9 @@
 $("#roundslider3").roundSlider({
             sliderType: "min-range",
             circleShape: "half-top",
-            value: 15,
-            min: 5,
-            max: 30,
+            value: 3,
+            min: 0,
+            max: 8,
             radius: 200,
             handleSize: +50,
             showTooltip: true,
@@ -169,6 +171,19 @@ $("#roundslider3").roundSlider({
 
 
 
+    $("#roundslider5").roundSlider({
+            sliderType: "min-range",
+            value: 3,
+            min: 0,
+            max: 8,
+            radius: 200,
+            handleSize: +75,
+            showTooltip: true,
+            tooltipFormat: "ttformatscore1",
+            step: 1,
+            change: "getV",
+            drag: "getV"
+        });
 
 
 
@@ -200,6 +215,13 @@ function ttformatscore(tt) {
  return "<h1>score = " + (tt.value * -1) + "</h1>";   
     
 }
+
+function ttformatscore1(tt) {
+ return "<h1>hole 1 = " + tt.value + "</h1>";   
+    
+}
+
+
         </script>
 
 
@@ -224,3 +246,4 @@ function ttformatscore(tt) {
 
     </body>
 </html>
+
