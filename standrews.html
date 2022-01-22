@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Select hcp</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+    </head>
+    <link href="roundslider.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+.roundslider {
+            display: inline-block;
+        }
+        
+        
+#roundslider3 .rs-range-color  {
+    background-color: dodgerBlue;
+}
+
+#roundslider3 .rs-path-color  {
+    background-color: lightGray;
+}
+
+
+#roundslider3 .rs-handle:after  {
+    background-color: gray;
+}
+
+
+
+#roundslider4 .rs-border  {
+    border-color: transparent;
+}
+        
+        
+#roundslider4 .rs-range-color  {
+    background-color: lightGray;
+}
+
+#roundslider4 .rs-path-color  {
+    background-color: dodgerBlue;
+}
+
+
+#roundslider4 .rs-handle:after  {
+    background-color: gray;
+}
+
+
+
+#roundslider4 .rs-border  {
+    border-color: transparent;
+}   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </style>
+
+    <body>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                    
+                <h1>Select hcp
+                <div id="hcp"></div>
+                </h1>
+                
+                <div id="roundslider1" class="roundslider"></div>
+                <br>
+                <div id="roundslider2" class="roundslider"></div>
+                
+                <br>
+                
+                <div id="roundslider3" class="roundslider"></div>
+                <br><br>
+                <div id="roundslider4" class="roundslider"></div>
+                
+                
+                
+                
+                
+                
+                
+                    
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="roundslider.min.js"></script>
+        <script>
+/*
+        $("#roundslider1").roundSlider({
+            sliderType: "default",
+            value: 50
+        });
+
+*/
+        $("#roundslider1").roundSlider({
+            sliderType: "min-range",
+            value: 15,
+            min: 5,
+            max: 30,
+            radius: 100,
+            handleSize: +50,
+            showTooltip: false,
+            step: 1,
+            change: "getV",
+            drag: "getV"
+        });
+
+
+            $("#roundslider2").roundSlider({
+            sliderType: "min-range",
+            value: 15,
+            min: 5,
+            max: 30,
+            radius: 100,
+            handleSize: +50,
+            showTooltip: true,
+            tooltipFormat: "ttformat",
+            step: 1,
+            change: "getV",
+            drag: "getV"
+        });
+
+
+
+
+
+$("#roundslider3").roundSlider({
+            sliderType: "min-range",
+            circleShape: "half-top",
+            value: 15,
+            min: 5,
+            max: 30,
+            radius: 200,
+            handleSize: +50,
+            showTooltip: true,
+            tooltipFormat: "ttformathcp",
+            step: 1,
+            change: "getV",
+            drag: "getV"
+        });
+
+
+            $("#roundslider4").roundSlider({
+            sliderType: "min-range",
+            circleShape: "half-bottom",
+            value: 15,
+            min: -30,
+            max: -5,
+            radius: 200,
+            handleSize: +50,
+            showTooltip: true,
+            tooltipFormat: "ttformatscore",
+            step: 1,
+            change: "getV",
+            drag: "getV"
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getV(e) {
+   
+ // alert(e.value);
+
+var element = document.getElementById("hcp");
+element.innerText=e.value;
+}
+
+function ttformathcp(tt) {
+ return "<h1>hcp = " + tt.value + "</h1>";   
+    
+}
+
+function ttformatscore(tt) {
+ return "<h1>score = " + (tt.value * -1) + "</h1>";   
+    
+}
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
