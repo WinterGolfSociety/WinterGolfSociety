@@ -39,15 +39,6 @@
       margin: 0; 
       width:auto;
       }
-      .grid-container {
-      display: grid;
-      //grid-template-columns: auto auto auto;
-      grid-template-columns: 25% 25% 25% 25%;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 100%;
-      }
       .grid-item {
       color: White;
       background-color: dodgerBlue;
@@ -141,14 +132,109 @@
             <h1>Submit when OK</h1>
             <br>
             <div class="grid-item">
-               <button class="button1" onclick="submitButton(this.id)" id="submit">Submit</button>
+               <button class="button1" onclick="submitButton(this.id)" id="submitButton">Submit</button>
             </div>
             <br><br><br><br>
          </div>
       </div>
+            
+      <div id="hiddenForms">             
+       
+      <form id="my-form" 
+         target="my-response-iframe" 
+         action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeC2YzTYsPmG_UJVcoAyZYucB5paXmYHMfeKKvL1ehWwAiapQ/formResponse" 
+         method="post" >
+          
+         <!-- player -->
+         <input type="text" 
+         name="entry.191342363" 
+         value="default" 
+         id="mx191342363" >
+         <!-- course -->
+         <input type="text" 
+         name="entry.1174098870" 
+         value="default" 
+         id="mx1174098870" >
+         <!-- score -->
+         <input type="text" 
+         name="entry.867201411" 
+         value="default" 
+         id="mx867201411" >
+         <!-- last9 -->
+         <input type="text" 
+         name="entry.1309765758" 
+         value="default" 
+         id="mx1309765758" >
+         <!-- last6 -->
+         <input type="text" 
+         name="entry.969991204" 
+         value="default" 
+         id="mx969991204" >
+         <!-- last3 -->
+         <input type="text" 
+         name="entry.720674937" 
+         value="default" 
+         id="mx720674937" >
+         <!-- last1 -->
+         <input type="text" 
+         name="entry.299070550" 
+         value="default" 
+         id="mx299070550" >
+         <input type="submit">
+      </form>
+
+      <iframe id="my-response-iframe" 
+         name="my-response-iframe"
+         src="https://docs.google.com/forms/d/e/1FAIpQLSeC2YzTYsPmG_UJVcoAyZYucB5paXmYHMfeKKvL1ehWwAiapQ/viewform?embedded=true" 
+         width="10" 
+         height="10" 
+         frameborder="0" 
+         marginheight="0" 
+         marginwidth="0">
+      </iframe>
+
+      </div>
+
+      <br><br><br><br><br><br>
+     
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
       <script src="roundslider.min.js"></script>
       <script>
+      // hide forms  
+      var hidelement = document.getElementById("hiddenForms");
+      hidelement.style.display = "none"; 
+      
+      
+      // set the target on the form to point to a hidden iframe
+      // some browsers need the target set via JavaScript, no idea why...
+      document.getElementById('my-form').target = 'my-response-iframe';
+      // detect when the iframe reloads
+      var iframe = document.getElementById('my-response-iframe');
+      if (iframe) {
+         iframe.onload = function () {
+         // at this point the iframe reloads which is equivalent to a success.   
+         //alert("success");
+         var s1 = document.getElementById("name").innerText; 
+         if (s1.length > 1) {
+            // wait - probably not required
+            // but helps with timestamp etc.
+            const milliseconds = 1000;
+            const date = Date.now();
+            let currentDate = null;
+            do {
+               currentDate = Date.now();
+            } while (currentDate - date < milliseconds);    
+    
+            var sub = document.getElementById("submitButton");
+            sub.style.backgroundColor = "blue";
+            sub.innerText = "Updated OK"; 
+         }       
+         }
+      }
+ 
+      // goto top  
+      //window.scrollTo(0, 0)  
+                   
          $("#roundslider1").roundSlider({
                      sliderType: "min-range",
                      value: 36,
@@ -271,13 +357,6 @@
              buttonElement = document.getElementById("idOther");
              buttonElement.setAttribute("class", "button1")
              
-             
-             
-             
-             
-             
-             
-               
              // get player name
              var element = document.getElementById(id);
              element.setAttribute("class", "classB");
@@ -286,14 +365,114 @@
              // work out course based on day
              const d = new Date();
          let day = d.getDay()
-         if (day == "0") {
+         
+         // for testing
+         if (day !== "99") {
+         document.getElementById("course").innerText = "course: St.Andrews";
+         }
+         
+         // Wednesday
+         if (day == "3") {
          document.getElementById("course").innerText = "course: Aberdour";
+         }
+         // Thursday
+         if (day == "4") {
+         document.getElementById("course").innerText = "course: St.Andrews";
+         }
+         // Friday
+         if (day == "5") {
+         document.getElementById("course").innerText = "course: Kinghorn";
          }
          }
          
+         
+         
+     function submitButton() {
+  
+        if (document.getElementById("submitButton").innerText == "Submit") {
+  
+           // do submit stuff here
+           var ok = "yes";
+           var s1 = document.getElementById("name").innerText;
+           if (s1.length  > 1) { 
+              s2 = s1.replace("name: ","");
+              document.getElementById("mx191342363").value = s2; 
+           } else {
+              ok = "no";
+           }
+    
+           s1 = document.getElementById("course").innerText;
+           if (s1.length  > 1) {
+              s2 = s1.replace("course: ","");  
+              document.getElementById("mx1174098870").value = s2; 
+           } else {
+              ok = "no";
+           }
+    
+           s1 = document.getElementById("sscore").innerText;
+           if (s1.length  > 0) { 
+              s2 = s1.replace("score: ","");
+              document.getElementById("mx867201411").value = s2; 
+           } else {
+              ok = "no";
+           }
+    
+           s1 = document.getElementById("slast9").innerText;
+           if (s1.length  > 0) {  
+              s2 = s1.replace("last 9: ","");
+              document.getElementById("mx1309765758").value = s2; 
+           } else {
+              ok = "no";
+           }
+    
+           s1 = document.getElementById("slast6").innerText;
+           if (s1.length  > 0) { 
+              s2 = s1.replace("last 6: ","");
+              document.getElementById("mx969991204").value = s2; 
+           } else {
+              ok = "no";
+           }
+    
+           s1 = document.getElementById("slast3").innerText;
+           if (s1.length  > 0) {
+              s2 = s1.replace("last 3: ","");  
+              document.getElementById("mx720674937").value = s2; 
+           } else {
+              ok = "no";
+           }
+    
+           s1 = document.getElementById("slast1").innerText;
+           if (s1.length  > 0) {
+              s2 = s1.replace("last 1: ",""); 
+              document.getElementById("mx299070550").value = s2; 
+           } else {
+              ok = "no";
+           }
+      
+           if (ok == "yes") {
+              //alert("do submit");
+              document.forms[0].submit()
+              sub = document.getElementById("submitButton");
+              sub.style.backgroundColor = "blue";
+              sub.innerText = "Submitted";
+           } else {
+              alert("message about missing data so no submit");
+           }
+    
+        }
+ 
+    }
+
+
       </script>
    </body>
 </html>
+
+
+
+
+
+
 
 
 
