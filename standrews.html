@@ -12,7 +12,7 @@
    <style>
       .roundslider {
       display: inline-block;
-      padding: 0;
+      //padding: 0;
       }
       .roundslider .rs-range-color  {
       background-color: dodgerBlue;
@@ -29,12 +29,15 @@
       body {
       font: normal 25px Arial, sans-serif;  
       color: black; 
-      background: white; 
+      background: white;
+      width: auto; 
       padding: 0; 
+      margin: 0;
       }
       .row {
-      padding: 0; 
-      width:100%;
+      padding: 0;
+      margin: 0; 
+      width:auto;
       }
       .grid-container {
       display: grid;
@@ -53,8 +56,8 @@
       //box-shadow: 10px 10px 25px black;
       text-align: center;
       height: 100%;
-      width: 100%; 
-      padding: 0;
+      width: auto; 
+      //padding: 0;
       }       
       .button1 {
       background-color: dodgerBlue;
@@ -64,7 +67,7 @@
       height: 100%;
       cursor: move;
       white-space: nowrap;
-      padding: 40px 0px;
+      padding: 40px;
       }       
       .classB {
       background-color: Blue;
@@ -135,7 +138,7 @@
             <div id="slast1" class="score">-</div>
          
             <br>
-            <h1>Submit when ready</h1>
+            <h1>Submit when OK</h1>
             <br>
             <div class="grid-item">
                <button class="button1" onclick="submitButton(this.id)" id="submit">Submit</button>
@@ -166,7 +169,7 @@
                      value: 18,
                      min: 0,
                      max: 25,
-                     radius: 200,
+                     radius: 150,
                      width: 40,
                      handleSize: +75,
                      showTooltip: true,
@@ -180,7 +183,7 @@
                      value: 12,
                      min: 0,
                      max: 20,
-                     radius: 200,
+                     radius: 150,
                      width: 40,
                      handleSize: +75,
                      showTooltip: true,
@@ -194,7 +197,7 @@
                      value: 6,
                      min: 0,
                      max: 10,
-                     radius: 200,
+                     radius: 150,
                      width: 40,
                      handleSize: +75,
                      showTooltip: true,
@@ -208,7 +211,7 @@
                      value: 2,
                      min: 0,
                      max: 5,
-                     radius: 200,
+                     radius: 150,
                      width: 40,
                      handleSize: +75,
                      showTooltip: true,
@@ -291,5 +294,6 @@
       </script>
    </body>
 </html>
+
 
 
