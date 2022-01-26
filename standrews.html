@@ -42,13 +42,9 @@
       .grid-item {
       color: White;
       background-color: dodgerBlue;
-      //border: 1px solid darkSlateGray;
-      //border-radius: 10px;
-      //box-shadow: 10px 10px 25px black;
       text-align: center;
       height: 100%;
       width: auto; 
-      //padding: 0;
       }       
       .button1 {
       background-color: dodgerBlue;
@@ -100,7 +96,7 @@
          <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idAndy">Andy</button></div>
          <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idBob">Bob</button></div>
          <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idBryan">Bryan</button></div>
-         <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idColin">Colin</button></div>
+         <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idChris">Chris</button></div>
          <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idGary">Gary</button></div>
          <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idPaul">Paul</button></div>
          <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idPete">Pete</button></div>
@@ -110,23 +106,17 @@
             <h1>Select points scored</h1>
             <br>
             <div id="roundslider1" class="roundslider"></div>
-            <br><br><br>
+            <br><br>
+            <h1>Select adjustment for relative countback</h1>
+            <br>
             <div id="roundslider2" class="roundslider"></div>
-            <br><br><br>
-            <div id="roundslider3" class="roundslider"></div>
-            <br><br><br>
-            <div id="roundslider4" class="roundslider"></div>
-            <br><br><br>
-            <div id="roundslider5" class="roundslider"></div>
+            
             <br><br><br>
             <!-- data that will be submitted -->
             <div id="name" class="score">-</div>
             <div id="course" class="score">-</div>
             <div id="sscore" class="score">-</div>
-            <div id="slast9" class="score">-</div>
-            <div id="slast6" class="score">-</div>
-            <div id="slast3" class="score">-</div>
-            <div id="slast1" class="score">-</div>
+            <div id="sadj" class="score">-</div>
          
             <br>
             <h1>Submit when OK</h1>
@@ -134,7 +124,7 @@
             <div class="grid-item">
                <button class="button1" onclick="submitButton(this.id)" id="submitButton">Submit</button>
             </div>
-            <br><br><br><br>
+            <br><br>
          </div>
       </div>
             
@@ -160,26 +150,11 @@
          name="entry.867201411" 
          value="default" 
          id="mx867201411" >
-         <!-- last9 -->
+         <!-- adj -->
          <input type="text" 
          name="entry.1309765758" 
          value="default" 
          id="mx1309765758" >
-         <!-- last6 -->
-         <input type="text" 
-         name="entry.969991204" 
-         value="default" 
-         id="mx969991204" >
-         <!-- last3 -->
-         <input type="text" 
-         name="entry.720674937" 
-         value="default" 
-         id="mx720674937" >
-         <!-- last1 -->
-         <input type="text" 
-         name="entry.299070550" 
-         value="default" 
-         id="mx299070550" >
          <input type="submit">
       </form>
 
@@ -231,9 +206,6 @@
          }       
          }
       }
- 
-      // goto top  
-      //window.scrollTo(0, 0)  
                    
          $("#roundslider1").roundSlider({
                      sliderType: "min-range",
@@ -249,24 +221,9 @@
                      step: 1
                  });
          
-         
              $("#roundslider2").roundSlider({
                      sliderType: "min-range",
-                     value: 18,
-                     min: 0,
-                     max: 25,
-                     radius: 150,
-                     width: 40,
-                     handleSize: +75,
-                     showTooltip: true,
-                     editableTooltip: false,
-                     tooltipFormat: "ttformatscore2",
-                     step: 1
-                 });
-         
-             $("#roundslider3").roundSlider({
-                     sliderType: "min-range",
-                     value: 12,
+                     value: 10,
                      min: 0,
                      max: 20,
                      radius: 150,
@@ -274,35 +231,7 @@
                      handleSize: +75,
                      showTooltip: true,
                      editableTooltip: false,
-                     tooltipFormat: "ttformatscore3",
-                     step: 1
-                 });
-         
-             $("#roundslider4").roundSlider({
-                     sliderType: "min-range",
-                     value: 6,
-                     min: 0,
-                     max: 10,
-                     radius: 150,
-                     width: 40,
-                     handleSize: +75,
-                     showTooltip: true,
-                     editableTooltip: false,
-                     tooltipFormat: "ttformatscore4",
-                     step: 1
-                 });
-         
-             $("#roundslider5").roundSlider({
-                     sliderType: "min-range",
-                     value: 2,
-                     min: 0,
-                     max: 5,
-                     radius: 150,
-                     width: 40,
-                     handleSize: +75,
-                     showTooltip: true,
-                     editableTooltip: false,
-                     tooltipFormat: "ttformatscore5",
+                     tooltipFormat: "ttformatscore2",
                      step: 1
                  });
          
@@ -313,27 +242,9 @@
          }
          
          function ttformatscore2(tt) {
-          // last 9
-          document.getElementById("slast9").innerText = "last 9: " + tt.value;   
-          return "<h1>last 9 = " + tt.value + "</h1>";   
-         }
-         
-         function ttformatscore3(tt) {
-          // last 6
-          document.getElementById("slast6").innerText = "last 6: " + tt.value;   
-          return "<h1>last 6 = " + tt.value + "</h1>";   
-         }
-         
-         function ttformatscore4(tt) {
-          // last 3
-          document.getElementById("slast3").innerText = "last 3: " + tt.value;   
-          return "<h1>last 3 = " + tt.value + "</h1>";  
-         }
-         
-         function ttformatscore5(tt) {
-          // last 1
-          document.getElementById("slast1").innerText = "last 1: " + tt.value;   
-          return "<h1>last 1 = " + tt.value + "</h1>";   
+          // adj
+          document.getElementById("sadj").innerText = "adj: " + tt.value;   
+          return "<h1>adj = " + tt.value + "</h1>";   
          }
          
          
@@ -346,7 +257,7 @@
              buttonElement.setAttribute("class", "button1")
              buttonElement = document.getElementById("idBryan");
              buttonElement.setAttribute("class", "button1")
-             buttonElement = document.getElementById("idColin");
+             buttonElement = document.getElementById("idChris");
              buttonElement.setAttribute("class", "button1")
              buttonElement = document.getElementById("idGary");
              buttonElement.setAttribute("class", "button1")
@@ -356,7 +267,6 @@
              buttonElement.setAttribute("class", "button1")
              buttonElement = document.getElementById("idTony");
              buttonElement.setAttribute("class", "button1")
-             
              
              // get player name
              var element = document.getElementById(id);
@@ -369,7 +279,7 @@
          
          // for testing
          if (day !== "99") {
-         document.getElementById("course").innerText = "course: St.Andrews";
+         document.getElementById("course").innerText = "course: Aberdour";
          }
          
          // Wednesday
@@ -418,34 +328,10 @@
               ok = "no";
            }
     
-           s1 = document.getElementById("slast9").innerText;
+           s1 = document.getElementById("sadj").innerText;
            if (s1.length  > 0) {  
-              s2 = s1.replace("last 9: ","");
+              s2 = s1.replace("adj: ","");
               document.getElementById("mx1309765758").value = s2; 
-           } else {
-              ok = "no";
-           }
-    
-           s1 = document.getElementById("slast6").innerText;
-           if (s1.length  > 0) { 
-              s2 = s1.replace("last 6: ","");
-              document.getElementById("mx969991204").value = s2; 
-           } else {
-              ok = "no";
-           }
-    
-           s1 = document.getElementById("slast3").innerText;
-           if (s1.length  > 0) {
-              s2 = s1.replace("last 3: ","");  
-              document.getElementById("mx720674937").value = s2; 
-           } else {
-              ok = "no";
-           }
-    
-           s1 = document.getElementById("slast1").innerText;
-           if (s1.length  > 0) {
-              s2 = s1.replace("last 1: ",""); 
-              document.getElementById("mx299070550").value = s2; 
            } else {
               ok = "no";
            }
@@ -468,6 +354,12 @@
       </script>
    </body>
 </html>
+
+
+
+
+
+
 
 
 
