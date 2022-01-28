@@ -3,8 +3,6 @@
 <style type="text/css">
 body {
 background: Gray;
-background-size: cover;
-//background-image: linear-gradient(lightslategray,darkslateGray);
 font-family: arial, sans-serif;
 font-size: 30px;
 color: white;
@@ -77,7 +75,7 @@ display: block;
 </head>
 <body>
 <div class="atitle"><span class="asubtitle">my .. </span>
-Winter <img src="fallovergolfer.gif" alt="Golfer" width="130" height="103" /><br />
+Winter <img src="fallovergolfer.gif" alt="Golfer" width="70" height="90" /><br />
 Golf Society
 <div class="asubtitle">
 (Fridays 5th November 2021 to 25th March 2022)
@@ -144,6 +142,8 @@ Andy Davison</a>
 John Dean</a>
 <a href="javascript:getScreenPlayer(1599175137,'Trevor');">
 Trevor Dodds</a>
+<a href="javascript:getScreenPlayer(345367372,'Martin');">
+Martin Edwards</a>
 <a href="javascript:getScreenPlayer(633634243,'Joe');">
 Joe Fletcher</a>
 <a href="javascript:getScreenPlayer(146058231,'Norman';">
@@ -300,6 +300,8 @@ Andy Davison</a>
 John Dean</a>
 <a href="javascript:getScreenPlayerFull(1635809352,'Trevor');">
 Trevor Dodds</a>
+<a href="javascript:getScreenPlayerFull(1526547200,'Martin');">
+Martin Edwards</a>
 <a href="javascript:getScreenPlayerFull(1161756862,'Joe');">
 Joe Fletcher</a>
 <a href="javascript:getScreenPlayerFull(221300119,'Norman');">
@@ -429,13 +431,11 @@ ESR adjustments</a>
 <a href="javascript:getScreenFaster(896433412,'admin');">
 HCP adjustments list</a>
 <a href="javascript:getScreenFaster(608380907,'admin');">
-HCP review - points</a>
+HCP review</a>
 <a href="javascript:getScreenFaster(1424699021,'admin');">
-HCP review - positions</a>
+HCP review positions</a>
 <a href="javascript:getScreenFaster(2044962809,'admin');">
 Browse last 50 records</a>
-<a href="javascript:getScreenFaster(1611919846,'admin');">
-Check Countback</a>
 <a href="javascript:getScreenFaster(2061324180,'admin');">
 Check CH</a>
 <a href="javascript:getScreenFaster(777153918,'admin');">
@@ -484,6 +484,10 @@ window.location.href ='linkplayerFull.html?id=' + gid + "&fname=" + playername;
 function getScreenStats(gid,playername) {
 window.location.href ='linkStats.html?id=' + gid + "&fname=" + playername;
 }
+
+
+
+
 // When the user clicks on the button, closes every dropdown and only opens the one passed as argument
 function myFunction(element) {
 var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -576,6 +580,9 @@ ggg="1296154515";
 break;
 case "TrevorDodds.html":
 ggg="1599175137";
+break;
+case "MartinEdwards.html":
+ggg="345367372";
 break;
 case "JoeFletcher.html":
 ggg="146058231";
@@ -803,6 +810,9 @@ ggg="1040619535";
 break;
 case "TrevorDodds.html":
 ggg="1635809352";
+break;
+case "MartinEdwards.html":
+ggg="1526547200";
 break;
 case "JoeFletcher.html":
 ggg="1161756862";
