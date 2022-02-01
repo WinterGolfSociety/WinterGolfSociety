@@ -177,14 +177,14 @@ type="text"
 size="4"
 id="Plakes95"
 name="Plakes95"
-value="$hhlakes95"
+value="$hhlakesWinter"
 readonly
 />
   
 </div>   
   
 <div class="col2">     
-<br>lakes 95% adjusted course hcp
+<br>lakes winter course hcp
 </div>
 
 <br><br><br><br>
@@ -196,14 +196,14 @@ type="text"
 size="4"
 id="Pdawson95"
 name="Pdawson95"
-value="$hhdawson95"
+value="$hhdawsonWinter"
 readonly
 />
   
 </div>   
   
 <div class="col2">     
-<br>dawson 95% adjusted course hcp
+<br>dawson winter course hcp
 </div>
 
 <br><br><br><br>
@@ -222,15 +222,15 @@ function recalchandicap() {
     var rhdawson = Math.round(hdawson);
     var rhhlakes = Number.parseFloat(hlakes).toFixed(1);
     var rhhdawson = Number.parseFloat(hdawson).toFixed(1);
-    var hhlakes95 = (hhlakes * 0.95);
-    var hhdawson95 = (hhdawson * 0.95);
+    var hhlakesWinter = (hindex * (110 / 113.0));
+    var hhdawsonWinter = (hindex * (116 / 113.0));
                 
     document.getElementById("Hlakes").value = rhlakes;
     document.getElementById("Hdawson").value = rhdawson;
     //document.getElementById("Plakes").value = rhhlakes;
     //document.getElementById("Pdawson").value = rhhdawson;
-    document.getElementById("Plakes95").value = Number.parseFloat(hhlakes95).toFixed();
-    document.getElementById("Pdawson95").value = Number.parseFloat(hhdawson95).toFixed();
+    document.getElementById("Plakes95").value = Number.parseFloat(hhlakesWinter).toFixed();
+    document.getElementById("Pdawson95").value = Number.parseFloat(hhdawsonWinter).toFixed();
             
     updategreet();
 }
@@ -264,4 +264,8 @@ window.onload = recalchandicap();
 </script>
 </body>
 </html>
+
+
+
+
 
