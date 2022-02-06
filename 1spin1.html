@@ -4,6 +4,8 @@
 
 
 
+
+
 <!doctype html>
 <html>
 <head>
@@ -39,12 +41,10 @@ h2 {
    background-image: linear-gradient(lightslategray,slateGray);  
 }
 
-#result1, #result2, #result3, #result4, #result5 {
+#result1, #result2, #result3, #result4, #result5, #result6 {
    font-size: 50px; 
    color: yellow;
 }
-
-
 
 input[type='number'].rotating-slider-input {
     -moz-appearance: textfield;
@@ -174,23 +174,50 @@ input.rotating-slider-input::-webkit-inner-spin-button {
 <body>
 <div class="container">
 <h1>test</h1>
-<h1>Basic</h1>
+
+<h1>hole 1</h1>
 <div class="demo">
    <h2 id="rotating-slider1"/>
 </div>
 <br><br><br>
-<h1>testing</h1>
+
+<h1>hole2</h1>
 <div class="demo">
    <h2 id="rotating-slider2"/>
 </div>
 <br><br><br>
+
+<h1>hole3</h1>
+<div class="demo">
+   <h2 id="rotating-slider3"/>
+</div>
+<br><br><br>
+
+<h1>hole4</h1>
+<div class="demo">
+   <h2 id="rotating-slider4"/>
+</div>
+<br><br><br>
+
+<h1>hole5</h1>
+<div class="demo">
+   <h2 id="rotating-slider5"/>
+</div>
+<br><br><br>
+
+<h1>hole6</h1>
+<div class="demo">
+   <h2 id="rotating-slider6"/>
+</div>
+<br><br><br>
+
 <div id="result1"></div>
 <div id="result2"></div>
 <div id="result3"></div>
 <div id="result4"></div>
 <div id="result5"></div>
+<div id="result6"></div>
 <br><br><br>
-
 </div>
 
 <script>
@@ -215,11 +242,14 @@ input.rotating-slider-input::-webkit-inner-spin-button {
     document.getElementById("result5").innerText = val
     });
     
-    
+    RotatingSlider($("#rotating-slider6"), {min: 0, max: 9, step: 1}, 0).setChangeCallback(function (val) {
+    document.getElementById("result6").innerText = val
+    });
 </script>
 
 </body>
 </html>
+
 
 
 
