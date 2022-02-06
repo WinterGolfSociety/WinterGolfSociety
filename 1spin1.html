@@ -7,6 +7,7 @@
 
 
 
+
 <!doctype html>
 <html>
 <head>
@@ -26,7 +27,7 @@ body {
 }
 h1 { 
    text-align: center; 
-   font-size: 40px;
+   font-size: 30px;
    text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
                 0px 8px 13px rgba(0,0,0,0.1),
                 0px 18px 23px rgba(0,0,0,0.1);
@@ -39,7 +40,7 @@ h1 {
 
 h2 { 
    text-align: center; 
-   font-size: 40px;
+   font-size: 30px;
    text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
                 0px 8px 13px rgba(0,0,0,0.1),
                 0px 18px 23px rgba(0,0,0,0.1);
@@ -95,7 +96,6 @@ input.rotating-slider-input::-webkit-inner-spin-button {
     z-index: 1;
     position: relative;
     cursor: pointer;
-    //height: 2.5em;
     height: 40px;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -109,7 +109,6 @@ input.rotating-slider-input::-webkit-inner-spin-button {
     z-index: 1;
     position: relative;
     cursor: pointer;
-    //height: 0.75em;
     height: 0px;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -129,18 +128,21 @@ input.rotating-slider-input::-webkit-inner-spin-button {
     position: absolute;
     left: 0%;
     opacity: 0.1;
-    top: 0.5em;
+    top: 0;
     margin: auto;
-    height: 1em;
+    //height: 1em;
+    font-size: 40px;
 }
 
 .rotating-slider-center-left {
     position: absolute;
-    left: 15%;
+    //left: 15%;
+    left: 20%;
     opacity: 0.3;
-    top: 0.25em;
+    top: 0;
     margin: auto;
-    height: 1em;
+    //height: 1em;
+    font-size: 40px;
 }
 
 .rotating-slider-center {
@@ -150,8 +152,9 @@ input.rotating-slider-input::-webkit-inner-spin-button {
     top: 0;
     text-align: center;
     margin: auto;
-    height: 1em;
-    opacity: 0.5;
+    //height: 1em;
+    //opacity: 0.5;
+    font-size: 40px;
 }
 
 .rotating-slider-center.rotating-slider-value-stable {
@@ -166,11 +169,13 @@ input.rotating-slider-input::-webkit-inner-spin-button {
 
 .rotating-slider-center-right {
     position: absolute;
-    right: 15%;
+    //right: 15%;
+    right: 20%;
     opacity: 0.3;
-    top: 0.25em;
+    top: 0;
     margin: auto;
-    height: 1em;
+    //height: 1em;
+    font-size: 40px;
 
 }
 
@@ -178,9 +183,10 @@ input.rotating-slider-input::-webkit-inner-spin-button {
     position: absolute;
     right: 0;
     opacity: 0.1;
-    top: 0.5em;
+    top: 0;
     margin: auto;
-    height: 1em;
+    //height: 1em;
+    font-size: 40px;
 }
 
 .rotating-slider-right-hidden {
@@ -192,8 +198,11 @@ input.rotating-slider-input::-webkit-inner-spin-button {
 </style>
     <title>Select score</title>
 </head>
+
+
+
 <body>
-<h2>Score entry</h2>
+   <h2>Score entry</h2>
 <div class="container">
 
 <h1>hole 1</h1>
@@ -270,6 +279,7 @@ input.rotating-slider-input::-webkit-inner-spin-button {
 
 </body>
 </html>
+
 
 
 
