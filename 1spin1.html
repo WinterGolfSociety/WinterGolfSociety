@@ -2,6 +2,7 @@
 
 
 
+
 <!doctype html>
 <html>
 <head>
@@ -32,7 +33,10 @@ h2 {
    font-size: 50px; 
 }
 
-
+.demo {
+  background-color: dodgerBlue;
+   background-image: linear-gradient(lightslategray,slateGray);  
+}
 
 
 
@@ -173,13 +177,15 @@ input.rotating-slider-input::-webkit-inner-spin-button {
 <body>
     <div class="container">
         <h1>test</h1>
+            <h1>Basic</h1>
 <div class="demo">
-    <h1>Basic</h1>
+
     <h2 id="rotating-slider1"/>
 </div>
 <br><br>
-<div class="demo">
     <h1>testing</h1>
+<div class="demo">
+
     <h2 id="rotating-slider2"/>
 </div>
 </div>
@@ -187,6 +193,8 @@ input.rotating-slider-input::-webkit-inner-spin-button {
     RotatingSlider($("#rotating-slider1"), {min: 0, max: 9, step: 1}, 0).setChangeCallback(function (val) {
         console.log(val)
     });
+    
+    
     RotatingSlider($("#rotating-slider2"), {min: 0, max: 50, step: 1}, 36).setChangeCallback(function (val) {
         console.log(val)
     });
@@ -194,5 +202,6 @@ input.rotating-slider-input::-webkit-inner-spin-button {
 
 </body>
 </html>
+
 
 
