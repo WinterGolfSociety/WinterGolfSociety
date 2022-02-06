@@ -1,5 +1,7 @@
 
 
+
+
 <!doctype html>
 <html>
 <head>
@@ -8,26 +10,176 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
     <script src="rotating-slider.js"></script>
-    <link rel="stylesheet" href="rotating-slider.css">
-    <style>
-        body { background-color: #fafafa; font-family: 'Orbitron'; }
-        h1 { text-align: center; font-size: 1.5rem; }
-        .container { margin: 150px auto; max-width: 960px; }
-        h2 { font-size: 2rem; }
-    </style>
-    <title>jQuery Rotating Slider Number Picker Example</title>
+<!--    <link rel="stylesheet" href="rotating-slider.css"> -->
+<style>
+body { 
+   background-color: dodgerBlue;
+   background-image: linear-gradient(lightslategray,darkslateGray); 
+   font-family: 'arial'; 
+   color: white;
+}
+h1 { 
+   text-align: center; 
+   font-size: 40px; 
+}
+.container { 
+   margin: 150px auto; 
+   max-width: 960px; 
+}
+h2 { 
+   font-size: 50px; 
+}
+
+
+
+
+
+
+
+input[type='number'].rotating-slider-input {
+    -moz-appearance: textfield;
+}
+
+input.rotating-slider-input::-webkit-outer-spin-button,
+input.rotating-slider-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.rotating-slider-input {
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    padding: 0;
+    font-size: 1.2em;
+    width: 100%;
+    margin-top: -1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.rotating-slider {
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    height: 2.5em;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently */
+}
+
+.rotating-slider-top {
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    height: 0.75em;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently */
+}
+
+.rotating-slider-left-hidden {
+    position: absolute;
+    left: 5%;
+    opacity: 0;
+}
+
+.rotating-slider-left {
+    position: absolute;
+    left: 0%;
+    opacity: 0.1;
+    top: 0.5em;
+    margin: auto;
+    height: 1em;
+}
+
+.rotating-slider-center-left {
+    position: absolute;
+    left: 15%;
+    opacity: 0.3;
+    top: 0.25em;
+    margin: auto;
+    height: 1em;
+}
+
+.rotating-slider-center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+    height: 1em;
+    opacity: 0.5;
+}
+
+.rotating-slider-center.rotating-slider-value-stable {
+    font-size: 1.2em;
+    opacity: 1;
+    -webkit-transition: font-size 0.2s linear, opacity 0.2s linear;
+    -moz-transition: font-size 0.2s linear, opacity 0.2s linear;
+    -o-transition: font-size 0.2s linear, opacity 0.2s linear;
+    transition: font-size 0.2s linear, opacity 0.2s linear;
+}
+
+.rotating-slider-center-right {
+    position: absolute;
+    right: 15%;
+    opacity: 0.3;
+    top: 0.25em;
+    margin: auto;
+    height: 1em;
+
+}
+
+.rotating-slider-right {
+    position: absolute;
+    right: 0;
+    opacity: 0.1;
+    top: 0.5em;
+    margin: auto;
+    height: 1em;
+}
+
+.rotating-slider-right-hidden {
+    position: absolute;
+    right: 5%;
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+</style>
+    <title>Select score</title>
 </head>
 <body>
     <div class="container">
-        <h1>jQuery Rotating Slider Number Picker Example</h1>
+        <h1>test</h1>
 <div class="demo">
     <h1>Basic</h1>
     <h2 id="rotating-slider1"/>
 </div>
+<br><br>
 <div class="demo">
-    <h1>Decimal numbers</h1>
+    <h1>testing</h1>
     <h2 id="rotating-slider2"/>
 </div>
 </div>
@@ -39,34 +191,8 @@
         console.log(val)
     });
 </script>
-<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-36251023-1']);
-  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<script>
-try {
-  fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
-    return true;
-  }).catch(function(e) {
-    var carbonScript = document.createElement("script");
-    carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
-    carbonScript.id = "_carbonads_js";
-    document.getElementById("carbon-block").appendChild(carbonScript);
-  });
-} catch (error) {
-  console.log(error);
-}
-</script>
 </body>
 </html>
+
 
