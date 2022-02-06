@@ -1,0 +1,279 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Score entry spinner</title>
+<script src="jquery-3.6.0.min.js" type="text/javascript">
+</script>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+<style>
+
+
+body { background: gray; 
+  font-family: arial;
+  font-size: 150px;
+  color: lightGray;
+  margin-right: 120px;
+}
+input[type=number] {
+  float: left;
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  font-family: arial;
+  font-size: 150px;
+  text-transform: uppercase;
+  text-align: center;
+  color: lightGray;
+  border: 2px lightGray solid;
+  background: none;
+  outline: none;
+  pointer-events: none;
+}
+
+span.spinner {
+  position: absolute;
+  height: 200px;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+span.spinner > .sub,
+span.spinner > .add {
+  float: left;
+  display: block;
+  width: 150px;
+  height: 200px;
+  text-align: center;
+  font-family: arial;
+  font-size: 150px;
+  line-height: 200px;
+  color: lightGray;
+  border: 2px lightGray solid;
+  border-right: 0;
+  border-radius: 2px 0 0 2px;
+  cursor: pointer;
+  transition: 0.1s linear;
+  -o-transition: 0.1s linear;
+  -ms-transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  -webkit-transition: 0.1s linear;
+}
+
+span.spinner > .add {
+  top: 0;
+  border: 2px lightGray solid;
+  border-left: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+span.spinner > .sub:hover,
+span.spinner > .add:hover {
+  background: lightGray;
+  color: #25323B;
+}
+ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  font-family: arial;
+  font-size: 150px;
+  color: lightGray;
+  margin-right: 10px;
+  height: 200px;
+}
+
+.button {
+  background-color: dodgerBlue;
+  background-image: linear-gradient(lightslategray,darkslateGray);
+  color: white;
+  font-size:200px;
+  width: auto;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 10px 10px 25px black;
+  padding: 10px;
+  cursor: move;
+  white-space: nowrap;
+  text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
+                0px 8px 13px rgba(0,0,0,0.1),
+                0px 18px 23px rgba(0,0,0,0.1);
+}
+
+</style>
+</head>
+
+<body>
+Score entry
+<div id="container">
+<div id="text">1.
+<input type="number" id="hole1" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">2.
+<input type="number" id="hole2" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">3.
+<input type="number"  id="hole3" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">4.
+<input type="number"  id="hole4" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">5.
+<input type="number"  id="hole5" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">6.
+<input type="number"  id="hole6" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">7.
+<input type="number"  id="hole7" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">8.
+<input type="number"  id="hole8" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">9.
+<input type="number"  id="hole9" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">10.
+<input type="number"  id="hole10" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">11.
+<input type="number"  id="hole11" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">12.
+<input type="number" id="hole12" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">13.
+<input type="number"  id="hole13" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">14.
+<input type="number"  id="hole14" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">15.
+<input type="number"  id="hole15" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">16.
+<input type="number"  id="hole16" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">17.
+<input type="number"  id="hole17" min="0" max="9" value="0" />
+</div>
+</div>
+
+<div id="container">
+<div id="text">18.
+<input type="number"  id="hole18" min="0" max="9" value="0" />
+</div>
+</div>
+
+
+
+<br><br>
+<button class="button" onclick="submitValues()">Submit test</button>
+
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<script>
+  
+(function($) {
+	$.fn.spinner = function() {
+		this.each(function() {
+			var el = $(this);
+
+			// add elements
+			el.wrap('<span class="spinner"></span>');     
+			el.before('<span class="sub">-</span>');
+			el.after('<span class="add">+</span>');
+
+			// subtract
+			el.parent().on('click', '.sub', function () {
+				if (el.val() > parseInt(el.attr('min')))
+					el.val( function(i, oldval) { return --oldval; });
+			});
+
+			// increment
+			el.parent().on('click', '.add', function () {
+				if (el.val() < parseInt(el.attr('max')))
+					el.val( function(i, oldval) { return ++oldval; });
+			});
+	    });
+	};
+})(jQuery);
+
+$('input[type=number]').spinner();
+
+</script>
+
+<script>
+
+function submitValues() {
+var h1 = document.getElementById("hole1").value   
+alert("h1 = " + h1)
+   
+} 
+
+</script>
+
+</body>
+</html>
