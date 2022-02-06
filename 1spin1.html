@@ -3,6 +3,7 @@
 
 
 
+
 <!doctype html>
 <html>
 <head>
@@ -38,7 +39,10 @@ h2 {
    background-image: linear-gradient(lightslategray,slateGray);  
 }
 
-
+#result1, #result2, #result3, #result4, #result5 {
+   font-size: 50px; 
+   color: yellow;
+}
 
 
 
@@ -164,44 +168,59 @@ input.rotating-slider-input::-webkit-inner-spin-button {
     opacity: 0;
 }
 
-
-
-
-
-
-
-
 </style>
     <title>Select score</title>
 </head>
 <body>
-    <div class="container">
-        <h1>test</h1>
-            <h1>Basic</h1>
+<div class="container">
+<h1>test</h1>
+<h1>Basic</h1>
 <div class="demo">
-
-    <h2 id="rotating-slider1"/>
+   <h2 id="rotating-slider1"/>
 </div>
-<br><br>
-    <h1>testing</h1>
+<br><br><br>
+<h1>testing</h1>
 <div class="demo">
+   <h2 id="rotating-slider2"/>
+</div>
+<br><br><br>
+<div id="result1"></div>
+<div id="result2"></div>
+<div id="result3"></div>
+<div id="result4"></div>
+<div id="result5"></div>
+<br><br><br>
 
-    <h2 id="rotating-slider2"/>
 </div>
-</div>
+
 <script>
     RotatingSlider($("#rotating-slider1"), {min: 0, max: 9, step: 1}, 0).setChangeCallback(function (val) {
-        console.log(val)
+        //console.log(val)
+        document.getElementById("result1").innerText = val
+    });
+    
+    RotatingSlider($("#rotating-slider2"), {min: 0, max: 9, step: 1}, 0).setChangeCallback(function (val) {
+    document.getElementById("result2").innerText = val
+    });
+    
+    RotatingSlider($("#rotating-slider3"), {min: 0, max: 9, step: 1}, 0).setChangeCallback(function (val) {
+    document.getElementById("result3").innerText = val
+    });
+    
+    RotatingSlider($("#rotating-slider4"), {min: 0, max: 9, step: 1}, 0).setChangeCallback(function (val) {
+    document.getElementById("result4").innerText = val
+    });
+    
+    RotatingSlider($("#rotating-slider5"), {min: 0, max: 9, step: 1}, 0).setChangeCallback(function (val) {
+    document.getElementById("result5").innerText = val
     });
     
     
-    RotatingSlider($("#rotating-slider2"), {min: 0, max: 50, step: 1}, 36).setChangeCallback(function (val) {
-        console.log(val)
-    });
 </script>
 
 </body>
 </html>
+
 
 
 
