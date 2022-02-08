@@ -7,6 +7,18 @@ font-family: arial, sans-serif;
 font-size: 30px;
 color: white;
 }
+
+#container {
+  display: grid;
+  grid-template-columns: auto auto;
+  //gap: 10px;
+  //font-family: arial;
+  //font-size: 150px;
+  //color: lightGray;
+  margin-right: 10px;
+  //height: 200px;
+}
+
 .atitle {
 font-size:60px;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
@@ -62,15 +74,6 @@ background-color: SlateGray; color: white;
 .show {
 display: block;
 }
-#msg {
-color: yellow;
-font-size: 25px;
-border: none;
-cursor: pointer;
-text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
-}
 </style>
 <meta charset="utf-8" />
 <meta name="viewport" content=
@@ -83,15 +86,17 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 </script>
 </head>
 <body>
+   
 <div class="atitle"><span class="asubtitle">my .. </span>
 Winter <img src="fallovergolfer.gif" alt="Golfer" width="70" height="90" /><br />
 Golf Society
+
 <div class="asubtitle">
 (Fridays 5th November 2021 to 25th March 2022)
+<br><br>
 </div>
 </div>
-<br />
-<div id="msg">Winter Cards are now in use.</div><br>
+<div id="container">
 <!-- 1st dropdown -->
 <div class="dropdown">
 <button onclick="myFunction(this);" class="dropbtn">Main menu</button>
@@ -176,8 +181,6 @@ Richard Hedley</a>
 Barry Henderson</a>
 <a href="javascript:getScreenPlayer(1088254711,'Clive');">
 Clive Herbert</a>
-<a href="javascript:getScreenPlayer(1254598927,'Barry');">
-Barry Hill</a>
 <a href="javascript:getScreenPlayer(1399120364,'Colin');">
 Colin Hillary</a>
 <a href="javascript:getScreenPlayer(699345160,'Peter');">
@@ -250,6 +253,8 @@ Roly Thompson</a>
 Bob Toward</a>
 <a href="javascript:getScreenPlayer(1127073061,'Michael');">
 Michael Varnom</a>
+<a href="javascript:getScreenPlayer(1254598927,'Glen');">
+Glen Watson</a>
 <a href="javascript:getScreenPlayer(478755437,'Phil');">
 Phil Wegner</a>
 <a href="javascript:getScreenPlayer(952605854,'Gordon');">
@@ -334,8 +339,6 @@ Richard Hedley</a>
 Barry Henderson</a>
 <a href="javascript:getScreenPlayerFull(1701804823,'Clive');">
 Clive Herbert</a>
-<a href="javascript:getScreenPlayerFull(45906530,'Barry');">
-Barry Hill</a>
 <a href="javascript:getScreenPlayerFull(1314263907,'Colin');">
 Colin Hillary</a>
 <a href="javascript:getScreenPlayerFull(1769466985,'Peter');">
@@ -410,6 +413,8 @@ Roly Thompson</a>
 Bob Toward</a>
 <a href="javascript:getScreenPlayerFull(729767292,'Michael');">
 Michael Varnom</a>
+<a href="javascript:getScreenPlayerFull(45906530,'Glen');">
+Glen Watson</a>
 <a href="javascript:getScreenPlayerFull(297923361,'Phil');">
 Phil Wegner</a>
 <a href="javascript:getScreenPlayerFull(627920977,'Gordon');">
@@ -478,6 +483,29 @@ probability</a>
 <br />
 <br />
 <br />
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <script type="text/javascript">
 function getScreen(gid,playername) {
 window.location.href ='link.html?id=' + gid + "&fname=" + playername;
@@ -639,9 +667,6 @@ break;
 case "BarryHenderson.html":
 ggg="1359973574";
 break;
-case "BarryHill.html":
-ggg="1254598927";
-break;
 case "ColinHillary.html":
 ggg="1399120364";
 break;
@@ -731,6 +756,9 @@ ggg="1157876764";
 break;
 case "MichaelVarnom.html":
 ggg="1127073061";
+break;
+case "GlenWatson.html":
+ggg="1254598927";
 break;
 case "PhilWegner.html":
 ggg="478755437";
@@ -857,9 +885,6 @@ break;
 case "CliveHerbert.html":
 ggg="1088254711";
 break;
-case "BarryHill.html":
-ggg="45906530";
-break;
 case "ColinHillary.html":
 ggg="1314263907";
 break;
@@ -962,6 +987,9 @@ break;
 case "MichaelVarnom.html":
 ggg="729767292";
 break;
+case "GlenWatson.html":
+ggg="45906530";
+break;
 case "PhilWegner.html":
 ggg="297923361";
 break;
@@ -989,3 +1017,4 @@ getScreenPlayerFull(ggg,nn[1])
 <br><br>
 </body>
 </html>
+
