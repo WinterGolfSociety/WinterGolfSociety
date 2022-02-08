@@ -7,6 +7,12 @@ font-family: arial, sans-serif;
 font-size: 30px;
 color: white;
 }
+
+#container {
+   width:250px;
+   max-width: 960px; 
+}
+
 .atitle {
 font-size:60px;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
@@ -19,7 +25,7 @@ font-size:12px;
 .dropbtn {
 background: DodgerBlue url(downarrow.png) 5px 15px no-repeat;
 color: white;
-width: 330px;
+width: 300px;
 padding: 10px;
 font-size: 30px;
 border: none;
@@ -37,13 +43,13 @@ background-color: DodgerBlue; color: white;
 }
 .dropdown {
 position: relative;
-display: inline-block;
+display: inline-block; 
 }
 .dropdown-content {
 display: none;
 position: absolute;
 background-color: DodgerBlue;
-min-width: 330px;
+min-width: 300px;
 overflow: auto;
 z-index: 1;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
@@ -62,15 +68,6 @@ background-color: SlateGray; color: white;
 .show {
 display: block;
 }
-#msg {
-color: yellow;
-font-size: 25px;
-border: none;
-cursor: pointer;
-text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
-}
 </style>
 <meta charset="utf-8" />
 <meta name="viewport" content=
@@ -83,15 +80,17 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 </script>
 </head>
 <body>
+   
 <div class="atitle"><span class="asubtitle">my .. </span>
 Winter <img src="fallovergolfer.gif" alt="Golfer" width="70" height="90" /><br />
 Golf Society
+
 <div class="asubtitle">
 (Fridays 5th November 2021 to 25th March 2022)
+<br><br><br>
 </div>
 </div>
-<br />
-<div id="msg">Winter Cards are now in use.</div><br>
+<div id="container">
 <!-- 1st dropdown -->
 <div class="dropdown">
 <button onclick="myFunction(this);" class="dropbtn">Main menu</button>
@@ -429,6 +428,7 @@ Jim Young</a>
 </div>
 <br />
 <br />
+</div>
 <script type="text/javascript">
 function getScreen(gid,playername) {
 window.location.href ='link.html?id=' + gid + "&fname=" + playername;
