@@ -1,8 +1,5 @@
 
 
-
-
-
 <!doctype html>
 <html>
 
@@ -40,7 +37,8 @@
 	#nadj,
 	#nscore {
 		font-size: 40px;
-		color: blue;
+		color: white;
+      background-color: dodgerBlue;
 		text-align: center;
 		border: 1px solid black;
 		border-radius: 10px;
@@ -144,7 +142,8 @@
 			<div class="container">
 				<h1>score</h1>
 				<div class="demo">
-					<input type="number" id="nscore" name="nscore" min="0" max="50" maxlength="2" onchange="updatescore()"> </div>
+					<input type="number" id="nscore" name="nscore" min="0" max="50" maxlength="2" onchange="updatescore()">
+            </div>
 				<br>
 				<br>
 				<br>
@@ -153,15 +152,8 @@
 				<div class="demo">
 					<input type="number" id="nadj" name="nadj" min="0" max="25" maxlength="2" onchange="updatecountback()">
 					<br>
-					<br> </div>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+            </div>
+	</div>			
 				<br>
 				<!-- data that will be submitted -->
 				<div id="name" class="score">-</div>
@@ -171,167 +163,172 @@
 				<br>
 				<h1>Submit when OK</h1>
 				<br>
-				<div class="grid-item">
-					<button class="buttonSubmit" onclick="submitButton(this.id)" id="submitButton">Submit</button>
-				</div>
+            <!--
+				<div class="grid-item"> -->
+               <button class="buttonSubmit" onclick="submitButton(this.id)" id="submitButton">Submit</button>
+	<!--			</div>   -->
 				<br>
-				<br> </div>
+				<br>
+         <!--</div>-->
 		</div>
-		<div id="hiddenForms">
-			<form id="my-form" target="my-response-iframe" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeC2YzTYsPmG_UJVcoAyZYucB5paXmYHMfeKKvL1ehWwAiapQ/formResponse" method="post">
-				<!-- player -->
-				<input type="text" name="entry.191342363" value="default" id="mx191342363">
-				<!-- course -->
-				<input type="text" name="entry.1174098870" value="default" id="mx1174098870">
-				<!-- score -->
-				<input type="text" name="entry.867201411" value="default" id="mx867201411">
-				<!-- adj -->
-				<input type="text" name="entry.1309765758" value="default" id="mx1309765758">
-				<input type="submit"> </form>
-			<iframe id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeC2YzTYsPmG_UJVcoAyZYucB5paXmYHMfeKKvL1ehWwAiapQ/viewform?embedded=true" width="10" height="10" frameborder="0" marginheight="0" marginwidth="0"> </iframe>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<script>
-		// hide forms  
-		var hidelement = document.getElementById("hiddenForms");
-		hidelement.style.display = "none";
-		// set the target on the form to point to a hidden iframe
-		// some browsers need the target set via JavaScript, no idea why...
-		document.getElementById('my-form').target = 'my-response-iframe';
-		// detect when the iframe reloads
-		var iframe = document.getElementById('my-response-iframe');
-		if(iframe) {
-			iframe.onload = function() {
-				// at this point the iframe reloads which is equivalent to a success.   
-				//alert("success");
-				var s1 = document.getElementById("name").innerText;
-				if(s1.length > 1) {
-					// wait - probably not required
-					// but helps with timestamp etc.
-					const milliseconds = 1000;
-					const date = Date.now();
-					let currentDate = null;
-					do {
-						currentDate = Date.now();
-					} while (currentDate - date < milliseconds);
-					var sub = document.getElementById("submitButton");
-					sub.style.backgroundColor = "blue";
-					sub.innerText = "Wait 2 secs";
-					setTimeout(function() {
-						window.location.href = window.location.href;
-					}, 2000);
-				}
+	</div>
+   
+	<div id="hiddenForms">
+		<form id="my-form" target="my-response-iframe" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeC2YzTYsPmG_UJVcoAyZYucB5paXmYHMfeKKvL1ehWwAiapQ/formResponse" method="post">
+			<!-- player -->
+			<input type="text" name="entry.191342363" value="default" id="mx191342363">
+			<!-- course -->
+			<input type="text" name="entry.1174098870" value="default" id="mx1174098870">
+			<!-- score -->
+			<input type="text" name="entry.867201411" value="default" id="mx867201411">
+			<!-- adj -->
+			<input type="text" name="entry.1309765758" value="default" id="mx1309765758">
+			<input type="submit"> </form>
+		<iframe id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSeC2YzTYsPmG_UJVcoAyZYucB5paXmYHMfeKKvL1ehWwAiapQ/viewform?embedded=true" width="10" height="10" frameborder="0" marginheight="0" marginwidth="0"> </iframe>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<script>
+	// hide forms  
+	var hidelement = document.getElementById("hiddenForms");
+	hidelement.style.display = "none";
+	// set the target on the form to point to a hidden iframe
+	// some browsers need the target set via JavaScript, no idea why...
+	document.getElementById('my-form').target = 'my-response-iframe';
+	// detect when the iframe reloads
+	var iframe = document.getElementById('my-response-iframe');
+	if(iframe) {
+		iframe.onload = function() {
+			// at this point the iframe reloads which is equivalent to a success.   
+			//alert("success");
+			var s1 = document.getElementById("name").innerText;
+			if(s1.length > 1) {
+				// wait - probably not required
+				// but helps with timestamp etc.
+				const milliseconds = 1000;
+				const date = Date.now();
+				let currentDate = null;
+				do {
+					currentDate = Date.now();
+				} while (currentDate - date < milliseconds);
+				var sub = document.getElementById("submitButton");
+				sub.style.backgroundColor = "blue";
+				sub.innerText = "Wait 2 secs";
+				setTimeout(function() {
+					window.location.href = window.location.href;
+				}, 2000);
 			}
 		}
+	}
 
-		function blueButton1(id) {
-			// reset buttons
-			var buttonElement = document.getElementById("idAndy");
-			buttonElement.setAttribute("class", "button1")
-			buttonElement = document.getElementById("idBob");
-			buttonElement.setAttribute("class", "button1")
-			buttonElement = document.getElementById("idBryan");
-			buttonElement.setAttribute("class", "button1")
-			buttonElement = document.getElementById("idColin");
-			buttonElement.setAttribute("class", "button1")
-			buttonElement = document.getElementById("idGary");
-			buttonElement.setAttribute("class", "button1")
-			buttonElement = document.getElementById("idPaul");
-			buttonElement.setAttribute("class", "button1")
-			buttonElement = document.getElementById("idPete");
-			buttonElement.setAttribute("class", "button1")
-			buttonElement = document.getElementById("idTony");
-			buttonElement.setAttribute("class", "button1")
-				//run initial score and adjustment to start
-			s1 = document.getElementById("sscore")
-			s1.innerText = "0";
-			s2 = document.getElementById("sadj")
-			s2.innerText = "0";
-			// get player name
-			var element = document.getElementById(id);
-			element.setAttribute("class", "classB");
-			document.getElementById("name").innerText = "name: " + element.innerText;
-			// work out course based on day
-			const d = new Date();
-			let day = d.getDay()
-				// for testing
-			if(day !== "99") {
-				document.getElementById("course").innerText = "course: Aberdour";
-			}
-			// Wednesday
-			if(day == "3") {
-				document.getElementById("course").innerText = "course: Aberdour";
-			}
-			// Thursday
-			if(day == "4") {
-				document.getElementById("course").innerText = "course: St.Andrews";
-			}
-			// Friday
-			if(day == "5") {
-				document.getElementById("course").innerText = "course: Kinghorn";
-			}
+	function blueButton1(id) {
+		// reset buttons
+		var buttonElement = document.getElementById("idAndy");
+		buttonElement.setAttribute("class", "button1")
+		buttonElement = document.getElementById("idBob");
+		buttonElement.setAttribute("class", "button1")
+		buttonElement = document.getElementById("idBryan");
+		buttonElement.setAttribute("class", "button1")
+		buttonElement = document.getElementById("idColin");
+		buttonElement.setAttribute("class", "button1")
+		buttonElement = document.getElementById("idGary");
+		buttonElement.setAttribute("class", "button1")
+		buttonElement = document.getElementById("idPaul");
+		buttonElement.setAttribute("class", "button1")
+		buttonElement = document.getElementById("idPete");
+		buttonElement.setAttribute("class", "button1")
+		buttonElement = document.getElementById("idTony");
+		buttonElement.setAttribute("class", "button1")
+			//run initial score and adjustment to start
+		s1 = document.getElementById("sscore")
+		s1.innerText = "0";
+		s2 = document.getElementById("sadj")
+		s2.innerText = "0";
+		// get player name
+		var element = document.getElementById(id);
+		element.setAttribute("class", "classB");
+		document.getElementById("name").innerText = "name: " + element.innerText;
+		// work out course based on day
+		const d = new Date();
+		let day = d.getDay()
+			// for testing
+		if(day !== "99") {
+			document.getElementById("course").innerText = "course: Aberdour";
 		}
+		// Wednesday
+		if(day == "3") {
+			document.getElementById("course").innerText = "course: Aberdour";
+		}
+		// Thursday
+		if(day == "4") {
+			document.getElementById("course").innerText = "course: St.Andrews";
+		}
+		// Friday
+		if(day == "5") {
+			document.getElementById("course").innerText = "course: Kinghorn";
+		}
+	}
 
-		function submitButton() {
-			if(document.getElementById("submitButton").innerText == "Submit") {
-				// do submit stuff here
-				var ok = "yes";
-				var s1 = document.getElementById("name").innerText;
-				if(s1.length > 1) {
-					s2 = s1.replace("name: ", "");
-					document.getElementById("mx191342363").value = s2;
-				} else {
-					ok = "no";
-				}
-				s1 = document.getElementById("course").innerText;
-				if(s1.length > 1) {
-					s2 = s1.replace("course: ", "");
-					document.getElementById("mx1174098870").value = s2;
-				} else {
-					ok = "no";
-				}
-				s1 = document.getElementById("sscore").innerText;
-				if(s1.length > 0) {
-					s2 = s1.replace("score: ", "");
-					document.getElementById("mx867201411").value = s2;
-				} else {
-					ok = "no";
-				}
-				s1 = document.getElementById("sadj").innerText;
-				if(s1.length > 0) {
-					s2 = s1.replace("adj: ", "");
-					document.getElementById("mx1309765758").value = s2;
-				} else {
-					ok = "no";
-				}
-				if(ok == "yes") {
-					//alert("do submit");
-					document.forms[0].submit()
-					sub = document.getElementById("submitButton");
-					sub.style.backgroundColor = "blue";
-					sub.innerText = "Submitted";
-				} else {
-					alert("message about missing data so no submit");
-				}
+	function submitButton() {
+		if(document.getElementById("submitButton").innerText == "Submit") {
+			// do submit stuff here
+			var ok = "yes";
+			var s1 = document.getElementById("name").innerText;
+			if(s1.length > 1) {
+				s2 = s1.replace("name: ", "");
+				document.getElementById("mx191342363").value = s2;
+			} else {
+				ok = "no";
+			}
+			s1 = document.getElementById("course").innerText;
+			if(s1.length > 1) {
+				s2 = s1.replace("course: ", "");
+				document.getElementById("mx1174098870").value = s2;
+			} else {
+				ok = "no";
+			}
+			s1 = document.getElementById("sscore").innerText;
+			if(s1.length > 0) {
+				s2 = s1.replace("score: ", "");
+				document.getElementById("mx867201411").value = s2;
+			} else {
+				ok = "no";
+			}
+			s1 = document.getElementById("sadj").innerText;
+			if(s1.length > 0) {
+				s2 = s1.replace("adj: ", "");
+				document.getElementById("mx1309765758").value = s2;
+			} else {
+				ok = "no";
+			}
+			if(ok == "yes") {
+				//alert("do submit");
+				document.forms[0].submit()
+				sub = document.getElementById("submitButton");
+				sub.style.backgroundColor = "blue";
+				sub.innerText = "Submitted";
+			} else {
+				alert("message about missing data so no submit");
 			}
 		}
+	}
 
-		function updatescore() {
-			document.getElementById("sscore").innerText = document.getElementById("nscore").value
-		}
+	function updatescore() {
+		document.getElementById("sscore").innerText = document.getElementById("nscore").value
+	}
 
-		function updatecountback() {
-			document.getElementById("sadj").innerText = document.getElementById("nadj").value
-		}
-		</script>
+	function updatecountback() {
+		document.getElementById("sadj").innerText = document.getElementById("nadj").value
+	}
+	</script>
 </body>
 
 </html>
+
 
 
 
