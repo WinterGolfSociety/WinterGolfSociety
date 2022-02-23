@@ -5,6 +5,7 @@
 
 
 
+
 <!doctype html>
 <html>
 <head>
@@ -61,13 +62,35 @@ h2 {
                 0px 18px 23px rgba(0,0,0,0.1);
 }
 
-.demo {
+.demox {
   //background-color: slateGray; 
   background-image: linear-gradient(to right, darkSlateGray,slateGray,lightSlateGray,slateGray,darkSlateGray);
   border: 1px solid black;
   border-radius: 20px;
   box-shadow: 10px 10px 25px black;
 } 
+
+#nadj, #nscore {
+ font-size: 40px;
+ color: blue;  
+ text-align: center;
+ border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 10px 10px 25px black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #name, #course, #sscore, #sadj, #result1, #result2, #result3, #result4, #result5, #result6 {
@@ -79,136 +102,6 @@ h2 {
 
 }
 
-input[type='number'].rotating-slider-input {
-    -moz-appearance: textfield;
-}
-
-input.rotating-slider-input::-webkit-outer-spin-button,
-input.rotating-slider-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-.rotating-slider-input {
-    background-color: transparent;
-    border: 0px;
-    outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    text-align: center;
-    padding: 0;
-    //font-size: 1.2em;
-    font-size: 30px;
-    width: 100%;
-    margin-top: -1px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 2;
-}
-
-.rotating-slider {
-    z-index: 1;
-    position: relative;
-    cursor: pointer;
-    height: 40px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Chrome/Safari/Opera */
-    -khtml-user-select: none; /* Konqueror */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently */
-}
-
-.rotating-slider-top {
-    z-index: 1;
-    position: relative;
-    cursor: pointer;
-    height: 0px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Chrome/Safari/Opera */
-    -khtml-user-select: none; /* Konqueror */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently */
-}
-
-.rotating-slider-left-hidden {
-    position: absolute;
-    left: 5%;
-    opacity: 0;
-}
-
-.rotating-slider-left {
-    position: absolute;
-    left: 1%;
-    opacity: 0.1;
-    top: 0;
-    margin: auto;
-    //height: 1em;
-    font-size: 40px;
-}
-
-.rotating-slider-center-left {
-    position: absolute;
-    //left: 15%;
-    left: 21%;
-    opacity: 0.3;
-    top: 0;
-    margin: auto;
-    //height: 1em;
-    font-size: 40px;
-}
-
-.rotating-slider-center {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    text-align: center;
-    margin: auto;
-    //height: 1em;
-    //opacity: 0.5;
-    font-size: 40px;
-}
-
-.rotating-slider-center.rotating-slider-value-stable {
-    //font-size: 1.2em;
-    font-size: 40px;
-    opacity: 1;
-    -webkit-transition: font-size 0.2s linear, opacity 0.2s linear;
-    -moz-transition: font-size 0.2s linear, opacity 0.2s linear;
-    -o-transition: font-size 0.2s linear, opacity 0.2s linear;
-    transition: font-size 0.2s linear, opacity 0.2s linear;
-}
-
-.rotating-slider-center-right {
-    position: absolute;
-    //right: 15%;
-    right: 21%;
-    opacity: 0.3;
-    top: 0;
-    margin: auto;
-    //height: 1em;
-    font-size: 40px;
-
-}
-
-.rotating-slider-right {
-    position: absolute;
-    right: 1%;
-    opacity: 0.1;
-    top: 0;
-    margin: auto;
-    //height: 1em;
-    font-size: 40px;
-}
-
-.rotating-slider-right-hidden {
-    position: absolute;
-    right: 5%;
-    opacity: 0;
-}
 
 .button1 {
       background-color: dodgerBlue;
@@ -271,13 +164,16 @@ input.rotating-slider-input::-webkit-inner-spin-button {
 <div class="container">
 <h1>score</h1>
 <div class="demo">
-   <h2 id="rotating-slider1"/>
+<input type="number" id="nscore" name="nscore" min= "0" max="50" maxlength="2" value=0 required="required" onchange="updatescore()">
 </div>
 <br><br><br><br>
-
 <h1>countback</h1>
-<div class="demo">
-   <h2 id="rotating-slider2"/>
+<div class="demo">  
+<input type="number" id="nadj" name="nadj" min= "0" max="25" maxlength="2" value=0 required="required" onchange="updatecountback()"><br>  
+<br> 
+
+
+
 </div>
 <br><br><br><br>
 <br><br>
@@ -489,6 +385,75 @@ action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSeC2YzTYsPmG_UJVcoAyZYucB5p
         }
  
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function updatescore() {
+document.getElementById("sscore").innerText = document.getElementById("nscore").value
+}
+
+
+function updatecountback() {
+document.getElementById("sadj").innerText = document.getElementById("nadj").value
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+ 
+      </script>
+   </body>
+</html>
+
+
 
 
 
