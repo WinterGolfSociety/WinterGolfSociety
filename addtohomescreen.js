@@ -25,8 +25,8 @@ function loaded () {
 }
 
 // regex used to detect if app has been added to the homescreen
-var _reSmartURL = /\/ath(\/)?$/;
-var _reQueryString = /([\?&]ath=[^&]*$|&ath=[^&]*(&))/;
+var _reSmartURL = /\/athxxx(\/)?$/;
+var _reQueryString = /([\?&]athxxx=[^&]*$|&ath=[^&]*(&))/;
 
 // singleton
 var _instance;
