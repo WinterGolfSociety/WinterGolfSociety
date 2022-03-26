@@ -362,7 +362,7 @@ body {
 
 .scoreContainertest {
   display: grid;
-  grid-template-columns: auto 15% auto 15%;
+  grid-template-columns: 25% 25% 25% auto;
   padding: 20px;        
 }
 
@@ -384,7 +384,7 @@ body {
 }
 
 
-#outscore9, #outpointsscore9 {
+#outscore9, #outpointsscore9, #inscore9, #inpointsscore9, #totalpoints, #totalscore {
    color: yellow;
 }
 
@@ -417,7 +417,7 @@ body {
   <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="id6hole1">6</button></div>  
   <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="id7hole1">7</button></div>
   <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="id8hole1">8</button></div>
-  <div class="grid-item"><button class="button1" onclick="blueButton1(this.id)" id="idxhole1">X</button></div>  
+  <div class="grid-item"><button class="button1" onclick="ablueButton1(this.id)" id="id9hole1">9</button></div>  
    
 </div>
 
@@ -428,190 +428,2165 @@ body {
 
 
 
+
+
+
+
 <script>
-    
-function Startup() {
+   
  
-HideAll(); 
+   
+  // global variables
+  var vhcp = 22
+  var vcourse = "lakes"
+  const vpar1 = 4
+  const vpar2 = 4
+  const vpar3 = 5
+  const vpar4 = 4
+  const vpar5 = 3
+  const vpar6 = 3
+  const vpar7 = 4
+  const vpar8 = 4
+  const vpar9 = 4
+  const vpar10 = 3
+  const vpar11 = 4
+  const vpar12 = 4
+  const vpar13 = 4
+  const vpar14 = 3
+  const vpar15 = 3
+  const vpar16 = 5
+  const vpar17 = 4
+  const vpar18 = 5
+  const vsi1 = 10
+  const vsi2 = 7
+  const vsi3 = 3
+  const vsi4 = 1
+  const vsi5 = 17
+  const vsi6 = 11
+  const vsi7 = 9
+  const vsi8 = 5
+  const vsi9 = 13
+  const vsi10 = 16
+  const vsi11 = 18
+  const vsi12 = 10
+  const vsi13 = 6
+  const vsi14 = 14
+  const vsi15 = 4
+  const vsi16 = 12
+  const vsi17 = 2
+  const vsi18 = 8
+   
+   
+   
+   
+   
+   
+   function Startup() {
+  	HideAll();
+  	// move to hole 1    
+  	var element = document.getElementById("hole1");
+  	element.style.display = "grid";
+  }
   
-// move to hole 1    
-var element = document.getElementById("hole1");
-element.style.display = "grid";
-    
-}
-
-    
-    
-    
-function MoveButton2(thisid) {
- 
-HideAll(); 
   
-// move to hole 1    
-if ( thisid == "nav-1" ) {
-  var element = document.getElementById("hole1");
-  element.style.display = "grid";
-}
-    
-// move to hole 2    
-if ( thisid == "nav-2" ) {
-  var element = document.getElementById("hole2");
-  element.style.display = "grid";
-}
-    
-// move to hole 3    
-if ( thisid == "nav-3" ) {
-  var element = document.getElementById("hole3");
-  element.style.display = "grid";
-}
-
-// move to hole 4    
-if ( thisid == "nav-4" ) {
-  var element = document.getElementById("hole4");
-  element.style.display = "grid";
-}
-
-// move to hole 5    
-if ( thisid == "nav-5" ) {
-  var element = document.getElementById("hole5");
-  element.style.display = "grid";
-}
-
-// move to hole 6    
-if ( thisid == "nav-6" ) {
-  var element = document.getElementById("hole6");
-  element.style.display = "grid";
-}
- 
-// move to hole 7    
-if ( thisid == "nav-7" ) {
-  var element = document.getElementById("hole7");
-  element.style.display = "grid";
-}
+  function HideAll() {
+  	var element = document.getElementById("hole1");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole2");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole3");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole4");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole5");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole6");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole7");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole8");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole9");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole10");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole11");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole12");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole13");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole14");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole15");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole16");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole17");
+  	element.style.display = "none";
+  	var element = document.getElementById("hole18");
+  	element.style.display = "none";
+  }
   
-// move to hole 8    
-if ( thisid == "nav-8" ) {
-  var element = document.getElementById("hole8");
-  element.style.display = "grid";
-}
+  function blueButton1(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id2hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole1");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score1").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi1)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi1 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi1 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar1 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore1").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton2(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id2hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole2");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score2").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi2)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi2 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi2 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar2 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore2").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton3(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole3");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole3");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole3");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole3");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole3");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole3");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole3");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole3");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole3");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score3").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi3)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi3 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi3 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar3 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore3").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton4(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole4");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole4");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole4");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole4");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole4");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole4");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole4");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole4");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole4");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score4").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi4)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi4 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi4 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar4 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore4").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton5(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole5");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole5");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole5");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole5");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole5");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole5");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole5");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole5");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole5");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score5").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi5)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi5 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi5 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar5 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore5").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton6(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole6");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole6");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole6");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole6");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole6");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole6");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole6");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole6");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole6");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score6").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi6)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi6 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi6 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar6 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore6").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  	document.getElementById("outscore9").innerText = nnout9
+  }
+
+  function blueButton7(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole7");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole7");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole7");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole7");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole7");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole7");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole7");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole7");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole7");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score7").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi7)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi7 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi7 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar7 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore7").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton8(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole8");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole8");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole8");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole8");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole8");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole8");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole8");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole8");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole8");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score8").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi8)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi8 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi8 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar8 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore8").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton9(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole9");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole9");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole9");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole9");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole9");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole9");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole9");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole9");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole9");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score9").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi9)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi9 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi9 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar9 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore9").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton10(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole10");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole10");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole10");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole10");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole10");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole10");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole10");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole10");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole10");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score10").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi10)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi10 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi10 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar10 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore10").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton11(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole11");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole11");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole11");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole11");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole11");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole11");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole11");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole11");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole11");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score11").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi11)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi11 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi11 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar11 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore11").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton12(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole12");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole12");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole12");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole12");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole12");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole12");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole12");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole12");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole12");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score12").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi12)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi12 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi12 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar12 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore12").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton13(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole13");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole13");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole13");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole13");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole13");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole13");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole13");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole13");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole13");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score13").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi13)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi13 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi13 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar13 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore13").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton14(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole14");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole14");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole14");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole14");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole14");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole14");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole14");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole14");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole14");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score14").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi14)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi14 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi14 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar14 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore14").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton15(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole15");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole15");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole15");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole15");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole15");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole15");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole15");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole15");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole15");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score15").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi15)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi15 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi15 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar15 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore15").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton16(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole16");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole16");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole16");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole16");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole16");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole16");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole16");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole16");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole16");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score16").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi16)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi16 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi16 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar16 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore16").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton17(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole17");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole17");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole17");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole17");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole17");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole17");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole17");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole17");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole17");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score17").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi17)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi17 + 18)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi17 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar17 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore17").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function blueButton18(id) {
+  	// reset buttons for this hole
+  	var buttonElement = document.getElementById("id1hole18");
+  	buttonElement.setAttribute("class", "button3");
+  	buttonElement = document.getElementById("id2hole18");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id3hole18");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id4hole18");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id5hole18");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id6hole18");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id7hole18");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id8hole18");
+  	buttonElement.setAttribute("class", "button1");
+  	buttonElement = document.getElementById("id9hole18");
+  	buttonElement.setAttribute("class", "button1");
+  	// then set current button on
+  	var el = document.getElementById(id);
+  	el.setAttribute("class", "classB");
+  	document.getElementById("score18").innerText = el.innerText;
+  	// try here to do points calculation
+  	var vh1 = ""
+  	x1 = 0
+  	if (vhcp >= (vsi18)) {
+  		x1 = 1
+  	}
+  	if (vhcp >= (vsi1818)) {
+  		x1 = 2
+  	}
+  	if (vhcp >= (vsi18 + 36)) {
+  		x1 = 3
+  	}
+  	vh1 = (vpar18 + 2) - (el.innerText - x1)
+  	if (vh1 < 0) {
+  		vh1 = "0"
+  	}
+  	document.getElementById("pointsscore18").innerText = vh1;
+  	var n1 = parseFloat(document.getElementById("pointsscore1").innerText)
+  	var n2 = parseFloat(document.getElementById("pointsscore2").innerText)
+  	var n3 = parseFloat(document.getElementById("pointsscore3").innerText)
+  	var n4 = parseFloat(document.getElementById("pointsscore4").innerText)
+  	var n5 = parseFloat(document.getElementById("pointsscore5").innerText)
+  	var n6 = parseFloat(document.getElementById("pointsscore6").innerText)
+  	var n7 = parseFloat(document.getElementById("pointsscore7").innerText)
+  	var n8 = parseFloat(document.getElementById("pointsscore8").innerText)
+  	var n9 = parseFloat(document.getElementById("pointsscore9").innerText)
+  	var nout9 = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9
+  	document.getElementById("outpointsscore9").innerText = nout9
+  	var n10 = parseFloat(document.getElementById("pointsscore10").innerText)
+  	var n11 = parseFloat(document.getElementById("pointsscore11").innerText)
+  	var n12 = parseFloat(document.getElementById("pointsscore12").innerText)
+  	var n13 = parseFloat(document.getElementById("pointsscore13").innerText)
+  	var n14 = parseFloat(document.getElementById("pointsscore14").innerText)
+  	var n15 = parseFloat(document.getElementById("pointsscore15").innerText)
+  	var n16 = parseFloat(document.getElementById("pointsscore16").innerText)
+  	var n17 = parseFloat(document.getElementById("pointsscore17").innerText)
+  	var n18 = parseFloat(document.getElementById("pointsscore18").innerText)
+  	var nin9 = n10 + n11 + n12 + n13 + n14 + n15 + n16 + n17 + n18
+  	document.getElementById("inpointsscore9").innerText = nin9
+  	var nn1 = parseFloat(document.getElementById("score1").innerText)
+  	var nn2 = parseFloat(document.getElementById("score2").innerText)
+  	var nn3 = parseFloat(document.getElementById("score3").innerText)
+  	var nn4 = parseFloat(document.getElementById("score4").innerText)
+  	var nn5 = parseFloat(document.getElementById("score5").innerText)
+  	var nn6 = parseFloat(document.getElementById("score6").innerText)
+  	var nn7 = parseFloat(document.getElementById("score7").innerText)
+  	var nn8 = parseFloat(document.getElementById("score8").innerText)
+  	var nn9 = parseFloat(document.getElementById("score9").innerText)
+  	var nnout9 = nn1 + nn2 + nn3 + nn4 + nn5 + nn6 + nn7 + nn8 + nn9
+  	document.getElementById("outscore9").innerText = nnout9
+  	var nn10 = parseFloat(document.getElementById("score10").innerText)
+  	var nn11 = parseFloat(document.getElementById("score11").innerText)
+  	var nn12 = parseFloat(document.getElementById("score12").innerText)
+  	var nn13 = parseFloat(document.getElementById("score13").innerText)
+  	var nn14 = parseFloat(document.getElementById("score14").innerText)
+  	var nn15 = parseFloat(document.getElementById("score15").innerText)
+  	var nn16 = parseFloat(document.getElementById("score16").innerText)
+  	var nn17 = parseFloat(document.getElementById("score17").innerText)
+  	var nn18 = parseFloat(document.getElementById("score18").innerText)
+  	var nnin9 = nn10 + nn11 + nn12 + nn13 + nn14 + nn15 + nn16 + nn17 + nn18
+  	document.getElementById("inscore9").innerText = nnin9
+  	// totals
+  	var nntotal = nnout9 + nnin9
+  	document.getElementById("totalscore").innerText = nntotal
+  	var ntotal = nout9 + nin9
+  	document.getElementById("totalpoints").innerText = ntotal
+  }
+
+  function buttonSubmit() {
+  	if (document.getElementById("submitButton").innerText == "Submit") {
+  		// do submit stuff here
+  		var ok = "yes";
+  		var s1 = document.getElementById("score1").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx202631125").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score2").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx1220170043").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score3").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx1343461718").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score4").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx870943983").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score5").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx1941601160").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score6").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx720850778").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score7").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx626160595").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score8").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx841825168").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score9").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx118396704").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score10").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx2120326569").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score11").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx1864857846").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score12").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx248316274").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score13").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx1905651830").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score14").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx1207580033").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score15").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx1923832800").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score16").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx909418688").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score17").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx1073367537").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		s1 = document.getElementById("score18").innerText;
+  		if (s1.length > 0) {
+  			document.getElementById("mx358314165").value = s1;
+  		} else {
+  			ok = "no";
+  		}
+  		if (ok == "yes") {
+  			alert("do submit");
+  			document.forms[0].submit()
+  			sub = document.getElementById("submitButton");
+  			sub.style.backgroundColor = "blue";
+  			sub.innerText = "Submitted";
+  		} else {
+  			alert("message about missing data so no submit");
+  		}
+  		// press the form submit button
+  		//document.forms[0].submit()
+  	}
+  }
+  // set the target on the form to point to a hidden iframe
+  // some browsers need the target set via JavaScript, no idea why...
+  document.getElementById('my-form').target = 'my-response-iframe';
+  // detect when the iframe reloads
+  var iframe = document.getElementById('my-response-iframe');
+  if (iframe) {
+  	iframe.onload = function() {
+  		// at this point the iframe reloads which is equivalent to a success.
+  		//alert("success");
+  		var s1 = document.getElementById("score18").innerText;
+  		if (s1.length > 0) {
+  			// wait - probably not required
+  			// but helps with timestamp etc.
+  			const milliseconds = 1000;
+  			const date = Date.now();
+  			let currentDate = null;
+  			do {
+  				currentDate = Date.now();
+  			} while (currentDate - date < milliseconds);
+  			sub = document.getElementById("submitButton");
+  			sub.style.backgroundColor = "blue";
+  			sub.innerText = "Updated OK";
+  		}
+  	}
+  }
+
+  function fixdata() {
+  	// copied to buttonSubmit()
+  	// only for testing - get rid when finished with
+  	var ok = "yes";
+  	var s1 = document.getElementById("score1").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx202631125").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score2").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx1220170043").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score3").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx1343461718").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score4").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx870943983").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score5").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx1941601160").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score6").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx720850778").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score7").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx626160595").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score8").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx841825168").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score9").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx118396704").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score10").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx2120326569").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score11").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx1864857846").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score12").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx248316274").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score13").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx1905651830").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score14").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx1207580033").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score15").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx1923832800").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score16").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx909418688").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score17").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx1073367537").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	s1 = document.getElementById("score18").innerText;
+  	if (s1.length > 0) {
+  		document.getElementById("mx358314165").value = s1;
+  	} else {
+  		ok = "no";
+  	}
+  	if (ok == "yes") {
+  		alert("do submit");
+  	}
+  }
+
   
-// move to hole 9    
-if ( thisid == "nav-9" ) {
-  var element = document.getElementById("hole9");
-  element.style.display = "grid";
-}
+
+  function MoveButton2(thisid) {
+  	HideAll();
+  	// move to hole 1    
+  	if (thisid == "nav-1") {
+  		var element = document.getElementById("hole1");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 2    
+  	if (thisid == "nav-2") {
+  		var element = document.getElementById("hole2");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 3    
+  	if (thisid == "nav-3") {
+  		var element = document.getElementById("hole3");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 4    
+  	if (thisid == "nav-4") {
+  		var element = document.getElementById("hole4");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 5    
+  	if (thisid == "nav-5") {
+  		var element = document.getElementById("hole5");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 6    
+  	if (thisid == "nav-6") {
+  		var element = document.getElementById("hole6");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 7    
+  	if (thisid == "nav-7") {
+  		var element = document.getElementById("hole7");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 8    
+  	if (thisid == "nav-8") {
+  		var element = document.getElementById("hole8");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 9    
+  	if (thisid == "nav-9") {
+  		var element = document.getElementById("hole9");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 10    
+  	if (thisid == "nav-10") {
+  		var element = document.getElementById("hole10");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 11    
+  	if (thisid == "nav-11") {
+  		var element = document.getElementById("hole11");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 12    
+  	if (thisid == "nav-12") {
+  		var element = document.getElementById("hole12");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 13    
+  	if (thisid == "nav-13") {
+  		var element = document.getElementById("hole13");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 14    
+  	if (thisid == "nav-14") {
+  		var element = document.getElementById("hole14");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 15    
+  	if (thisid == "nav-15") {
+  		var element = document.getElementById("hole15");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 16    
+  	if (thisid == "nav-16") {
+  		var element = document.getElementById("hole16");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 17    
+  	if (thisid == "nav-17") {
+  		var element = document.getElementById("hole17");
+  		element.style.display = "grid";
+  	}
+  	// move to hole 18    
+  	if (thisid == "nav-18") {
+  		var element = document.getElementById("hole18");
+  		element.style.display = "grid";
+  	}
+  }
+
   
-// move to hole 10    
-if ( thisid == "nav-10" ) {
-  var element = document.getElementById("hole10");
-  element.style.display = "grid";
-}
- 
- // move to hole 11    
-if ( thisid == "nav-11" ) {
-  var element = document.getElementById("hole11");
-  element.style.display = "grid";
-}
- 
- // move to hole 12    
-if ( thisid == "nav-12" ) {
-  var element = document.getElementById("hole12");
-  element.style.display = "grid";
-}
- 
- // move to hole 13    
-if ( thisid == "nav-13" ) {
-  var element = document.getElementById("hole13");
-  element.style.display = "grid";
-}
- 
- // move to hole 14    
-if ( thisid == "nav-14" ) {
-  var element = document.getElementById("hole14");
-  element.style.display = "grid";
-}
- 
- // move to hole 15    
-if ( thisid == "nav-15" ) {
-  var element = document.getElementById("hole15");
-  element.style.display = "grid";
-}
   
-// move to hole 16    
-if ( thisid == "nav-16" ) {
-  var element = document.getElementById("hole16");
-  element.style.display = "grid";
-}
- 
- // move to hole 17    
-if ( thisid == "nav-17" ) {
-  var element = document.getElementById("hole17");
-  element.style.display = "grid";
-}
- 
- // move to hole 18    
-if ( thisid == "nav-18" ) {
-  var element = document.getElementById("hole18");
-  element.style.display = "grid";
-}
-  
- 
- 
- 
- 
- 
- 
- 
-    
-}
-
-
-
-function HideAll() {
-var element = document.getElementById("hole1");
-element.style.display = "none";   
-var element = document.getElementById("hole2");
-element.style.display = "none";  
-var element = document.getElementById("hole3");
-element.style.display = "none";   
-var element = document.getElementById("hole4");
-element.style.display = "none"; 
-var element = document.getElementById("hole5");
-element.style.display = "none";   
-var element = document.getElementById("hole6");
-element.style.display = "none"; 
-var element = document.getElementById("hole7");
-element.style.display = "none";   
-var element = document.getElementById("hole8");
-element.style.display = "none"; 
-var element = document.getElementById("hole9");
-element.style.display = "none";   
-var element = document.getElementById("hole10");
-element.style.display = "none"; 
-var element = document.getElementById("hole11");
-element.style.display = "none";   
-var element = document.getElementById("hole12");
-element.style.display = "none"; 
-var element = document.getElementById("hole13");
-element.style.display = "none";   
-var element = document.getElementById("hole14");
-element.style.display = "none"; 
-var element = document.getElementById("hole15");
-element.style.display = "none";   
-var element = document.getElementById("hole16");
-element.style.display = "none"; 
-var element = document.getElementById("hole17");
-element.style.display = "none";   
-var element = document.getElementById("hole18");
-element.style.display = "none"; 
-}
-
-
-
-
-
-
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -635,7 +2610,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button2" onclick="blueButton2(this.id)" id="id6hole2">6</button></div>  
   <div class="grid-item"><button class="button2" onclick="blueButton2(this.id)" id="id7hole2">7</button></div>
   <div class="grid-item"><button class="button2" onclick="blueButton2(this.id)" id="id8hole2">8</button></div>
-  <div class="grid-item"><button class="button2" onclick="blueButton2(this.id)" id="idxhole2">X</button></div>  
+  <div class="grid-item"><button class="button2" onclick="blueButton2(this.id)" id="id9hole2">9</button></div>  
 </div>
 
 <div class="grid-container" id="hole3">
@@ -653,7 +2628,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button3" onclick="blueButton3(this.id)" id="id6hole3">6</button></div>  
   <div class="grid-item"><button class="button3" onclick="blueButton3(this.id)" id="id7hole3">7</button></div>
   <div class="grid-item"><button class="button3" onclick="blueButton3(this.id)" id="id8hole3">8</button></div>
-  <div class="grid-item"><button class="button3" onclick="blueButton3(this.id)" id="idxhole3">X</button></div>  
+  <div class="grid-item"><button class="button3" onclick="blueButton3(this.id)" id="id9hole3">9</button></div>  
 </div>
 
 <div class="grid-container" id="hole4">
@@ -670,7 +2645,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button4" onclick="blueButton4(this.id)" id="id6hole4">6</button></div>  
   <div class="grid-item"><button class="button4" onclick="blueButton4(this.id)" id="id7hole4">7</button></div>
   <div class="grid-item"><button class="button4" onclick="blueButton4(this.id)" id="id8hole4">8</button></div>
-  <div class="grid-item"><button class="button4" onclick="blueButton4(this.id)" id="idxhole4">X</button></div>  
+  <div class="grid-item"><button class="button4" onclick="blueButton4(this.id)" id="id9hole4">9</button></div>  
 </div>
 
 <div class="grid-container" id="hole5">
@@ -687,7 +2662,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button5" onclick="blueButton5(this.id)" id="id6hole5">6</button></div>  
   <div class="grid-item"><button class="button5" onclick="blueButton5(this.id)" id="id7hole5">7</button></div>
   <div class="grid-item"><button class="button5" onclick="blueButton5(this.id)" id="id8hole5">8</button></div>
-  <div class="grid-item"><button class="button5" onclick="blueButton5(this.id)" id="idxhole5">X</button></div>  
+  <div class="grid-item"><button class="button5" onclick="blueButton5(this.id)" id="id9hole5">9</button></div>  
 </div>
 
 <div class="grid-container" id="hole6">
@@ -704,7 +2679,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button6" onclick="blueButton6(this.id)" id="id6hole6">6</button></div>  
   <div class="grid-item"><button class="button6" onclick="blueButton6(this.id)" id="id7hole6">7</button></div>
   <div class="grid-item"><button class="button6" onclick="blueButton6(this.id)" id="id8hole6">8</button></div>
-  <div class="grid-item"><button class="button6" onclick="blueButton6(this.id)" id="idxhole6">X</button></div>  
+  <div class="grid-item"><button class="button6" onclick="blueButton6(this.id)" id="id9hole6">9</button></div>  
 </div>
 
 
@@ -724,7 +2699,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button7" onclick="blueButton7(this.id)" id="id6hole7">6</button></div>  
   <div class="grid-item"><button class="button7" onclick="blueButton7(this.id)" id="id7hole7">7</button></div>
   <div class="grid-item"><button class="button7" onclick="blueButton7(this.id)" id="id8hole7">8</button></div>
-  <div class="grid-item"><button class="button7" onclick="blueButton7(this.id)" id="idxhole7">X</button></div>  
+  <div class="grid-item"><button class="button7" onclick="blueButton7(this.id)" id="id9hole7">9</button></div>  
 </div>
 
 <div class="grid-container" id="hole8">
@@ -741,7 +2716,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button8" onclick="blueButton8(this.id)" id="id6hole8">6</button></div>  
   <div class="grid-item"><button class="button8" onclick="blueButton8(this.id)" id="id7hole8">7</button></div>
   <div class="grid-item"><button class="button8" onclick="blueButton8(this.id)" id="id8hole8">8</button></div>
-  <div class="grid-item"><button class="button8" onclick="blueButton8(this.id)" id="idxhole8">X</button></div>  
+  <div class="grid-item"><button class="button8" onclick="blueButton8(this.id)" id="id9hole8">9</button></div>  
 </div>
 
 <div class="grid-container" id="hole9">
@@ -758,7 +2733,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button9" onclick="blueButton9(this.id)" id="id6hole9">6</button></div>  
   <div class="grid-item"><button class="button9" onclick="blueButton9(this.id)" id="id7hole9">7</button></div>
   <div class="grid-item"><button class="button9" onclick="blueButton9(this.id)" id="id8hole9">8</button></div>
-  <div class="grid-item"><button class="button9" onclick="blueButton9(this.id)" id="idxhole9">X</button></div>  
+  <div class="grid-item"><button class="button9" onclick="blueButton9(this.id)" id="id9hole9">9</button></div>  
 </div>
 
     
@@ -776,7 +2751,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button10" onclick="blueButton10(this.id)" id="id6hole10">6</button></div>  
   <div class="grid-item"><button class="button10" onclick="blueButton10(this.id)" id="id7hole10">7</button></div>
   <div class="grid-item"><button class="button10" onclick="blueButton10(this.id)" id="id8hole10">8</button></div>
-  <div class="grid-item"><button class="button10" onclick="blueButton10(this.id)" id="idxhole10">X</button></div>  
+  <div class="grid-item"><button class="button10" onclick="blueButton10(this.id)" id="id9hole10">9</button></div>  
 </div>
 
 
@@ -794,7 +2769,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button11" onclick="blueButton11(this.id)" id="id6hole11">6</button></div>  
   <div class="grid-item"><button class="button11" onclick="blueButton11(this.id)" id="id7hole11">7</button></div>
   <div class="grid-item"><button class="button11" onclick="blueButton11(this.id)" id="id8hole11">8</button></div>
-  <div class="grid-item"><button class="button11" onclick="blueButton11(this.id)" id="idxhole11">X</button></div>  
+  <div class="grid-item"><button class="button11" onclick="blueButton11(this.id)" id="id9hole11">9</button></div>  
 </div>
 
 
@@ -812,7 +2787,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button12" onclick="blueButton12(this.id)" id="id6hole12">6</button></div>  
   <div class="grid-item"><button class="button12" onclick="blueButton12(this.id)" id="id7hole12">7</button></div>
   <div class="grid-item"><button class="button12" onclick="blueButton12(this.id)" id="id8hole12">8</button></div>
-  <div class="grid-item"><button class="button12" onclick="blueButton12(this.id)" id="idxhole12">X</button></div>  
+  <div class="grid-item"><button class="button12" onclick="blueButton12(this.id)" id="id9hole12">9</button></div>  
 </div>
 
 
@@ -831,7 +2806,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button13" onclick="blueButton13(this.id)" id="id6hole13">6</button></div>  
   <div class="grid-item"><button class="button13" onclick="blueButton13(this.id)" id="id7hole13">7</button></div>
   <div class="grid-item"><button class="button13" onclick="blueButton13(this.id)" id="id8hole13">8</button></div>
-  <div class="grid-item"><button class="button13" onclick="blueButton13(this.id)" id="idxhole13">X</button></div>  
+  <div class="grid-item"><button class="button13" onclick="blueButton13(this.id)" id="id9hole13">9</button></div>  
 </div>
 
 
@@ -850,7 +2825,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button14" onclick="blueButton14(this.id)" id="id6hole14">6</button></div>  
   <div class="grid-item"><button class="button14" onclick="blueButton14(this.id)" id="id7hole14">7</button></div>
   <div class="grid-item"><button class="button14" onclick="blueButton14(this.id)" id="id8hole14">8</button></div>
-  <div class="grid-item"><button class="button14" onclick="blueButton14(this.id)" id="idxhole14">X</button></div>  
+  <div class="grid-item"><button class="button14" onclick="blueButton14(this.id)" id="id9hole14">9</button></div>  
 </div>
 
 
@@ -869,7 +2844,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button15" onclick="blueButton15(this.id)" id="id6hole15">6</button></div>  
   <div class="grid-item"><button class="button15" onclick="blueButton15(this.id)" id="id7hole15">7</button></div>
   <div class="grid-item"><button class="button15" onclick="blueButton15(this.id)" id="id8hole15">8</button></div>
-  <div class="grid-item"><button class="button15" onclick="blueButton15(this.id)" id="idxhole15">X</button></div>  
+  <div class="grid-item"><button class="button15" onclick="blueButton15(this.id)" id="id9hole15">9</button></div>  
 </div>
 
 
@@ -887,7 +2862,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button16" onclick="blueButton16(this.id)" id="id6hole16">6</button></div>  
   <div class="grid-item"><button class="button16" onclick="blueButton16(this.id)" id="id7hole16">7</button></div>
   <div class="grid-item"><button class="button16" onclick="blueButton16(this.id)" id="id8hole16">8</button></div>
-  <div class="grid-item"><button class="button16" onclick="blueButton16(this.id)" id="idxhole16">X</button></div>  
+  <div class="grid-item"><button class="button16" onclick="blueButton16(this.id)" id="id9hole16">9</button></div>  
 </div>
 
 
@@ -906,7 +2881,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button17" onclick="blueButton17(this.id)" id="id6hole17">6</button></div>  
   <div class="grid-item"><button class="button17" onclick="blueButton17(this.id)" id="id7hole17">7</button></div>
   <div class="grid-item"><button class="button17" onclick="blueButton17(this.id)" id="id8hole17">8</button></div>
-  <div class="grid-item"><button class="button17" onclick="blueButton17(this.id)" id="idxhole17">X</button></div>  
+  <div class="grid-item"><button class="button17" onclick="blueButton17(this.id)" id="id9hole17">9</button></div>  
 </div>
 
 
@@ -925,7 +2900,7 @@ element.style.display = "none";
   <div class="grid-item"><button class="button18" onclick="blueButton18(this.id)" id="id6hole18">6</button></div>  
   <div class="grid-item"><button class="button18" onclick="blueButton18(this.id)" id="id7hole18">7</button></div>
   <div class="grid-item"><button class="button18" onclick="blueButton18(this.id)" id="id8hole18">8</button></div>
-  <div class="grid-item"><button class="button18" onclick="blueButton18(this.id)" id="idxhole18">X</button></div>  
+  <div class="grid-item"><button class="button18" onclick="blueButton18(this.id)" id="id9hole18">9</button></div>  
 </div>
 
 <br><br>
@@ -952,31 +2927,37 @@ hole 8
 hole 9
 <div id="score9">0</div>points<div id="pointsscore9">0</div>
 
-gross
-<div id="outscore9">0</div>out<div id="outpointsscore9">0</div>
+total gross out
+<div id="outscore9">0</div>total points out<div id="outpointsscore9">0</div>
 
 </div>
 
 
-<div class="scoreContainer" id="scores10to18">
+<div class="scoreContainertest" id="scores10to18">
 hole 10
-<div id="score10"></div>
+<div id="score10">0</div>points<div id="pointsscore10">0</div>
 hole 11
-<div id="score11"></div>
+<div id="score11">0</div>points<div id="pointsscore11">0</div>
 hole 12
-<div id="score12"></div>
+<div id="score12">0</div>points<div id="pointsscore12">0</div>
 hole 13
-<div id="score13"></div>
+<div id="score13">0</div>points<div id="pointsscore13">0</div>
 hole 14
-<div id="score14"></div>
+<div id="score14">0</div>points<div id="pointsscore14">0</div>
 hole 15
-<div id="score15"></div>
+<div id="score15">0</div>points<div id="pointsscore15">0</div>
 hole 16
-<div id="score16"></div>
+<div id="score16">0</div>points<div id="pointsscore16">0</div>
 hole 17
-<div id="score17"></div>
+<div id="score17">0</div>points<div id="pointsscore17">0</div>
 hole 18
-<div id="score18"></div>
+<div id="score18">0</div>points<div id="pointsscore18">0</div>
+
+gross
+<div id="inscore9">0</div>in<div id="inpointsscore9">0</div>
+
+total
+<div id="totalscore">0</div>total<div id="totalpoints">0</div>
 
 </div>
 
@@ -1120,991 +3101,12 @@ https://docs.google.com/forms/d/1jUR5jhgT-2anQm3fQW8eWvmqpIZwNnoCJedzWwg2bag/edi
 
 <br><br><br><br>
 
-<script>
 
-function blueButton1(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole1");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id2hole1");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole1");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole1");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole1");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole1");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole1");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole1");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole1");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score1").innerText = el.innerText;
-    
-    
-    
-    // try here to do points calculation
-    
-    var vhcp=22
-    var vcourse="lakes"
-    const vpar1=4
-    const vpar2=4
-    const vpar3=5
-    const vpar4=4
-    const vpar5=3
-    const vpar6=3
-    const vpar7=4
-    const vpar8=4
-    const vpar9=4
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    const vsi1=10
-    const vsi2=7
-    const vsi3=3
-    const vsi4=1
-    const vsi5=17
-    
-        
-    
-   
-    
-    
-     var vvpar1=0
-     var vvsi1=0
-     var vel=""
-     var vh1=""
-    
-    
-    
-    if (id.indexOf("hole1") > -1) {
-     vvpar1=vpar1
-     vvsi1=vsi1
-     vel="pointsscore1"
-         
-   
-    } 
-    
-    if (id.indexOf("hole2") > -1) {
-     vvpar1=vpar2
-     vvsi1=vsi2
-     vel="pointsscore2"
-    }
-    
-    if (id.indexOf("hole3") > -1) {
-     vvpar1=vpar3
-     vvsi1=vsi3
-     vel="pointsscore3"
-    }
-    
-    if (id.indexOf("hole4") > -1) {
-     vvpar1=vpar4
-     vvsi1=vsi4
-     vel="pointsscore4"
-    }
-    
-    if (id.indexOf("hole5") > -1) {
-     vvpar1=vpar5
-     vvsi1=vsi5
-     vel="pointsscore5"
-    }
-    
-    
-    
-    
-    
-    x1=0
-    if (vhcp>=(vvsi1)) {
-       x1=1
-    } 
-    if (vhcp>=(vvsi1+18)) {
-       x1=2
-    }  
-    if (vhcp>=(vvsi1+36)) {
-       x1=3
-    }  
-    
-    
-    
-    vh1=(vvpar1+2)-(el.innerText-x1)    
-    document.getElementById(vel).innerText = vh1;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-}
-
-function blueButton2(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole2");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id2hole2");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole2");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole2");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole2");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole2");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole2");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole2");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole2");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score2").innerText = el.innerText;
-}
-
-function blueButton3(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole3");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole3");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole3");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole3");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole3");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole3");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole3");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole3");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole3");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score3").innerText = el.innerText;
-       
-    // try here to do points calculation
-    
-    var vhcp=22
-    var vcourse="lakes"
-    const vpar3=5
-    const vsi3=3
-    var vvpar1=0
-    var vvsi1=0
-    var vel=""
-    var vh1=""
-
-    vvpar1=vpar3
-    vvsi1=vsi3
-    vel="pointsscore3"
-    x1=0
-    if (vhcp>=(vvsi1)) {
-       x1=1
-    } 
-    if (vhcp>=(vvsi1+18)) {
-       x1=2
-    }  
-    if (vhcp>=(vvsi1+36)) {
-       x1=3
-    }  
-    
-    vh1=(vvpar1+2)-(el.innerText-x1)    
-    document.getElementById(vel).innerText = vh1;
-    
-      
-    
-   var n1=parseFloat(document.getElementById("pointsscore1").innerText)
-   var n2=parseFloat(document.getElementById("pointsscore2").innerText) 
-   var n3=parseFloat(document.getElementById("pointsscore3").innerText) 
-   var n4=parseFloat(document.getElementById("pointsscore4").innerText)
-   var n5=parseFloat(document.getElementById("pointsscore5").innerText) 
-   var n6=parseFloat(document.getElementById("pointsscore6").innerText) 
-   var n7=parseFloat(document.getElementById("pointsscore7").innerText)
-   var n8=parseFloat(document.getElementById("pointsscore8").innerText) 
-   var n9=parseFloat(document.getElementById("pointsscore9").innerText) 
-   
-   var nout9 = n1 +n2 + n3 + n4 + n5 +n6 + n7 + n8 + n9
-   document.getElementById("outpointsscore9").innerText = nout9
-    
-    
-   var nn1=parseFloat(document.getElementById("score1").innerText)
-   var nn2=parseFloat(document.getElementById("score2").innerText) 
-   var nn3=parseFloat(document.getElementById("score3").innerText) 
-   var nn4=parseFloat(document.getElementById("score4").innerText)
-   var nn5=parseFloat(document.getElementById("score5").innerText) 
-   var nn6=parseFloat(document.getElementById("score6").innerText) 
-   var nn7=parseFloat(document.getElementById("score7").innerText)
-   var nn8=parseFloat(document.getElementById("score8").innerText) 
-   var nn9=parseFloat(document.getElementById("score9").innerText) 
-   
-   var nnout9 = nn1 +nn2 + nn3 + nn4 + nn5 +nn6 + nn7 + nn8 + nn9
-   document.getElementById("outscore9").innerText = nnout9 
-    
-    
-   
-    
-   
-}
-
-
-function blueButton4(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole4");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole4");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole4");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole4");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole4");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole4");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole4");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole4");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole4");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score4").innerText = el.innerText;
-}
-
-function blueButton5(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole5");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole5");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole5");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole5");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole5");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole5");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole5");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole5");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole5");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score5").innerText = el.innerText;
-}
-
-function blueButton6(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole6");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole6");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole6");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole6");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole6");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole6");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole6");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole6");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole6");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score6").innerText = el.innerText;
-}
-
-function blueButton7(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole7");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole7");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole7");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole7");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole7");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole7");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole7");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole7");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole7");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score7").innerText = el.innerText;
-}
-
-function blueButton8(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole8");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole8");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole8");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole8");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole8");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole8");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole8");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole8");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole8");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score8").innerText = el.innerText;
-}
-
-function blueButton9(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole9");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole9");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole9");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole9");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole9");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole9");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole9");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole9");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole9");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score9").innerText = el.innerText;
-}
-
-function blueButton10(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole10");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole10");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole10");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole10");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole10");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole10");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole10");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole10");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole10");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score10").innerText = el.innerText;
-}
-
-function blueButton11(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole11");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole11");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole11");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole11");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole11");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole11");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole11");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole11");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole11");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score11").innerText = el.innerText;
-}
-
-function blueButton12(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole12");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole12");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole12");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole12");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole12");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole12");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole12");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole12");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole12");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score12").innerText = el.innerText;
-}
-
-function blueButton13(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole13");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole13");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole13");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole13");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole13");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole13");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole13");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole13");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole13");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score13").innerText = el.innerText;
-    
-}
-
-function blueButton14(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole14");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole14");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole14");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole14");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole14");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole14");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole14");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole14");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole14");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score14").innerText = el.innerText;
-}
-
-function blueButton15(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole15");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole15");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole15");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole15");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole15");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole15");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole15");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole15");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole15");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score15").innerText = el.innerText;
-}
-
-function blueButton16(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole16");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole16");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole16");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole16");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole16");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole16");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole16");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole16");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole16");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score16").innerText = el.innerText;
-}
-
-function blueButton17(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole17");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole17");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole17");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole17");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole17");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole17");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole17");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole17");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole17");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score17").innerText = el.innerText;
-}
-
-function blueButton18(id) {    
-    // reset buttons for this hole
-    var buttonElement = document.getElementById("id1hole18");
-    buttonElement.setAttribute("class", "button3");
-    buttonElement = document.getElementById("id2hole18");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id3hole18");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id4hole18");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id5hole18");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id6hole18");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id7hole18");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("id8hole18");
-    buttonElement.setAttribute("class", "button1");
-    buttonElement = document.getElementById("idxhole18");
-    buttonElement.setAttribute("class", "button1");      
-    // then set current button on
-    var el = document.getElementById(id);
-    el.setAttribute("class", "classB");
-    document.getElementById("score18").innerText = el.innerText;
-}
-
-function buttonSubmit() {
-  
-  if (document.getElementById("submitButton").innerText == "Submit") {
-  
-    // do submit stuff here
-        var ok = "yes";
-    var s1 = document.getElementById("score1").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx202631125").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score2").innerText;
-    if (s1.length  > 0) {  
-        document.getElementById("mx1220170043").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score3").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1343461718").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score4").innerText;
-    if (s1.length  > 0) {  
-        document.getElementById("mx870943983").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score5").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1941601160").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score6").innerText;
-    if (s1.length  > 0) {  
-        document.getElementById("mx720850778").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score7").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx626160595").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score8").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx841825168").value = s1; 
-    } else {
-        ok = "no";
-    }  
-    
-    s1 = document.getElementById("score9").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx118396704").value = s1; 
-    } else {
-        ok = "no";
-    }    
-    
-    s1 = document.getElementById("score10").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx2120326569").value = s1; 
-    } else {
-        ok = "no";
-    }
-       
-    s1 = document.getElementById("score11").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1864857846").value = s1; 
-    } else {
-        ok = "no";
-    }
-        
-    s1 = document.getElementById("score12").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx248316274").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score13").innerText;
-    if (s1.length  > 0) {  
-        document.getElementById("mx1905651830").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score14").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1207580033").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score15").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1923832800").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score16").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx909418688").value = s1; 
-    } else {
-        ok = "no";
-    }
-       
-    s1 = document.getElementById("score17").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1073367537").value = s1; 
-    } else {
-        ok = "no";
-    }
-     
-    s1 = document.getElementById("score18").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx358314165").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    
-    if (ok == "yes") {
-        alert("do submit");
-        document.forms[0].submit()
-        
-    
-    sub = document.getElementById("submitButton");
-    sub.style.backgroundColor = "blue";
-    sub.innerText = "Submitted";
-    
-    
-    } else {
-        alert("message about missing data so no submit");
-    }
-    
-    // press the form submit button
-    //document.forms[0].submit()
-    
-    
-  
-    
-  }
-  
-  
-}
-
-
-
-
-// set the target on the form to point to a hidden iframe
-// some browsers need the target set via JavaScript, no idea why...
-document.getElementById('my-form').target = 'my-response-iframe';
-// detect when the iframe reloads
-var iframe = document.getElementById('my-response-iframe');
-if (iframe) {
-iframe.onload = function () {
-// at this point the iframe reloads which is equivalent to a success.
-       
-//alert("success");
-var s1 = document.getElementById("score18").innerText; 
-if (s1.length > 0) {
-    
-    
- // wait - probably not required
-  // but helps with timestamp etc.
-  const milliseconds = 1000;
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);    
-    
-    
-    sub = document.getElementById("submitButton");
-    sub.style.backgroundColor = "blue";
-    sub.innerText = "Updated OK"; 
-    
-  
-       
-}       
-}
-}
-   
-function fixdata() {
-// copied to buttonSubmit()
-// only for testing - get rid when finished with
-
-
-
-    var ok = "yes";
-    var s1 = document.getElementById("score1").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx202631125").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score2").innerText;
-    if (s1.length  > 0) {  
-        document.getElementById("mx1220170043").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score3").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1343461718").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score4").innerText;
-    if (s1.length  > 0) {  
-        document.getElementById("mx870943983").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score5").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1941601160").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score6").innerText;
-    if (s1.length  > 0) {  
-        document.getElementById("mx720850778").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score7").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx626160595").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score8").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx841825168").value = s1; 
-    } else {
-        ok = "no";
-    }  
-    
-    s1 = document.getElementById("score9").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx118396704").value = s1; 
-    } else {
-        ok = "no";
-    }    
-    
-    s1 = document.getElementById("score10").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx2120326569").value = s1; 
-    } else {
-        ok = "no";
-    }
-       
-    s1 = document.getElementById("score11").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1864857846").value = s1; 
-    } else {
-        ok = "no";
-    }
-        
-    s1 = document.getElementById("score12").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx248316274").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score13").innerText;
-    if (s1.length  > 0) {  
-        document.getElementById("mx1905651830").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score14").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1207580033").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score15").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1923832800").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    s1 = document.getElementById("score16").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx909418688").value = s1; 
-    } else {
-        ok = "no";
-    }
-       
-    s1 = document.getElementById("score17").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx1073367537").value = s1; 
-    } else {
-        ok = "no";
-    }
-     
-    s1 = document.getElementById("score18").innerText;
-    if (s1.length  > 0) { 
-        document.getElementById("mx358314165").value = s1; 
-    } else {
-        ok = "no";
-    }
-    
-    
-    if (ok == "yes") {
-        alert("do submit");
-    }
-    
-    
-}   
-   
-
-
-
-</script>
 </body>
 </html>
+
+
+
 
 
 
