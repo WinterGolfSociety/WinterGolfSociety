@@ -351,6 +351,28 @@ body {
   padding: 20px;        
 }
 
+
+
+
+
+
+
+
+
+
+.scoreContainertest {
+  display: grid;
+  grid-template-columns: 25% 25% 25% auto;
+  padding: 20px;        
+}
+
+
+
+
+
+
+
+
 #submitButton {
   background-color: dodgerBlue;
   color: white;
@@ -362,7 +384,9 @@ body {
 }
 
 
-
+#outscore9, #outpointsscore9 {
+   color: yellow;
+}
 
 
 </style>
@@ -908,26 +932,31 @@ element.style.display = "none";
 Check the scores (shots taken) you have entered then Submit.
 <br><br>
 
-<div class="scoreContainer" id="scores1to9">
+<div class="scoreContainertest" id="scores1to9">
 hole 1    
-<div id="score1"></div>
+<div id="score1">0</div>points<div id="pointsscore1">0</div>
 hole 2
-<div id="score2"></div>
+<div id="score2">0</div>points<div id="pointsscore2">0</div>
 hole 3
-<div id="score3"></div>
+<div id="score3">0</div>points<div id="pointsscore3">0</div>
 hole 4
-<div id="score4"></div>
+<div id="score4">0</div>points<div id="pointsscore4">0</div>
 hole 5
-<div id="score5"></div>
+<div id="score5">0</div>points<div id="pointsscore5">0</div>
 hole 6
-<div id="score6"></div>
+<div id="score6">0</div>points<div id="pointsscore6">0</div>
 hole 7
-<div id="score7"></div>
+<div id="score7">0</div>points<div id="pointsscore7">0</div>
 hole 8
-<div id="score8"></div>
+<div id="score8">0</div>points<div id="pointsscore8">0</div>
 hole 9
-<div id="score9"></div>
+<div id="score9">0</div>points<div id="pointsscore9">0</div>
+
+total gross out
+<div id="outscore9">0</div>total points out<div id="outpointsscore9">0</div>
+
 </div>
+
 
 <div class="scoreContainer" id="scores10to18">
 hole 10
@@ -1086,48 +1115,6 @@ https://docs.google.com/forms/d/1jUR5jhgT-2anQm3fQW8eWvmqpIZwNnoCJedzWwg2bag/edi
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <button id="submitButton" onclick="buttonSubmit()">Submit</button>
 <div id="submitConfirm"></div>
 
@@ -1159,6 +1146,115 @@ function blueButton1(id) {
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
     document.getElementById("score1").innerText = el.innerText;
+    
+    
+    
+    // try here to do points calculation
+    
+    var vhcp=22
+    var vcourse="lakes"
+    const vpar1=4
+    const vpar2=4
+    const vpar3=5
+    const vpar4=4
+    const vpar5=3
+    const vpar6=3
+    const vpar7=4
+    const vpar8=4
+    const vpar9=4
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    const vsi1=10
+    const vsi2=7
+    const vsi3=3
+    const vsi4=1
+    const vsi5=17
+    
+        
+    
+   
+    
+    
+     var vvpar1=0
+     var vvsi1=0
+     var vel=""
+     var vh1=""
+    
+    
+    
+    if (id.indexOf("hole1") > -1) {
+     vvpar1=vpar1
+     vvsi1=vsi1
+     vel="pointsscore1"
+         
+   
+    } 
+    
+    if (id.indexOf("hole2") > -1) {
+     vvpar1=vpar2
+     vvsi1=vsi2
+     vel="pointsscore2"
+    }
+    
+    if (id.indexOf("hole3") > -1) {
+     vvpar1=vpar3
+     vvsi1=vsi3
+     vel="pointsscore3"
+    }
+    
+    if (id.indexOf("hole4") > -1) {
+     vvpar1=vpar4
+     vvsi1=vsi4
+     vel="pointsscore4"
+    }
+    
+    if (id.indexOf("hole5") > -1) {
+     vvpar1=vpar5
+     vvsi1=vsi5
+     vel="pointsscore5"
+    }
+    
+    
+    
+    
+    
+    x1=0
+    if (vhcp>=(vvsi1)) {
+       x1=1
+    } 
+    if (vhcp>=(vvsi1+18)) {
+       x1=2
+    }  
+    if (vhcp>=(vvsi1+36)) {
+       x1=3
+    }  
+    
+    
+    
+    vh1=(vvpar1+2)-(el.innerText-x1)    
+    document.getElementById(vel).innerText = vh1;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 function blueButton2(id) {    
@@ -1211,6 +1307,68 @@ function blueButton3(id) {
     var el = document.getElementById(id);
     el.setAttribute("class", "classB");
     document.getElementById("score3").innerText = el.innerText;
+       
+    // try here to do points calculation
+    
+    var vhcp=22
+    var vcourse="lakes"
+    const vpar3=5
+    const vsi3=3
+    var vvpar1=0
+    var vvsi1=0
+    var vel=""
+    var vh1=""
+
+    vvpar1=vpar3
+    vvsi1=vsi3
+    vel="pointsscore3"
+    x1=0
+    if (vhcp>=(vvsi1)) {
+       x1=1
+    } 
+    if (vhcp>=(vvsi1+18)) {
+       x1=2
+    }  
+    if (vhcp>=(vvsi1+36)) {
+       x1=3
+    }  
+    
+    vh1=(vvpar1+2)-(el.innerText-x1)    
+    document.getElementById(vel).innerText = vh1;
+    
+      
+    
+   var n1=parseFloat(document.getElementById("pointsscore1").innerText)
+   var n2=parseFloat(document.getElementById("pointsscore2").innerText) 
+   var n3=parseFloat(document.getElementById("pointsscore3").innerText) 
+   var n4=parseFloat(document.getElementById("pointsscore4").innerText)
+   var n5=parseFloat(document.getElementById("pointsscore5").innerText) 
+   var n6=parseFloat(document.getElementById("pointsscore6").innerText) 
+   var n7=parseFloat(document.getElementById("pointsscore7").innerText)
+   var n8=parseFloat(document.getElementById("pointsscore8").innerText) 
+   var n9=parseFloat(document.getElementById("pointsscore9").innerText) 
+   
+   var nout9 = n1 +n2 + n3 + n4 + n5 +n6 + n7 + n8 + n9
+   document.getElementById("outpointsscore9").innerText = nout9
+    
+    
+   var nn1=parseFloat(document.getElementById("score1").innerText)
+   var nn2=parseFloat(document.getElementById("score2").innerText) 
+   var nn3=parseFloat(document.getElementById("score3").innerText) 
+   var nn4=parseFloat(document.getElementById("score4").innerText)
+   var nn5=parseFloat(document.getElementById("score5").innerText) 
+   var nn6=parseFloat(document.getElementById("score6").innerText) 
+   var nn7=parseFloat(document.getElementById("score7").innerText)
+   var nn8=parseFloat(document.getElementById("score8").innerText) 
+   var nn9=parseFloat(document.getElementById("score9").innerText) 
+   
+   var nnout9 = nn1 +nn2 + nn3 + nn4 + nn5 +nn6 + nn7 + nn8 + nn9
+   document.getElementById("outscore9").innerText = nnout9 
+    
+    
+   
+    
+   
 }
 
 
@@ -1756,73 +1914,12 @@ function buttonSubmit() {
     //document.forms[0].submit()
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
+  
     
   }
   
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1851,19 +1948,11 @@ if (s1.length > 0) {
   } while (currentDate - date < milliseconds);    
     
     
-    
-    
-    
-    
-    
     sub = document.getElementById("submitButton");
     sub.style.backgroundColor = "blue";
     sub.innerText = "Updated OK"; 
     
   
-    
-    
-    
        
 }       
 }
@@ -2008,40 +2097,8 @@ function fixdata() {
     }
     
     
-    
-    
-    
 }   
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
