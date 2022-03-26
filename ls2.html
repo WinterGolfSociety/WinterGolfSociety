@@ -388,6 +388,7 @@ body {
    color: yellow;
 }
 
+html { visibility:hidden; }
 
 </style>
 
@@ -397,6 +398,8 @@ body {
 
 </head>
 <body onload="Startup()">
+   
+<div id="cover"></div>
 
 <h1>Score entry</h1>
 
@@ -483,6 +486,7 @@ body {
    
    function Startup() {
   	HideAll();
+   document.getElementsByTagName("html")[0].style.visibility = "visible";
   	// move to hole 1    
   	var element = document.getElementById("hole1");
   	element.style.display = "grid";
@@ -2927,8 +2931,8 @@ hole 8
 hole 9
 <div id="score9">0</div>points<div id="pointsscore9">0</div>
 
-out
-<div id="outscore9">0</div>out<div id="outpointsscore9">0</div>
+total gross out
+<div id="outscore9">0</div>total points out<div id="outpointsscore9">0</div>
 
 </div>
 
@@ -2953,7 +2957,7 @@ hole 17
 hole 18
 <div id="score18">0</div>points<div id="pointsscore18">0</div>
 
-in
+gross
 <div id="inscore9">0</div>in<div id="inpointsscore9">0</div>
 
 total
@@ -3104,6 +3108,9 @@ https://docs.google.com/forms/d/1jUR5jhgT-2anQm3fQW8eWvmqpIZwNnoCJedzWwg2bag/edi
 
 </body>
 </html>
+
+
+
 
 
 
