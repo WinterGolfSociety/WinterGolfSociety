@@ -360,7 +360,9 @@ html { visibility:hidden; }
 
 
 
-
+#screenscale {   
+   font-size:20px;
+   }
 
 
 
@@ -374,7 +376,7 @@ html { visibility:hidden; }
 
 </head>
 <body onload="Startup()">
-   
+ <div id="screenscale"></div>    
 <div id="cover"></div>
 <h1>Score entry</h1>
 <div class="header" id="header1">
@@ -410,7 +412,31 @@ html { visibility:hidden; }
 
 
 <script>
+  
+    
+    
+    
+    
+    
+// create artificially low value  
+ var siteWidth = 300;
+var scale = screen.width /siteWidth;
+
+document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');  
+document.getElementById("screenscale").innerText = scale   
    
+     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 // use diary of dates ...  
 var options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'};
 const formatter = new Intl.DateTimeFormat('en-GB', options);
