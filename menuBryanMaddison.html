@@ -68,6 +68,10 @@ background-color: SlateGray; color: white;
 .show {
 display: block;
 }
+   
+#screenscale {   
+   font-size:20px;
+   }
 </style>
 <meta charset="utf-8" />
 <meta name="viewport" content=
@@ -80,7 +84,7 @@ display: block;
 </script>
 </head>
 <body>
-   
+<div id="screenscale"></div>   
 <div class="atitle"><span class="asubtitle">my .. </span>
 Winter <img src="fallovergolfer.gif" alt="Golfer" width="70" height="90" /><br />
 Golf Society
@@ -487,11 +491,11 @@ probability</a>
 <script type="text/javascript">
    
    
- var siteWidth = 1280;
+ var siteWidth = 320;
 var scale = screen.width /siteWidth;
 
 document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');  
-   
+document.getElementById("screenscale").innerText = scale   
    
    
    
