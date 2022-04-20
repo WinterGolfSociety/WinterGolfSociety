@@ -118,6 +118,8 @@ body {
 }
  
 </style>
+<script src="jquery-3.6.0.min.js" type="text/javascript">
+</script>
 </head>
 <body>
 <font size=12; color="#ccc";>Matchplay pairs competition 2022</font>
@@ -230,7 +232,8 @@ body {
 <br><br>
 <div id="lastm"></div>
 <script>
-document.getElementById("lastm").innerHTML = "last updated: " + document.lastModified
+var d = new Date(document.lastModified);
+document.getElementById("lastm").innerText = "last updated: " + d.toGMTString('en-UK')
 </script>
 <br><br>
 </body>

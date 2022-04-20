@@ -301,7 +301,8 @@ body {
 <br><br>
 <div id="lastm"></div>
 <script>
-document.getElementById("lastm").innerHTML = "last updated: " + document.lastModified
+var d = new Date(document.lastModified);
+document.getElementById("lastm").innerText = "last updated: " + d.toGMTString('en-UK')
 </script>
 <br><br>
 </body>
