@@ -5,7 +5,6 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Matchplay singles</title>
-</head>
 
 <style>
 
@@ -24,6 +23,10 @@ body {
   padding-top: 5px;
 }
 
+#lastm {
+   font-size: 14px;
+   color: lightGray;
+}
 
  .tournament {
 	 position: relative;
@@ -117,7 +120,8 @@ body {
 }
  
 </style>
-
+</head>
+<body>
 <font size=12; color="#ccc";>Matchplay singles competition 2022</font>
 <br>
 
@@ -294,9 +298,12 @@ body {
   </div>
 
 </div>
-
-
-
+<br><br>
+<div id="lastm"></div>
+<script>
+document.getElementById("lastm").innerHTML = "last updated: " + document.lastModified
+</script>
+<br><br>
 </body>
 </html>
 
