@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <html style="font-size: 16px; font-family:Arial, Helvetica, sans-serif;">
 <head lang="en">
@@ -16,7 +18,7 @@ body {
     color: lightGray;
 	 display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 0;
     padding-left: 30px;
     padding-top: 5px;
@@ -54,6 +56,59 @@ body {
 	 align-items: center;
 	 min-height: 100px;
 }
+
+.tournament__match_none {
+	 position: relative;
+	 overflow: hidden;
+	 display: flex;
+	 flex-direction: column;
+	 flex: 1 0;
+	 align-items: center;
+	 min-height: 100px;
+}
+ .tournament__match_none:after {
+	 content: '';
+	 position: absolute;
+	 right: 0;
+	 width: 2px;
+	 //background: rgba(0, 0, 0, .2);
+    //background: cyan;
+	 top: 25%;
+	 bottom: 25%;
+} 
+ .tournament__match__team_none {
+	 font-size: 12px;
+	 font-weight: bold;
+	 transition: color 0.3s ease;
+	 color: #ccc;
+	 text-decoration: none;
+	 box-sizing: border-box;
+	 background: rgba(0, 0, 0, .5);
+	 display: block;
+	 position: relative;
+	 width: auto;
+	 height: 32px;
+	 line-height: 32px;
+	 //padding: 0 15px 0 15px;
+    padding: 0 5px 0 5px;
+	 margin: auto;
+} 
+ .tournament__match__team_none:before, .tournament__match__team_none:after {
+	 content: '';
+	 position: absolute;
+	 top: 50%;
+	 width: 999px;
+	 height: 2px;
+	 margin-top: -1px;
+	 //background: rgba(0, 0, 0, .2);
+    background: cyan;
+}
+ .tournament__match__team_none:after {
+	 left: 100%;
+}
+ .tournament__match__team_none:before {
+	 right: 200%;
+}
  .tournament__match:first-child {
 	 margin: 0 !important;
 }
@@ -90,7 +145,8 @@ body {
 	 width: auto;
 	 height: 32px;
 	 line-height: 32px;
-	 padding: 0 15px 0 15px;
+	 //padding: 0 15px 0 15px;
+    padding: 0 5px 0 5px;
 	 margin: auto;
 }
  .tournament__match__team:focus, .tournament__match__team:hover {
@@ -128,12 +184,14 @@ body {
 <br>
 
 <div class="subh">
+   <div>preliminary - Lakes</div>
    <div>round 1 - Dawson</div>
    <div>round 2 - Lakes</div>
    <div>Semi-finals - Dawson</div>
    <div>final - Lakes</div>
 </div>
 <div class="subh">
+   <div>by 30th May</div>
    <div>by 27th June</div>
    <div>by 25th July</div>
    <div>by 22nd August</div>
@@ -145,40 +203,119 @@ body {
   <div class="tournament__logo-container tournament__logo-container--right">
     <strong class="tournament__logo tournament__logo--gold"></strong>
   </div>
-  <div class="tournament__grid">
+  <div class="tournament__grid"> 
+        <!-- tournament__round 1/16 -->
+    <div class="tournament__round tournament__round--first-round">
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match">
+        <a class="tournament__match__team" href="#">D Scurfield/R Straker</a>
+        <a class="tournament__match__team" href="#">T Lemin/A Coupland</a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match">
+        <a class="tournament__match__team" href="#">K Clark/C Herbert</a>
+        <a class="tournament__match__team" href="#">W French/J.E.Smith</a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match">
+        <a class="tournament__match__team" href="#">C Caisley/G Cowman</a>
+        <a class="tournament__match__team" href="#">B Hill/M Varnom</a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match">
+        <a class="tournament__match__team" href="#">R Ireland/R Woodcock</a>
+        <a class="tournament__match__team" href="#">J Dean/J Fletcher</a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match">
+        <a class="tournament__match__team" href="#">R Connelly/B Maddison</a>
+        <a class="tournament__match__team" href="#">G Gow/R Green</a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>
+      <div class="tournament__match">
+        <a class="tournament__match__team" href="#">D Gilroy/C Caesar</a>
+        <a class="tournament__match__team" href="#">D Jackson/B Simpson</a>
+      </div>
+      <div class="tournament__match_none">
+        <a></a>
+        <a></a>
+      </div>   
+    </div>
+       
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     <!-- tournament__round 1/8 -->
     <div class="tournament__round tournament__round--first-round">
       <div class="tournament__match">   
-        <a class="tournament__match__team" href="#">S Alldridge/B Toward</a>
+        <a class="tournament__match__team_none" href="#">S Alldridge/B Toward</a>
         <a class="tournament__match__team" href="#">tba</a>
       </div>
       <div class="tournament__match">
-        <a class="tournament__match__team" href="#">N Coxon/M Riddell</a>
+        <a class="tournament__match__team_none" href="#">N Coxon/M Riddell</a>
         <a class="tournament__match__team" href="#">tba</a>
       </div>
       <div class="tournament__match">
-        <a class="tournament__match__team" href="#">D Aitkenhead/P Holleran</a>
-        <a class="tournament__match__team" href="#">N Tait/J Jackson</a>
+        <a class="tournament__match__team_none" href="#">D Aitkenhead/P Holleran</a>
+        <a class="tournament__match__team_none" href="#">N Tait/J Jackson</a>
       </div>
       <div class="tournament__match">
         <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">R Thompson/K Belshaw</a>
+        <a class="tournament__match__team_none" href="#">R Thompson/K Belshaw</a>
       </div>
       <div class="tournament__match">
-        <a class="tournament__match__team" href="#">E Saddler/M Edwards</a>
+        <a class="tournament__match__team_none" href="#">E Saddler/M Edwards</a>
         <a class="tournament__match__team" href="#">tba</a>
       </div>
       <div class="tournament__match">
-        <a class="tournament__match__team" href="#">B Craggs/S Murray</a>
+        <a class="tournament__match__team_none" href="#">B Craggs/S Murray</a>
         <a class="tournament__match__team" href="#">tba</a>
       </div>
       <div class="tournament__match">
-        <a class="tournament__match__team" href="#">G Airey/T Smith</a>
-        <a class="tournament__match__team" href="#">R Hedley/D Norman</a>
+        <a class="tournament__match__team_none" href="#">G Airey/T Smith</a>
+        <a class="tournament__match__team_none" href="#">R Hedley/D Norman</a>
       </div>
       <div class="tournament__match">
         <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">A Davison/D Nelson</a>
+        <a class="tournament__match__team_none" href="#">A Davison/D Nelson</a>
       </div>
     </div>
 
@@ -240,6 +377,10 @@ document.getElementById("lastm").innerText = "last updated: " + d.toGMTString('e
 <br><br>
 </body>
 </html>
+
+
+
+
 
 
 
