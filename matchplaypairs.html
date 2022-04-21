@@ -1,7 +1,5 @@
 
 
-
-
 <!DOCTYPE html>
 <html style="font-size: 16px; font-family:Arial, Helvetica, sans-serif;">
 <head lang="en">
@@ -28,26 +26,26 @@ body {
    font-size: 12px;
    color: lightGray;
 }
- .tournament {
+ .matchplay {
 	 position: relative;
 	 min-height: 300px;
 	 padding: 30px 0 0;
 }
- .tournament__grid {
+ .matchplay_grid {
 	 font-size: 0;
 	 line-height: 0;
 	 display: flex;
 	 align-items: stretch;
 	 min-height: 400px;
 }
- .tournament__round {
+ .matchplay_round {
 	 position: relative;
 	 flex: 1 0;
 	 overflow: hidden;
 	 display: flex;
 	 flex-direction: column;
 }
- .tournament__match {
+ .matchplay_match {
 	 position: relative;
 	 overflow: hidden;
 	 display: flex;
@@ -57,7 +55,7 @@ body {
 	 min-height: 100px;
 }
 
-.tournament__match_none {
+.matchplay_match_noleft {
 	 position: relative;
 	 overflow: hidden;
 	 display: flex;
@@ -66,7 +64,7 @@ body {
 	 align-items: center;
 	 min-height: 100px;
 }
- .tournament__match_none:after {
+ .matchplay_match_noleft:after {
 	 content: '';
 	 position: absolute;
 	 right: 0;
@@ -76,7 +74,7 @@ body {
 	 top: 25%;
 	 bottom: 25%;
 } 
- .tournament__match__team_none {
+ .matchplay_match_team_noleft {
 	 font-size: 12px;
 	 font-weight: bold;
 	 transition: color 0.3s ease;
@@ -93,7 +91,7 @@ body {
     padding: 0 5px 0 5px;
 	 margin: auto;
 } 
- .tournament__match__team_none:before, .tournament__match__team_none:after {
+ .matchplay_match_team_noleft:before, .matchplay_match_team_noleft:after {
 	 content: '';
 	 position: absolute;
 	 top: 50%;
@@ -103,23 +101,23 @@ body {
 	 //background: rgba(0, 0, 0, .2);
     background: cyan;
 }
- .tournament__match__team_none:after {
+ .matchplay_match_team_noleft:after {
 	 left: 100%;
 }
- .tournament__match__team_none:before {
+ .matchplay_match_team_noleft:before {
 	 right: 200%;
 }
- .tournament__match:first-child {
+ .matchplay_match:first-child {
 	 margin: 0 !important;
 }
- .tournament__round--first-round .tournament__match {
+ .matchplay_round-first-round .matchplay_match {
 	 padding-left: 0;
 }
- .tournament__round--winner .tournament__match {
+ .matchplay_round-winner .matchplay_match {
 	 padding-right: 0;
 	 height: 32px;
 }
- .tournament__match:after {
+ .matchplay_match:after {
 	 content: '';
 	 position: absolute;
 	 right: 0;
@@ -129,10 +127,10 @@ body {
 	 top: 25%;
 	 bottom: 25%;
 }
- .tournament__round--winner .tournament__match:after, .tournament__round--end-point .tournament__match:after {
+ .matchplay_round-winner .matchplay_match:after, .matchplay_round-end-point .matchplay_match:after {
 	 display: none;
 }
- .tournament__match__team {
+ .matchplay_match_team {
 	 font-size: 12px;
 	 font-weight: bold;
 	 transition: color 0.3s ease;
@@ -149,10 +147,10 @@ body {
     padding: 0 5px 0 5px;
 	 margin: auto;
 }
- .tournament__match__team:focus, .tournament__match__team:hover {
+ .matchplay_match_team:focus, .matchplay_match_team:hover {
 	 color: #fff;
 }
- .tournament__match__team:before, .tournament__match__team:after {
+ .matchplay_match_team:before, .matchplay_match_team:after {
 	 content: '';
 	 position: absolute;
 	 top: 50%;
@@ -162,16 +160,16 @@ body {
 	 //background: rgba(0, 0, 0, .2);
     background: cyan;
 }
- .tournament__match__team:after {
+ .matchplay_match_team:after {
 	 left: 100%;
 }
- .tournament__round:last-child .tournament__match__team:after, .tournament__round--end-point .tournament__match__team:after {
+ .matchplay_round:last-child .matchplay_match_team:after, .matchplay_round-end-point .matchplay_match_team:after {
 	 display: none;
 }
- .tournament__match__team:before {
+ .matchplay_match_team:before {
 	 right: 100%;
 }
- .tournament__round:first-child .tournament__match__team:before {
+ .matchplay_round:first-child .matchplay_match_team:before {
 	 display: none;
 }
  
@@ -198,75 +196,75 @@ body {
    <div>19th September</div>
 </div>
 
-<div class="tournament">
-  <!-- tournament logo -->
-  <div class="tournament__logo-container tournament__logo-container--right">
-    <strong class="tournament__logo tournament__logo--gold"></strong>
+<div class="matchplay">
+  <!-- matchplay logo -->
+  <div class="matchplay_logo-container matchplay_logo-container-right">
+    <strong class="matchplay_logo matchplay_logo-gold"></strong>
   </div>
-  <div class="tournament__grid"> 
-        <!-- tournament__round 1/16 -->
-    <div class="tournament__round tournament__round--first-round">
-      <div class="tournament__match_none">
+  <div class="matchplay_grid"> 
+        <!-- matchplay_round 1/16 -->
+    <div class="matchplay_round matchplay_round-first-round">
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">D Scurfield/R Straker</a>
-        <a class="tournament__match__team" href="#">T Lemin/A Coupland</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">D Scurfield/R Straker</a>
+        <a class="matchplay_match_team" href="#">T Lemin/A Coupland</a>
       </div>
-      <div class="tournament__match_none">
-        <a></a>
-        <a></a>
-      </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">K Clark/C Herbert</a>
-        <a class="tournament__match__team" href="#">W French/J.E.Smith</a>
-      </div>
-      <div class="tournament__match_none">
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>
-      <div class="tournament__match_none">
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">K Clark/C Herbert</a>
+        <a class="matchplay_match_team" href="#">W French/J.E.Smith</a>
+      </div>
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">C Caisley/G Cowman</a>
-        <a class="tournament__match__team" href="#">B Hill/M Varnom</a>
-      </div>
-      <div class="tournament__match_none">
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>
-      <div class="tournament__match_none">
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">C Caisley/G Cowman</a>
+        <a class="matchplay_match_team" href="#">B Hill/M Varnom</a>
+      </div>
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">R Ireland/R Woodcock</a>
-        <a class="tournament__match__team" href="#">J Dean/J Fletcher</a>
-      </div>
-      <div class="tournament__match_none">
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">R Connelly/B Maddison</a>
-        <a class="tournament__match__team" href="#">G Gow/R Green</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">R Ireland/R Woodcock</a>
+        <a class="matchplay_match_team" href="#">J Dean/J Fletcher</a>
       </div>
-      <div class="tournament__match_none">
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>
-      <div class="tournament__match_none">
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">R Connelly/B Maddison</a>
+        <a class="matchplay_match_team" href="#">G Gow/R Green</a>
+      </div>
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">D Gilroy/C Caesar</a>
-        <a class="tournament__match__team" href="#">D Jackson/B Simpson</a>
+      <div class="matchplay_match_noleft">
+        <a></a>
+        <a></a>
       </div>
-      <div class="tournament__match_none">
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">D Gilroy/C Caesar</a>
+        <a class="matchplay_match_team" href="#">D Jackson/B Simpson</a>
+      </div>
+      <div class="matchplay_match_noleft">
         <a></a>
         <a></a>
       </div>   
@@ -283,85 +281,85 @@ body {
      
      
      
-    <!-- tournament__round 1/8 -->
-    <div class="tournament__round tournament__round--first-round">
-      <div class="tournament__match">   
-        <a class="tournament__match__team_none" href="#">S Alldridge/B Toward</a>
-        <a class="tournament__match__team" href="#">tba</a>
+    <!-- matchplay_round 1/8 -->
+    <div class="matchplay_round matchplay_round-first-round">
+      <div class="matchplay_match">   
+        <a class="matchplay_match_team_noleft" href="#">S Alldridge/B Toward</a>
+        <a class="matchplay_match_team" href="#">tba</a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team_none" href="#">N Coxon/M Riddell</a>
-        <a class="tournament__match__team" href="#">tba</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team_noleft" href="#">N Coxon/M Riddell</a>
+        <a class="matchplay_match_team" href="#">tba</a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team_none" href="#">D Aitkenhead/P Holleran</a>
-        <a class="tournament__match__team_none" href="#">N Tait/J Jackson</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team_noleft" href="#">D Aitkenhead/P Holleran</a>
+        <a class="matchplay_match_team_noleft" href="#">N Tait/J Jackson</a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team_none" href="#">R Thompson/K Belshaw</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team_noleft" href="#">R Thompson/K Belshaw</a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team_none" href="#">E Saddler/M Edwards</a>
-        <a class="tournament__match__team" href="#">tba</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team_noleft" href="#">E Saddler/M Edwards</a>
+        <a class="matchplay_match_team" href="#">tba</a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team_none" href="#">B Craggs/S Murray</a>
-        <a class="tournament__match__team" href="#">tba</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team_noleft" href="#">B Craggs/S Murray</a>
+        <a class="matchplay_match_team" href="#">tba</a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team_none" href="#">G Airey/T Smith</a>
-        <a class="tournament__match__team_none" href="#">R Hedley/D Norman</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team_noleft" href="#">G Airey/T Smith</a>
+        <a class="matchplay_match_team_noleft" href="#">R Hedley/D Norman</a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team_none" href="#">A Davison/D Nelson</a>
-      </div>
-    </div>
-
-    <div class="tournament__round tournament__round--first-round">
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">tba</a>
-      </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">tba</a>
-      </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">tba</a>
-      </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">tba</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team_noleft" href="#">A Davison/D Nelson</a>
       </div>
     </div>
 
-    <!-- tournament__round 1/2 -->
-    <div class="tournament__round">
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">tba</a>
+    <div class="matchplay_round matchplay_round-first-round">
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team" href="#">tba</a>
       </div>
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">tba</a>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team" href="#">tba</a>
+      </div>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team" href="#">tba</a>
+      </div>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team" href="#">tba</a>
       </div>
     </div>
 
-    <!-- tournament__round final -->
-    <div class="tournament__round tournament__round--final">
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
-        <a class="tournament__match__team" href="#">tba</a>
+    <!-- matchplay_round 1/2 -->
+    <div class="matchplay_round">
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team" href="#">tba</a>
+      </div>
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team" href="#">tba</a>
       </div>
     </div>
 
-    <!-- tournament__round winner -->
-    <div class="tournament__round tournament__round--winner">
-      <div class="tournament__match">
-        <a class="tournament__match__team" href="#">tba</a>
+    <!-- matchplay_round final -->
+    <div class="matchplay_round matchplay_round-final">
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
+        <a class="matchplay_match_team" href="#">tba</a>
+      </div>
+    </div>
+
+    <!-- matchplay_round winner -->
+    <div class="matchplay_round matchplay_round-winner">
+      <div class="matchplay_match">
+        <a class="matchplay_match_team" href="#">tba</a>
       </div>
     </div>
   </div>
@@ -377,10 +375,6 @@ document.getElementById("lastm").innerText = "last updated: " + d.toGMTString('e
 <br><br>
 </body>
 </html>
-
-
-
-
 
 
 
