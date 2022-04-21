@@ -8,22 +8,22 @@
 
 <style>
 body {
-	 background: #888888;
+	 background: Gray;
 }
 
 .subh {
-	 font-size: 12px;
+	 font-size: 14px;
     color: lightGray;
 	 display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 0;
-  padding-left: 30px;
-  padding-top: 5px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0;
+    padding-left: 30px;
+    padding-top: 5px;
 }
 
 #lastm {
-   font-size: 12px;
+   font-size: 14px;
    color: lightGray;
 }
  .tournament {
@@ -69,7 +69,8 @@ body {
 	 position: absolute;
 	 right: 0;
 	 width: 2px;
-	 background: rgba(0, 0, 0, .2);
+	 //background: rgba(0, 0, 0, .2);
+    background: cyan;
 	 top: 25%;
 	 bottom: 25%;
 }
@@ -102,7 +103,8 @@ body {
 	 width: 999px;
 	 height: 2px;
 	 margin-top: -1px;
-	 background: rgba(0, 0, 0, .2);
+	 //background: rgba(0, 0, 0, .2);
+    background: cyan;
 }
  .tournament__match__team:after {
 	 left: 100%;
@@ -233,7 +235,7 @@ body {
 <div id="lastm"></div>
 <script>
 var d = new Date(document.lastModified);
-document.getElementById("lastm").innerText = "last updated: " + d.toLocaleString('en-UK')
+document.getElementById("lastm").innerText = "last updated: " + d.toGMTString('en-UK')
 </script>
 <br><br>
 </body>
