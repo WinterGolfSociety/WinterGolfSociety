@@ -232,8 +232,9 @@ for (let ii = 1; ii < arr1.length; ii++) {
 
 var ee = document.getElementById("MyMenuB");
 ee.innerHTML = xx
-
-
+// initialise player and match
+document.getElementById("playerinput").innerText = arr[1];
+document.getElementById("matchinput").innerText = arr1[1];
 
 
 function getname() {
@@ -290,7 +291,7 @@ function buttonSubmit() {
     
     
     } else {
-        alert("message about missing data so no submit");
+        alert("missing data so no submit");
     }
     
     
