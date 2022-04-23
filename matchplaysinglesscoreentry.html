@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html style="font-size: 16px; font-family:Arial, Helvetica, sans-serif;">
+<head lang="en">
+<meta charset="utf-8" />
+<meta name="viewport" content=
+"width=device-width, initial-scale=1, shrink-to-fit=yes" />
+<meta name="description" content="Team Games" />
+<meta name="author" content="Bryan M" />
+<title>Team Games</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<script src="jquery-3.6.0.min.js" type="text/javascript">
+</script>
+<style>
+
+body {
+	 background: Gray;
+    font-size: 20px;
+}
+
+#MyMenuA, #MyMenuB {
+   
+   background: DodgerBlue;
+color: white;
+width: 330px;
+padding: 10px;
+font-size: 30px;
+border: none;
+cursor: pointer;
+border-radius: 15px;
+border: 2px solid darkSlateGray;
+box-shadow: 10px 10px 25px black;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+#playerinput, #matchinput, #my-response-iframe, #my-form {
+display: none;
+}
+
+#submitButton {
+   
+   background: DodgerBlue;
+color: white;
+width: 330px;
+padding: 10px;
+font-size: 30px;
+border: none;
+cursor: pointer;
+border-radius: 15px;
+border: 2px solid darkSlateGray;
+box-shadow: 10px 10px 25px black;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+#playerinput, #matchinput {
+display: none;
+}
+
+
+
+
+
+
+
+
+#lastm {
+   font-size: 12px;
+   color: lightGray;
+}
+
+ 
+ 
+</style>
+</head>
+<body>
+<font size=12; color="#ccc";>Matchplay singles competition 2022</font>
+<br><br><br><br><br>
+This is the score entry for the Matchplay Singles. 
+<br><br>
+Select the name of the winning player and which match was played.
+<br><br><br><br>
+<select id="MyMenuA" onchange="getname()">
+</select>
+<br><br><br><br>
+
+<select id="MyMenuB" onchange="getmatch()">
+</select>
+<br><br><br><br>
+ .. then use the Submit button.
+
+<div id="playerinput"></div>
+<div id="matchinput"></div>
+
+<br><br><br><br>
+
+<form id="my-form" 
+    target="my-response-iframe" 
+    action="https://docs.google.com/forms/d/e/1FAIpQLScypIbYiGsn-AZ2K3ApAw8CJFP7wiD5ESL-sXIPSEeEvrfGYw/formResponse" 
+    method="post" 
+    onSubmit="JavaScript:buttonSubmit()">
+        <!-- match -->
+        <input type="text" 
+        name="entry.1937014137" 
+        value="default" 
+        id="mx1937014137" >
+        <!-- player -->
+        <input type="text" 
+        name="entry.957190470" 
+        value="default" 
+        id="mx957190470" >
+               
+    <input type="submit">
+</form>
+
+
+
+<iframe id="my-response-iframe" 
+    name="my-response-iframe"
+    src="https://docs.google.com/forms/d/e/1FAIpQLScypIbYiGsn-AZ2K3ApAw8CJFP7wiD5ESL-sXIPSEeEvrfGYw/viewform?embedded=true" 
+    width="640" 
+    height="407" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0">
+    Loading…
+</iframe>
+
+
+<button id="submitButton" onclick="buttonSubmit()">Submit</button>
+<div id="submitConfirm"></div>
+
+<br><br><br><br>
+
+
+
+<script>
+//var d = new Date(document.lastModified);
+//document.getElementById("lastm").innerText = "last updated: " + d.toGMTString('en-UK')
+
+
+
+
+
+
+
+var x =""
+
+var arr = ["dummy",
+"G Airey",
+"D Aitkenhead",
+"S Alldridge",
+"K Belshaw",     
+"C Caesar",
+"C Caisley",
+"K Clark",   
+"R Connelly", 
+"G Cowman", 
+"B Craggs",      
+"A Davison",   
+"J Dean", 
+"G Gow",
+"R Green", 
+"R Hedley", 
+"B Henderson",    
+"B Hill",  
+"P Holleran", 
+"R Ireland", 
+"J Jackson",   
+"T Lemin",
+"B Maddison",   
+"T McNally", 
+"S Murray",         
+"D Nelson",   
+"E Sadler",
+"N Tait", 
+"R Thompson", 
+"G Willis",       
+"B Wray"
+]  
+
+
+
+
+
+
+
+
+var xx =""
+var arr1 = ["dummy",
+"match 1",
+"match 2",
+"match 3",
+"match 4",    
+"match 5",   
+"match 6",
+"match 7",
+"match 8",
+"match 9",
+"match 10",
+"match 11",    
+"match 12",   
+"match 13",
+"match 14",
+"match 15",
+"match 16",
+"match 17",
+"match 18",    
+"match 19",   
+"match 20",
+"match 21",
+"match 22",
+"match 23",
+"match 24",
+"match 25",    
+"match 26",   
+"match 27",
+"match 28",
+"match 29",
+"match 30",
+"winner"
+ ]
+
+// player
+for (let i = 1; i < arr.length; i++) {
+   x = x + '<option value="' + i + '">' + arr[i] + '</option>'
+}
+
+var e = document.getElementById("MyMenuA");
+e.innerHTML = x
+
+// match
+for (let ii = 1; ii < arr1.length; ii++) {
+   xx = xx + '<option value="' + ii + '">' + arr1[ii] + '</option>'
+}
+
+var ee = document.getElementById("MyMenuB");
+ee.innerHTML = xx
+
+
+
+
+function getname() {
+var e = document.getElementById("MyMenuA");
+//var strUser = e.value;
+var strUser1 = e.options[e.selectedIndex].text;
+var e1 = document.getElementById("playerinput");
+e1.innerText = strUser1
+var e2 = document.getElementById("selectedA");
+e2.innerText = strUser1 + " selected"
+}
+
+
+function getmatch() {
+var e = document.getElementById("MyMenuB");
+//var strUser = e.value;
+var strUser1 = e.options[e.selectedIndex].text;
+var e1 = document.getElementById("matchinput");
+e1.innerText = strUser1
+var e2 = document.getElementById("selectedA");
+e2.innerText = strUser1 + " selected"
+}
+
+
+
+
+
+function buttonSubmit() {
+  if (document.getElementById("submitButton").innerText == "Submit") {
+    // do submit stuff here
+    var ok = "yes";
+   
+    var s1 = document.getElementById("matchinput").innerText;
+    if (s1.length  > 0) { 
+        document.getElementById("mx1937014137").value = s1; 
+    } else {
+        ok = "no";
+    }
+    
+    var s2 = document.getElementById("playerinput").innerText;
+    if (s2.length  > 0) { 
+        document.getElementById("mx957190470").value = s2; 
+    } else {
+        ok = "no";
+    }
+    
+    if (ok == "yes") {
+      // press the form submit button
+      document.forms[0].submit()
+        
+    sub = document.getElementById("submitButton");
+    sub.style.backgroundColor = "blue";
+    sub.innerText = "Submitted";
+    
+    
+    } else {
+        alert("message about missing data so no submit");
+    }
+    
+    
+    
+  }
+}
+
+
+
+// set the target on the form to point to a hidden iframe
+// some browsers need the target set via JavaScript, no idea why...
+document.getElementById('my-form').target = 'my-response-iframe';
+// detect when the iframe reloads
+var iframe = document.getElementById('my-response-iframe');
+
+if (iframe) {
+iframe.onload = function () {
+// at this point the iframe reloads which is equivalent to a success.
+       
+//alert("success");
+var s1 = document.getElementById("playerinput").innerText; 
+if (s1.length > 0) {
+    
+    
+ // wait - probably not required
+  // but helps with timestamp etc.
+  const milliseconds = 1000;
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);    
+    
+    sub = document.getElementById("submitButton");
+    sub.style.backgroundColor = "blue";
+    sub.innerText = "Updated OK"; 
+    
+}       
+}
+}
+   
+</script>
+<br><br>
+</body>
+</html>
+
