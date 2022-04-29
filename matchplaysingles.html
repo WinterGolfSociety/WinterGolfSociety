@@ -3,314 +3,34 @@
 <!DOCTYPE html>
 <html style="font-size: 16px; font-family:Arial, Helvetica, sans-serif;">
 <head lang="en">
-    <meta charset="UTF-8">
-    <title>Matchplay singles</title>
-
-<style>
-
-body {
-	 background: Gray;
-}
-
-.subh {
-  font-size: 12px;
-  color: lightGray;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 0;
-  padding-left: 30px;
-  padding-top: 5px;
-}
-
-#lastm {
-   font-size: 12px;
-   color: lightGray;
-}
-
- .matchplay {
-	 position: relative;
-	 min-height: 300px;
-	 padding: 30px 0 0;
-}
- .matchplay_grid {
-	 font-size: 0;
-	 line-height: 0;
-	 display: flex;
-	 align-items: stretch;
-	 min-height: 400px;
-}
- .matchplay_round {
-	 position: relative;
-	 flex: 1 0;
-	 overflow: hidden;
-	 display: flex;
-	 flex-direction: column;
-}
- .matchplay_match {
-	 position: relative;
-	 overflow: hidden;
-	 display: flex;
-	 flex-direction: column;
-	 flex: 1 0;
-	 align-items: center;
-	 min-height: 100px;
-}
- .matchplay_match:first-child {
-	 margin: 0 !important;
-}
- .matchplay_round-first-round .matchplay_match {
-	 padding-left: 0;
-}
- .matchplay_round-winner .matchplay_match {
-	 padding-right: 0;
-	 height: 32px;
-}
- .matchplay_match:after {
-	 content: '';
-	 position: absolute;
-	 right: 0;
-	 width: 2px;
-	 //background: rgba(0, 0, 0, .2);
-         background: cyan;
-	 top: 25%;
-	 bottom: 25%;
-}
- .matchplay_round-winner .matchplay_match:after, .matchplay_round-end-point .matchplay_match:after {
-	 display: none;
-}
- .matchplay_match_team {
-	 font-size: 12px;
-	 font-weight: bold;
-	 //transition: color 0.3s ease;
-	 //color: #ccc;
-	 color: #eee;
-	 text-decoration: none;
-	 box-sizing: border-box;
-	 background: rgba(0, 0, 0, .5);
-	 display: block;
-	 position: relative;
-	 width: auto;
-	 height: 32px;
-	 line-height: 32px;
-	 padding: 0 5px 0 5px;
-	 margin: auto;
-}
-// .matchplay_match_team:focus, .matchplay_match_team:hover {
-//	 color: #fff;
-//}
- .matchplay_match_team:before, .matchplay_match_team:after {
-	 content: '';
-	 position: absolute;
-	 top: 50%;
-	 width: 999px;
-	 height: 2px;
-	 margin-top: -1px;
-	 //background: rgba(0, 0, 0, .2);
-    background: cyan;
-}
- .matchplay_match_team:after {
-	 left: 100%;
-}
- .matchplay_round:last-child .matchplay_match_team:after, .matchplay_round-end-point .matchplay_match_team:after {
-	 display: none;
-}
- .matchplay_match_team:before {
-	 right: 100%;
-}
- .matchplay_round:first-child .matchplay_match_team:before {
-	 display: none;
-}
- 
-</style>
-</head>
-<body>
-<font size=12; color="#ccc";>Matchplay singles competition 2022</font>
-<br>
-
-<div class="subh">
-   <div>round 1 - Lakes</div>
-   <div>round 2 - Dawson</div>
-   <div>round 3 - Lakes</div>
-   <div>Semi-finals - Dawson</div>
-   <div>final - Lakes</div>
-</div>
-<div class="subh">
-   <div>by 6th June</div>
-   <div>by 4th July</div>
-   <div>by 1st August</div>
-   <div>by 30th August</div>
-   <div>19th September</div>
-</div>
-
-<div class="matchplay">
-  <!-- matchplay logo -->
-  <div class="matchplay_logo-container matchplay_logo-container-right">
-    <strong class="matchplay_logo matchplay_logo-gold"></strong>
-  </div>
-  <div class="matchplay_grid">
-     <!-- matchplay_round 1/16 -->
-    <div class="matchplay_round matchplay_round-first-round">
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">P Holleran</a>
-        <a class="matchplay_match_team" href="#">A Davison</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">C Caisley</a>
-        <a class="matchplay_match_team" href="#">B Hill</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">N Tait</a>
-        <a class="matchplay_match_team" href="#">G Willis</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">D Jackson</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">S Murray</a>
-        <a class="matchplay_match_team" href="#">J Dean</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">E Saddler</a>
-        <a class="matchplay_match_team" href="#">K Belshaw</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">B Craggs</a>
-        <a class="matchplay_match_team" href="#">B Wray</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">B Maddison</a>
-        <a class="matchplay_match_team" href="#">K Clark</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">R Connelly</a>
-        <a class="matchplay_match_team" href="#">M Edwards</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">R Ireland</a>
-        <a class="matchplay_match_team" href="#">R Green</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">D Aitkenhead</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">J Jackson</a>
-        <a class="matchplay_match_team" href="#">G Gow</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">G Cowman</a>
-        <a class="matchplay_match_team" href="#">R Hedley</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">C Caesar</a>
-        <a class="matchplay_match_team" href="#">T McNally</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">D Nelson</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">T Lemin</a>
-        <a class="matchplay_match_team" href="#">R Thompson</a>
-      </div>   
-    </div>
-        
-    <!-- matchplay_round 1/8 -->
-    <div class="matchplay_round matchplay_round-first-round">
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-    </div>
-
-    <div class="matchplay_round matchplay_round-first-round">
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-    </div>
-
-    <!-- matchplay_round 1/2 -->
-    <div class="matchplay_round">
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-    </div>
-
-    <!-- matchplay_round final -->
-    <div class="matchplay_round matchplay_round-final">
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-    </div>
-
-    <!-- matchplay_round winner -->
-    <div class="matchplay_round matchplay_round-winner">
-      <div class="matchplay_match">
-        <a class="matchplay_match_team" href="#">tba</a>
-      </div>
-    </div>
-  </div>
-
-</div>
-<br><br>
-<div id="lastm"></div>
-<script>
-var d = new Date(document.lastModified);
-document.getElementById("lastm").innerText = "last updated: " + d.toGMTString('en-UK')
+<meta charset="UTF-8">
+<title>Matchplay pairs</title>
+<script src="jquery-3.6.0.min.js" type="text/javascript">
 </script>
-<br><br>
-</body>
-</html>
+<title>HTML Redirect</title>
+</head>
+  
+<body>
+<font size=12; color="#ccc";>Matchplay pairs competition 2022</font>
+<br>
+<h1 style="text-align:center;color:green;">
+You will be redirected to the Matchplay results.
+</h1>
 
+<script>
+window.location.replace("https://docs.google.com/spreadsheets/d/e/2PACX-1vTQbZkdF1OJD8cxfuD0JmF2AxGaq-vybZxqod-7awCYd3PUSLVKkC-A7Fx8H6AiN49_UxrYwFZlkE9y/pubhtml?gid=702967126&single=true");
+
+
+</script>
+
+</body>
+
+
+
+
+
+
+</html>
 
 
 
