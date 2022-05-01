@@ -17,10 +17,10 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 10px;
-  background: #f2f2f2;
+  background: gray;
 }
 
-.dropdown {
+.dropdownx {
   margin: 0;
   padding: 0;
   display: -webkit-box;
@@ -30,12 +30,11 @@ body {
   flex-wrap: wrap;
   list-style: none;
   height: 50px;
-  background-color: #333333;
+  background-color: DodgerBlue;
   
   
   
-  
-  background: DodgerBlue; // url(downarrow.png) 5px 15px no-repeat;
+ 
 color: white;
 width: 200px;
 
@@ -70,50 +69,130 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   
 }
 
-.dropdown li {
+.dropdownx li {
   position: relative;
 }
 
-.dropdown li a {
+.dropdownx li a {
   display: block;
   padding: 0 10px;
   height: 50px;
   line-height: 50px;
-  color: #ffffff;
+  color: white;
   cursor: pointer;
   text-decoration: none;
 }
 
-.dropdown li ul {
+.dropdownx li ul {
   position: absolute;
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: rgba(30, 144, 255, 0.8);
+  background-color: rgba(30, 144, 255, 0.0);
   width: 200px;
   left: 0;
   opacity: 0;
   visibility: hidden;
-  -webkit-transform: scale(0.5);
-  -ms-transform: scale(0.5);
-  transform: scale(0.5);
-  -webkit-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+//box-shadow: 10px 10px 25px black;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
 
-.dropdown li ul li a {
+.dropdownx li ul li a {
   height: 35px;
   line-height: 35px;
-  color: #999;
+  color: cyan;
 }
 
-.dropdown li ul li a:hover {
+.dropdownx li ul li a:hover {
   background-color: rgba(23, 23, 23, 0.9);
   color: #ffffff;
 }
 
-.dropdown li:hover>ul {
+.dropdownx li:hover>ul {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
@@ -121,7 +200,7 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   visibility: visible;
 }
 
-.dropdown li:hover>a {
+.dropdownx li:hover>a {
   background-color: dodgerBlue;
   color: cyan;
 }
@@ -616,7 +695,7 @@ openDropdown.classList.remove('show');
    
    
    
-    <ul class="dropdown">
+    <ul class="dropdownx">
         <li><a href="#">Dropdown</a>
             <ul>
                 <li><a href="#">Menu - 1</a></li>
@@ -628,6 +707,7 @@ openDropdown.classList.remove('show');
     </ul>
 </body>
 </html>
+
 
 
 
