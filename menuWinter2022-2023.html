@@ -177,7 +177,7 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 </head>
 
 <body>
-
+<!-- Modal section start -->
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
@@ -194,7 +194,8 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   </div>
 
 </div>
-   
+<!-- Modal section end -->
+
 <div class="atitle"><span class="asubtitle">the .. </span>
 Winter 
 
@@ -216,6 +217,41 @@ Golf Society
     Welcome back.</p>
 </div>
 <br><br><br>
+
+
+
+
+
+
+<!-- 1st dropdown -->
+<div class="dropdown">
+<button onclick="myFunction(this);" class="dropbtn">Main menu</button>
+<div id="myDropdown1" class="dropdown-content">
+<a href="javascript:window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfj9pbWik1yqiDC8O3sirPxU4qk_a_V4l0GJlPAdgXyNuo0Rg/viewform'; ">Score entry</a>
+<a href="javascript:getScreenFaster(1257733496,'Main');">HCP list</a>
+<a href="javascript:getScreenFaster(288104159,'Main');">Latest results</a>
+<a href="javascript:getScreenFaster(231470135,'Main');">All results</a>
+<a href="#" style="background: DodgerBlue">
+<img border="0" src="uparrow.png" width=33 height=33 style="float:right"></img>
+</a>
+</div>
+</div>
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -260,6 +296,97 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getScreen(gid,playername) {
+window.location.href ='link.html?id=' + gid + "&fname=" + playername;
+}
+
+// When the user clicks on the button, closes every dropdown and only opens the one passed as argument
+function myFunction(element) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+// element.nextSibling is the carriage return& The dropdown menu is the next next.
+var thisDropdown = element.nextSibling.nextSibling;
+if (!thisDropdown.classList.contains('show')) { // hide dropdown if clicking on the one already open
+var i;
+for (i = 0; i < dropdowns.length; i++) {
+dropdowns[i].classList.remove('show');
+}
+}
+// Toggle the dropdown on the element clicked
+thisDropdown.classList.toggle("show");
+}
+
+
+
+// close the dropdown when clicked outside
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+var dropdowns = document.getElementsByClassName("dropdown-content");
+var i;
+for (i = 0; i < dropdowns.length; i++) {
+var openDropdown = dropdowns[i];
+if (openDropdown.classList.contains('show')) {
+openDropdown.classList.remove('show');
+}
+}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
    
    
@@ -277,3 +404,4 @@ window.onclick = function(event) {
 
 </body>
 </html>
+
