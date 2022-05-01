@@ -183,7 +183,7 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>real-time updates<br>
+    <p id="myP">real-time updates<br>
        simplified menu<br>
        faster and more responsive<br>
        auto hcp adjustments<br>
@@ -232,7 +232,7 @@ Golf Society
 <a href="javascript:getScreenFaster(288104159,'Main');">Latest results</a>
 <a href="javascript:getScreenFaster(231470135,'Main');">All results</a>
 <a href="#" style="background: DodgerBlue">
-<img border="0" src="uparrow.png" width=33 height=33 style="float:right"></img>
+<img border="0" src="xuparrow.png" width=33 height=33 style="float:right"></img>
 </a>
 </div>
 </div>
@@ -248,29 +248,13 @@ Golf Society
 
 
 
-
-
-
-
-
-
-
-<div class="dropdown">
-<form id="myForm">
-    <Select  class="dropbtn" onChange=selectChange(this.value)>
-        <option hidden selected disabled value="0">menu</option>
-        <option value="1">player info</option>
-        <option value="2">enter score</option> 
-        <option value="3">hcp list</option> 
-        <option value="4">something else</option>                   
-    </select>
-</form>
-</div>   
 <script>
-function selectChange(t){
-   alert(t)  
-}
-   
+
+
+
+
+
+ 
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -279,6 +263,10 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
+// Get the text
+var p = document.getElementById("myP");
+
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -289,6 +277,17 @@ btn.onclick = function() {
 span.onclick = function() {
   modal.style.display = "none";
 }
+
+// When the user clicks on <p> (x), close the modal
+p.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+
+
+
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -404,4 +403,5 @@ openDropdown.classList.remove('show');
 
 </body>
 </html>
+
 
