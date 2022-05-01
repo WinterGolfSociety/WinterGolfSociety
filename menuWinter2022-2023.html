@@ -17,7 +17,8 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 10px;
-  background: gray;
+  background: mediumSeaGreen;
+  color: white;
 }
 
 .dropdownx {
@@ -31,7 +32,7 @@ body {
   list-style: none;
   background-color: DodgerBlue;
   color: white;
-  width: 250px;
+  width: 200px;
   height: 80px;
   //padding: 10px;
   font-size: 30px;
@@ -45,21 +46,7 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 18px 23px rgba(0,0,0,0.1);
   
   white-space: nowrap;
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+   
 }
 
 .dropdownx li {
@@ -82,45 +69,19 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   padding: 0;
   list-style: none;
   //background-color: rgba(30, 144, 255, 0.5);
+  //background-color: gray;
   width: 200px;
   left: 0;
   opacity: 0;
   visibility: hidden;
-  -webkit-transform: scale(2);
-  -ms-transform: scale(2);
-  transform: scale(2);
+//  -webkit-transform: scale(2);
+//  -ms-transform: scale(2);
+//  transform: scale(2);
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
-  
-  
-  
-  
+ 
   height: 80px;
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
 //border-radius: 15px;
 //box-shadow: 10px 10px 25px black;
@@ -128,59 +89,17 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
 
 .dropdownx li ul li a {
   //height: 35px;
   height: 80px;
   line-height: 35px;
-  color: cyan;
+  color: blue;
 }
 
 .dropdownx li ul li a:hover {
+   background-color: gray;
   //background-color: rgba(30, 144, 255, 0.9);
   color: white;
   height: 80px;
@@ -191,27 +110,12 @@ box-shadow: 10px 10px 25px black;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
 
 .dropdownx li:hover>ul {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+//  -webkit-transform: scale(1);
+//  -ms-transform: scale(1);
+//  transform: scale(1);
   opacity: 1;
   visibility: visible;
 }
@@ -220,28 +124,6 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   //background-color: dodgerBlue;
   color: cyan;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .atitle {
 font-size:50px;
@@ -270,19 +152,7 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 .dropbtn:hover,
 .dropbtn:focus {
 background-color: DodgerBlue; color: white;
-
-
-
-
-
 outline: none;
-
-
-
-
-
-
-
 }
 .dropdown {
 position: relative;
@@ -312,24 +182,6 @@ background-color: SlateGray; color: white;
 display: block;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -344,15 +196,6 @@ display: block;
   background-color: dodgerBlue; /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   
-  
-  
-
-  
-  
-  
-  
-  
-  
 }
 
 /* Modal Content */
@@ -363,27 +206,12 @@ display: block;
   border: 1px solid #888;
   width: 80%;
   font-size: 12px;
-  
-  
-  
-  
-  
-  
-   
-  
   border-radius: 15px;
 border: 2px solid green;
 box-shadow: 10px 10px 25px black;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
-  
-   
-  
-  
-  
-  
-  
 }
 
 /* The Close Button */
@@ -402,13 +230,42 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 }
 
 
+#dummy {
+   
+
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  //background-color: rgba(30, 144, 255, 0.5);
+  width: 200px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+ 
+  height: 80px;
+  
+border-radius: 15px;
+box-shadow: 10px 10px 25px black;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+  
+
+   
+}
 
 
-
-
-
-
-
+#txt {
+   color: white;
+   font-size: 30px;
+}
 
 
 
@@ -427,10 +284,6 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <script src="jquery-3.6.0.min.js" type="text/javascript">
 </script>
-
-
-
-
 </head>
 <body>
    
@@ -482,13 +335,13 @@ Golf Society
 <br>
 -->
    
-   
+
    
    
  <!-- menu -->  
    
-    <ul class="dropdownx">
-        <li><a href="#">show menu</a><br>
+    <ul class="dropdownx" onmouseover="vanish()" onmouseout="unvanish()">
+        <li><a href="#">show menu</a><br> 
             <ul>
                 <li><a href="#">Menu - 1</a></li>
                 <li><a href="#">Menu - 2</a></li>
@@ -497,43 +350,48 @@ Golf Society
             </ul>
         </li>
     </ul>
+    
+    
+    
+ <br><br><br>   
+<p id="txt">Some information or text<br>to appear here and then<br>be hidden</p>
 
+<br><br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br><br>
+<br>
+<br>
+<br>
+<br>
 
-<br><br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br><br>
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -546,6 +404,23 @@ Golf Society
 
 
 
+
+function vanish() {
+  var x = document.getElementById("txt");
+  x.style.color = "darkgray";
+}
+
+function unvanish() {
+   //alert("xxx")
+   
+   var x = document.getElementById("txt");
+  x.style.color = "white";
+    
+  
+    
+  
+}
+ 
 
 
  
@@ -747,6 +622,7 @@ openDropdown.classList.remove('show');
    
 </body>
 </html>
+
 
 
 
