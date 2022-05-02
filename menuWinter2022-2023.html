@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Zoom in and Zoom out Dropdown Menu - W3jar.Com</title>
+<title>Winter2022-2023</title>
 <style>
 *,
 *::before,
@@ -268,6 +268,50 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 }
 
 
+myP {
+  color: white;
+   font-size: 20px; 
+}
+
+
+.swal-modal {
+  background-color: rgba(63,255,106,0.2);
+  border-radius: 15px;
+box-shadow: 10px 10px 25px black;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+.swal-title {
+  margin: 0px;
+  font-size: 20px;
+  margin-bottom: 28px;
+}
+
+
+
+.swal-text {
+ font-size: 20px;
+ //background-color: palegreen;
+  padding: 17px;
+  display: block;
+  margin: 22px;
+  text-align: center;
+  color: white;
+}
+
+.swal-button {
+    background-color: rgba(63,255,106,0.2);
+  border-radius: 15px;
+box-shadow: 10px 10px 25px black;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+
+
 </style>
 
 
@@ -280,18 +324,7 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 <title>Winter Golf Society</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
-
-
-
-
-
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
-
-
-
 </head>
 <body>
    
@@ -326,23 +359,6 @@ Golf Society
 </div>
 <br>
 
-
-<!-- message 
-
-<br>
-<div>
-    <p style="float: left; color: green; font-size: 20px"><img src="news1.png" height="40" width="50" style="float: left ; padding-right: 15px" >
-    Welcome back.</p>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
--->
- 
  <!-- menu -->  
    
     <ul class="dropdownx"  onmouseover="vanish()" onmouseout="unvanish()">
@@ -360,15 +376,7 @@ Golf Society
             </ul>
         </li>
     </ul>
-    
-    
-    
-
-
-    
-    
-    
-    
+  
  <br><br><br>   
 <p id="txt">Some information or text<br>to appear here and then<br>be hidden</p>
 
@@ -429,35 +437,28 @@ swal("Search for player:", {
 
 }
  
- 
- 
 function doSearch(plyr) {
-var arr = ['bry', 'bryan', 'bryan maddison', 'Bryan Madd']; 
+var arr = ['bry', 'bryan', 'bryan maddison', 'Bryan Madd', 'Dick Tracy']; 
 var i;
 var j=0;
 var wordIndex;
 var rrr = "nothing";
 for (i = 0; i < arr.length; i++) {
-   
-  wordIndex = arr[i].indexOf(plyr);
+  wordIndex = arr[i].toLowerCase().indexOf(plyr.toLowerCase());
   if(wordIndex !== -1){
     rrr = arr[i];
     j++
   }
-//alert(i + " " + arr[i] + " " + wordIndex)
 }
 if (j > 1) {
-   rrr = "multiple mstches, refine your search"
+   rrr = "multiple matches, refine your search"
 }
 return rrr
 }
      
-  
 function test() {
   alert("sssssss");
- 
 }
-
 
 function vanish() {
   var x = document.getElementById("txt");
@@ -465,15 +466,9 @@ function vanish() {
 }
 
 function unvanish() {
-   //alert("xxx")
-   
    var x = document.getElementById("txt");
   x.style.color = "white";
-    
 }
- 
-
-
  
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -503,53 +498,12 @@ p.onclick = function() {
   modal.style.display = "none";
 }
 
-
-
-
-
-
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getScreen(gid,playername) {
 window.location.href ='link.html?id=' + gid + "&fname=" + playername;
@@ -569,8 +523,6 @@ dropdowns[i].classList.remove('show');
 // Toggle the dropdown on the element clicked
 thisDropdown.classList.toggle("show");
 }
-
-
 
 // close the dropdown when clicked outside
 window.onclick = function(event) {
@@ -592,7 +544,6 @@ openDropdown.classList.remove('show');
    
 </body>
 </html>
-
 
 
 
