@@ -68,7 +68,14 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   margin: 0;
   padding: 0;
   list-style: none;
-  //background-color: rgba(30, 144, 255, 0.5);
+  
+  
+  
+
+ 
+ 
+ 
+ 
   //background-color: gray;
   width: 150px;
   left: 0;
@@ -82,12 +89,19 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
   transition: all 1s ease;
  
   height: 50px;
-  
-//border-radius: 15px;
-//box-shadow: 10px 10px 25px black;
+ 
+ 
+ 
+ 
+ background-color: rgba(30, 144, 255, 0.5);  
+border-radius: 15px;
+box-shadow: 10px 10px 25px black;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
+             
+             
+             
   
 }
 
@@ -310,7 +324,20 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 18px 23px rgba(0,0,0,0.1);
 }
 
-
+#colr {
+   
+ 
+ 
+ background-color: rgba(63,255,106, 0.3);  
+border-radius: 15px;
+box-shadow: 10px 10px 25px black;
+text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+             
+             
+     
+}
 
 </style>
 
@@ -364,12 +391,12 @@ Golf Society
     <ul class="dropdownx"  onmouseover="vanish()" onmouseout="unvanish()">
         <li><a href="#">show menu</a><br> 
             <ul>
-                <li><a href="#">score entry</a></li>
-                <li><a href="javascript:test()">player info</a></li> 
-                <li><A HREF="javascript:popup()">open a page</A></li>
-                <li><a href="#">hcp list</a></li>
-                <li><a href="#">twos</a></li>
-                <li><a href="#">help</a></li><br>
+                <li><a href="#">score entry</a></li><br>
+                <li><a href="javascript:test()" id="colr">player info</a></li><br>
+                <li><A HREF="javascript:popup()" id="colr">open a page</A></li><br>
+                <li><a href="#" id="colr">hcp list</a></li><br>
+                <li><a href="#" id="colr">twos</a></li><br>
+                <li><a href="#" id="colr">help</a></li><br>
                 <!--
                 <li><a href="#" onclick="unvanish()">hide Menu</a></li>
                 -->
@@ -544,6 +571,7 @@ openDropdown.classList.remove('show');
    
 </body>
 </html>
+
 
 
 
