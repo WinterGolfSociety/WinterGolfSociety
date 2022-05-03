@@ -116,7 +116,13 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
    background-color: gray;
   //background-color: rgba(30, 144, 255, 0.9);
   color: white;
+    
   height: 50px;
+  
+  
+  
+
+  
   
   
 border-radius: 15px;
@@ -278,7 +284,7 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 
 #txt {
    color: white;
-   font-size: 30px;
+   font-size: 20px;
 }
 
 
@@ -289,7 +295,7 @@ myP {
 
 
 .swal-modal {
-  background-color: rgba(63,255,106,0.7);
+  background-color: rgba(0,139,139,0.7);
   border-radius: 15px;
 box-shadow: 10px 10px 25px black;
 text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
@@ -307,11 +313,11 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 
 .swal-text {
  font-size: 20px;
- //background-color: palegreen;
+ //background-color: darkCyan;
   padding: 17px;
   display: block;
   margin: 22px;
-  text-align: center;
+  text-align: left;
   color: white;
 }
 
@@ -335,8 +341,14 @@ text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
              0px 8px 13px rgba(0,0,0,0.1),
              0px 18px 23px rgba(0,0,0,0.1);
              
-             
+ padding-top: 10px;            
      
+}
+
+
+
+#colr:hover {
+    background-color: dodgerBlue; 
 }
 
 </style>
@@ -393,7 +405,7 @@ Golf Society
             <ul>
                 <li><a href="#" id="colr">score entry</a></li><br>
                 <li><a href="javascript:test()" id="colr">player info</a></li><br>
-                <li><A HREF="javascript:popup()" id="colr">open a page</A></li><br>
+                <li><a href="javascript:popup()" id="colr">open a page</a></li><br>
                 <li><a href="#" id="colr">hcp list</a></li><br>
                 <li><a href="#" id="colr">twos</a></li><br>
                 <li><a href="#" id="colr">help</a></li><br>
@@ -405,7 +417,7 @@ Golf Society
     </ul>
   
  <br><br><br>   
-<p id="txt">Some information or text<br>to appear here and then<br>be hidden</p>
+<p id="txt">Some information or text to appear here and then be hidden. Some information or text to appear here and then be hidden. Some information or text to appear here and then be hidden</p>
 
 <br><br><br>
 <br>
@@ -456,15 +468,19 @@ Golf Society
 function popup() { 
 swal("Search for player:", {
   content: "input",
+  buttons: true,
 })
 .then((value) => {
    value = doSearch(value);
-  swal(`found: ${value}`);
+   if (`${value}` !== 'undefined') {
+  swal(`${value}`);
+}
 });
 
 }
  
 function doSearch(plyr) {
+if ( plyr !== "") { 
 var arr = ['bry', 'bryan', 'bryan maddison', 'Bryan Madd', 'Dick Tracy']; 
 var i;
 var j=0;
@@ -473,14 +489,15 @@ var rrr = "nothing";
 for (i = 0; i < arr.length; i++) {
   wordIndex = arr[i].toLowerCase().indexOf(plyr.toLowerCase());
   if(wordIndex !== -1){
-    rrr = arr[i];
+    rrr = 'found player named ' + arr[i];
     j++
   }
 }
 if (j > 1) {
-   rrr = "multiple matches, refine your search"
+   rrr = "More than one match found. Refine your search to allow finding a unique selection.\n\nSearching ignores upper and lower case and looks for a player name that includes the search pattern."
 }
 return rrr
+}
 }
      
 function test() {
@@ -571,7 +588,6 @@ openDropdown.classList.remove('show');
    
 </body>
 </html>
-
 
 
 
