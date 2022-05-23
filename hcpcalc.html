@@ -124,13 +124,13 @@
       let vplayinghcp0 = vplayinghcp.toFixed(0);
       let vplayinghcp1 = vplayinghcp.toFixed(1);
       
-      document.getElementById("scch").innerText = (vhcp + " x (" + vslope + "/113) = " + vplayinghcp).toFixed(5)	
+      document.getElementById("scch").innerText = vhcp + " x (" + vslope + "/113) = " + vplayinghcp	
    
-      document.getElementById("rtwn1").innerText = ("round " +  vplayinghcp + " = " + vplayinghcp0).toFixed(5)	
+      document.getElementById("rtwn1").innerText = "round " +  vplayinghcp + " = " + vplayinghcp0	
       
-      var1 = ((vhcpallowance/100)*vplayinghcp0).toFixed(5)
+      var1 = (vhcpallowance/100)*vplayinghcp0
     
-      document.getElementById("aa").innerText = (vplayinghcp0 + " x " + vhcpallowance + "% = " + var1).toFixed(5)
+      document.getElementById("aa").innerText = vplayinghcp0 + " x " + vhcpallowance + "% = " + var1
      
       var2 = var1.toFixed(0)
       document.getElementById("rtwn2").innerText = "round " +  var1 + " = " + var2	
