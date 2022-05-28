@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Winter2022-2023</title>
 	<style>
+   // set all elements to include borders etc.   
 	*,
 	*::before,
 	*::after {
@@ -27,7 +28,7 @@
 		color: white;
 	}
 	
-	.dropdownx {
+	.dropdownMenu {
 		margin: 0;
 		padding: 0;
 		display: -webkit-box;
@@ -41,20 +42,20 @@
 		width: 150px;
 		height: 50px;
 		font-size: 20px;
-		border: none;
+		//border: none;
 		cursor: pointer;
 		border-radius: 15px;
-		border: 2px solid green;
+		border: 2px solid dodgerBlue;
 		box-shadow: 10px 10px 25px black;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 		white-space: nowrap;
 	}
 	
-	.dropdownx li {
+	.dropdownMenu li {
 		position: relative;
 	}
 	
-	.dropdownx li a {
+	.dropdownMenu li a {
 		display: block;
 		padding: 10% 15%;
 		height: 50px;
@@ -64,7 +65,7 @@
 		text-decoration: none;
 	}
 	
-	.dropdownx li ul {
+	.dropdownMenu li ul {
 		position: absolute;
 		margin: 0;
 		padding: 0;
@@ -79,13 +80,13 @@
 		height: 50px;
 	}
 	
-	.dropdownx li ul li a {
+	.dropdownMenu li ul li a {
 		height: 50px;
 		line-height: 25px;
 		color: blue;
 	}
 	
-	.dropdownx li ul li a:hover {
+	.dropdownMenu li ul li a:hover {
 		background-color: gray;
 		color: white;
 		height: 50px;
@@ -94,13 +95,13 @@
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 	
-	.dropdownx li:hover>ul {
+	.dropdownMenu li:hover>ul {
 		opacity: 1;
 		visibility: visible;
 	}
 	
-	.dropdownx li:hover>a {
-		color: cyan;
+	.dropdownMenu li:hover>a {
+		color: cornflowerBlue;
 	}
 	
 	.atitle {
@@ -121,7 +122,7 @@
 		border: none;
 		cursor: pointer;
 		border-radius: 15px;
-		border: 2px solid green;
+		border: 2px solid dodgerBlue;
 		box-shadow: 10px 10px 25px black;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
@@ -164,7 +165,7 @@
 		display: block;
 	}
 
-	.modal {
+	.modalWhatsNew {
 		display: none;
 		position: fixed;
 		z-index: 1;
@@ -178,7 +179,7 @@
 		background-color: rgba(0, 0, 0, 0.4);
 	}
 	
-	.modal-content {
+	.modalWhatsNew-content {
 		background-color: dodgerBlue;
 		margin: auto;
 		padding: 20px;
@@ -186,7 +187,7 @@
 		width: 80%;
 		font-size: 20px;
 		border-radius: 15px;
-		border: 2px solid green;
+		border: 2px solid dodgerBlue;
 		box-shadow: 10px 10px 25px black;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
@@ -231,106 +232,25 @@
 		font-size: 20px;
 	}
 	
-	myP {
+	#p-WhatsNew-content {
 		color: white;
 		font-size: 20px;
 	}
-	
-	.swal-modal {
-		background-color: rgba(0, 139, 139, 0.7);
-		border-radius: 15px;
-		box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-	}
-	
-	.swal-title {
-		margin: 0px;
-		font-size: 20px;
-		margin-bottom: 28px;
-	}
-	
-	.swal-text {
-		font-size: 20px;
-		padding: 17px;
-		display: block;
-		margin: 22px;
-		text-align: left;
-		color: white;
-	}
-	
-	.swal-button {
-		background-color: rgba(63, 255, 106, 0.2);
-		border-radius: 15px;
-		box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-	}
-	
-	#colr {
-		background-color: rgba(63, 255, 106, 0.3);
+
+	#menuItems {
+		background-color: rgba(63, 255, 106, 0.7);
 		border-radius: 15px;
 		box-shadow: 10px 10px 25px black;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 		padding-top: 10px;
+      height: 25px;
 	}
 	
-	#colr:hover {
+	#menuItems:hover {
 		background-color: dodgerBlue;
 	}
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+    
    #myInput {
   //background-image: url('/css/searchicon.png');
   //background-position: 10px 12px;
@@ -376,35 +296,6 @@
   display: block 
 }
 
-
-   
-   
-   
-   
-   
-   
-   
-   
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  .modalsearch {
 		display: none;
 		position: fixed;
@@ -478,9 +369,9 @@
 </head>
 
 <body>
-	<div id="myModal" class="modal">
-		<div class="modal-content"> <span class="close">&times;</span>
-			<p id="myP">Whats new ..
+	<div id="modalWhatsNew" class="modalWhatsNew">
+		<div class="modalWhatsNew-content"> <span class="close">&times;</span>
+			<p id="p-WhatsNew-content">Whats new ..
             <br>colours and look & feel
             <br>real-time updates where possible
 				<br>simplified menu with search replacing lists
@@ -489,35 +380,36 @@
 				<br>scorecard of round by email
 				<br>score input easier to use and allows checking.
 				<br>scheduled calculations replaced by dynamic processes where possible.
-				<br> </p>
+            <br>
+				<br>Please report any problems/improvements etc.
+            <br> </p>
 		</div>
 	</div>
 	<div class="atitle"> <span class="asubtitle">the .. </span> Winter
-		<input type='image' id='myBtn' src='whatsnew.png' width='50' height='50' value='submit' />
+		<input type='image' id='buttonWhatsNew' src='whatsnew.png' width='50' height='50' value='submit' />
 		<br /> Golf Society
 		<div class="asubtitle"> (Fridays 4th November 2022 to 31st March 2023) </div>
 	</div>
 	<br>
 	<!-- menu -->
-	<ul class="dropdownx" onmouseover="vanish()" onmouseout="unvanish()">
+	<ul class="dropdownMenu" onmouseover="vanish()" onmouseout="unvanish()">
 		<li><a href="#">show menu</a>
-			<br>
 			<ul>
-				<li><a href="scoreinputtest.html" id="colr">score entry</a></li>
+            <!-- score entry -->
+				<li><a href="scoreinputtest.html" id="menuItems">score entry</a></li>
 				<br>
-				<li><a href="#" id="colr">player info</a></li>
+            <!-- results, with historic below ? -->
+				<li><a href="javascript:allresults()" id="menuItems">results</a></li>
 				<br>
-				<li><a href="javascript:popup()" id="colr">open a page</a></li>
+            <!-- player info, default to user -->
+				<li><a href="#" id="menuItems">player info</a></li>
 				<br>
-				<li><a href="javascript:smod()" id="colr">search test</a></li>
+            <!-- hcp list -->
+				<li><a href="javascript:hcplist()" id="menuItems">hcp list</a></li>
 				<br>
-				<li><a href="#" id="colr">twos</a></li>
+            <!-- twos -->
+				<li><a href="#" id="menuItems">twos</a></li>
 				<br>
-				<li><a href="#" id="colr">help</a></li>
-				<br>
-				<!--
-                <li><a href="#" onclick="unvanish()">hide Menu</a></li>
-                -->
 			</ul>
 		</li>
 	</ul>
@@ -536,7 +428,7 @@
    
   
   
-<div id="myModalsearch" class="modalsearch">
+<div id="modalsearch" class="modalsearch">
 		<div class="modalsearch-content"> <span class="closesearch">&times;</span>
 			<p id="myPsearch">  <h2>Search for name</h2>
          <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name" value='submit'>
@@ -600,6 +492,19 @@
 		var x = document.getElementById("txt");
 		x.innerText = diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
 	}
+
+   function hcplist() {
+      let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+      window.open("https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1210420478&single=true","hcplist",params)
+   }
+   
+   function allresults() {
+      let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+      window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=612102443&single=true","allresults",params)
+   }
+   
+   
+   
 
 	function popup() {
 		swal("Search for player:", {
@@ -665,17 +570,21 @@
 
 	function vanish() {
 		var x = document.getElementById("txt");
-		x.style.color = "darkgray";
+		x.style.color = "#70695c"; //sepia type text
 	}
 
 	function unvanish() {
 		var x = document.getElementById("txt");
 		x.style.color = "white";
 	}
-	var modal = document.getElementById("myModalsearch");
-	var btn = document.getElementById("myBtnsearch");
+   
+   
+   
+   
+	var modal = document.getElementById("modalWhatsNew");
+	var btn = document.getElementById("buttonWhatsNew");
 	var span = document.getElementsByClassName("close")[0];
-	var p = document.getElementById("myPsearch");
+	var p = document.getElementById("p-WhatsNew-content");
 	modal.onclick = function() {
 			modal.style.display = "none";
 		}
@@ -693,37 +602,53 @@
 			modal.style.display = "none";
 		}
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function unvanishsearch() {
 		var x = document.getElementById("txt");
 		x.style.color = "white";
 	}
-	var modal = document.getElementById("myModal");
-	var btn = document.getElementById("myBtn");
-	var span = document.getElementsByClassName("close")[0];
-	var p = document.getElementById("myP");
-	modal.onclick = function() {
-			modal.style.display = "none";
+   
+   
+	var modalsearch = document.getElementById("modalsearch");
+	var btnsearch = document.getElementById("myBtnsearch");
+	var spansearch = document.getElementsByClassName("closesearch")[0];
+	var psearch = document.getElementById("myPsearch");
+	modalsearch.onclick = function() {
+			modalsearch.style.display = "none";
 		}
-   btn.onclick = function() {
-			modal.style.display = "block";
+   btnsearch.onclick = function() {
+			modalsearch.style.display = "block";
 		}
-	span.onclick = function() {
-			modal.style.display = "none";
+	spansearch.onclick = function() {
+			modalsearch.style.display = "none";
 		}
-	p.onclick = function() {
-			modal.style.display = "none";
+	psearch.onclick = function() {
+			modalsearch.style.display = "none";
 		}
 	window.onclick = function(event) {
-		if(event.target == modal) {
-			modal.style.display = "none";
+		if(event.target == modalsearch) {
+			modalsearch.style.display = "none";
 		}
 	}
 
 
 
 
+/* 
 
 	function getScreen(gid, playername) {
 		window.location.href = 'link.html?id=' + gid + "&fname=" + playername;
@@ -758,14 +683,14 @@ function unvanishsearch() {
 	
 	
 	
-	
+*/	
 	
 	
    
    
  function smod() {
     
-  input = document.getElementById("myModalsearch");
+  input = document.getElementById("modalWhatsNewsearch");
   input.style.display = 'block';
   
  }  
