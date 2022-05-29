@@ -109,7 +109,7 @@
 	}
 	
 	.asubtitle {
-		font-size: 12px;
+		font-size: 18px;
 	}
 	
 	.dropbtn {
@@ -388,7 +388,6 @@
 	<div class="atitle"> <span class="asubtitle">the .. </span> Winter
 		<input type='image' id='buttonWhatsNew' src='whatsnew.png' width='50' height='50' value='submit' />
 		<br /> Golf Society
-		<div class="asubtitle"> (Fridays 4th November 2022 to 31st March 2023) </div>
 	</div>
 	<br>
 	<!-- menu -->
@@ -397,7 +396,7 @@
 			<ul>
             <!-- score entry -->
 				<li><a href="scoreinputtest.html" id="menuItems">score entry</a></li>
-				<br>
+			   <br>
             <!-- results, with historic below ? -->
 				<li><a href="javascript:allresults()" id="menuItems">results</a></li>
 				<br>
@@ -413,8 +412,6 @@
 			</ul>
 		</li>
 	</ul>
-	<br>
-	<br>
 	<br>
 	<p id="txt">Dates:</p>
 	<br>
@@ -478,7 +475,9 @@
 		var oneJan = new Date(currentdate.getFullYear(), 0, 1);
 		var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
 		var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-		var diary = ["Friday 7th October - Lakes", 
+		var diary = [" (Fridays 4th November 2022 to 31st March 2023) ",
+      "",
+      "Friday 7th October - Lakes", 
       "Friday 14th October - Lakes", 
       "Friday 21st October - Lakes", 
       "Friday 28th October - Lakes",
@@ -490,7 +489,8 @@
       "Friday 9th December - Lakes"  
       ]
 		var x = document.getElementById("txt");
-		x.innerText = diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
+		xperm = diary[0];
+      x.innerText = xperm + "\n\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
 	}
 
    function hcplist() {
@@ -649,7 +649,6 @@ function unvanishsearch() {
 
 
 /* 
-
 	function getScreen(gid, playername) {
 		window.location.href = 'link.html?id=' + gid + "&fname=" + playername;
 	}
