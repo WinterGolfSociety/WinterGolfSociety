@@ -39,14 +39,19 @@
 		list-style: none;
 		background-color: DodgerBlue;
 		color: white;
-		width: 150px;
+		//width: 100%;
+      width: 130px;
+      
+      
+      
+      
 		height: 50px;
 		font-size: 20px;
 		//border: none;
 		cursor: pointer;
-		border-radius: 15px;
+		//border-radius: 15px;
 		border: 2px solid dodgerBlue;
-		box-shadow: 10px 10px 25px black;
+		//box-shadow: 10px 10px 25px black;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 		white-space: nowrap;
 	}
@@ -70,7 +75,7 @@
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		width: 150px;
+		width: 100%;
 		left: 0;
 		opacity: 0;
 		visibility: hidden;
@@ -83,15 +88,15 @@
 	.dropdownMenu li ul li a {
 		height: 50px;
 		line-height: 25px;
-		color: blue;
+		color: darkSlateGray; //blue;
 	}
 	
 	.dropdownMenu li ul li a:hover {
 		background-color: gray;
 		color: white;
 		height: 50px;
-		border-radius: 15px;
-		box-shadow: 10px 10px 25px black;
+		//border-radius: 15px;
+		//box-shadow: 10px 10px 25px black;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 	
@@ -101,7 +106,7 @@
 	}
 	
 	.dropdownMenu li:hover>a {
-		color: cornflowerBlue;
+		color: Gray;
 	}
 	
 	.atitle {
@@ -115,7 +120,7 @@
 	.dropbtn {
 		background: DodgerBlue;
 		color: white;
-		width: 200px;
+		width: 100%;
 		height: 100px;
 		padding: 10px;
 		font-size: 30px;
@@ -143,7 +148,7 @@
 		display: none;
 		position: absolute;
 		background-color: DodgerBlue;
-		min-width: 330px;
+		//min-width: 330px;
 		overflow: auto;
 		z-index: 1;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
@@ -211,7 +216,7 @@
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		width: 200px;
+		//width: 200px;
 		left: 0;
 		opacity: 0;
 		visibility: hidden;
@@ -239,11 +244,12 @@
 
 	#menuItems {
 		background-color: rgba(63, 255, 106, 0.7);
-		border-radius: 15px;
-		box-shadow: 10px 10px 25px black;
+		//border-radius: 15px;
+		//box-shadow: 10px 10px 25px black;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 		padding-top: 10px;
       height: 25px;
+      width: 100%;
 	}
 	
 	#menuItems:hover {
@@ -396,19 +402,22 @@
 			<ul>
             <!-- score entry -->
 				<li><a href="scoreinputtest.html" id="menuItems">score entry</a></li>
-			   <br>
+			   
             <!-- results, with historic below ? -->
 				<li><a href="javascript:allresults()" id="menuItems">results</a></li>
-				<br>
+				
             <!-- player info, default to user -->
 				<li><a href="#" id="menuItems">player info</a></li>
-				<br>
+				
             <!-- hcp list -->
 				<li><a href="javascript:hcplist()" id="menuItems">hcp list</a></li>
-				<br>
+				
             <!-- twos -->
 				<li><a href="#" id="menuItems">twos</a></li>
-				<br>
+				
+            <!-- twos -->
+				<li><a href="#" id="menuItems">more info</a></li>
+				
 			</ul>
 		</li>
 	</ul>
@@ -475,7 +484,7 @@
 		var oneJan = new Date(currentdate.getFullYear(), 0, 1);
 		var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
 		var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-		var diary = [" (Fridays 4th November 2022 to 31st March 2023) ",
+      var diary = [" (Fridays 4th November 2022 to 31st March 2023) ",
       "",
       "Friday 7th October - Lakes", 
       "Friday 14th October - Lakes", 
@@ -814,3 +823,5 @@ xx.innerText=txtValue
 </body>
 
 </html>
+
+
