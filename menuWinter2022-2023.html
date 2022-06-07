@@ -354,9 +354,9 @@
  
  
  #closemenubutton {
-  background-color: #04AA6D; /* Green */
+  background-color: rgba(63, 255, 106, 0.7);
   border: none;
-  color: white;
+  color: blue;
   padding: 20px;
  
   
@@ -370,6 +370,7 @@
   width: 100px;
   border-radius: 50%;
   margin-left: 50%;
+  visibility: hidden;
 }
 
 
@@ -443,7 +444,7 @@
    
    
    
-   <button id="closemenubutton"></button>
+   
    
    
    
@@ -451,6 +452,7 @@
 	<p id="txt">Dates:</p>
 	<br>
 	<br><a id="myAtest"></a>
+   <button id="closemenubutton"></button>
 	<br>
 	<br>
 	
@@ -610,8 +612,8 @@
       
       var x = document.getElementById("closemenubutton");
       x.innerText="close menu"
+      //x.style.display = "block";
       x.style.visibility = "visible";
-      
       
 	}
 
@@ -622,6 +624,7 @@
       
       var x = document.getElementById("closemenubutton");
       x.innerText=""
+      //x.style.display = "none";
       x.style.visibility = "hidden";
       
       
@@ -863,6 +866,7 @@ xx.innerText=txtValue
 </body>
 
 </html>
+
 
 
 
