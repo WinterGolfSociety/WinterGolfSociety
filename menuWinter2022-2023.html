@@ -353,8 +353,26 @@
  
  
  
+ #closemenubutton {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
  
- 
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-left: 50%;
+}
+
+
    
    
    
@@ -422,6 +440,14 @@
 		</li>
 	</ul>
 	<br>
+   
+   
+   
+   <button id="closemenubutton"></button>
+   
+   
+   
+   
 	<p id="txt">Dates:</p>
 	<br>
 	<br><a id="myAtest"></a>
@@ -580,11 +606,25 @@
 	function vanish() {
 		var x = document.getElementById("txt");
 		x.style.color = "#70695c"; //sepia type text
+      
+      
+      var x = document.getElementById("closemenubutton");
+      x.innerText="close menu"
+      x.style.visibility = "visible";
+      
+      
 	}
 
 	function unvanish() {
 		var x = document.getElementById("txt");
 		x.style.color = "white";
+      
+      
+      var x = document.getElementById("closemenubutton");
+      x.innerText=""
+      x.style.visibility = "hidden";
+      
+      
 	}
    
    
@@ -823,5 +863,6 @@ xx.innerText=txtValue
 </body>
 
 </html>
+
 
 
