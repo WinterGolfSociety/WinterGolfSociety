@@ -369,7 +369,7 @@
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  margin-left: 50%;
+  margin-left: 30%;
   visibility: hidden;
 }
 
@@ -527,7 +527,8 @@
       ]
 		var x = document.getElementById("txt");
 		xperm = diary[0];
-      x.innerText = xperm + "\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
+      //x.innerText = xperm + "\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
+      x.innerText = diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
 	}
 
    function hcplist() {
@@ -866,6 +867,7 @@ xx.innerText=txtValue
 </body>
 
 </html>
+
 
 
 
