@@ -360,7 +360,7 @@
 		background-color: dodgerBlue;
 		background-color: rgba(0, 0, 0, 0.4);
       
-      
+    
       
       
 	}
@@ -376,10 +376,6 @@
 		border: 2px solid dodgerBlue;
 		box-shadow: 10px 10px 25px black;
 	//	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-   
-   
-    
-   
    
    
 	}
@@ -441,40 +437,6 @@
     box-shadow: 10px 10px 25px black;
     
     }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-   
    
 	</style>
 	<meta charset="utf-8" />
@@ -929,10 +891,12 @@ function unvanishsearch() {
    
    
   function testsmod() {
-    
   input = document.getElementById("modalsearch");
   input.style.display = 'block';
   inputfocus = document.getElementById("myInputold");
+  
+  
+  
   inputfocus.focus();
  } 
    
@@ -1074,8 +1038,21 @@ xx.innerText=txtValue
    
 function myFunctionx() {
 //alert("wwww")
+
+
+
+
+
+
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInputold");
+    
+    //alert("-" + input.value + "-")
+    if (input.value == ""){ 
+       xx = document.getElementById("myAold");           
+		 xx.innerText="none" 
+    } else {
+    
     filter = input.value.toUpperCase();
     ul = document.getElementById("myULold");
     li = ul.getElementsByTagName("li");
@@ -1095,8 +1072,17 @@ function myFunctionx() {
 			xx.innerText=txtValue      
          
                       
-        } else { li[i].style.display = "none"; }
+        } else { li[i].style.display = "none";}
     }
+    
+    
+    
+ }   
+    
+    
+    
+    
+    
 }
 
 
@@ -1128,10 +1114,4 @@ function b1button() {
 </body>
 
 </html>
-
-
-
-
-
-
 
