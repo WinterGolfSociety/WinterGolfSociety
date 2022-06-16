@@ -16,7 +16,7 @@
 	}
 	
    html {
-      background: black;
+      background: white;
       background-image: url('golfergray.png');
       background-repeat: no-repeat;
       background-size: cover;   
@@ -49,10 +49,10 @@
 		font-size: 20px;
 		//border: none;
 		cursor: pointer;
-		//border-radius: 15px;
+		border-radius: 5px;
 		border: 2px solid dodgerBlue;
-		//box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		box-shadow: 10px 10px 25px black;
+		//text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 		white-space: nowrap;
 	}
 	
@@ -97,7 +97,7 @@
 		height: 50px;
 		//border-radius: 15px;
 		//box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		//text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 	
 	.dropdownMenu li:hover>ul {
@@ -117,7 +117,7 @@
 		font-size: 18px;
 	}
 	
-	.dropbtn {
+	.dropbtnxxx {
 		background: DodgerBlue;
 		color: white;
 		width: 100%;
@@ -151,7 +151,7 @@
 		//min-width: 330px;
 		overflow: auto;
 		z-index: 1;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		//text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 	
 	.dropdown-content a {
@@ -191,10 +191,10 @@
 		border: 1px solid #888;
 		width: 80%;
 		font-size: 20px;
-		border-radius: 15px;
+		border-radius: 5px;
 		border: 2px solid dodgerBlue;
 		box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		//text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 
 	.close {
@@ -211,7 +211,7 @@
 		cursor: pointer;
 	}
 	
-	#dummy {
+	#dummyxxx {
 		position: absolute;
 		margin: 0;
 		padding: 0;
@@ -235,6 +235,9 @@
 	#txt {
 		color: white;
 		font-size: 15px;
+      -webkit-transition: all 1s ease;
+		-o-transition: all 1s ease;
+		transition: all 1s ease;
 	}
 	
 	#p-WhatsNew-content {
@@ -246,7 +249,7 @@
 		background-color: rgba(63, 255, 106, 0.7);
 		//border-radius: 15px;
 		//box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		//text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 		padding-top: 10px;
       height: 25px;
       width: 100%;
@@ -257,18 +260,41 @@
 	}
    
     
-   #myInput {
+   #myInput, #myInputold {
   //background-image: url('/css/searchicon.png');
   //background-position: 10px 12px;
   //background-repeat: no-repeat;
-  width: 100%;
-  font-size: 30px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
+  color: white;
+  background: dodgerBlue;
+  border: 2px solid white;
+  width: 25%;
+  font-size: 20px;
+    list-style-type: none;
+  padding: 0;
+  margin: 0;
+  //margin-top: -1px; /* Prevent double borders */
+  padding: 2px 12px 2px 12px; //t,r,b,l
+  outline: none;
+   
 }
+    
+ 
+    #myinputold:focus {
+  background-color: lightblue;
+     list-style-type: none;
+  padding: 0;
+  margin: 0;
+   display: none;
+   border: 2px solid cyan;
+      
+    }
+    
+    #myinputold:selected { 
+    
+    border: 2px solid cyan;
+ }
 
-#myUL {
+#myUL, #myULold {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -281,7 +307,7 @@
   background-color: #f6f6f6;
   padding: 12px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 20px;
   color: black;
   display: block
 }
@@ -291,15 +317,34 @@
  
 }
 
-#myA {
-    border: 1px solid #ddd;
+#myULold li a {
+  border: 1px solid white;
   margin-top: -1px; /* Prevent double borders */
   background-color: #f6f6f6;
   padding: 12px;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 20px;
   color: black;
+  display: block
+}
+
+#myULold li a:hover:not(.header) {
+  background-color: #eee;
+ 
+}
+
+#myA, #myAold {
+    
+  margin-top: -1px; /* Prevent double borders */
+  padding: 2px 12px 2px 12px; //t,r,b,l
+  text-decoration: none;
+  font-size: 15px;
+  color: white;
   display: block 
+  background: dodgerBlue;
+ // border: 2px solid white;
+  width: 50%;
+  font-size: 20px;
 }
 
  .modalsearch {
@@ -314,6 +359,10 @@
 		overflow: auto;
 		background-color: dodgerBlue;
 		background-color: rgba(0, 0, 0, 0.4);
+      
+      
+      
+      
 	}
 	
 	.modalsearch-content {
@@ -323,10 +372,16 @@
 		border: 1px solid #888;
 		width: 80%;
 		font-size: 20px;
-		border-radius: 15px;
-		border: 2px solid green;
+		border-radius: 5px;
+		border: 2px solid dodgerBlue;
 		box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	//	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+   
+   
+    
+   
+   
+   
 	}
  
  
@@ -366,20 +421,59 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  height: 90px;
-  width: 90px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
-  margin-left: 150px;
+  margin-left: 140px;
   visibility: hidden;
 }
 
-
-   
-   
-   
-   
-   
-   
+ 
+ #menubutton1 {
+    width: 150px;
+    //height 120px;
+    color: white;
+    background: dodgerblue;
+    font-size: 20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 25px black;
+    
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
    
    
 	</style>
@@ -389,7 +483,7 @@
 	<meta name="author" content="Bryan M" />
 	<title>Winter Golf Society</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico" />
-	<script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
@@ -410,11 +504,78 @@
             <br> </p>
 		</div>
 	</div>
-	<div class="atitle"> <span class="asubtitle">the .. </span> Winter
+	<div class="atitle"> <span class="asubtitle">.. a</span> Winter
 		<input type='image' id='buttonWhatsNew' src='whatsnew.png' width='50' height='50' value='submit' />
 		<br /> Golf Society
 	</div>
 	<br>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+ 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+   
+   
+   
+   
+   
+   
 	<!-- menu -->
 	<ul class="dropdownMenu" onmouseover="vanish()" onmouseout="unvanish()">
 		<li><a href="#">show menu</a>
@@ -426,7 +587,7 @@
 				<li><a href="javascript:allresults()" id="menuItems">results</a></li>
 				
             <!-- player info, default to user -->
-				<li><a href="#" id="menuItems">player info</a></li>
+				<li><a href="javascript:testsmod()" id="menuItems">player info</a></li>
 				
             <!-- hcp list -->
 				<li><a href="javascript:hcplist()" id="menuItems">hcp list</a></li>
@@ -434,13 +595,14 @@
             <!-- twos -->
 				<li><a href="#" id="menuItems">twos</a></li>
 				
-            <!-- twos -->
-				<li><a href="#" id="menuItems">more info</a></li>
+            <!-- my info -->
+				<li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true
+" id="menuItems">my info</a></li>
 				
 			</ul>
 		</li>
 	</ul>
-	<br>
+	
    
    
    
@@ -464,20 +626,24 @@
   
 <div id="modalsearch" class="modalsearch">
 		<div class="modalsearch-content"> <span class="closesearch">&times;</span>
-			<p id="myPsearch">  <h2>Search for name</h2>
-         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name" value='submit'>
-         <ul id="myUL">
-            <li><a href="#">empty</a></li>
-           
-         </ul>
-         <br><br>
-         <div id="myA">-----</div>
-            <br><br>
-            
-            
-            </p>
-            
-             <input type="button" id="doInfo" onkeyup="doInfo()">
+			
+Search for player
+<input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="Search for names..">
+<br>
+<ul id="myULold">
+  <li><p>empty</p></li>
+</ul>
+<br>
+<br><a id="myAold">none</a>found .. 
+<button id="menubutton1" onclick="b1button()">show info</button>
+<!--
+<button id="menubutton2">close</button>
+-->
+
+
+<br><br>   
+   
+  
       </div>
 </div> 
   
@@ -505,6 +671,69 @@
    
    
 	<script>
+    
+    
+    
+    
+    
+    
+    
+    
+ 
+
+var arr = ["dummy",
+"Graham Airey",
+"Dale Aitkenhead",
+"Stephen Alldridge",
+"Keith Belshaw",    
+"Stewart Brodie",   
+]
+
+
+
+var x = "" 
+// build values to search
+for (var ii = 0; ii < arr.length; ii++) {  
+x = x + '<li><p>' + arr[ii] + '</p></li>' 
+}  
+
+/*
+for (let ii = 1; ii < arr.length; ii++) {
+   document.getElementById('drag' + ii).innerText = arr[ii];  
+}
+*/
+
+input = document.getElementById("myULold");
+input.innerHTML = x
+
+ 
+  
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	weeknumber()
 
 	function weeknumber() {
@@ -526,9 +755,9 @@
       "Friday 9th December - Lakes"  
       ]
 		var x = document.getElementById("txt");
-		xperm = diary[0];
+		//xperm = diary[0];
       //x.innerText = xperm + "\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
-      x.innerText = diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15]
+      x.innerText = "upcoming dates:\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15]
 	}
 
    function hcplist() {
@@ -597,11 +826,6 @@
       // tony smith
       window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1288506359&single=true");
    }
-   
-   
-   
-   
-   
    }
 
 
@@ -658,40 +882,28 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function unvanishsearch() {
 		var x = document.getElementById("txt");
 		x.style.color = "white";
 	}
    
-   
+  
 	var modalsearch = document.getElementById("modalsearch");
 	var btnsearch = document.getElementById("myBtnsearch");
 	var spansearch = document.getElementsByClassName("closesearch")[0];
 	var psearch = document.getElementById("myPsearch");
-	modalsearch.onclick = function() {
-			modalsearch.style.display = "none";
-		}
-   btnsearch.onclick = function() {
-			modalsearch.style.display = "block";
-		}
-	spansearch.onclick = function() {
-			modalsearch.style.display = "none";
-		}
-	psearch.onclick = function() {
-			modalsearch.style.display = "none";
-		}
+//	modalsearch.onclick = function() {
+//			modalsearch.style.display = "none";
+//		}
+//   btnsearch.onclick = function() {
+//			modalsearch.style.display = "block";
+//		}
+//	spansearch.onclick = function() {
+//			modalsearch.style.display = "none";
+//		}
+//	psearch.onclick = function() {
+//			modalsearch.style.display = "none";
+//		}
 	window.onclick = function(event) {
 		if(event.target == modalsearch) {
 			modalsearch.style.display = "none";
@@ -700,45 +912,7 @@ function unvanishsearch() {
 
 
 
-
-/* 
-	function getScreen(gid, playername) {
-		window.location.href = 'link.html?id=' + gid + "&fname=" + playername;
-	}
-	// When the user clicks on the button, closes every dropdown and only opens the one passed as argument
-	function myFunction(element) {
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		// element.nextSibling is the carriage return& The dropdown menu is the next next.
-		var thisDropdown = element.nextSibling.nextSibling;
-		if(!thisDropdown.classList.contains('show')) { // hide dropdown if clicking on the one already open
-			var i;
-			for(i = 0; i < dropdowns.length; i++) {
-				dropdowns[i].classList.remove('show');
-			}
-		}
-		// Toggle the dropdown on the element clicked
-		thisDropdown.classList.toggle("show");
-	}
-	// close the dropdown when clicked outside
-	window.onclick = function(event) {
-		if(!event.target.matches('.dropbtn')) {
-			var dropdowns = document.getElementsByClassName("dropdown-content");
-			var i;
-			for(i = 0; i < dropdowns.length; i++) {
-				var openDropdown = dropdowns[i];
-				if(openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
-			}
-		}
-	}
-	
-	
-	
-*/	
-	
-	
-   
+  
    
  function smod() {
     
@@ -747,30 +921,28 @@ function unvanishsearch() {
   
  }  
    
+   
+   
+  function testsmod() {
+    
+  input = document.getElementById("modalsearch");
+  input.style.display = 'block';
+  inputfocus = document.getElementById("myInputold");
+  inputfocus.focus();
+ } 
+   
+   
+   
+   
+   
+   
+   
   function doInfo() {
      
    alert("doInfo")  
   } 
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+
   
 var arr = ["dummy",
 "Graham Airey",
@@ -798,9 +970,9 @@ input.innerHTML = x
  
 
   //tt = document.getElementById("myA").innerText
-  
    
-function myFunction() {
+   
+function myFunctionxxxx() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -819,11 +991,12 @@ xx.innerText=txtValue
             
             
                   
-        } else {
-            li[i].style.display = "none";
-        }
-    }
+        } else { li[i].style.display = "none"; }
+   }
 }
+ 
+ 
+ 
  
    
    
@@ -843,6 +1016,7 @@ xx.innerText=txtValue
 xx = document.getElementById("myAtest");           
 xx.innerText=txtValue            
             
+
             
             
                   
@@ -851,22 +1025,106 @@ xx.innerText=txtValue
         }
     }
 } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ 
+   
+function myFunctionx() {
+//alert("wwww")
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInputold");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myULold");
+    li = ul.getElementsByTagName("li");
+    
+    //alert(li.length)
+    
+    
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("p")[0];
+       // alert(a)
+        txtValue = a.textContent || a.innerText;
+        //alert(txtValue)
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        //alert(txtValue.toUpperCase().indexOf(filter))
+            li[i].style.display = "";
+			xx = document.getElementById("myAold");           
+			xx.innerText=txtValue      
+         
+                      
+        } else { li[i].style.display = "none"; }
+    }
+}
+
+
+function b1button() {
+   var b1x = document.getElementById("myAold");
+   var b1xx = b1x.innerText;
+   
+   // close modal search
+   var modalsearch = document.getElementById("modalsearch");
+   modalsearch.style.display = "none";
    
    
    
-   
-   
-   
-   
-   
-	
-	
-	
+   displayPlayer("Bryan Maddison")
+}
+
+
+
+
+
+
+
+
+
+
+    
 	
 	</script>
 </body>
 
 </html>
+
+
 
 
 
