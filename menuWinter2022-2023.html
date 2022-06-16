@@ -267,7 +267,7 @@
   color: white;
   background: dodgerBlue;
   border: 2px solid white;
-  width: 50%;
+  width: 25%;
   font-size: 20px;
     list-style-type: none;
   padding: 0;
@@ -628,12 +628,13 @@
 		<div class="modalsearch-content"> <span class="closesearch">&times;</span>
 			
 Search for player
-<input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="Search text">
+<input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="Search for names..">
 <br>
 <ul id="myULold">
   <li><p>empty</p></li>
 </ul>
-<br><a id="myAold">none</a>found .. 
+<br>
+<a id="myAold">none</a>found .. 
 <br><br><button id="menubutton1" onclick="b1button()">show info</button>
 <!--
 <button id="menubutton2">close</button>
@@ -858,8 +859,10 @@ input.innerHTML = x
    
    
 	var modal = document.getElementById("modalWhatsNew");
+   //var modalsearch = document.getElementById("modalsearch");
 	var btn = document.getElementById("buttonWhatsNew");
-	var span = document.getElementsByClassName("close")[0];
+	var span0 = document.getElementsByClassName("close")[0];
+   var span1 = document.getElementsByClassName("closesearch")[0];
 	var p = document.getElementById("p-WhatsNew-content");
 	modal.onclick = function() {
 			modal.style.display = "none";
@@ -867,8 +870,11 @@ input.innerHTML = x
    btn.onclick = function() {
 			modal.style.display = "block";
 		}
-	span.onclick = function() {
+	span0.onclick = function() {
 			modal.style.display = "none";
+		}
+   span1.onclick = function() {
+			modalsearch.style.display = "none";
 		}
 	p.onclick = function() {
 			modal.style.display = "none";
