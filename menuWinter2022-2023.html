@@ -843,12 +843,9 @@ for (i = 0; i < datax.length; i++) {
       var meinfo = "hcp not found .."  
       meinfo = datax[i].Name + " your handicap is " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + ", Dawson " + datax[i].Dawson + ")";  
       alert(datax[i].Dawson)
-      localStorage.setItem("LakesHCP",datax[i].Lakes);
+      localStorage.setItem("LakesHCP",datax[i].Lakes.toString());
       localStorage.setItem("DawsonHCP",datax[i].Dawson.toString());
-      
-      
-      alert(localStorage.getItem("DawsonHcp"))
-      
+            
     }  
         
 } 
