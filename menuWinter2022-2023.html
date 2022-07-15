@@ -100,7 +100,7 @@
 	}
 	
 	.atitle {
-		font-size: 40px;
+		font-size: 50px;
 	}
 	
 	.asubtitle {
@@ -170,15 +170,15 @@
 	}
 
 	.close {
-		color: white;
+		color: #aaaaaa;
 		float: right;
-		font-size: 28px;	
+		font-size: 28px;
+		font-weight: bold;
 	}
 	
 	.close:hover,
 	.close:focus {
-		color: white;
-		font-weight: bold;
+		color: #000;
 		text-decoration: none;
 		cursor: pointer;
 	}
@@ -214,7 +214,7 @@
 	
 	#p-WhatsNew-content {
 		color: white;
-		font-size: 15px;
+		font-size: 20px;
 	}
 
 	#menuItems {
@@ -386,7 +386,7 @@
   #me1 {
    font-family: arial, sans-serif;
     font-size: 15px;
-    color: White;  
+    color: white;  
      
   }  
     
@@ -418,16 +418,16 @@
 	<div id="modalWhatsNew" class="modalWhatsNew">
 		<div class="modalWhatsNew-content"> <span class="close">&times;</span>
 			<p id="p-WhatsNew-content">Whats new ..
-            <br>colours and look & feel
-            <br>real-time updates where possible
-				<br>simplified menu with search replacing lists
-				<br>faster and more responsive
-				<br>auto hcp adjustments so always current
-				<br>scorecard of round by email
-				<br>score input easier to use and allows checking.
-				<br>scheduled calculations replaced by dynamic processes where possible.
             <br>
-				<br>Please report any problems/improvements etc.
+            <br>general appearance changed.
+            <br>real-time updates replace timed scripts where possible.
+				<br>simplified menu with less options.
+				<br>searches replacing long lists.
+				<br>hcp adjustments immediately calculated so always current.
+				<br>individual scorecard of each round by email.
+				<br>score input changed. Easier to use and allows checking.
+				<br>
+				<br>Please feel free to report any problems/improvements etc.
             <br> </p>
 		</div>
 	</div>
@@ -435,7 +435,7 @@
 		<input type='image' id='buttonWhatsNew' src='whatsnew.png' width='50' height='50' value='submit' />
 		<br /> Golf Society
 	</div>
-	
+	<br>
  
  
  
@@ -477,7 +477,7 @@
 				<li><a href="javascript:hcplist()" id="menuItems">hcp list</a></li>
 				
             <!-- twos -->
-				<li><a href="#" id="menuItems">twos</a></li>
+				<li><a href="javascript:twos()" id="menuItems">twos</a></li>
 				
             <!-- my info -->
 				<li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true
@@ -514,25 +514,6 @@ Search for player
  <br><br>
   
 <script>
-/*
-var arr = ["dummy",
-"Graham Airey",
-"Dale Aitkenhead",
-"Stephen Alldridge",
-"Keith Belshaw",    
-"Stewart Brodie",   
-]
-
-var x = "" 
-// build values to search
-for (var ii = 0; ii < arr.length; ii++) {  
-x = x + '<li><a href="#">' + arr[ii] + '</a></li>' 
-}  
-
-input = document.getElementById("myUL");
-input.innerHTML = x  
-
-*/
 
 // non function() code so runs ..
 
@@ -663,6 +644,14 @@ function weeknumber() {
       let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
       window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=612102443&single=true","allresults",params)
    }
+   function twos() {
+      let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+      window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1266484079&single=true","twos",params)
+   }
+
+
+
+
 
 /*   
  	function popup() {
@@ -852,13 +841,12 @@ for (i = 0; i < datax.length; i++) {
         
     if ( datax[i].Name == "Dale Aitkenhead" ) { 
       var meinfo = "hcp not found .."  
-      const tempNameArray = datax[i].Name.split(" ");
-      meinfo = tempNameArray[0] + "'s hcp is " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + ", Dawson " + datax[i].Dawson + ")";  
+      meinfo = datax[i].Name + " your handicap is " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + ", Dawson " + datax[i].Dawson + ")";  
     }  
         
 } 
     
-document.getElementById("me1").innerText = meinfo;
+document.getElementById("me1").innerHTML = "<strong>" + meinfo + "</strong>";
    
 }
 
