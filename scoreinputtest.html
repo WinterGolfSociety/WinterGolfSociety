@@ -5,11 +5,8 @@
 	<style>
 	body {
 		font: normal 25px Arial, sans-serif;
-		color: white;
+		color: White;
 		background: #726b5e;
-		background-image: url('golfergray.png');
-      		background-repeat: no-repeat;
-      		background-size: 200%; 
 	}
 	
 	.header {
@@ -1142,12 +1139,15 @@
 		</div>
 	</div>
 	<br>
+   <!-- from url -->
 	<div class="fullcontainer">
 		<div id="playerName">Player: unknown</div>
 	</div>
+   <!-- from dropdown -->
 	<div class="fullcontainer">
 		<div id="cHCP">course HCP: unknown</div>
 	</div>
+   <!-- from code - lookup date -->
 	<div class="fullcontainer">
 		<div id="compName">Competition: unknown</div>
 	</div>
@@ -1220,17 +1220,8 @@ Check the scores entered (shots taken) then Submit.
 	<br>
 	<br>
 	<script>
-	// use diary of dates ...  
-	var options = {
-		weekday: 'long',
-		day: 'numeric',
-		month: 'long',
-		year: 'numeric'
-	};
-	const formatter = new Intl.DateTimeFormat('en-GB', options);
-	const dd = formatter.format(new Date());
-	//alert(`${dd}`); // current date as: Saturday, 26 March 2022
-	var vhcp
+   // global variables  
+   var vhcp
 	var vcourse
 	var vpar1
 	var vpar2
@@ -1268,11 +1259,33 @@ Check the scores entered (shots taken) then Submit.
 	var vsi16
 	var vsi17
 	var vsi18
-	var ccc = "Lakes stableford Friday 28 March"
-		//{  
-		// global variables
-	vhcp = 22;
-	//vcourse = "Lakes - " + dd
+	var ccc = "Lakes stableford Friday 28 March" 
+          
+   const queryString = window.location.search;   
+   const urlParams = new URLSearchParams(queryString);  
+   var pname = urlParams.get('name')   
+   document.getElementById("playerName").innerText = "Player: " + pname;   
+    
+    
+
+    
+    
+    
+	// use diary of dates ...  
+	var options = {
+		weekday: 'long',
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric'
+	};
+        
+	const formatter = new Intl.DateTimeFormat('en-GB', options);
+	const dd = formatter.format(new Date());
+   // eg. Friday, 15 July 2022
+   
+   if(dd.indexOf("July") > -1 || dd.indexOf("September") > -1 || dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
+   
+   vhcp = localStorage.getItem("LakesHcp");
 	vcourse = "Lakes"
 	vpar1 = 4
 	vpar2 = 4
@@ -1310,48 +1323,50 @@ Check the scores entered (shots taken) then Submit.
 	vsi16 = 12
 	vsi17 = 2
 	vsi18 = 8
-		// }  
-	if(dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
-		// global variables
-		vhcp = 25;
-		vcourse = "dawson"
-		vpar1 = 4
+		 }  
+       
+	if(dd.indexOf("August") > -1 || dd.indexOf("October") > -1 || dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
+      
+		vhcp = localStorage.getItem("DawsonHcp");
+		vcourse = "Dawson"
+		vpar1 = 5
 		vpar2 = 4
-		vpar3 = 5
+		vpar3 = 3
 		vpar4 = 4
-		vpar5 = 3
-		vpar6 = 3
+		vpar5 = 4
+		vpar6 = 5
 		vpar7 = 4
 		vpar8 = 4
-		vpar9 = 4
-		vpar10 = 3
-		vpar11 = 4
-		vpar12 = 4
+		vpar9 = 5
+		vpar10 = 4
+		vpar11 = 5
+		vpar12 = 3
 		vpar13 = 4
-		vpar14 = 3
-		vpar15 = 3
-		vpar16 = 5
+		vpar14 = 4
+		vpar15 = 4
+		vpar16 = 3
 		vpar17 = 4
-		vpar18 = 5
-		vsi1 = 10
-		vsi2 = 7
-		vsi3 = 3
-		vsi4 = 1
-		vsi5 = 17
+		vpar18 = 4
+		vsi1 = 13
+		vsi2 = 15
+		vsi3 = 17
+		vsi4 = 3
+		vsi5 = 1
 		vsi6 = 11
-		vsi7 = 9
-		vsi8 = 5
-		vsi9 = 13
+		vsi7 = 7
+		vsi8 = 9
+		vsi9 = 5
 		vsi10 = 16
-		vsi11 = 18
-		vsi12 = 10
-		vsi13 = 6
-		vsi14 = 14
-		vsi15 = 4
-		vsi16 = 12
-		vsi17 = 2
+		vsi11 = 14
+		vsi12 = 18
+		vsi13 = 2
+		vsi14 = 4
+		vsi15 = 12
+		vsi16 = 6
+		vsi17 = 10
 		vsi18 = 8
 	}
+   
 	var ventry1
 	var ec
 	ventry1 = vcourse + " - par " + vpar1 + ", si " + vsi1
@@ -3454,9 +3469,9 @@ Check the scores entered (shots taken) then Submit.
 			// do submit stuff here
 			var ok = "yes";
 			var s1 = document.getElementById("playerName").innerText;
-			alert(s1)
+         
 			if(s1.length > 0) {
-				document.getElementById("mx2131369517").value = s1;
+				document.getElementById("mx2131369517").value = s1.replace("Player: ","");
 			} else {
 				ok = "no";
 			}
@@ -3960,6 +3975,33 @@ https://docs.google.com/forms/d/1jUR5jhgT-2anQm3fQW8eWvmqpIZwNnoCJedzWwg2bag/edi
   
   
 https://docs.google.com/forms/d/19R0WKyMip1MMrMUNSveoVmfKvUXWp6xn9A8Q4Fh9A6E/prefill
+ 
+ 
+ 
+ 
+db structure: 
+
+timestamp
+player
+competition
+course/playing hcp
+gross hole 1
+..
+gross hole 18
+gross front 9
+gross back 9
+gross total
+points hole 1
+..
+points hole 18
+points front 9
+points back 9
+points total
+countback 9
+countback 6
+countback 3
+countback 1
+score differential
  
 -->
 	<form id="my-form" target="my-response-iframe" action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdLjv9LsQstBq_nFH9XiA4RUH_RZw2Ifa2eHSDnJH5aua0aKw/formResponse" method="post" onSubmit="JavaScript:fixdata()">
