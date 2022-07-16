@@ -1221,7 +1221,7 @@ Check the scores entered (shots taken) then Submit.
 	<br>
 	<script>
    // global variables  
-   var vhcp
+   var vhcp = 0
 	var vcourse
 	var vpar1
 	var vpar2
@@ -1266,26 +1266,18 @@ Check the scores entered (shots taken) then Submit.
    var pname = urlParams.get('name')   
    document.getElementById("playerName").innerText = "Player: " + pname;   
     
-    
-
-    
-    
-    
 	// use diary of dates ...  
 	var options = {
 		weekday: 'long',
 		day: 'numeric',
 		month: 'long',
 		year: 'numeric'
-	};
-        
+	}; 
 	const formatter = new Intl.DateTimeFormat('en-GB', options);
 	const dd = formatter.format(new Date());
    // eg. Friday, 15 July 2022
-   
    if(dd.indexOf("July") > -1 || dd.indexOf("September") > -1 || dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
-   
-   vhcp = localStorage.getItem("LakesHcp");
+   vhcp = localStorage.getItem("LakesHCP");
 	vcourse = "Lakes"
 	vpar1 = 4
 	vpar2 = 4
@@ -1327,7 +1319,7 @@ Check the scores entered (shots taken) then Submit.
        
 	if(dd.indexOf("August") > -1 || dd.indexOf("October") > -1 || dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
       
-		vhcp = localStorage.getItem("DawsonHcp");      
+		vhcp = localStorage.getItem("DawsonHCP");      
 		vcourse = "Dawson"
 		vpar1 = 5
 		vpar2 = 4
