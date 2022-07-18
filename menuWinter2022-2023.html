@@ -514,63 +514,104 @@ Search for player
  <br><br>
   
 <script>
+   
+   
+   
+   // change name and hcp by a button image press
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 
 // non function() code so runs ..
 
+
+
+
+
+// for testing
+//localStorage.setItem("LakesHCP", "17");
+//localStorage.setItem("DawsonHCP", "18");
+//localStorage.setItem("playerName", "Dale Aitkenhead");
+//localStorage.setItem("playerHCP", "16.8");
+
+
+
+
+
+
+
+
+
+
+
+
 var arr = ["dummy",
-"Graham Airey",
-"Dale Aitkenhead",
-"Stephen Alldridge",
-"Keith Belshaw",    
-"Stewart Brodie",   
+	"Graham Airey",
+	"Dale Aitkenhead",
+	"Stephen Alldridge",
+	"Keith Belshaw",
+	"Stewart Brodie",
 ]
 
-var x = "" 
+var x = ""
 // build values to search
-for (var ii = 0; ii < arr.length; ii++) {  
-x = x + '<li><p>' + arr[ii] + '</p></li>' 
-}  
+for (var ii = 0; ii < arr.length; ii++) {
+	x = x + '<li><p>' + arr[ii] + '</p></li>'
+}
 
 input = document.getElementById("myULold");
 input.innerHTML = x
-    
-	var modal = document.getElementById("modalWhatsNew");
-   //var modalsearch = document.getElementById("modalsearch");
-	var btn = document.getElementById("buttonWhatsNew");
-	var span0 = document.getElementsByClassName("close")[0];
-   
-   var span1 = document.getElementsByClassName("close")[1];
-   
-	var p = document.getElementById("p-WhatsNew-content");
-	//modal.onclick = function() {
-	//		modal.style.display = "none";
-	//	}
-   btn.onclick = function() {
-			modal.style.display = "block";
-		}
-	span0.onclick = function() {
-			modal.style.display = "none";
-		}
-   span1.onclick = function() {
-			modalsearch.style.display = "none";
-		}
-	p.onclick = function() {
-			modal.style.display = "none";
-		}
-	window.onclick = function(event) {
-		if(event.target == modal) {
-			modal.style.display = "none";
-		}
+
+var modal = document.getElementById("modalWhatsNew");
+//var modalsearch = document.getElementById("modalsearch");
+var btn = document.getElementById("buttonWhatsNew");
+var span0 = document.getElementsByClassName("close")[0];
+
+var span1 = document.getElementsByClassName("close")[1];
+
+var p = document.getElementById("p-WhatsNew-content");
+//modal.onclick = function() {
+//		modal.style.display = "none";
+//	}
+btn.onclick = function() {
+	modal.style.display = "block";
+}
+span0.onclick = function() {
+	modal.style.display = "none";
+}
+span1.onclick = function() {
+	modalsearch.style.display = "none";
+}
+p.onclick = function() {
+	modal.style.display = "none";
+}
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
 	}
+}
 
-
-
-
-
-	var modalsearch = document.getElementById("modalsearch");
-	var btnsearch = document.getElementById("myBtnsearch");
-	var spansearch = document.getElementsByClassName("closesearch")[0];
-	var psearch = document.getElementById("myPsearch");
+var modalsearch = document.getElementById("modalsearch");
+var btnsearch = document.getElementById("myBtnsearch");
+var spansearch = document.getElementsByClassName("closesearch")[0];
+var psearch = document.getElementById("myPsearch");
 //	modalsearch.onclick = function() {
 //			modalsearch.style.display = "none";
 //		}
@@ -583,297 +624,209 @@ input.innerHTML = x
 //	psearch.onclick = function() {
 //			modalsearch.style.display = "none";
 //		}
-	window.onclick = function(event) {
-		if(event.target == modalsearch) {
-			modalsearch.style.display = "none";
-		}
+window.onclick = function(event) {
+	if (event.target == modalsearch) {
+		modalsearch.style.display = "none";
 	}
+}
 
 
-
-
-
-
-
-
-
-
-
-
-	weeknumber()
-
-
-
-
-
-
-
-
+weeknumber()
 
 
 function weeknumber() {
-		currentdate = new Date();
-		var oneJan = new Date(currentdate.getFullYear(), 0, 1);
-		var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
-		var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-      var diary = [" (Fridays 4th November 2022 to 31st March 2023) ",
-      "",
-      "Friday 7th October - Lakes", 
-      "Friday 14th October - Lakes", 
-      "Friday 21st October - Lakes", 
-      "Friday 28th October - Lakes",
-      "Friday 4th November - Dawson", 
-      "Friday 11th November - Dawson",
-      "Friday 18th November - Dawson",
-      "Friday 25th November - Dawson",
-      "Friday 2nd December - Lakes", 
-      "Friday 9th December - Lakes"  
-      ]
-		var x = document.getElementById("txt");
-		//xperm = diary[0];
-      //x.innerText = xperm + "\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
-      x.innerText = "upcoming dates:\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15]
+	currentdate = new Date();
+	var oneJan = new Date(currentdate.getFullYear(), 0, 1);
+	var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+	var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
+	var diary = [" (Fridays 4th November 2022 to 31st March 2023) ",
+		"",
+		"Friday 7th October - Lakes",
+		"Friday 7th October - Lakes",
+		"Friday 7th October - Lakes",
+		"Friday 7th October - Lakes",
+		"Friday 7th October - Lakes",
+		"Friday 7th October - Lakes",
+		"Friday 14th October - Lakes",
+		"Friday 21st October - Lakes",
+		"Friday 28th October - Lakes",
+		"Friday 4th November - Dawson",
+		"Friday 11th November - Dawson",
+		"Friday 18th November - Dawson",
+		"Friday 25th November - Dawson",
+		"Friday 2nd December - Lakes",
+		"Friday 9th December - Lakes"
+	]
+	var x = document.getElementById("txt");
+	//xperm = diary[0];
+	//x.innerText = xperm + "\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
+	x.innerText = "upcoming dates:\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15]
+}
+
+function hcplist() {
+	let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+	window.open("https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1210420478&single=true", "hcplist", params)
+}
+
+function allresults() {
+	let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+	window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=612102443&single=true", "allresults", params)
+}
+
+function twos() {
+	let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+	window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1266484079&single=true", "twos", params)
+}
+
+function displayPlayer(xvalue) {
+	if (xvalue == "Bryan Maddison") {
+		window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true");
 	}
-
-   function hcplist() {
-      let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
-      window.open("https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1210420478&single=true","hcplist",params)
-   }
-   
-   function allresults() {
-      let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
-      window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=612102443&single=true","allresults",params)
-   }
-   function twos() {
-      let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
-      window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1266484079&single=true","twos",params)
-   }
-
-
-
-
-
-/*   
- 	function popup() {
-		swal("Search for player:", {
-			content: "input",
-			buttons: true,
-		}).then((value) => {
-			value = doSearch(value);
-			if(`${value}` !== 'undefined') {
-				if(`${value}`.indexOf('found player named ') !== -1) {
-					swal(`${value}`, {
-					buttons: ["cancel", "show info"]
-					}).then((showInfo) => {
-                  alert(showInfo)
-                  var xvalue = `${value}`.replace('found player named ',"")
-                  if (showInfo){
-                     displayPlayer(xvalue);
-                  }
-               })
- 				} else {
-					swal(`${value}`);
-				}
-			}
-		});
+	if (xvalue !== "Bryan Maddison") {
+		// tony smith
+		window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1288506359&single=true");
 	}
+}
 
-	function doSearch(plyr) {
-		if(plyr !== "") {
-			var arr = ['Peter Holleran', 'Tony Smith', 'Bryan Maddison', 'Bryan Smith', 'Dick Tracy'];
-			var i;
-			var j = 0;
-			var wordIndex;
-			var rrr = "nothing";
-			for(i = 0; i < arr.length; i++) {
-				wordIndex = arr[i].toLowerCase().indexOf(plyr.toLowerCase());
-				if(wordIndex !== -1) {
-					rrr = 'found player named ' + arr[i];
-					j++
-				}
+function vanish() {
+	var x = document.getElementById("txt");
+	x.style.color = "#70695c"; //sepia type text
+
+
+	var x = document.getElementById("closemenubutton");
+	x.innerText = "close menu"
+	x.style.visibility = "visible";
+
+}
+
+function unvanish() {
+	var x = document.getElementById("txt");
+	x.style.color = "white";
+	var x = document.getElementById("closemenubutton");
+	x.innerText = ""
+	x.style.visibility = "hidden";
+}
+
+
+function smod() {
+	input = document.getElementById("modalWhatsNewsearch");
+	input.style.display = 'block';
+}
+
+function testsmod() {
+	input = document.getElementById("modalsearch");
+	input.style.display = 'block';
+	inputfocus = document.getElementById("myInputold");
+	inputfocus.focus();
+}
+
+function doInfo() {
+	alert("doInfo")
+}
+
+function myFunctionx() {
+	var input, filter, ul, li, a, i, txtValue;
+	input = document.getElementById("myInputold");
+	if (input.value == "") {
+		xx = document.getElementById("myAold");
+		xx.innerText = "none"
+	} else {
+
+		filter = input.value.toUpperCase();
+		ul = document.getElementById("myULold");
+		li = ul.getElementsByTagName("li");
+		for (i = 0; i < li.length; i++) {
+			a = li[i].getElementsByTagName("p")[0];
+			txtValue = a.textContent || a.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				li[i].style.display = "";
+				xx = document.getElementById("myAold");
+				xx.innerText = txtValue
+			} else {
+				li[i].style.display = "none";
 			}
-			if(j > 1) {
-				rrr = "More than one match found. Refine your search to allow finding a unique selection.\n\nSearching ignores upper and lower case and looks for a player name that includes the search pattern."
-			}
-			return rrr
 		}
 	}
-*/
-   function displayPlayer(xvalue) {
-   if (xvalue == "Bryan Maddison"){
-      window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true");
-   }
-   if (xvalue !== "Bryan Maddison"){
-      // tony smith
-      window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1288506359&single=true");
-   }
-   }
-
-	function vanish() {
-		var x = document.getElementById("txt");
-		x.style.color = "#70695c"; //sepia type text
-      
-      
-      var x = document.getElementById("closemenubutton");
-      x.innerText="close menu"
-      x.style.visibility = "visible";
-      
-	}
-
-	function unvanish() {
-		var x = document.getElementById("txt");
-		x.style.color = "white";
-      var x = document.getElementById("closemenubutton");
-      x.innerText=""
-      x.style.visibility = "hidden";
-	}
-  
-
- function smod() {
-  input = document.getElementById("modalWhatsNewsearch");
-  input.style.display = 'block';
- }  
-   
-  function testsmod() {
-  input = document.getElementById("modalsearch");
-  input.style.display = 'block';
-  inputfocus = document.getElementById("myInputold");
-  inputfocus.focus();
- } 
-   
-  function doInfo() {
-   alert("doInfo")  
-  } 
-   
-
- /*  
-  function myFunctiontest() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-            xx = document.getElementById("myAtest");           
-            xx.innerText=txtValue            
-        } else {
-            li[i].style.display = "none";
-        }
-    }
-} 
-  
-*/   
-function myFunctionx() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInputold");
-    if (input.value == ""){ 
-       xx = document.getElementById("myAold");           
-		 xx.innerText="none" 
-    } else {
-    
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("myULold");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("p")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-         li[i].style.display = "";
-			xx = document.getElementById("myAold");           
-			xx.innerText=txtValue      
-        } else { li[i].style.display = "none";}
-    }
- }    
 }
 
 function b1button() {
-   var b1x = document.getElementById("myAold");
-   var b1xx = b1x.innerText;
-   // close modal search
-   var modalsearch = document.getElementById("modalsearch");
-   modalsearch.style.display = "none";
-   displayPlayer("Bryan Maddison")
+	var b1x = document.getElementById("myAold");
+	var b1xx = b1x.innerText;
+	// close modal search
+	var modalsearch = document.getElementById("modalsearch");
+	modalsearch.style.display = "none";
+	displayPlayer("Bryan Maddison")
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS9sLu7AkLzC7o-dwSrdLqb2E4armqYZ6fYKOMXYmLS-XoL7etIUeis2ZhdG3G_iIEokkAyYfrxB2do/pub?gid=0&single=true&output=csv';
 
-
 function init() {
-Papa.parse(public_spreadsheet_url, {
-	download: true,
-    header: true,
-    complete: showInfo
-});
+	Papa.parse(public_spreadsheet_url, {
+		download: true,
+		header: true,
+		complete: showInfo
+	});
 }
 
 window.addEventListener('DOMContentLoaded', init)
 
 function showInfo(results) {
-    var datax = results.data
-
-for (i = 0; i < datax.length; i++) { 
-        
-    if ( datax[i].Name == "Dale Aitkenhead" ) { 
-      var meinfo = "hcp not found .."  
-      meinfo = datax[i].Name + " your handicap is " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + ", Dawson " + datax[i].Dawson + ")";  
-      localStorage.setItem("LakesHCP",datax[i].Lakes.toString());
-      localStorage.setItem("DawsonHCP",datax[i].Dawson.toString());
-    }  
-        
-} 
-    
-document.getElementById("me1").innerHTML = "<strong>" + meinfo + "</strong>";
+	var datax = results.data
+//	alert("xxxxx")
    
+   
+   if ("playerName" in localStorage) {
+    pname = localStorage.getItem("playerName");
+} else {
+    alert('no');
 }
+   
+ if ("playerHCP" in localStorage) {
+    pname = localStorage.getItem("playerName");
+} else {
+    alert('no');
+}  
+   
+   
+   
+   
+	// retrieve player name from local storage
+	var pname = "name"
+   pname = localStorage.getItem("playerName");
+   //alert("l " + pname)
+   // retrieve player hcp from local storage
+   var phcp = "hcp"
+   phcp = localStorage.getItem("playerHCP");
+   // do temp info before checking for latest
+   tempmeinfo = pname + " hcp " + phcp + " checking ...";
+   document.getElementById("me1").innerHTML = "<strong>" + tempmeinfo + "</strong>";
+	if (pname.length < 1) {
 
+		// saved player not found so ask for one
 
+		// player search and save here
+		alert("player search and save here")
+	}
 
+//alert(datax.length)
+	for (i = 0; i < datax.length; i++) {
 
+		if (datax[i].Name == "Dale Aitkenhead") {
+			var meinfo = "hcp not found .."
+			meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
 
+			// set current values 
+			localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+			localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+			localStorage.setItem("playerName", datax[i].Name.toString());
+         localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+		}
 
+	}
 
+	document.getElementById("me1").innerHTML = "<strong>" + meinfo + "</strong>";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 </script>
 </body>
