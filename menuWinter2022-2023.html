@@ -437,28 +437,8 @@
 	</div>
 	<br>
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
  <a id="me1">interogating remote server for latest hcp ..</a>
  <br><br>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
 	<!-- menu -->
 	<ul class="dropdownMenu" onmouseover="vanish()" onmouseout="unvanish()">
@@ -482,6 +462,11 @@
             <!-- my info -->
 				<li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true
 " id="menuItems">my info</a></li>
+
+            <!-- change user -->
+				<li><a href="prescoreinput.html" id="menuItems">swap player</a></li>
+            <!-- test -->
+				<li><a href="firstSetup.html" id="menuItems">test</a></li>
 				
 			</ul>
 		</li>
@@ -514,53 +499,29 @@ Search for player
  <br><br>
   
 <script>
-   
-   
-   
-   // change name and hcp by a button image press
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
 
+// starts with no local storage
+// find the player name
+// retrieve hcp info etc and timestamp
+// store in local storage
+// use local storage from now until ?
+// retrieve hcp info etc and timestamp again after ?
+// use local storage from now until ?
+//
+
+  
+// allow change name and hcp by a button image press
+
+
+   
+   
 // non function() code so runs ..
-
-
-
-
 
 // for testing
 //localStorage.setItem("LakesHCP", "17");
 //localStorage.setItem("DawsonHCP", "18");
 //localStorage.setItem("playerName", "Dale Aitkenhead");
 //localStorage.setItem("playerHCP", "16.8");
-
-
-
-
-
-
-
-
-
-
-
 
 var arr = ["dummy",
 	"Graham Airey",
@@ -630,9 +591,17 @@ window.onclick = function(event) {
 	}
 }
 
+// hcp list from 2022
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+
+window.addEventListener('DOMContentLoaded', init)
 
 weeknumber()
 
+
+
+
+//============= functions =================
 
 function weeknumber() {
 	currentdate = new Date();
@@ -758,8 +727,6 @@ function b1button() {
 	displayPlayer("Bryan Maddison")
 }
 
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS9sLu7AkLzC7o-dwSrdLqb2E4armqYZ6fYKOMXYmLS-XoL7etIUeis2ZhdG3G_iIEokkAyYfrxB2do/pub?gid=0&single=true&output=csv';
-
 function init() {
 	Papa.parse(public_spreadsheet_url, {
 		download: true,
@@ -768,36 +735,51 @@ function init() {
 	});
 }
 
-window.addEventListener('DOMContentLoaded', init)
-
 function showInfo(results) {
+   var eye=0;
 	var datax = results.data
-//	alert("xxxxx")
-   
-   
    if ("playerName" in localStorage) {
-    pname = localStorage.getItem("playerName");
-} else {
-    alert('no');
-}
+      pname = localStorage.getItem("playerName");
+   } else {
+    alert('no playerName');
+    eye++
+   }
    
- if ("playerHCP" in localStorage) {
-    pname = localStorage.getItem("playerName");
-} else {
-    alert('no');
-}  
+   if ("playerHCP" in localStorage) {
+      phcp = localStorage.getItem("playerHCP");
+   } else {
+    alert('no playerHCP');
+    eye++
+   }  
+   
+   if ("LakesHCP" in localStorage) {
+      lhcp = localStorage.getItem("LakesHCP");
+   } else {
+    alert('no LakesHCP');
+    eye++
+   }
+   
+   if ("DawsonHCP" in localStorage) {
+      lhcp = localStorage.getItem("DawsonHCP");
+   } else {
+    alert('no DawsonHCP');
+    eye++
+   }  
+   
+   if ("timeCheck" in localStorage) {
+      lhcp = localStorage.getItem("timeCheck");
+   } else {
+    alert('no timeCheck');
+    eye++
+   }  
+   
+    if (eye == 5) {
+       alert("running firstSetup")
+         firstSetup()
+    }
    
    
    
-   
-	// retrieve player name from local storage
-	var pname = "name"
-   pname = localStorage.getItem("playerName");
-   //alert("l " + pname)
-   // retrieve player hcp from local storage
-   var phcp = "hcp"
-   phcp = localStorage.getItem("playerHCP");
-   // do temp info before checking for latest
    tempmeinfo = pname + " hcp " + phcp + " checking ...";
    document.getElementById("me1").innerHTML = "<strong>" + tempmeinfo + "</strong>";
 	if (pname.length < 1) {
@@ -808,9 +790,8 @@ function showInfo(results) {
 		alert("player search and save here")
 	}
 
-//alert(datax.length)
+//search google sheets for info
 	for (i = 0; i < datax.length; i++) {
-
 		if (datax[i].Name == "Dale Aitkenhead") {
 			var meinfo = "hcp not found .."
 			meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
@@ -820,13 +801,28 @@ function showInfo(results) {
 			localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
 			localStorage.setItem("playerName", datax[i].Name.toString());
          localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+         var timeMarker= Math.floor(Date.now() / 1000)
+         localStorage.setItem("timeCheck", timeMarker);
 		}
-
 	}
-
 	document.getElementById("me1").innerHTML = "<strong>" + meinfo + "</strong>";
-
 }
+
+
+function firstSetup() {
+   alert("firstSetup")  
+   
+   
+   
+   var timeMarker= Math.floor(Date.now() / 1000)
+   localStorage.setItem("LakesHCP", "17");
+   localStorage.setItem("DawsonHCP", "18");
+   localStorage.setItem("playerName", "Dale Aitkenhead");
+   localStorage.setItem("playerHCP", "16.8");
+   localStorage.setItem("timeCheck", timeMarker);
+   
+}
+
 
 </script>
 </body>
