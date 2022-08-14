@@ -437,7 +437,7 @@
 	</div>
 	<br>
  
- <a id="me1">interogating remote server for latest hcp ..</a>
+ <a id="me1">interogating remote server for latest hcp ..</a><input type='image' id='buttonUpdate' src='refresh.png' width='50' height='50' value='submit' />
  <br><br>
  
 	<!-- menu -->
@@ -471,7 +471,8 @@
 			</ul>
 		</li>
 	</ul>
-   
+   <br><br>
+   <input type='image' id='buttonCalendar' src='calendar.png' width='50' height='50' value='submit' />
 	<p id="txt">Dates:</p>
 	<br>
 	<br><a id="myAtest"></a>
@@ -629,7 +630,7 @@ function weeknumber() {
 	var x = document.getElementById("txt");
 	//xperm = diary[0];
 	//x.innerText = xperm + "\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
-	x.innerText = "upcoming dates:\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15]
+	x.innerText = diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15]
 }
 
 function hcplist() {
