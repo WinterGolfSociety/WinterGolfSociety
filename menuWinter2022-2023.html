@@ -437,7 +437,7 @@
 	</div>
 	<br>
  
- <a id="me1">latest hcp ..</a><input type='image' id="buttonrefresh" width='75' height='100' src="fingerprint.png" onclick="init()" /> 
+ <a id="me1">thumbprint to get latest hcp.</a><a id="gethcp"><input type='image' id="buttonrefresh" width='75' height='100' src="fingerprint.png" onclick="init()" /></a> 
  <br><br>
  
 	<!-- menu -->
@@ -800,14 +800,30 @@ function getStorageInfo() {
 
 
 function init() {
+   // change to loader gif
+   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='75' height='100' src='loader.gif' onclick='init()' />"
+   //<input type='image' id="buttonrefresh" width='50' height='50' src="fingerprint.png" onclick="init()" />
 	Papa.parse(public_spreadsheet_url, {
 		download: true,
 		header: true,
 		complete: showInfo
 	});
+     
+   
+   // change back to fingerprint
+   //document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='75' height='100' src='fingerprint.png' onclick='init()' />"
 }
 
 function showInfo(results) {
+   
+   
+   // change back to fingerprint
+   //document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='75' height='100' src='fingerprint.png' onclick='init()' />"
+   
+   
+   
+   
+   
    var eye=0;
 	var datax = results.data
    if ("playerName" in localStorage) {
@@ -879,7 +895,17 @@ function showInfo(results) {
          localStorage.setItem("timeCheck", timeMarker);
 		}
 	}
-	document.getElementById("me1").innerHTML = "<strong>" + meinfo + "</strong>";
+	document.getElementById("me1").innerHTML = meinfo;
+   
+   
+   
+   // change back to fingerprint
+   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='75' height='100' src='fingerprint.png' onclick='init()' />"
+   
+   
+   
+   
+   
 }
 
 
