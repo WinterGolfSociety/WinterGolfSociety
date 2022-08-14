@@ -799,19 +799,96 @@ function getStorageInfo() {
 
 
 function init() {
+   
    // change to loader gif
-   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='50' height='50' src='loader.gif' onclick='init()' />"
+   document.getElementById("gethcp").innerHTML="<input type='image' width='50' height='50' src='loader.gif' />"
    
 	Papa.parse(public_spreadsheet_url, {
 		download: true,
 		header: true,
-		complete: showInfo
+		complete: showInfox
 	});
      
 }
 
+function showInfox(results) {
+   // retrieve player name
+   if ("playerName" in localStorage) {
+      var pname = localStorage.getItem("playerName");
+   } else {
+      alert('no playerName');
+   }
+
+	var datax = results.data
+  	// saved player not found so ask for one
+	// player search and save here
+   //		alert("player search and save here")
+	
+
+//search google sheets for info
+	for (i = 0; i < datax.length; i++) {
+		if (datax[i].Name == "Dale Aitkenhead") {
+      //if (datax[i].Name == pname) {   
+			var meinfo = "hcp not found .."
+			meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
+		}
+	}
+	document.getElementById("me1").innerHTML = meinfo;
+   
+   
+   
+   // change back to fingerprint
+   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='50' height='50' src='fingerprint.png' onclick='init()' />"
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function showInfo(results) {
-/*   var eye=0;
+   var eye=0;
 	var datax = results.data
    if ("playerName" in localStorage) {
       pname = localStorage.getItem("playerName");
@@ -866,16 +943,13 @@ function showInfo(results) {
 		// player search and save here
 		alert("player search and save here")
 	}
-*/
+
 //search google sheets for info
-
-alert(datax[i].Name)
-
 	for (i = 0; i < datax.length; i++) {
 		if (datax[i].Name == "Dale Aitkenhead") {
 			var meinfo = "hcp not found .."
 			meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
-/*
+
 			// set current values 
 			localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
 			localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
@@ -883,8 +957,6 @@ alert(datax[i].Name)
          localStorage.setItem("playerHCP", datax[i].Handicap.toString());
          var timeMarker= Math.floor(Date.now() / 1000)
          localStorage.setItem("timeCheck", timeMarker);
-         
- */        
 		}
 	}
 	document.getElementById("me1").innerHTML = meinfo;
@@ -907,11 +979,11 @@ function firstSetup() {
    
    
    var timeMarker= Math.floor(Date.now() / 1000)
-   localStorage.setItem("LakesHCP", "17");
-   localStorage.setItem("DawsonHCP", "18");
+   //localStorage.setItem("LakesHCP", "17");
+   //localStorage.setItem("DawsonHCP", "18");
    localStorage.setItem("playerName", "Dale Aitkenhead");
-   localStorage.setItem("playerHCP", "16.8");
-   localStorage.setItem("timeCheck", timeMarker);
+   //localStorage.setItem("playerHCP", "16.8");
+   //localStorage.setItem("timeCheck", timeMarker);
    
    
    
