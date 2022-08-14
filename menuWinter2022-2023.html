@@ -437,7 +437,7 @@
 	</div>
 	<br>
  
- <a id="me1">interogating remote server for latest hcp ..</a><img id="buttonrefresh" width='50' height='50' src="refresh.png" onclick="init()"> 
+ <a id="me1">interogating remote server for latest hcp ..</a><img id="buttonrefresh" width='75' height='100' src="fingerprint.png" onclick="init()"> 
  <br><br>
  
 	<!-- menu -->
@@ -729,6 +729,76 @@ function b1button() {
 	displayPlayer("Bryan Maddison")
 }
 
+
+
+
+
+function getStorageInfo() {
+   var eye=0;
+	if ("playerName" in localStorage) {
+      pname = localStorage.getItem("playerName");
+   } else {
+    eye++
+   }
+   
+   if ("playerHCP" in localStorage) {
+      phcp = localStorage.getItem("playerHCP");
+   } else {
+    eye++
+   }  
+   
+   if ("LakesHCP" in localStorage) {
+      lhcp = localStorage.getItem("LakesHCP");
+   } else {
+    eye++
+   }
+   
+   if ("DawsonHCP" in localStorage) {
+      lhcp = localStorage.getItem("DawsonHCP");
+   } else {
+    eye++
+   }  
+   
+   if ("timeCheck" in localStorage) {
+      lhcp = localStorage.getItem("timeCheck");
+   } else {
+    eye++
+   }  
+   
+    if (eye > 0) {
+       alert("running firstSetup")
+         firstSetup()
+    }
+   
+   
+   
+   tempmeinfo = pname + " hcp " + phcp + " checking ...";
+   document.getElementById("me1").innerHTML = "<strong>" + tempmeinfo + "</strong>";
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function init() {
 	Papa.parse(public_spreadsheet_url, {
 		download: true,
@@ -824,6 +894,12 @@ function firstSetup() {
    localStorage.setItem("playerName", "Dale Aitkenhead");
    localStorage.setItem("playerHCP", "16.8");
    localStorage.setItem("timeCheck", timeMarker);
+   
+   
+   
+   alert(
+   
+   
    
 }
 
