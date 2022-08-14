@@ -392,7 +392,7 @@
     
    .menucontainer {
      display: grid;
-	       grid-template-columns: 80% 20%; 
+	       grid-template-columns: auto 15% 15%; 
       
    }   
 	</style>
@@ -487,6 +487,23 @@
  <a id="gethcp"><input type='image' id="buttonrefresh" width='50' height='50' src="fingerprint.png" onclick="init()" /></a> 
  <br><a id="me1"></a><br>  
 </div>   
+   
+   
+<div class="menucontainerItem">
+   
+<input type='image' id='buttonCalendar' src='calendar.png' width='50' height='50' onclick='weeknumber()'>   
+</div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
 </div> 
    
@@ -617,7 +634,7 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 // run on startup - changecto button run
 //window.addEventListener('DOMContentLoaded', init)
 alert("one")
-weeknumber()
+//weeknumber()
 
 
 
