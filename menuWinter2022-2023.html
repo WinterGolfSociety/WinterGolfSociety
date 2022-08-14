@@ -361,8 +361,8 @@
   font-size: 5vmax;
   margin: 4px 2px;
   cursor: pointer;
-  height: 20vmax;
-  width: 20vmax;
+  height: 18vmax;
+  width: 18vmax;
   border-radius: 50%;
   box-shadow: 10px 10px 25px black;
   margin-left: 30vmax;
@@ -799,7 +799,7 @@ function getStorageInfo() {
 
 
 function init() {
-   // clear hcp data
+   // clear hcp data on screen
    document.getElementById("me1").innerHTML = "searching ...";
    // change to loader gif
    document.getElementById("gethcp").innerHTML="<input type='image' width='50' height='50' src='loader.gif' />"
@@ -832,14 +832,50 @@ function showInfox(results) {
       //if (datax[i].Name == pname) {   
 			var meinfo = "hcp not found .."
 			meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
-		}
+		
+         document.getElementById("me1").innerHTML = meinfo;
+         // write name and hcp to local storage
+         localStorage.setItem("playerName", datax[i].Name.toString());
+         localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+         var timeMarker= Math.floor(Date.now() / 1000)
+         localStorage.setItem("timeCheck", timeMarker);
+   
+      
+      }
 	}
-	document.getElementById("me1").innerHTML = meinfo;
+	
    
-   
-   
+  
    // change back to fingerprint
    document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='50' height='50' src='fingerprint.png' onclick='init()' />"
+   
+   
+   
+   
+   
+   
+   if ("playerName" in localStorage) {
+      var xpname = localStorage.getItem("playerName");
+   } else {
+    var xpname = "nobody"
+   }
+   
+   if ("playerHCP" in localStorage) {
+      var xphcp = localStorage.getItem("playerHCP");
+   } else {
+    var xphcp = "nothing"
+   } 
+   
+   alert(xpname + " " + xphcp)
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
 }
 
