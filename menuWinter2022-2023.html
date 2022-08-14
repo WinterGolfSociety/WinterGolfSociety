@@ -437,7 +437,7 @@
 	</div>
 	<br>
  
- <a id="me1">interogating remote server for latest hcp ..</a><img id="image" width='50' height='50' src="refresh.png" onclick="init()"> 
+ <a id="me1">interogating remote server for latest hcp ..</a><img id="buttonrefresh" width='50' height='50' src="refresh.png" onclick="init()"> 
  <br><br>
  
 	<!-- menu -->
@@ -743,7 +743,9 @@ function showInfo(results) {
    if ("playerName" in localStorage) {
       pname = localStorage.getItem("playerName");
    } else {
+      
     alert('no playerName');
+    
     eye++
    }
    
@@ -775,7 +777,7 @@ function showInfo(results) {
     eye++
    }  
    
-    if (eye == 5) {
+    if (eye > 0) {
        alert("running firstSetup")
          firstSetup()
     }
