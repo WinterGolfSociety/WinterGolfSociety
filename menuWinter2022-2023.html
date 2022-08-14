@@ -392,7 +392,7 @@
     
    .menucontainer {
      display: grid;
-	       grid-template-columns: 50% 50%; 
+	       grid-template-columns: 80% 20%; 
       
    }   
 	</style>
@@ -851,8 +851,11 @@ function showInfox(results) {
 		if (datax[i].Name == "Dale Aitkenhead") {
       //if (datax[i].Name == pname) {   
 			var meinfo = "hcp not found .."
-			meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
+			//meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
 		
+         meinfo = datax[i].Name + datax[i].Handicap + " (" + datax[i].Lakes + ")";
+      
+      
          document.getElementById("me1").innerHTML = meinfo;
          // write name and hcp to local storage
          localStorage.setItem("playerName", datax[i].Name.toString());
