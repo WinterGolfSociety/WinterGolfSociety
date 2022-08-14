@@ -390,7 +390,11 @@
      
   }  
     
+   .menucontainer {
+     display: grid;
+	       grid-template-columns: 50% 50%; 
       
+   }   
 	</style>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -435,13 +439,19 @@
 		<br /> Golf Society
 	</div>
 	
- 
+ <!--
  <a id="gethcp"><input type='image' id="buttonrefresh" width='50' height='50' src="fingerprint.png" onclick="init()" /></a> 
  <br><a id="me1"></a><br>
- 
+-->
+
+
+
+<div class="menucontainer">
+<div class="menucontainerItem">
 	<!-- menu -->
 	<ul class="dropdownMenu" onmouseover="vanish()" onmouseout="unvanish()">
 		<li><a href="#">show menu</a>
+       
 			<ul>
             <!-- score entry -->
 				<li><a href="scoreinputtest.html" id="menuItems">score entry</a></li>
@@ -470,6 +480,16 @@
 			</ul>
 		</li>
 	</ul>
+   
+</div> 
+ 
+<div class="menucontainerItem">   
+ <a id="gethcp"><input type='image' id="buttonrefresh" width='50' height='50' src="fingerprint.png" onclick="init()" /></a> 
+ <br><a id="me1"></a><br>  
+</div>   
+   
+</div> 
+   
    <br>
    <input type='image' id='buttonCalendar' src='calendar.png' width='50' height='50' value='submit'>
 	<p id="txt">Dates:</p>
