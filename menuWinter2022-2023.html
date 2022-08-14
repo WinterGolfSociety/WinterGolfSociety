@@ -100,7 +100,7 @@
 	}
 	
 	.atitle {
-		font-size: 8vmax;
+		font-size: 7vmax;
 	}
 	
 	.asubtitle {
@@ -434,7 +434,7 @@
 		<input type='image' id='buttonWhatsNew' src='whatsnew.png' width='50' height='50' value='submit' />
 		<br /> Golf Society
 	</div>
-	<br>
+	
  
  <a id="gethcp"><input type='image' id="buttonrefresh" width='50' height='50' src="fingerprint.png" onclick="init()" /></a> 
  <br><a id="me1"></a><br>
@@ -811,7 +811,7 @@ function init() {
 }
 
 function showInfo(results) {
-   var eye=0;
+/*   var eye=0;
 	var datax = results.data
    if ("playerName" in localStorage) {
       pname = localStorage.getItem("playerName");
@@ -866,13 +866,13 @@ function showInfo(results) {
 		// player search and save here
 		alert("player search and save here")
 	}
-
+*/
 //search google sheets for info
 	for (i = 0; i < datax.length; i++) {
 		if (datax[i].Name == "Dale Aitkenhead") {
 			var meinfo = "hcp not found .."
 			meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
-
+/*
 			// set current values 
 			localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
 			localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
@@ -880,6 +880,8 @@ function showInfo(results) {
          localStorage.setItem("playerHCP", datax[i].Handicap.toString());
          var timeMarker= Math.floor(Date.now() / 1000)
          localStorage.setItem("timeCheck", timeMarker);
+         
+ */        
 		}
 	}
 	document.getElementById("me1").innerHTML = meinfo;
