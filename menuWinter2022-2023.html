@@ -437,7 +437,7 @@
 	</div>
 	<br>
  
- <a id="me1">latest hcp ..</a><img id="buttonrefresh" width='75' height='100' src="fingerprint.png" onclick="getStorageInfo()"> 
+ <a id="me1">latest hcp ..</a><input type='image' id="buttonrefresh" width='75' height='100' src="fingerprint.png" onclick="init()" /> 
  <br><br>
  
 	<!-- menu -->
@@ -472,7 +472,7 @@
 		</li>
 	</ul>
    <br><br>
-   <input type='image' id='buttonCalendar' src='calendar.png' width='50' height='50' value='submit' />
+   <input type='image' id='buttonCalendar' src='calendar.png' width='50' height='50' value='submit'>
 	<p id="txt">Dates:</p>
 	<br>
 	<br><a id="myAtest"></a>
@@ -500,7 +500,7 @@ Search for player
  <br><br>
   
 <script>
-
+alert("one")
 // starts with no local storage
 // find the player name
 // retrieve hcp info etc and timestamp
@@ -597,7 +597,7 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 
 // run on startup - changecto button run
 //window.addEventListener('DOMContentLoaded', init)
-
+alert("one")
 weeknumber()
 
 
@@ -736,7 +736,7 @@ function b1button() {
 function getStorageInfo() {
    var eye=0;
 	if ("playerName" in localStorage) {
-      pname = localStorage.getItem("playerName");
+      varpname = localStorage.getItem("playerName");
    } else {
     eye++
    }
@@ -773,7 +773,7 @@ function getStorageInfo() {
    
    
    tempmeinfo = pname + " hcp " + phcp + " checking ...";
-   document.getElementById("me1").innerHTML = "<strong>" + tempmeinfo + "</strong>";
+   document.getElementById("me1").innerHTML = tempmeinfo;
 	
 }
 
@@ -897,7 +897,7 @@ function firstSetup() {
    
    
    
-   alert(
+   
    
    
    
