@@ -643,7 +643,7 @@ function weeknumber() {
    // check if already there
    var checkline = document.getElementById("txt").innerText
    if (checkline.indexOf("Friday") > -1) {
-       document.getElementById("txt").innerHTML = "<a style='visibility:hidden'>.</a>"  
+       document.getElementById("txt").innerHTML = "<a style='visibility:hidden'>." + "\n\n.\n\n.\n\n.</a>"  
    } else {
    
 	currentdate = new Date();
@@ -1056,11 +1056,7 @@ function showInfo(results) {
    
    // change back to fingerprint
    document.getElementById("gethcp").innerHTML="<input type='image' width='50' height='50' src='fingerprint.png' />"
-   
-   
-   
-   
-   
+    
 }
 
 
