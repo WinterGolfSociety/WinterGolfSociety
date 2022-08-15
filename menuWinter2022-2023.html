@@ -440,10 +440,10 @@
 	</div>
 	
  <!--
- <a id="gethcp"><input type='image' id="buttonrefresh" width='50' height='50' src="fingerprint.png" onclick="init()" /></a> 
+ <a id="gethcp"><input type='image' id="buttonrefresh" width='15vw' height='15vw' src="fingerprint.png" onclick="init()" /></a> 
  <br><a id="me1"></a><br>
 -->
-<a id="me1">.</a>
+<a id="me1"><a style='visibility:hidden'>.</a></a>
 
 
 <div class="menucontainer">
@@ -484,14 +484,14 @@
 </div> 
  
 <div class="menucontainerItem">   
- <a id="gethcp"><input type='image' id="buttonrefresh" width='50' height='50' src="fingerprint.png" onclick="init()" /></a> 
+ <a id="gethcp"><input type='image' id="buttonrefresh" width='15vw' height='15vw' src="fingerprint.png" onclick="init()" /></a> 
  <br><a id="me1"></a><br>  
 </div>   
    
    
 <div class="menucontainerItem">
    
-<input type='image' id='buttonCalendar' src='calendar.png' width='50' height='50' onclick='weeknumber()'>   
+<input type='image' id='buttonCalendar' src='calendar.png' width='115vw' height='115vw' onclick='weeknumber()'>   
 </div>
    
    
@@ -516,7 +516,7 @@
    
  <!--  
    <br>
-   <input type='image' id='buttonCalendar' src='calendar.png' width='50' height='50' value='submit'>
+   <input type='image' id='buttonCalendar' src='calendar.png' width='15vw' height='15vw' value='submit'>
    
  -->  
    
@@ -547,6 +547,21 @@ Search for player
  <br><br>
   
 <script>
+
+
+alert("1vw = " + (100 / document.documentElement.clientWidth) +" px")
+
+
+
+
+
+
+
+
+
+
+
+
 
 // starts with no local storage
 // find the player name
@@ -847,16 +862,23 @@ function getStorageInfo() {
 
 
 function init() {
+   // check if already there
+   var checkline = document.getElementById("me1").innerText
+   if (checkline.slice(-1) == ")") {
+       document.getElementById("me1").innerHTML = "<a style='visibility:hidden'>.</a>"  
+   } else {
    // clear hcp data on screen
-   document.getElementById("me1").innerHTML = "searching ...";
+   //document.getElementById("me1").innerHTML = "searching ...";
    // change to loader gif
-   document.getElementById("gethcp").innerHTML="<input type='image' width='50' height='50' src='loader.gif' />"
+   document.getElementById("gethcp").innerHTML="<input type='image' width='15vw' height='15vw' src='loader.gif' />"
    
 	Papa.parse(public_spreadsheet_url, {
 		download: true,
 		header: true,
 		complete: showInfox
 	});
+   
+   }
      
 }
 
@@ -898,7 +920,7 @@ function showInfox(results) {
    
   
    // change back to fingerprint
-   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='50' height='50' src='fingerprint.png' onclick='init()' />"
+   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='15vw' height='15vw' src='fingerprint.png' onclick='init()' />"
    
    
    
@@ -917,7 +939,7 @@ function showInfox(results) {
     var xphcp = "nothing"
    } 
    
-   alert(xpname + " " + xphcp)
+   //alert(xpname + " " + xphcp)
    
    
    
