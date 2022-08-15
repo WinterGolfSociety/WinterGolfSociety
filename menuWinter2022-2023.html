@@ -392,7 +392,7 @@
     
    .menucontainer {
      display: grid;
-	       grid-template-columns: 60% 20% auto;
+	       grid-template-columns: auto 20%;
       
    }   
    
@@ -449,7 +449,7 @@
 <a id="me1"><a style='visibility:hidden'>.</a></a>
 
 <div class="menucontainer">
-<div class="menucontainerItem">
+<div class="menucontainerItem1">
 	<!-- menu -->
 	<ul class="dropdownMenu" onmouseover="vanish()" onmouseout="unvanish()">
 		<li><a href="#">show menu</a>
@@ -485,13 +485,15 @@
    
 </div> 
  
-<div class="menucontainerItem">   
+<div class="menucontainerItem2">   
  <a id="gethcp"><input type='image' id="buttonrefresh" width='50vw' height='50vw' src="fingerprint.png" onclick="init()" /></a> 
  <br><a id="me1"></a><br>  
 </div>   
+ 
+<div class="menucontainerItem1">    
+</div>   
    
-   
-<div class="menucontainerItem">
+<div class="menucontainerItem2">
    
 <input type='image' id='buttonCalendar' src='calendar.png' width='50vw' height='50vw' onclick='weeknumber()'>   
 </div>
@@ -899,7 +901,7 @@ function showInfox(results) {
    
   
    // change back to fingerprint
-   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='15vw' height='15vw' src='fingerprint.png' onclick='init()' />"
+   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='50vw' height='50vw' src='fingerprint.png' onclick='init()' />"
    
    
    
