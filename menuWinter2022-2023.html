@@ -204,7 +204,7 @@
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 	
-	#txt {
+	#txt, #txt1, #txt2, #txt3, #txt4 {
 		color: white;
 		font-size: 3vmax;
       -webkit-transition: all 1s ease;
@@ -506,8 +506,14 @@
    
  -->  
    
-	<p id="txt"></p>
+	<p id="txt1"></p>
 	<br>
+   <p id="txt2"></p>
+   <br>
+   <p id="txt3"></p>
+   <br>
+   <p id="txt4"></p>
+   <br>
 	<br><a id="myAtest"></a>
    <button id="closemenubutton"></button>
 	<br>
@@ -641,9 +647,12 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 
 function weeknumber() {
    // check if already there
-   var checkline = document.getElementById("txt").innerText
+   var checkline = document.getElementById("txt1").innerText
    if (checkline.indexOf("Friday") > -1) {
-       document.getElementById("txt").innerHTML = "<a style='visibility:hidden'>" + "\n\n\n\n\n\n\n\n\n\n</a>"  
+       document.getElementById("txt1").innerHTML = "<p></p>"  
+       document.getElementById("txt2").innerHTML = "<p></p>"
+       document.getElementById("txt3").innerHTML = "<p></p>"
+       document.getElementById("txt4").innerHTML = "<p></p>"
    } else {
    
 	currentdate = new Date();
@@ -668,10 +677,16 @@ function weeknumber() {
 		"Friday 2nd December - Lakes",
 		"Friday 9th December - Lakes"
 	]
-	var x = document.getElementById("txt");
+	var x1 = document.getElementById("txt1");
+   var x2 = document.getElementById("txt2");
+   var x3 = document.getElementById("txt3");
+   var x4 = document.getElementById("txt4");
 	//xperm = diary[0];
 	//x.innerText = xperm + "\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
-	x.innerText = diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15]
+	x1.innerText = diary[result - 18]
+   x2.innerText = diary[result - 17]
+   x3.innerText = diary[result - 16]
+   x4.innerText = diary[result - 15]
 
 }
 
