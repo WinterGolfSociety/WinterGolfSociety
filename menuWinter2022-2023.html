@@ -392,9 +392,16 @@
     
    .menucontainer {
      display: grid;
-	       grid-template-columns: auto 20% 20%; 
+	       grid-template-columns: 80% auto auto;
       
    }   
+   
+   .menucontainerItem {
+     width: 100%;
+      
+   }   
+   
+   
 	</style>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -446,6 +453,23 @@
 <a id="me1"><a style='visibility:hidden'>.</a></a>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="menucontainer">
 <div class="menucontainerItem">
 	<!-- menu -->
@@ -491,7 +515,7 @@
    
 <div class="menucontainerItem">
    
-<input type='image' id='buttonCalendar' src='calendar.png' width='115vw' height='115vw' onclick='weeknumber()'>   
+<input type='image' id='buttonCalendar' src='calendar.png' width='15vmax' height='15vw' onclick='weeknumber()'>   
 </div>
    
    
@@ -511,6 +535,15 @@
    
    
    
+<br>
+   <input type='image' src='calendar.png' width='100vw' height='100vw'>
+<br>
+   <input type='image' src='calendar.png' width='25vh' height='25vh'>
+<br>
+   <input type='image' src='calendar.png' width='35vw' height='35vw'>
+<br>
+
+
    
    
    
@@ -549,15 +582,7 @@ Search for player
 <script>
 
 
-alert("1vw = " + (100 / document.documentElement.clientWidth) +" px")
-
-
-
-
-
-
-
-
+alert(document.documentElement.clientWidth)
 
 
 
@@ -668,6 +693,12 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 //============= functions =================
 
 function weeknumber() {
+   // check if already there
+   var checkline = document.getElementById("txt").innerText
+   if (checkline.indexOf("Friday") > -1) {
+       document.getElementById("txt").innerHTML = "<a style='visibility:hidden'>.</a>"  
+   } else {
+   
 	currentdate = new Date();
 	var oneJan = new Date(currentdate.getFullYear(), 0, 1);
 	var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
@@ -694,6 +725,9 @@ function weeknumber() {
 	//xperm = diary[0];
 	//x.innerText = xperm + "\n\n" + diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15] + "\n\n" + diary[result - 14]
 	x.innerText = diary[result - 18] + "\n\n" + diary[result - 17] + "\n\n" + diary[result - 16] + "\n\n" + diary[result - 15]
+
+}
+
 }
 
 function hcplist() {
