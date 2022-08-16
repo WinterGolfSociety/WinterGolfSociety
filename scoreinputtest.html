@@ -1346,9 +1346,15 @@ Check the scores entered (shots taken) then Submit.
 	   const formatter = new Intl.DateTimeFormat('en-GB', options);
 	   const dd = formatter.format(new Date());
 	  var ddtoday = dd.replace(",","")
+     ddtoday = ddtoday.replace("Friday ","")
+     ddtoday = ddtoday.replace("Thursday ","")
+     ddtoday = ddtoday.replace("Wednesday ","")
+     ddtoday = ddtoday.replace("Tuesday ","")
+     ddtoday = ddtoday.replace("Monday ","")
+     
 	  // eg. Friday, 15 July 2022 to Friday 15 July 2022
 	  if(dd.indexOf("July") > -1 || dd.indexOf("September") > -1 || dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
-	  ddtoday = '<a id="yellow">Lakes stableford ' + ddtoday + '<\/a>'
+	  ddtoday = '<a id="yellow">Lakes ' + ddtoday + '<\/a>'
 	  document.getElementById("compName").innerHTML = "Competition: " + ddtoday; 
 	  vhcp = localStorage.getItem("LakesHCP");
 	   vcourse = "Lakes"
