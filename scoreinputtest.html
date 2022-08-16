@@ -1286,10 +1286,14 @@ Check the scores entered (shots taken) then Submit.
 	  if ("playerName" in localStorage) {
 	   pname = localStorage.getItem("playerName");
 	} else {
-	   alert('no');
+	   alert('no player name');
 	}
 	  
-	  
+	  if ("playerHCP" in localStorage) {
+	   pname = localStorage.getItem("playerHCP");
+	} else {
+	   alert('no player hcp');
+	}
 	     
 	  var vhcp = 0
 	   var vcourse

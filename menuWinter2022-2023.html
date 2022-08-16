@@ -944,7 +944,7 @@ function showInfox(results) {
          localStorage.setItem("playerName", datax[i].Name.toString());
          localStorage.setItem("playerHCP", datax[i].Handicap.toString());
          var timeMarker= Math.floor(Date.now() / 1000)
-         localStorage.setItem("timeCheck", timeMarker);
+         //localStorage.setItem("timeCheck", timeMarker);
    
       
       }
@@ -972,7 +972,7 @@ function showInfox(results) {
     var xphcp = "nothing"
    } 
    
-   //alert(xpname + " " + xphcp)
+   alert("local storage: " +xpname + " " + xphcp)
    
    
    
