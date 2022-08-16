@@ -1088,12 +1088,12 @@
 			<button class="button18" id="id9hole18" onclick="blueButton18(this.id)">9</button>
 		</div>
 	</div><br>
-	<!-- from url -->
+	<!-- from localstorage -->
 	<div class="fullcontainer">
 		<div id="playerName">
 			Player: unknown
 		</div>
-	</div><!-- from dropdown -->
+	</div><!-- from localstorage -->
 	<div class="fullcontainer">
 		<div id="cHCP">
 			course HCP: unknown
@@ -1290,7 +1290,7 @@ Check the scores entered (shots taken) then Submit.
 	}
 	  
 	  if ("playerHCP" in localStorage) {
-	   pname = localStorage.getItem("playerHCP");
+	   phcp = localStorage.getItem("playerHCP");
 	} else {
 	   alert('no player hcp');
 	}
