@@ -854,16 +854,10 @@ function getStorageInfo() {
     eye++
    }  
    
-   if ("timeCheck" in localStorage) {
-      lhcp = localStorage.getItem("timeCheck");
-   } else {
-    eye++
-   }  
-   
-    if (eye > 0) {
-       alert("running firstSetup")
-         firstSetup()
-    }
+   if (eye > 0) {
+      alert("running firstSetup")
+      firstSetup()
+   }
    
    
    
@@ -943,7 +937,10 @@ function showInfox(results) {
          // write name and hcp to local storage
          localStorage.setItem("playerName", datax[i].Name.toString());
          localStorage.setItem("playerHCP", datax[i].Handicap.toString());
-         var timeMarker= Math.floor(Date.now() / 1000)
+         localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+         localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+         
+         //var timeMarker= Math.floor(Date.now() / 1000)
          //localStorage.setItem("timeCheck", timeMarker);
    
       
@@ -972,7 +969,17 @@ function showInfox(results) {
     var xphcp = "nothing"
    } 
    
-   alert("local storage: " +xpname + " " + xphcp)
+   if ("LakesHCP" in localStorage) {
+      var xplakeshcp = localStorage.getItem("LakesHCP");
+   } else {
+    var xplakeshcp = "nothing"
+   }
+   
+   if ("DawsonHCP" in localStorage) {
+      var xpdawsonhcp = localStorage.getItem("DawsonHCP");
+   } else {
+    var xpdawsonhcp = "nothing"
+   }
    
    
    
@@ -981,6 +988,7 @@ function showInfox(results) {
    
    
    
+   alert("local storage: " +xpname + " " + xphcp + " " + xplakeshcp + " " + xpdawsonhcp)
    
    
 }
@@ -1063,17 +1071,10 @@ function showInfo(results) {
     eye++
    }  
    
-   if ("timeCheck" in localStorage) {
-      lhcp = localStorage.getItem("timeCheck");
-   } else {
-    alert('no timeCheck');
-    eye++
-   }  
-   
-    if (eye > 0) {
-       alert("running firstSetup")
-         firstSetup()
-    }
+   if (eye > 0) {
+      alert("running firstSetup")
+      firstSetup()
+   }
    
    
    
@@ -1098,8 +1099,6 @@ function showInfo(results) {
 			localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
 			localStorage.setItem("playerName", datax[i].Name.toString());
          localStorage.setItem("playerHCP", datax[i].Handicap.toString());
-         var timeMarker= Math.floor(Date.now() / 1000)
-         localStorage.setItem("timeCheck", timeMarker);
 		}
 	}
 	document.getElementById("me1").innerHTML = meinfo;
@@ -1117,7 +1116,7 @@ function firstSetup() {
    
    
    
-   var timeMarker= Math.floor(Date.now() / 1000)
+   //var timeMarker= Math.floor(Date.now() / 1000)
    //localStorage.setItem("LakesHCP", "17");
    //localStorage.setItem("DawsonHCP", "18");
    localStorage.setItem("playerName", "Dale Aitkenhead");
