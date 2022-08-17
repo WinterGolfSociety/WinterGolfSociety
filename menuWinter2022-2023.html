@@ -999,7 +999,7 @@ function init() {
    
    
    
-   document.getElementById("ap-WhatsNew-content").innerText = "interrogating remote server .."
+   document.getElementById("ap-WhatsNew-content").innerText = "searching .."
    
    
    
@@ -1091,7 +1091,7 @@ function showInfox(results) {
 			var meinfo = "hcp not found .."
 			//meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
 		
-         meinfo = datax[i].Name + " " + datax[i].Handicap + " (" + datax[i].Lakes + ")";
+         meinfo = datax[i].Name + "<br>hcp: " + datax[i].Handicap + "<br>course hcp " + datax[i].Lakes;
       
      //         document.getElementById("me1").innerHTML = meinfo;
          
