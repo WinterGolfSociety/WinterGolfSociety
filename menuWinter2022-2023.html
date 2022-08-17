@@ -222,29 +222,7 @@
 		//padding-top: 10px;
       height: 25px;
       width: 100%;
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-	}
+ 	}
 	
 	#menuItems:hover {
 		background-color: dodgerBlue;
@@ -425,7 +403,12 @@
     
  }
    
-
+.player {
+font-size: 3vmax;
+    color: white; 
+    margin-left: 1vw;   
+   line-height:5vw;  
+}
    
    
 	</style>
@@ -497,9 +480,9 @@
 <input type='image' id='buttonCalendar' src='calendar.png' width='50vw' height='50vw' onclick='weeknumber()'>    
 </div>
 </div>     
-   
+<!--   
 <a id="me1"><a style='visibility:hidden'>.</a></a>
-
+-->
 <div class="menucontainer">
 <div class="menucontainerItem1">
 	<!-- menu -->
@@ -538,8 +521,20 @@
 </div> 
  
 <div class="menucontainerItem2top">
-<input type='image' id='buttonHelp' src='qmark.png' width='50vw' height='50vw' onclick='help()'>         
+<!--   
+<input type='image' id='buttonHelp' src='qmark.png' width='50vw' height='50vw' onclick='help()'>   
+-->   
 </div>   
+ 
+<div class="menucontainerItem1"> 
+<a class="player" >Player: unknown</a>
+<a id="me1"><a style='visibility:hidden'>.</a></a>
+</div> 
+<div class="menucontainerItem2"> 
+</div> 
+ 
+ 
+ 
  
 <div class="menucontainerItem1">
    <p id="txt1"></p>
