@@ -144,11 +144,25 @@
 		display: block;
 	}
 
-	.modalWhatsNew, .amodalWhatsNew {
+	.modalWhatsNew {
 		display: none;
 		position: fixed;
 		z-index: 1;
 		padding-top: 5vmax;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: dodgerBlue;
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+   
+   .amodalWhatsNew {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		padding-top: 50vmax;
 		left: 0;
 		top: 0;
 		width: 100%;
@@ -213,7 +227,7 @@
 		transition: all 2s ease;
 	}
 	
-	#p-WhatsNew-content, #pa-WhatsNew-content {
+	#p-WhatsNew-content, #ap-WhatsNew-content {
 		color: white;
 		font-size: 3vmax;
 	}
