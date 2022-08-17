@@ -163,7 +163,7 @@
 		padding: 20px;
 		border: 1px solid #888;
 		width: 80%;
-		font-size: 3vmax;
+		font-size: 2vmax;
 		border-radius: 5px;
 		border: 2px solid dodgerBlue;
 		box-shadow: 10px 10px 25px black;
@@ -403,6 +403,9 @@
     
  }
    
+
+   
+   
 	</style>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -512,7 +515,7 @@
    
 </div> 
  
-<div class="menucontainerItem2">
+<div class="menucontainerItem2top">
 <input type='image' id='buttonHelp' src='qmark.png' width='50vw' height='50vw' onclick='help()'>         
 </div>   
  
@@ -950,7 +953,7 @@ function showInfox(results) {
 
 //search google sheets for info
 	for (i = 0; i < datax.length; i++) {
-		if (datax[i].Name == "Dale Aitkenhead") {
+		if (datax[i].Name == pname) {
       //if (datax[i].Name == pname) {   
 			var meinfo = "hcp not found .."
 			//meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
