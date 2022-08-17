@@ -16,10 +16,10 @@
 	}
 	
    html {
-      background: #726b5e;
+      background: black;
       //background-image: url('golfergray.png');
-      background-repeat: no-repeat;
-      background-size: cover;   
+      //background-repeat: no-repeat;
+      //background-size: cover;   
    }
 	body {
 		font-family: sans-serif;
@@ -45,7 +45,7 @@
 	.close {
 		color: #aaaaaa;
 		float: right;
-		font-size: 28px;
+		font-size: 5vw;
 		font-weight: bold;
 	}
 	
@@ -77,13 +77,15 @@
   color: white;
   background: dodgerBlue;
   border: 2px solid white;
-  width: 50%;
+  width: auto; //80%;
   font-size: 5vw;
     list-style-type: none;
-  padding: 0;
-  margin: 0;
+  //padding: 10%;
+  margin: 10%;
   padding: 2px 12px 2px 12px; //t,r,b,l
   outline: none;
+  
+  //float:left;
    
 }
     
@@ -91,8 +93,8 @@
     #myinputold:focus {
   background-color: lightblue;
      list-style-type: none;
-  padding: 0;
-  margin: 0;
+  //padding: 0;
+  //margin: 0;
    display: none;
    border: 2px solid cyan;
       
@@ -157,24 +159,26 @@
 
  .modalsearch {
 		//display: none;
-		position: fixed;
-		z-index: 1;
+		//position: fixed;
+		//z-index: 1;
 		padding-top: 100px;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: auto;
-		background-color: dodgerBlue;
-		background-color: rgba(0, 0, 0, 0.4);   
+		padding-left: 100px;
+		//top: 0;
+		width: 80%;
+		//height: 50%;
+		//overflow: auto;
+		background-color: black;
+		//background-color: rgba(0, 0, 0, 0.4); 
+      margin-bottom:20%;  
 	}
 	
 	.modalsearch-content {
 		background-color: dodgerBlue;
 		margin: auto;
-		//padding: 20px;
+		padding: 5vw;
 		border: 1px solid #888;
-		width: 80%;
+		width: 90%;
+      //height: 80%;
 		font-size: 5vw;
 		border-radius: 5px;
 		border: 2px solid dodgerBlue;
@@ -195,45 +199,24 @@
 		cursor: pointer;
 	}
  
- #closemenubutton {
-  background-color: dodgerBlue;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  box-shadow: 10px 10px 25px black;
-  margin-left: 140px;
-  visibility: hidden;
-}
+ 
 
  #menubutton1, #myAold {
-    width: 250px;
+    width: 60%;
     color: white;
     background: dodgerblue;
-    font-size: 20px;
-    padding-top:10px;
-    padding-bottom:10px;
+    font-size: 5vw;
+    padding:10px;
+    //padding-bottom:10px;
     border-radius: 5px;
     border: none;
     box-shadow: 10px 10px 25px black;
     margin-left:20%;
+    margin-bottom:20%;
     }
     
     
-  #me1 {
-   font-family: arial, sans-serif;
-    font-size: 15px;
-    color: white;  
-     
-  }  
+   
     
  
  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -264,7 +247,11 @@
 </head>
 
 <body>
-   
+ <br><br>  
+ <div>
+    use browser back buttonbto returnbto main screen .. 
+ </div>
+ 
 <div id="modalsearch" class="modalsearch">
 		<div class="modalsearch-content"> <span class="close">&times;</span>
             To change player, use text to search .. select the button to accept.
@@ -279,8 +266,15 @@
             <br><br>  
       </div>
 </div> 
+
+<div>
+
+</div>
+
+
+
 <br><br>   
-   
+<br><br>   
    
 <script>
 
