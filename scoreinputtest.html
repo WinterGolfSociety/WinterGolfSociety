@@ -1283,18 +1283,35 @@ Check the scores entered (shots taken) then Submit.
 	   
 	   
 	  // global variables
-	  if ("playerName" in localStorage) {
+	if ("playerName" in localStorage) {
 	   pname = localStorage.getItem("playerName");
 	} else {
 	   alert('no player name');
 	}
 	  
-	  if ("playerHCP" in localStorage) {
+	if ("playerHCP" in localStorage) {
 	   phcp = localStorage.getItem("playerHCP");
 	} else {
 	   alert('no player hcp');
 	}
-	     
+	   
+   if ("LakesHCP" in localStorage) {
+	   plakeshcp = localStorage.getItem("LakesHCP");
+	} else {
+	   alert('no player lakes hcp');
+	}
+	  
+	if ("playerHCP" in localStorage) {
+	   pdawsonhcp = localStorage.getItem("DawsonHCP");
+	} else {
+	   alert('no player dawson hcp');
+	}   
+      
+      
+      
+      
+      
+        
 	  var vhcp = 0
 	   var vcourse
 	   var vpar1
@@ -1338,8 +1355,9 @@ Check the scores entered (shots taken) then Submit.
 	  //const queryString = window.location.search;   
 	  //const urlParams = new URLSearchParams(queryString);  
 	  //var pname = urlParams.get('name')   
-	  document.getElementById("playerName").innerHTML = 'Player: <a id="yellow">' + pname + '<\/a>';   
 	  
+     document.getElementById("playerName").innerHTML = 'Player: <a id="yellow">' + pname + '<\/a>';  
+     
 	   // use diary of dates ...  
 	   var options = {
 	       weekday: 'long',
@@ -1360,7 +1378,7 @@ Check the scores entered (shots taken) then Submit.
 	  if(dd.indexOf("July") > -1 || dd.indexOf("September") > -1 || dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
 	  ddtoday = '<a id="yellow">Lakes ' + ddtoday + '<\/a>'
 	  document.getElementById("compName").innerHTML = "Competition: " + ddtoday; 
-	  vhcp = localStorage.getItem("LakesHCP");
+	  vhcp = plakeshcp;
 	   vcourse = "Lakes"
 	   vpar1 = 4
 	   vpar2 = 4
@@ -1403,7 +1421,7 @@ Check the scores entered (shots taken) then Submit.
 	   if(dd.indexOf("August") > -1 || dd.indexOf("October") > -1 || dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
 	     ddtoday = '<a id="yellow">Dawson ' + ddtoday + '<\/a>'
 	     document.getElementById("compName").innerHTML = "Competition: " + ddtoday;
-	       vhcp = localStorage.getItem("DawsonHCP");      
+	       vhcp = pdawsonhcp;      
 	       vcourse = "Dawson"
 	       vpar1 = 5
 	       vpar2 = 4
@@ -3556,7 +3574,8 @@ Check the scores entered (shots taken) then Submit.
 	           var s1 = document.getElementById("playerName").innerText;
 	         var compPlayer = s1
 	           if(s1.length > 0) {
-	               document.getElementById("mx2131369517").value = s1.replace("Player: ","");
+	               //document.getElementById("mx2131369517").value = s1.replace("Player: ","");
+                  document.getElementById("mx474474348").value = s1.replace("Player: ","");
 	           } else {
 	               ok = "no";
 	           }
@@ -3571,7 +3590,8 @@ Check the scores entered (shots taken) then Submit.
 	        s1 = s1.replace("Competition: ","")
 	        compPlayer = s1 + compPlayer
 	           if(s1.length > 0) {
-	               document.getElementById("mx474474348").value = s1;
+	               //document.getElementById("mx474474348").value = s1;
+                  document.getElementById("mx2131369517").value = s1;
 	           } else {
 	               ok = "no";
 	           }
