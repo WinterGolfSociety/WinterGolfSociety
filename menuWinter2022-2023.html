@@ -164,7 +164,7 @@
 		padding: 20px;
 		border: 1px solid #888;
 		width: 80%;
-		font-size: 2vmax;
+		font-size: 4vmax;
 		border-radius: 5px;
 		border: 2px solid dodgerBlue;
 		box-shadow: 10px 10px 25px black;
@@ -528,9 +528,9 @@ font-size: 3vmax;
 <input type='image' id='buttonCalendar' src='calendar.png' width='50vw' height='50vw' onclick='weeknumber()'>    
 </div>
 </div>     
-
+<!--
 <a id="me1"><a style='visibility:hidden'>.</a></a>
-
+-->
 <div class="menucontainer">
 <div class="menucontainerItem1">
 	<!-- menu -->
@@ -962,10 +962,10 @@ function getStorageInfo() {
    }
    
    
-   
+   <!--
    tempmeinfo = pname + " hcp " + phcp + " checking ...";
    document.getElementById("me1").innerHTML = tempmeinfo;
-	
+	-->
 }
 
 
@@ -999,7 +999,7 @@ function init() {
    
    
    
-   document.getElementById("ap-WhatsNew-content").innerText = "interrogating remote data .."
+   document.getElementById("ap-WhatsNew-content").innerText = "interrogating remote server .."
    
    
    
@@ -1019,7 +1019,7 @@ function init() {
    
    
    
-   <!--
+   /*
    
    // check if already there
    var checkline = document.getElementById("me1").innerText
@@ -1040,7 +1040,31 @@ function init() {
    }
    
    
-  --> 
+  */
+   
+   
+   
+   
+   
+   
+   
+   Papa.parse(public_spreadsheet_url, {
+		download: true,
+		header: true,
+		complete: showInfox
+	});
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
      
@@ -1069,10 +1093,9 @@ function showInfox(results) {
 		
          meinfo = datax[i].Name + " " + datax[i].Handicap + " (" + datax[i].Lakes + ")";
       
-      <!--
-         document.getElementById("me1").innerHTML = meinfo;
+     //         document.getElementById("me1").innerHTML = meinfo;
          
-      -->   
+   
          
          // write name and hcp to local storage
          localStorage.setItem("playerName", datax[i].Name.toString());
@@ -1111,7 +1134,7 @@ function showInfox(results) {
    
   
    // change back to fingerprint
-   document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='50vw' height='50vw' src='fingerprint.png' onclick='init()' />"
+   //document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='50vw' height='50vw' src='fingerprint.png' onclick='init()' />"
    
    
    
