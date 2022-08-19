@@ -683,7 +683,7 @@ Search for player
 
   
 if ("playerName" in localStorage) {
-      pwho = localStorage.getItem("playerName");
+      pwho = localStorage.getItem("playerName").replace(" ","<br>");
       document.getElementById("who").innerHTML = pwho
    } else {
       document.getElementById("who").innerHTML = "unknown"
