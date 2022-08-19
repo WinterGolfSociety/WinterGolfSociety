@@ -427,7 +427,10 @@ font-size: 3vmax;
     margin-left: 1vw;   
    line-height:5vw;  
 }
-   
+#who {
+  display: inline; 
+ text-align: center;  
+}   
    
 	</style>
 	<meta charset="utf-8" />
@@ -519,7 +522,11 @@ font-size: 3vmax;
 	</div>
 </div>
 <div class="menucontainerItem2">
+   <!--
    <input type='image' id='buttonWhatsNew' src='whatsnew.png' width='50' height='50' value='submit' />
+   -->
+   <a id="gethcp"><input type='image' id="buttonrefresh" width='50vw' height='50vw' src="avatar.png" onclick="init()" /></a> 
+   
 </div>
 </div>
 
@@ -528,8 +535,11 @@ font-size: 3vmax;
    <div class="atitle">Golf
 	</div>
 </div>
-<div class="menucontainerItem2">   
-<a id="gethcp"><input type='image' id="buttonrefresh" width='50vw' height='50vw' src="fingerprint.png" onclick="init()" /></a>    
+<div class="menucontainerItem2">  
+<!--    
+<a id="gethcp"><input type='image' id="buttonrefresh" width='50vw' height='50vw' src="avatar.png" onclick="init()" /></a>   
+--> 
+<a id="who">unknown</a>
 </div>
 </div>   
    
@@ -539,7 +549,7 @@ font-size: 3vmax;
 	</div>
 </div>
 <div class="menucontainerItem2">   
-<input type='image' id='buttonCalendar' src='calendar.png' width='50vw' height='50vw' onclick='weeknumber()'>    
+<input type='image' id='buttonCalendar' src='agenda.png' width='50vw' height='50vw' onclick='weeknumber()'>    
 </div>
 </div>     
 <!--
@@ -687,6 +697,9 @@ var arr = ["dummy",
 	"Stephen Alldridge",
 	"Keith Belshaw",
 	"Stewart Brodie",
+   "Andy Davison",
+   "Peter Holleran",
+   "Bryan Maddison",
 ]
 
 var x = ""
@@ -1008,152 +1021,33 @@ function init() {
    
    document.getElementById("amodalWhatsNew").style.display = "block";
    document.getElementById("ap-WhatsNew-content").innerText = "searching .."
- 
-   
-   /*
-   
-   // check if already there
-   var checkline = document.getElementById("me1").innerText
-   if (checkline.slice(-1) == ")") {
-       document.getElementById("me1").innerHTML = "<a style='visibility:hidden'>.</a>"  
-   } else {
-   // clear hcp data on screen
-   //document.getElementById("me1").innerHTML = "searching ...";
-   // change to loader gif
-   document.getElementById("gethcp").innerHTML="<input type='image' width='50vw' height='50vw' src='loader.gif' />"
-   
-	Papa.parse(public_spreadsheet_url, {
+   Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv', {
 		download: true,
 		header: true,
 		complete: showInfox
 	});
-   
-   }
-   
-   
-  */
-   
-   
-   
-   
-   
-   
-   
-   Papa.parse(public_spreadsheet_url, {
-		download: true,
-		header: true,
-		complete: showInfox
-	});
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-     
 }
 
+
 function showInfox(results) {
-   // retrieve player name
    if ("playerName" in localStorage) {
       var pname = localStorage.getItem("playerName");
    } else {
       alert('no playerName');
    }
-
 	var datax = results.data
-  	// saved player not found so ask for one
-	// player search and save here
-   //		alert("player search and save here")
-	
-
-//search google sheets for info
 	for (i = 0; i < datax.length; i++) {
 		if (datax[i].Name == pname) {
-      //if (datax[i].Name == pname) {   
 			var meinfo = "hcp not found .."
-			//meinfo = datax[i].Name + " hcp " + datax[i].Handicap + " (Lakes " + datax[i].Lakes + "), (Dawson " + datax[i].Dawson + ")";
-		
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      // add a date, eg.
-      
-      // Friday 04 November
-      // name: Bryan Maddison
-      // winter hcp: 21.3
-      // playing hcp 21
-      
-      
-      
          meinfo = datax[i].Name + "<br>hcp: " + datax[i].Handicap + "<br>course hcp " + datax[i].Lakes;
-      
-     //         document.getElementById("me1").innerHTML = meinfo;
-         
-   
-         
-         // write name and hcp to local storage
          localStorage.setItem("playerName", datax[i].Name.toString());
          localStorage.setItem("playerHCP", datax[i].Handicap.toString());
          localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
          localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
-         
-         //var timeMarker= Math.floor(Date.now() / 1000)
-         //localStorage.setItem("timeCheck", timeMarker);
-   
-      
-      
-      
-      
-      
-      
-      
-      
-      document.getElementById("ap-WhatsNew-content").innerHTML = meinfo;
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+         document.getElementById("ap-WhatsNew-content").innerHTML = meinfo;
+         document.getElementById("who").innerHTML = pname.replace(" ","<br>");
       }
-	}
-	
-   
-  
-   // change back to fingerprint
-   //document.getElementById("gethcp").innerHTML="<input type='image' id='buttonrefresh' width='50vw' height='50vw' src='fingerprint.png' onclick='init()' />"
-   
-   
-   
-   
-   
-   
+	} 
    if ("playerName" in localStorage) {
       var xpname = localStorage.getItem("playerName");
    } else {
@@ -1176,18 +1070,7 @@ function showInfox(results) {
       var xpdawsonhcp = localStorage.getItem("DawsonHCP");
    } else {
     var xpdawsonhcp = "nothing"
-   }
-   
-   
-   
-   
-   
-   
-   
-   
-   //alert("local storage: " +xpname + " " + xphcp + " " + xplakeshcp + " " + xpdawsonhcp)
-   
-   
+   } 
 }
 
 
@@ -1303,7 +1186,7 @@ function showInfo(results) {
    
    
    // change back to fingerprint
-   document.getElementById("gethcp").innerHTML="<input type='image' width='50' height='50' src='fingerprint.png' />"
+   //document.getElementById("gethcp").innerHTML="<input type='image' width='50' height='50' src='fingerprint.png' />"
     
 }
 
