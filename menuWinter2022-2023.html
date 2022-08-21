@@ -875,9 +875,11 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 
 if (document.readyState == 'loading') {
   // still loading, wait for the event
+  alert("vzzzzvvv")
   document.addEventListener('DOMContentLoaded', weeknumber);
 } else {
   // DOM is ready
+  alert("vvvv")
   weeknumber();
 }
 
@@ -887,7 +889,6 @@ if (document.readyState == 'loading') {
 
 
 
-weeknumber()
 
 
 
