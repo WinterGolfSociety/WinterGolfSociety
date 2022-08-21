@@ -872,6 +872,21 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 
 // sort out background image resize glitch
 //window.addEventListener('DOMContentLoaded', weeknumber())
+
+if (document.readyState == 'loading') {
+  // still loading, wait for the event
+  document.addEventListener('DOMContentLoaded', weeknumber);
+} else {
+  // DOM is ready
+  weeknumber();
+}
+
+
+
+
+
+
+
 weeknumber()
 
 
