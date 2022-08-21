@@ -750,6 +750,19 @@ Search for player
 <script>
 
 
+
+if (document.readyState == 'loading') {
+  // still loading, wait for the event
+  document.addEventListener('DOMContentLoaded', weeknumber());
+} else {
+  // DOM is ready
+  weeknumber();
+}
+
+
+
+
+
 // starts with no local storage
 // find the player name
 // retrieve hcp info etc and timestamp
@@ -768,7 +781,7 @@ if ("playerName" in localStorage) {
    }   
   
   
-  
+
   
 // allow change name and hcp by a button image press
 
@@ -823,16 +836,22 @@ var p = document.getElementById("p-WhatsNew-content");
 hcpchecker1.onclick = function() {
 	hcpchecker1.style.display = "none";
 }
-
-btn.onclick = function() {
-	modal.style.display = "block";
-}
-span0.onclick = function() {
-	modal.style.display = "none";
-}
+ 
+//btn.onclick = function() {
+//	btn.style.display = "block";
+//}
+//alert("ok") 
+//span0.onclick = function() {
+//	span0.style.display = "none";
+//}
+//alert("ok") 
 span1.onclick = function() {
 	modalsearch.style.display = "none";
 }
+
+
+
+
 p.onclick = function() {
 	modal.style.display = "none";
 }
@@ -841,6 +860,9 @@ window.onclick = function(event) {
 		modal.style.display = "none";
 	}
 }
+
+
+
 
 var modalsearch = document.getElementById("modalsearch");
 var btnsearch = document.getElementById("myBtnsearch");
@@ -873,16 +895,6 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ
 // sort out background image resize glitch
 //window.addEventListener('DOMContentLoaded', weeknumber())
 
-if (document.readyState == 'loading') {
-  // still loading, wait for the event
-  alert("vzzzzvvv")
-  document.addEventListener('DOMContentLoaded', weeknumber);
-} else {
-  // DOM is ready
-  alert("vvvv")
-  weeknumber();
-}
-
 
 
 
@@ -910,6 +922,10 @@ function help() {
 
 
 function weeknumber() {
+   
+   
+   
+   
    // check if already there
    var checkline = document.getElementById("txt1").innerText
    if (checkline.indexOf("Friday") > -1) {
@@ -1097,40 +1113,13 @@ function getStorageInfo() {
       firstSetup()
    }
    
-   
-   <!--
-   tempmeinfo = pname + " hcp " + phcp + " checking ...";
-   document.getElementById("me1").innerHTML = tempmeinfo;
-	-->
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function init() {
    
    document.getElementById("amodalWhatsNew").style.display = "block";
    document.getElementById("ap-WhatsNew-content").innerText = "searching .."
-   Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv', {
+   Papa.parse(public_spreadsheet_url, {
 		download: true,
 		header: true,
 		complete: showInfox
