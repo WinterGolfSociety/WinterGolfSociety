@@ -483,46 +483,12 @@ if (document.readyState == 'loading') {
 }
 
 
-
-
-
-// starts with no local storage
-// find the player name
-// retrieve hcp info etc and timestamp
-// store in local storage
-// use local storage from now until ?
-// retrieve hcp info etc and timestamp again after ?
-// use local storage from now until ?
-//
-
-
-  
-  
-  
-//  weeknumber();
-
 if ("playerName" in localStorage) {
       pwho = localStorage.getItem("playerName").replace(" ","<br>");
       document.getElementById("who").innerHTML = pwho
    } else {
       document.getElementById("who").innerHTML = "unknown"
    }   
-  
-  
-
-  
-// allow change name and hcp by a button image press
-
-
-   
-   
-// non function() code so runs ..
-
-// for testing
-//localStorage.setItem("LakesHCP", "17");
-//localStorage.setItem("DawsonHCP", "18");
-//localStorage.setItem("playerName", "Dale Aitkenhead");
-//localStorage.setItem("playerHCP", "16.8");
 
 var arr = ["dummy",
 	"Graham Airey",
@@ -544,18 +510,18 @@ for (var ii = 0; ii < arr.length; ii++) {
 input = document.getElementById("myULold");
 input.innerHTML = x
 
-var modal = document.getElementById("modalWhatsNew");
+//var modal = document.getElementById("modalWhatsNew");
 
 var hcpchecker1 = document.getElementById("amodalWhatsNew");
 //var modalsearch = document.getElementById("modalsearch");
-var btn = document.getElementById("buttonWhatsNew");
+//var btn = document.getElementById("buttonWhatsNew");
 var span0 = document.getElementsByClassName("close")[0];
 
 var span1 = document.getElementsByClassName("close")[1];
 
 
 
-var p = document.getElementById("p-WhatsNew-content");
+//var p = document.getElementById("p-WhatsNew-content");
 //modal.onclick = function() {
 //		modal.style.display = "none";
 //	}
@@ -580,9 +546,9 @@ span1.onclick = function() {
 
 
 
-p.onclick = function() {
-	modal.style.display = "none";
-}
+//p.onclick = function() {
+//	modal.style.display = "none";
+//}
 
 /*
 window.onclick = function(event) {
@@ -595,9 +561,9 @@ window.onclick = function(event) {
 
 
 var modalsearch = document.getElementById("modalsearch");
-var btnsearch = document.getElementById("myBtnsearch");
-var spansearch = document.getElementsByClassName("closesearch")[0];
-var psearch = document.getElementById("myPsearch");
+//var btnsearch = document.getElementById("myBtnsearch");
+//var spansearch = document.getElementsByClassName("closesearch")[0];
+//var psearch = document.getElementById("myPsearch");
 //	modalsearch.onclick = function() {
 //			modalsearch.style.display = "none";
 //		}
