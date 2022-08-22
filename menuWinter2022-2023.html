@@ -101,59 +101,9 @@
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 	
-	.asubtitle {
-		font-size: 5vmax;
-	}
+			
 	
-	.dropbtn:hover,
-	.dropbtn:focus {
-		background-color: DodgerBlue;
-		color: white;
-		outline: none;
-	}
-	
-	.dropdown {
-		position: relative;
-		display: inline-block;
-	}
-	
-	.dropdown-content {
-		display: none;
-		position: absolute;
-		background-color: DodgerBlue;
-		overflow: auto;
-		z-index: 1;
-	}
-	
-	.dropdown-content a {
-		color: LightGray;
-		text-decoration: none;
-		display: block;
-	}
-	
-	.dropdown a:hover {
-		background-color: SlateGray;
-		color: white;
-	}
-	
-	.show {
-		display: block;
-	}
-
-	.modalWhatsNew {
-		display: none;
-		position: fixed;
-		z-index: 1;
-		padding-top: 5vmax;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: auto;
-		background-color: dodgerBlue;
-		background-color: rgba(0, 0, 0, 0.4);
-	}
-   
+	   
    .amodalWhatsNew {
 		display: none;
 		position: fixed;
@@ -168,7 +118,7 @@
 		background-color: rgba(0, 0, 0, 0.4);     
 	}
 	
-	.modalWhatsNew-content, .amodalWhatsNew-content {
+	.amodalWhatsNew-content {
 		background-color: dodgerBlue;
 		margin: 10px;
 		padding: 10px;
@@ -193,25 +143,7 @@
 		cursor: pointer;
 	}
 	
-	#dummyxxx {
-		position: absolute;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		left: 0;
-		opacity: 0;
-		visibility: hidden;
-		-webkit-transform: scale(2);
-		-ms-transform: scale(2);
-		transform: scale(2);
-		-webkit-transition: all 1s ease;
-		-o-transition: all 1s ease;
-		transition: all 1s ease;
-		height: 80px;
-		border-radius: 15px;
-		box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-	}
+	
 	
 	#txt, #txt1, #txt2, #txt3, #txt4 {
 		color: white;
@@ -221,7 +153,7 @@
 		transition: all 2s ease;
 	}
 	
-	#p-WhatsNew-content, #ap-WhatsNew-content {
+	#ap-WhatsNew-content {
 		color: white;
 		font-size: 3vmax;
 	}
@@ -236,30 +168,15 @@
       padding-left:10px;
       border-radius: 15px;
       border: 5px solid rgba(255, 255, 255, 0.2);
-      
-      
-      
-      
-      
-      
-      
       box-shadow: 10px 10px 25px black;
-      
-      
-      
-      
-      
-      
-      
-      
- 	}
+  	}
 	
 	#menuItems:hover {
 		background-color: dodgerBlue;
 	}
    
     
-   #myInput, #myInputold {
+  #myInputold {
   color: white;
   background: dodgerBlue;
   border: 2px solid white;
@@ -286,28 +203,13 @@
     border: 2px solid cyan;
  }
 
-#myUL, #myULold {
+#myULold {
   list-style-type: none;
   padding: 0;
   margin: 0;
    display: none;
 }
 
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 4vmax;
-  color: black;
-  display: block
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
- 
-}
 
 #myULold li a {
   border: 1px solid white;
@@ -325,7 +227,7 @@
  
 }
 
-#myA, #myAold {
+#myAold {
   margin-top: -1px; /* Prevent double borders */
   padding: 2px 12px 2px 0px; //t,r,b,l
   text-decoration: none;
@@ -350,21 +252,11 @@
 		background-color: rgba(0, 0, 0, 0.4); 
 	}
 	
-	.modalsearch-content, .amodalsearch-content {
+	.modalsearch-content {
 		background-color: dodgerBlue;
 		margin: auto;
 		padding: 20px;
-		//border: 1px solid #888;
-      
-      
-      
       height: 50%;
-      
-      
-      
-      
-      
-      
 		width: 80%;
 		font-size: 3vmax;
 		box-shadow: 10px 10px 25px black;
@@ -372,21 +264,7 @@
   border: 5px solid rgba(255, 255, 255, 0.2);
 	}
  
- .closesearch {
-		color: #aaaaaa;
-		float: right;
-		font-size: 6vmax;
-		font-weight: bold;
-	}
-	
-	.closesearch:hover,
-	.closesearch:focus {
-		color: #000;
-		text-decoration: none;
-		cursor: pointer;
-	}
- 
- #closemenubutton {
+  #closemenubutton {
   background-color: dodgerBlue;
   color: white;
   text-align: center;
@@ -426,39 +304,16 @@
     box-shadow: 10px 10px 25px black;
     margin-left:20%;
     margin-bottom:5%;
-  
-  
-  
-  
-  
     }
     
-    
-  #me1 {
-   font-family: arial, sans-serif;
-    font-size: 3vmax;
-    color: white;  
-    padding-bottom:10%;
-  }  
-    
+     
    .menucontainer {
      display: grid;
 	       grid-template-columns: auto 30%;
           height: 150%;
    }   
    
- .xmenucontainerItem2 {
-   /* Add the blur effect */
-   filter: blur(2px);
-   -webkit-filter: blur(2px);
- }
-   
-.player {
-font-size: 3vmax;
-    color: white; 
-    margin-left: 1vw;   
-   line-height:5vw;  
-}
+  
 #who {
   font-size: 4vw; 
   
@@ -479,34 +334,7 @@ font-size: 3vmax;
 </head>
 
 <body>
-   
-   <!--
-	<div id="modalWhatsNew" class="modalWhatsNew">
-		<div class="modalWhatsNew-content"> <span class="close">&times;</span>
-			<p id="p-WhatsNew-content">Whats new ..
-            <br>
-            <br>- general appearance changed.
-            <br>- optimised for phones and tablets but should work with anything.
-				<br>- less menu options.
-				<br>- searches replacing lists where possible.
-				<br>- hcp adjustments immediately calculated so always current.
-				<br>- individual scorecard of each round sent by email.
-				<br>- score input changed. Allows checking prior to submit.
-				<br>
-				<br>Please feel free to report any problems/improvements etc.
-            <br> </p>
-		</div>
-	</div>
-   -->
-   
-   
-   
-   
-   
-   
-   
-   
-   
+  
  <body>
 	<div id="amodalWhatsNew" class="amodalWhatsNew">
 		<div class="amodalWhatsNew-content"> <span class="close">&times;</span>
@@ -523,9 +351,7 @@ font-size: 3vmax;
       </div>
    </div>
    <div class="menucontainerItem2">
-   <!--
-   <input type='image' id='buttonWhatsNew' src='whatsnew.png' width='50' height='50' value='submit' />
-   -->
+
   <a id="who">unknown</a> 
    
    </div>
@@ -537,9 +363,7 @@ font-size: 3vmax;
 	</div>
    </div>
    <div class="menucontainerItem2">  
-<!--    
-<a id="gethcp"><input type='image' id="buttonrefresh" width='50vw' height='50vw' src="avatar.png" onclick="init()" /></a>   
---> 
+
 
    <a id="gethcp"><input type='image' id="buttonrefresh" width='45vw' height='40vw' src="avatar.png" onclick="init()" /></a> 
    </div>
@@ -595,10 +419,6 @@ font-size: 3vmax;
    </div>  
 </div>   
  
- 
- 
- 
- 
 <div class="menucontainer">  
    <div class="menucontainerItem1">
    <p id="txt1"></p>
@@ -649,13 +469,7 @@ font-size: 3vmax;
       </div>
 </div>
       <br><br><br><br><br>
-	
-  
-   
-   
-   
-
-  
+ 
 <script>
 
 
