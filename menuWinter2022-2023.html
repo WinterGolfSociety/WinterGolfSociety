@@ -144,7 +144,9 @@
       #txt1,
       #txt2,
       #txt3,
-      #txt4 {
+      #txt4,
+      #txt5,
+      #txt6 {
         color: white;
         font-size: 3vmax;
         -webkit-transition: all 2s ease;
@@ -309,6 +311,7 @@
       #who {
         font-size: 4vw;
       }
+      
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -408,6 +411,8 @@
           <p id="txt2"></p>
           <p id="txt3"></p>
           <p id="txt4"></p>
+          <p id="txt5"></p>
+          <p id="txt6"></p>
         </div>
         <div class="menucontainerItem2"></div>
       </div>
@@ -505,20 +510,30 @@
               document.getElementById("txt2").innerHTML = "<p style = 'visibility:hidden' >.</p>"
               document.getElementById("txt3").innerHTML = "<p style = 'visibility:hidden' >.</p>"
               document.getElementById("txt4").innerHTML = "<p style = 'visibility:hidden' >.</p>"
+              document.getElementById("txt5").innerHTML = "<p style = 'visibility:hidden' >.</p>"
+              document.getElementById("txt6").innerHTML = "<p style = 'visibility:hidden' >.</p>"
             } else {
               currentdate = new Date();
               var oneJan = new Date(currentdate.getFullYear(), 0, 1);
               var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
               var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-              var diary = [" (Fridays 4th November 2022 to 31st March 2023) ", "", "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 14th Oct Lakes", "Friday 21st Oct Lakes", "Friday 28th Oct Lakes", "Friday 4th Nov Dawson", "Friday 11th Nov Dawson", "Friday 18th Nov Dawson", "Friday 25th Nov Dawson", "Friday 2nd Dec Lakes", "Friday 9th Dec Lakes"]
+              //alert(result)
+              var diary = [" (Fridays 4th November 2022 to 31st March 2023) ", "Friday 7th Oct Lakes", "Friday 14th Oct Lakes", "Friday 21st Oct Lakes", "Friday 28th Oct Lakes", "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 14th Oct Lakes", "Friday 21st Oct Lakes", "Friday 28th Oct Lakes", "Friday 4th Nov Dawson", "Friday 11th Nov Dawson", "Friday 18th Nov Dawson", "Friday 25th Nov Dawson", "Friday 2nd Dec Lakes", "Friday 9th Dec Lakes"]
               var x1 = document.getElementById("txt1");
               var x2 = document.getElementById("txt2");
               var x3 = document.getElementById("txt3");
               var x4 = document.getElementById("txt4");
-              x1.innerText = diary[result - 18]
-              x2.innerText = diary[result - 17]
-              x3.innerText = diary[result - 16]
-              x4.innerText = diary[result - 15]
+              var x5 = document.getElementById("txt5");
+              var x6 = document.getElementById("txt6");
+              x1.innerText = diary[result - 35]
+              x2.innerText = diary[result - 34]
+              x3.innerText = diary[result - 33]
+              x4.innerText = diary[result - 32]
+              x5.innerText = diary[result - 31]
+              x6.innerText = diary[result - 30]
+              
+              
+              
             }
           }
 
