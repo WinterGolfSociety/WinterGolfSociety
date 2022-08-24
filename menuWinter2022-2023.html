@@ -470,7 +470,7 @@
           var x = ""
           // build values to search
           for (var ii = 0; ii < arr.length; ii++) {
-            x = x + ' < li > < p > ' + arr[ii] + ' < /p> < /li>'
+            x = x + '<li><p>' + arr[ii] + '</p></li>'
           }
           input = document.getElementById("myULold");
           input.innerHTML = x
@@ -499,10 +499,10 @@
             // check if already there
             var checkline = document.getElementById("txt1").innerText
             if (checkline.indexOf("Friday") > -1) {
-              document.getElementById("txt1").innerHTML = " < p style = 'visibility:hidden' > . < /p>"  
-              document.getElementById("txt2").innerHTML = " < p style = 'visibility:hidden' > . < /p>"
-              document.getElementById("txt3").innerHTML = " < p style = 'visibility:hidden' > . < /p>"
-              document.getElementById("txt4").innerHTML = " < p style = 'visibility:hidden' > . < /p>"
+              document.getElementById("txt1").innerHTML = "<p style = 'visibility:hidden' >.</p>"  
+              document.getElementById("txt2").innerHTML = "<p style = 'visibility:hidden' >.</p>"
+              document.getElementById("txt3").innerHTML = "<p style = 'visibility:hidden' >.</p>"
+              document.getElementById("txt4").innerHTML = "<p style = 'visibility:hidden' >.</p>"
             } else {
               currentdate = new Date();
               var oneJan = new Date(currentdate.getFullYear(), 0, 1);
@@ -661,13 +661,13 @@
             for (i = 0; i < datax.length; i++) {
               if (datax[i].Name == pname) {
                 var meinfo = "hcp not found .."
-                meinfo = datax[i].Name + " < br > hcp: " + datax[i].Handicap + " < br > course hcp " + datax[i].Lakes;
+                meinfo = datax[i].Name + " <br> hcp: " + datax[i].Handicap + "<br> course hcp " + datax[i].Lakes;
                 localStorage.setItem("playerName", datax[i].Name.toString());
                 localStorage.setItem("playerHCP", datax[i].Handicap.toString());
                 localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
                 localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
                 document.getElementById("ap-WhatsNew-content").innerHTML = meinfo;
-                document.getElementById("who").innerHTML = pname.replace(" ", " < br > ");
+                document.getElementById("who").innerHTML = pname.replace(" ", "<br>");
                 }
               }
               if ("playerName" in localStorage) {
