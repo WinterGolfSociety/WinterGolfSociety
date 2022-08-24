@@ -312,6 +312,9 @@
         font-size: 4vw;
       }
       
+      #spacer {
+         height: 100vh;
+      }
     </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -455,15 +458,8 @@
           <button id="menubutton1" onclick="b1button()">show info</button>
         </div>
       </div>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      <div id="spacer">
+      </div>
       <script>
         if (document.readyState == 'loading') {
           // still loading, wait for the event
@@ -537,9 +533,6 @@
               x4.innerText = diary[result - 32]
               x5.innerText = diary[result - 31]
               x6.innerText = diary[result - 30]
-              
-              
-              
             }
           }
 
@@ -577,6 +570,10 @@
             x.style.color = "#70695c"; //sepia type text
             var x = document.getElementById("txt4");
             x.style.color = "#70695c"; //sepia type text
+            var x = document.getElementById("txt5");
+            x.style.color = "#70695c"; //sepia type text
+            var x = document.getElementById("txt6");
+            x.style.color = "#70695c"; //sepia type text
             var x = document.getElementById("closemenubutton");
             x.innerText = "close menu"
             x.style.visibility = "visible";
@@ -590,6 +587,10 @@
             var x = document.getElementById("txt3");
             x.style.color = "white";
             var x = document.getElementById("txt4");
+            x.style.color = "white";
+            var x = document.getElementById("txt5");
+            x.style.color = "white";
+            var x = document.getElementById("txt6");
             x.style.color = "white";
             var x = document.getElementById("closemenubutton");
             x.innerText = ""
