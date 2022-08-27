@@ -387,9 +387,9 @@
         width: 25vmin;
         border-radius: 50%;
         box-shadow: 10px 10px 25px black;
-        visibility: hidden;
+ //       visibility: hidden;
         border: 5px solid rgba(255, 255, 255, 0.2);
-        
+        opacity:0;
         
         
         
@@ -523,6 +523,8 @@
                 </li>
                 <!-- change user -->
                 <li>
+                   <!--change to run function
+                   function should refresh name after changed
                   <a href="prescoreinput.html" id="menuItems">swap player</a>
                 </li>
                 <!-- test -->
@@ -773,7 +775,9 @@
             x.style.color = "#70695c"; //sepia type text
             var x = document.getElementById("closemenubutton");
             x.innerText = "close menu"
-            x.style.visibility = "visible";
+            x.style.transition = "opacity 1.5s";
+            x.style.opacity = 1
+            //x.style.visibility = "visible";
           }
 
           function unvanish() {
@@ -790,8 +794,10 @@
             var x = document.getElementById("txt6");
             x.style.color = "white";
             var x = document.getElementById("closemenubutton");
-            x.innerText = ""
-            x.style.visibility = "hidden";
+            x.innerText = "close menu"
+            x.style.transition = "opacity 1.5s";
+            x.style.opacity = 0
+            //x.style.visibility = "hidden";
           }
 
           function testsmod() {
