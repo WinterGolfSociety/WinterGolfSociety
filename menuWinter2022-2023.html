@@ -29,7 +29,7 @@
       }
 
       .dropdownMenu {
-        background-color: transparent; //dodgerBlue;
+        background-color: dodgerBlue;
         color: white;
         //padding-bottom: 3%;
         text-align: left;
@@ -375,7 +375,7 @@
       }
 
       #closemenubutton {
-        background-color: transparent; dodgerBlue;
+        background-color: dodgerBlue;
         color: white;
         text-align: center;
         text-decoration: none;
@@ -387,14 +387,14 @@
         width: 25vmin;
         border-radius: 50%;
         box-shadow: 10px 10px 25px black;
-        //visibility: hidden;
+visibility: hidden;
         border: 5px solid rgba(255, 255, 255, 0.2);
         
         
         
         
         
-        opacity:0;
+  //      opacity:0;
         background-clip: padding-box;
         
         
@@ -807,9 +807,10 @@
             x.style.color = "#70695c"; //sepia type text
             var x = document.getElementById("closemenubutton");
             x.innerText = "close menu"
-            x.style.opacity = 0
-            x.style.transition = "opacity ease-out 1.5s";
-            x.style.opacity = 1
+     //       x.style.opacity = 0
+     //       x.style.transition = "opacity ease-out 1.5s";
+      //      x.style.opacity = 1
+            x.style.visibility="visible";
           }
 
           function unvanish() {
@@ -827,10 +828,10 @@
             x.style.color = "white";
             var x = document.getElementById("closemenubutton");
             x.innerText = "close menu"
-            x.style.opacity = 1
-            x.style.transition = "opacity ease-out 1.5s";
-            x.style.opacity = 0
-            //x.style.visibility = "hidden";
+            //x.style.opacity = 1 //hide
+            //x.style.transition = "opacity ease-out 1.5s";
+            //x.style.opacity = 0 //show
+            x.style.visibility="hidden";
           }
 
           function testsmod() {
