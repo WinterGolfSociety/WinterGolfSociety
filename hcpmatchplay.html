@@ -11,6 +11,9 @@
 	<style>
 	body {
 		background-color: darkslateGray;
+      background-image: url('golfer-clipart.png');
+        background-repeat: no-repeat;
+        background-size: cover;
 		font-family: 'arial';
 		color: white;
 	}
@@ -94,35 +97,25 @@
 				<div class="demo">
 					<input type="number" id="nhcp1" name="nhcp1" min="0" max="50" maxlength="3" step="0.1" onchange="updatehcp()">
             </div>
+            <br>
+				<br>
             <h1>player 2 WHS handicap index</h1>
             <div class="demo">
 					<input type="number" id="nhcp2" name="nhcp2" min="0" max="50" maxlength="3" step="0.1" onchange="updatehcp()">
             </div>
+            <br>
+				<br>
             <h1>player 3 WHS handicap index</h1>
             <div class="demo">
 					<input type="number" id="nhcp3" name="nhcp3" min="0" max="50" maxlength="3" step="0.1" onchange="updatehcp()">
             </div>
+            <br>
+				<br>
             <h1>player 4 WHS handicap index</h1>
             <div class="demo">
 					<input type="number" id="nhcp4" name="nhcp4" min="0" max="50" maxlength="3" step="0.1" onchange="updatehcp()">
             </div>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+    
 	      </div>			
 			<br>
          <br>
@@ -151,10 +144,14 @@
          -->
          
          <br><br>
-         <div id="splayinghcp1" class="score">playing hcp</div>
-         <div id="splayinghcp2" class="score">playing hcp</div>
-         <div id="splayinghcp3" class="score">playing hcp</div>
-         <div id="splayinghcp4" class="score">playing hcp</div>
+         <div id="splayinghcp1" class="score">number of strokes</div>
+         <br>
+         <div id="splayinghcp2" class="score">number of strokes</div>
+         <br>
+         <div id="splayinghcp3" class="score">number of strokes</div>
+         <br>
+         <div id="splayinghcp4" class="score">number of strokes</div>
+         <br>
          </div>
 		</div>
 	</div>
@@ -168,7 +165,7 @@
 	<script>
    function updatehcp() {
 		// get 4 players hcp's
-      if (document.getElementById("nhcp4").value > 0) { 
+      if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
       
       
       vhcp1 = document.getElementById("nhcp1").value
@@ -181,29 +178,29 @@
       vhcpallowance = 90
       vslope = document.getElementById("nslope").value
    
-      vplayinghcp1 = vhcp1 * (vslope/113)
-      vplayinghcp2 = vhcp2 * (vslope/113)
-      vplayinghcp3 = vhcp3 * (vslope/113)
-      vplayinghcp4 = vhcp4 * (vslope/113)
+      let vcoursehcp1 = vhcp1 * (vslope/113)
+      let vcoursehcp2 = vhcp2 * (vslope/113)
+      let vcoursehcp3 = vhcp3 * (vslope/113)
+      let vcoursehcp4 = vhcp4 * (vslope/113)
      
-      let vplayinghcp10 = vplayinghcp1.toFixed(0);
-      let vplayinghcp20 = vplayinghcp2.toFixed(0);
-      let vplayinghcp30 = vplayinghcp3.toFixed(0);
-      let vplayinghcp40 = vplayinghcp4.toFixed(0);
+      let vcoursehcp10 = vcoursehcp1.toFixed(0);
+      let vcoursehcp20 = vcoursehcp2.toFixed(0);
+      let vcoursehcp30 = vcoursehcp3.toFixed(0);
+      let vcoursehcp40 = vcoursehcp4.toFixed(0);
     
-      //let vplayinghcp1 = vplayinghcp.toFixed(1);
+      //let vcoursehcp1 = vcoursehcp.toFixed(1);
       
-      //document.getElementById("scch").innerText = vhcp1 + " x (" + vslope + "/113) = " + vplayinghcp1	
+      //document.getElementById("scch").innerText = vhcp1 + " x (" + vslope + "/113) = " + vcoursehcp1	
    
-      //document.getElementById("rtwn1").innerText = "round " +  vplayinghcp1 + " = " + vplayinghcp0	
+      //document.getElementById("rtwn1").innerText = "round " +  vcoursehcp1 + " = " + vcoursehcp0	
       
       
        
-      var1 = (vhcpallowance/100)*vplayinghcp10
-      var2 = (vhcpallowance/100)*vplayinghcp20
-      var3 = (vhcpallowance/100)*vplayinghcp30
-      var4 = (vhcpallowance/100)*vplayinghcp40
-      //document.getElementById("aa").innerText = vplayinghcp0 + " x " + vhcpallowance + "% = " + var1
+      var1 = (vhcpallowance/100)*vcoursehcp10
+      var2 = (vhcpallowance/100)*vcoursehcp20
+      var3 = (vhcpallowance/100)*vcoursehcp30
+      var4 = (vhcpallowance/100)*vcoursehcp40
+      //document.getElementById("aa").innerText = vcoursehcp0 + " x " + vhcpallowance + "% = " + var1
       
       var1 = var1.toFixed(0)
       var2 = var2.toFixed(0)
@@ -214,10 +211,10 @@
       
       //calc differences
       let b = Math.min(var1, var2, var3, var4);
-      document.getElementById("splayinghcp1").innerHTML = "Player 1 (" + vhcp1 + ")<br>playing hcp = " + var1 + "<br>gets " + (var1 - b) + " strokes"
-      document.getElementById("splayinghcp2").innerHTML = "Player 2 (" + vhcp2 + ")<br>playing hcp = " + var2 + "<br>gets " + (var2 - b) + " strokes"
-      document.getElementById("splayinghcp3").innerHTML = "Player 3 (" + vhcp3 + ")<br>playing hcp = " + var3 + "<br>gets " + (var3 - b) + " strokes"
-      document.getElementById("splayinghcp4").innerHTML = "Player 4 (" + vhcp4 + ")<br>playing hcp = " + var4 + "<br>gets " + (var4 - b) + " strokes"
+      document.getElementById("splayinghcp1").innerHTML = "Player 1 (" + vhcp1 + ")<br>course hcp = " + vcoursehcp10 + "<br>playing hcp = " + var1 + "<br>gets " + (var1 - b) + " strokes"
+      document.getElementById("splayinghcp2").innerHTML = "Player 2 (" + vhcp2 + ")<br>course hcp = " + vcoursehcp20 + "<br>playing hcp = " + var2 + "<br>gets " + (var2 - b) + " strokes"
+      document.getElementById("splayinghcp3").innerHTML = "Player 3 (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>playing hcp = " + var3 + "<br>gets " + (var3 - b) + " strokes"
+      document.getElementById("splayinghcp4").innerHTML = "Player 4 (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>playing hcp = " + var4 + "<br>gets " + (var4 - b) + " strokes"
    } //else {alert("no")}
    
    
