@@ -11,6 +11,7 @@
 	<style>
 	body {
       width: 100vw;
+      //height: 100vh;
 		background-color: darkslateGray;
       background-image: url('golfer-clipart.png');
       background-repeat: no-repeat;
@@ -72,20 +73,24 @@
    
    #showcalcs {
       visibility: hidden;
+      
       font-size: 15px;
       text-align: left;
-      position: fixed;
-      z-index: 1;
-      padding-top: 10px;
-      padding-left: 10px;
-      padding-bottom: 10px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 150%;
-      overflow: auto;
-      background-color: dodgerBlue;
-      background-color: rgba(0, 0, 0, 0.6);
+      
+      
+     //display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 150%;
+        overflow: auto;
+        background-color: dodgerBlue;
+        background-color: rgba(0, 0, 0, 0.8);
    }
    
    #buttonshowcalcs {
@@ -96,8 +101,7 @@
 		text-align: center;
 		border: 1px solid black;
 		border-radius: 10px;
-		box-shadow: 10px 10px 25px black; 
-      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1); 
+		box-shadow: 10px 10px 25px black;  
    }
 	</style>
 </head>
@@ -210,32 +214,32 @@
      // player 1
      let p1a = "&nbsp" + vhcp1 + " x " + vslope + "/113 = " + vcoursehcp1 + " = " + vcoursehcp10
      let p1b = "&nbsp" + vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t + " = " + var1
-     let p1c = " = " + var1 + " - " + b + " = " + (var1 - b )
+     let p1c = "&nbsp" + "difference against lowest = " + var1 + " - " + b + " = " + (var1 - b )
      
      // player 2
      let p2a = "&nbsp" + vhcp2 + " x " + vslope + "/113 = " + vcoursehcp2 + " = " + vcoursehcp20
      let p2b = "&nbsp" + vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t + " = " + var2
-     let p2c = " = " + var2 + " - " + b + " = " + (var2 - b )
+     let p2c = "&nbsp" + "difference against lowest = " + var2 + " - " + b + " = " + (var2 - b )
      
      // player 3
      let p3a = "&nbsp" + vhcp3 + " x " + vslope + "/113 = " + vcoursehcp3 + " = " + vcoursehcp30
      let p3b = "&nbsp" + vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t + " = " + var3
-     let p3c = " = " + var3 + " - " + b + " = " + (var3 - b )
+     let p3c = "&nbsp" + "difference against lowest = " + var3 + " - " + b + " = " + (var3 - b )
      
      // player 4
      let p4a = "&nbsp" + vhcp4 + " x " + vslope + "/113 = " + vcoursehcp4 + " = " + vcoursehcp40
      let p4b = "&nbsp" + vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t + " = " + var4
-     let p4c = " = " + var4 + " - " + b + " = " + (var4 - b )
+     let p4c = "&nbsp" + "difference against lowest = " + var4 + " - " + b + " = " + (var4 - b )
      
-     let calctxt = "<br>player 1 course hcp<br>" + p1a + "<br>player 1 playing hcp<br>" + p1b + "<br>player 1 strokes" + p1c
+     let calctxt = "<br>player 1 course hcp<br>" + p1a + "<br>player 1 playing hcp<br>" + p1b + "<br>player 1 strokes<br>" + p1c
      calctxt += "<br>"
-     calctxt += "<br>player 2 course hcp<br>" + p2a + "<br>player 2 playing hcp<br>" + p2b + "<br>player 2 strokes" + p2c
+     calctxt += "<br>player 2 course hcp<br>" + p2a + "<br>player 2 playing hcp<br>" + p2b + "<br>player 2 strokes<br>" + p2c
      calctxt += "<br>"
       
-     calctxt += "<br>player 3 course hcp<br>" + p3a + "<br>player 3 playing hcp<br>" + p3b + "<br>player 3 strokes" + p3c
+     calctxt += "<br>player 3<br>player 3 course hcp<br>" + p3a + "<br>player 3 playing hcp<br>" + p3b + "<br>player 3 strokes<br>" + p3c
      calctxt += "<br>"
      
-     calctxt += "<br>player 4 course hcp<br>" + p4a + "<br>player 4 playing hcp<br>" + p4b + "<br>player 4 strokes" + p4c
+     calctxt += "<br>player 4<br>player 4 course hcp<br>" + p4a + "<br>player 4 playing hcp<br>" + p4b + "<br>player 4 strokes<br>" + p4c
      calctxt += "<br><br>"
       
       
@@ -293,7 +297,6 @@
 	</script>
 </body>
 
-	
 </html>
 
 
