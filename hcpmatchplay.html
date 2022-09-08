@@ -85,7 +85,7 @@
       height: 150%;
       overflow: auto;
       background-color: dodgerBlue;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.7);
    }
    
    #buttonshowcalcs {
@@ -103,7 +103,7 @@
 </head>
 
 <body>
-	
+	<br>
 	<div class="row">
 		<div class="col-md-12  text-center">	
 			<h2>Stroke calculations for Pairs Matchplay</h2><br>
@@ -112,7 +112,7 @@
 				<div class="demo">
 					<input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
             </div>
-				
+				<br>
 				<br>
             <h1>player 1 WHS handicap index</h1>
 				<div class="demo">
@@ -177,14 +177,14 @@
       
       document.getElementById("showcalcs").style.visibility = "visible";
       
-      let vhcp1 = document.getElementById("nhcp1").value
-      let vhcp2 = document.getElementById("nhcp2").value
-      let vhcp3 = document.getElementById("nhcp3").value
-      let vhcp4 = document.getElementById("nhcp4").value
+      vhcp1 = document.getElementById("nhcp1").value
+      vhcp2 = document.getElementById("nhcp2").value
+      vhcp3 = document.getElementById("nhcp3").value
+      vhcp4 = document.getElementById("nhcp4").value
     
       // get globals
-      let vhcpallowance = 90
-      let vslope = document.getElementById("nslope").value
+      vhcpallowance = 90
+      vslope = document.getElementById("nslope").value
    
       let vcoursehcp1 = vhcp1 * (vslope/113)
       let vcoursehcp2 = vhcp2 * (vslope/113)
@@ -196,35 +196,35 @@
       let vcoursehcp30 = vcoursehcp3.toFixed(0);
       let vcoursehcp40 = vcoursehcp4.toFixed(0);
           
-      let var1t = (vhcpallowance/100)*vcoursehcp10
-      let var2t = (vhcpallowance/100)*vcoursehcp20
-      let var3t = (vhcpallowance/100)*vcoursehcp30
-      let var4t = (vhcpallowance/100)*vcoursehcp40
+      var1t = (vhcpallowance/100)*vcoursehcp10
+      var2t = (vhcpallowance/100)*vcoursehcp20
+      var3t = (vhcpallowance/100)*vcoursehcp30
+      var4t = (vhcpallowance/100)*vcoursehcp40
       
-      let var1 = var1t.toFixed(0)
-      let var2 = var2t.toFixed(0)
-      let var3 = var3t.toFixed(0)
-      let var4 = var4t.toFixed(0)
+      var1 = var1t.toFixed(0)
+      var2 = var2t.toFixed(0)
+      var3 = var3t.toFixed(0)
+      var4 = var4t.toFixed(0)
      
      let b = Math.min(var1, var2, var3, var4);
      // player 1
-     let p1a = vhcp1 + " x " + vslope + "/113 = " + vcoursehcp1 + " = " + vcoursehcp10
-     let p1b = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t + " = " + var1
+     let p1a = "&nbsp" + vhcp1 + " x " + vslope + "/113 = " + vcoursehcp1 + " = " + vcoursehcp10
+     let p1b = "&nbsp" + vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t + " = " + var1
      let p1c = " = " + var1 + " - " + b + " = " + (var1 - b )
      
      // player 2
-     let p2a = vhcp2 + " x " + vslope + "/113 = " + vcoursehcp2 + " = " + vcoursehcp20
-     let p2b = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t + " = " + var2
+     let p2a = "&nbsp" + vhcp2 + " x " + vslope + "/113 = " + vcoursehcp2 + " = " + vcoursehcp20
+     let p2b = "&nbsp" + vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t + " = " + var2
      let p2c = " = " + var2 + " - " + b + " = " + (var2 - b )
      
      // player 3
-     let p3a = vhcp3 + " x " + vslope + "/113 = " + vcoursehcp3 + " = " + vcoursehcp30
-     let p3b = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t + " = " + var3
+     let p3a = "&nbsp" + vhcp3 + " x " + vslope + "/113 = " + vcoursehcp3 + " = " + vcoursehcp30
+     let p3b = "&nbsp" + vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t + " = " + var3
      let p3c = " = " + var3 + " - " + b + " = " + (var3 - b )
      
      // player 4
-     let p4a = vhcp4 + " x " + vslope + "/113 = " + vcoursehcp4 + " = " + vcoursehcp40
-     let p4b = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t + " = " + var4
+     let p4a = "&nbsp" + vhcp4 + " x " + vslope + "/113 = " + vcoursehcp4 + " = " + vcoursehcp40
+     let p4b = "&nbsp" + vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t + " = " + var4
      let p4c = " = " + var4 + " - " + b + " = " + (var4 - b )
      
      let calctxt = "<br>player 1 course hcp<br>" + p1a + "<br>player 1 playing hcp<br>" + p1b + "<br>player 1 strokes" + p1c
@@ -252,14 +252,14 @@
 		// get 4 players hcp's
       if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
       
-      let vhcp1 = document.getElementById("nhcp1").value
-      let vhcp2 = document.getElementById("nhcp2").value
-      let vhcp3 = document.getElementById("nhcp3").value
-      let vhcp4 = document.getElementById("nhcp4").value
+      vhcp1 = document.getElementById("nhcp1").value
+      vhcp2 = document.getElementById("nhcp2").value
+      vhcp3 = document.getElementById("nhcp3").value
+      vhcp4 = document.getElementById("nhcp4").value
     
       // get globals
-      let vhcpallowance = 90
-      let vslope = document.getElementById("nslope").value
+      vhcpallowance = 90
+      vslope = document.getElementById("nslope").value
    
       let vcoursehcp1 = vhcp1 * (vslope/113)
       let vcoursehcp2 = vhcp2 * (vslope/113)
@@ -271,10 +271,10 @@
       let vcoursehcp30 = vcoursehcp3.toFixed(0);
       let vcoursehcp40 = vcoursehcp4.toFixed(0);
           
-      let var1 = (vhcpallowance/100)*vcoursehcp10
-      let var2 = (vhcpallowance/100)*vcoursehcp20
-      let var3 = (vhcpallowance/100)*vcoursehcp30
-      let var4 = (vhcpallowance/100)*vcoursehcp40
+      var1 = (vhcpallowance/100)*vcoursehcp10
+      var2 = (vhcpallowance/100)*vcoursehcp20
+      var3 = (vhcpallowance/100)*vcoursehcp30
+      var4 = (vhcpallowance/100)*vcoursehcp40
       
       var1 = var1.toFixed(0)
       var2 = var2.toFixed(0)
@@ -293,7 +293,6 @@
 	</script>
 </body>
 
-	
 </html>
 
 
