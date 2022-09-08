@@ -169,9 +169,23 @@
 	<br>
 	<br>
 	<script>
+    
+ /*   
+   var modalx = document.getElementById("showcalcs");
+      modalx.onclick = function(event) {
+      modalx.style.visibility = "hidden";
+      } 
+    
+  */  
+    
+    
+    
       
    function showcalcs() {
-      
+     alert( document.getElementById("nhcp1").value)
+     alert( document.getElementById("nhcp2").value)
+     alert( document.getElementById("nhcp3").value)
+     alert( document.getElementById("nhcp4").value)
       if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
       
       document.getElementById("showcalcs").style.visibility = "visible";
@@ -237,9 +251,12 @@
      calctxt += "<br>player 4<br>calculate course hcp<br>" + p4a + "<br>calculate playing hcp<br>" + p4b + "<br>calculate strokes<br>" + p4c
      calctxt += "<br><br><br><br><br><br>"
       
+      
+      document.getElementById("showcalcs").innerHTML = calctxt  
+      
    }
  
-   document.getElementById("showcalcs").innerHTML = calctxt  
+   
      
    } 
    
