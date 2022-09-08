@@ -71,6 +71,37 @@
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
    
+   #showcalcs {
+      visibility: hidden;
+      
+      font-size: 15px;
+      text-align: left;
+      
+      
+     //display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 10px;
+        padding-left: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 150%;
+        overflow: auto;
+        background-color: dodgerBlue;
+        background-color: rgba(0, 0, 0, 0.8);
+   }
+   
+   #buttonshowcalcs {
+      font-size: 30px;
+		color: white;
+      padding: 10px;
+      background-color: dodgerBlue;
+		text-align: center;
+		border: 1px solid black;
+		border-radius: 10px;
+		box-shadow: 10px 10px 25px black;  
+   }
 	</style>
 </head>
 
@@ -107,21 +138,28 @@
             <h1>player 4 WHS handicap index</h1>
             <div class="demo">
 					<input type="number" id="nhcp4" name="nhcp4" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-            </div>
+            </div>  
 	      </div>			
-			<br>
+			<br> 
+         <div class="demo">
+         <div class="showcalcs" id="showcalcs">
+         </div>
+         </div>      
          <br>
          <div id="txt">
-         <br><br>
-         <div id="splayinghcp1" class="score">player 1<br>course<br>playing<br>strokes</div>
-         <br>
-         <div id="splayinghcp2" class="score">player 2<br>course<br>playing<br>strokes</div>
-         <br>
-         <div id="splayinghcp3" class="score">player 3<br>course<br>playing<br>strokes</div>
-         <br>
-         <div id="splayinghcp4" class="score">player 4<br>course<br>playing<br>strokes</div>
-         <br>
+            <br><br>
+            <div id="splayinghcp1" class="score">player 1<br>course hcp<br>playing hcp<br>strokes</div>
+            <br>
+            <div id="splayinghcp2" class="score">player 2<br>course hcp<br>playing hcp<br>strokes</div>
+            <br>
+            <div id="splayinghcp3" class="score">player 3<br>course hcp<br>playing hcp<br>strokes</div>
+            <br>
+            <div id="splayinghcp4" class="score">player 4<br>course hcp<br>playing hcp<br>strokes</div>
+            <br>
          </div>
+         <br>
+         <br>
+         <button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
 		</div>
 	</div>
 	<br>
@@ -131,6 +169,81 @@
 	<br>
 	<br>
 	<script>
+      
+   function showcalcs() {
+      
+      if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
+      
+      document.getElementById("showcalcs").style.visibility = "visible";
+      
+      vhcp1 = document.getElementById("nhcp1").value
+      vhcp2 = document.getElementById("nhcp2").value
+      vhcp3 = document.getElementById("nhcp3").value
+      vhcp4 = document.getElementById("nhcp4").value
+    
+      // get globals
+      vhcpallowance = 90
+      vslope = document.getElementById("nslope").value
+   
+      let vcoursehcp1 = vhcp1 * (vslope/113)
+      let vcoursehcp2 = vhcp2 * (vslope/113)
+      let vcoursehcp3 = vhcp3 * (vslope/113)
+      let vcoursehcp4 = vhcp4 * (vslope/113)
+     
+      let vcoursehcp10 = vcoursehcp1.toFixed(0);
+      let vcoursehcp20 = vcoursehcp2.toFixed(0);
+      let vcoursehcp30 = vcoursehcp3.toFixed(0);
+      let vcoursehcp40 = vcoursehcp4.toFixed(0);
+          
+      var1t = (vhcpallowance/100)*vcoursehcp10
+      var2t = (vhcpallowance/100)*vcoursehcp20
+      var3t = (vhcpallowance/100)*vcoursehcp30
+      var4t = (vhcpallowance/100)*vcoursehcp40
+      
+      var1 = var1t.toFixed(0)
+      var2 = var2t.toFixed(0)
+      var3 = var3t.toFixed(0)
+      var4 = var4t.toFixed(0)
+     
+     let b = Math.min(var1, var2, var3, var4);
+     // player 1
+     let p1a = "&nbsp" + vhcp1 + " x " + vslope + "/113 = " + vcoursehcp1 + " = " + vcoursehcp10
+     let p1b = "&nbsp" + vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t + " = " + var1
+     let p1c = "&nbsp" + "difference against lowest = " + var1 + " - " + b + " = " + (var1 - b )
+     
+     // player 2
+     let p2a = "&nbsp" + vhcp2 + " x " + vslope + "/113 = " + vcoursehcp2 + " = " + vcoursehcp20
+     let p2b = "&nbsp" + vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t + " = " + var2
+     let p2c = "&nbsp" + "difference against lowest = " + var2 + " - " + b + " = " + (var2 - b )
+     
+     // player 3
+     let p3a = "&nbsp" + vhcp3 + " x " + vslope + "/113 = " + vcoursehcp3 + " = " + vcoursehcp30
+     let p3b = "&nbsp" + vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t + " = " + var3
+     let p3c = "&nbsp" + "difference against lowest = " + var3 + " - " + b + " = " + (var3 - b )
+     
+     // player 4
+     let p4a = "&nbsp" + vhcp4 + " x " + vslope + "/113 = " + vcoursehcp4 + " = " + vcoursehcp40
+     let p4b = "&nbsp" + vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t + " = " + var4
+     let p4c = "&nbsp" + "difference against lowest = " + var4 + " - " + b + " = " + (var4 - b )
+     
+     let calctxt = "<br>player 1 course hcp<br>" + p1a + "<br>player 1 playing hcp<br>" + p1b + "<br>player 1 strokes<br>" + p1c
+     calctxt += "<br>"
+     calctxt += "<br>player 2<br>calculate course hcp<br>" + p2a + "<br>calculate playing hcp<br>" + p2b + "<br>calculate strokes<br>" + p2c
+     calctxt += "<br>"
+      
+     calctxt += "<br>player 3<br>calculate course hcp<br>" + p3a + "<br>calculate playing hcp<br>" + p3b + "<br>calculate strokes<br>" + p3c
+     calctxt += "<br>"
+     
+     calctxt += "<br>player 4<br>calculate course hcp<br>" + p4a + "<br>calculate playing hcp<br>" + p4b + "<br>calculate strokes<br>" + p4c
+     calctxt += "<br><br><br><br><br><br>"
+      
+   }
+ 
+   document.getElementById("showcalcs").innerHTML = calctxt  
+     
+   } 
+   
+    
    function updatehcp() {
 		// get 4 players hcp's
       if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
