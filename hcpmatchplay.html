@@ -107,7 +107,9 @@
     font-style: italic;
     padding-left: 10px;
    }
-   
+   #imgclose  {
+      margin-left: 50%;
+   }
    
 	</style>
 </head>
@@ -149,6 +151,7 @@
 	      </div>			
 			<br> 
          <div class="demo">
+         <!-- modal calculations -->   
          <div class="showcalcs" id="showcalcs" onclick="calcclose()">
          </div>
          </div>      
@@ -255,7 +258,8 @@
      
      calctxt += "<br>player 4 course hcp<br>" + p4a + "<br>player 4 playing hcp<br>" + p4b + "<br>player 4 strokes" + p4c
      
-     calctxt += "<br><br>"
+     calctxt += "<br><br>" + '<img src="close.png" alt="tap to close" width="50" height="50" id="imgclose">'
+      
       
       
       document.getElementById("showcalcs").innerHTML = calctxt  
