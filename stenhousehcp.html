@@ -343,27 +343,27 @@
       let b = Math.min(v1, v2, v3, v4);
       
      // senior A
-     let p1a = vhcp1 + " x " + lakesslopeyellow + "/113 = " + vcoursehcp1 + " = " + vcoursehcp10
-     let p1b = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t + " = " + var1
+     let p1a = vhcp1 + " x " + lakesslopeyellow + "/113 = " + vcoursehcp1.toFixed(2) + " = " + vcoursehcp10
+     let p1b = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t.toFixed(2) + " = " + var1
      let p1c = " = " + var1 + " - " + b + " = " + (var1 - b )
       
      // senior B
-     let p2a = vhcp2 + " x " + lakesslopeyellow + "/113 = " + vcoursehcp2 + " = " + vcoursehcp20
-     let p2b = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t + " = " + var2
+     let p2a = vhcp2 + " x " + lakesslopeyellow + "/113 = " + vcoursehcp2.toFixed(2) + " = " + vcoursehcp20
+     let p2b = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t.toFixed(2) + " = " + var2
      let p2c = " = " + var2 + " - " + b + " = " + (var2 - b )
    
      // ladies A
-     let p3a = vhcp3 + " x " + lakesslopered + "/113 = " + vcoursehcp3 + " = " + vcoursehcp30
-     let p3b = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t
+     let p3a = vhcp3 + " x " + lakesslopered + "/113 = " + vcoursehcp3.toFixed(2) + " = " + vcoursehcp30
+     let p3b = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t.toFixed(2)
      let p3c = lakescrred + " - " + lakescryellow + " = " + (lakescrred - lakescryellow) 
-     let p3d = var3t + " + " + (lakescrred - lakescryellow) + " = " + var3x + " = " + var3y
+     let p3d = var3t.toFixed(2) + "+" + (lakescrred - lakescryellow) + " = " + var3x.toFixed(2) + " = " + var3y
      let p3e = " = " + var3y + " - " + b + " = " + (var3y - b )
      
      // ladies B
-     let p4a = vhcp4 + " x " + lakesslopered + "/113 = " + vcoursehcp4 + " = " + vcoursehcp40
-     let p4b = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t
+     let p4a = vhcp4 + " x " + lakesslopered + "/113 = " + vcoursehcp4.toFixed(2) + " = " + vcoursehcp40
+     let p4b = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t.toFixed(2)
      let p4c = lakescrred + " - " + lakescryellow + " = " + (lakescrred - lakescryellow) 
-     let p4d = var4t + " + " + (lakescrred - lakescryellow) + " = " + var4x + " = " + var4y
+     let p4d = var4t.toFixed(2) + "+" + (lakescrred - lakescryellow) + " = " + var4x.toFixed(2) + " = " + var4y
      let p4e = " = " + var4y + " - " + b + " = " + (var4y - b )
     
      let calctxt = "<br>senior A course hcp<br>" + p1a + "<br>senior A playing hcp<br>" + p1b + "<br>senior A strokes" + p1c
@@ -445,12 +445,12 @@
       document.getElementById("splayinghcp1").innerHTML = "senior A (" + vhcp1 + ")<br>course hcp = " + vcoursehcp10 + "<br>playing hcp = " + var1 + "<br>gets " + (v1 - b) + " strokes"
       document.getElementById("splayinghcp2").innerHTML = "senior B (" + vhcp2 + ")<br>course hcp = " + vcoursehcp20 + "<br>playing hcp = " + var2 + "<br>gets " + (v2 - b) + " strokes"
       
-      document.getElementById("splayinghcp3").innerHTML = "ladies A (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>90% adj = " + var3t + "<br>cr adj = " + lakescrred + "-" + lakescryellow + " = " + (lakescrred - lakescryellow) + "<br>playing hcp = "  + var3t + "+" + (lakescrred - lakescryellow) + " = " + var3x + " = " + v3 + "<br>gets " + (v3 - b) + " strokes"
+      document.getElementById("splayinghcp3").innerHTML = "ladies A (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>90% adj = " + var3t.toFixed(2) + "<br>cr adj = " + lakescrred + "-" + lakescryellow + " = " + (lakescrred - lakescryellow) + "<br>playing hcp = "  + var3t.toFixed(2) + "+" + (lakescrred - lakescryellow) + " = " + var3x.toFixed(2) + "<br>playing hcp rounded = " + v3 + "<br>gets " + (v3 - b) + " strokes"
       
       
       
       
-      document.getElementById("splayinghcp4").innerHTML = "ladies B (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>90% adj = " + var4t + "<br>cr adj = " + lakescrred + "-" + lakescryellow + " = " + (lakescrred - lakescryellow) + "<br>playing hcp = "  + var4t + "+" + (lakescrred - lakescryellow) + " = " + var4x + " = " + v4 + "<br>gets " + (v4 - b) + " strokes"
+      document.getElementById("splayinghcp4").innerHTML = "ladies B (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>90% adj = " + var4t.toFixed(2) + "<br>cr adj = " + lakescrred + "-" + lakescryellow + " = " + (lakescrred - lakescryellow) + "<br>playing hcp = "  + var4t.toFixed(2) + "+" + (lakescrred - lakescryellow) + " = " + var4x.toFixed(2) + "<br>playing hcp rounded = " + v4 + "<br>gets " + (v4 - b) + " strokes"
    }
    
    }
