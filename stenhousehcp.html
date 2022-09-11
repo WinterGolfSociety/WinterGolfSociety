@@ -441,16 +441,30 @@
       let v3 = var3y
       let v4 = var4y
       let b = Math.min(v1, v2, v3, v4);
-      
-      document.getElementById("splayinghcp1").innerHTML = "senior A (" + vhcp1 + ")<br>course hcp = " + vcoursehcp10 + "<br>playing hcp = " + var1 + "<br>gets " + (v1 - b) + " strokes"
-      document.getElementById("splayinghcp2").innerHTML = "senior B (" + vhcp2 + ")<br>course hcp = " + vcoursehcp20 + "<br>playing hcp = " + var2 + "<br>gets " + (v2 - b) + " strokes"
-      
-      document.getElementById("splayinghcp3").innerHTML = "ladies A (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>90% adj = " + var3t.toFixed(2) + "<br>cr adj = " + lakescrred + "-" + lakescryellow + " = " + (lakescrred - lakescryellow) + "<br>playing hcp = "  + var3t.toFixed(2) + "+" + (lakescrred - lakescryellow) + " = " + var3x.toFixed(2) + "<br>playing hcp rounded = " + v3 + "<br>gets " + (v3 - b) + " strokes"
-      
-      
-      
-      
-      document.getElementById("splayinghcp4").innerHTML = "ladies B (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>90% adj = " + var4t.toFixed(2) + "<br>cr adj = " + lakescrred + "-" + lakescryellow + " = " + (lakescrred - lakescryellow) + "<br>playing hcp = "  + var4t.toFixed(2) + "+" + (lakescrred - lakescryellow) + " = " + var4x.toFixed(2) + "<br>playing hcp rounded = " + v4 + "<br>gets " + (v4 - b) + " strokes"
+      if ((v1 - b) == 1) {
+         var sss = "stroke"
+      } else { 
+         var sss = "strokes" 
+      }
+      document.getElementById("splayinghcp1").innerHTML = "senior A (" + vhcp1 + ")<br>course hcp = " + vcoursehcp10 + "<br>playing hcp = " + var1 + "<br>gets " + (v1 - b) + " " + sss
+      if ((v2 - b) == 1) {
+         var sss = "stroke"
+      } else { 
+         var sss = "strokes" 
+      }
+      document.getElementById("splayinghcp2").innerHTML = "senior B (" + vhcp2 + ")<br>course hcp = " + vcoursehcp20 + "<br>playing hcp = " + var2 + "<br>gets " + (v2 - b) + " " + sss
+      if ((v3 - b) == 1) {
+         var sss = "stroke"
+      } else { 
+         var sss = "strokes" 
+      }
+      document.getElementById("splayinghcp3").innerHTML = "ladies A (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>90% adj = " + var3t.toFixed(2) + "<br>cr adj = " + lakescrred + "-" + lakescryellow + " = " + (lakescrred - lakescryellow) + "<br>playing hcp = "  + var3t.toFixed(2) + "+" + (lakescrred - lakescryellow) + " = " + var3x.toFixed(2) + "<br>playing hcp rounded = " + v3 + "<br>gets " + (v3 - b) + " " + sss
+      if ((v4 - b) == 1) {
+         var sss = "stroke"
+      } else { 
+         var sss = "strokes" 
+      }
+      document.getElementById("splayinghcp4").innerHTML = "ladies B (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>90% adj = " + var4t.toFixed(2) + "<br>cr adj = " + lakescrred + "-" + lakescryellow + " = " + (lakescrred - lakescryellow) + "<br>playing hcp = "  + var4t.toFixed(2) + "+" + (lakescrred - lakescryellow) + " = " + var4x.toFixed(2) + "<br>playing hcp rounded = " + v4 + "<br>gets " + (v4 - b) + " " + sss
    }
    
    }
