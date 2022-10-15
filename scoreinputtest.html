@@ -1419,6 +1419,9 @@ Check the scores entered (shots taken) then Submit.
 	   const formatter = new Intl.DateTimeFormat('en-GB', options);
 	   const dd = formatter.format(new Date());
 	  var ddtoday = dd.replace(",","")
+     
+     ddtoday = ddtoday.replace("Sunday ","")
+     ddtoday = ddtoday.replace("Saturday ","")
      ddtoday = ddtoday.replace("Friday ","")
      ddtoday = ddtoday.replace("Thursday ","")
      ddtoday = ddtoday.replace("Wednesday ","")
