@@ -802,9 +802,9 @@
               var meinfo = "hcp not found .."
               meinfo = datax[i].Name + "  <br> hcp: " + 
                          datax[i].Handicap + " <br> Lakes hcp: " + 
-                         datax[i].Lakes + " <br> Dawson hcp: " +
-                         datax[i].Dawson  + " <br> Winter hcp: " +
-                         datax[i].Winter;
+                         parseInt(datax[i].Lakes) + " <br> Dawson hcp: " +
+                         parseInt(datax[i].Dawson)  + " <br> Winter hcp: " +
+                         parseInt(datax[i].Winter);
               localStorage.setItem("playerName", datax[i].Name.toString());
               localStorage.setItem("playerHCP", datax[i].Handicap.toString());
               localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
@@ -939,9 +939,9 @@
                 var meinfo = "hcp not found .."
                 meinfo = datax[i].Name + "  <br> hcp: " + 
                          datax[i].Handicap + " <br> Lakes hcp: " + 
-                         datax[i].Lakes + " <br> Dawson hcp: " +
-                         datax[i].Dawson  + " <br> Winter hcp: " +
-                         datax[i].Winter;
+                         parseInt(datax[i].Lakes) + " <br> Dawson hcp: " +
+                         parseInt(datax[i].Dawson)  + " <br> Winter hcp: " +
+                         parseInt(datax[i].Winter);
                 // add player hcp details here
                 localStorage.setItem("playerName", datax[i].Name.toString());
                 localStorage.setItem("playerHCP", datax[i].Handicap.toString());
