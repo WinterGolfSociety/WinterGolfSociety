@@ -800,7 +800,7 @@
           for (i = 0; i < datax.length; i++) {
             if (datax[i].Name == pname) {
               var meinfo = "hcp not found .."
-              meinfo = datax[i].Name + "  < br > hcp: " + datax[i].Handicap + " < br > course hcp " + datax[i].Lakes;
+              meinfo = datax[i].Name + "  <br> hcp: " + datax[i].Handicap + " <br> course hcp " + datax[i].Lakes;
               localStorage.setItem("playerName", datax[i].Name.toString());
               localStorage.setItem("playerHCP", datax[i].Handicap.toString());
               localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
@@ -813,7 +813,7 @@
               
               
               document.getElementById("ap-WhatsNew-content").innerHTML = meinfo;
-              document.getElementById("who").innerHTML = pname.replace(" ", " < br > ");
+              document.getElementById("who").innerHTML = pname.replace(" ", " <br> ");
               }
             }
             if ("playerName" in localStorage) {
@@ -933,9 +933,9 @@
             for (i = 0; i < datax.length; i++) {
               if (datax[i].Name == pname) {
                 var meinfo = "hcp not found .."
-                meinfo = datax[i].Name + "  < br > hcp: " + 
-                         datax[i].Handicap + " < br > course hcp " + 
-                         datax[i].Lakes + " < br > winter hcp " +
+                meinfo = datax[i].Name + "  <br> hcp: " + 
+                         datax[i].Handicap + " <br> course hcp " + 
+                         datax[i].Lakes + " <br> winter hcp " +
                          datax[i].Winter;
                 // add player hcp details here
                 localStorage.setItem("playerName", datax[i].Name.toString());
