@@ -597,7 +597,7 @@
         var x = ""
         // build values to search
         for (var ii = 0; ii < arr.length; ii++) {
-          x = x + ' < li > < p > ' + arr[ii] + ' < /p> < /li>'
+          x = x + ' <li><p>' + arr[ii] + '</p></li>'
         }
         input = document.getElementById("myULold");
         input.innerHTML = x
@@ -619,12 +619,12 @@
           // check if already there
           var checkline = document.getElementById("txt1").innerText
           if (checkline.indexOf("Friday") > -1) {
-            document.getElementById("txt1").innerHTML = " < p style = 'visibility:hidden' > . < /p>"  
-            document.getElementById("txt2").innerHTML = " < p style = 'visibility:hidden' > . < /p>"
-            document.getElementById("txt3").innerHTML = " < p style = 'visibility:hidden' > . < /p>"
-            document.getElementById("txt4").innerHTML = " < p style = 'visibility:hidden' > . < /p>"
-            document.getElementById("txt5").innerHTML = " < p style = 'visibility:hidden' > . < /p>"
-            document.getElementById("txt6").innerHTML = " < p style = 'visibility:hidden' > . < /p>"
+            document.getElementById("txt1").innerHTML = "<p style='visibility:hidden'>.</p>"  
+            document.getElementById("txt2").innerHTML = "<p style='visibility:hidden'>.</p>"
+            document.getElementById("txt3").innerHTML = "<p style='visibility:hidden'>.</p>"
+            document.getElementById("txt4").innerHTML = "<p style='visibility:hidden'>.</p>"
+            document.getElementById("txt5").innerHTML = "<p style='visibility:hidden'>.</p>"
+            document.getElementById("txt6").innerHTML = "<p style='visibility:hidden'>.</p>"
           } else {
             currentdate = new Date();
             var oneJan = new Date(currentdate.getFullYear(), 0, 1);
@@ -866,7 +866,7 @@
           var x = ""
           // build values to search
           for (var ii = 0; ii < arr.length; ii++) {
-            x = x + ' < li > < p > ' + arr[ii] + ' < /p> < /li>' 
+            x = x + ' <li><p> ' + arr[ii] + ' </p></li>' 
           }
           input = document.getElementById("myULold");
           input.innerHTML = x
