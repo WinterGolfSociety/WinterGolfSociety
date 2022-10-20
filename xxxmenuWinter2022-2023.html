@@ -621,6 +621,12 @@
            // cope with each user
            // id's
            //
+           
+           // messy,sort out if time
+           var pname=localStorage.getItem("playerName")
+           
+           
+           
             var me1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid="
             
             var me2 = "&single=true"
@@ -628,7 +634,10 @@
             if ("pname" == "Bryan Maddison") {
                var meid = "1796067805"
             }
-            meall = me1 + meid + me2
+            var meall = me1 + meid + me2
+            
+            meall="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true"
+            
             document.open(meall)
             
         }
