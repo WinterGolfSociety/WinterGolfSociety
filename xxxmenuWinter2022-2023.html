@@ -519,8 +519,7 @@
               </li>
               <!-- my info -->
               <li>
-                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true
-" id="menuItems">my info</a>
+                <a href="javascript:myInfo()" id="menuItems">my info</a>
               </li>
               <!-- change user -->
               <li>
@@ -617,6 +616,23 @@
         // hcp list from 2022
         var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
         //============= functions =================
+        
+        function myInfo() {
+           // cope with each user
+           // id's
+           //
+            var me1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid="
+            var me2 = "&single=true"
+            
+            if ("pname" = "Bryan Maddison") {
+               var id = "1796067805"
+            }
+            meall = me1 + id + me2
+            document.open(meall)
+            
+        }
+        
+        
         function weeknumber() {
           // check if already there
           var checkline = document.getElementById("txt1").innerText
