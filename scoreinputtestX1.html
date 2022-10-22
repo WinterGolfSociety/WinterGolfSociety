@@ -2116,13 +2116,13 @@ Check the scores entered (shots taken) then Submit.
 	   }
       
       function playerSwap() {
-         swapp = document.getElementById("ppmodalsearch");
+         var swapp = document.getElementById("ppmodalsearch");
          swapp.style.display = "block"
       }
 
       function playerSwapUpdate(pnamex) {
-         alert(pnahex)
-         pswap = document.getElementById("playerName").
+         alert("playerSwapUpdate = " + pnamex)
+         var pswap = document.getElementById("playerName").
          pswap.innerHTML = 'Player: <a id="yellow">' + pnamex + '<\/a>'; 
       }
 
