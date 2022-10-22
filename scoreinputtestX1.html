@@ -1667,10 +1667,16 @@ Check the scores entered (shots taken) then Submit.
   
   var arr = ["dummy", "Graham Airey", "Dale Aitkenhead", "Stephen Alldridge", "Keith Belshaw", "Stewart Brodie", "Andy Davison", "Peter Holleran", "Bryan Maddison", ]
   var x = ""
+  
+  alert("start 2a")
+  
   // build values to search
   for (var ii = 0; ii < arr.length; ii++) {
       x = x + ' <li><p>' + arr[ii] + '</p></li>'
   }
+		
+alert("start 2b")	
+		
       input = document.getElementById("myULold");
       input.innerHTML = x
       var hcpchecker1 = document.getElementById("amodalWhatsNew");
@@ -1678,6 +1684,10 @@ Check the scores entered (shots taken) then Submit.
       hcpchecker1.onclick = function() {
       hcpchecker1.style.display = "none";
       }
+		
+		
+	alert("start 2c")	
+		
       var modalsearch = document.getElementById("modalsearch");
       window.onclick = function(event) {
          if (event.target == modalsearch) {
