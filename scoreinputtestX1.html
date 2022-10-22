@@ -2115,6 +2115,19 @@ Check the scores entered (shots taken) then Submit.
 	       element.style.display = "none";
 	   }
       
+      
+      function pb1button() {
+          var b1x = document.getElementById("myAold");
+          var b1xx = b1x.innerText;
+          // close modal search
+          var modalsearch = document.getElementById("ppmodalsearch");
+          modalsearch.style.display = "none";
+          
+          alert("txtValue = " + b1xx)
+          playerSwapUpdate(b1xx)
+          
+      }
+      
       function playerSwap() {
          var swapp = document.getElementById("ppmodalsearch");
          swapp.style.display = "block"
@@ -2123,6 +2136,7 @@ Check the scores entered (shots taken) then Submit.
       function playerSwapUpdate(pnamex) {
          alert("playerSwapUpdate = " + pnamex)
          var pswap = document.getElementById("playerName").
+         alert("xxx")
          pswap.innerHTML = 'Player: <a id="yellow">' + pnamex + '<\/a>'; 
       }
 
@@ -2153,22 +2167,7 @@ Check the scores entered (shots taken) then Submit.
           
         }
         
-function pb1button() {
-          var b1x = document.getElementById("myAold");
-          var b1xx = b1x.innerText;
-          // close modal search
-          var modalsearch = document.getElementById("ppmodalsearch");
-          modalsearch.style.display = "none";
-          
-          
-          alert("txtValue = " + b1xx)
-          playerSwapUpdate(b1xx)
-          
-          
-          
-          
-    //      displayPlayer("Bryan Maddison")
-        }
+
  function displayPlayer(xvalue) {
           if (xvalue == "Bryan Maddison") {
             window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true");
