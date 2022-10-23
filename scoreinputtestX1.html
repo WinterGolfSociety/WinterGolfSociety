@@ -2123,11 +2123,9 @@ Check the scores entered (shots taken) then Submit.
       }
 
       function playerSwapUpdate(pnamex) {
-         //alert("playerSwapUpdate = " + pnamex)
-         var pswapx = document.getElementById("playerName")
-         pswapx.innerHTML = 'Player: <a id="red">' + pnamex + '</a>'; 
-         //alert("playerSwapUpdate = " + pnamex + "updated")
-
+        var pswapx = document.getElementById("playerName")
+        pswapx.innerHTML = 'Player: <a id="red">' + pnamex + '</a>'; 
+         
         // try to find HCP 
         var public_spreadsheet_url='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
         // put a message up ???
@@ -2143,23 +2141,16 @@ Check the scores entered (shots taken) then Submit.
       }
 
       function showInfop(results) {
-  
       var pLookup = document.getElementById("playerName").innerText
       var pnamex = pLookup.replace("Player: ","")
-
       var pCourse = document.getElementById("compName").innerText
       var pcoursex = pCourse.replace("Competition: ","")
  
- 
-   
-      pcoursex = "Dawson 23 October"
-      alert("==" + pnamex + "==1")
-   
+      //pcoursex = "Dawson 23 October"
   
       var datax = results.data
       var hh = "unknown error"
       var i = 0
-       alert("1==" + pnamex + "==2")
       
       for (i = 0; i < datax.length; i++) {
          if (datax[i].Name.indexOf(pnamex) > -1) {
@@ -2179,7 +2170,6 @@ Check the scores entered (shots taken) then Submit.
                // wLakes course
                hh = datax[i].Winter
             }
-          
          }
       }
          
@@ -2189,13 +2179,6 @@ Check the scores entered (shots taken) then Submit.
       hcpp.innerHTML = 'course HCP: <a id="red">' + hh + '</a>';
                       
 }
-
-
-
-
-
-
-
 
       function myFunctionx() {
           var input, filter, ul, li, a, i, txtValue;
