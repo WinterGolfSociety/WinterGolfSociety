@@ -508,7 +508,9 @@
       
       
       
-      
+     #red{
+       color: red; 
+     } 
       
       
       
@@ -1625,7 +1627,7 @@ Check the scores entered (shots taken) then Submit.
 	<br>
 	<script>
 	     
-	   alert("start 1")
+	   
 	   var thisComp = "stableford Friday"
 	   
 	  
@@ -1662,36 +1664,22 @@ Check the scores entered (shots taken) then Submit.
 	}    
       
       
-  alert("start 2")
+  
   
   
   var arr = ["dummy", "Graham Airey", "Dale Aitkenhead", "Stephen Alldridge", "Keith Belshaw", "Stewart Brodie", "Andy Davison", "Peter Holleran", "Bryan Maddison", ]
   var x = ""
-  
-  alert("start 2a")
-  
   // build values to search
   for (var ii = 0; ii < arr.length; ii++) {
       x = x + ' <li><p>' + arr[ii] + '</p></li>'
   }
-		
-alert("start 2b")	
-		
       input = document.getElementById("myULold");
-alert("start 2b1")		
       input.innerHTML = x
-alert("start 2b2")		
       var hcpchecker1 = document.getElementById("amodalWhatsNew");
-alert("start 2b3")		
       var span0 = document.getElementsByClassName("close")[0];
-alert("start 2b4")		
-      //hcpchecker1.onclick = function() {
-      //hcpchecker1.style.display = "none";
-      //}
-		
-		
-	alert("start 2c")	
-		
+      hcpchecker1.onclick = function() {
+      hcpchecker1.style.display = "none";
+      }
       var modalsearch = document.getElementById("modalsearch");
       window.onclick = function(event) {
          if (event.target == modalsearch) {
@@ -1704,7 +1692,7 @@ alert("start 2b4")
   
   
   
-  alert("start 3")
+  
   
   
   
@@ -1759,7 +1747,7 @@ alert("start 2b4")
 	  //const urlParams = new URLSearchParams(queryString);  
 	  //var pname = urlParams.get('name')   
 	  
-     document.getElementById("playerName").innerHTML = 'Player: <a id="yellow">' + pname + '<\/a>';  
+     document.getElementById("playerName").innerHTML = 'Player: <a id="yellow">' + pname + '</a>';  
      
 	   // use diary of dates ...  
 	   var options = {
@@ -1791,7 +1779,7 @@ alert("start 2b4")
      
      // Lakes
 	  if( dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
-	  ddtoday = '<a id="yellow">Lakes ' + ddtoday + '<\/a>'
+	  ddtoday = '<a id="yellow">Lakes ' + ddtoday + '</a>'
 	  document.getElementById("compName").innerHTML = "Competition: " + ddtoday; 
 	  vhcp = plakeshcp;
 	   vcourse = "Lakes"
@@ -1835,7 +1823,7 @@ alert("start 2b4")
 	   
       // Dawson   
 	   if( dd.indexOf("October") > -1 || dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
-	     ddtoday = '<a id="yellow">Dawson ' + ddtoday + '<\/a>'
+	     ddtoday = '<a id="yellow">Dawson ' + ddtoday + '</a>'
 	     document.getElementById("compName").innerHTML = "Competition: " + ddtoday;
 	       vhcp = pdawsonhcp;      
 	       vcourse = "Dawson"
@@ -1886,7 +1874,7 @@ alert("start 2b4")
      // start of disable winter courses
      // wLakes
 	  if( dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
-	  ddtoday = '<a id="yellow">wLakes ' + ddtoday + '<\/a>'
+	  ddtoday = '<a id="yellow">wLakes ' + ddtoday + '</a>'
 	  document.getElementById("compName").innerHTML = "Competition: " + ddtoday; 
 	  vhcp = pwinterhcp;
 	   vcourse = "wLakes"
@@ -1930,7 +1918,7 @@ alert("start 2b4")
 	   
       // wDawson   
 	   if( dd.indexOf("October") > -1 || dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
-	     ddtoday = '<a id="yellow">wDawson ' + ddtoday + '<\/a>'
+	     ddtoday = '<a id="yellow">wDawson ' + ddtoday + '</a>'
 	     document.getElementById("compName").innerHTML = "Competition: " + ddtoday;
 	       vhcp = pwinterhcp;      
 	       vcourse = "wDawson"
@@ -1979,7 +1967,7 @@ alert("start 2b4")
      // end of disable winter courses
      
      
-     alert("end")
+     
      
      
      
@@ -2050,7 +2038,7 @@ alert("start 2b4")
 	       element.style.display = "grid";
 	     
 
-	     document.getElementById("cHCP").innerHTML='course HCP: <a id="yellow">' + vhcp + '<\/a>';
+	     document.getElementById("cHCP").innerHTML='course HCP: <a id="yellow">' + vhcp + '</a>';
 
 	   }
 
@@ -2129,30 +2117,85 @@ alert("start 2b4")
 	       element.style.display = "none";
 	   }
       
-      
-      function pb1button() {
-          var b1x = document.getElementById("myAold");
-          var b1xx = b1x.innerText;
-          // close modal search
-          var modalsearch = document.getElementById("ppmodalsearch");
-          modalsearch.style.display = "none";
-          
-          alert("txtValue = " + b1xx)
-          playerSwapUpdate(b1xx)
-          
-      }
-      
       function playerSwap() {
          var swapp = document.getElementById("ppmodalsearch");
          swapp.style.display = "block"
       }
 
       function playerSwapUpdate(pnamex) {
-         alert("playerSwapUpdate = " + pnamex)
-         var pswap = document.getElementById("playerName")
-         alert("xxx")
-         pswap.innerHTML = 'Player: <a id="yellow">' + pnamex + '<\/a>'; 
+         //alert("playerSwapUpdate = " + pnamex)
+         var pswapx = document.getElementById("playerName")
+         pswapx.innerHTML = 'Player: <a id="red">' + pnamex + '</a>'; 
+         //alert("playerSwapUpdate = " + pnamex + "updated")
+
+        // try to find HCP 
+        var public_spreadsheet_url='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+        // put a message up ???
+        //document.getElementById("amodalWhatsNew").style.display = "block";
+        //document.getElementById("ap-WhatsNew-content").innerText = "searching for hcp info .."
+     
+        Papa.parse(public_spreadsheet_url, {
+        download: true,
+        header: true,
+        complete: showInfop
+        });
+
       }
+
+      function showInfop(results) {
+  
+      var pLookup = document.getElementById("playerName").innerText
+      var pnamex = pLookup.replace("Player: ","")
+
+      var pCourse = document.getElementById("compName").innerText
+      var pcoursex = pCourse.replace("Competition: ","")
+ 
+ 
+   
+      pcoursex = "Dawson 23 October"
+      alert("==" + pnamex + "==1")
+   
+  
+      var datax = results.data
+      var hh = "unknown error"
+      var i = 0
+       alert("1==" + pnamex + "==2")
+      
+      for (i = 0; i < datax.length; i++) {
+         if (datax[i].Name.indexOf(pnamex) > -1) {
+             if (pcoursex.indexOf("Dawson") > -1) {
+                // Dawson course
+                hh = datax[i].Dawson
+            }  
+            if (pcoursex.indexOf("Lakes") > -1) {
+               // Lakes course
+               hh = datax[i].Lakes
+            }
+            if (pcoursex.indexOf("wDawson") > -1) {
+               // wDawson course
+               hh = datax[i].Winter
+            }
+            if (pcoursex.indexOf("wLakes") > -1) {
+               // wLakes course
+               hh = datax[i].Winter
+            }
+          
+         }
+      }
+         
+      // update the correct hcp
+      var hcpp = document.getElementById("cHCP")
+      hcpp.innerText = "course HCP: " + hh  
+      
+      'course HCP: <a id="red">' + hh + '</a>'; 
+      
+                      
+}
+
+
+
+
+
 
 
 
@@ -2181,7 +2224,22 @@ alert("start 2b4")
           
         }
         
-
+function pb1button() {
+          var b1x = document.getElementById("myAold");
+          var b1xx = b1x.innerText;
+          // close modal search
+          var modalsearch = document.getElementById("ppmodalsearch");
+          modalsearch.style.display = "none";
+          
+          
+          alert("txtValue = " + b1xx)
+          playerSwapUpdate(b1xx)
+          
+          
+          
+          
+    //      displayPlayer("Bryan Maddison")
+        }
  function displayPlayer(xvalue) {
           if (xvalue == "Bryan Maddison") {
             window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true");
@@ -2254,7 +2312,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar1 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score1").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score1").innerText = varc;
@@ -2358,7 +2416,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar2 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score2").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score2").innerText = varc;
@@ -2461,7 +2519,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar3 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score3").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score3").innerText = varc;
@@ -2564,7 +2622,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar4 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score4").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score4").innerText = varc;
@@ -2667,7 +2725,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar5 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score5").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score5").innerText = varc;
@@ -2770,7 +2828,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar6 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score6").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score6").innerText = varc;
@@ -2874,7 +2932,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar7 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score7").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score7").innerText = varc;
@@ -2977,7 +3035,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar8 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score8").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score8").innerText = varc;
@@ -3080,7 +3138,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar9 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score9").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score9").innerText = varc;
@@ -3183,7 +3241,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar10 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score10").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score10").innerText = varc;
@@ -3297,7 +3355,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar11 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score11").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score11").innerText = varc;
@@ -3411,7 +3469,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar12 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score12").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score12").innerText = varc;
@@ -3525,7 +3583,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar13 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score13").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score13").innerText = varc;
@@ -3639,7 +3697,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar14 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score14").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score14").innerText = varc;
@@ -3753,7 +3811,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar15 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score15").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score15").innerText = varc;
@@ -3867,7 +3925,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar16 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score16").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score16").innerText = varc;
@@ -3981,7 +4039,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar17 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score17").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score17").innerText = varc;
@@ -4095,7 +4153,7 @@ alert("start 2b4")
 	       if(varc == "999") {
 	           //stableford corrected
 	           varc = vpar18 + x1 + 2
-	           varc1 = "<a style='color:cyan'>" + varc + "<\/a> adj"
+	           varc1 = "<a style='color:cyan'>" + varc + "</a> adj"
 	           document.getElementById("score18").innerHTML = varc1;
 	       } else {
 	           document.getElementById("score18").innerText = varc;
