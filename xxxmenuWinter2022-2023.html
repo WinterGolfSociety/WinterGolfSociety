@@ -111,8 +111,9 @@
       }
 
       .xxmodalsearch,
-      .amodalWhatsNew {
-        display: none;
+      .amodalWhatsNew,
+      .modalPlayerInfo {
+    //    display: none;
         position: fixed;
         z-index: 1;
         padding-top: 50vmax;
@@ -126,7 +127,8 @@
       }
 
       .xxmodalsearch-content,
-      .amodalWhatsNew-content {
+      .amodalWhatsNew-content,
+      .modalPlayerInfo-content {
         background-color: rgba(30, 144, 255, 0.9); //dodgerBlue;
         margin: 10px;
         padding: 10px;
@@ -251,7 +253,8 @@
         width: 50%;
       }
 
-      .modalsearch {
+      .modalsearch,
+      .modalPlayerInfo {
         display: none;
         position: fixed;
         z-index: 1;
@@ -265,7 +268,8 @@
         background-color: rgba(0, 0, 0, 0.4);
       }
 
-      .modalsearch-content {
+      .modalsearch-content,
+      .modalPlayerInfo-content {
         background-color: rgba(30, 144, 255, 0.9); //dodgerBlue;
         margin: auto;
         padding: 20px;
@@ -437,14 +441,18 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
   </head>
   <body>
-    <div id="amodalWhatsNew" class="amodalWhatsNew">
-      <div class="amodalWhatsNew-content">
-        <span class="close">&times;</span>
-        <p id="ap-WhatsNew-content">Whats new .. <br>
-          <br>- score input changed. Allows checking prior to submit. <br>
-        </p>
+     
+     
+    <div id="modalPlayerInfo" class="modalPlayerInfo">
+      <div class="modalPlayerInfo-content">
+        <span class="close1">&times;</span>
+        <br>
+        <a id="modalPlayerInfo-content-txt">searching ...</a>
       </div>
     </div>
+    
+    
+    
     <div id="xxmodalsearch" class="xxmodalsearch">
       <div class="xxmodalsearch-content">
         <span class="close" id="closex">&times;</span> To change player, use text to search .. select the button to accept. <br>
@@ -477,7 +485,7 @@
       </div>
       <div class="menucontainerItem2">
         <a id="gethcp">
-          <input type='image' id="buttonrefresh" width='45vw' height='40vw' src="avatar.png" onclick="init()" />
+          <input type='image' id="buttonrefresh" width='45vw' height='40vw' src="avatar.png" onclick="PlayerInfo()" />
         </a>
       </div>
     </div>
@@ -498,7 +506,7 @@
             <ul>
               <!-- score entry -->
               <li>
-                <a href="scoreinputtestX1.html" id="menuItems">score entry</a>
+                <a href="scoreinputtest.html" id="menuItems">score entry</a>
               </li>
               <!-- results, with historic below ? -->
               <li>
@@ -527,11 +535,11 @@
                    function should refresh name after changed-->
                 <a href="javascript:testswap()" id="menuItems">swap player</a>
               </li>
-              <!-- test 
+              
               <li>
-                <a href="firstSetup.html" id="menuItems">test</a>
+                <a href="javascript:testtidy()" id="menuItems">test tidy</a>
               </li>
-              -->
+              
             </ul>
           </li>
         </ul>
@@ -574,6 +582,17 @@
     </div>
     <div id="spacer"></div>
     <script>
+       var close1x = document.getElementById("modalPlayerInfo");
+      close1x.onclick = function(event) {
+        close1x.style.display = "none";
+      }
+       
+       
+       
+       
+       
+       
+       
       // close by click the player info  
       var modalsearchx = document.getElementById("modalsearch");
       modalsearchx.onclick = function(event) {
@@ -603,6 +622,7 @@
         input = document.getElementById("myULold");
         input.innerHTML = x
         var hcpchecker1 = document.getElementById("amodalWhatsNew");
+        
         var span0 = document.getElementsByClassName("close")[0];
         hcpchecker1.onclick = function() {
           hcpchecker1.style.display = "none";
@@ -653,6 +673,33 @@
         
         
         //============= functions =================
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        function testtidy() {
+           
+        localStorage.removeItem('playerName');   
+         localStorage.removeItem('playerHCP');
+         localStorage.removeItem('LakesHCP');
+         localStorage.removeItem('DawsonHCP');  
+         localStorage.removeItem('WinterHCP');
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         function myInfo() {
            // cope with each user
@@ -879,25 +926,13 @@
           if (eye > 0) {
             alert("running firstSetup")
             //firstSetup()
-          } else {
-          
-          
-          
- alert(varpname)
- alert(phcp(
- alert(dhcp)
- alert(lhcp)
- alert(whcp)     
-  
-       }
-          
- alert(eye)         
+          }     
           
         }
 
-        function init() {
-          document.getElementById("amodalWhatsNew").style.display = "block";
-          document.getElementById("ap-WhatsNew-content").innerText = "searching for hcp info .."
+        function PlayerInfo() {
+          document.getElementById("modalPlayerInfo").style.display = "block";
+          var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
           Papa.parse(public_spreadsheet_url, {
             download: true,
             header: true,
@@ -917,9 +952,9 @@
               var meinfo = "hcp not found .."
               meinfo = datax[i].Name + "  <br> Hcp index: " + 
                          datax[i].Handicap + " <br> Lakes hcp: " + 
-                         parseInt(datax[i].Lakes) + " <br> Dawson hcp: " +
-                         parseInt(datax[i].Dawson)  + " <br> Winter hcp: " +
-                         parseInt(datax[i].Winter);
+                         datax[i].Lakes + " <br> Dawson hcp: " +
+                         datax[i].Dawson  + " <br> Winter hcp: " +
+                         datax[i].Winter;
               localStorage.setItem("playerName", datax[i].Name.toString());
               localStorage.setItem("playerHCP", datax[i].Handicap.toString());
               localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
@@ -930,9 +965,9 @@
               //alert(datax[i].Winter.toString())
               
               
-              
-              document.getElementById("ap-WhatsNew-content").innerHTML = meinfo;
-              document.getElementById("who").innerHTML = pname.replace(" ", "<br>");
+              //document.getElementById("modalPlayerInfo-content").style.visible = "block";
+              document.getElementById("modalPlayerInfo-content-txt").innerHTML = meinfo;
+              //document.getElementById("who").innerHTML = pname.replace(" ", "<br>");
               }
             }
             if ("playerName" in localStorage) {
@@ -964,7 +999,7 @@
 
           function firstSetup() {
             alert("firstSetup")
-            localStorage.setItem("playerName", "Dale Aitkenhead");
+            localStorage.setItem("playerName", "Bryan Dale Aitkenhead");
           }
           // non function() code so runs ..
           // close by click the player info  
