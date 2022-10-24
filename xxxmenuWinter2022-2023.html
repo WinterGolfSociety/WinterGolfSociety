@@ -110,7 +110,7 @@
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
-      .xxmodalsearch,
+      .modalPlayerSearch,
       .amodalWhatsNew,
       .modalPlayerInfo {
     //    display: none;
@@ -126,7 +126,7 @@
         background-color: rgba(0, 0, 0, 0.4);
       }
 
-      .xxmodalsearch-content,
+      .modalPlayerSearch-content,
       .amodalWhatsNew-content,
       .modalPlayerInfo-content {
         background-color: rgba(30, 144, 255, 0.9); //dodgerBlue;
@@ -380,7 +380,7 @@
         background-color: #eee;
       }
 
-      .xxmodalsearch {
+      .modalPlayerSearch {
         display: none;
         margin: auto;
         padding: 5vw;
@@ -388,7 +388,7 @@
         font-size: 5vw;
       }
 
-      .xxmodalsearch-content {
+      .modalPlayerSearch-content {
         background-color: dodgerBlue;
         margin: auto;
         padding: 5vw;
@@ -453,8 +453,8 @@
     
     
     
-    <div id="xxmodalsearch" class="xxmodalsearch">
-      <div class="xxmodalsearch-content">
+    <div id="modalPlayerSearch" class="modalPlayerSearch">
+      <div class="modalPlayerSearch-content">
         <span class="close" id="closex">&times;</span> To change player, use text to search .. select the button to accept. <br>
         <br>
         <input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="enter name to search for">
@@ -465,7 +465,7 @@
           </li>
         </ul>
         <br>
-        <button id="myAold" onclick="b1button()"></button>
+        <button id="myAold" onclick="modalPlayerSearchbutton()"></button>
         <br>
         <br>
       </div>
@@ -887,11 +887,11 @@
           }
         }
 
-        function b1button() {
+        function xxxxxb1button() {
           var b1x = document.getElementById("myAold");
           var b1xx = b1x.innerText;
           // close modal search
-          var modalsearch = document.getElementById("xxmodalsearch");
+          var modalsearch = document.getElementById("modalPlayerSearch");
           modalsearch.style.display = "none";
           displayPlayer("Bryan Maddison")
         }
@@ -936,11 +936,11 @@
           Papa.parse(public_spreadsheet_url, {
             download: true,
             header: true,
-            complete: showInfox
+            complete: showPlayerInfo
           });
         }
 
-        function showInfox(results) {
+        function showPlayerInfo(results) {
           if ("playerName" in localStorage) {
             var pname = localStorage.getItem("playerName");
           } else {
@@ -995,6 +995,11 @@
             } else {
               var xpwinterhcp = "nothing"
             }
+            
+            
+                      
+            
+            
           }
 
           function firstSetup() {
@@ -1004,10 +1009,10 @@
           // non function() code so runs ..
           // close by click the player info  
           var xxclosex = document.getElementById("closex");
-          var xxmodalsearchx = document.getElementById("xxmodalsearch");
+          var modalPlayerSearchx = document.getElementById("modalPlayerSearch");
           xxclosex.onclick = function(event) {
             xxclosex.style.display = "none";
-            xxmodalsearchx.style.display = "none";
+            modalPlayerSearchx.style.display = "none";
           }
           vplayer = localStorage.getItem("playerName");
           vhcp = localStorage.getItem("playerHCP");
@@ -1023,7 +1028,7 @@
           span1.onclick = function() {
             modalsearch.style.display = "none";
           }
-          var modalsearch = document.getElementById("xxmodalsearch");
+          var modalsearch = document.getElementById("modalPlayerSearch");
           var btnsearch = document.getElementById("myBtnsearch");
           var psearch = document.getElementById("myPsearch");
           window.onclick = function(event) {
@@ -1033,7 +1038,7 @@
           }
 
           function testswap() {
-            swapp = document.getElementById("xxmodalsearch");
+            swapp = document.getElementById("modalPlayerSearch");
             swapp.style.display = "block"
           }
 
@@ -1061,9 +1066,9 @@
             }
           }
 
-          function b1button() {
+          function modalPlayerSearchbutton() {
             x = document.getElementById("myAold").innerText;
-            alert(x)
+            //alert(x)
             if ("playerName" in localStorage) {
               var playerNameretrieved = localStorage.getItem("playerName");
             } else {
@@ -1077,21 +1082,22 @@
             Papa.parse(public_spreadsheet_url, {
               download: true,
               header: true,
-              complete: showInfoxx(x)
+              complete: showInfoxx
             });
           }
 
-          function showInfoxx(results, pname) {
+          function showInfoxx(results) {
+           var newPlayerName = localStorage.getItem("playerName");  
             var datax = results.data
             //search google sheets for info
             for (i = 0; i < datax.length; i++) {
-              if (datax[i].Name == pname) {
+              if (datax[i].Name == newPlayerName) {
                 var meinfo = "hcp not found .."
                 meinfo = datax[i].Name + "  <br> Hcp index: " + 
                          datax[i].Handicap + " <br> Lakes hcp: " + 
-                         parseInt(datax[i].Lakes) + " <br> Dawson hcp: " +
-                         parseInt(datax[i].Dawson)  + " <br> Winter hcp: " +
-                         parseInt(datax[i].Winter);
+                         datax[i].Lakes + " <br> Dawson hcp: " +
+                         datax[i].Dawson  + " <br> Winter hcp: " +
+                         datax[i].Winter;
                 // add player hcp details here
                 localStorage.setItem("playerName", datax[i].Name.toString());
                 localStorage.setItem("playerHCP", datax[i].Handicap.toString());
@@ -1099,9 +1105,14 @@
                 localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
                 localStorage.setItem("WinterHCP", datax[i].Winter.toString());
               }
+             
             }
-            localStorage.setItem("playerHCP", x);
+            //alert("reload") 
+            window.location.reload();
+  //          localStorage.setItem("playerHCP", x);
           }
     </script>
   </body>
 </html>
+
+
