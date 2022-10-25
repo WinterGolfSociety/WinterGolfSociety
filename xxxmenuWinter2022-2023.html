@@ -1007,22 +1007,21 @@
           if ("playerName" in localStorage) {
             var pname = localStorage.getItem("playerName");
           } else {
-            //alert('no playerName');
+            alert('no data set');
           }
           var datax = results.data
           for (i = 0; i < datax.length; i++) {
             if (datax[i].Name == pname) {
               var meinfo = "hcp not found .."
-              meinfo = datax[i].Name + "  <br> Hcp index: " + 
-                         datax[i].Handicap + " <br> Lakes hcp: " + 
-                         datax[i].Lakes + " <br> Dawson hcp: " +
-                         datax[i].Dawson  + " <br> Winter hcp: " +
-                         datax[i].Winter;
-              localStorage.setItem("playerName", datax[i].Name.toString());
-              localStorage.setItem("playerHCP", datax[i].Handicap.toString());
-              localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
-              localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
-              localStorage.setItem("WinterHCP", datax[i].Winter.toString());
+              meinfo = datax[i].Name + "  ("  + datax[i].Handicap + ")" +
+              "<br><br> Lakes playing hcp: "  + datax[i].Lakes + 
+                  "<br> Dawson playing hcp: " + datax[i].Dawson  + 
+                  "<br> Winter playing hcp: " + datax[i].Winter;
+              //localStorage.setItem("playerName", datax[i].Name.toString());
+              //localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+              //localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+              //localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+              //localStorage.setItem("WinterHCP", datax[i].Winter.toString());
               
               
               //alert(datax[i].Winter.toString())
@@ -1031,7 +1030,7 @@
               //document.getElementById("modalPlayerInfo-content").style.visible = "block";
               document.getElementById("modalPlayerInfo-content-txt").innerHTML = meinfo;
               //document.getElementById("who").innerHTML = pname.replace(" ", "<br>");
-              }
+              } 
             }
             if ("playerName" in localStorage) {
               var xpname = localStorage.getItem("playerName");
