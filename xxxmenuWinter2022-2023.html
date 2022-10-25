@@ -415,6 +415,10 @@
         margin-left: 20%;
         margin-bottom: 5%;
       }
+      
+      #txtForSearch {
+      font-size: 5vw;   
+      }
 
       ::placeholder {
         /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -451,8 +455,9 @@
          <!--
         <span class="close1">&times;</span>
         -->
-        <br>
+        
         <a id="modalPlayerInfo-content-txt">searching ...</a>
+        <br>
       </div>
     </div>
     
@@ -460,7 +465,10 @@
     
     <div id="modalPlayerSearch" class="modalPlayerSearch">
       <div class="modalPlayerSearch-content">
-        <span class="close" id="closex">&times;</span><a id="txtForSearch">Use text to search .. select the button to accept.</a><br><br>
+         <!--
+        <span class="close" id="closex">&times;</span>
+        -->
+        <a id="txtForSearch">Use text to search .. select the button to accept.</a><br><br>
         
         <input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="enter name to search for">
         
@@ -640,7 +648,66 @@
         else {
           document.getElementById("who").innerHTML = "unknown"
         }
-        var arr = ["dummy", "Graham Airey", "Dale Aitkenhead", "Stephen Alldridge", "Keith Belshaw", "Stewart Brodie", "Andy Davison", "Peter Holleran", "Bryan Maddison", ]
+        var arr = ['dummy',
+'Graham Airey',
+'Dale Aitkenhead',
+'Stephen Alldridge',
+'Keith Belshaw',
+'Craig Caesar',
+'Dave Cave',
+'Ken Clark',
+'Robert Connelly',
+'Jed Cornhill',
+'Alex Coupland',
+'Gary Cowman',
+'Neil Coxon',
+'Bryan Craggs',
+'Andy Davison',
+'John Dean',
+'Martin Edwards',
+'Joe Fletcher',
+'William French',
+'Norman Gilholm',
+'David Gilroy',
+'Graeme Gow',
+'Vince Graham',
+'Chris Green',
+'Rob Green',
+'Richard Hedley',
+'Clive Herbert',
+'Barry Hill',
+'Peter Holleran',
+'Roger Ireland',
+'Dav Jackson',
+'DavidT Jackson',
+'John Jackson',
+'Tom Lemin',
+'Jim Little',
+'Bryan Maddison',
+'John Matthews',
+'Tom McNally',
+'Steph Murray',
+'Darren Nelson',
+'Danny Norman',
+'Trevor Ord',
+'Mike Riddell',
+'Martin Rogers',
+'Eric Saddler',
+'Brian Simpson',
+'John Smith',
+'Tony Smith',
+'Ray Straker',
+'T Straker',
+'Neil Tait',
+'Roly Thompson',
+'Bob Toward',
+'Phil Wegner',
+'Gordon Willis',
+'Ron Woodcock',
+'Brian Wray',
+'John Wright',
+'James Young'
+]
         var x = ""
         // build values to search
         for (var ii = 0; ii < arr.length; ii++) {
@@ -662,52 +729,8 @@
         }
         // hcp list from 2022
         var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
- //getStorageInfo()       
-        
- 
-  
-      
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+         
         //============= functions =================
-        
-        
-        
-        
-        
-        
-        
-        
         
         function xxxxtesttidy() {
            
@@ -741,28 +764,17 @@
             var me1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid="
             
             var me2 = "&single=true"
-            alert("==" + pname + "==")
+            //alert("==" + pname + "==")
             
             
-            // 2d array
-            /*
-            let items = [
-            [1, 2],
-            [3, 4],
-            [5, 6]
-            ];
-            console.log(items[0][0]); // 1
-            console.log(items[0][1]); // 2
-            console.log(items[1][0]); // 3
-            console.log(items[1][1]); // 4
-            console.log(items);
-            */
+            
            
             let pages = [
                ["Bryan Maddxison", "01796067805"],
-               ["Bryan Maxddison", "01796067805"],
+               ["Bryan Maxddison", "01796067805"], //   [1][0],[1][1] etc
                ["Bryan Maddison", "1796067805"],
                ["Bryan Maddisoxn", "01796067805"],
+               ["Peter Holleran", "1824616118"]
                ];
            
             
@@ -770,22 +782,14 @@
                //alert(i + "pages[i][x]" + pages[i][0])
                if (pages[i][0].indexOf(pname) > -1) {
                   meid = pages[i][1]               
-                  alert("meid=" + meid)
+                  //alert("meid=" + meid)
                   var meall = me1 + meid + me2
                   window.open(meall)
                }
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
+           
           //  meall="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true"
-           alert(meall) 
+           //alert(meall) 
             window.open(meall)
             
         }
@@ -806,24 +810,52 @@
             var oneJan = new Date(currentdate.getFullYear(), 0, 1);
             var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
             var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-            var diary = [
+            var diary = [ 
             "Friday 7th Oct Lakes",
             "Friday 14th Oct Lakes",
             "Friday 21st Oct Lakes",
             "Friday 28th Oct Lakes",
-            "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 14th Oct Lakes", "Friday 21st Oct Lakes", "Friday 28th Oct Lakes", "Friday 4th Nov Dawson", "Friday 11th Nov Dawson", "Friday 18th Nov Dawson", "Friday 25th Nov Dawson", "Friday 2nd Dec Lakes", "Friday 9th Dec Lakes"]
+            "Friday 4th Nov Dawson",
+            "Friday 11th Nov Dawson",
+            "Friday 18th Nov Dawson",
+            "Friday 25th Nov Dawson",
+            "Friday 2nd Dec Lakes",
+            "Friday 9th Dec Lakes",
+            "Friday 16th Dec Lakes",
+            "Friday 23rd Dec Lakes",
+            "Friday 30th Dec Lakes",
+            "Friday 6th Jan Dawson",
+            "Friday 13th Jan Dawson",
+            "Friday 20th Jan Dawson",
+            "Friday 27th Jan Dawson",
+            "Friday 3rd Feb Lakes",
+            "Friday 10th Feb Lakes",
+            "Friday 17th Feb Lakes",
+            "Friday 24th Feb Lakes",
+            "Friday 3rd Mar Dawson",
+            "Friday 10th Mar Dawson",
+            "Friday 17th Mar Dawson",
+            "Friday 24th Mar Dawson",
+            "Friday 31st Mar Dawson",
+            "none",
+            "none",
+            "none",
+            "none",
+            "none",
+            "none"
+             ]
             var x1 = document.getElementById("txt1");
             var x2 = document.getElementById("txt2");
             var x3 = document.getElementById("txt3");
             var x4 = document.getElementById("txt4");
             var x5 = document.getElementById("txt5");
             var x6 = document.getElementById("txt6");
-            x1.innerText = diary[result - 35]
-            x2.innerText = diary[result - 34]
-            x3.innerText = diary[result - 33]
-            x4.innerText = diary[result - 32]
-            x5.innerText = diary[result - 31]
-            x6.innerText = diary[result - 30]
+            x1.innerText = diary[result - 40]
+            x2.innerText = diary[result - 39]
+            x3.innerText = diary[result - 38]
+            x4.innerText = diary[result - 37]
+            x5.innerText = diary[result - 36]
+            x6.innerText = diary[result - 35]
           }
         }
 
@@ -956,7 +988,7 @@
             eye++
           }
           if (eye > 0) {
-            alert("running firstSetup")
+            //alert("running firstSetup")
             //firstSetup()
           }     
           
@@ -976,7 +1008,7 @@
           if ("playerName" in localStorage) {
             var pname = localStorage.getItem("playerName");
           } else {
-            alert('no playerName');
+            //alert('no playerName');
           }
           var datax = results.data
           for (i = 0; i < datax.length; i++) {
@@ -1035,7 +1067,7 @@
           }
 
           function xxxxfirstSetup() {
-            alert("firstSetup")
+            //alert("firstSetup")
             localStorage.setItem("playerName", "Bryan Dale Aitkenhead");
           }
           // non function() code so runs ..
@@ -1049,7 +1081,66 @@
           vplayer = localStorage.getItem("playerName");
           vhcp = localStorage.getItem("playerHCP");
           input = document.getElementById("myAold").innerText = vplayer
-          var arr = ["dummy", "Graham Airey", "Dale Aitkenhead", "Stephen Alldridge", "Keith Belshaw", "Stewart Brodie", "Andy Davison", "Peter Holleran", "Bryan Maddison", ]
+          var arr = ['dummy',
+'Graham Airey',
+'Dale Aitkenhead',
+'Stephen Alldridge',
+'Keith Belshaw',
+'Craig Caesar',
+'Dave Cave',
+'Ken Clark',
+'Robert Connelly',
+'Jed Cornhill',
+'Alex Coupland',
+'Gary Cowman',
+'Neil Coxon',
+'Bryan Craggs',
+'Andy Davison',
+'John Dean',
+'Martin Edwards',
+'Joe Fletcher',
+'William French',
+'Norman Gilholm',
+'David Gilroy',
+'Graeme Gow',
+'Vince Graham',
+'Chris Green',
+'Rob Green',
+'Richard Hedley',
+'Clive Herbert',
+'Barry Hill',
+'Peter Holleran',
+'Roger Ireland',
+'Dav Jackson',
+'DavidT Jackson',
+'John Jackson',
+'Tom Lemin',
+'Jim Little',
+'Bryan Maddison',
+'John Matthews',
+'Tom McNally',
+'Steph Murray',
+'Darren Nelson',
+'Danny Norman',
+'Trevor Ord',
+'Mike Riddell',
+'Martin Rogers',
+'Eric Saddler',
+'Brian Simpson',
+'John Smith',
+'Tony Smith',
+'Ray Straker',
+'T Straker',
+'Neil Tait',
+'Roly Thompson',
+'Bob Toward',
+'Phil Wegner',
+'Gordon Willis',
+'Ron Woodcock',
+'Brian Wray',
+'John Wright',
+'James Young'
+]
           var x = ""
           // build values to search
           for (var ii = 0; ii < arr.length; ii++) {
@@ -1104,7 +1195,7 @@
             if ("playerName" in localStorage) {
               var playerNameretrieved = localStorage.getItem("playerName");
             } else {
-              alert('no player data found');
+              //alert('no player data found');
             }
             document.getElementById("txtForSearch").innerText = playerNameretrieved + " replaced with " + x;
             localStorage.setItem("playerName", x);
