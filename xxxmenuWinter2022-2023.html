@@ -120,8 +120,8 @@
         left: 0;
         top: 0;
         width: 80%;
-        height: 60%;
-        overflow: auto;
+        height: auto;
+        //overflow: auto;
         background-color: dodgerBlue;
         background-color: rgba(0, 0, 0, 0.4);
       }
@@ -273,7 +273,7 @@
         background-color: rgba(30, 144, 255, 0.9); //dodgerBlue;
         margin: auto;
         padding: 20px;
-        height: 50%;
+        height: auto; //50%;
         width: 80%;
         font-size: 3vmax;
         box-shadow: 10px 10px 25px black;
@@ -382,18 +382,21 @@
 
       .modalPlayerSearch {
         display: none;
-        margin: auto;
+        //margin: auto;
+        margin-top: 10px;
         padding: 5vw;
-        width: 90%;
+        width: 100%;
+        height: 100%;
         font-size: 5vw;
       }
 
       .modalPlayerSearch-content {
         background-color: dodgerBlue;
-        margin: auto;
+        //margin: auto;
         padding: 5vw;
         border: 1px solid #888;
-        width: 85%;
+        width: 80%;
+        height: auto;
         font-size: 5vw;
         border-radius: 15px;
         border: 5px solid rgba(255, 255, 255, 0.2);
@@ -445,7 +448,9 @@
      
     <div id="modalPlayerInfo" class="modalPlayerInfo">
       <div class="modalPlayerInfo-content">
+         <!--
         <span class="close1">&times;</span>
+        -->
         <br>
         <a id="modalPlayerInfo-content-txt">searching ...</a>
       </div>
@@ -455,18 +460,17 @@
     
     <div id="modalPlayerSearch" class="modalPlayerSearch">
       <div class="modalPlayerSearch-content">
-        <span class="close" id="closex">&times;</span> To change player, use text to search .. select the button to accept. <br>
-        <br>
+        <span class="close" id="closex">&times;</span><a id="txtForSearch">Use text to search .. select the button to accept.</a><br><br>
+        
         <input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="enter name to search for">
-        <br>
+        
         <ul id="myULold">
           <li>
             <a>empty</a>
           </li>
         </ul>
-        <br>
-        <button id="myAold" onclick="modalPlayerSearchbutton()"></button>
-        <br>
+        <br><br>
+        <button id="myAold" onclick="modalPlayerSearchButton()">no player selected</button>
         <br>
       </div>
     </div>
@@ -542,13 +546,13 @@
               <li>
                 <!--change to run function
                    function should refresh name after changed-->
-                <a href="javascript:testswap()" id="menuItems">swap player</a>
+                <a href="javascript:testswap()" id="menuItems">set player</a>
               </li>
-              
+              <!-- change user 
               <li>
                 <a href="javascript:testtidy()" id="menuItems">test tidy</a>
               </li>
-              
+              -->
             </ul>
           </li>
         </ul>
@@ -705,7 +709,7 @@
         
         
         
-        function testtidy() {
+        function xxxxtesttidy() {
            
         localStorage.removeItem('playerName');   
          localStorage.removeItem('playerHCP');
@@ -802,7 +806,12 @@
             var oneJan = new Date(currentdate.getFullYear(), 0, 1);
             var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
             var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-            var diary = ["Friday 7th Oct Lakes", "Friday 14th Oct Lakes", "Friday 21st Oct Lakes", "Friday 28th Oct Lakes", "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 14th Oct Lakes", "Friday 21st Oct Lakes", "Friday 28th Oct Lakes", "Friday 4th Nov Dawson", "Friday 11th Nov Dawson", "Friday 18th Nov Dawson", "Friday 25th Nov Dawson", "Friday 2nd Dec Lakes", "Friday 9th Dec Lakes"]
+            var diary = [
+            "Friday 7th Oct Lakes",
+            "Friday 14th Oct Lakes",
+            "Friday 21st Oct Lakes",
+            "Friday 28th Oct Lakes",
+            "Friday 7th Oct Lakes", "Friday 7th Oct Lakes", "Friday 14th Oct Lakes", "Friday 21st Oct Lakes", "Friday 28th Oct Lakes", "Friday 4th Nov Dawson", "Friday 11th Nov Dawson", "Friday 18th Nov Dawson", "Friday 25th Nov Dawson", "Friday 2nd Dec Lakes", "Friday 9th Dec Lakes"]
             var x1 = document.getElementById("txt1");
             var x2 = document.getElementById("txt2");
             var x3 = document.getElementById("txt3");
@@ -891,7 +900,7 @@
           input = document.getElementById("myInputold");
           if (input.value == "") {
             xx = document.getElementById("myAold");
-            xx.innerText = "none"
+            xx.innerText = "no player selected"
           } else {
             filter = input.value.toUpperCase();
             ul = document.getElementById("myULold");
@@ -919,7 +928,7 @@
           displayPlayer("Bryan Maddison")
         }
 
-        function getStorageInfo() {
+        function xxxxgetStorageInfo() {
           var eye = 0;
           if ("playerName" in localStorage) {
             varpname = localStorage.getItem("playerName");
@@ -1025,7 +1034,7 @@
             
           }
 
-          function firstSetup() {
+          function xxxxfirstSetup() {
             alert("firstSetup")
             localStorage.setItem("playerName", "Bryan Dale Aitkenhead");
           }
@@ -1089,14 +1098,15 @@
             }
           }
 
-          function modalPlayerSearchbutton() {
+          function modalPlayerSearchButton() {
             x = document.getElementById("myAold").innerText;
             //alert(x)
             if ("playerName" in localStorage) {
               var playerNameretrieved = localStorage.getItem("playerName");
             } else {
-              alert('no player dawson hcp');
+              alert('no player data found');
             }
+            document.getElementById("txtForSearch").innerText = playerNameretrieved + " replaced with " + x;
             localStorage.setItem("playerName", x);
             //alert(playerNameretrieved + " replaced with " + x)
             // need to retrieve hcp and store etc.
@@ -1105,11 +1115,11 @@
             Papa.parse(public_spreadsheet_url, {
               download: true,
               header: true,
-              complete: showInfoxx
+              complete: showInfoPlayerSearch
             });
           }
 
-          function showInfoxx(results) {
+          function showInfoPlayerSearch(results) {
            var newPlayerName = localStorage.getItem("playerName");  
             var datax = results.data
             //search google sheets for info
