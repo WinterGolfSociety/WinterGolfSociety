@@ -1197,7 +1197,7 @@
               alert('no player data found');
             }
             // only change if player name is selected
-            if (playerName == "no player selected") {
+            if (playerName !== "no player selected") {
                document.getElementById("txtForSearch").innerText = playerNameretrieved + " replaced with " + x;
                localStorage.setItem("playerName", x);
                //alert(playerNameretrieved + " replaced with " + x)
