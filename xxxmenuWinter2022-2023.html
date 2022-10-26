@@ -477,7 +477,7 @@
           </li>
         </ul>
         <br><br>
-        <button id="myAold" onclick="modalPlayerSearchButton()">no player selected</button>
+        <button id="myAold" onclick="modalPlayerSearchButton()">cancel</button>
         <br>
       </div>
     </div>
@@ -912,7 +912,7 @@
           input = document.getElementById("myInputold");
           if (input.value == "") {
             xx = document.getElementById("myAold");
-            xx.innerText = "no player selected"
+            xx.innerText = "cancel"
           } else {
             filter = input.value.toUpperCase();
             ul = document.getElementById("myULold");
@@ -1171,24 +1171,27 @@
           function modalPlayerSearchButton() {
             x = document.getElementById("myAold").innerText;
             //alert(x)
-            if ("playerName" in localStorage) {
-              var playerNameretrieved = localStorage.getItem("playerName");
-            } else {
-              alert('no player data found');
+            if (x == "cancel") {
+               window.location.reload()
+            } else {   
+               if ("playerName" in localStorage) {
+                  var playerNameretrieved = localStorage.getItem("playerName");
+                  } else {
+                     alert('no player data found');
+                  }
+                  document.getElementById("txtForSearch").innerText = playerNameretrieved + " replaced with " + x;
+                  localStorage.setItem("playerName", x);
+                  //alert(playerNameretrieved + " replaced with " + x)
+                  // need to retrieve hcp and store etc.
+                  // hcp list from 2022
+                  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+                  Papa.parse(public_spreadsheet_url, {
+                     download: true,
+                     header: true,
+                     complete: showInfoPlayerSearch
+                  });
             }
-            
-               document.getElementById("txtForSearch").innerText = playerNameretrieved + " replaced with " + x;
-               localStorage.setItem("playerName", x);
-               //alert(playerNameretrieved + " replaced with " + x)
-               // need to retrieve hcp and store etc.
-               // hcp list from 2022
-               var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
-               Papa.parse(public_spreadsheet_url, {
-                  download: true,
-                  header: true,
-                  complete: showInfoPlayerSearch
-               });
-           }
+          }
 
           function showInfoPlayerSearch(results) {
            var newPlayerName = localStorage.getItem("playerName");  
