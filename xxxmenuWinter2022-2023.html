@@ -29,7 +29,7 @@
       }
 
       .dropdownMenu {
-        background-color: rgba(30, 144, 255, 0.9);
+        background-color: rgba(30, 144, 255, 0.85);
         color: white;
         text-align: left;
         text-decoration: none;
@@ -53,6 +53,7 @@
         border: 3px solid rgba(255, 255, 255, 0.2);
         box-shadow: 10px 10px 25px black;
         background-clip: padding-box;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
       .dropdownMenu li {
@@ -111,16 +112,19 @@
       }
 
       .modalPlayerSearch,
-      .amodalWhatsNew,
       .modalPlayerInfo {
-    //    display: none;
+        display: none;
         position: fixed;
+        //overflow: auto;
         z-index: 1;
-        padding-top: 50vmax;
+        //padding-top: 50vmax;
         left: 0;
         top: 0;
-        width: 80%;
+        width: auto;
         height: auto;
+        //padding-top: 100px;
+        //width: 100%;
+        //height: 100%;
         //overflow: auto;
         background-color: dodgerBlue;
         background-color: rgba(0, 0, 0, 0.4);
@@ -129,7 +133,7 @@
       .modalPlayerSearch-content,
       .amodalWhatsNew-content,
       .modalPlayerInfo-content {
-        background-color: rgba(30, 144, 255, 0.9); //dodgerBlue;
+        background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
         margin: 10px;
         padding: 10px;
         width: 80%;
@@ -138,6 +142,7 @@
         border-radius: 15px;
         border: 3px solid rgba(255, 255, 255, 0.2);
         background-clip: padding-box;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
       .close {
@@ -169,7 +174,7 @@
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
-      #ap-WhatsNew-content {
+      #xxxxxap-WhatsNew-content {
         color: white;
         font-size: 3vmax;
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
@@ -187,10 +192,11 @@
         border: 3px solid rgba(255, 255, 255, 0.2);
         box-shadow: 10px 10px 25px black;
         background-clip: padding-box;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
       #menuItems:hover {
-        background-color: rgba(30, 144, 255, 0.9); //dodgerBlue;
+        background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
       }
 
       #myInputold {
@@ -227,7 +233,7 @@
       }
 
       #myULold li a {
-        border: 1px solid white;
+        border: 2px solid white;
         margin-top: -1px;
         /* Prevent double borders */
         background-color: #f6f6f6;
@@ -242,18 +248,9 @@
         background-color: #eee;
       }
 
-      #myAold {
-        margin-top: -1px;
-        /* Prevent double borders */
-        padding: 2px 12px 2px 0px; //t,r,b,l
-        text-decoration: none;
-        font-size: 3vmax;
-        color: white;
-        display: block background: dodgerBlue;
-        width: 50%;
-      }
+      
 
-      .modalsearch,
+      .xxxxmodalsearch,
       .modalPlayerInfo {
         display: none;
         position: fixed;
@@ -268,9 +265,9 @@
         background-color: rgba(0, 0, 0, 0.4);
       }
 
-      .modalsearch-content,
+      .xxxxmodalsearch-content,
       .modalPlayerInfo-content {
-        background-color: rgba(30, 144, 255, 0.9); //dodgerBlue;
+        background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
         margin: auto;
         padding: 20px;
         height: auto; //50%;
@@ -282,7 +279,7 @@
       }
 
       #closemenubutton {
-        background-color: rgba(30, 144, 255, 0.9); //dodgerBlue;
+        background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
         color: white;
         text-align: center;
         text-decoration: none;
@@ -297,6 +294,7 @@
         visibility: hidden;
         border: 3px solid rgba(255, 255, 255, 0.2);
         background-clip: padding-box;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
       #menubutton1 {
@@ -399,21 +397,37 @@
         height: auto;
         font-size: 5vw;
         border-radius: 15px;
-        border: 5px solid rgba(255, 255, 255, 0.2);
+        border: 3px solid rgba(255, 255, 255, 0.2);
         box-shadow: 10px 10px 25px black;
       }
 
       #myAold {
+         
+       
+        margin-top: -1px;
+        /* Prevent double borders */
+        //padding: 2px 12px 2px 0px; //t,r,b,l
+        //text-decoration: none;
+        //font-size: 3vmax;
+        //color: white;
+        //display: block background: dodgerBlue;
+        //width: 50%;
+        
+      
+         
+         
+         
         width: 60%;
         color: white;
         background: dodgerblue;
         font-size: 5vw;
         padding: 10px;
         border-radius: 15px;
-        border: 5px solid rgba(255, 255, 255, 0.2);
+        border: 3px solid rgba(255, 255, 255, 0.2);
         box-shadow: 10px 10px 25px black;
         margin-left: 20%;
         margin-bottom: 5%;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
       
       #txtForSearch {
@@ -448,8 +462,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
   </head>
   <body>
-     
-     
     <div id="modalPlayerInfo" class="modalPlayerInfo">
       <div class="modalPlayerInfo-content">
          <!--
@@ -459,18 +471,10 @@
         <br><br>
       </div>
     </div>
-    
-    
-    
     <div id="modalPlayerSearch" class="modalPlayerSearch">
       <div class="modalPlayerSearch-content">
-         <!--
-        <span class="close" id="closex">&times;</span>
-        -->
         <a id="txtForSearch">Use text to search .. select the button to accept.</a><br><br>
-        
         <input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="enter name to search for">
-        
         <ul id="myULold">
           <li>
             <a>empty</a>
@@ -510,17 +514,7 @@
     </div>
     <div class="menucontainer">
       <div class="menucontainerItem1">
-        <!-- menu 
-        <ul class="dropdownMenu" onmouseover="vanish()" onmouseout="unvanish()">
-            -->
-            
-            
-            
           <ul class="dropdownMenu" onmouseout="unvanish()" onmouseover="vanish()"">   
-            
-            
-            
-            
           <li>
             <a href="#">show menu</a>
             <ul>
@@ -555,11 +549,6 @@
                    function should refresh name after changed-->
                 <a href="javascript:testswap()" id="menuItems">set player</a>
               </li>
-              <!-- change user 
-              <li>
-                <a href="javascript:testtidy()" id="menuItems">test tidy</a>
-              </li>
-              -->
             </ul>
           </li>
         </ul>
@@ -567,21 +556,7 @@
       <div class="menucontainerItem2">
         <br>
         <a id="myAtest"></a>
-        
-        
-        
-        
-        
-        <!--
-        <button id="closemenubutton" ></button>
-        -->
-        <button id="closemenubutton" onclick="vanish()" ></button> 
-        
-        
-        
-        
-        
-        
+        <button id="closemenubutton" onclick="vanish()" ></button>   
       </div>
     </div>
     <div class="menucontainer">
@@ -597,42 +572,13 @@
     </div>
     <br>
     <br>
-    <div id="modalsearch" class="modalsearch">
-      <div class="modalsearch-content">
-        <span class="close" id="closeplayersearch">&times;</span> Search for player <br>
-        <br>
-        <input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="none">
-        <br>
-        <br>
-        <ul id="myULold">
-          <li>
-            <a>empty</a>
-          </li>
-        </ul>
-        <a id="myAold">none</a>found .. <br>
-        <br>
-        <button id="menubutton1" onclick="b1button()">show info</button>
-      </div>
-    </div>
+    
     <div id="spacer"></div>
     <script>
        var close1x = document.getElementById("modalPlayerInfo");
       close1x.onclick = function(event) {
         close1x.style.display = "none";
       }
-       
-       
-       
-       
-       
-       
-       
-      // close by click the player info  
-      var modalsearchx = document.getElementById("modalsearch");
-      modalsearchx.onclick = function(event) {
-        modalsearchx.style.display = "none";
-      }
-      
       if (document.readyState == 'loading') {
         // still loading, wait for the event
         document.addEventListener('DOMContentLoaded', weeknumber());
@@ -720,36 +666,10 @@
         hcpchecker1.onclick = function() {
           hcpchecker1.style.display = "none";
         }
-        var modalsearch = document.getElementById("modalsearch");
-        window.onclick = function(event) {
-          if (event.target == modalsearch) {
-            modalsearch.style.display = "none";
-          }
-        }
         // hcp list from 2022
         var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
          
         //============= functions =================
-        
-        function xxxxtesttidy() {
-           
-        localStorage.removeItem('playerName');   
-         localStorage.removeItem('playerHCP');
-         localStorage.removeItem('LakesHCP');
-         localStorage.removeItem('DawsonHCP');  
-         localStorage.removeItem('WinterHCP');
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         function myInfo() {
            // cope with each user
            // id's
@@ -773,7 +693,6 @@
                }
            }
         }
-        
         
         function weeknumber() {
           // check if already there
@@ -901,8 +820,6 @@
         }
 
         function testsmod() {
-          input = document.getElementById("modalsearch");
-          input.style.display = 'block';
           inputfocus = document.getElementById("myInputold");
           inputfocus.focus();
         }
@@ -931,49 +848,6 @@
           }
         }
 
-        function xxxxxb1button() {
-          var b1x = document.getElementById("myAold");
-          var b1xx = b1x.innerText;
-          // close modal search
-          var modalsearch = document.getElementById("modalPlayerSearch");
-          modalsearch.style.display = "none";
-          displayPlayer("Bryan Maddison")
-        }
-
-        function xxxxgetStorageInfo() {
-          var eye = 0;
-          if ("playerName" in localStorage) {
-            varpname = localStorage.getItem("playerName");
-          } else {
-            eye++
-          }
-          if ("playerHCP" in localStorage) {
-            phcp = localStorage.getItem("playerHCP");
-          } else {
-            eye++
-          }
-          if ("LakesHCP" in localStorage) {
-            lhcp = localStorage.getItem("LakesHCP");
-          } else {
-            eye++
-          }
-          if ("DawsonHCP" in localStorage) {
-            dhcp = localStorage.getItem("DawsonHCP");
-          } else {
-            eye++
-          }
-          if ("WinterHCP" in localStorage) {
-            whcp = localStorage.getItem("WinterHCP");
-          } else {
-            eye++
-          }
-          if (eye > 0) {
-            //alert("running firstSetup")
-            //firstSetup()
-          }     
-          
-        }
-
         function PlayerInfo() {
           document.getElementById("modalPlayerInfo").style.display = "block";
           var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
@@ -998,19 +872,7 @@
               "<br><br> Lakes playing hcp: "  + datax[i].Lakes + 
                   "<br> Dawson playing hcp: " + datax[i].Dawson  + 
                   "<br> Winter playing hcp: " + datax[i].Winter;
-              //localStorage.setItem("playerName", datax[i].Name.toString());
-              //localStorage.setItem("playerHCP", datax[i].Handicap.toString());
-              //localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
-              //localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
-              //localStorage.setItem("WinterHCP", datax[i].Winter.toString());
-              
-              
-              //alert(datax[i].Winter.toString())
-              
-              
-              //document.getElementById("modalPlayerInfo-content").style.visible = "block";
               document.getElementById("modalPlayerInfo-content-txt").innerHTML = meinfo;
-              //document.getElementById("who").innerHTML = pname.replace(" ", "<br>");
               } 
             }
             if ("playerName" in localStorage) {
@@ -1037,29 +899,27 @@
               var xpwinterhcp = localStorage.getItem("WinterHCP");
             } else {
               var xpwinterhcp = "nothing"
-            }
-            
-            
-                      
-            
-            
+            }          
           }
 
-          function xxxxfirstSetup() {
-            //alert("firstSetup")
-            localStorage.setItem("playerName", "Bryan Dale Aitkenhead");
-          }
+
           // non function() code so runs ..
           // close by click the player info  
+          /*
           var xxclosex = document.getElementById("closex");
           var modalPlayerSearchx = document.getElementById("modalPlayerSearch");
           xxclosex.onclick = function(event) {
             xxclosex.style.display = "none";
             modalPlayerSearchx.style.display = "none";
           }
+          
+          */
+          
           vplayer = localStorage.getItem("playerName");
           vhcp = localStorage.getItem("playerHCP");
           input = document.getElementById("myAold").innerText = vplayer
+   /*
+   
           var arr = ['dummy',
 'Graham Airey',
 'Dale Aitkenhead',
@@ -1133,44 +993,19 @@
           var modalsearch = document.getElementById("modalPlayerSearch");
           var btnsearch = document.getElementById("myBtnsearch");
           var psearch = document.getElementById("myPsearch");
-          window.onclick = function(event) {
-            if (event.target == modalsearch) {
-              modalsearch.style.display = "none";
-            }
-          }
-
+ 
+ 
+ */
+ 
+ 
+          
           function testswap() {
             swapp = document.getElementById("modalPlayerSearch");
             swapp.style.display = "block"
           }
 
-          function myFunctionx() {
-            var input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById("myInputold");
-            if (input.value == "") {
-              xx = document.getElementById("myAold");
-              xx.innerText = "none"
-            } else {
-              filter = input.value.toUpperCase();
-              ul = document.getElementById("myULold");
-              li = ul.getElementsByTagName("li");
-              for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("p")[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  li[i].style.display = "";
-                  xx = document.getElementById("myAold");
-                  xx.innerText = txtValue
-                } else {
-                  li[i].style.display = "none";
-                }
-              }
-            }
-          }
-
           function modalPlayerSearchButton() {
             x = document.getElementById("myAold").innerText;
-            //alert(x)
             if (x == "cancel") {
                window.location.reload()
             } else {   
@@ -1181,8 +1016,6 @@
                   }
                   document.getElementById("txtForSearch").innerText = playerNameretrieved + " replaced with " + x;
                   localStorage.setItem("playerName", x);
-                  //alert(playerNameretrieved + " replaced with " + x)
-                  // need to retrieve hcp and store etc.
                   // hcp list from 2022
                   var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
                   Papa.parse(public_spreadsheet_url, {
@@ -1214,12 +1047,9 @@
               }
              
             }
-            //alert("reload") 
             window.location.reload();
-  //          localStorage.setItem("playerHCP", x);
           }
     </script>
   </body>
 </html>
-
 
