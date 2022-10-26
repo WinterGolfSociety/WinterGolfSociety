@@ -111,32 +111,25 @@
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
-      .modalPlayerSearch,
+      
       .modalPlayerInfo {
         display: none;
         position: fixed;
-        //overflow: auto;
         z-index: 1;
-        //padding-top: 50vmax;
         left: 0;
         top: 0;
-        width: auto;
-        height: auto;
-        //padding-top: 100px;
-        //width: 100%;
-        //height: 100%;
-        //overflow: auto;
+        width: 100%;
+        height: 100%;
         background-color: dodgerBlue;
         background-color: rgba(0, 0, 0, 0.4);
       }
 
-      .modalPlayerSearch-content,
-      .amodalWhatsNew-content,
       .modalPlayerInfo-content {
-        background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
-        margin: 10px;
+        background-color: rgba(30, 144, 255, 0.85);
+        margin: 10%;
         padding: 10px;
         width: 80%;
+        height: auto;
         font-size: 3vmax;
         box-shadow: 10px 10px 25px black;
         border-radius: 15px;
@@ -166,17 +159,12 @@
       #txt4,
       #txt5,
       #txt6 {
+        visibility:hidden
         color: white;
         font-size: 3vmax;
         -webkit-transition: all 2s ease;
         -o-transition: all 2s ease;
         transition: all 2s ease;
-        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      }
-
-      #xxxxxap-WhatsNew-content {
-        color: white;
-        font-size: 3vmax;
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
@@ -203,140 +191,6 @@
         color: white;
         background: dodgerBlue;
         border: 2px solid white;
-        width: 50%;
-        font-size: 3vmax;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        padding: 2px 12px 2px 12px; //t,r,b,l
-        outline: none;
-      }
-
-      #myinputold:focus {
-        background-color: lightblue;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: none;
-        border: 2px solid cyan;
-      }
-
-      #myinputold:selected {
-        border: 2px solid cyan;
-      }
-
-      #myULold {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: none;
-      }
-
-      #myULold li a {
-        border: 2px solid white;
-        margin-top: -1px;
-        /* Prevent double borders */
-        background-color: #f6f6f6;
-        padding: 12px;
-        text-decoration: none;
-        font-size: 4vmax;
-        color: black;
-        display: block
-      }
-
-      #myULold li a:hover:not(.header) {
-        background-color: #eee;
-      }
-
-      
-
-      .xxxxmodalsearch,
-      .modalPlayerInfo {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        padding-top: 100px;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: dodgerBlue;
-        background-color: rgba(0, 0, 0, 0.4);
-      }
-
-      .xxxxmodalsearch-content,
-      .modalPlayerInfo-content {
-        background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
-        margin: auto;
-        padding: 20px;
-        height: auto; //50%;
-        width: 80%;
-        font-size: 3vmax;
-        box-shadow: 10px 10px 25px black;
-        border-radius: 15px;
-        border: 3px solid rgba(255, 255, 255, 0.2);
-      }
-
-      #closemenubutton {
-        background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 3vmax;
-        margin: 4px 2px;
-        cursor: pointer;
-        height: 25vmin;
-        width: 25vmin;
-        border-radius: 50%;
-        box-shadow: 10px 10px 25px black;
-        visibility: hidden;
-        border: 3px solid rgba(255, 255, 255, 0.2);
-        background-clip: padding-box;
-        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      }
-
-      #menubutton1 {
-        width: 50vmax;
-        text-align: center;
-        color: white;
-        background: dodgerblue;
-        font-size: 3vmax;
-        box-shadow: 10px 10px 25px black;
-        border-radius: 15px;
-        border: 3px solid rgba(255, 255, 255, 0.2);
-        width: 60%;
-        color: white;
-        background: dodgerblue;
-        font-size: 3vw;
-        padding: 10px;
-        border-radius: 15px;
-        border: 3px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 10px 10px 25px black;
-        margin-left: 20%;
-        margin-bottom: 100%;
-        background-clip: padding-box;
-      }
-
-      .menucontainer {
-        display: grid;
-        grid-template-columns: auto 30%;
-        height: 150%;
-      }
-
-      #who {
-        font-size: 4vw;
-      }
-
-      #spacer {
-        height: 75vh;
-      }
-
-      #myInputold {
-        color: white;
-        background: dodgerBlue;
-        border: 2px solid white;
         width: 90%;
         font-size: 5vw;
         list-style-type: none;
@@ -347,6 +201,8 @@
       #myinputold:focus {
         background-color: lightblue;
         list-style-type: none;
+        padding: 0;
+        margin: 0;
         display: none;
         border: 2px solid cyan;
       }
@@ -372,51 +228,74 @@
         font-size: 5vw;
         color: black;
         display: block
-      }
-
+      }   
+        
       #myULold li a:hover:not(.header) {
         background-color: #eee;
       }
 
+      #closemenubutton {
+        background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 3vmax;
+        margin: 4px 2px;
+        cursor: pointer;
+        height: 25vmin;
+        width: 25vmin;
+        border-radius: 50%;
+        box-shadow: 10px 10px 25px black;
+        visibility: hidden;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        background-clip: padding-box;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+      }
+
+      .menucontainer {
+        display: grid;
+        grid-template-columns: auto 30%;
+        height: 150%;
+      }
+
+      #who {
+        font-size: 4vw;
+      }
+
+      #spacer {
+        height: 75vh;
+      }
+
       .modalPlayerSearch {
         display: none;
-        //margin: auto;
-        margin-top: 10px;
-        padding: 5vw;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
         width: 100%;
         height: 100%;
-        font-size: 5vw;
+        background-color: rgba(0, 0, 0, 0.4);
       }
 
       .modalPlayerSearch-content {
-        background-color: dodgerBlue;
-        //margin: auto;
-        padding: 5vw;
-        border: 1px solid #888;
-        width: 80%;
+        background-color: rgba(30, 144, 255, 0.85);
+      margin: 5%;
+      padding: 5%;
+        width: 70%;
         height: auto;
         font-size: 5vw;
         border-radius: 15px;
         border: 3px solid rgba(255, 255, 255, 0.2);
         box-shadow: 10px 10px 25px black;
+        border-radius: 15px;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        background-clip: padding-box;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
       #myAold {
-         
-       
-        margin-top: -1px;
-        /* Prevent double borders */
-        //padding: 2px 12px 2px 0px; //t,r,b,l
-        //text-decoration: none;
-        //font-size: 3vmax;
-        //color: white;
-        //display: block background: dodgerBlue;
-        //width: 50%;
-        
-      
-         
-         
-         
+        margin-top: -1px;      
         width: 60%;
         color: white;
         background: dodgerblue;
@@ -431,7 +310,11 @@
       }
       
       #txtForSearch {
-      font-size: 5vw;   
+         color: lightGray;
+         font-size: 3vw; 
+         font-style: italic;
+         margin-top: 10%;
+         margin-bottom:10%;  
       }
 
       ::placeholder {
@@ -464,16 +347,13 @@
   <body>
     <div id="modalPlayerInfo" class="modalPlayerInfo">
       <div class="modalPlayerInfo-content">
-         <!--
-        <span class="close1">&times;</span>
-        -->
         <a id="modalPlayerInfo-content-txt">searching ...</a>
         <br><br>
       </div>
     </div>
     <div id="modalPlayerSearch" class="modalPlayerSearch">
       <div class="modalPlayerSearch-content">
-        <a id="txtForSearch">Use text to search .. select the button to accept.</a><br><br>
+        <a id="txtForSearch">enter text to search .. select the button to accept.</a>
         <input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="enter name to search for">
         <ul id="myULold">
           <li>
@@ -698,7 +578,7 @@
           // check if already there
           var checkline = document.getElementById("txt1").innerText
           if (checkline.indexOf("Friday") > -1) {
-            document.getElementById("txt1").innerHTML = "<p style='visibility:hidden'>.</p>"  
+            document.getElementById("txt1").innerHTML = "<p style='visibility:hidden'>.</p>"
             document.getElementById("txt2").innerHTML = "<p style='visibility:hidden'>.</p>"
             document.getElementById("txt3").innerHTML = "<p style='visibility:hidden'>.</p>"
             document.getElementById("txt4").innerHTML = "<p style='visibility:hidden'>.</p>"
