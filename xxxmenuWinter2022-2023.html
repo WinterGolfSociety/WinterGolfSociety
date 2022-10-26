@@ -754,43 +754,24 @@
            // cope with each user
            // id's
            //
-           
            // messy,sort out if time
            var pname=localStorage.getItem("playerName")
-           
-           
-           
-            var me1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid="
-            
-            var me2 = "&single=true"
-            //alert("==" + pname + "==")
-            
-            
-            
-           
-            let pages = [
+           var me1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid="
+           var me2 = "&single=true"          
+           let pages = [
                ["Bryan Maddxison", "01796067805"],
                ["Bryan Maxddison", "01796067805"], //   [1][0],[1][1] etc
                ["Bryan Maddison", "1796067805"],
                ["Bryan Maddisoxn", "01796067805"],
                ["Peter Holleran", "1824616118"]
                ];
-           
-            
-            for (var i = 0; i < pages.length; i++) {
-               //alert(i + "pages[i][x]" + pages[i][0])
+           for (var i = 0; i < pages.length; i++) {
                if (pages[i][0].indexOf(pname) > -1) {
                   meid = pages[i][1]               
-                  //alert("meid=" + meid)
                   var meall = me1 + meid + me2
                   window.open(meall)
                }
-            }
-           
-          //  meall="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true"
-           //alert(meall) 
-            window.open(meall)
-            
+           }
         }
         
         
