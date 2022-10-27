@@ -70,7 +70,7 @@
         text-decoration: none;
       }
 
-      .dropdownMenu li ul {
+      .xdropdownMenu li ul {
         visibility: hidden;
         position: absolute;
         margin: 0;
@@ -466,14 +466,16 @@
         // DOM is ready
         weeknumber();
       }
+      
       if ("playerName" in localStorage) {
         pwho = localStorage.getItem("playerName").replace(" ", "<br>");
           document.getElementById("who").innerHTML = pwho
         }
         else {
           document.getElementById("who").innerHTML = "unknown"
-        }
-        var arr = ['dummy',
+      }
+        
+      var arr = ['dummy',
 'Graham Airey',
 'Dale Aitkenhead',
 'Stephen Alldridge',
@@ -533,21 +535,23 @@
 'John Wright',
 'James Young'
 ]
-        var x = ""
-        // build values to search
-        for (var ii = 0; ii < arr.length; ii++) {
+      var x = ""
+      // build values to search
+      for (var ii = 0; ii < arr.length; ii++) {
           x = x + ' <li><p>' + arr[ii] + '</p></li>'
-        }
-        input = document.getElementById("myULold");
-        input.innerHTML = x
-        var hcpchecker1 = document.getElementById("amodalWhatsNew");
+      }
+      input = document.getElementById("myULold");
+      input.innerHTML = x
         
+        //var hcpchecker1 = document.getElementById("amodalWhatsNew");
+        /*
         var span0 = document.getElementsByClassName("close")[0];
         hcpchecker1.onclick = function() {
           hcpchecker1.style.display = "none";
         }
+        */
         // hcp list from 2022
-        var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
          
         //============= functions =================
         function myInfo() {
