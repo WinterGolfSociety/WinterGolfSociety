@@ -78,7 +78,7 @@
         list-style: none;
         width: 100%;
         left: 0;
-        opacity: 0;
+        opacity: 0; // move ??
         -webkit-transition: all 1.5s ease;
         -o-transition: all 1.5s ease;
         transition: all 1.5s ease;
@@ -111,7 +111,6 @@
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
-      
       .modalPlayerInfo {
         display: none;
         position: fixed;
@@ -394,7 +393,7 @@
     </div>
     <div class="menucontainer">
       <div class="menucontainerItem1">
-          <ul class="dropdownMenu" onmouseout="unvanish()" onmouseover="vanish()"">   
+          <ul class="dropdownMenu" onmouseout="unvanish()" onmouseover="vanish()">   
           <li>
             <a href="#">show menu</a>
             <ul>
@@ -436,7 +435,7 @@
       <div class="menucontainerItem2">
         <br>
         <a id="myAtest"></a>
-        <button id="closemenubutton" onclick="vanish()" ></button>   
+        <button id="closemenubutton" onclick="vanish()"></button>   
       </div>
     </div>
     <div class="menucontainer">
@@ -562,13 +561,67 @@
            var pname=localStorage.getItem("playerName")
            var me1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid="
            var me2 = "&single=true"          
-           let pages = [
-               ["Bryan Maddxison", "01796067805"],
-               ["Bryan Maxddison", "01796067805"], //   [1][0],[1][1] etc
-               ["Bryan Maddison", "1796067805"],
-               ["Bryan Maddisoxn", "01796067805"],
-               ["Peter Holleran", "1824616118"]
-               ];
+ let pages = [
+["Peter Holleran", "1824616118"],
+["Graham Airey", "1360098222"],
+["Dale Aitkenhead", "1040093715"],
+["Stephen Alldridge", "848152519"],
+["Keith Belshaw", "817478984"],
+["Craig Caesar", "367877417"],
+["Dave Cave", "1424531688"],
+["Ken Clark", "297186101"],
+["Robert Connelly", "947250663"],
+["Jed Cornhill", "832949467"],
+["Alex Coupland", "1577051319"],
+["Gary Cowman", "1363713637"],
+["Neil Coxon", "634710394"],
+["Bryan Craggs", "1427931293"],
+["Andy Davison", "303527381"],
+["John Dean", "2018670152"],
+["Martin Edwards", "1488930443"],
+["Joe Fletcher", "1449906132"],
+["Bill French", "200743580"],
+["Norman Gilholm", "1089892594"],
+["David Gilroy", "133712301"],
+["Graeme Gow", "1423950653"],
+["Vince Graham", "1307339129"],
+["Chris Green", "902357689"],
+["Rob Green", "1325341849"],
+["Richard Hedley", "1592218508"],
+["Clive Herbert", "973522385"],
+["Barry Hill", "1214761226"],
+["Roger Ireland", "1783800548"],
+["Dave Jackson", "1352625845"],
+["DavidT Jackson", "1797811054"],
+["John Jackson", "672073460"],
+["Tom Lemin", "1468850915"],
+["Jim Little", "1528176681"],
+["Bryan Maddison", "50443675"],
+["Bryan Maddison", "50443675"],
+["John Matthews", "1450805322"],
+["Tom McNally", "1286468202"],
+["Stephen Murray", "195801461"],
+["Darren Nelson", "1928432146"],
+["Danny Norman", "1208967748"],
+["Trevor Ord", "320075906"],
+["Mike Riddell", "783397653"],
+["Martin Rogers", "1765905408"],
+["Eric Saddler", "372897665"],
+["Brian Simpson", "873050869"],
+["John Smith", "2058044371"],
+["Tony Smith", "706238080"],
+["Ray Straker", "499175458"],
+["Tom Straker", "1141121956"],
+["Neil Tait", "1369613205"],
+["Roly Thompson", "724690789"],
+["Bob Toward", "511932463"],
+["Phil Wegner", "1068112339"],
+["Gordon Willis", "856619957"],
+["Ron Woodcock", "1703427162"],
+["John Wright", "334977662"],
+["James Young", "1118273305"]
+];
+               
            for (var i = 0; i < pages.length; i++) {
                if (pages[i][0].indexOf(pname) > -1) {
                   meid = pages[i][1]               
