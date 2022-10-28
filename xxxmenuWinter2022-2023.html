@@ -597,7 +597,6 @@
 ["Tom Lemin", "1468850915"],
 ["Jim Little", "1528176681"],
 ["Bryan Maddison", "50443675"],
-["Bryan Maddison", "50443675"],
 ["John Matthews", "1450805322"],
 ["Tom McNally", "1286468202"],
 ["Stephen Murray", "195801461"],
@@ -708,16 +707,6 @@
         function twos() {
           let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
           window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1266484079&single=true", "twos", params)
-        }
-
-        function displayPlayer(xvalue) {
-          if (xvalue == "Bryan Maddison") {
-            window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true");
-          }
-          if (xvalue !== "Bryan Maddison") {
-            // tony smith
-            window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1288506359&single=true");
-          }
         }
 
         function vanish() {
@@ -951,7 +940,7 @@
                   } else {
                      alert('no player data found');
                   }
-                  document.getElementById("txtForSearch").innerText = playerNameretrieved + " replaced with " + x;
+                  document.getElementById("txtForSearch").innerText = "replacing " + playerNameretrieved + " with " + x;
                   localStorage.setItem("playerName", x);
                   // hcp list from 2022
                   var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
