@@ -54,6 +54,12 @@
         box-shadow: 10px 10px 25px black;
         background-clip: padding-box;
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+        
+         list-style: none;
+        
+        
+        position: relative;
+        
       }
 
       .dropdownMenu li {
@@ -75,34 +81,28 @@
         position: absolute;
         margin: 0;
         padding: 0;
-        list-style: none;
+       // list-style: none;
         width: 100%;
         left: 0;
-        opacity: 0; // move ??
-        -webkit-transition: all 1.5s ease;
-        -o-transition: all 1.5s ease;
-        transition: all 1.5s ease;
-        height: 6vmax;
       }
 
-      .dropdownMenu li ul li a {
+      .xdropdownMenu li ul li a {
         height: 6vmax;
         line-height: 25px;
         color: dodgerBlue; //darkSlateGray;
       }
 
-      .dropdownMenu li ul li a:hover {
+      .xdropdownMenu li ul li a:hover {
         background-color: lightGray; //gray;
         color: white;
         height: 6vmax;
       }
 
-      .dropdownMenu li:hover>ul {
+      .xdropdownMenu li:hover>ul {
         opacity: 1;
-        visibility: visible;
-      }
+       }
 
-      .dropdownMenu li:hover>a {
+      .xdropdownMenu li:hover>a {
         color: silver; // after menu shows
       }
 
@@ -161,13 +161,18 @@
         visibility:hidden
         color: white;
         font-size: 3vmax;
-        -webkit-transition: all 2s ease;
-        -o-transition: all 2s ease;
-        transition: all 2s ease;
+        -webkit-transition: all 1.5s ease;
+        -o-transition: all 1.5s ease;
+        transition: all 1.5s ease;
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       }
 
-      #menuItems {
+      #menuItems1,
+      #menuItems2,
+      #menuItems3,
+      #menuItems4,
+      #menuItems5,
+      #menuItems6 {
         font-size: 3vmax;
         color: white;
         background-color: rgba(63, 255, 106, 0.7);
@@ -180,9 +185,17 @@
         box-shadow: 10px 10px 25px black;
         background-clip: padding-box;
         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+       // -webkit-transition: all 1s ease;
+       // -o-transition: all 1s ease;
+       // transition: all 1s ease;
       }
 
-      #menuItems:hover {
+      #menuItems1:hover,
+      #menuItems2:hover,
+      #menuItems3:hover,
+      #menuItems4:hover,
+      #menuItems5:hover,
+      #menuItems6:hover {
         background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
       }
 
@@ -393,40 +406,35 @@
     </div>
     <div class="menucontainer">
       <div class="menucontainerItem1">
-          <ul class="dropdownMenu" onmouseout="unvanish()" onmouseover="vanish()">   
+          <ul class="dropdownMenu" onmouseover="vanishbackground()">   
           <li>
             <a href="#">show menu</a>
             <ul>
               <!-- score entry -->
               <li>
-                <a href="scoreinputtest.html" id="menuItems">score entry</a>
+                <a href="scoreinputtest.html" id="menuItems1">score entry</a>
               </li>
               <!-- results, with historic below ? -->
               <li>
-                <a href="javascript:allresults()" id="menuItems">results</a>
+                <a href="javascript:allresults()" id="menuItems2">results</a>
               </li>
-              <!-- player info, default to user
-              <li>
-                <a href="javascript:testsmod()" id="menuItems">player info</a>
-              </li>
-               -->
               <!-- hcp list -->
               <li>
-                <a href="javascript:hcplist()" id="menuItems">hcp list</a>
+                <a href="javascript:hcplist()" id="menuItems3">hcp list</a>
               </li>
               <!-- twos -->
               <li>
-                <a href="javascript:twos()" id="menuItems">twos</a>
+                <a href="javascript:twos()" id="menuItems4">twos</a>
               </li>
               <!-- my info -->
               <li>
-                <a href="javascript:myInfo()" id="menuItems">my info</a>
+                <a href="javascript:myInfo()" id="menuItems5">my info</a>
               </li>
               <!-- change user -->
               <li>
                 <!--change to run function
                    function should refresh name after changed-->
-                <a href="javascript:testswap()" id="menuItems">set player</a>
+                <a href="javascript:testswap()" id="menuItems6">set player</a>
               </li>
             </ul>
           </li>
@@ -435,7 +443,7 @@
       <div class="menucontainerItem2">
         <br>
         <a id="myAtest"></a>
-        <button id="closemenubutton" onclick="vanish()"></button>   
+        <button id="closemenubutton" onmouseenter="vanishforeground()"></button>   
       </div>
     </div>
     <div class="menucontainer">
@@ -553,6 +561,72 @@
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
          
         //============= functions =================
+        
+        function vanishbackground() {
+          // show menu etc 
+          var x = document.getElementById("menuItems1");
+          x.style.visibility = "visible"; 
+          var x = document.getElementById("menuItems2");
+          x.style.visibility = "visible";
+          var x = document.getElementById("menuItems3");
+          x.style.visibility = "visible";
+          var x = document.getElementById("menuItems4");
+          x.style.visibility = "visible";
+          var x = document.getElementById("menuItems5");
+          x.style.visibility = "visible";
+          var x = document.getElementById("menuItems6");
+          x.style.visibility = "visible";
+          var x = document.getElementById("closemenubutton");
+          x.innerText = "hide menu"
+          x.style.visibility = "visible";
+          // dim background
+          var x = document.getElementById("txt1");
+          x.style.color = "#70695c"; //sepia type text
+          var x = document.getElementById("txt2");
+          x.style.color = "#70695c"; //sepia type text
+          var x = document.getElementById("txt3");
+          x.style.color = "#70695c"; //sepia type text
+          var x = document.getElementById("txt4");
+          x.style.color = "#70695c"; //sepia type text
+          var x = document.getElementById("txt5");
+          x.style.color = "#70695c"; //sepia type text
+          var x = document.getElementById("txt6");
+          x.style.color = "#70695c"; //sepia type text
+        }
+        
+      function vanishforeground() {
+          // hide menu etc 
+          var x = document.getElementById("menuItems1");
+          x.style.visibility = "hidden"; 
+          var x = document.getElementById("menuItems2");
+          x.style.visibility = "hidden";
+          var x = document.getElementById("menuItems3");
+          x.style.visibility = "hidden";
+          var x = document.getElementById("menuItems4");
+          x.style.visibility = "hidden";
+          var x = document.getElementById("menuItems5");
+          x.style.visibility = "hidden";
+          var x = document.getElementById("menuItems6");
+          x.style.visibility = "hidden";
+          
+          var x = document.getElementById("closemenubutton");
+          x.innerText = "hide menu"
+          x.style.visibility = "hidden";
+          // show background again
+          var x = document.getElementById("txt1");
+          x.style.color = "white";
+          var x = document.getElementById("txt2");
+          x.style.color = "white";
+          var x = document.getElementById("txt3");
+          x.style.color = "white";
+          var x = document.getElementById("txt4");
+          x.style.color = "white";
+          var x = document.getElementById("txt5");
+          x.style.color = "white";
+          var x = document.getElementById("txt6");
+          x.style.color = "white";
+        }  
+        
         function myInfo() {
            // cope with each user
            // id's
@@ -708,42 +782,6 @@
         function twos() {
           let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
           window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1266484079&single=true", "twos", params)
-        }
-
-        function vanish() {
-          var x = document.getElementById("txt1");
-          x.style.color = "#70695c"; //sepia type text
-          var x = document.getElementById("txt2");
-          x.style.color = "#70695c"; //sepia type text
-          var x = document.getElementById("txt3");
-          x.style.color = "#70695c"; //sepia type text
-          var x = document.getElementById("txt4");
-          x.style.color = "#70695c"; //sepia type text
-          var x = document.getElementById("txt5");
-          x.style.color = "#70695c"; //sepia type text
-          var x = document.getElementById("txt6");
-          x.style.color = "#70695c"; //sepia type text
-          var x = document.getElementById("closemenubutton");
-          x.innerText = "close menu"
-          x.style.visibility = "visible";
-        }
-
-        function unvanish() {
-          var x = document.getElementById("txt1");
-          x.style.color = "white";
-          var x = document.getElementById("txt2");
-          x.style.color = "white";
-          var x = document.getElementById("txt3");
-          x.style.color = "white";
-          var x = document.getElementById("txt4");
-          x.style.color = "white";
-          var x = document.getElementById("txt5");
-          x.style.color = "white";
-          var x = document.getElementById("txt6");
-          x.style.color = "white";
-          var x = document.getElementById("closemenubutton");
-          x.innerText = "close menu"
-          x.style.visibility = "hidden";
         }
 
         function testsmod() {
