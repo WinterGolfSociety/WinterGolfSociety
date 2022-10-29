@@ -789,7 +789,7 @@
           if ("playerName" in localStorage) {
             var pname = localStorage.getItem("playerName");
           } else {
-            alert('no data set');
+            alert('no data found, probably 1st run');
           }
           var datax = results.data
           for (i = 0; i < datax.length; i++) {
@@ -939,7 +939,7 @@
                if ("playerName" in localStorage) {
                   var playerNameretrieved = localStorage.getItem("playerName");
                   } else {
-                     alert('no player data found');
+                     alert('no data found, probably 1st run');
                   }
                   document.getElementById("txtForSearch").innerText = "replacing " + playerNameretrieved + " with " + x;
                   localStorage.setItem("playerName", x);
