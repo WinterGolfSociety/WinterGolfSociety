@@ -835,7 +835,7 @@
           if ("playerName" in localStorage) {
             var pname = localStorage.getItem("playerName");
           } else {
-            alert('no data found, probably 1st run');
+            alert('no data found, probably no player set');
           }
           var datax = results.data
           for (i = 0; i < datax.length; i++) {
@@ -985,7 +985,7 @@
                if ("playerName" in localStorage) {
                   var playerNameretrieved = localStorage.getItem("playerName");
                   } else {
-                     alert('no data found, probably 1st run');
+                     alert('no data found, probably no player set');
                   }
                   document.getElementById("txtForSearch").innerText = "replacing " + playerNameretrieved + " with " + x;
                   localStorage.setItem("playerName", x);
