@@ -989,8 +989,8 @@
             function preScoreEntry() {
                if ("playerName" in localStorage) {
                   // show message
-                  document.getElementById("modalPlayerInfo-content-txt").innerHTML = "updating data"
-                  document.getElementById("modalPlayerInfo").style.display = "block";
+                  //document.getElementById("modalPlayerInfo-content-txt").innerHTML = "updating data"
+                  //document.getElementById("modalPlayerInfo").style.display = "block";
 
                   //var playerNameretrieved = localStorage.getItem("playerName");
                   // hcp list from 2022
@@ -1000,7 +1000,6 @@
                      header: true,
                      complete: preScoreEntrySearch
                   });
-                  document.getElementById("modalPlayerInfo").style.display = "none";
                }
             }
  
