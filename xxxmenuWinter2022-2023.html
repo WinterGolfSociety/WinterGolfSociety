@@ -432,8 +432,7 @@
               </li>
               <!-- change user -->
               <li>
-                <!--change to run function
-                   function should refresh name after changed-->
+                <!--set/change player-->
                 <a href="javascript:testswap()" id="menuItems6">set player</a>
               </li>
             </ul>
@@ -466,6 +465,9 @@
       close1x.onclick = function(event) {
         close1x.style.display = "none";
       }
+      
+      /*
+      
       if (document.readyState == 'loading') {
         // still loading, wait for the event
         document.addEventListener('DOMContentLoaded', weeknumber());
@@ -473,6 +475,8 @@
         // DOM is ready
         weeknumber();
       }
+      
+      */
       
       if ("playerName" in localStorage) {
         pwho = localStorage.getItem("playerName").replace(" ", "<br>");
