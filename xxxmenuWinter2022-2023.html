@@ -855,8 +855,17 @@
                   "<br> Dawson playing hcp: " + datax[i].Dawson  + 
                   "<br> Winter playing hcp: " + datax[i].Winter;
               document.getElementById("modalPlayerInfo-content-txt").innerHTML = meinfo;
+              // update local data
+              localStorage.setItem("playerName", datax[i].Name.toString());
+              localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+              localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+              localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+              localStorage.setItem("WinterHCP", datax[i].Winter.toString());
               } 
             }
+            
+            /*
+            
             if ("playerName" in localStorage) {
               var xpname = localStorage.getItem("playerName");
             } else {
@@ -885,6 +894,8 @@
           }
 
 
+         */
+
           // non function() code so runs ..
           // close by click the player info  
           /*
@@ -898,7 +909,7 @@
           */
           
           vplayer = localStorage.getItem("playerName");
-          vhcp = localStorage.getItem("playerHCP");
+        //  vhcp = localStorage.getItem("playerHCP");
           input = document.getElementById("myAold").innerText = vplayer
    /*
    
