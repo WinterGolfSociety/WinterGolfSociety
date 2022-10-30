@@ -415,7 +415,10 @@
             <ul>
               <!-- score entry -->
               <li>
+                <!--
                 <a href="scoreinputtest.html" id="menuItems1">score entry</a>
+                -->
+                <a href="javascript:scoreEntryWrapper()" id="menuItems1">score entry</a>
               </li>
               <!-- results, with historic below ? -->
               <li>
@@ -568,6 +571,15 @@
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
          
         //============= functions =================
+        
+        
+        function scoreEntryWrapper() {
+         preScoreEntry()
+         window.open("scoreinputtest.html")   
+        }
+        
+        
+        
         
         function vanishbackground() {
           // show menu etc 
@@ -1026,7 +1038,6 @@
  
           
           function testswap() {
-             preScoreEntry()
              alert("after")
             swapp = document.getElementById("modalPlayerSearch");
             swapp.style.display = "block"
