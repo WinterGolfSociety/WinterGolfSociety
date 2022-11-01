@@ -330,22 +330,8 @@ list-style: none;
          margin-bottom:10%;  
       }
 
-img:hover{
-    color: #424242; 
-  -webkit-transition: all .3s ease-in;
-  -moz-transition: all .3s ease-in;
-  -ms-transition: all .3s ease-in;
-  -o-transition: all .3s ease-in;
-  transition: all .3s ease-in;
-  opacity: 1;
-  transform: scale(1.15);
-  -ms-transform: scale(1.15); /* IE 9 */
-  -webkit-transform: scale(1.15); /* Safari and Chrome */
-
-}
-
-#xxx {
-  font-size: 4vw; 
+#img1 {
+  color: white; 
 }
 
 
@@ -446,7 +432,7 @@ img:hover{
          <!--
         <div class="btitle" id="1nfoPanel">score<br>input<br>terminal<br>
         -->
-        <img src="qr.png" id="img1" alt="qr" width=50px height=50px align="center" onclick="enlargeImg()" onmouseenter="resetImg()" />
+        <img src="qr.png" id="img1" alt="qr" width=50px height=50px align="center" onclick="enlargeImg()" />
         
         
         
@@ -470,6 +456,7 @@ img:hover{
     
     <div id="spacer"></div>
     <script>
+       var toggleqr
        var close1x = document.getElementById("modalPlayerInfo");
       close1x.onclick = function(event) {
         close1x.style.display = "none";
@@ -570,33 +557,20 @@ img:hover{
          
         //============= functions =================
         
-      function enlargeImg() {
-      img = document.getElementById("img1");
-        // Set image size to 1.5 times original
-        img.style.transform = "scale(2.5)";
-        // Animation effect
-        img.style.transition = "transform 0.25s ease";
-      }
-      // Function to reset image size
-      function resetImg() {
-        // Set image size to original
-        img.style.transform = "scale(1)";
-        img.style.transition = "transform 0.25s ease";
-      }
-       
+       function enlargeImg() {  
+       var img = document.getElementById("img1");
+  if (img.style.color !== "white") {
+     img.style.transform = "scale(2.5)";
+     img.style.transition = "transform 0.25s ease";
+     img.style.color = "white"
+  } else {
+     img.style.color = "black"
+     img.style.transform = "scale(1)";
+     img.style.transition = "transform 0.25s ease";
+  }
+}      
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+          
         
         function myInfo() {
            // cope with each user
