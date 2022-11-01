@@ -1555,11 +1555,7 @@ Check the scores entered (shots taken) then Submit.
 	   var vsi16
 	   var vsi17
 	   var vsi18
-	   //var ccc = "Lakes stableford Friday 28 March" 
-	         
-	  //const queryString = window.location.search;   
-	  //const urlParams = new URLSearchParams(queryString);  
-	  //var pname = urlParams.get('name')   
+	  
 	  
      document.getElementById("playerName").innerHTML = 'Player: <a id="yellow">' + pname + '<\/a>';  
      
@@ -1590,6 +1586,13 @@ Check the scores entered (shots taken) then Submit.
      // March - Lakes
      
      
+     
+     
+     // Since don't know which course/dates we need to revisit this - probablyveachvweek ?
+     
+     
+     
+     /*
      
      // Lakes
 	  if( dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
@@ -1679,9 +1682,14 @@ Check the scores entered (shots taken) then Submit.
 	       vsi18 = 8
 	   }
       
+      */
+      
+      // end of disable summer courses
+      
       
       // winter courses .. will need a swap over by disabling/enabling the summer/winter courses
-     /* 
+      
+     
    
    
    
@@ -1777,7 +1785,7 @@ Check the scores entered (shots taken) then Submit.
         
         
          
-	  */ 
+	  
      // end of disable winter courses
      
      
@@ -4355,7 +4363,8 @@ function pb1button() {
                      if(s1.length > 0) {
                         // wait - probably not required
                         // but helps with timestamp etc.
-                        const milliseconds = 1000;
+                        const milliseconds = 500;
+                        //const milliseconds = 1000;
                         const date = Date.now();
                         let currentDate = null;
                         do {
