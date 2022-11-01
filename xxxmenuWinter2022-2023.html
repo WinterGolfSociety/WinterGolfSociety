@@ -1077,9 +1077,12 @@
             } else {   
                if ("playerName" in localStorage) {
                   var playerNameretrieved = localStorage.getItem("playerName");
-                  } else {
+                  } 
+                  /*
+                  else {
                      alert('no data found, probably no player set');
                   }
+                  */
                   document.getElementById("txtForSearch").innerText = "replacing " + playerNameretrieved + " with " + x;
                   localStorage.setItem("playerName", x);
                   // hcp list from 2022
