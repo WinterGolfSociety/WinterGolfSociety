@@ -362,7 +362,13 @@
   <body>
     <div id="modalPlayerInfo" class="modalPlayerInfo">
       <div class="modalPlayerInfo-content">
-        <a id="modalPlayerInfo-content-txt">searching ...</a>
+        <a id="modalPlayerInfo-content-txt">searching ... </a>
+        
+        
+        <input type='image' id="spin" width='45vw' height='40vw' src="spin.png" />
+        
+        
+        
         <br><br>
       </div>
     </div>
@@ -865,6 +871,8 @@
                   "<br><br> Dawson playing hcp: " + datax[i].Dawson  + 
                   "<br> Lakes playing hcp: " + datax[i].Lakes;   
                   
+              // hide spinner
+              document.getElementById("spin").style.display = "none";
                   
               document.getElementById("modalPlayerInfo-content-txt").innerHTML = meinfo;
               // update local data
