@@ -365,7 +365,7 @@
         <a id="modalPlayerInfo-content-txt">searching ... </a>
         
         
-        <input type='image' id="spin" width='45vw' height='40vw' src="spin.png" />
+        <img id="spin" width='45vw' height='40vw' src="spin.png" alt="spin" align="right">
         
         
         
@@ -748,32 +748,32 @@
             // numberOfDays is until Friday, eg sat=6
             var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
             var diary = [ 
-            "Friday 7th Oct Lakes",
-            "Friday 14th Oct Lakes",
-            "Friday 21st Oct Lakes",
-            "Friday 28th Oct Lakes",
-            "Friday 4th Nov Dawson",
-            "Friday 11th Nov Dawson",
-            "Friday 18th Nov Dawson",
-            "Friday 25th Nov Dawson",
-            "Friday 2nd Dec Lakes",
-            "Friday 9th Dec Lakes",
-            "Friday 16th Dec Lakes",
-            "Friday 23rd Dec Lakes",
-            "Friday 30th Dec Lakes",
-            "Friday 6th Jan Dawson",
-            "Friday 13th Jan Dawson",
-            "Friday 20th Jan Dawson",
-            "Friday 27th Jan Dawson",
-            "Friday 3rd Feb Lakes",
-            "Friday 10th Feb Lakes",
-            "Friday 17th Feb Lakes",
-            "Friday 24th Feb Lakes",
-            "Friday 3rd Mar Dawson",
-            "Friday 10th Mar Dawson",
-            "Friday 17th Mar Dawson",
-            "Friday 24th Mar Dawson",
-            "Friday 31st Mar Dawson",
+            "Friday 7th Oct Dawson",
+            "Friday 14th Oct Dawson",
+            "Friday 21st Oct Dawson",
+            "Friday 28th Oct Dawson",
+            "Friday 4th Nov Lakes",
+            "Friday 11th Nov Lakes",
+            "Friday 18th Nov Lakes",
+            "Friday 25th Nov Lakes",
+            "Friday 2nd Dec Dawson",
+            "Friday 9th Dec Dawson",
+            "Friday 16th Dec Dawson",
+            "Friday 23rd Dec Dawson",
+            "Friday 30th Dec Dawson",
+            "Friday 6th Jan Lakes",
+            "Friday 13th Jan Lakes",
+            "Friday 20th Jan Lakes",
+            "Friday 27th Jan Lakes",
+            "Friday 3rd Feb Dawson",
+            "Friday 10th Feb Dawson",
+            "Friday 17th Feb Dawson",
+            "Friday 24th Feb Dawson",
+            "Friday 3rd Mar Lakes",
+            "Friday 10th Mar Lakes",
+            "Friday 17th Mar Lakes",
+            "Friday 24th Mar Lakes",
+            "Friday 31st Mar Lakes",
             "none",
             "none",
             "none",
@@ -841,6 +841,9 @@
         }
 
         function PlayerInfo() {
+          // show spinner 
+          document.getElementById("spin").style.display = "block";  
+          
           document.getElementById("modalPlayerInfo").style.display = "block";
           var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
           Papa.parse(public_spreadsheet_url, {
@@ -851,6 +854,7 @@
         }
 
         function showPlayerInfo(results) {
+          
           if ("playerName" in localStorage) {
             var pname = localStorage.getItem("playerName");
           } else {

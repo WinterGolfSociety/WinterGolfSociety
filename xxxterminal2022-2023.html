@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Winter2022-2023</title>
+    <title>Terminal-Winter2022-2023</title>
     <style>
       // set all elements to include borders etc.   
       *,
@@ -424,7 +424,10 @@ list-style: none;
            
       </div>
       <div class="menucontainerItem2">
-        <div class="btitle">score<br>input<br>terminal</div>
+        <div class="btitle" id="infoPanel">score<br>input<br>terminal<br>
+        <img src="qr.png" alt="qr" width=250px height=250px align="center">
+        <br>
+        </div>
       </div>
     </div>
     <div class="menucontainer">
@@ -636,32 +639,32 @@ list-style: none;
             // numberOfDays is until Friday, eg sat=6
             var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
             var diary = [ 
-            "Friday 7th Oct Lakes",
-            "Friday 14th Oct Lakes",
-            "Friday 21st Oct Lakes",
-            "Friday 28th Oct Lakes",
-            "Friday 4th Nov Dawson",
-            "Friday 11th Nov Dawson",
-            "Friday 18th Nov Dawson",
-            "Friday 25th Nov Dawson",
-            "Friday 2nd Dec Lakes",
-            "Friday 9th Dec Lakes",
-            "Friday 16th Dec Lakes",
-            "Friday 23rd Dec Lakes",
-            "Friday 30th Dec Lakes",
-            "Friday 6th Jan Dawson",
-            "Friday 13th Jan Dawson",
-            "Friday 20th Jan Dawson",
-            "Friday 27th Jan Dawson",
-            "Friday 3rd Feb Lakes",
-            "Friday 10th Feb Lakes",
-            "Friday 17th Feb Lakes",
-            "Friday 24th Feb Lakes",
-            "Friday 3rd Mar Dawson",
-            "Friday 10th Mar Dawson",
-            "Friday 17th Mar Dawson",
-            "Friday 24th Mar Dawson",
-            "Friday 31st Mar Dawson",
+            "Friday 7th Oct Dawson",
+            "Friday 14th Oct Dawson",
+            "Friday 21st Oct Dawson",
+            "Friday 28th Oct Dawson",
+            "Friday 4th Nov Lakes",
+            "Friday 11th Nov Lakes",
+            "Friday 18th Nov Lakes",
+            "Friday 25th Nov Lakes",
+            "Friday 2nd Dec Dawson",
+            "Friday 9th Dec Dawson",
+            "Friday 16th Dec Dawson",
+            "Friday 23rd Dec Dawson",
+            "Friday 30th Dec Dawson",
+            "Friday 6th Jan Lakes",
+            "Friday 13th Jan Lakes",
+            "Friday 20th Jan Lakes",
+            "Friday 27th Jan Lakes",
+            "Friday 3rd Feb Dawson",
+            "Friday 10th Feb Dawson",
+            "Friday 17th Feb Dawson",
+            "Friday 24th Feb Dawson",
+            "Friday 3rd Mar Lakes",
+            "Friday 10th Mar Lakes",
+            "Friday 17th Mar Lakes",
+            "Friday 24th Mar Lakes",
+            "Friday 31st Mar Lakes",
             "none",
             "none",
             "none",
