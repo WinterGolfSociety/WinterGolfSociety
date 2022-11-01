@@ -1569,7 +1569,17 @@ Check the scores entered (shots taken) then Submit.
 	   const formatter = new Intl.DateTimeFormat('en-GB', options);
 	   const dd = formatter.format(new Date());
 	  var ddtoday = dd.replace(",","")
+     alert(ddtoday)
      // eg. Friday, 15 July 2022 to Friday 15 July 2022
+     ddtoday = ddtoday.replace(" 1 "," 01 ")
+     ddtoday = ddtoday.replace(" 2 "," 02 ")
+     ddtoday = ddtoday.replace(" 3 "," 03 ")
+     ddtoday = ddtoday.replace(" 4 "," 04 ")
+     ddtoday = ddtoday.replace(" 5 "," 05 ")
+     ddtoday = ddtoday.replace(" 6 "," 06 ")
+     ddtoday = ddtoday.replace(" 7 "," 07 ")
+     ddtoday = ddtoday.replace(" 8 "," 08 ")
+     ddtoday = ddtoday.replace(" 9 "," 09 ")
      ddtoday = ddtoday.replace("Sunday ","")
      ddtoday = ddtoday.replace("Saturday ","")
      ddtoday = ddtoday.replace("Friday ","")
@@ -1577,6 +1587,8 @@ Check the scores entered (shots taken) then Submit.
      ddtoday = ddtoday.replace("Wednesday ","")
      ddtoday = ddtoday.replace("Tuesday ","")
      ddtoday = ddtoday.replace("Monday ","")
+     
+     
      //
      // set up the 4 ???? courses
      // November - Lakes
@@ -1585,7 +1597,7 @@ Check the scores entered (shots taken) then Submit.
      // February - Dawson
      // March - Lakes
      
-     
+     alert(ddtoday)
      
      
      // Since don't know which course/dates we need to revisit this - probablyveachvweek ?
