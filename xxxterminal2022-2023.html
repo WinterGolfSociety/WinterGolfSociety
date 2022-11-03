@@ -416,9 +416,11 @@ list-style: none;
             <ul class="dropdownMenu">
               <!-- score entry -->
               <li>
-                <a href="scoreinputtest.html" id="menuItems">score entry</a>
+                <!--
+                <a href="scoreinputtest.html" id="menuItems1">score entry</a>
+                -->
+                <a href="javascript:scoreEntryWrapper()" id="menuItems1">score entry</a>
               </li>
-              
               <!-- change user -->
               <li>
                 <!--change to run function
@@ -556,6 +558,84 @@ list-style: none;
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
          
         //============= functions =================
+        
+        
+        function scoreEntryWrapper() {
+         /* 
+         ddd=new Date()
+         var dddName=ddd.getDay()
+ 
+         if (dddName == "5") {
+            preScoreEntry()
+            window.open("scoreinputtest.html") 
+         }
+         else {
+            alert("Score entry is for Fridays only")  
+         }  
+        }
+        */
+        
+        preScoreEntry()
+        window.open("scoreinputtest.html") 
+        
+     }
+        
+      // make sure local player info is updated
+            function preScoreEntry() {
+               if ("playerName" in localStorage) {
+                  // show message
+                  document.getElementById("modalPlayerInfo-content-txt").innerHTML = "updating data"
+                  document.getElementById("modalPlayerInfo").style.display = "block";
+
+                  //var playerNameretrieved = localStorage.getItem("playerName");
+                  // hcp list from 2022
+                  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+                  Papa.parse(public_spreadsheet_url, {
+                     download: true,
+                     header: true,
+                     complete: preScoreEntrySearch
+                  });
+                  document.getElementById("modalPlayerInfo-content-txt").innerHTML = "searching ..."
+                  document.getElementById("modalPlayerInfo").style.display = "none";
+               }
+            }
+ 
+            function preScoreEntrySearch(results) {
+               var newPlayerName = localStorage.getItem("playerName");  
+               var datax = results.data
+               //search google sheets for info
+               for (i = 0; i < datax.length; i++) {
+                  if (datax[i].Name == newPlayerName) {
+                     // add player hcp details here
+                     localStorage.setItem("playerName", datax[i].Name.toString());
+                     localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+                     localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+                     localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+                     localStorage.setItem("WinterHCP", datax[i].Winter.toString());
+                  }
+             
+               }
+            }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+        
+        
+        
         
        function enlargeImg() {  
        var img = document.getElementById("img1");
