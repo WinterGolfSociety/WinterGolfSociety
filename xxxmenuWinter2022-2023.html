@@ -498,6 +498,42 @@
           document.getElementById("who").innerHTML = "unknown"
       }
         
+      var diary = [ 
+            "Friday 7th Oct Dawson",
+            "Friday 14th Oct Dawson",
+            "Friday 21st Oct Dawson",
+            "Friday 28th Oct Dawson",
+            "Friday 4th Nov Lakes",
+            "Friday 11th Nov Lakes",
+            "Friday 18th Nov Lakes",
+            "Friday 25th Nov Lakes",
+            "Friday 2nd Dec Dawson",
+            "Friday 9th Dec Dawson",
+            "Friday 16th Dec Dawson",
+            "Friday 23rd Dec Dawson",
+            "Friday 30th Dec Dawson",
+            "Friday 6th Jan Lakes",
+            "Friday 13th Jan Lakes",
+            "Friday 20th Jan Lakes",
+            "Friday 27th Jan Lakes",
+            "Friday 3rd Feb Dawson",
+            "Friday 10th Feb Dawson",
+            "Friday 17th Feb Dawson",
+            "Friday 24th Feb Dawson",
+            "Friday 3rd Mar Lakes",
+            "Friday 10th Mar Lakes",
+            "Friday 17th Mar Lakes",
+            "Friday 24th Mar Lakes",
+            "Friday 31st Mar Lakes",
+            "none",
+            "none",
+            "none",
+            "none",
+            "none",
+            "none"
+             ]  
+        
+        
       var arr = ['dummy',
 'Graham Airey',
 'Dale Aitkenhead',
@@ -582,9 +618,22 @@
         
         
         function scoreEntryWrapper() {
-         preScoreEntry()
-         window.open("scoreinputtest.html")   
+          
+         ddd=new Date()
+         var dddName=ddd.getDay()
+ 
+         if (dddName == "5") {
+            preScoreEntry()
+            window.open("scoreinputtest.html") 
+         }
+         else {
+            alert("Score entry is for Fridays only")  
+         }  
         }
+        
+        
+        
+        
         
         function vanishbackground() {
           // show menu etc 
@@ -748,7 +797,7 @@
             // numberOfDays is until Friday, eg sat=6
             //var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
             var result = Math.ceil((numberOfDays) / 7);
-            
+            /*
             var diary = [ 
             "Friday 7th Oct Dawson",
             "Friday 14th Oct Dawson",
@@ -783,6 +832,7 @@
             "none",
             "none"
              ]
+             */
             var x1 = document.getElementById("txt1");
             var x2 = document.getElementById("txt2");
             var x3 = document.getElementById("txt3");
