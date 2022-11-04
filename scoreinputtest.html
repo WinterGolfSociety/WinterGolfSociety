@@ -1506,19 +1506,7 @@ Check the scores entered (shots taken) then Submit.
 	   alert('no player winter hcp');
 	}    
       
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-        
-	  var vhcp = 0
+ 	  var vhcp = 0
 	   var vcourse
 	   var vpar1
 	   var vpar2
@@ -1557,7 +1545,6 @@ Check the scores entered (shots taken) then Submit.
 	   var vsi17
 	   var vsi18
 	  
-	  
      document.getElementById("playerName").innerHTML = 'Player: <a id="yellow">' + pname + '<\/a>';  
      
 	   // use diary of dates ...  
@@ -1588,7 +1575,39 @@ Check the scores entered (shots taken) then Submit.
      ddtoday = ddtoday.replace("Tuesday ","")
      ddtoday = ddtoday.replace("Monday ","")
      
-     
+     var ddshort=ddtoday.replace("Friday ","")
+     ddshort=ddshort.replace(" Lakes","")
+     ddshort=ddshort.replace(" Dawson","")
+     ddshort=ddshort.substring(0,6)
+
+     var diaryLakes = [ 
+            "04 Nov",
+            "18 Nov",
+            "02 Dec",
+            "16 Dec",
+            "30 Dec",
+            "13 Jan",
+            "27 Jan",
+            "10 Feb",
+            "24 Feb",
+            "10 Mar",
+            "24 Mar"
+            ]
+            
+            var diaryDawson = [ 
+            "11 Nov",
+            "25 Nov",
+            "09 Dec",
+            "23 Dec",
+            "06 Jan",
+            "20 Jan",
+            "03 Feb",
+            "17 Feb",
+            "03 Mar",
+            "17 Mar",
+            "31 Mar",
+            ]   
+   
      //
      // set up the 4 ???? courses
      // November - Lakes
@@ -1705,7 +1724,9 @@ Check the scores entered (shots taken) then Submit.
    
      // start of disable winter courses
      // wLakes
-	  if( dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
+	//  if( dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
+   
+   if (diaryLakes.indexOf(ddshort) > -1 ) {
 	  ddtoday = '<a id="yellow">wLakes ' + ddtoday + '<\/a>'
 	  document.getElementById("compName").innerHTML = "Competition: " + ddtoday; 
 	  vhcp = pwinterhcp;
@@ -1748,8 +1769,19 @@ Check the scores entered (shots taken) then Submit.
 	   vsi18 = 8
 	        }  
 	   
+      
+      
+     
+      
+      
+      
+      
+      
+      
       // wDawson   
-	   if( dd.indexOf("October") > -1 || dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
+	//   if( dd.indexOf("October") > -1 || dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
+   
+   if (diaryDawson.indexOf(ddshort) > -1 ) {
 	     ddtoday = '<a id="yellow">wDawson ' + ddtoday + '<\/a>'
 	     document.getElementById("compName").innerHTML = "Competition: " + ddtoday;
 	       vhcp = pwinterhcp;      
@@ -4408,7 +4440,7 @@ function pb1button() {
 	               document.forms[0].submit()
 	               sub = document.getElementById("submitButton");
 	               sub.style.backgroundColor = "blue";
-	               sub.innerText = "Submitted";
+	               sub.innerText = "transferring";
                   // set the target on the form to point to a hidden iframe
                   // some browsers need the target set via JavaScript, no idea why...
                   document.getElementById('my-form').target = 'my-response-iframe';
@@ -4443,7 +4475,7 @@ function pb1button() {
                }	     
             }
 	   }
-
+      
 	   function MoveButton2(thisid) {
 	       HideAll();
 	       // move to hole 1    
