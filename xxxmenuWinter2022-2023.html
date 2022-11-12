@@ -332,6 +332,25 @@
          margin-bottom:10%;  
       }
       
+      #InfoHcp {
+         background-color: rgba(114, 107, 94, 0.85);
+         color: white;
+       font-style: italic; 
+       visibility: hidden; 
+       
+       margin: 5%;
+      padding: 5%;
+       border-radius: 15px;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 10px 10px 25px black;
+        border-radius: 15px;
+        border: 3px solid rgba(255, 255, 255, 0.2);
+        background-clip: padding-box;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+       
+       
+      }
+      
       ::placeholder {
         /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: lightGray;
@@ -413,6 +432,46 @@
         <input type='image' id='buttonCalendar' src='agenda.png' width='45vw' height='40vw' onclick='weeknumber()'>
       </div>
     </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <div class="menucontainer">
+      <div class="menucontainerItem1">
+        
+      </div>
+      <div class="menucontainerItem2">
+        <a id="getinfo">
+          <input type='image' id="buttonInfohcp" width='45vw' height='40vw' src="info.png" onclick="HcpInfo()" />
+        </a>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="menucontainer">
       <div class="menucontainerItem1">
           <ul class="dropdownMenu" onmouseover="vanishbackground()">   
@@ -470,7 +529,31 @@
     </div>
     <br>
     <br>
-    
+    <div id="InfoHcp">
+   <br>Handicapping explanation<br><br>
+   Your handicap is adjusted after each score is entered. It is then converted to a course hcp, which is used in your round<br><br>
+   for your first round you begin with your start hcp<br>
+   after 1 round, the average of start hcp and score differential 1 capped by 0.5 lift limit<br>
+   after 2 rounds, the average of (2 lowest of score differential 1, score differential 2) capped by 0.5 lift limit<br>
+   after 3 rounds, the average of (2 lowest of score differential 1 to score differential 3) capped by 0.5 lift limit<br>
+   after 4 rounds, the average of ( 3 lowest of score differential 1 to score differential 4) capped by 0.5 lift limit<br>
+   after 5 rounds, the average of (3 lowest of score differential 1 to score differential 5) capped by 0.5 lift limit<br>
+   after 6 rounds, the average of (3 lowest of score differential 1 to score differential 6) capped by 0.5 lift limit<br>
+   after 7 rounds, the average of (4 lowest of score differential 1 to score differential 7) capped by 0.5 lift limit<br>
+   after 8 rounds, the average of (4 lowest of score differential 1 to score differential 8) capped by 0.5 lift limit<br>
+   after 9 rounds, the average of (4 lowest of score differential 1 to score differential 9) capped by 0.5 lift limit<br>
+   after 10 rounds, the average of (4 lowest of score differential 1 to score differential 10) capped by 0.5 lift limit<br>
+   
+   <br>any adjustments are then applied<br><br>
+   
+   Your maximum winter handicap is your starting hcp + 25%<br><br> 
+   Exceptional scores of 42, 43, 44 are cut -1<br> 
+   Exceptional scores of 45 and 46 are cut -2<br>
+   Exceptional scores of more than 46 are cut -3<br><br>
+   Manual adjustments can also be applied<br> 
+   <br><br><br><br>
+   </div>
+   
     <div id="spacer"></div>
     <script>
        var close1x = document.getElementById("modalPlayerInfo");
@@ -478,6 +561,10 @@
         close1x.style.display = "none";
       }
       
+      var close2x = document.getElementById("InfoHcp");
+      close2x.onclick = function(event) {
+        close2x.style.visibility = "hidden";
+      }
       /*
       
       if (document.readyState == 'loading') {
@@ -775,6 +862,16 @@
                   window.open(meall)
                }
            }
+        }
+        
+        function HcpInfo() {
+         // check if already there
+         var checkline = document.getElementById("InfoHcp").innerText
+         if (checkline.indexOf("Handicap") > -1) {
+            document.getElementById("InfoHcp").style.visibility = "hidden"
+        } else {
+           document.getElementById("InfoHcp").style.visibility = "visible"
+        }
         }
         
         function weeknumber() {
