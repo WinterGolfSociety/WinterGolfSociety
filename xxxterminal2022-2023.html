@@ -745,12 +745,13 @@ list-style: none;
             document.getElementById("txt6").innerHTML = "<p style='visibility:hidden'>.</p>"
           } else {
             currentdate = new Date();
-            
             var oneJan = new Date(currentdate.getFullYear(), 0, 1);
             var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
             // numberOfDays is until Friday, eg sat=6
             //var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
-            var result = Math.ceil((numberOfDays) / 7);
+            numberOfDays = (numberOfDays + 1)
+            
+            var result = Math.ceil((numberOfDays / 7));
             
             var diary = [ 
             "Friday 7th Oct Dawson",
