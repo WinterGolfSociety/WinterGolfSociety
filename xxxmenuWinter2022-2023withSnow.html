@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Winter2022-2023</title>
+	<style>
+	// set all elements to include borders etc.   
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+	
+	html {
+		//background: #726b5e;
+		background: url('golfergray.png') no-repeat left top fixed, #726b5e;
+		//background-size: cover;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	
+	body {
+		font-family: sans-serif;
+		margin: 0;
+		padding: 10px;
+		color: white;
+	}
+	
+	.dropdownMenu {
+		background-color: rgba(30, 144, 255, 0.85);
+		color: white;
+		text-align: left;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 3vmax;
+		cursor: pointer;
+		height: 12vw;
+		width: 40vw;
+		box-shadow: 10px 10px 25px black;
+		white-space: nowrap;
+		list-style: none;
+		border-radius: 15px;
+		padding-left: 5px;
+		padding-bottom: 10px;
+		font-size: 3vmax;
+		color: white;
+		width: 40vw;
+		margin-bottom: 5px;
+		padding-left: 10px;
+		border-radius: 15px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 10px 10px 25px black;
+		background-clip: padding-box;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		list-style: none;
+		position: relative;
+	}
+	
+	.dropdownMenu li {
+		position: relative;
+	}
+	
+	.dropdownMenu li a {
+		display: block;
+		padding-top: 10%;
+		padding-bottom: 10%;
+		height: 6vmax;
+		color: white;
+		cursor: pointer;
+		text-decoration: none;
+	}
+	
+	.dropdownMenu li ul {
+		visibility: hidden;
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		// list-style: none;
+		width: 100%;
+		left: 0;
+	}
+	
+	.xdropdownMenu li ul li a {
+		height: 6vmax;
+		line-height: 25px;
+		color: dodgerBlue; //darkSlateGray;
+	}
+	
+	.xdropdownMenu li ul li a:hover {
+		background-color: lightGray; //gray;
+		color: white;
+		height: 6vmax;
+	}
+	
+	.xdropdownMenu li:hover>ul {
+		opacity: 1;
+	}
+	
+	.xdropdownMenu li:hover>a {
+		color: silver; // after menu shows
+	}
+	
+	.atitle {
+		font-size: 8vmax;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	}
+	
+	.modalPlayerInfo {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: dodgerBlue;
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+	
+	.modalPlayerInfo-content {
+		background-color: rgba(30, 144, 255, 0.85);
+		margin: 10%;
+		padding: 10px;
+		width: 80%;
+		height: auto;
+		font-size: 3vmax;
+		box-shadow: 10px 10px 25px black;
+		border-radius: 15px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		background-clip: padding-box;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	}
+	
+	.close {
+		color: #aaaaaa;
+		float: right;
+		font-size: 6vmax;
+		font-weight: bold;
+	}
+	
+	.close:hover,
+	.close:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	
+	#txt,
+	#txt1,
+	#txt2,
+	#txt3,
+	#txt4,
+	#txt5,
+	#txt6 {
+		visibility: hidden color: white;
+		font-size: 3vmax;
+		-webkit-transition: all 1.5s ease;
+		-o-transition: all 1.5s ease;
+		transition: all 1.5s ease;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	}
+	
+	#menuItems1,
+	#menuItems2,
+	#menuItems3,
+	#menuItems4,
+	#menuItems5,
+	#menuItems6 {
+		font-size: 3vmax;
+		color: white;
+		background-color: rgba(63, 255, 106, 0.7);
+		height: 25px;
+		width: 40vw;
+		margin-bottom: 5px;
+		padding-left: 10px;
+		border-radius: 15px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 10px 10px 25px black;
+		background-clip: padding-box;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		// -webkit-transition: all 1s ease;
+		// -o-transition: all 1s ease;
+		// transition: all 1s ease;
+	}
+	
+	#menuItems1:hover,
+	#menuItems2:hover,
+	#menuItems3:hover,
+	#menuItems4:hover,
+	#menuItems5:hover,
+	#menuItems6:hover {
+		background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
+	}
+	
+	#myInputold {
+		color: white;
+		background: dodgerBlue;
+		border: 2px solid white;
+		width: 90%;
+		font-size: 5vw;
+		list-style-type: none;
+		padding: 2px 12px 2px 12px; //t,r,b,l
+		outline: none;
+	}
+	
+	#myinputold:focus {
+		background-color: lightblue;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		display: none;
+		border: 2px solid cyan;
+	}
+	
+	#myinputold:selected {
+		border: 2px solid cyan;
+	}
+	
+	#myULold {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		display: none;
+	}
+	
+	#myULold li a {
+		border: 1px solid white;
+		margin-top: -1px;
+		/* Prevent double borders */
+		background-color: #f6f6f6;
+		padding: 12px;
+		text-decoration: none;
+		font-size: 5vw;
+		color: black;
+		display: block
+	}
+	
+	#myULold li a:hover:not(.header) {
+		background-color: #eee;
+	}
+	
+	#closemenubutton {
+		background-color: rgba(30, 144, 255, 0.85); //dodgerBlue;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 3vmax;
+		margin: 4px 2px;
+		cursor: pointer;
+		height: 25vmin;
+		width: 25vmin;
+		border-radius: 50%;
+		box-shadow: 10px 10px 25px black;
+		visibility: hidden;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		background-clip: padding-box;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	}
+	
+	.menucontainer {
+		display: grid;
+		grid-template-columns: auto 30%;
+		height: 150%;
+	}
+	
+	#who {
+		font-size: 4vw;
+	}
+	
+	//      #spacer {
+	//        height: 70vw;
+	//      }
+	.modalPlayerSearch {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+	
+	.modalPlayerSearch-content {
+		background-color: rgba(30, 144, 255, 0.85);
+		margin: 5%;
+		padding: 5%;
+		width: 70%;
+		height: auto;
+		font-size: 5vw;
+		border-radius: 15px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 10px 10px 25px black;
+		border-radius: 15px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		background-clip: padding-box;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	}
+	
+	#myAold {
+		margin-top: -1px;
+		width: 60%;
+		color: white;
+		background: dodgerblue;
+		font-size: 5vw;
+		padding: 10px;
+		border-radius: 15px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 10px 10px 25px black;
+		margin-left: 20%;
+		margin-bottom: 5%;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+	}
+	
+	#txtForSearch {
+		color: cyan;
+		font-size: 4vw;
+		font-style: italic;
+		margin-top: 10%;
+		margin-bottom: 10%;
+	}
+	
+	#InfoHcp {
+		background-color: rgba(114, 107, 94, 0.85);
+		color: white;
+		font-style: italic;
+		//visibility: hidden; 
+		margin: 2%;
+		padding: 2%;
+		border-radius: 15px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 10px 10px 25px black;
+		border-radius: 15px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		background-clip: padding-box;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		display: none;
+	}
+	
+	::placeholder {
+		/* Chrome, Firefox, Opera, Safari 10.1+ */
+		color: lightGray;
+		opacity: 1;
+		/* Firefox */
+	}
+	
+	:-ms-input-placeholder {
+		/* Internet Explorer 10-11 */
+		color: lightGray;
+	}
+	
+	::-ms-input-placeholder {
+		/* Microsoft Edge */
+		color: lightGray;
+	}
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+// The CSS
+html {
+  height: 100%;
+  background: linear-gradient(#123 30%, #667);
+  overflow: hidden;
+}
+.snow, .snow:before, .snow:after {
+  position: absolute;
+  top: -$w + px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: $grad;
+  background-size: $w + px $w + px;
+  animation: snow $s linear infinite;
+  content: "";
+}
+.snow:after {
+  margin-left: -$w/3 + px;
+  opacity: .4;
+  animation-duration: $s*2;
+  animation-direction: reverse;
+  filter: blur(3px);
+}
+.snow:before {
+  animation-duration: $s*3;
+  animation-direction: reverse;
+  margin-left: -$w/2 + px;
+  opacity: .65;
+  filter: blur(1.5px);
+}
+@keyframes snow {
+  to {
+    transform: translateY($w + px);
+  }
+}
+
+
+  
+   
+   
+   
+   
+   
+   
+   
+   
+	</style>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+	<meta name="description" content="Winter Golf Society" />
+	<meta name="author" content="Bryan M" />
+	<title>Winter Golf Society</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+</head>
+
+<body>
+   
+   <div>
+    <script type="text/javascript" src="snowflake.min.js"></script></head>
+   
+   
+	<div id="modalPlayerInfo" class="modalPlayerInfo">
+		<div class="modalPlayerInfo-content"> <a id="modalPlayerInfo-content-txt">searching ... </a> <img id="spin" width='45vw' height='40vw' src="spin.png" alt="spin" align="right">
+			<br>
+			<br> </div>
+	</div>
+	<div id="modalPlayerSearch" class="modalPlayerSearch">
+		<div class="modalPlayerSearch-content"> <a id="txtForSearch">enter text to search .. select the button to accept.</a>
+			<input type="text" id="myInputold" onkeyup="myFunctionx()" placeholder="enter name to search for">
+			<ul id="myULold">
+				<li> <a>empty</a> </li>
+			</ul>
+			<br>
+			<br>
+			<button id="myAold" onclick="modalPlayerSearchButton()">cancel</button>
+			<br> </div>
+	</div>
+	<br>
+	<div class="menucontainer">
+		<div class="menucontainerItem1">
+			<div class="atitle">Winter</div>
+		</div>
+		<div class="menucontainerItem2"> <a id="who">unknown</a> </div>
+	</div>
+	<div class="menucontainer">
+		<div class="menucontainerItem1">
+			<div class="atitle">Golf</div>
+		</div>
+		<div class="menucontainerItem2">
+			<a id="gethcp">
+				<input type='image' id="buttonrefresh" width='45vw' height='40vw' src="avatar.png" onclick="PlayerInfo()" /> </a>
+		</div>
+	</div>
+	<div class="menucontainer">
+		<div class="menucontainerItem1">
+			<div class="atitle">Society</div>
+		</div>
+		<div class="menucontainerItem2">
+			<input type='image' id='buttonCalendar' src='agenda.png' width='45vw' height='40vw' onclick='weeknumber()'> </div>
+	</div>
+	<div id="InfoHcp">
+		<br>Handicapping explanation
+		<br>
+		<br> Your handicap is adjusted after each score is entered. It is then converted to a course hcp, which is used in your round
+		<br>
+		<br> The process is based on the WHS method of calculating a new handicap.
+		<br>
+		<br> for your first round you begin with your start hcp
+		<br>
+		<br> after 1 round, the average of start hcp and score differential 1 capped by 0.5 lift limit
+		<br>
+		<br> after 2 rounds, the average of (2 lowest of score differential 1, score differential 2) capped by 0.5 lift limit
+		<br>
+		<br> after 3 rounds, the average of (2 lowest of score differential 1 to score differential 3) capped by 0.5 lift limit
+		<br>
+		<br> after 4 rounds, the average of ( 3 lowest of score differential 1 to score differential 4) capped by 0.5 lift limit
+		<br>
+		<br> after 5 rounds, the average of (3 lowest of score differential 1 to score differential 5) capped by 0.5 lift limit
+		<br>
+		<br> after 6 rounds, the average of (3 lowest of score differential 1 to score differential 6) capped by 0.5 lift limit
+		<br>
+		<br> after 7 rounds, the average of (4 lowest of score differential 1 to score differential 7) capped by 0.5 lift limit
+		<br>
+		<br> after 8 rounds, the average of (4 lowest of score differential 1 to score differential 8) capped by 0.5 lift limit
+		<br>
+		<br> after 9 rounds, the average of (4 lowest of score differential 1 to score differential 9) capped by 0.5 lift limit
+		<br>
+		<br> after 10 rounds, the average of (4 lowest of score differential 1 to score differential 10) capped by 0.5 lift limit
+		<br>
+		<br>
+		<br>any adjustments are then applied
+		<br>
+		<br> Your maximum winter handicap is your starting hcp + 25%
+		<br>
+		<br> Exceptional scores of 42, 43, 44 are cut -1
+		<br> Exceptional scores of 45 and 46 are cut -2
+		<br> Exceptional scores of more than 46 are cut -3
+		<br>
+		<br> Manual adjustments can also be applied
+		<br>
+		<br>
+		<br>
+		<br>
+		<br> </div>
+	<div class="menucontainer">
+		<div class="menucontainerItem1"> </div>
+		<div class="menucontainerItem2">
+			<a id="getinfo">
+				<input type='image' id="buttonInfohcp" width='45vw' height='40vw' src="info.png" onclick="HcpInfo()" /> </a>
+		</div>
+	</div>
+	<div class="menucontainer">
+		<div class="menucontainerItem1">
+			<ul class="dropdownMenu" onmouseover="vanishbackground()">
+				<li> <a href="#">show menu</a>
+					<ul>
+						<!-- score entry -->
+						<li>
+							<!--
+                <a href="scoreinputtest.html" id="menuItems1">score entry</a>
+                --><a href="javascript:scoreEntryWrapper()" id="menuItems1">score entry</a> </li>
+						<!-- results, with historic below ? -->
+						<li> <a href="javascript:allresults()" id="menuItems2">results</a> </li>
+						<!-- hcp list -->
+						<li> <a href="javascript:hcplist()" id="menuItems3">hcp list</a> </li>
+						<!-- twos -->
+						<li> <a href="javascript:twos()" id="menuItems4">twos</a> </li>
+						<!-- my info -->
+						<li> <a href="javascript:myInfo()" id="menuItems5">my info</a> </li>
+						<!-- change user -->
+						<li>
+							<!--set/change player--><a href="javascript:testswap()" id="menuItems6">set player</a> </li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="menucontainerItem2">
+			<br>
+			<a id="myAtest"></a>
+			<button id="closemenubutton" onmouseenter="vanishforeground()"></button>
+		</div>
+	</div>
+	<div class="menucontainer">
+		<div class="menucontainerItem1">
+			<p id="txt1"></p>
+			<p id="txt2"></p>
+			<p id="txt3"></p>
+			<p id="txt4"></p>
+			<p id="txt5"></p>
+			<p id="txt6"></p>
+		</div>
+		<div class="menucontainerItem2"></div>
+	</div>
+	<br>
+	<br>
+	<div id="spacer"></div>
+   
+   
+   
+   
+   
+   <!-- snowflake -->
+   </div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+	<script>
+      
+      
+      
+      
+      
+ // Create a new SnowflakeJs instance pass the following parameters:
+// frames: FPS
+// count: the number of snowflakes
+// lifetime: lifetime in ms
+// maxSpeed: max speed
+// maxSize: max size
+const snowflake = new SnowflakeJs(frames=25, count=25, lifetime=500, maxSpeed=3, maxSize=75);
+//Start the snow falling effect.
+snowflake.init();
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+	var close1x = document.getElementById("modalPlayerInfo");
+	close1x.onclick = function(event) {
+		close1x.style.display = "none";
+	}
+	var close2x = document.getElementById("InfoHcp");
+	close2x.onclick = function(event) {
+			close2x.style.display = "none";
+		}
+		/*
+      
+		if (document.readyState == 'loading') {
+		  // still loading, wait for the event
+		  document.addEventListener('DOMContentLoaded', weeknumber());
+		} else {
+		  // DOM is ready
+		  weeknumber();
+		}
+      
+		*/
+	if("playerName" in localStorage) {
+		pwho = localStorage.getItem("playerName").replace(" ", "<br>");
+		document.getElementById("who").innerHTML = pwho
+	} else {
+		document.getElementById("who").innerHTML = "unknown"
+	}
+	var diary = ["Friday 7th Oct Lakes", "Friday 14th Oct Dawson", "Friday 21st Oct Lakes", "Friday 28th Oct Dawson", "Friday 4th Nov Lakes", "Friday 11th Nov Dawson", "Friday 18th Nov Lakes", "Friday 25th Nov Dawson", "Friday 2nd Dec Lakes", "Friday 9th Dec Dawson", "Friday 16th Dec Lakes", "Friday 23rd Dec Dawson", "Friday 30th Dec Lakes", "Friday 6th Jan Dawson", "Friday 13th Jan Lakes", "Friday 20th Jan Dawson", "Friday 27th Jan Lakes", "Friday 3rd Feb Dawson", "Friday 10th Feb Lakes", "Friday 17th Feb Dawson", "Friday 24th Feb Lakes", "Friday 3rd Mar Dawson", "Friday 10th Mar Lakes", "Friday 17th Mar Dawson", "Friday 24th Mar Lakes", "Friday 31st Mar Dawson", "none", "none", "none", "none", "none", "none"]
+	var arr = ['dummy', 'Graham Airey', 'Dale Aitkenhead', 'Stephen Alldridge', 'Keith Belshaw', 'Craig Caesar', 'Dave Cave', 'Ken Clark', 'Robert Connelly', 'Jed Cornhill', 'Alex Coupland', 'Gary Cowman', 'Neil Coxon', 'Bryan Craggs', 'Andy Davison', 'John Dean', 'Martin Edwards', 'Joe Fletcher', 'Bill French', 'Norman Gilholm', 'David Gilroy', 'Graeme Gow', 'Vince Graham', 'Chris Green', 'Rob Green', 'Richard Hedley', 'Clive Herbert', 'Barry Hill', 'Peter Holleran', 'Roger Ireland', 'Dav Jackson', 'DavidT Jackson', 'John Jackson', 'Andy Johnson', 'Tom Lemin', 'Jim Little', 'Bryan Maddison', 'John Matthews', 'Tom McNally', 'Steph Murray', 'Darren Nelson', 'Danny Norman', 'Trevor Ord', 'Mike Riddell', 'Martin Rogers', 'Eric Saddler', 'Dave Scurfield', 'Brian Simpson', 'John Smith', 'Tony Smith', 'Ray Straker', 'T Straker', 'Neil Tait', 'Roly Thompson', 'Bob Toward', 'Phil Wegner', 'Marcus Wilkinson', 'Gordon Willis', 'Ron Woodcock', 'Brian Wray', 'John Wright', 'James Young']
+	var x = ""
+		// build values to search
+	for(var ii = 0; ii < arr.length; ii++) {
+		x = x + ' <li><p>' + arr[ii] + '</p></li>'
+	}
+	input = document.getElementById("myULold");
+	input.innerHTML = x
+		//var hcpchecker1 = document.getElementById("amodalWhatsNew");
+		/*
+		var span0 = document.getElementsByClassName("close")[0];
+		hcpchecker1.onclick = function() {
+		  hcpchecker1.style.display = "none";
+		}
+		*/
+		// hcp list from 2022
+	var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+	//============= functions =================
+	function scoreEntryWrapper() {
+		ddd = new Date()
+		var dddName = ddd.getDay()
+		if(dddName == "5") {
+			preScoreEntry()
+			window.open("scoreinputtest.html")
+		} else {
+			alert("Score entry is for Fridays only")
+		}
+	}
+
+	function vanishbackground() {
+		// show menu etc 
+		var x = document.getElementById("menuItems1");
+		x.style.visibility = "visible";
+		var x = document.getElementById("menuItems2");
+		x.style.visibility = "visible";
+		var x = document.getElementById("menuItems3");
+		x.style.visibility = "visible";
+		var x = document.getElementById("menuItems4");
+		x.style.visibility = "visible";
+		var x = document.getElementById("menuItems5");
+		x.style.visibility = "visible";
+		var x = document.getElementById("menuItems6");
+		x.style.visibility = "visible";
+		var x = document.getElementById("closemenubutton");
+		x.innerText = "hide menu"
+		x.style.visibility = "visible";
+		// dim background
+		var x = document.getElementById("txt1");
+		x.style.color = "#70695c"; //sepia type text
+		var x = document.getElementById("txt2");
+		x.style.color = "#70695c"; //sepia type text
+		var x = document.getElementById("txt3");
+		x.style.color = "#70695c"; //sepia type text
+		var x = document.getElementById("txt4");
+		x.style.color = "#70695c"; //sepia type text
+		var x = document.getElementById("txt5");
+		x.style.color = "#70695c"; //sepia type text
+		var x = document.getElementById("txt6");
+		x.style.color = "#70695c"; //sepia type text
+	}
+
+	function vanishforeground() {
+		// hide menu etc 
+		var x = document.getElementById("menuItems1");
+		x.style.visibility = "hidden";
+		var x = document.getElementById("menuItems2");
+		x.style.visibility = "hidden";
+		var x = document.getElementById("menuItems3");
+		x.style.visibility = "hidden";
+		var x = document.getElementById("menuItems4");
+		x.style.visibility = "hidden";
+		var x = document.getElementById("menuItems5");
+		x.style.visibility = "hidden";
+		var x = document.getElementById("menuItems6");
+		x.style.visibility = "hidden";
+		var x = document.getElementById("closemenubutton");
+		x.innerText = "hide menu"
+		x.style.visibility = "hidden";
+		// show background again
+		var x = document.getElementById("txt1");
+		x.style.color = "white";
+		var x = document.getElementById("txt2");
+		x.style.color = "white";
+		var x = document.getElementById("txt3");
+		x.style.color = "white";
+		var x = document.getElementById("txt4");
+		x.style.color = "white";
+		var x = document.getElementById("txt5");
+		x.style.color = "white";
+		var x = document.getElementById("txt6");
+		x.style.color = "white";
+	}
+
+	function myInfo() {
+		// cope with each user
+		// id's
+		//
+		// messy,sort out if time
+		var pname = localStorage.getItem("playerName")
+		var me1 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid="
+		var me2 = "&single=true"
+		let pages = [
+			["James Young", "810236750"],
+			["John Wright", "915092492"],
+			["Ron Woodcock", "1290462378"],
+			["Gordon Willis", "1513402578"],
+			["Marcus Wilkinson", "1559133934"],
+			["Phil Wegner", "569095872"],
+			["Bob Toward", "1362386656"],
+			["Roly Thompson", "946226131"],
+			["Neil Tait", "1091879652"],
+			["Tom Straker", "1078746992"],
+			["Ray Straker", "398404923"],
+			["Tony Smith", "702248704"],
+			["John Smith", "580403177"],
+			["Brian Simpson", "646566623"],
+			["Dave Scurfield", "2056574750"],
+			["Eric Saddler", "333592777"],
+			["Martin Rogers", "714765143"],
+			["Mike Riddell", "357713565"],
+			["Trevor Ord", "427919619"],
+			["Danny Norman", "1733260412"],
+			["Darren Nelson", "1110884700"],
+			["Stephen Murray", "295289998"],
+			["Tom McNally", "1536458468"],
+			["John Matthews", "1136606962"],
+			["Bryan Maddison", "1393811070"],
+			["Jim Little", "753716663"],
+			["Tom Lemin", "2024881862"],
+			["Andy Johnson", "95311035"],
+			["John Jackson", "675686535"],
+			["DavidT Jackson", "1055789648"],
+			["Dave Jackson", "1510878619"],
+			["Roger Ireland", "1082902022"],
+			["Peter Holleran", "645953808"],
+			["Barry Hill", "1615711067"],
+			["Clive Herbert", "171479740"],
+			["Richard Hedley", "613969918"],
+			["Rob Green", "1828236176"],
+			["Chris Green", "2088216719"],
+			["Vince Graham", "1052985769"],
+			["Graeme Gow", "461884656"],
+			["David Gilroy", "231061760"],
+			["Norman Gilholm", "1028353543"],
+			["Bill French", "575099177"],
+			["Joe Fletcher", "1104106760"],
+			["Martin Edwards", "1330717580"],
+			["John Dean", "78443046"],
+			["Andy Davison", "964606302"],
+			["Bryan Craggs", "1493051115"],
+			["Neil Coxon", "1026460349"],
+			["Gary Cowman", "39452465"],
+			["Alex Coupland", "1689396278"],
+			["Jed Cornhill", "1418411092"],
+			["Robert Connelly", "1597931110"],
+			["Ken Clark", "1465621381"],
+			["Dave Cave", "2091347340"],
+			["Craig Caesar", "100440064"],
+			["Keith Belshaw", "684087315"],
+			["Stephen Alldridge", "618029032"],
+			["Dale Aitkenhead", "1821073891"],
+			["Graham Airey", "1041583746"]
+		];
+		for(var i = 0; i < pages.length; i++) {
+			if(pages[i][0].indexOf(pname) > -1) {
+				meid = pages[i][1]
+				var meall = me1 + meid + me2
+				window.open(meall)
+			}
+		}
+	}
+
+	function HcpInfo() {
+		// check if already there
+		/*
+         var checkline = document.getElementById("InfoHcp").innerText
+         if (checkline.indexOf("Handicap") > -1) {
+            //document.getElementById("InfoHcp").style.visibility = "hidden"
+            document.getElementById("InfoHcp").style.display = "none"
+        } else {
+           /document.getElementById("InfoHcp").style.visibility = "visible"
+           document.getElementById("InfoHcp").style.display = "block"
+        }
+        */
+		var checkline = document.getElementById("InfoHcp")
+		if(checkline.style.display === 'block') {
+			checkline.style.display = 'none';
+		} else {
+			checkline.style.display = 'block';
+		}
+	}
+
+	function weeknumber() {
+		// check if already there
+		var checkline = document.getElementById("txt1").innerText
+		if(checkline.indexOf("Friday") > -1) {
+			document.getElementById("txt1").innerHTML = "<p style='visibility:hidden'>.</p>"
+			document.getElementById("txt2").innerHTML = "<p style='visibility:hidden'>.</p>"
+			document.getElementById("txt3").innerHTML = "<p style='visibility:hidden'>.</p>"
+			document.getElementById("txt4").innerHTML = "<p style='visibility:hidden'>.</p>"
+			document.getElementById("txt5").innerHTML = "<p style='visibility:hidden'>.</p>"
+			document.getElementById("txt6").innerHTML = "<p style='visibility:hidden'>.</p>"
+		} else {
+			currentdate = new Date();
+			var oneJan = new Date(currentdate.getFullYear(), 0, 1);
+			var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+			// numberOfDays is until Friday, eg sat=6
+			//var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
+			numberOfDays = (numberOfDays + 1)
+			var result = Math.ceil((numberOfDays / 7));
+			/*
+			var diary = [ 
+			"Friday 7th Oct Dawson",
+			"Friday 14th Oct Dawson",
+			"Friday 21st Oct Dawson",
+			"Friday 28th Oct Dawson",
+			"Friday 4th Nov Lakes",
+			"Friday 11th Nov Lakes",
+			"Friday 18th Nov Lakes",
+			"Friday 25th Nov Lakes",
+			"Friday 2nd Dec Dawson",
+			"Friday 9th Dec Dawson",
+			"Friday 16th Dec Dawson",
+			"Friday 23rd Dec Dawson",
+			"Friday 30th Dec Dawson",
+			"Friday 6th Jan Lakes",
+			"Friday 13th Jan Lakes",
+			"Friday 20th Jan Lakes",
+			"Friday 27th Jan Lakes",
+			"Friday 3rd Feb Dawson",
+			"Friday 10th Feb Dawson",
+			"Friday 17th Feb Dawson",
+			"Friday 24th Feb Dawson",
+			"Friday 3rd Mar Lakes",
+			"Friday 10th Mar Lakes",
+			"Friday 17th Mar Lakes",
+			"Friday 24th Mar Lakes",
+			"Friday 31st Mar Lakes",
+			"none",
+			"none",
+			"none",
+			"none",
+			"none",
+			"none"
+			 ]
+			 */
+			var x1 = document.getElementById("txt1");
+			var x2 = document.getElementById("txt2");
+			var x3 = document.getElementById("txt3");
+			var x4 = document.getElementById("txt4");
+			var x5 = document.getElementById("txt5");
+			var x6 = document.getElementById("txt6");
+			x1.innerText = diary[result - 40]
+			x2.innerText = diary[result - 39]
+			x3.innerText = diary[result - 38]
+			x4.innerText = diary[result - 37]
+			x5.innerText = diary[result - 36]
+			x6.innerText = diary[result - 35]
+		}
+	}
+
+	function hcplist() {
+		let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+		window.open("https://docs.google.com/spreadsheets/u/3/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1210420478&single=true", "hcplist", params)
+	}
+
+	function allresults() {
+		let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+		window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=612102443&single=true", "allresults", params)
+	}
+
+	function twos() {
+		let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=0,height=0,left=-1000,top=-1000`;
+		window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1266484079&single=true", "twos", params)
+	}
+
+	function testsmod() {
+		inputfocus = document.getElementById("myInputold");
+		inputfocus.focus();
+	}
+
+	function myFunctionx() {
+		var input, filter, ul, li, a, i, txtValue;
+		input = document.getElementById("myInputold");
+		if(input.value == "") {
+			xx = document.getElementById("myAold");
+			xx.innerText = "cancel"
+		} else {
+			filter = input.value.toUpperCase();
+			ul = document.getElementById("myULold");
+			li = ul.getElementsByTagName("li");
+			for(i = 0; i < li.length; i++) {
+				a = li[i].getElementsByTagName("p")[0];
+				txtValue = a.textContent || a.innerText;
+				if(txtValue.toUpperCase().indexOf(filter) > -1) {
+					li[i].style.display = "";
+					xx = document.getElementById("myAold");
+					xx.innerText = txtValue
+				} else {
+					li[i].style.display = "none";
+				}
+			}
+		}
+	}
+
+	function PlayerInfo() {
+		// show spinner 
+		document.getElementById("spin").style.display = "block";
+		document.getElementById("modalPlayerInfo").style.display = "block";
+		var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+		Papa.parse(public_spreadsheet_url, {
+			download: true,
+			header: true,
+			complete: showPlayerInfo
+		});
+	}
+
+	function showPlayerInfo(results) {
+		if("playerName" in localStorage) {
+			var pname = localStorage.getItem("playerName");
+		} else {
+			alert('no data found, probably no player set');
+		}
+		var datax = results.data
+		for(i = 0; i < datax.length; i++) {
+			if(datax[i].Name == pname) {
+				var meinfo = "hcp not found .."
+					/*
+					meinfo = datax[i].Name + "  ("  + datax[i].Handicap + ")" +
+					"<br><br> Lakes playing hcp: "  + datax[i].Lakes + 
+					    "<br> Dawson playing hcp: " + datax[i].Dawson  + 
+					    "<br> Winter playing hcp: " + datax[i].Winter;
+					*/
+				meinfo = datax[i].Name + "  (" + datax[i].Handicap + ")" + "<br><br> Winter playing hcp: " + datax[i].Winter
+					/*
+					 + 
+					    "<br><br> Dawson playing hcp: " + datax[i].Dawson  + 
+					    "<br> Lakes playing hcp: " + datax[i].Lakes;   
+					*/
+					// hide spinner
+				document.getElementById("spin").style.display = "none";
+				document.getElementById("modalPlayerInfo-content-txt").innerHTML = meinfo;
+				// update local data
+				localStorage.setItem("playerName", datax[i].Name.toString());
+				localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+				localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+				localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+				localStorage.setItem("WinterHCP", datax[i].Winter.toString());
+			}
+		}
+		/*
+            
+            if ("playerName" in localStorage) {
+              var xpname = localStorage.getItem("playerName");
+            } else {
+              var xpname = "nobody"
+            }
+            if ("playerHCP" in localStorage) {
+              var xphcp = localStorage.getItem("playerHCP");
+            } else {
+              var xphcp = "nothing"
+            }
+            if ("LakesHCP" in localStorage) {
+              var xplakeshcp = localStorage.getItem("LakesHCP");
+            } else {
+              var xplakeshcp = "nothing"
+            }
+            if ("DawsonHCP" in localStorage) {
+              var xpdawsonhcp = localStorage.getItem("DawsonHCP");
+            } else {
+              var xpdawsonhcp = "nothing"
+            }
+            if ("WinterHCP" in localStorage) {
+              var xpwinterhcp = localStorage.getItem("WinterHCP");
+            } else {
+              var xpwinterhcp = "nothing"
+            } 
+            
+          */
+	}
+	// non function() code so runs ..
+	// close by click the player info  
+	/*
+	var xxclosex = document.getElementById("closex");
+	var modalPlayerSearchx = document.getElementById("modalPlayerSearch");
+	xxclosex.onclick = function(event) {
+	  xxclosex.style.display = "none";
+	  modalPlayerSearchx.style.display = "none";
+	}
+          
+	*/
+	vplayer = localStorage.getItem("playerName");
+	//  vhcp = localStorage.getItem("playerHCP");
+	input = document.getElementById("myAold").innerText = vplayer
+		/*
+   
+          var arr = ['dummy',
+'Graham Airey',
+'Dale Aitkenhead',
+'Stephen Alldridge',
+'Keith Belshaw',
+'Craig Caesar',
+'Dave Cave',
+'Ken Clark',
+'Robert Connelly',
+'Jed Cornhill',
+'Alex Coupland',
+'Gary Cowman',
+'Neil Coxon',
+'Bryan Craggs',
+'Andy Davison',
+'John Dean',
+'Martin Edwards',
+'Joe Fletcher',
+'William French',
+'Norman Gilholm',
+'David Gilroy',
+'Graeme Gow',
+'Vince Graham',
+'Chris Green',
+'Rob Green',
+'Richard Hedley',
+'Clive Herbert',
+'Barry Hill',
+'Peter Holleran',
+'Roger Ireland',
+'Dav Jackson',
+'DavidT Jackson',
+'John Jackson',
+'Andy Johnson',
+'Tom Lemin',
+'Jim Little',
+'Bryan Maddison',
+'John Matthews',
+'Tom McNally',
+'Steph Murray',
+'Darren Nelson',
+'Danny Norman',
+'Trevor Ord',
+'Mike Riddell',
+'Martin Rogers',
+'Eric Saddler',
+'Brian Simpson',
+'John Smith',
+'Tony Smith',
+'Ray Straker',
+'T Straker',
+'Neil Tait',
+'Roly Thompson',
+'Bob Toward',
+'Phil Wegner',
+'Marcus Wilkinson',
+'Gordon Willis',
+'Ron Woodcock',
+'Brian Wray',
+'John Wright',
+'James Young'
+]
+          var x = ""
+          // build values to search
+          for (var ii = 0; ii < arr.length; ii++) {
+            x = x + ' <li><p> ' + arr[ii] + ' </p></li>' 
+          }
+          input = document.getElementById("myULold");
+          input.innerHTML = x
+          span1.onclick = function() {
+            modalsearch.style.display = "none";
+          }
+          var modalsearch = document.getElementById("modalPlayerSearch");
+          var btnsearch = document.getElementById("myBtnsearch");
+          var psearch = document.getElementById("myPsearch");
+ 
+ 
+ */
+		// make sure local player info is updated
+	function preScoreEntry() {
+		if("playerName" in localStorage) {
+			// show message
+			document.getElementById("modalPlayerInfo-content-txt").innerHTML = "updating data"
+			document.getElementById("modalPlayerInfo").style.display = "block";
+			//var playerNameretrieved = localStorage.getItem("playerName");
+			// hcp list from 2022
+			var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+			Papa.parse(public_spreadsheet_url, {
+				download: true,
+				header: true,
+				complete: preScoreEntrySearch
+			});
+			document.getElementById("modalPlayerInfo-content-txt").innerHTML = "searching ..."
+			document.getElementById("modalPlayerInfo").style.display = "none";
+		}
+	}
+
+	function preScoreEntrySearch(results) {
+		var newPlayerName = localStorage.getItem("playerName");
+		var datax = results.data
+			//search google sheets for info
+		for(i = 0; i < datax.length; i++) {
+			if(datax[i].Name == newPlayerName) {
+				// add player hcp details here
+				localStorage.setItem("playerName", datax[i].Name.toString());
+				localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+				localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+				localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+				localStorage.setItem("WinterHCP", datax[i].Winter.toString());
+			}
+		}
+	}
+
+	function testswap() {
+		swapp = document.getElementById("modalPlayerSearch");
+		swapp.style.display = "block"
+	}
+
+	function modalPlayerSearchButton() {
+		x = document.getElementById("myAold").innerText;
+		if(x == "cancel") {
+			window.location.reload()
+		} else {
+			if("playerName" in localStorage) {
+				var playerNameretrieved = localStorage.getItem("playerName");
+			}
+			/*
+			else {
+			   alert('no data found, probably no player set');
+			}
+			*/
+			document.getElementById("txtForSearch").innerText = "replacing " + playerNameretrieved + " with " + x;
+			localStorage.setItem("playerName", x);
+			// hcp list from 2022
+			var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+			Papa.parse(public_spreadsheet_url, {
+				download: true,
+				header: true,
+				complete: showInfoPlayerSearch
+			});
+		}
+	}
+
+	function showInfoPlayerSearch(results) {
+		var newPlayerName = localStorage.getItem("playerName");
+		var datax = results.data
+			//search google sheets for info
+		for(i = 0; i < datax.length; i++) {
+			if(datax[i].Name == newPlayerName) {
+				/*
+				var meinfo = "hcp not found .."
+				meinfo = datax[i].Name + "  <br> Hcp index: " + 
+				         datax[i].Handicap + " <br> Lakes hcp: " + 
+				         datax[i].Lakes + " <br> Dawson hcp: " +
+				         datax[i].Dawson  + " <br> Winter hcp: " +
+				         datax[i].Winter;
+				*/
+				// add player hcp details here
+				localStorage.setItem("playerName", datax[i].Name.toString());
+				localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+				localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+				localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+				localStorage.setItem("WinterHCP", datax[i].Winter.toString());
+			}
+		}
+		window.location.reload();
+	}
+	</script>
+</body>
+
+</html>
