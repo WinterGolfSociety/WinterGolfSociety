@@ -350,6 +350,40 @@
 		/* Microsoft Edge */
 		color: lightGray;
 	}
+   
+   
+   
+   
+   .cssmarquee {
+height: 20px;
+overflow: hidden;
+position: relative;
+}
+.cssmarquee h1 {
+font-size: 20px;
+font-style: italic;
+color: turquoise;
+position: absolute;
+width: 100%;
+height: 100%;
+margin: 0;
+line-height: 20px;
+text-align: center;
+transform:translateX(100%);
+animation: cssmarquee 20s linear infinite;
+}
+@keyframes cssmarquee {
+0% {
+transform: translateX(100%);
+}
+100% {
+transform: translateX(-100%);
+}
+}
+   
+   
+   
+   
 	</style>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -363,6 +397,10 @@
 </head>
 
 <body>
+<div class="cssmarquee">
+<h1>Christmas lunch Monday 12 December . . .</h1>
+</div>
+
 	<div id="modalPlayerInfo" class="modalPlayerInfo">
 		<div class="modalPlayerInfo-content"> <a id="modalPlayerInfo-content-txt">searching ...</a>
 			<br>
