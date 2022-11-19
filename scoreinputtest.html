@@ -26,6 +26,7 @@
 	       text-align: center;
 	       border: 1px solid darkSlateGray;
 	       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+          text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
 	   }
 	   
 	   .headerleft {
@@ -36,6 +37,7 @@
 	       border-radius: 15px;
 	       text-align: center;
 	       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+          text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
 	   }
 	   
 	   .button-hole-info {
@@ -89,6 +91,7 @@
 	       text-align: center;
 	       border: 1px solid darkSlateGray;
 	       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+          text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
 	   }
 	   
 	   .button-noarrow {
@@ -103,6 +106,7 @@
 	       border: 1px solid darkSlateGray;
 	       box-shadow: 10px 10px 25px black;
 	       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+          text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
           border-radius: 15px;
           border: 5px solid rgba(255, 255, 255, 0.2);
 	   }
@@ -124,6 +128,7 @@
 	       border: 1px solid darkSlateGray;
 	       box-shadow: 10px 10px 25px black;
 	       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+          text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
           border-radius: 15px;
           border: 5px solid rgba(255, 255, 255, 0.2);
 	   }
@@ -144,6 +149,7 @@
 	       border: 1px solid darkSlateGray;
 	       box-shadow: 10px 10px 25px black;
 	       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+          text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
           border-radius: 15px;
           border: 5px solid rgba(255, 255, 255, 0.2);  
 	   }
@@ -4023,6 +4029,7 @@ function pb1button() {
 	   function buttonSubmit() {
 	     var twosCount=0
         var scoreNotOK=0
+        var holesNotOK=""
 	       if(document.getElementById("submitButton").innerText == "Submit") {
 	           // do submit stuff here
 	           var ok = "yes";
@@ -4055,6 +4062,7 @@ function pb1button() {
 	           if(s1.length > 0) {
               if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 1\n"
               }   
 	           if (s1 == "2") {
 	              twosCount++
@@ -4067,6 +4075,7 @@ function pb1button() {
 	           if(s1.length > 0) {
               if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 2\n"
               }
 	           if (s1 == "2") {
 	              twosCount++
@@ -4079,6 +4088,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 3\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4091,6 +4101,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 4\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4103,6 +4114,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 5\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4115,6 +4127,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 6\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4127,6 +4140,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 7\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4139,6 +4153,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 8\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4151,6 +4166,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 9\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4163,6 +4179,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 10\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4175,6 +4192,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 11\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4187,6 +4205,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 12\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4199,6 +4218,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 13\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4211,6 +4231,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 14\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4223,6 +4244,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 15\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4235,6 +4257,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 16\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4247,6 +4270,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 17\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4259,6 +4283,7 @@ function pb1button() {
 	           if(s1.length > 0) {
 	           if(s1 == "0") {
                  scoreNotOK=(scoreNotOK+1)
+                 holesNotOK=holesNotOK + "hole 18\n"
               }
               if (s1 == "2") {
 	              twosCount++
@@ -4471,7 +4496,7 @@ function pb1button() {
                      }
                   }
                } else {
-	               alert("missing data so submit failed");
+	               alert("missing data for :\n\n" + holesNotOK + "\nso submit failed");
                }	     
             }
 	   }
