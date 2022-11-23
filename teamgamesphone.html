@@ -48,20 +48,28 @@
 
 
 
-#waitingRoom1,#waitingRoom2, #waitingRoom3  {
-    padding-top: 50%;
-  
+#teamOfPlayers1,
+#teamOfPlayers2, 
+#teamOfPlayers3, 
+#teamOfPlayers4,
+#teamOfPlayers5,
+#teamOfPlayers6,
+#teamOfPlayers7,
+#teamOfPlayers8,
+#teamOfPlayers9,
+#teamOfPlayers10 {
+   /*
   height: 200px;
   margin: 2px;
-  padding: 10px;
+  //padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 25px black;
-  background: url("dandd2.png") 50% 2% no-repeat, dodgerBlue;
+  background: url("xdandd2.png") 50% 2% no-repeat, dodgerBlue;
   background-size: 90%;
   background-position: bottom;
-   
   width: 120px;
+  */
 }
 
 .dragitem {
@@ -73,7 +81,7 @@
   width: 120px;
   border-radius: 10px;
   box-shadow: 10px 10px 25px black;
-  padding: 10px;
+  //padding: 10px;
   cursor: move;
   white-space: nowrap;
   text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
@@ -82,23 +90,7 @@
   margin: 2px;             
 }
 
-#five {
-  font-size:15px;
-  border: none;
-  background-color: dodgerBlue;
-  background-image: linear-gradient(lightslategray,darkslateGray);
-  color: white;
-  width: 200px;
-  border-radius: 10px;
-  box-shadow: 10px 10px 25px black;
-  padding: 10px;
-  cursor: move;
-  white-space: nowrap;
-  text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
-                0px 8px 13px rgba(0,0,0,0.1),
-                0px 18px 23px rgba(0,0,0,0.1); 
-  margin: 2px;             
-}
+
 
 .container {
   display: grid;
@@ -136,18 +128,15 @@
   background-color: Gray;
   background-image: linear-gradient(lightslategray,darkslateGray);
   color: white;
+  font-size:13px;
   text-align: center;
   width: 140px;
-  
   margin: 2px;
-  height: 1000px;
-  
-  
-  
+  height: 200px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 25px black;
-  //padding: 10px;
+  padding-top: 3px;
   cursor: move;
   white-space: nowrap;
   text-shadow:  0px 4px 3px rgba(0,0,0,0.4),
@@ -265,38 +254,54 @@
     <div id="drag14" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Andy Davison</div>
     </div>
     
-    
-    
-    
-    
 </div>
 
 
 <div class="container2"> 
-<div class="labelx" id="group0">available</div>
+<div class="labelx" id="teamOfPlayers1" onclick="clickedTeam(this.id)">team 1 (4 players)</div>
+<div class="labelx" id="teamOfPlayers2" onclick="clickedTeam(this.id)">team 2 (4 players)</div>
+</div>
 
-<div>   
-<div id="waitingRoom1" ondrop="drop(event)" onclick="clickedTeam(this.id)">team 1 (4 players)</div>
-<div id="waitingRoom2" ondrop="drop(event)" onclick="clickedTeam(this.id)">team 2 (4 players)</div>
-<div id="waitingRoom3" ondrop="drop(event)" onclick="clickedTeam(this.id)">team 3 (4 players)</div>
+<div class="container2"> 
+<div class="labelx" id="teamOfPlayers3" onclick="clickedTeam(this.id)">team 3 (4 players)</div>
+<div class="labelx" id="teamOfPlayers4" onclick="clickedTeam(this.id)">team 4 (4 players)</div>
 </div>
+
+<div class="container2"> 
+<div class="labelx" id="teamOfPlayers5" onclick="clickedTeam(this.id)">team 5 (4 players)</div>
+<div class="labelx" id="teamOfPlayers6" onclick="clickedTeam(this.id)">team 6 (4 players)</div>
 </div>
+
+<div class="container2">  
+<div class="labelx" id="teamOfPlayers7" onclick="clickedTeam(this.id)">team 7 (4 players)</div> 
+<div class="labelx" id="teamOfPlayers8" onclick="clickedTeam(this.id)">team 8 (4 players)</div>
+</div>
+
+<div class="container2"> 
+<div class="labelx" id="teamOfPlayers9" onclick="clickedTeam(this.id)">team 9 (4 players)</div>
+<div class="labelx" id="teamOfPlayers10" onclick="clickedTeam(this.id)">team 10 (4 players)</div>
+</div>
+
+</div>
+
 <script>
-
+// global count number of players
 var counter=0
+// global number for team change
 var teamNumber=1
+
 function dummy(thisid) {
    return 0
 }
 
 function clickedPlayer(idplayer) {
 var fromx = document.getElementById(idplayer);
-// move player to correct waitingRoom (becomes team1, team2 etc.)
+// move player to correct teamOfPlayers (becomes team1, team2 etc.)
 // check number of players set
-// move onto next waitingRoom
+// move onto next teamOfPlayers
 
 
-var teamNum = document.getElementById("waitingRoom" + teamNumber);
+var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
 
 if (teamNum.innerText.indexOf("4 players") > -1) {
    if (counter < 4) {
@@ -307,7 +312,7 @@ if (teamNum.innerText.indexOf("4 players") > -1) {
          teamNumber++
          counter=0
          //move to next team
-         var teamNum = document.getElementById("waitingRoom" + teamNumber);
+         var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
          if (counter < 4) {
             teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
             counter++
@@ -327,7 +332,7 @@ if (teamNum.innerText.indexOf("3 players") > -1) {
          teamNumber++
          counter=0
          //move to next team
-         var teamNum = document.getElementById("waitingRoom" + teamNumber);
+         var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
    }
 }
 
@@ -341,7 +346,7 @@ var fromx = document.getElementById(idplayer);
 //alert(fromx.parentElement)
 xxx = '<div class="dragitem">' + htmlplayer + '</div>'
 // alert(xxx)
-var tox = document.getElementById("waitingRoom1");
+var tox = document.getElementById("teamOfPlayers1");
 tox.innerHTML = tox.innerHTML + xxx
 fromx.style.visibility="hidden"
 
@@ -373,7 +378,7 @@ fromx.style.visibility="hidden"
 function clickedTeam(idteam) {
    
 var teamNum = document.getElementById(idteam);
-var idteamMod = idteam.replace("waitingRoom","team ")
+var idteamMod = idteam.replace("teamOfPlayers","team ")
 
 // if 1 players, change to 4
 if (teamNum.innerText.indexOf("1 player") > -1) {
@@ -398,268 +403,11 @@ if (teamNum.innerText.indexOf("1 player") > -1) {
 function clickedTeamPlayer(idteamplayer) {
    
 var teamPlayer = document.getElementById(idteamplayer);
-//var idteamMod = idteam.replace("waitingRoom","team ")
+
 }
 
 
 
-/*
-
-
-function shuffleArray() {
-   
-var xx = document.getElementById('waitingRoom1');  
-var xxinput = xx.innerHTML;    
-var xxarraycoarse = xxinput.split("</div>");
-
-// remove empty elements
-var xxarray = xxarraycoarse.filter(function (el) {
-  return el != "";
-});
-
-// remove 4balls
-document.getElementById('res1').innerHTML = ""; 
-document.getElementById('res2').innerHTML = ""; 
-document.getElementById('res3').innerHTML = ""; 
-document.getElementById('res4').innerHTML = ""; 
-document.getElementById('res5').innerHTML = ""; 
-document.getElementById('res6').innerHTML = ""; 
-document.getElementById('res7').innerHTML = ""; 
-document.getElementById('res8').innerHTML = ""; 
-document.getElementById('res9').innerHTML = ""; 
-document.getElementById('res10').innerHTML = ""; 
-document.getElementById('res11').innerHTML = ""; 
-document.getElementById('res12').innerHTML = ""; 
-
-var ii = xxarray.length;
-var iiconst = xxarray.length;  
-var countgroups = 0;
-var xstr="";
-var count4balls = 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// cope with 3 players as an invalid option
-if (iiconst == 3) {
-    starthtml = '<div id="five">';
-    endhtml='</div>';
-    document.getElementById('res1').innerHTML = starthtml + "Groups cannot be allocated<br>with 34 players. Try adding<br>3 more players." + endhtml; 
-    return;   
-}
-// cope with 4 players as an invalid option
-if (iiconst == 4) {
-    starthtml = '<div id="five">';
-    endhtml='</div>';
-    document.getElementById('res1').innerHTML = starthtml + "Groups cannot be allocated<br>with 4 players. Try adding<br>2 more players." + endhtml; 
-    return;   
-}
-// cope with 5 players as an impossible solution
-if (iiconst == 5) {
-    starthtml = '<div id="five">';
-    endhtml='</div>';
-    document.getElementById('res1').innerHTML = starthtml + "Groups cannot be allocated<br>with 5 players. Try adding<br>1 more player." + endhtml; 
-    return;   
-}
-
-for (var j = ii; j > 0; j--) { 
-
-    var i = Math.floor(Math.random() * ii );  
-    // put the split "marker" back
-    //alert(xxarray[i]);
-    xstr = xstr + xxarray[i] + "</div>";
-    count4balls++
-   
-    if (iiconst % 4 == 0) {
-        // just run 4balls
-        if (count4balls == 4) {
-            countgroups++ 
-            count4balls = 0;   
-            document.getElementById('res' + countgroups).innerHTML = xstr;  
-            // reset xstr 
-            xstr = "";
-        }
-    }
-   
-    if (iiconst % 4 == 1) {
-        // run 3 x 3 balls then 4 balls
-        if (j > (iiconst - 10)) {
-            if (count4balls == 3) {
-                countgroups++ 
-                count4balls = 0;   
-                document.getElementById('res' + countgroups).innerHTML = xstr;  
-                // reset xstr 
-                xstr = "";
-            }
-        } else
-        
-        {
-            if (count4balls == 4) {
-                countgroups++ 
-                count4balls = 0;   
-                document.getElementById('res' + countgroups).innerHTML = xstr;  
-                // reset xstr 
-                xstr = "";
-            } 
-        }   
-    }
-   
-    if (iiconst % 4 == 2) {
-        // run 2 x 3 balls then 4 balls
-        if (j > (iiconst - 7)) {
-            if (count4balls == 3) {
-                countgroups++ 
-                count4balls = 0;   
-                document.getElementById('res' + countgroups).innerHTML = xstr;  
-                // reset xstr 
-                xstr = "";
-            }
-        } else
-        
-        {
-            if (count4balls == 4) {
-                countgroups++ 
-                count4balls = 0;   
-                document.getElementById('res' + countgroups).innerHTML = xstr;  
-                // reset xstr 
-                xstr = "";
-            } 
-        }
-    }
-   
-    if (iiconst % 4 == 3) {
-        // run 1 x 3 ball then 4 balls
-        // counts down, so ...
-        if (j > (iiconst - 4)) {
-            if (count4balls == 3) {
-                countgroups++ 
-                count4balls = 0;   
-                document.getElementById('res' + countgroups).innerHTML = xstr;  
-                // reset xstr 
-                xstr = "";
-            }
-        } else
-        
-        {
-            if (count4balls == 4) {
-                countgroups++ 
-                count4balls = 0;   
-                document.getElementById('res' + countgroups).innerHTML = xstr;  
-                // reset xstr 
-                xstr = "";
-            } 
-        
-        }
-    }
-   
-    // adjust array
-    // get rid of element just used
-    xxarray.splice(i,1);
-    ii--
- 
-}
-}
- 
- 
- 
- 
- 
- 
- 
- 
- 
-    
- 
-
-    // wait - probably not required
-    // but helps with timestamp etc.
-    const milliseconds = 1000;
-    const date = Date.now();
-    let currentDate = null;
-    do {
-    currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-    
- */  
-
- /*   ==========================================================
- 
- 
-
-
-]
-//allow for original iframe load   
-var globalcounter = -1;  
-var globalstxt = ""; 
- 
- 
- 
- 
- 
-document.getElementById('my-form').target = 'my-response-iframe';
-// detect when the iframe reloads
-var iframe = document.getElementById('my-response-iframe');
-if (iframe) {
-iframe.onload = function () {
-// now you can do stuff, such as displaying a message or redirecting to a new page.
-globalcounter++  
-rungroup(globalcounter);
-}
-}  
-    
-function rungroup(groupnum) {
-   var y = document.getElementById('div' + groupnum).innerText;
-   alert("-" + y + "-");
-   y = y + '\n';
-   alert("-" + y + "-");
-   yarray = y.split('\n');
-   
- alert("y = " + y.length + " - " + document.getElementById('mx582430225').value);
-   
-   
-   
-   if (y.length > 1) {
-    var todayscomp = "Lakes stableford Friday 26 November";
-    var todaysgroup = "group" + groupnum;
-    //competition
-    document.getElementById('mx582430225').value = todayscomp;
-    //players
-    document.getElementById('mx118046208').value = yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3];
-    document.getElementById('mx479294276').value = todaysgroup;  
-   document.forms[0].submit() 
-   var stxt = todayscomp + ", " + yarray[0] + "/" + yarray[1] + "/" + yarray[2] + "/" + yarray[3] + ", " + todaysgroup;
-   var startx = '<div id="submitted">Submitted:<br><br>';
-   var endx = '</div>';
-   globalstxt = globalstxt + stxt + '<br><br>';
-   submitted = startx + globalstxt + endx;
-   document.getElementById('info4').innerHTML = submitted; 
-  // wait - probably not required
-  // but helps with timestamp etc.
-  const milliseconds = 500;
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-} 
-}
-
-*/ 
     
 function allowDrop(ev) {
   ev.preventDefault();
@@ -673,7 +421,7 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
-  var x = document.getElementById('waitingRoom1').innerHTML;
+  var x = document.getElementById('teamOfPlayers1').innerHTML;
   document.getElementById("demo0").innerHTML = x; 
   
   
