@@ -48,15 +48,19 @@
 
 
 
-#waitingRoom {
+#waitingRoom1,#waitingRoom2, #waitingRoom3  {
+    padding-top: 50%;
+  
   height: 200px;
   margin: 2px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 25px black;
-  background: url("dandd2.png") 50% 2% no-repeat, mediumSpringGreen;
-  background-size: 90%; 
+  background: url("dandd2.png") 50% 2% no-repeat, dodgerBlue;
+  background-size: 90%;
+  background-position: bottom;
+   
   width: 120px;
 }
 
@@ -206,58 +210,143 @@
 
 <body>
  <div class="container1">    
-    
-    
+
     <div id="drag1wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag1" class="dragitem" draggable="true" onclick="clickedPlayer()" ondragstart="drag(event)">Graham Airey</div>
+    <div id="drag1" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Graham Airey</div>
     </div>
+    
     <div id="drag2wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag2" class="dragitem" draggable="true" onclick="clickedPlayer()" ondragstart="drag(event)">Dale Aitkenhead</div>
       </div>
+      
       <div id="drag3wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag3" class="dragitem" draggable="true" onclick="clickedPlayer()" ondragstart="drag(event)">Stephen Alldridge</div>
       </div>
+      
       <div id="drag4wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag4" class="dragitem" draggable="true" ondragstart="drag(event)">Keith Belshaw</div>
    </div>
+   
    <div id="drag5wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag5" class="dragitem" draggable="true" ondragstart="drag(event)">Stewart Brodie</div>
       </div>
       <div id="drag6wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag6" class="dragitem" draggable="true" ondragstart="drag(event)">Craig Caesar</div>
     </div>
+    
       <div id="drag7wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag7" class="dragitem" draggable="true" ondragstart="drag(event)">Clive Caisley</div>
       </div>
       <div id="drag8wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag8" class="dragitem" draggable="true" ondragstart="drag(event)">Dave Cave</div>
     </div>
+    
       <div id="drag9wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag9" class="dragitem" draggable="true" ondragstart="drag(event)">Ken Clark</div>
    </div>
+   
    <div id="drag10wrapper" onclick="clickedPlayer(this.id)" >
     <div id="drag10" class="dragitem" draggable="true" ondragstart="drag(event)">Robert Connelly</div>
    </div>
+   
+   <div id="drag11wrapper" onclick="clickedPlayer(this.id)" >
+    <div id="drag11" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Darren Nelson</div>
+    </div>
+    
+    <div id="drag12wrapper" onclick="clickedPlayer(this.id)" >
+    <div id="drag12" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">John Wright</div>
+    </div>
+    
+    <div id="drag13wrapper" onclick="clickedPlayer(this.id)" >
+    <div id="drag13" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Tony Smith</div>
+    </div>
+    
+    <div id="drag14wrapper" onclick="clickedPlayer(this.id)" >
+    <div id="drag14" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Andy Davison</div>
+    </div>
+    
+    
+    
+    
+    
 </div>
 
 
 <div class="container2"> 
 <div class="labelx" id="group0">available</div>
 
-
 <div>   
-<div id="waitingRoom" ondrop="drop(event)" ondragover="allowDrop(event)">teams</div>
+<div id="waitingRoom1" ondrop="drop(event)" onclick="clickedTeam(this.id)">team 1 (4 players)</div>
+<div id="waitingRoom2" ondrop="drop(event)" onclick="clickedTeam(this.id)">team 2 (4 players)</div>
+<div id="waitingRoom3" ondrop="drop(event)" onclick="clickedTeam(this.id)">team 3 (4 players)</div>
 </div>
 </div>
 <script>
 
+var counter=0
+var teamNumber=1
+function dummy(thisid) {
+   return 0
+}
 
 function clickedPlayer(idplayer) {
-  
-var fromx = document.getElementById(idplayer); 
-var tox = document.getElementById("group0");
-tox.innerHTML = tox.innerHTML + fromx.innerHTML  
+var fromx = document.getElementById(idplayer);
+// move player to correct waitingRoom (becomes team1, team2 etc.)
+// check number of players set
+// move onto next waitingRoom
+
+
+var teamNum = document.getElementById("waitingRoom" + teamNumber);
+
+if (teamNum.innerText.indexOf("4 players") > -1) {
+   if (counter < 4) {
+      teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
+      counter++
+      fromx.style.visibility="hidden"
+   } else {
+         teamNumber++
+         counter=0
+         //move to next team
+         var teamNum = document.getElementById("waitingRoom" + teamNumber);
+         if (counter < 4) {
+            teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
+            counter++
+            fromx.style.visibility="hidden"
+         } 
+         alert("leaving")
+   }
+}
+
+if (teamNum.innerText.indexOf("3 players") > -1) {
+   if (counter < 3) {
+      alert("entering")
+      teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML
+      counter++
+      fromx.style.visibility="hidden"
+}  else {
+         teamNumber++
+         counter=0
+         //move to next team
+         var teamNum = document.getElementById("waitingRoom" + teamNumber);
+   }
+}
+
+}
+
+function xclickedPlayerX(idplayer,htmlplayer) {
+// alert("X clicked")
+// alert(htmlplayer) 
+var fromx = document.getElementById(idplayer);
+
+//alert(fromx.parentElement)
+xxx = '<div class="dragitem">' + htmlplayer + '</div>'
+// alert(xxx)
+var tox = document.getElementById("waitingRoom1");
+tox.innerHTML = tox.innerHTML + xxx
 fromx.style.visibility="hidden"
+
+//alert(tox.innerHTML)
+
 
 
 }
@@ -272,8 +361,54 @@ fromx.style.visibility="hidden"
 
 
 
+
+
+
+
+
+
+
+
+
+function clickedTeam(idteam) {
+   
+var teamNum = document.getElementById(idteam);
+var idteamMod = idteam.replace("waitingRoom","team ")
+
+// if 1 players, change to 4
+if (teamNum.innerText.indexOf("1 player") > -1) {
+   teamNum.innerText = idteamMod + " (4 players)"
+} else if 
+// if 2 players, change to 1
+(teamNum.innerText.indexOf("2 players") > -1) {
+   teamNum.innerText = idteamMod + " (1 player)"
+} else if
+// if 3 players, change to 2
+(teamNum.innerText.indexOf("3 players") > -1) {
+   teamNum.innerText = idteamMod + " (2 players)"
+} else if
+// if 4 players, change to 3
+(teamNum.innerText.indexOf("4 players") > -1) {
+   teamNum.innerText = idteamMod + " (3 players)"
+} else {alert("no change")}
+
+}
+
+
+function clickedTeamPlayer(idteamplayer) {
+   
+var teamPlayer = document.getElementById(idteamplayer);
+//var idteamMod = idteam.replace("waitingRoom","team ")
+}
+
+
+
+/*
+
+
 function shuffleArray() {
-var xx = document.getElementById('waitingRoom');  
+   
+var xx = document.getElementById('waitingRoom1');  
 var xxinput = xx.innerHTML;    
 var xxarraycoarse = xxinput.split("</div>");
 
@@ -449,7 +584,7 @@ for (var j = ii; j > 0; j--) {
  
  
     
- /*   
+ 
 
     // wait - probably not required
     // but helps with timestamp etc.
@@ -538,7 +673,7 @@ function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
-  var x = document.getElementById('waitingRoom').innerHTML;
+  var x = document.getElementById('waitingRoom1').innerHTML;
   document.getElementById("demo0").innerHTML = x; 
   
   
