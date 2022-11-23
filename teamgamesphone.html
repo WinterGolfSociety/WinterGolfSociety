@@ -35,42 +35,10 @@
   background: none;
 }
 
-
-
-
 #spacer {
         height:50px;
-    
 }
 
-
-
-
-
-
-#teamOfPlayers1,
-#teamOfPlayers2, 
-#teamOfPlayers3, 
-#teamOfPlayers4,
-#teamOfPlayers5,
-#teamOfPlayers6,
-#teamOfPlayers7,
-#teamOfPlayers8,
-#teamOfPlayers9,
-#teamOfPlayers10 {
-   /*
-  height: 200px;
-  margin: 2px;
-  //padding: 10px;
-  border: 1px solid black;
-  border-radius: 10px;
-  box-shadow: 10px 10px 25px black;
-  background: url("xdandd2.png") 50% 2% no-repeat, dodgerBlue;
-  background-size: 90%;
-  background-position: bottom;
-  width: 120px;
-  */
-}
 
 .dragitem {
   font-size:13px;
@@ -110,23 +78,10 @@
   gap: 3px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .labelx {
   border: none;
-  background-color: Gray;
-  background-image: linear-gradient(lightslategray,darkslateGray);
+  background-color: dodgerBlue;
+  //background-image: linear-gradient(lightslategray,darkslateGray);
   color: white;
   font-size:13px;
   text-align: center;
@@ -302,39 +257,59 @@ var fromx = document.getElementById(idplayer);
 
 
 var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
-
 if (teamNum.innerText.indexOf("4 players") > -1) {
+   if (counter == 4) {
+      counter = 0
+      teamNumber++
+   }
    if (counter < 4) {
-      teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
-      counter++
-      fromx.style.visibility="hidden"
-   } else {
-         teamNumber++
-         counter=0
-         //move to next team
-         var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
-         if (counter < 4) {
-            teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
-            counter++
-            fromx.style.visibility="hidden"
-         } 
+      subClickedPlayer(idplayer)
    }
 }
 
 if (teamNum.innerText.indexOf("3 players") > -1) {
+   if (counter == 3) {
+      counter = 0
+      teamNumber++
+   }
    if (counter < 3) {
-      teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML
-      counter++
-      fromx.style.visibility="hidden"
-}  else {
-         teamNumber++
-         counter=0
-         //move to next team
-         var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
+      subClickedPlayer(idplayer)
    }
 }
 
 }
+
+function subClickedPlayer(idplayer) {
+var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
+var fromx = document.getElementById(idplayer);
+teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
+fromx.style.visibility="hidden"
+counter++
+}
+
+function subClickedPlayer3(idplayer) {
+var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
+var fromx = document.getElementById(idplayer);
+teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
+fromx.style.visibility="hidden"
+}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function xclickedPlayerX(idplayer,htmlplayer) {
 // alert("X clicked")
