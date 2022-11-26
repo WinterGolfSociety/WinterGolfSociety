@@ -1478,8 +1478,12 @@ Check the scores entered (shots taken) then Submit.
 	     
 	   
 	   var thisComp = "stableford Friday"
-	   
-	  
+	   var pname = "unknown"
+	   var phcp = "unknown"
+      var plakeshcp = "unknown"
+      var pdawsonhcp = "unknown"
+      var pwinterhcp = "unknown"
+      
 	   
 	  // global variables
 	if ("playerName" in localStorage) {
@@ -1731,8 +1735,9 @@ Check the scores entered (shots taken) then Submit.
      // start of disable winter courses
      // wLakes
 	//  if( dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
-   
-   if (diaryLakes.indexOf(ddshort) > -1 ) {
+     alert("before "+pname)
+   if (diaryLakes.indexOf(ddshort) > -1 || pname == "Bryan Maddison") {
+      alert(pname)
 	  ddtoday = '<a id="yellow">wLakes ' + ddtoday + '<\/a>'
 	  document.getElementById("compName").innerHTML = "Competition: " + ddtoday; 
 	  vhcp = pwinterhcp;
@@ -1987,18 +1992,6 @@ Check the scores entered (shots taken) then Submit.
 	       element.style.display = "none";
 	   }
       
-      function playerSwap() {
-         var swapp = document.getElementById("ppmodalsearch");
-         swapp.style.display = "block"
-      }
-
-      function playerSwapUpdate(pnamex) {
-         alert("playerSwapUpdate = " + pnamex)
-         var pswap = document.getElementById("playerName").
-         pswap.innerHTML = 'Player: <a id="yellow">' + pnamex + '<\/a>'; 
-      }
-
-
 
       function myFunctionx() {
           var input, filter, ul, li, a, i, txtValue;
@@ -2025,51 +2018,6 @@ Check the scores entered (shots taken) then Submit.
           
         }
         
-function pb1button() {
-          var b1x = document.getElementById("myAold");
-          var b1xx = b1x.innerText;
-          // close modal search
-          var modalsearch = document.getElementById("ppmodalsearch");
-          modalsearch.style.display = "none";
-          
-          
-          alert("txtValue = " + b1xx)
-          playerSwapUpdate(b1xx)
-          
-          
-          
-          
-    //      displayPlayer("Bryan Maddison")
-        }
- function displayPlayer(xvalue) {
-          if (xvalue == "Bryan Maddison") {
-            window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true");
-          }
-          if (xvalue !== "Bryan Maddison") {
-            // tony smith
-            window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1288506359&single=true");
-          }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	   function blueButton1(id) {
 	       // reset buttons for this hole
@@ -4490,6 +4438,14 @@ function pb1button() {
                         sub = document.getElementById("submitButton");
                         sub.style.backgroundColor = "blue";
                         sub.innerText = "Completed";
+                        // wait again before returning to menu screen
+                        const milliseconds = 500;
+                        //const milliseconds = 1000;
+                        const date = Date.now();
+                        let currentDate = null;
+                        do {
+	                       currentDate = Date.now();
+                        } while (currentDate - date < milliseconds);
                         // return to previous screen
                         window.history.go(-1)
                      }
