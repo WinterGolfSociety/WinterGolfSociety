@@ -1267,38 +1267,7 @@
 		</div>
 	</div><br>
 	<!-- from localstorage -->
-	<div class="fullcontainer">
-		
-      
-        
-      
-      
-      
-      
-      
-      
-        
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+	<div class="fullcontainer">     
       <div id="playerName">
 			Player: unknown        
 		</div>
@@ -1476,10 +1445,7 @@ Check the scores entered (shots taken) then Submit.
 	<br>
 	<script>
 	     
-	   
-	   var thisComp = "stableford Friday"
-	   
-	  
+   var thisComp = "stableford Friday"
 	   
 	  // global variables
 	if ("playerName" in localStorage) {
@@ -1732,7 +1698,7 @@ Check the scores entered (shots taken) then Submit.
      // wLakes
 	//  if( dd.indexOf("November") > -1 || dd.indexOf("January") > -1 || dd.indexOf("March") > -1) {
    
-   if (diaryLakes.indexOf(ddshort) > -1 || pname == "Bryan Maddison") {
+   if (diaryLakes.indexOf(ddshort) > -1) {
 	  ddtoday = '<a id="yellow">wLakes ' + ddtoday + '<\/a>'
 	  document.getElementById("compName").innerHTML = "Competition: " + ddtoday; 
 	  vhcp = pwinterhcp;
@@ -1775,19 +1741,9 @@ Check the scores entered (shots taken) then Submit.
 	   vsi18 = 8
 	        }  
 	   
-      
-      
-     
-      
-      
-      
-      
-      
-      
       // wDawson   
-	//   if( dd.indexOf("October") > -1 || dd.indexOf("December") > -1 || dd.indexOf("February") > -1) {
-   
-   if (diaryDawson.indexOf(ddshort) > -1 ) {
+	   
+      if (diaryDawson.indexOf(ddshort) > -1 ) {
 	     ddtoday = '<a id="yellow">wDawson ' + ddtoday + '<\/a>'
 	     document.getElementById("compName").innerHTML = "Competition: " + ddtoday;
 	       vhcp = pwinterhcp;      
@@ -1906,9 +1862,7 @@ Check the scores entered (shots taken) then Submit.
 	       element.style.display = "grid";
 	       var element = document.getElementById("hole1");
 	       element.style.display = "grid";
-	     
-
-	     document.getElementById("cHCP").innerHTML='course HCP: <a id="yellow">' + vhcp + '<\/a>';
+         document.getElementById("cHCP").innerHTML='course HCP: <a id="yellow">' + vhcp + '<\/a>';
 
 	   }
 
@@ -1998,8 +1952,6 @@ Check the scores entered (shots taken) then Submit.
          pswap.innerHTML = 'Player: <a id="yellow">' + pnamex + '<\/a>'; 
       }
 
-
-
       function myFunctionx() {
           var input, filter, ul, li, a, i, txtValue;
           input = document.getElementById("myInputold");
@@ -2025,22 +1977,21 @@ Check the scores entered (shots taken) then Submit.
           
         }
         
-function pb1button() {
+ /*
+      function pb1button() {
           var b1x = document.getElementById("myAold");
           var b1xx = b1x.innerText;
           // close modal search
           var modalsearch = document.getElementById("ppmodalsearch");
           modalsearch.style.display = "none";
-          
-          
           alert("txtValue = " + b1xx)
           playerSwapUpdate(b1xx)
-          
-          
-          
-          
+
     //      displayPlayer("Bryan Maddison")
         }
+        
+      
+        
  function displayPlayer(xvalue) {
           if (xvalue == "Bryan Maddison") {
             window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1796067805&single=true");
@@ -2051,25 +2002,7 @@ function pb1button() {
           }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ */ 
 
 	   function blueButton1(id) {
 	       // reset buttons for this hole
@@ -4490,6 +4423,15 @@ function pb1button() {
                         sub = document.getElementById("submitButton");
                         sub.style.backgroundColor = "blue";
                         sub.innerText = "Completed";
+                        // wait - let usercsee button change forc1 second
+                        const milliseconds = 1000;
+                        //const milliseconds = 1000;
+                        const date = Date.now();
+                        let currentDate = null;
+                        do {
+	                       currentDate = Date.now();
+                        } while (currentDate - date < milliseconds);
+
                         // return to previous screen
                         window.history.go(-1)
                      }
