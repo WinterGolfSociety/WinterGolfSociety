@@ -537,22 +537,17 @@
 	var diary = ["Friday 7th Oct Lakes", "Friday 14th Oct Dawson", "Friday 21st Oct Lakes", "Friday 28th Oct Dawson", "Friday 4th Nov Lakes", "Friday 11th Nov Dawson", "Friday 18th Nov Lakes", "Friday 25th Nov Dawson", "Friday 2nd Dec Lakes", "Friday 9th Dec Dawson", "Friday 16th Dec Lakes", "Friday 23rd Dec Dawson", "Friday 30th Dec Lakes", "Friday 6th Jan Dawson", "Friday 13th Jan Lakes", "Friday 20th Jan Dawson", "Friday 27th Jan Lakes", "Friday 3rd Feb Dawson", "Friday 10th Feb Lakes", "Friday 17th Feb Dawson", "Friday 24th Feb Lakes", "Friday 3rd Mar Dawson", "Friday 10th Mar Lakes", "Friday 17th Mar Dawson", "Friday 24th Mar Lakes", "Friday 31st Mar Dawson", "none", "none", "none", "none", "none", "none"]
 	var arr = ['dummy', 'Graham Airey', 'Dale Aitkenhead', 'Stephen Alldridge', 'Keith Belshaw', 'Craig Caesar', 'Dave Cave', 'Ken Clark', 'Robert Connelly', 'Jed Cornhill', 'Alex Coupland', 'Gary Cowman', 'Neil Coxon', 'Bryan Craggs', 'Andy Davison', 'John Dean', 'Martin Edwards', 'Joe Fletcher', 'Bill French', 'Norman Gilholm', 'David Gilroy', 'Graeme Gow', 'Vince Graham', 'Chris Green', 'Rob Green', 'Richard Hedley', 'Clive Herbert', 'Barry Hill', 'Peter Holleran', 'Roger Ireland', 'Dav Jackson', 'DavidT Jackson', 'John Jackson', 'Andy Johnson', 'Tom Lemin', 'Jim Little', 'Bryan Maddison', 'John Matthews', 'Tom McNally', 'Steph Murray', 'Darren Nelson', 'Danny Norman', 'Trevor Ord', 'Mike Riddell', 'Martin Rogers', 'Eric Saddler', 'Dave Scurfield', 'Brian Simpson', 'John Smith', 'Tony Smith', 'Ray Straker', 'T Straker', 'Neil Tait', 'Roly Thompson', 'Bob Toward', 'Phil Wegner', 'Marcus Wilkinson', 'Gordon Willis', 'Ron Woodcock', 'Brian Wray', 'John Wright', 'James Young']
 	var x = ""
-		// build values to search
+	// build values to search
 	for(var ii = 0; ii < arr.length; ii++) {
 		x = x + ' <li><p>' + arr[ii] + '</p></li>'
 	}
 	input = document.getElementById("myULold");
 	input.innerHTML = x
-		//var hcpchecker1 = document.getElementById("amodalWhatsNew");
-		/*
-		var span0 = document.getElementsByClassName("close")[0];
-		hcpchecker1.onclick = function() {
-		  hcpchecker1.style.display = "none";
-		}
-		*/
-		// hcp list from 2022
+
+	// hcp list from 2022
 	var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
-	//============= functions =================
+	
+   //============= functions =================
 	function scoreEntryWrapper() {
 		ddd = new Date()
 		var dddName = ddd.getDay()
@@ -709,16 +704,6 @@
 
 	function HcpInfo() {
 		// check if already there
-		/*
-         var checkline = document.getElementById("InfoHcp").innerText
-         if (checkline.indexOf("Handicap") > -1) {
-            //document.getElementById("InfoHcp").style.visibility = "hidden"
-            document.getElementById("InfoHcp").style.display = "none"
-        } else {
-           /document.getElementById("InfoHcp").style.visibility = "visible"
-           document.getElementById("InfoHcp").style.display = "block"
-        }
-        */
 		var checkline = document.getElementById("InfoHcp")
 		if(checkline.style.display === 'block') {
 			checkline.style.display = 'none';
@@ -742,46 +727,9 @@
 			var oneJan = new Date(currentdate.getFullYear(), 0, 1);
 			var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
 			// numberOfDays is until Friday, eg sat=6
-			//var result = Math.ceil((currentdate.getDay() + 1 + numberOfDays) / 7);
 			numberOfDays = (numberOfDays + 1)
 			var result = Math.ceil((numberOfDays / 7));
-			/*
-			var diary = [ 
-			"Friday 7th Oct Dawson",
-			"Friday 14th Oct Dawson",
-			"Friday 21st Oct Dawson",
-			"Friday 28th Oct Dawson",
-			"Friday 4th Nov Lakes",
-			"Friday 11th Nov Lakes",
-			"Friday 18th Nov Lakes",
-			"Friday 25th Nov Lakes",
-			"Friday 2nd Dec Dawson",
-			"Friday 9th Dec Dawson",
-			"Friday 16th Dec Dawson",
-			"Friday 23rd Dec Dawson",
-			"Friday 30th Dec Dawson",
-			"Friday 6th Jan Lakes",
-			"Friday 13th Jan Lakes",
-			"Friday 20th Jan Lakes",
-			"Friday 27th Jan Lakes",
-			"Friday 3rd Feb Dawson",
-			"Friday 10th Feb Dawson",
-			"Friday 17th Feb Dawson",
-			"Friday 24th Feb Dawson",
-			"Friday 3rd Mar Lakes",
-			"Friday 10th Mar Lakes",
-			"Friday 17th Mar Lakes",
-			"Friday 24th Mar Lakes",
-			"Friday 31st Mar Lakes",
-			"none",
-			"none",
-			"none",
-			"none",
-			"none",
-			"none"
-			 ]
-			 */
-			var x1 = document.getElementById("txt1");
+		   var x1 = document.getElementById("txt1");
 			var x2 = document.getElementById("txt2");
 			var x3 = document.getElementById("txt3");
 			var x4 = document.getElementById("txt4");
@@ -862,19 +810,8 @@
 		for(i = 0; i < datax.length; i++) {
 			if(datax[i].Name == pname) {
 				var meinfo = "hcp not found .."
-					/*
-					meinfo = datax[i].Name + "  ("  + datax[i].Handicap + ")" +
-					"<br><br> Lakes playing hcp: "  + datax[i].Lakes + 
-					    "<br> Dawson playing hcp: " + datax[i].Dawson  + 
-					    "<br> Winter playing hcp: " + datax[i].Winter;
-					*/
 				meinfo = datax[i].Name + "  (" + datax[i].Handicap + ")" + "<br><br> Winter playing hcp: " + datax[i].Winter
-					/*
-					 + 
-					    "<br><br> Dawson playing hcp: " + datax[i].Dawson  + 
-					    "<br> Lakes playing hcp: " + datax[i].Lakes;   
-					*/
-					// hide spinner
+				// hide spinner
 				document.getElementById("spin").style.display = "none";
 				document.getElementById("modalPlayerInfo-content-txt").innerHTML = meinfo;
 				// update local data
@@ -885,137 +822,16 @@
 				localStorage.setItem("WinterHCP", datax[i].Winter.toString());
 			}
 		}
-		/*
-            
-            if ("playerName" in localStorage) {
-              var xpname = localStorage.getItem("playerName");
-            } else {
-              var xpname = "nobody"
-            }
-            if ("playerHCP" in localStorage) {
-              var xphcp = localStorage.getItem("playerHCP");
-            } else {
-              var xphcp = "nothing"
-            }
-            if ("LakesHCP" in localStorage) {
-              var xplakeshcp = localStorage.getItem("LakesHCP");
-            } else {
-              var xplakeshcp = "nothing"
-            }
-            if ("DawsonHCP" in localStorage) {
-              var xpdawsonhcp = localStorage.getItem("DawsonHCP");
-            } else {
-              var xpdawsonhcp = "nothing"
-            }
-            if ("WinterHCP" in localStorage) {
-              var xpwinterhcp = localStorage.getItem("WinterHCP");
-            } else {
-              var xpwinterhcp = "nothing"
-            } 
-            
-          */
 	}
 	// non function() code so runs ..
-	// close by click the player info  
-	/*
-	var xxclosex = document.getElementById("closex");
-	var modalPlayerSearchx = document.getElementById("modalPlayerSearch");
-	xxclosex.onclick = function(event) {
-	  xxclosex.style.display = "none";
-	  modalPlayerSearchx.style.display = "none";
-	}
-          
-	*/
 	vplayer = localStorage.getItem("playerName");
-	//  vhcp = localStorage.getItem("playerHCP");
 	input = document.getElementById("myAold").innerText = vplayer
-		/*
-   
-          var arr = ['dummy',
-'Graham Airey',
-'Dale Aitkenhead',
-'Stephen Alldridge',
-'Keith Belshaw',
-'Craig Caesar',
-'Dave Cave',
-'Ken Clark',
-'Robert Connelly',
-'Jed Cornhill',
-'Alex Coupland',
-'Gary Cowman',
-'Neil Coxon',
-'Bryan Craggs',
-'Andy Davison',
-'John Dean',
-'Martin Edwards',
-'Joe Fletcher',
-'William French',
-'Norman Gilholm',
-'David Gilroy',
-'Graeme Gow',
-'Vince Graham',
-'Chris Green',
-'Rob Green',
-'Richard Hedley',
-'Clive Herbert',
-'Barry Hill',
-'Peter Holleran',
-'Roger Ireland',
-'Dav Jackson',
-'DavidT Jackson',
-'John Jackson',
-'Andy Johnson',
-'Tom Lemin',
-'Jim Little',
-'Bryan Maddison',
-'John Matthews',
-'Tom McNally',
-'Steph Murray',
-'Darren Nelson',
-'Danny Norman',
-'Trevor Ord',
-'Mike Riddell',
-'Martin Rogers',
-'Eric Saddler',
-'Brian Simpson',
-'John Smith',
-'Tony Smith',
-'Ray Straker',
-'T Straker',
-'Neil Tait',
-'Roly Thompson',
-'Bob Toward',
-'Phil Wegner',
-'Marcus Wilkinson',
-'Gordon Willis',
-'Ron Woodcock',
-'Brian Wray',
-'John Wright',
-'James Young'
-]
-          var x = ""
-          // build values to search
-          for (var ii = 0; ii < arr.length; ii++) {
-            x = x + ' <li><p> ' + arr[ii] + ' </p></li>' 
-          }
-          input = document.getElementById("myULold");
-          input.innerHTML = x
-          span1.onclick = function() {
-            modalsearch.style.display = "none";
-          }
-          var modalsearch = document.getElementById("modalPlayerSearch");
-          var btnsearch = document.getElementById("myBtnsearch");
-          var psearch = document.getElementById("myPsearch");
- 
- 
- */
-		// make sure local player info is updated
+	// make sure local player info is updated
 	function preScoreEntry() {
 		if("playerName" in localStorage) {
 			// show message
 			document.getElementById("modalPlayerInfo-content-txt").innerHTML = "updating data"
 			document.getElementById("modalPlayerInfo").style.display = "block";
-			//var playerNameretrieved = localStorage.getItem("playerName");
 			// hcp list from 2022
 			var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
 			Papa.parse(public_spreadsheet_url, {
@@ -1057,12 +873,7 @@
 			if("playerName" in localStorage) {
 				var playerNameretrieved = localStorage.getItem("playerName");
 			}
-			/*
-			else {
-			   alert('no data found, probably no player set');
-			}
-			*/
-			document.getElementById("txtForSearch").innerText = "replacing " + playerNameretrieved + " with " + x;
+			document.getElementById("txtForSearch").innerText = "replacing " + playerNameretrieved + " with " + x + " please wait";
 			localStorage.setItem("playerName", x);
 			// hcp list from 2022
 			var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
@@ -1080,14 +891,6 @@
 			//search google sheets for info
 		for(i = 0; i < datax.length; i++) {
 			if(datax[i].Name == newPlayerName) {
-				/*
-				var meinfo = "hcp not found .."
-				meinfo = datax[i].Name + "  <br> Hcp index: " + 
-				         datax[i].Handicap + " <br> Lakes hcp: " + 
-				         datax[i].Lakes + " <br> Dawson hcp: " +
-				         datax[i].Dawson  + " <br> Winter hcp: " +
-				         datax[i].Winter;
-				*/
 				// add player hcp details here
 				localStorage.setItem("playerName", datax[i].Name.toString());
 				localStorage.setItem("playerHCP", datax[i].Handicap.toString());
