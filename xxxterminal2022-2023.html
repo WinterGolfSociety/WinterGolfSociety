@@ -354,7 +354,7 @@
    
    
    
-   .cssmarquee {
+.cssmarquee {
 height: 15px;
 overflow: hidden;
 position: relative;
@@ -527,6 +527,22 @@ transform: translateX(-100%);
         }
         */
 		preScoreEntry()
+      
+      
+      
+      // wait - probably not required
+                        // but helps with timestamp etc.
+                        const milliseconds = 5000;
+                        //const milliseconds = 1000;
+                        const date = Date.now();
+                        let currentDate = null;
+                        do {
+	                       currentDate = Date.now();
+                        } while (currentDate - date < milliseconds);
+                        
+                        
+                        
+                        
 		window.open("scoreinputtest.html")
 	}
 	// make sure local player info is updated
