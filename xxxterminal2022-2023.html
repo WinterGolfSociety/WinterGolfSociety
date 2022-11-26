@@ -550,9 +550,14 @@ transform: translateX(-100%);
 		if("playerName" in localStorage) {
 			// show message
 			document.getElementById("modalPlayerInfo-content-txt").innerHTML = "updating data"
-			document.getElementById("modalPlayerInfo").style.display = "block";
+			document.getElementById("modalPlayerInfo").style.display = "initial";
 			//var playerNameretrieved = localStorage.getItem("playerName");
 			// hcp list from 2022
+         
+         alert("updating data")
+         
+         
+         
 			var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
 			Papa.parse(public_spreadsheet_url, {
 				download: true,
