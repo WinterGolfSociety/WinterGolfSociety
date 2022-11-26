@@ -4413,9 +4413,8 @@ Check the scores entered (shots taken) then Submit.
                      if(s1.length > 0) {
                         // wait - probably not required
                         // but helps with timestamp etc.
-                        const milliseconds = 500;
-                        //const milliseconds = 1000;
-                        const date = Date.now();
+                        var milliseconds = 500;
+                        var date = Date.now();
                         let currentDate = null;
                         do {
 	                       currentDate = Date.now();
@@ -4423,14 +4422,14 @@ Check the scores entered (shots taken) then Submit.
                         sub = document.getElementById("submitButton");
                         sub.style.backgroundColor = "blue";
                         sub.innerText = "Completed";
-                        // wait - let usercsee button change forc1 second
-                        const milliseconds = 1000;
-                        //const milliseconds = 1000;
-                        const date = Date.now();
-                        let currentDate = null;
+                        // wait - let user see button change for 1 second
+                        var milliseconds2 = 1000;
+
+                        var date2 = Date.now();
+                        let currentDate2 = null;
                         do {
-	                       currentDate = Date.now();
-                        } while (currentDate - date < milliseconds);
+	                       currentDate2 = Date.now();
+                        } while (currentDate2 - date2 < milliseconds2);
 
                         // return to previous screen
                         window.history.go(-1)
