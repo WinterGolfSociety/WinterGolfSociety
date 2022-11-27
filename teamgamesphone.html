@@ -321,33 +321,10 @@ if (teamNum.innerText.indexOf("3 players") > -1) {
  if (teamNum.innerText.indexOf("2 players") > -1) {
    var totalcounter=2   
 }   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-// if (counter = 0){
-//   counter=4 
-// }  
+  
 
 counter = teamNum.children.length
    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-alert("clickedTeam(" + idteam + ") counter = " + counter + " totalcounter = " + totalcounter)
-alert("teamNum.innerHTML = "+teamNum.innerHTML)
 var x1 = teamNum.innerHTML
 var x2 = x1.split('<div id="');
 
@@ -357,13 +334,6 @@ if (counter >= 1) {
    x21=x21t[0]
    var fromx = document.getElementById(x21);
    fromx.style.visibility="visible"
-   alert("1 = " +fromx.innerHTML)
-   
-   
-   
-//   yyy = document.getElementById(x21).innerHTML
-//   yyy = yyy.replace('style = "visibility:visible;"',"")
-}
 
 if (counter >= 2) {
    x22 = x2[2]
@@ -372,10 +342,6 @@ if (counter >= 2) {
    var fromx = document.getElementById(x22);
    fromx.style.visibility="visible"
    
-   alert("2 = "+fromx.innerHTML)
-   
-//   yyy = document.getElementById(x22).innerHTML]
-//   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
 if (counter >= 3) {
    alert("test1")
@@ -385,10 +351,6 @@ if (counter >= 3) {
    var fromx = document.getElementById(x23);
    fromx.style.visibility="visible"
    
-   alert("3 = "+fromx.innerHTML)
-   
-//  yyy = document.getElementById(x23).innerHTML
-//   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
 if (counter == 4) {
    alert("test2")
@@ -398,17 +360,10 @@ if (counter == 4) {
    var fromx = document.getElementById(x24);
    fromx.style.visibility="visible"
    
-   alert("4 = "+fromx.innerHTML)
-   
-//   yyy = document.getElementById(x24).innerHTML
-//   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
-alert("before test")
+
 var xxx = document.getElementById(idteam).innerHTML
-alert("before idteam = "+idteam+" xxx = "+xxx)
 xxx = idteam.replace("teamOfPlayers","team ") + " (4 players)"   
-//xxx="team 1 (4 players)"
-alert("idteam = "+idteam+" xxx = "+xxx)
 document.getElementById(idteam).innerHTML = xxx
 
 counter = 0
