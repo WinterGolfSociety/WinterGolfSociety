@@ -256,7 +256,7 @@ var fromx = document.getElementById(idplayer);
 // move onto next teamOfPlayers
 
 
-alert(fromx.innerHTML)
+
 
 
 var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
@@ -299,24 +299,23 @@ var fromx = document.getElementById(idplayer);
 teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
 xxx = fromx.innerHTML
 yyy = xxx.replace("visible","hidden")
-alert("xxx = "+yyy)
+
 fromx.innerHTML = yyy
 fromx.style.visibility="hidden"
-alert("sub1 - " + document.getElementById(idplayer).innerHTML)
-alert("sub2 - " + document.getElementById("teamOfPlayers" + teamNumber).innerHTML)
+
 counter++
 }
 
 
 function clickedTeam(idteam) {
    
-   alert(counter)
+
    
 //   alert(document.getElementById(idteam).innerText)
 //   alert(document.getElementById(idteam).innerHTML)
 var teamNum = document.getElementById(idteam);
 //var idteamMod = idteam.replace("teamOfPlayers","team ")
-alert("teamNum.innerHTML = " + teamNum.innerHTML)
+
 
 //var fromx = document.getElementById(idplayer);
 //fromx.style.visibility="hidden"
@@ -358,11 +357,11 @@ yyy = document.getElementById(x24).innerHTML
 }
 
 var xxx = document.getElementById(idteam).innerHTML
-alert("xxx = " + xxx);
+
 xxx="team 1 (4 players)"
 document.getElementById(idteam).innerHTML = xxx
 
-alert("new = " + document.getElementById(idteam).innerHTML);
+
 
 
 counter = 0
