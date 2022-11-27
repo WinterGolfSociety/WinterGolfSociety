@@ -254,11 +254,6 @@ var fromx = document.getElementById(idplayer);
 // move player to correct teamOfPlayers (becomes team1, team2 etc.)
 // check number of players set
 // move onto next teamOfPlayers
-
-
-
-
-
 var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
 
 if (teamNum.innerText.indexOf("4 players") > -1) {
@@ -308,52 +303,46 @@ counter++
 
 
 function clickedTeam(idteam) {
-   
-
-   
-//   alert(document.getElementById(idteam).innerText)
-//   alert(document.getElementById(idteam).innerHTML)
 var teamNum = document.getElementById(idteam);
-//var idteamMod = idteam.replace("teamOfPlayers","team ")
-
-
-//var fromx = document.getElementById(idplayer);
-//fromx.style.visibility="hidden"
 var x1 = teamNum.innerHTML
 var x2 = x1.split('<div id="');
 
 if (counter >= 1) {
-x21 = x2[1]
-x21t = x21.split('"')
-x21=x21t[0]
-var fromx = document.getElementById(x21);
-fromx.style.visibility="visible"
-yyy = document.getElementById(x21).innerHTML
-yyy = yyy.replace('style = "visibility:visible;"',"")
+   x21 = x2[1]
+   x21t = x21.split('"')
+   x21=x21t[0]
+   var fromx = document.getElementById(x21);
+   fromx.style.visibility="visible"
+   yyy = document.getElementById(x21).innerHTML
+   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
+
 if (counter >= 2) {
-x22 = x2[2]
-x22t = x22.split('"')
-x22=x22t[0]
-var fromx = document.getElementById(x22);
-fromx.style.visibility="visible"
-yyy = document.getElementById(x22).innerHTML
+   x22 = x2[2]
+   x22t = x22.split('"')
+   x22=x22t[0]
+   var fromx = document.getElementById(x22);
+   fromx.style.visibility="visible"
+   yyy = document.getElementById(x22).innerHTML]
+   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
 if (counter >= 3) {
-x23 = x2[3]
-x23t = x23.split('"')
-x23=x23t[0]
-var fromx = document.getElementById(x23);
-fromx.style.visibility="visible"
-yyy = document.getElementById(x23).innerHTML
+   x23 = x2[3]
+   x23t = x23.split('"')
+   x23=x23t[0]
+   var fromx = document.getElementById(x23);
+   fromx.style.visibility="visible"
+   yyy = document.getElementById(x23).innerHTML
+   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
 if (counter == 4) {
-x24 = x2[4]
-x24t = x24.split('"')
-x24=x24t[0]
-var fromx = document.getElementById(x24);
-fromx.style.visibility="visible"
-yyy = document.getElementById(x24).innerHTML
+   x24 = x2[4]
+   x24t = x24.split('"')
+   x24=x24t[0]
+   var fromx = document.getElementById(x24);
+   fromx.style.visibility="visible"
+   yyy = document.getElementById(x24).innerHTML
+   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
 
 var xxx = document.getElementById(idteam).innerHTML
@@ -361,45 +350,7 @@ var xxx = document.getElementById(idteam).innerHTML
 xxx="team 1 (4 players)"
 document.getElementById(idteam).innerHTML = xxx
 
-
-
-
 counter = 0
-
-
-
-
-/*
-var fromx = document.getElementById(x23);
-fromx.style.visibility="visible"
-
-var fromx = document.getElementById(x24);
-fromx.style.visibility="visible"
-*/
-
-
-
-
-
-
-/*
-// if 1 players, change to 4
-if (teamNum.innerText.indexOf("1 player") > -1) {
-   teamNum.innerText = idteamMod + " (4 players)"
-} else if 
-// if 2 players, change to 1
-(teamNum.innerText.indexOf("2 players") > -1) {
-   teamNum.innerText = idteamMod + " (1 player)"
-} else if
-// if 3 players, change to 2
-(teamNum.innerText.indexOf("3 players") > -1) {
-   teamNum.innerText = idteamMod + " (2 players)"
-} else if
-// if 4 players, change to 3
-(teamNum.innerText.indexOf("4 players") > -1) {
-   teamNum.innerText = idteamMod + " (3 players)"
-} else {alert("no change")}
-*/
 }
 
 
