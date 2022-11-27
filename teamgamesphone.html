@@ -209,6 +209,14 @@
     <div id="drag14" class="dragitem" style="visibility:visible" >Andy Davison</div>
     </div>
     
+    <div id="drag15wrapper" onclick="clickedPlayer(this.id)" >
+    <div id="drag15" class="dragitem" style="visibility:visible" >no player</div>
+    </div>
+    
+    <div id="drag16wrapper" onclick="clickedPlayer(this.id)" >
+    <div id="drag16" class="dragitem" style="visibility:visible" >no player</div>
+    </div>
+    
 </div>
 
 
@@ -255,33 +263,32 @@ var fromx = document.getElementById(idplayer);
 // check number of players set
 // move onto next teamOfPlayers
 var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
-
 if (teamNum.innerText.indexOf("4 players") > -1) {
-   if (counter == 4) {
+   if (counter == 4) { // all 4 done so reset
       counter = 0
       teamNumber++
    }
-   if (counter < 4) {
+   if (counter < 4) { // keep going until all 4 done
       subClickedPlayer(idplayer)
    }
 }
 
 if (teamNum.innerText.indexOf("3 players") > -1) {
-   if (counter == 3) {
+   if (counter == 3) { // all 3 done so reset
       counter = 0
       teamNumber++
    }
-   if (counter < 3) {
+   if (counter < 3) { // keep going until all 3 done
       subClickedPlayer(idplayer)
    }
 }
 
 if (teamNum.innerText.indexOf("2 players") > -1) {
-   if (counter == 2) {
+   if (counter == 2) { // all 2 done so reset
       counter = 0
       teamNumber++
    }
-   if (counter < 2) {
+   if (counter < 2) { // keep going until all 2 done
       subClickedPlayer(idplayer)
    }
 }
@@ -303,7 +310,44 @@ counter++
 
 
 function clickedTeam(idteam) {
-var teamNum = document.getElementById(idteam);
+var teamNum = document.getElementById(idteam);   
+
+if (teamNum.innerText.indexOf("4 players") > -1) {
+   var totalcounter=4   
+}   
+if (teamNum.innerText.indexOf("3 players") > -1) {
+   var totalcounter=3   
+}    
+ if (teamNum.innerText.indexOf("2 players") > -1) {
+   var totalcounter=2   
+}   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+// if (counter = 0){
+//   counter=4 
+// }  
+
+counter = teamNum.children.length
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+alert("clickedTeam(" + idteam + ") counter = " + counter + " totalcounter = " + totalcounter)
+alert("teamNum.innerHTML = "+teamNum.innerHTML)
 var x1 = teamNum.innerHTML
 var x2 = x1.split('<div id="');
 
@@ -313,6 +357,10 @@ if (counter >= 1) {
    x21=x21t[0]
    var fromx = document.getElementById(x21);
    fromx.style.visibility="visible"
+   alert("1 = " +fromx.innerHTML)
+   
+   
+   
 //   yyy = document.getElementById(x21).innerHTML
 //   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
@@ -323,31 +371,44 @@ if (counter >= 2) {
    x22=x22t[0]
    var fromx = document.getElementById(x22);
    fromx.style.visibility="visible"
+   
+   alert("2 = "+fromx.innerHTML)
+   
 //   yyy = document.getElementById(x22).innerHTML]
 //   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
 if (counter >= 3) {
+   alert("test1")
    x23 = x2[3]
    x23t = x23.split('"')
    x23=x23t[0]
    var fromx = document.getElementById(x23);
    fromx.style.visibility="visible"
+   
+   alert("3 = "+fromx.innerHTML)
+   
 //  yyy = document.getElementById(x23).innerHTML
 //   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
 if (counter == 4) {
+   alert("test2")
    x24 = x2[4]
    x24t = x24.split('"')
    x24=x24t[0]
    var fromx = document.getElementById(x24);
    fromx.style.visibility="visible"
+   
+   alert("4 = "+fromx.innerHTML)
+   
 //   yyy = document.getElementById(x24).innerHTML
 //   yyy = yyy.replace('style = "visibility:visible;"',"")
 }
-
+alert("before test")
 var xxx = document.getElementById(idteam).innerHTML
-
-xxx="team 1 (4 players)"
+alert("before idteam = "+idteam+" xxx = "+xxx)
+xxx = idteam.replace("teamOfPlayers","team ") + " (4 players)"   
+//xxx="team 1 (4 players)"
+alert("idteam = "+idteam+" xxx = "+xxx)
 document.getElementById(idteam).innerHTML = xxx
 
 counter = 0
