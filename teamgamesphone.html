@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<title>Score Input</title>
+	<title>Teams</title>
 <style>
          body {
          font: normal 18px Verdana, Arial, sans-serif;
@@ -156,57 +156,57 @@
  <div class="container1">    
 
     <div id="drag1wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag1" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Graham Airey</div>
+    <div id="drag1" class="dragitem" style="visibility:visible">Graham Airey</div>
     </div>
     
     <div id="drag2wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag2" class="dragitem" draggable="true" onclick="clickedPlayer()" ondragstart="drag(event)">Dale Aitkenhead</div>
+    <div id="drag2" class="dragitem" style="visibility:visible" >Dale Aitkenhead</div>
       </div>
       
       <div id="drag3wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag3" class="dragitem" draggable="true" onclick="clickedPlayer()" ondragstart="drag(event)">Stephen Alldridge</div>
+    <div id="drag3" class="dragitem" style="visibility:visible" >Stephen Alldridge</div>
       </div>
       
       <div id="drag4wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag4" class="dragitem" draggable="true" ondragstart="drag(event)">Keith Belshaw</div>
+    <div id="drag4" class="dragitem" style="visibility:visible" >Keith Belshaw</div>
    </div>
    
    <div id="drag5wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag5" class="dragitem" draggable="true" ondragstart="drag(event)">Stewart Brodie</div>
+    <div id="drag5" class="dragitem" style="visibility:visible" >Stewart Brodie</div>
       </div>
       <div id="drag6wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag6" class="dragitem" draggable="true" ondragstart="drag(event)">Craig Caesar</div>
+    <div id="drag6" class="dragitem" >Craig Caesar</div>
     </div>
     
       <div id="drag7wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag7" class="dragitem" draggable="true" ondragstart="drag(event)">Clive Caisley</div>
+    <div id="drag7" class="dragitem" style="visibility:visible" >Clive Caisley</div>
       </div>
       <div id="drag8wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag8" class="dragitem" draggable="true" ondragstart="drag(event)">Dave Cave</div>
+    <div id="drag8" class="dragitem" style="visibility:visible" >Dave Cave</div>
     </div>
     
       <div id="drag9wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag9" class="dragitem" draggable="true" ondragstart="drag(event)">Ken Clark</div>
+    <div id="drag9" class="dragitem" style="visibility:visible" >Ken Clark</div>
    </div>
    
    <div id="drag10wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag10" class="dragitem" draggable="true" ondragstart="drag(event)">Robert Connelly</div>
+    <div id="drag10" class="dragitem" style="visibility:visible" >Robert Connelly</div>
    </div>
    
    <div id="drag11wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag11" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Darren Nelson</div>
+    <div id="drag11" class="dragitem" style="visibility:visible" >Darren Nelson</div>
     </div>
     
     <div id="drag12wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag12" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">John Wright</div>
+    <div id="drag12" class="dragitem" style="visibility:visible" >John Wright</div>
     </div>
     
     <div id="drag13wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag13" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Tony Smith</div>
+    <div id="drag13" class="dragitem" style="visibility:visible" >Tony Smith</div>
     </div>
     
     <div id="drag14wrapper" onclick="clickedPlayer(this.id)" >
-    <div id="drag14" class="dragitem" draggable="true" onclick="dummy(this.id)" ondragstart="drag(event)">Andy Davison</div>
+    <div id="drag14" class="dragitem" style="visibility:visible" >Andy Davison</div>
     </div>
     
 </div>
@@ -256,7 +256,11 @@ var fromx = document.getElementById(idplayer);
 // move onto next teamOfPlayers
 
 
+alert(fromx.innerHTML)
+
+
 var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
+
 if (teamNum.innerText.indexOf("4 players") > -1) {
    if (counter == 4) {
       counter = 0
@@ -277,82 +281,109 @@ if (teamNum.innerText.indexOf("3 players") > -1) {
    }
 }
 
+if (teamNum.innerText.indexOf("2 players") > -1) {
+   if (counter == 2) {
+      counter = 0
+      teamNumber++
+   }
+   if (counter < 2) {
+      subClickedPlayer(idplayer)
+   }
+}
+
 }
 
 function subClickedPlayer(idplayer) {
 var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
 var fromx = document.getElementById(idplayer);
 teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
+xxx = fromx.innerHTML
+yyy = xxx.replace("visible","hidden")
+alert("xxx = "+yyy)
+fromx.innerHTML = yyy
 fromx.style.visibility="hidden"
+alert("sub1 - " + document.getElementById(idplayer).innerHTML)
+alert("sub2 - " + document.getElementById("teamOfPlayers" + teamNumber).innerHTML)
 counter++
 }
-
-function subClickedPlayer3(idplayer) {
-var teamNum = document.getElementById("teamOfPlayers" + teamNumber);
-var fromx = document.getElementById(idplayer);
-teamNum.innerHTML = teamNum.innerHTML + fromx.innerHTML 
-fromx.style.visibility="hidden"
-}  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function xclickedPlayerX(idplayer,htmlplayer) {
-// alert("X clicked")
-// alert(htmlplayer) 
-var fromx = document.getElementById(idplayer);
-
-//alert(fromx.parentElement)
-xxx = '<div class="dragitem">' + htmlplayer + '</div>'
-// alert(xxx)
-var tox = document.getElementById("teamOfPlayers1");
-tox.innerHTML = tox.innerHTML + xxx
-fromx.style.visibility="hidden"
-
-//alert(tox.innerHTML)
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function clickedTeam(idteam) {
    
+   alert(counter)
+   
+//   alert(document.getElementById(idteam).innerText)
+//   alert(document.getElementById(idteam).innerHTML)
 var teamNum = document.getElementById(idteam);
-var idteamMod = idteam.replace("teamOfPlayers","team ")
+//var idteamMod = idteam.replace("teamOfPlayers","team ")
+alert("teamNum.innerHTML = " + teamNum.innerHTML)
 
+//var fromx = document.getElementById(idplayer);
+//fromx.style.visibility="hidden"
+var x1 = teamNum.innerHTML
+var x2 = x1.split('<div id="');
+
+if (counter >= 1) {
+x21 = x2[1]
+x21t = x21.split('"')
+x21=x21t[0]
+var fromx = document.getElementById(x21);
+fromx.style.visibility="visible"
+yyy = document.getElementById(x21).innerHTML
+yyy = yyy.replace('style = "visibility:visible;"',"")
+}
+if (counter >= 2) {
+x22 = x2[2]
+x22t = x22.split('"')
+x22=x22t[0]
+var fromx = document.getElementById(x22);
+fromx.style.visibility="visible"
+yyy = document.getElementById(x22).innerHTML
+}
+if (counter >= 3) {
+x23 = x2[3]
+x23t = x23.split('"')
+x23=x23t[0]
+var fromx = document.getElementById(x23);
+fromx.style.visibility="visible"
+yyy = document.getElementById(x23).innerHTML
+}
+if (counter == 4) {
+x24 = x2[4]
+x24t = x24.split('"')
+x24=x24t[0]
+var fromx = document.getElementById(x24);
+fromx.style.visibility="visible"
+yyy = document.getElementById(x24).innerHTML
+}
+
+var xxx = document.getElementById(idteam).innerHTML
+alert("xxx = " + xxx);
+xxx="team 1 (4 players)"
+document.getElementById(idteam).innerHTML = xxx
+
+alert("new = " + document.getElementById(idteam).innerHTML);
+
+
+counter = 0
+
+
+
+
+/*
+var fromx = document.getElementById(x23);
+fromx.style.visibility="visible"
+
+var fromx = document.getElementById(x24);
+fromx.style.visibility="visible"
+*/
+
+
+
+
+
+
+/*
 // if 1 players, change to 4
 if (teamNum.innerText.indexOf("1 player") > -1) {
    teamNum.innerText = idteamMod + " (4 players)"
@@ -369,7 +400,7 @@ if (teamNum.innerText.indexOf("1 player") > -1) {
 (teamNum.innerText.indexOf("4 players") > -1) {
    teamNum.innerText = idteamMod + " (3 players)"
 } else {alert("no change")}
-
+*/
 }
 
 
@@ -380,94 +411,6 @@ var teamPlayer = document.getElementById(idteamplayer);
 }
 
 
-
-    
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-  var x = document.getElementById('teamOfPlayers1').innerHTML;
-  document.getElementById("demo0").innerHTML = x; 
-  
-  
-  
-  
-  var bindata = ev.dataTransfer.getData("text")
-  ev.target.appendChild(document.getElementById(bindata));
-   var xbin = document.getElementById('bin').innerHTML;
-  document.getElementById("bin").innerHTML = xbin; 
-   
-  
-  
-  
-  
-  
- /* 
-  var x = document.getElementById('div1').innerHTML;
- 
-    document.getElementById("demo1").innerHTML = x;   
-  
-  var x = document.getElementById('div2').innerHTML;
- 
-    document.getElementById("demo2").innerHTML = x;   
-  
-  var x = document.getElementById('div3').innerHTML;
-
-    document.getElementById("demo3").innerHTML = x;   
-  
-  var x = document.getElementById('div4').innerHTML;
- 
-    document.getElementById("demo4").innerHTML = x;   
-  
-  var x = document.getElementById('div5').innerHTML;
- 
-    document.getElementById("demo5").innerHTML = x;   
- 
-  var x = document.getElementById('div6').innerHTML;
-
-    document.getElementById("demo6").innerHTML = x;   
- 
-  var x = document.getElementById('div7').innerHTML;
-    document.getElementById("demo7").innerHTML = x;   
-  
-  var x = document.getElementById('div8').innerHTML;
-
-    document.getElementById("demo8").innerHTML = x;   
-  
-  var x = document.getElementById('div9').innerHTML;
-
-    document.getElementById("demo9").innerHTML = x;   
-  
-  var x = document.getElementById('div10').innerHTML;
-
-    document.getElementById("demo10").innerHTML = x;   
-  
-  var x = document.getElementById('div11').innerHTML;
- 
-    document.getElementById("demo11").innerHTML = x;   
-  
-  var x = document.getElementById('div12').innerHTML;
- 
-    document.getElementById("demo12").innerHTML = x;   
- */ 
-}
-
-
-function setup4balls() {
- document.getElementById('my-form').target = 'my-response-iframe';
-// reload the iframe to start data transfer
-var iframe = document.getElementById('my-response-iframe');
-iframe.src = iframe.src;    
-       
-}
 
 </script>
 
