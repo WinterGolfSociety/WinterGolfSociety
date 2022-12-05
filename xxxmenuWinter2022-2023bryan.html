@@ -361,6 +361,114 @@
 		/* Microsoft Edge */
 		color: lightGray;
 	}
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ #scroll-container {
+    margin: 2%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#scroll-text {
+   //margin: 2%;
+   padding:1%;
+   color: white;
+   font-style: bold;
+	font-size: 5vw
+   text-align: right;
+background: dodgerBlue;
+  /* animation properties */
+  -moz-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(-100%); }
+  to { -moz-transform: translateX(100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(-100%); }
+  to { -webkit-transform: translateX(100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  to {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 	</style>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -374,6 +482,20 @@
 </head>
 
 <body>
+   
+   
+   
+   
+<div id="scroll-container">
+  <div id="scroll-text">New version scorecard in use</div>
+</div>
+
+
+
+
+
+
+
 	<div id="modalPlayerInfo" class="modalPlayerInfo">
 		<div class="modalPlayerInfo-content"> <a id="modalPlayerInfo-content-txt">searching ... </a> <img id="spin" width='45vw' height='40vw' src="spin.png" alt="spin" align="right">
 			<br>
