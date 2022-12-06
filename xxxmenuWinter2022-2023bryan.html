@@ -390,64 +390,51 @@
    
    
    
-   
-   
-   
- #scroll-container {
+ #scroll-container2 {
     margin: 0;
-  //border-radius: 5px;
   overflow: hidden;
   text-align: center;
-   
-  
-}
-
-#scroll-text {
-   //margin: 2%;
-   padding:1%;
-   color: white;
-   font-style: bold;
-	font-size: 3vw;
-   
-background: dodgerBlue;
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  box-shadow: 10px 10px 25px black;
-		border-radius: 10px;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		background-clip: padding-box;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+  background: white; 
+}   
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#scroll-image {
+      background: white; 
+ color: dodgerBlue;
+ padding-left: 1%;
+ padding-right: 1%;
   /* animation properties */
   -moz-transform: translateX(-100%);
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
   
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
+}
+   
+   
+ #scroll-container {
+    margin: 0;
+  overflow: hidden;
+  text-align: center;
+  height:45vw:
+}
+
+#scroll-text{
+   padding: 1%;
+   color: white;
+   font-style: bold;
+	font-size: 3vw;
+   background: dodgerBlue; 
+   box-shadow: 10px 10px 25px black;
+	border-radius: 10px;
+	border: 3px solid rgba(255, 255, 255, 0.2);
+	background-clip: padding-box;
+	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+  /* animation properties */
+  -moz-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
   
   -moz-animation: my-animation 15s linear infinite;
   -webkit-animation: my-animation 15s linear infinite;
@@ -478,34 +465,7 @@ background: dodgerBlue;
     transform: translateX(100%);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+ 
 	</style>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -527,7 +487,9 @@ background: dodgerBlue;
   <div id="scroll-text">New version of the scorecard is in use</div>
 </div>
 
-
+<div id="scroll-container2">
+  <div id="scroll-image"><img id="turkey" width='50vw' height='40vw' src="turkey.png" alt="turkey" align="center">Christmas lunch Monday 12th December<img id="santa" width='80vw' height='40vw' src="santa.jpg" alt="santa" align="center"></div>
+</div>
 
 
 
