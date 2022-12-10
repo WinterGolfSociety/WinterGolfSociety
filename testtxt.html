@@ -18,7 +18,9 @@
       }
       
       
-      
+     #oneright {
+       float: right; 
+     } 
       
       
       
@@ -79,7 +81,7 @@
 
 
 <p>Information</p>
-<button type="button" class="collapsible" id="one">empty</button>
+<button type="button" class="collapsible" id="one">empty<a id="oneright">xxx</a></button>
 <div class="content">
   <p id="txt1"></p>
   <br>
@@ -125,6 +127,18 @@ var txtFile = new XMLHttpRequest();
         }
          document.getElementById('one').innerHTML = textHeader;
         document.getElementById('txt1').innerHTML = allText;
+        
+        
+        
+        
+        
+        document.getElementById('oneright').innerHTML = "allText";
+        
+        
+        
+        
+        
+        
     }
     txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/test.txt', true);
     txtFile.send(null);
