@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>testtxt</title>
+	<style>
+      body {
+	       font: normal 5vw Arial, sans-serif;
+	       color: White;
+	       background: #726b5e;
+	   }
+      
+      
+      #txt1 {
+        color: yellow; 
+      }
+	</style>
+	<script src="jquery-3.6.0.min.js" type="text/javascript">
+	</script>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
+	<meta content="score input" name="description">
+	<meta content="Bryan M" name="author">
+	<title>testtxt</title>
+	<link href="favicon.ico" rel="icon" type="image/x-icon">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+	</script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js" type="text/javascript">
+	</script>
+</head>
+<body>
+<br><br><br>
+<div id="txt1">------</div>
+<br><br><br>
+
+<script> 
+
+
+
+
+var txtFile = new XMLHttpRequest();
+    var allText = "file not found";
+    txtFile.onreadystatechange = function () {
+        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+            allText = txtFile.responseText;
+            allText = allText.split("\n").join("<br>");
+        }
+
+        document.getElementById('txt1').innerHTML = allText;
+    }
+    txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/test.txt', true);
+    txtFile.send(null);
+</script>
+</body>
+</html>
+
+
