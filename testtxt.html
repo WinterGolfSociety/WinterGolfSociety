@@ -119,20 +119,21 @@ var txtFile = new XMLHttpRequest();
             allText = txtFile.responseText;
             
             var allTextHeader = allText.split("#")
-            var textHeader = allTextHeader[0]
-            allText = allTextHeader[1].toString()
+            var textHeaderLeft = allTextHeader[0]
+            var textHeaderRight = allTextHeader[1]
+            allText = allTextHeader[2].toString()
             
             
             allText = allText.split("\n").join("<br>");
         }
-         document.getElementById('oneleft').innerHTML = textHeader;
+         document.getElementById('oneleft').innerHTML = textHeaderLeft;
         document.getElementById('txt1').innerHTML = allText;
         
         
         
         
         
-        document.getElementById('oneright').innerHTML = "allText";
+        document.getElementById('oneright').innerHTML = textHeaderRight;
         
         
         
