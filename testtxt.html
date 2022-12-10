@@ -81,10 +81,25 @@
 
 
 <p>Information</p>
-<button type="button" class="collapsible"><a id="oneleft">empty</a><a id="oneright">empty</a></button>
+<button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a></button>
 <div class="content">
   <p id="txt1"></p>
 </div>
+
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
+<div class="content">
+  <p id="txt2"></p>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <button type="button" class="collapsible">Open Section 2</button>
 <div class="content">
@@ -110,31 +125,70 @@
 
 
 
-
-var txtFile = new XMLHttpRequest();
-    var allText = "file not found";
-    txtFile.onreadystatechange = function () {
-        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
-            allText = txtFile.responseText;
+// 1
+var txtFile1 = new XMLHttpRequest();
+    var allText1 = "file not found";
+    txtFile1.onreadystatechange = function () {
+        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
+            allText1 = txtFile1.responseText;
             
-            var allTextHeader = allText.split("#")
-            var textHeaderLeft = allTextHeader[0]
-            var textHeaderRight = allTextHeader[1]
-            allText = allTextHeader[2].toString()
+            var allTextHeader1 = allText1.split("#")
+            var textHeaderLeft1 = allTextHeader1[0]
+            var textHeaderRight1 = allTextHeader1[1]
+            allText1 = allTextHeader1[2].toString()
             
             
-            allText = allText.split("\n").join("<br>");
+            allText1 = allText1.split("\n").join("<br>");
         }
-        document.getElementById('oneleft').innerHTML = textHeaderLeft;
-        document.getElementById('txt1').innerHTML = allText;
-        document.getElementById('oneright').innerHTML = textHeaderRight;   
+        document.getElementById('oneleft1').innerHTML = textHeaderLeft1;
+        document.getElementById('txt1').innerHTML = allText1;
+        document.getElementById('oneright1').innerHTML = textHeaderRight1;   
     }
-    txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/test.txt', true);
-    txtFile.send(null);
+    txtFile1.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text1.txt', true);
+    txtFile1.send(null);
     
     
     
     
+
+// 2
+var txtFile2 = new XMLHttpRequest();
+    var allText2 = "file not found";
+    txtFile2.onreadystatechange = function () {
+        if (txtFile2.readyState === XMLHttpRequest.DONE && txtFile2.status == 200) {
+            allText2 = txtFile2.responseText;
+            
+            var allTextHeader2 = allText2.split("#")
+            var textHeaderLeft2 = allTextHeader2[0]
+            var textHeaderRight2 = allTextHeader2[1]
+            allText2 = allTextHeader2[2].toString()
+            
+            
+            allText2 = allText2.split("\n").join("<br>");
+        }
+        document.getElementById('oneleft2').innerHTML = textHeaderLeft2;
+        document.getElementById('txt2').innerHTML = allText2;
+        document.getElementById('oneright2').innerHTML = textHeaderRight2;   
+    }
+    txtFile2.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text2.txt', true);
+    txtFile2.send(null);
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     
     
