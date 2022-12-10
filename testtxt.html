@@ -87,7 +87,7 @@
 
 
 <p>Collapsible Set:</p>
-<button type="button" class="collapsible">Open Section 1</button>
+<button type="button" class="collapsible" id="one">Open Section 1</button>
 <div class="content">
   <p><div id="txt1">------</div></p>
 </div>
@@ -121,9 +121,15 @@ var txtFile = new XMLHttpRequest();
     txtFile.onreadystatechange = function () {
         if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
             allText = txtFile.responseText;
+            
+            allTextHeader = allText.split("#")
+            textHeader = allTextHeader[0]
+            allText = allTextHeader[1]
+            
+            
             allText = allText.split("\n").join("<br>");
         }
-
+         document.getElementById('one').innerHTML = textHeader;
         document.getElementById('txt1').innerHTML = allText;
     }
     txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/test.txt', true);
