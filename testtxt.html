@@ -81,7 +81,7 @@
 
 
 <p>Information</p>
-<button type="button" class="collapsible"><a id="oneleft">empty</a><a id="oneright">xxx</a></button>
+<button type="button" class="collapsible"><a id="oneleft">empty</a>emptt<a id="oneright">xxx</a></button>
 <div class="content">
   <p id="txt1"></p>
   <br>
@@ -126,20 +126,9 @@ var txtFile = new XMLHttpRequest();
             
             allText = allText.split("\n").join("<br>");
         }
-         document.getElementById('oneleft').innerHTML = textHeaderLeft;
+        document.getElementById('oneleft').innerHTML = textHeaderLeft;
         document.getElementById('txt1').innerHTML = allText;
-        
-        
-        
-        
-        
-        document.getElementById('oneright').innerHTML = textHeaderRight;
-        
-        
-        
-        
-        
-        
+        document.getElementById('oneright').innerHTML = textHeaderRight;   
     }
     txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/test.txt', true);
     txtFile.send(null);
