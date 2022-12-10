@@ -36,6 +36,8 @@
 <br><br><br>
 <div id="txt1">------</div>
 <br><br><br>
+<div id="txt2">------</div>
+<br><br><br>
 
 <script> 
 
@@ -54,6 +56,33 @@ var txtFile = new XMLHttpRequest();
     }
     txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/test.txt', true);
     txtFile.send(null);
+    
+    
+    
+    
+    
+    
+    
+    
+
+var txtFileG = new XMLHttpRequest();
+    var allTextG = "file not found";
+    txtFileG.onreadystatechange = function () {
+        if (txtFileG.readyState === XMLHttpRequest.DONE && txtFileG.status == 200) {
+            allTextG = txtFileG.responseText;
+            allTextG = allTextG.split("\n").join("<br>");
+        }
+
+        document.getElementById('txt2').innerHTML = allTextG;
+    }
+    txtFile.open("GET", 'https://drive.google.com/file/d/1n6Rs6_Wweatxzwr2TUk3T28LbkU8Aj73/view?usp=sharing', true);
+    txtFile.send(null);
+    
+    
+      
+    
+    
+    
 </script>
 </body>
 </html>
