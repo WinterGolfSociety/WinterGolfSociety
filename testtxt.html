@@ -81,7 +81,7 @@
 
 
 <p>Information</p>
-<button type="button" class="collapsible" id="one">empty<a id="oneright">xxx</a></button>
+<button type="button" class="collapsible"><a id="oneleft">empty</a><a id="oneright">xxx</a></button>
 <div class="content">
   <p id="txt1"></p>
   <br>
@@ -125,7 +125,7 @@ var txtFile = new XMLHttpRequest();
             
             allText = allText.split("\n").join("<br>");
         }
-         document.getElementById('one').innerHTML = textHeader;
+         document.getElementById('oneleft').innerHTML = textHeader;
         document.getElementById('txt1').innerHTML = allText;
         
         
