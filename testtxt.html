@@ -22,7 +22,9 @@
        float: right; 
      } 
       
-      
+//     #oneleft1, #oneleft2 {
+//       margin: 0; 
+//     } 
       
       
       
@@ -33,17 +35,32 @@
   background-color: #777;
   color: white;
   cursor: pointer;
-  padding: 18px;
+  padding: 10px;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 15px;
   margin-top:0.5%;
+  margin-left: 0;
+  //margin-right: 5px;
 }
 
 .active, .collapsible:hover {
   background-color: #555;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.active:after {
+  content: "\2212";
 }
 
 .content {
@@ -87,32 +104,32 @@
 
 <p>Information</p>
 
-<button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
+<button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a></button>
 <div class="content">
   <p id="txt1"></p>
 </div>
 
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
 <div class="content">
   <p id="txt2"></p>
 </div>
 
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
 <div class="content">
   <p id="txt2"></p>
 </div>
 
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
 <div class="content">
   <p id="txt2"></p>
 </div>
 
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
 <div class="content">
   <p id="txt2"></p>
 </div>
 
-
+<br><br><br>
 <span>File exists? </span>
 
 
