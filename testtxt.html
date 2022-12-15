@@ -39,6 +39,7 @@
   text-align: left;
   outline: none;
   font-size: 15px;
+  margin-top:0.5%;
 }
 
 .active, .collapsible:hover {
@@ -53,7 +54,11 @@
 } 
       
       
-      
+ #updownblue {
+    float: left;
+    padding: 0;
+    padding-right: 10px;
+ }     
       
       
       
@@ -81,31 +86,30 @@
 
 
 <p>Information</p>
-<button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a></button>
+
+<button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
 <div class="content">
   <p id="txt1"></p>
 </div>
 
-<br>
-
-
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
 <div class="content">
   <p id="txt2"></p>
 </div>
 
-<br>
-
-<button type="button" class="collapsible">Open Section 2</button>
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p id="txt2"></p>
 </div>
 
-<br>
-
-<button type="button" class="collapsible">Open Section 3</button>
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p id="txt2"></p>
+</div>
+
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a><img id="updownblue" src="updownblue.png" height=100% width=15px></button>
+<div class="content">
+  <p id="txt2"></p>
 </div>
 
 
@@ -212,31 +216,79 @@ for (i = 0; i < coll.length; i++) {
  
  
  
- 
- 
-
-
+ var xfull=""
+   isFileExist("text1.txt")
+   isFileExist("text2.txt")
+   isFileExist("text3.txt")
+   
+   
+   // only runs if file does exist
+    function get_load(x){
+        document.getElementsByTagName('span')[0].innerHTML+=x+" exists.";
+    }
+   
+   // only runs if file does not exist
     function get_error(x){
         document.getElementsByTagName('span')[0].innerHTML+=x+" does not exist.";
     }
-    url="https://wintergolfsociety.github.io/WinterGolfSociety/textxxx1.txt";
+    
+    function isFileNotExist(filename){
+    
+    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
     url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
     var el=document.createElement('script');
-    el.id="123";
+    el.id=filename;
     el.onerror=function(){if(el.onerror)get_error(this.id)}
     el.src=url;
     document.body.appendChild(el);
 
  
- // 
- LinkCheck("https://wintergolfsociety.github.io/WinterGolfSociety/textxxx1.txt");
+}
  
- function LinkCheck(url)
+ 
+    function isFileExist(filename){
+    
+    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
+    url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
+    var el=document.createElement('script');
+    el.id=filename;
+    
+    el.onload=function(){if(el.onload)get_load(this.id)}
+    //el.onerror=function(){if(el.onerror)get_error(this.id)}
+    el.src=url;
+    document.body.appendChild(el);
+
+    
+
+ 
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ // 
+ //LinkCheck("text1.txt");
+  //LinkCheck("text2.txt");
+   //LinkCheck("text3.txt");
+ 
+ function LinkCheck(filex)
 {
+    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filex
     var http = new XMLHttpRequest();
     http.open('HEAD', url, false);
     http.send();
     alert(http.status!=404)
+    // return true or false
     return http.status!=404;
 }
  
