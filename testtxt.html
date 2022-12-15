@@ -117,7 +117,19 @@
 <br><br><br>
 <br><br><br>
 
+<SERVER>
 
+// Open a log file
+var myLog = new File("text1.txt");
+
+// See if the file exists
+if(myLog.exists()){
+  alert('The file exists');
+}else{
+  alert('The file does not exist');
+}
+
+</SERVER>
 
 <script> 
 
@@ -229,6 +241,17 @@ for (i = 0; i < coll.length; i++) {
     document.body.appendChild(el);
 
  
+ // 
+ LinkCheck("https://wintergolfsociety.github.io/WinterGolfSociety/textxxx1.txt");
+ 
+ function LinkCheck(url)
+{
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    alert(http.status!=404)
+    return http.status!=404;
+}
  
  
  
