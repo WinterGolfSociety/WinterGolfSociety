@@ -109,7 +109,7 @@
 </div>
 
 
-
+<span>File exists? </span>
 
 
 
@@ -142,6 +142,7 @@ var txtFile1 = new XMLHttpRequest();
         document.getElementById('txt1').innerHTML = allText1;
         document.getElementById('oneright1').innerHTML = textHeaderRight1;   
     }
+    // all setup now get the file info
     txtFile1.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text1.txt', true);
     txtFile1.send(null);
     
@@ -214,7 +215,19 @@ for (i = 0; i < coll.length; i++) {
  
  
  
- 
+
+
+    function get_error(x){
+        document.getElementsByTagName('span')[0].innerHTML+=x+" does not exist.";
+    }
+    url="https://wintergolfsociety.github.io/WinterGolfSociety/text1.txt";
+    url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
+    var el=document.createElement('script');
+    el.id="123";
+    el.onerror=function(){if(el.onerror)get_error(this.id)}
+    el.src=url;
+    document.body.appendChild(el);
+
  
  
  
