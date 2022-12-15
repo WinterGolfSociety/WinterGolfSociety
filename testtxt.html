@@ -18,12 +18,12 @@
 	   }
       
       
-      #txt1, #txt2 {
+      #txt1, #txt2, #txt3, #txt4, #txt5, #txt6, #txt7, #txt8, #txt9, #txt10 {
         color: white; 
       }
       
       
-     #oneright1, #oneright2, #oneright3, #oneright4, #oneright5, #oneright6 {
+     #oneright1, #oneright2, #oneright3, #oneright4, #oneright5, #oneright6, #oneright7, #oneright8, #oneright9, #oneright10 {
        float: right; 
      } 
       
@@ -76,14 +76,14 @@
 } 
       
       
- #updownblue {
-    float: left;
-    padding: 0;
-    padding-right: 10px;
- }     
+// #updownblue {
+//    float: left;
+//    padding: 0;
+//    padding-right: 10px;
+// }     
       
- #allInfo1, #allInfo2, #allInfo3, #allInfo4, #allInfo5, #allInfo6 {
-    display: none;
+ #allInfo1, #allInfo2, #allInfo3, #allInfo4, #allInfo5, #allInfo6, #allInfo7, #allInfo8, #allInfo9, #allInfo10 {
+   display: none;
  }  
  
   #allInfox {
@@ -160,6 +160,34 @@
 </div>
 </div>
 
+<div id="allInfo7">  
+<button type="button" class="collapsible"><a id="oneleft7">empty</a><a id="oneright7">empty</a></button>
+<div class="content">
+  <p id="txt7"></p>
+</div>
+</div>
+
+<div id="allInfo8">  
+<button type="button" class="collapsible"><a id="oneleft8">empty</a><a id="oneright8">empty</a></button>
+<div class="content">
+  <p id="txt8"></p>
+</div>
+</div>
+
+<div id="allInfo9">  
+<button type="button" class="collapsible"><a id="oneleft9">empty</a><a id="oneright9">empty</a></button>
+<div class="content">
+  <p id="txt9"></p>
+</div>
+</div>
+
+<div id="allInfo10">  
+<button type="button" class="collapsible"><a id="oneleft10">empty</a><a id="oneright10">empty</a></button>
+<div class="content">
+  <p id="txt10"></p>
+</div>
+</div>
+
 <br><br><br>
 <br><br><br>
 
@@ -177,6 +205,15 @@ isDisplay("5")
 
 isDisplay("6")
 
+isDisplay("7")
+
+isDisplay("8")
+
+isDisplay("9")
+
+isDisplay("10")
+
+
 
 function isDisplay(fileno){
     var filename = "text" + fileno + ".txt"
@@ -189,30 +226,30 @@ function isDisplay(fileno){
     document.body.appendChild(el);
 }
  
-// only runs if file does exist
+// only runs if file exists
 function showInfo(numx) {
-    var txtFile1 = new XMLHttpRequest();
-    var allText1 = "file not found";
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-            allText1 = txtFile1.responseText;
-            var allTextHeader1 = allText1.split("#")
-            var textHeaderLeft1 = allTextHeader1[0]
-            var textHeaderRight1 = allTextHeader1[1]
-            allText1 = allTextHeader1[2].toString()
-            allText1 = allText1.split("\n").join("<br>");
+    var txtFile = new XMLHttpRequest();
+    var allText = "file not found";
+    txtFile.onreadystatechange = function () {
+        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+            allText = txtFile.responseText;
+            var allTextHeader = allText.split("#")
+            var textHeaderLeft = allTextHeader[0]
+            var textHeaderRight = allTextHeader[1]
+            allText = allTextHeader[2].toString()
+            allText = allText.split("\n").join("<br>");
         }
-        document.getElementById('oneleft' + numx).innerHTML = textHeaderLeft1;
-        document.getElementById('txt' + numx).innerHTML = allText1;
-        document.getElementById('oneright' + numx).innerHTML = textHeaderRight1;   
+        document.getElementById('oneleft' + numx).innerHTML = textHeaderLeft;
+        document.getElementById('txt' + numx).innerHTML = allText;
+        document.getElementById('oneright' + numx).innerHTML = textHeaderRight;   
     }
     // all setup now get the file info
-    txtFile1.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text' + numx + '.txt', true);
-    txtFile1.send(null);   
+    txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text' + numx + '.txt', true);
+    txtFile.send(null);   
     document.getElementById('allInfo' + numx).style.display="inline"
  }
      
-
+// non function javascript
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
