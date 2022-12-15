@@ -43,7 +43,7 @@
   font-size: 15px;
   margin-top:0.5%;
   margin-left: 0;
-  //margin-right: 5px;
+  
 }
 
 .active, .collapsible:hover {
@@ -77,10 +77,18 @@
     padding-right: 10px;
  }     
       
-      
-      
-      
-      
+ #allInfo1, #allInfo2, #allInfo3, #allInfo4, #allInfo5, #allInfo6 {
+    display: none;
+ }  
+ 
+  #allInfox {
+ //   display: none;
+ }    
+     
+     #header {
+        font-size: 30px;
+      text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
+     } 
       
 	</style>
 	<script src="jquery-3.6.0.min.js" type="text/javascript">
@@ -101,117 +109,104 @@
 <body>
 <br><br><br>
 
-
+<div id="header">
 <p>Information</p>
+</div>
 
+<div id="allInfo1">
 <button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a></button>
 <div class="content">
   <p id="txt1"></p>
 </div>
+</div>
 
+<div id="allInfo2">  
 <button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
 <div class="content">
   <p id="txt2"></p>
 </div>
-
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
-<div class="content">
-  <p id="txt2"></p>
 </div>
 
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
+<div id="allInfo3">  
+<button type="button" class="collapsible"><a id="oneleft3">empty</a><a id="oneright3">empty</a></button>
 <div class="content">
-  <p id="txt2"></p>
+  <p id="txt3"></p>
+</div>
 </div>
 
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
+<div id="allInfo4">  
+<button type="button" class="collapsible"><a id="oneleft4">empty</a><a id="oneright4">empty</a></button>
 <div class="content">
-  <p id="txt2"></p>
+  <p id="txt4"></p>
+</div>
+</div>
+
+<div id="allInfo5">  
+<button type="button" class="collapsible"><a id="oneleft5">empty</a><a id="oneright5">empty</a></button>
+<div class="content">
+  <p id="txt5"></p>
+</div>
+</div>
+
+<div id="allInfo6">  
+<button type="button" class="collapsible"><a id="oneleft6">empty</a><a id="oneright6">empty</a></button>
+<div class="content">
+  <p id="txt6"></p>
+</div>
 </div>
 
 <br><br><br>
-<span>File exists? </span>
-
-
-
-
 <br><br><br>
-<br><br><br>
-
 
 <script> 
 
+isDisplay("1")
+
+isDisplay("2")
+
+isDisplay("3")
+
+isDisplay("4")
+
+isDisplay("5")
+
+isDisplay("6")
 
 
-// 1
-var txtFile1 = new XMLHttpRequest();
+function isDisplay(fileno){
+    var filename = "text" + fileno + ".txt"
+    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
+    url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
+    var el=document.createElement('script');
+    el.id=filename;
+    el.onload=function(){if(el.onload)showInfo(fileno)}
+    el.src=url;
+    document.body.appendChild(el);
+}
+ 
+// only runs if file does exist
+function showInfo(numx) {
+    var txtFile1 = new XMLHttpRequest();
     var allText1 = "file not found";
     txtFile1.onreadystatechange = function () {
         if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
             allText1 = txtFile1.responseText;
-            
             var allTextHeader1 = allText1.split("#")
             var textHeaderLeft1 = allTextHeader1[0]
             var textHeaderRight1 = allTextHeader1[1]
             allText1 = allTextHeader1[2].toString()
-            
-            
             allText1 = allText1.split("\n").join("<br>");
         }
-        document.getElementById('oneleft1').innerHTML = textHeaderLeft1;
-        document.getElementById('txt1').innerHTML = allText1;
-        document.getElementById('oneright1').innerHTML = textHeaderRight1;   
+        document.getElementById('oneleft' + numx).innerHTML = textHeaderLeft1;
+        document.getElementById('txt' + numx).innerHTML = allText1;
+        document.getElementById('oneright' + numx).innerHTML = textHeaderRight1;   
     }
     // all setup now get the file info
-    txtFile1.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text1.txt', true);
-    txtFile1.send(null);
-    
-    
-    
-    
-
-// 2
-var txtFile2 = new XMLHttpRequest();
-    var allText2 = "file not found";
-    txtFile2.onreadystatechange = function () {
-        if (txtFile2.readyState === XMLHttpRequest.DONE && txtFile2.status == 200) {
-            allText2 = txtFile2.responseText;
-            
-            var allTextHeader2 = allText2.split("#")
-            var textHeaderLeft2 = allTextHeader2[0]
-            var textHeaderRight2 = allTextHeader2[1]
-            allText2 = allTextHeader2[2].toString()
-            
-            
-            allText2 = allText2.split("\n").join("<br>");
-        }
-        document.getElementById('oneleft2').innerHTML = textHeaderLeft2;
-        document.getElementById('txt2').innerHTML = allText2;
-        document.getElementById('oneright2').innerHTML = textHeaderRight2;   
-    }
-    txtFile2.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text2.txt', true);
-    txtFile2.send(null);
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
+    txtFile1.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text' + numx + '.txt', true);
+    txtFile1.send(null);   
+    document.getElementById('allInfo' + numx).style.display="inline"
+ }
+     
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -227,91 +222,6 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }  
-    
- 
- 
- 
- 
- 
- var xfull=""
-   isFileExist("text1.txt")
-   isFileExist("text2.txt")
-   isFileExist("text3.txt")
-   
-   
-   // only runs if file does exist
-    function get_load(x){
-        document.getElementsByTagName('span')[0].innerHTML+=x+" exists.";
-    }
-   
-   // only runs if file does not exist
-    function get_error(x){
-        document.getElementsByTagName('span')[0].innerHTML+=x+" does not exist.";
-    }
-    
-    function isFileNotExist(filename){
-    
-    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
-    url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
-    var el=document.createElement('script');
-    el.id=filename;
-    el.onerror=function(){if(el.onerror)get_error(this.id)}
-    el.src=url;
-    document.body.appendChild(el);
-
- 
-}
- 
- 
-    function isFileExist(filename){
-    
-    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
-    url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
-    var el=document.createElement('script');
-    el.id=filename;
-    
-    el.onload=function(){if(el.onload)get_load(this.id)}
-    //el.onerror=function(){if(el.onerror)get_error(this.id)}
-    el.src=url;
-    document.body.appendChild(el);
-
-    
-
- 
-}
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- // 
- //LinkCheck("text1.txt");
-  //LinkCheck("text2.txt");
-   //LinkCheck("text3.txt");
- 
- function LinkCheck(filex)
-{
-    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filex
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    alert(http.status!=404)
-    // return true or false
-    return http.status!=404;
-}
- 
- 
- 
- 
     
 </script>
 </body>
