@@ -82,22 +82,22 @@
 //    padding-right: 10px;
 // }     
       
- #allInfo1, #allInfo2, #allInfo3, #allInfo4, #allInfo5, #allInfo6, #allInfo7, #allInfo8, #allInfo9, #allInfo10 {
+#allInfo1, #allInfo2, #allInfo3, #allInfo4, #allInfo5, #allInfo6, #allInfo7, #allInfo8, #allInfo9, #allInfo10 {
    display: none;
- }  
+}  
  
-  #allInfox {
- //   display: none;
- }    
+#allInfo {
+   display: none;
+}    
      
-     #header {
-        font-size: 40px;
-      text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
-     } 
+#header {
+     font-size: 40px;
+     text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
+} 
      
-     #image1 {
-        padding-left: 20px;
-     }
+#image1 {
+     padding-left: 20px;
+}
       
 	</style>
 	<script src="jquery-3.6.0.min.js" type="text/javascript">
@@ -117,64 +117,16 @@
 </head>
 <body>
 
-
 <div id="header">
 <p>Information<img src="golf5.png" id="image1" width="50px"></p>
 </div>
 
-<div id="allInfo1">
-<button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a></button>
-<div class="content">
-  <p id="txt1"></p>
-</div>
-</div>
+<div id="allInfo">
 
-<div id="allInfo2">  
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
+<div id="allInfo10">  
+<button type="button" class="collapsible"><a id="oneleft10">empty</a><a id="oneright10">empty</a></button>
 <div class="content">
-  <p id="txt2"></p>
-</div>
-</div>
-
-<div id="allInfo3">  
-<button type="button" class="collapsible"><a id="oneleft3">empty</a><a id="oneright3">empty</a></button>
-<div class="content">
-  <p id="txt3"></p>
-</div>
-</div>
-
-<div id="allInfo4">  
-<button type="button" class="collapsible"><a id="oneleft4">empty</a><a id="oneright4">empty</a></button>
-<div class="content">
-  <p id="txt4"></p>
-</div>
-</div>
-
-<div id="allInfo5">  
-<button type="button" class="collapsible"><a id="oneleft5">empty</a><a id="oneright5">empty</a></button>
-<div class="content">
-  <p id="txt5"></p>
-</div>
-</div>
-
-<div id="allInfo6">  
-<button type="button" class="collapsible"><a id="oneleft6">empty</a><a id="oneright6">empty</a></button>
-<div class="content">
-  <p id="txt6"></p>
-</div>
-</div>
-
-<div id="allInfo7">  
-<button type="button" class="collapsible"><a id="oneleft7">empty</a><a id="oneright7">empty</a></button>
-<div class="content">
-  <p id="txt7"></p>
-</div>
-</div>
-
-<div id="allInfo8">  
-<button type="button" class="collapsible"><a id="oneleft8">empty</a><a id="oneright8">empty</a></button>
-<div class="content">
-  <p id="txt8"></p>
+  <p id="txt10"></p>
 </div>
 </div>
 
@@ -185,39 +137,94 @@
 </div>
 </div>
 
-<div id="allInfo10">  
-<button type="button" class="collapsible"><a id="oneleft10">empty</a><a id="oneright10">empty</a></button>
+<div id="allInfo8">  
+<button type="button" class="collapsible"><a id="oneleft8">empty</a><a id="oneright8">empty</a></button>
 <div class="content">
-  <p id="txt10"></p>
+  <p id="txt8"></p>
 </div>
+</div>
+
+<div id="allInfo7">  
+<button type="button" class="collapsible"><a id="oneleft7">empty</a><a id="oneright7">empty</a></button>
+<div class="content">
+  <p id="txt7"></p>
+</div>
+</div>
+
+<div id="allInfo6">  
+<button type="button" class="collapsible"><a id="oneleft6">empty</a><a id="oneright6">empty</a></button>
+<div class="content">
+  <p id="txt6"></p>
+</div>
+</div>
+
+<div id="allInfo5">  
+<button type="button" class="collapsible"><a id="oneleft5">empty</a><a id="oneright5">empty</a></button>
+<div class="content">
+  <p id="txt5"></p>
+</div>
+</div>
+
+<div id="allInfo4">  
+<button type="button" class="collapsible"><a id="oneleft4">empty</a><a id="oneright4">empty</a></button>
+<div class="content">
+  <p id="txt4"></p>
+</div>
+</div>
+
+<div id="allInfo3">  
+<button type="button" class="collapsible"><a id="oneleft3">empty</a><a id="oneright3">empty</a></button>
+<div class="content">
+  <p id="txt3"></p>
+</div>
+</div>
+
+<div id="allInfo2">  
+<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
+<div class="content">
+  <p id="txt2"></p>
+</div>
+</div>
+
+<div id="allInfo1">
+<button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a></button>
+<div class="content">
+  <p id="txt1"></p>
+</div>
+</div>
+
 </div>
 
 <br><br><br>
 <br><br><br>
 
 <script> 
+// display info objects in reverse order to get latest first
+// possible info objects to display is xuppuer to xlower
+var xupper = 10
+var xlower = 1
+var i
+document.getElementById('allInfo').style.display="none"
+for (i = xupper; i >= xlower; i--) {
+   isDisplay(i)
+}
+//document.getElementById('allInfo').style.display="inline"
+unfade("allInfo")
 
-isDisplay("1")
-
-isDisplay("2")
-
-isDisplay("3")
-
-isDisplay("4")
-
-isDisplay("5")
-
-isDisplay("6")
-
-isDisplay("7")
-
-isDisplay("8")
-
-isDisplay("9")
-
-isDisplay("10")
-
-
+// ====== functions ======
+function unfade(elementx) {
+    var op = 0.1;  // initial opacity
+    element = document.getElementById(elementx)
+    element.style.display = 'inline';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 20);
+}
 
 function isDisplay(fileno){
     var filename = "text" + fileno + ".txt"
