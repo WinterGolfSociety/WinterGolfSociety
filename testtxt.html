@@ -96,7 +96,7 @@
 } 
      
 #image1 {
-     padding-left: 2px;
+     //padding-left: 2px;
 }
       
 	</style>
@@ -116,105 +116,49 @@
 	</script>
 </head>
 <body>
-<!--
-<div id="header">
-<p>Information<img src="golf5.png" id="image1" width="50px"></p>
-</div>
--->
 
 <div id="header">
-<p>Information<img src="fallovergolferoriginal.gif" id="image1" width="70px"></p>
+<p>Information<img src="golf6.png" id="image1" width="100px"></p>
 </div>
 
 <div id="allInfo">
-
-<div id="allInfo10">  
-<button type="button" class="collapsible"><a id="oneleft10">empty</a><a id="oneright10">empty</a></button>
-<div class="content">
-  <p id="txt10"></p>
-</div>
-</div>
-
-<div id="allInfo9">  
-<button type="button" class="collapsible"><a id="oneleft9">empty</a><a id="oneright9">empty</a></button>
-<div class="content">
-  <p id="txt9"></p>
-</div>
-</div>
-
-<div id="allInfo8">  
-<button type="button" class="collapsible"><a id="oneleft8">empty</a><a id="oneright8">empty</a></button>
-<div class="content">
-  <p id="txt8"></p>
-</div>
-</div>
-
-<div id="allInfo7">  
-<button type="button" class="collapsible"><a id="oneleft7">empty</a><a id="oneright7">empty</a></button>
-<div class="content">
-  <p id="txt7"></p>
-</div>
-</div>
-
-<div id="allInfo6">  
-<button type="button" class="collapsible"><a id="oneleft6">empty</a><a id="oneright6">empty</a></button>
-<div class="content">
-  <p id="txt6"></p>
-</div>
-</div>
-
-<div id="allInfo5">  
-<button type="button" class="collapsible"><a id="oneleft5">empty</a><a id="oneright5">empty</a></button>
-<div class="content">
-  <p id="txt5"></p>
-</div>
-</div>
-
-<div id="allInfo4">  
-<button type="button" class="collapsible"><a id="oneleft4">empty</a><a id="oneright4">empty</a></button>
-<div class="content">
-  <p id="txt4"></p>
-</div>
-</div>
-
-<div id="allInfo3">  
-<button type="button" class="collapsible"><a id="oneleft3">empty</a><a id="oneright3">empty</a></button>
-<div class="content">
-  <p id="txt3"></p>
-</div>
-</div>
-
-<div id="allInfo2">  
-<button type="button" class="collapsible"><a id="oneleft2">empty</a><a id="oneright2">empty</a></button>
-<div class="content">
-  <p id="txt2"></p>
-</div>
-</div>
-
-<div id="allInfo1">
-<button type="button" class="collapsible"><a id="oneleft1">empty</a><a id="oneright1">empty</a></button>
-<div class="content">
-  <p id="txt1"></p>
-</div>
-</div>
-
+<!-- populated by a script -->
 </div>
 
 <br><br><br>
 <br><br><br>
 
 <script> 
-// display info objects in reverse order to get latest first
-// possible info objects to display is xuppuer to xlower
 var xupper = 10
 var xlower = 1
 var i
-document.getElementById('allInfo').style.display="none"
+element1 = document.getElementById("allInfo") 
+element1.style.display="none"
+
 for (i = xupper; i >= xlower; i--) {
+   element1.innerHTML += '<div id="allInfo' + i + '"><button type="button" class="collapsible"><a id="oneleft' + i + '">empty</a><a id="oneright' + i + '">empty</a></button><div class="content"><p id="txt' + i + '"></p>'
    isDisplay(i)
 }
-//document.getElementById('allInfo').style.display="inline"
+
 unfade("allInfo")
+
+// operate the dropdowns
+// non function javascript
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}  
+
 
 // ====== functions ======
 function unfade(elementx) {
@@ -265,21 +209,7 @@ function showInfo(numx) {
     document.getElementById('allInfo' + numx).style.display="inline"
  }
      
-// non function javascript
-var coll = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}  
     
 </script>
 </body>
