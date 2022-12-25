@@ -80,26 +80,46 @@
    display: none;
    //background: lightgray; 
    //opacity: 0.3;
-   
 }    
      
-#header {
+#header1 {
      font-size: 30px;
      text-shadow: .1em .1em .2em rgba(0, 0, 0, 1); 
-     margin-left:1%;
-  margin-right:1%; 
+     //margin-left:15px;
+     //margin-right:15px;
+     background: rgba(60, 179, 113, 0.5); //rgba(60, 179, 113, 0.8);  
+     height: 75px;
 } 
-     
-#subHeader {
+   
+#header2 {
+     font-size: 30px;
+     text-shadow: .1em .1em .2em rgba(0, 0, 0, 1); 
+     //margin-left:15px;
+     //margin-right:15px;
+     background: rgba(120, 120, 120, 0.5); //rgba(60, 179, 113, 0.8);  
+     height: 75px;
+}   
+   
+#subHeader1, #subHeader2 {
      font-size: 15px;
      text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
-     margin-left:1%;
-  margin-right:1%;
+     //margin-left:0px;
+  //margin-right:15px;
 }     
+
+#headertxt1, #headertxt2 {
+  margin-left:15px;
+  margin-right:15px; 
+}
+
+#mainheading {
+   padding-top:10%; 
+  padding-bottom:10%;
+}
      
-     
-#image1 {
+#image1, #image2 {
      float: right;
+     padding:1%; 
 }
 
 #top1 {
@@ -117,7 +137,7 @@
 
 }
 
-#topwrapper {
+.topwrapper {
   
    background: blue; 
 opacity: 0.3;
@@ -137,7 +157,10 @@ opacity: 0.3;
   background-size: cover;
 }
 
-
+#list {
+  font-size:20px;
+  padding-left:20px; 
+}
 
 
 
@@ -164,8 +187,26 @@ opacity: 0.3;
 <body>
 
 <div id="parallax">
+
+<div id="mainheading">
+
+</div>   
+  
+<div id="header1">
+<p id="headertxt1"><a id="subHeader1">Longhirst seniors section<img src="calendar-icon.jpg" id="image1" width="50px"align=”right”></a><br>Fixtures</p>
+</div>
+<br><br>
+<p id="list">
+27th December Lakes stableford<br>
+27th December Lakes stableford<br>
+27th December Lakes stableford<br>
+27th December Lakes stableford<br>
+27th December Lakes stableford<br> 
+</p>
+ <br><br><br><br><br><br>
  
-<div id="topwrapper"> 
+ 
+<div class="topwrapper"> 
  <br><br> <br><br><br><br><br><br> 
 <div id="top1">
 top1
@@ -178,9 +219,15 @@ top2
   
 </div> <!-- topwrapper --> 
   
- <br><br> <br><br><br><br><br><br>  
-<div id="header">
-<p><a id="subHeader">Longhirst seniors section<img src="golf6.png" id="image1" width="100px"align=”right”></a><br>Information</p>
+
+
+
+
+
+
+
+<div id="header2">
+<p id="headertxt2"><a id="subHeader2">Longhirst seniors section<img src="documents-icon.jpg" id="image2" width="50px"align=”right”></a><br>Information</p>
 </div>
 
 <div id="allInfo">
