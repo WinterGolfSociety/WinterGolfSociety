@@ -429,8 +429,8 @@ var xupper = 10
 var xlower = 1
 var i
 // display diary
-element1 = document.getElementById("list") 
-element1.style.display="none"
+element2 = document.getElementById("list") 
+element2.style.display="none"
 isDisplayDiary()
 
 // display info
@@ -560,7 +560,7 @@ function showInfoDiary() {
             allText = txtFile.responseText;
             allText = allText.split("\n").join("<br>");
         }
-        document.getElementById('list).innerHTML = allText;
+        document.getElementById('list').innerHTML = allText;
     }
     // all setup now get the file info
     txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/textDiary.txt', true);
