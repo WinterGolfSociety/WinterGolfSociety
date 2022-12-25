@@ -82,52 +82,36 @@
    //background: lightgray; 
    //opacity: 0.3;
 }    
-     
-#header1 {
+       
+#header1, #header2 {
      font-size: 30px;
      text-shadow: .1em .1em .2em rgba(0, 0, 0, 1); 
-     //margin-left:15px;
-     //margin-right:15px;
-     //margin-bottom: 100px;
-     //background: rgba(60, 179, 113, 0.6);
-     background-image: linear-gradient(rgba(30, 144, 255, 0.8), rgba(113, 170, 179, 0.4));
-     height: 500px;
-} 
-   
-#header2 {
-     font-size: 30px;
-     text-shadow: .1em .1em .2em rgba(0, 0, 0, 1); 
-     //margin-left:15px;
-     //margin-right:15px;
-     //background: rgba(60, 113, 179, 0.6);
-     background-image: linear-gradient(rgba(30, 144, 255, 0.8),rgba(60, 113, 179, 0.4));
+     background-image: linear-gradient(rgba(30, 144, 255, 1), rgba(60, 113, 179, 0.4));
      height: 500px;
 }   
-   
-#subHeader1, #subHeader2 {
-     font-size: 15px;
-     text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
-     //margin-left:0px;
-  //margin-right:15px;
-  height:10%;
-}     
-
+ 
+#mainheading {
+   font-size: 30px;
+   text-align:center;
+   //background-image: linear-gradient(rgba(30, 144, 255, 1),rgba(30, 144, 255, 0.4));
+   background: dodgerBlue;
+   text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
+   padding-top:10px; 
+  padding-bottom:10px;
+  
+} 
+ 
 #headertxt1, #headertxt2 {
   margin-left:15px;
   margin-right:15px; 
 }
+   
+#subHeader1, #subHeader2 {
+     font-size: 15px;
+     text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
+  height:10%;
+}     
 
-#mainheading {
-   font-size: 30px;
-   text-align:center;
-   background-image: linear-gradient(rgba(30, 144, 255, 1),rgba(30, 144, 255, 0.8));
-   //background: rgba(113, 170, 179, 0.6);
-   text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
-   padding-top:2%; 
-  padding-bottom:2%;
-  
-}
-     
 #image1, #image2 {
      float: right;
      padding-right: 10px; 
@@ -144,7 +128,8 @@
 }
 
 #list {
-  font-size:20px;
+  font-size:15px;
+  background-color: #777;
   padding-left:20px; 
 }
 
@@ -410,45 +395,27 @@ sHeader {
 Seniors section
 </div>   
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  
-  
-  
-  
+<hr> 
   
 <div id="header1">
 <p id="headertxt1"><a id="subHeader1">Longhirst seniors section<img src="calendar-icon.png" id="image1" width="50px"align=”right”></a><br>Fixtures</p>
-<br><br>
+<br>
 <p id="list">
-27th December Lakes stableford<br>
-27th December Lakes stableford<br>
-27th December Lakes stableford<br>
-27th December Lakes stableford<br>
-27th December Lakes stableford<br> 
+
 </p>
-<br><br><br><br><br><br>
+<br><br>
 </div>
  
-
-
+<hr> 
+ 
 <div id="header2">
 <p id="headertxt2"><a id="subHeader2">Longhirst seniors section<img src="documents-icon.png" id="image2" width="50px"align=”right”></a><br>Information</p>
-
-
+<br>
 <div id="allInfo">
 <!-- populated by a script -->
 </div>
 
+<hr>
 
 </div>
 
@@ -565,6 +532,45 @@ function showInfo(numx) {
     document.getElementById('allInfo' + numx).style.display="inline"
  }
      
+
+
+
+function isDisplayDiary(){
+    var filename = "textDiary.txt"
+    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
+    url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
+    var el=document.createElement('script');
+    el.id=filename;
+    el.onload=function(){if(el.onload)showInfoDiary()}
+    el.src=url;
+    document.body.appendChild(el);
+}
+
+function showInfoDiary() {
+    var txtFile = new XMLHttpRequest();
+    var allText = "file not found";
+    txtFile.onreadystatechange = function () {
+        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+            allText = txtFile.responseText;
+            allText = allText.split("\n").join("<br>");
+        }
+        document.getElementById('list).innerHTML = allText;
+    }
+    // all setup now get the file info
+    txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/textDiary.txt', true);
+    txtFile.send(null);   
+    document.getElementById('list').style.display="inline"
+ }
+
+
+
+
+
+
+
+
+
+
 
     
 </script>
