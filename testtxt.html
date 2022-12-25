@@ -428,6 +428,12 @@ Seniors section
 var xupper = 10
 var xlower = 1
 var i
+// display diary
+element1 = document.getElementById("list") 
+element1.style.display="none"
+isDisplayDiary()
+
+// display info
 element1 = document.getElementById("allInfo") 
 element1.style.display="none"
 
@@ -560,6 +566,9 @@ function showInfoDiary() {
     txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/textDiary.txt', true);
     txtFile.send(null);   
     document.getElementById('list').style.display="inline"
+    
+    unfade("list")
+    
  }
 
 
