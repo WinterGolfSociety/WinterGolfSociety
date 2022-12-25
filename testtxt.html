@@ -119,9 +119,11 @@
 #mainheading {
    font-size: 50px;
    text-align:center;
-     text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
+   background: rgba(113, 170, 179, 0.6);
+   text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
    padding-top:10%; 
   padding-bottom:10%;
+  
 }
      
 #image1, #image2 {
@@ -192,7 +194,7 @@ header {
 }
 
 #brand a {
-  color: #09c372;
+  color: white;
 }
 
 ul {
@@ -286,9 +288,31 @@ ul li:hover {
 
 
 
+// sticky menu
 
+/* Style the header */
+header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
 
+/* Page content */
+.parallax {
+  padding: 16px;
+}
 
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .parallax {
+  padding-top: 102px;
+}
 
 
 
@@ -334,7 +358,7 @@ ul li:hover {
   
   
 <!-- Top Navigation Menu -->
-<header>
+<header id="sHeader">
       <div id="brand"><a href="/">Longhirst golf</a></div>
       <nav>
         <ul>
@@ -460,44 +484,34 @@ for (i = 0; i < coll.length; i++) {
   });
 }  
 
+// sticky header code
+
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {stickyMenu()};
+
+// Get the header
+var header = document.getElementById("sHeader");
+
+// Get the offset position of the navbar
+var sticky = header.offsetTop;
+
 
 // ====== functions ======
-
-
-
-
-
 
 function toggleMobileMenu(menu) {
     menu.classList.toggle('open');
 }
 
-
 // end of menu
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function stickyMenu() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
 
 function unfade(elementx) {
     var op = 0.1;  // initial opacity
