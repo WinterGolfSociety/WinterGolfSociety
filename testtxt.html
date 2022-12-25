@@ -149,6 +149,176 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #353836;
+  color: white;
+  font-family: sans-serif;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header {
+  padding: 0 20px;
+  background-color: #1d1f1d;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#brand {
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+#brand a {
+  color: #09c372;
+}
+
+ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+ul a {
+  color: white;
+}
+
+ul li {
+  padding: 5px;
+  margin-left: 10px;
+  width:100%;
+  text-align: center;
+}
+
+ul li:hover {
+  //transform: scale(1.1);
+  //transition: 0.3s;
+  background: darkGray;
+}
+
+#login,
+#signup {
+  border-radius: 5px;
+  padding: 5px 8px;
+}
+
+#login {
+  border: 1px solid #498afb;
+}
+
+#signup {
+  border: 1px solid #ff3860;
+}
+
+#signup a {
+  color: #ff3860;
+}
+
+#login a {
+  color: #498afb;
+}
+
+#hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+#hamburger-icon div {
+  width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.open .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2 {
+  opacity: 0;
+}
+
+.open .bar3 {
+  -webkit-transform: rotate(45deg) translate(-6px, -8px);
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: 30vh;
+  width: 100%;
+  
+  color:white;
+  background: black; //darkGray;
+  
+  
+}
+
+.mobile-menu li {
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  header nav {
+    display: none;
+  }
+
+  #hamburger-icon {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</style>
 	<script src="jquery-3.6.0.min.js" type="text/javascript">
 	</script>
@@ -158,20 +328,96 @@
 	<meta content="Bryan M" name="author">
 	<title>info</title>
 	<link href="favicon.ico" rel="icon" type="image/x-icon">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
 	</script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js" type="text/javascript">
-	</script>
+	
+
+   
+   
+   
+   
+   
+   
 </head>
 <body>
+   
+   
+   
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+<!-- Top Navigation Menu -->
+<header>
+      <div id="brand"><a href="/">MyCompany</a></div>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="#header1">Fixtures</a></li>
+          <li><a href="#header2">Information</a></li>
+          <!--
+          <li id="login"><a href="/login" >Login</a></li>
+          <li id="signup"><a href="/signup">Signup</a></li>
+          -->
+        </ul>
+      </nav>
+      <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <ul class="mobile-menu">
+          <li><a href="/home">Home</a></li>
+          <li><a href="#header1">Fixtures</a></li>
+          <li><a href="#header2">Information</a></li>
+          <!--
+          <li id="login"><a href="/login" >Login</a></li>
+          <li id="signup"><a href="/signup">Signup</a></li>
+          -->
+        </ul>
+      </div>
+    </header>
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+   
 
 <div id="parallax">
 
 <div id="mainheading">
-   title
+Seniors section
 </div>   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+  
   
 <div id="header1">
 <p id="headertxt1"><a id="subHeader1">Longhirst seniors section<img src="calendar-icon.jpg" id="image1" width="50px"align=”right”></a><br>Fixtures</p>
@@ -237,6 +483,43 @@ for (i = 0; i < coll.length; i++) {
 
 
 // ====== functions ======
+
+
+
+
+
+
+function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
+
+
+// end of menu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function unfade(elementx) {
     var op = 0.1;  // initial opacity
     element = document.getElementById(elementx)
