@@ -86,7 +86,7 @@
    opacity: 1;
 }    
        
-#header1, #header2 {
+#header1, #header2, #header3 {
      font-size: 30px;
      padding-top: 10px;
      text-shadow: .1em .1em .2em rgba(0, 0, 0, 1); 
@@ -105,12 +105,12 @@
   
 } 
  
-#headertxt1, #headertxt2 {
+#headertxt1, #headertxt2, #headertxt3 {
   margin-left:15px;
   margin-right:15px; 
 }
    
-#subHeader1, #subHeader2 {
+#subHeader1, #subHeader2, #subHeader3 {
      font-size: 15px;
      text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
   height:10%;
@@ -215,6 +215,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  font-size: 25px;
+
 }
 
 ul a {
@@ -226,13 +228,25 @@ ul li {
   margin-left: 10px;
   width:100%;
   text-align: center;
+  
+  
+  
+  
+  height: 40px;
+  
+  
+  
+  
+  
+  
+  
 }
 
 ul li:hover {
   //transform: scale(1.1);
   //transition: 0.3s;
-  background: rgba(60, 179, 113, 0.8);
-
+  //background: rgba(60, 179, 113, 0.8);
+   background: rgba(30, 144, 255, 0.8);
 }
 
 #hamburger-icon {
@@ -275,7 +289,7 @@ ul li:hover {
   position: absolute;
   top: 50px;
   left: 0;
-  height: 30vh;
+  height: 150px;
   width: 100%;
   
   color:white;
@@ -286,6 +300,19 @@ ul li:hover {
 
 .mobile-menu li {
   margin-bottom: 10px;
+  
+  
+  
+  
+  text-align: left;
+  padding-left: 100px;
+  
+  
+  
+  
+  
+  
+  
 }
 
 @media only screen and (max-width: 600px) {
@@ -330,7 +357,12 @@ sHeader {
   padding-top: 100px; 
 }
 
-
+#image1menu, #image2menu, #image3menu {
+     float: right;
+     padding-right: 10px; 
+     padding-top: 0px;
+     padding-bottom: 0px;
+}
 
 
 
@@ -357,13 +389,9 @@ sHeader {
       <div id="brand"><img src="golf-ball.png" id="image3" width="60px"align=”center”><a href="#">Longhirst golf</a></div>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#header1">Fixtures</a></li>
-          <li><a href="#header2">Information</a></li>
-          <!--
-          <li id="login"><a href="/login" >Login</a></li>
-          <li id="signup"><a href="/signup">Signup</a></li>
-          -->
+          <li><a href="#home_tag">Home</a></li>
+          <li><a href="#fixtures_tag">Fixtures</a></li>
+          <li><a href="#information_tag">Information</a></li>
         </ul>
       </nav>
       <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
@@ -371,19 +399,15 @@ sHeader {
         <div class="bar2"></div>
         <div class="bar3"></div>
         <ul class="mobile-menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#header1">Fixtures</a></li>
-          <li><a href="#header2">Information</a></li>
-          <!--
-          <li id="login"><a href="/login" >Login</a></li>
-          <li id="signup"><a href="/signup">Signup</a></li>
-          -->
+          <li><a href="#home_tag">Home<img src="home-icon.png" id="image3menu" height="100%" align=”right”></a></li>
+          <li><a href="#fixtures_tag">Fixtures<img src="calendar-icon.png" id="image1menu" height="100%" align=”right”></a></li>
+          <li><a href="#information_tag">Information<img src="documents-icon.png" id="image2menu" height="100%" align=”right”></a></li>
         </ul>
       </div>
     </header>
 
 <div id="parallax">
-
+<a id="home_tag"></a>
 <div id="mainheading">
 
 Seniors section
@@ -391,7 +415,9 @@ Seniors section
 <p id="topInfo">
 <br>
 Longhirst Seniors play every Monday.
-<br> 
+<br><br>
+rambling ....
+<br><br>
 While the modern game of golf originated in 15th century Scotland, the game's ancient origins are unclear and much debated.
 <br>
 Some historians trace the sport back to the Roman game of paganica, in which participants used a bent stick to hit a stuffed leather ball. One theory asserts that paganica spread throughout Europe as the Romans conquered most of the continent, during the first century BC, and eventually evolved into the modern game.
@@ -401,8 +427,8 @@ Others cite chuiwan (捶丸; "chui" means striking and "wan" means small ball) a
 </div>   
  
 <div class="spacer"></div> 
- 
- 
+<a id="fixtures_tag"></a> 
+<!-- section --> 
 <hr> 
   
 <div id="header1">
@@ -413,6 +439,8 @@ Others cite chuiwan (捶丸; "chui" means striking and "wan" means small ball) a
 <div class="spacer"></div>
 <br><br>
 </div>
+<a id="information_tag"></a> 
+ <!-- section --> 
  
 <hr> 
  
@@ -426,9 +454,22 @@ Others cite chuiwan (捶丸; "chui" means striking and "wan" means small ball) a
 <div class="spacer"></div>
 
 </div>
+
+<hr> 
+ 
+<div id="header3">
+<p id="headertxt3"><a id="subHeader3">Tba section<img src="documents-icon.png" id="image2" width="50px"align=”right”></a><br>tba section</p>
+<br>
+Some information here.
+
+<div class="spacer"></div>
+
+</div>
+<!-- section --> 
 <hr>
 
-
+<br><br><br>
+<br><br><br>
 <br><br><br>
 <br><br><br>
 </div> <!-- parallax --> 
