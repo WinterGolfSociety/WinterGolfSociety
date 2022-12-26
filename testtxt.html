@@ -1,384 +1,542 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<title>testtxt</title>
-	<style>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>testtxt</title>
+    <style>
       body {
-         margin: 0;
-	      font: normal 15px Arial, sans-serif;
-	      color: white;
-	      background: dodgerBlue;
-	   }
-      
-      #txt1, #txt2, #txt3, #txt4, #txt5, #txt6, #txt7, #txt8, #txt9, #txt10, #txt11, #txt12, #txt13, #txt14, #txt15, #txt16, #txt17, #txt18, #txt19, #txt20, #txt21, #txt22, #txt23, #txt24, #txt25, #txt26, #txt27, #txt28, #txt29, #txt30,#txt31, #txt32, #txt33, #txt34, #txt35, #txt36, #txt37, #txt38, #txt39, #txt40,#txt41, #txt42, #txt43, #txt44, #txt45, #txt46, #txt47, #txt48, #txt49, #txt50 {
+        margin: 0;
+        font: normal 15px Arial, sans-serif;
+        color: white;
+        background: dodgerBlue;
+      }
+
+      #txt1,
+      #txt2,
+      #txt3,
+      #txt4,
+      #txt5,
+      #txt6,
+      #txt7,
+      #txt8,
+      #txt9,
+      #txt10,
+      #txt11,
+      #txt12,
+      #txt13,
+      #txt14,
+      #txt15,
+      #txt16,
+      #txt17,
+      #txt18,
+      #txt19,
+      #txt20,
+      #txt21,
+      #txt22,
+      #txt23,
+      #txt24,
+      #txt25,
+      #txt26,
+      #txt27,
+      #txt28,
+      #txt29,
+      #txt30,
+      #txt31,
+      #txt32,
+      #txt33,
+      #txt34,
+      #txt35,
+      #txt36,
+      #txt37,
+      #txt38,
+      #txt39,
+      #txt40,
+      #txt41,
+      #txt42,
+      #txt43,
+      #txt44,
+      #txt45,
+      #txt46,
+      #txt47,
+      #txt48,
+      #txt49,
+      #txt50 {
         font-size: 15px;
-        color: white; 
+        color: white;
       }
-      
-      #oneleft1, #oneleft2, #oneleft3, #oneleft4, #oneleft5, #oneleft6, #oneleft7, #oneleft8, #oneleft9, #oneleft10, #oneleft11, #oneleft12, #oneleft13, #oneleft14, #oneleft15, #oneleft16, #oneleft17, #oneleft18, #oneleft19, #oneleft20, #oneleft21, #oneleft22, #oneleft23, #oneleft24, #oneleft25, #oneleft26, #oneleft27, #oneleft28, #oneleft29, #oneleft30,#oneleft31, #oneleft32, #oneleft33, #oneleft34, #oneleft35, #oneleft36, #oneleft37, #oneleft38, #oneleft39, #oneleft40,#oneleft41, #oneleft42, #oneleft43, #oneleft44, #oneleft45, #oneleft46, #oneleft47, #oneleft48, #oneleft49, #oneleft50 {
-         text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
+
+      #oneleft1,
+      #oneleft2,
+      #oneleft3,
+      #oneleft4,
+      #oneleft5,
+      #oneleft6,
+      #oneleft7,
+      #oneleft8,
+      #oneleft9,
+      #oneleft10,
+      #oneleft11,
+      #oneleft12,
+      #oneleft13,
+      #oneleft14,
+      #oneleft15,
+      #oneleft16,
+      #oneleft17,
+      #oneleft18,
+      #oneleft19,
+      #oneleft20,
+      #oneleft21,
+      #oneleft22,
+      #oneleft23,
+      #oneleft24,
+      #oneleft25,
+      #oneleft26,
+      #oneleft27,
+      #oneleft28,
+      #oneleft29,
+      #oneleft30,
+      #oneleft31,
+      #oneleft32,
+      #oneleft33,
+      #oneleft34,
+      #oneleft35,
+      #oneleft36,
+      #oneleft37,
+      #oneleft38,
+      #oneleft39,
+      #oneleft40,
+      #oneleft41,
+      #oneleft42,
+      #oneleft43,
+      #oneleft44,
+      #oneleft45,
+      #oneleft46,
+      #oneleft47,
+      #oneleft48,
+      #oneleft49,
+      #oneleft50 {
+        text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
       }
-      
-     #oneright1, #oneright2, #oneright3, #oneright4, #oneright5, #oneright6, #oneright7, #oneright8, #oneright9, #oneright10, #oneright11, #oneright12, #oneright13, #oneright14, #oneright15, #oneright16, #oneright17, #oneright18, #oneright19, #oneright20, #oneright21, #oneright22, #oneright23, #oneright24, #oneright25, #oneright26, #oneright27, #oneright28, #oneright29, #oneright30,#oneright31, #oneright32, #oneright33, #oneright34, #oneright35, #oneright36, #oneright37, #oneright38, #oneright39, #oneright40,#oneright41, #oneright42, #oneright43, #oneright44, #oneright45, #oneright46, #oneright47, #oneright48, #oneright49, #oneright50 {
-       float: right; 
-       
-       
-       text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
-       
-       
-       
-     } 
-     
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  margin-top:0.5%;
-  margin-left: 0;
-}
 
-.active, .collapsible:hover {
-  background-color: #555;
-}
+      #oneright1,
+      #oneright2,
+      #oneright3,
+      #oneright4,
+      #oneright5,
+      #oneright6,
+      #oneright7,
+      #oneright8,
+      #oneright9,
+      #oneright10,
+      #oneright11,
+      #oneright12,
+      #oneright13,
+      #oneright14,
+      #oneright15,
+      #oneright16,
+      #oneright17,
+      #oneright18,
+      #oneright19,
+      #oneright20,
+      #oneright21,
+      #oneright22,
+      #oneright23,
+      #oneright24,
+      #oneright25,
+      #oneright26,
+      #oneright27,
+      #oneright28,
+      #oneright29,
+      #oneright30,
+      #oneright31,
+      #oneright32,
+      #oneright33,
+      #oneright34,
+      #oneright35,
+      #oneright36,
+      #oneright37,
+      #oneright38,
+      #oneright39,
+      #oneright40,
+      #oneright41,
+      #oneright42,
+      #oneright43,
+      #oneright44,
+      #oneright45,
+      #oneright46,
+      #oneright47,
+      #oneright48,
+      #oneright49,
+      #oneright50 {
+        float: right;
+        text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
+      }
 
-.collapsible:after {
-  content: '\002B';
-  color: white;
-  font-weight: bold;
-  float: left;
-  margin-left: 5px;
-  margin-right: 5px;
-}
+      .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        margin-top: 0.5%;
+        margin-left: 0;
+      }
 
-.active:after {
-  content: "\2212";
-}
+      .active,
+      .collapsible:hover {
+        background-color: #555;
+      }
 
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: dodgerBlue; //#f1f1f1;
-  
-  
-  opacity: 0.8;
-  
-  
-} 
-      
-#allInfo1, #allInfo2, #allInfo3, #allInfo4, #allInfo5, #allInfo6, #allInfo7, #allInfo8, #allInfo9, #allInfo10, #allInfo11, #allInfo12, #allInfo13, #allInfo14, #allInfo15, #allInfo16, #allInfo17, #allInfo18, #allInfo19, #allInfo20, #allInfo21, #allInfo22, #allInfo23, #allInfo24, #allInfo25, #allInfo26, #allInfo27, #allInfo28, #allInfo29, #allInfo30,#allInfo31, #allInfo32, #allInfo33, #allInfo34, #allInfo35, #allInfo36, #allInfo37, #allInfo38, #allInfo39, #allInfo40,#allInfo41, #allInfo42, #allInfo43, #allInfo44, #allInfo45, #allInfo46, #allInfo47, #allInfo48, #allInfo49, #allInfo50 {
-   display: none;
-}  
- 
-#allInfo {
-   display: none;
-   //background: lightgray; 
-   //opacity: 0.3;
-   opacity: 1;
-}    
-       
-#header1, #header2, #header3, #header4, #header5 {
-     font-size: 30px;
-     padding-top: 10px;
-     text-shadow: .1em .1em .2em rgba(0, 0, 0, 1); 
-     background-image: linear-gradient(rgba(30, 144, 255, 1), rgba(60, 113, 179, 0.4));
-    // height: 700px;
-}   
- 
-#mainheading {
-   font-size: 30px;
-   text-align:center;
-   //background-image: linear-gradient(rgba(30, 144, 255, 1),rgba(30, 144, 255, 0.4));
-   //background: dodgerBlue;
-   text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
-   padding-top:10px; 
-  padding-bottom:10px;
-  
-} 
- 
-#headertxt1, #headertxt2, #headertxt3, #headertxt4, #headertxt5 {
-  margin-left:15px;
-  margin-right:15px; 
-}
-   
-#subHeader1, #subHeader2, #subHeader3, #subHeader4, #subHeader5 {
-     font-size: 15px;
-     text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);  
-  height:10%;
-}     
+      .collapsible:after {
+        content: '\002B';
+        color: white;
+        font-weight: bold;
+        float: left;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
 
-#image1, #image2, #image4 {
-     float: right;
-     padding-right: 10px; 
-     padding-top: 20px;
-}
+      .active:after {
+        content: "\2212";
+      }
 
-#image3 {
-  padding-right: 20px;
-  padding-top: 0px;
-  padding-bottom: 0px; 
-}
+      .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: dodgerBlue; //#f1f1f1;
+        opacity: 0.8;
+      }
 
-#parallax {
-  background-image: url("andyphotooriginal.jpg");
-  min-height: 100vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+      #allInfo1,
+      #allInfo2,
+      #allInfo3,
+      #allInfo4,
+      #allInfo5,
+      #allInfo6,
+      #allInfo7,
+      #allInfo8,
+      #allInfo9,
+      #allInfo10,
+      #allInfo11,
+      #allInfo12,
+      #allInfo13,
+      #allInfo14,
+      #allInfo15,
+      #allInfo16,
+      #allInfo17,
+      #allInfo18,
+      #allInfo19,
+      #allInfo20,
+      #allInfo21,
+      #allInfo22,
+      #allInfo23,
+      #allInfo24,
+      #allInfo25,
+      #allInfo26,
+      #allInfo27,
+      #allInfo28,
+      #allInfo29,
+      #allInfo30,
+      #allInfo31,
+      #allInfo32,
+      #allInfo33,
+      #allInfo34,
+      #allInfo35,
+      #allInfo36,
+      #allInfo37,
+      #allInfo38,
+      #allInfo39,
+      #allInfo40,
+      #allInfo41,
+      #allInfo42,
+      #allInfo43,
+      #allInfo44,
+      #allInfo45,
+      #allInfo46,
+      #allInfo47,
+      #allInfo48,
+      #allInfo49,
+      #allInfo50 {
+        display: none;
+      }
 
-.listItem {
-  font-size:15px;
-  //background-color: #777;
-  padding-left:20px; 
-  padding-bottom:10px;
-  padding-top:10px;
-  
-  //padding: 10px;
-  width: 100%;
-  border: none;
-  margin-bottom:10px;
-}
+      #allInfo {
+        display: none;
+        //background: lightgray; 
+        //opacity: 0.3;
+        opacity: 1;
+      }
 
-#topInfo {
- font-size:15px;
- text-align: left;  
- 
- padding-left:20px;
- padding-right:20px;
- 
-}
+      #header1,
+      #header2,
+      #header3,
+      #header4,
+      #header5 {
+        font-size: 30px;
+        padding-top: 10px;
+        text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
+        background-image: linear-gradient(rgba(30, 144, 255, 1), rgba(60, 113, 179, 0.4));
+        // height: 700px;
+      }
 
+      #mainheading {
+        font-size: 30px;
+        text-align: center;
+        //background-image: linear-gradient(rgba(30, 144, 255, 1),rgba(30, 144, 255, 0.4));
+        //background: dodgerBlue;
+        text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
 
+      #headertxt1,
+      #headertxt2,
+      #headertxt3,
+      #headertxt4,
+      #headertxt5 {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
 
+      #subHeader1,
+      #subHeader2,
+      #subHeader3,
+      #subHeader4,
+      #subHeader5 {
+        font-size: 15px;
+        text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
+        height: 10%;
+      }
 
+      #image1,
+      #image2,
+      #image4 {
+        float: right;
+        padding-right: 10px;
+        padding-top: 20px;
+      }
 
+      #image3 {
+        padding-right: 20px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
 
+      #parallax {
+        background-image: url("andyphotooriginal.jpg");
+        min-height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
 
+      .listItem {
+        font-size: 15px;
+        //background-color: #777;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        //padding: 10px;
+        width: 100%;
+        border: none;
+        margin-bottom: 10px;
+      }
 
+      #topInfo {
+        font-size: 15px;
+        text-align: left;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
 
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
 
+      body {
+        background-color: #353836;
+        color: white;
+        font-family: sans-serif;
+      }
 
+      header a {
+        text-decoration: none;
+      }
 
+      header {
+        padding: 0 20px;
+        background-color: #1d1f1d;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+      }
 
+      #brand {
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+      }
 
+      #brand a {
+        color: white;
+      }
 
+      ul {
+        list-style: none;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 25px;
+      }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+      ul a {
+        color: white;
+      }
 
-body {
-  background-color: #353836;
-  color: white;
-  font-family: sans-serif;
-}
+      ul li {
+        padding: 5px;
+        margin-left: 10px;
+        width: 100%;
+        text-align: center;
+        height: 40px;
+      }
 
-header a {
-  text-decoration: none;
-}
+      ul li:hover {
+        //transform: scale(1.1);
+        //transition: 0.3s;
+        //background: rgba(60, 179, 113, 0.8);
+        background: rgba(30, 144, 255, 0.8);
+      }
 
-header {
-  padding: 0 20px;
-  background-color: #1d1f1d;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-}
+      #hamburger-icon {
+        margin: auto 0;
+        display: none;
+        cursor: pointer;
+      }
 
-#brand {
-  font-weight: bold;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-}
+      #hamburger-icon div {
+        width: 35px;
+        height: 3px;
+        background-color: white;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
 
-#brand a {
-  color: white;
-}
+      .open .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+        transform: rotate(-45deg) translate(-6px, 6px);
+      }
 
-ul {
-  list-style: none;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 25px;
+      .open .bar2 {
+        opacity: 0;
+      }
 
-}
+      .open .bar3 {
+        -webkit-transform: rotate(45deg) translate(-6px, -8px);
+        transform: rotate(45deg) translate(-6px, -8px);
+      }
 
-ul a {
-  color: white;
-}
+      .open .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
 
-ul li {
-  padding: 5px;
-  margin-left: 10px;
-  width:100%;
-  text-align: center;
-  
-  
-  
-  
-  height: 40px;
-  
-  
-  
-  
-  
-  
-  
-}
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        height: 250px;
+        width: 100%;
+        color: white;
+        //background: darkGray;
+        background: rgba(19, 141, 117, 0.8);
+      }
 
-ul li:hover {
-  //transform: scale(1.1);
-  //transition: 0.3s;
-  //background: rgba(60, 179, 113, 0.8);
-   background: rgba(30, 144, 255, 0.8);
-}
+      .mobile-menu li {
+        margin-bottom: 10px;
+        text-align: left;
+        padding-left: 100px;
+      }
 
-#hamburger-icon {
-  margin: auto 0;
-  display: none;
-  cursor: pointer;
-}
+      @media only screen and (max-width: 600px) {
+        header nav {
+          display: none;
+        }
 
-#hamburger-icon div {
-  width: 35px;
-  height: 3px;
-  background-color: white;
-  margin: 6px 0;
-  transition: 0.4s;
-}
+        #hamburger-icon {
+          display: block;
+        }
+      }
 
-.open .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
-  transform: rotate(-45deg) translate(-6px, 6px);
-}
+      // sticky menu
+      /* Style the header */
+      sHeader {
+        padding: 10px 16px;
+        background: #555;
+        color: #f1f1f1;
+      }
 
-.open .bar2 {
-  opacity: 0;
-}
+      /* Page content */
+      .parallax {
+        padding: 16px;
+      }
 
-.open .bar3 {
-  -webkit-transform: rotate(45deg) translate(-6px, -8px);
-  transform: rotate(45deg) translate(-6px, -8px);
-}
+      /* The sticky class is added to the header with JS when it reaches its scroll position */
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%
+      }
 
-.open .mobile-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
+      /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+      .sticky+.parallax {
+        padding-top: 102px;
+      }
 
-.mobile-menu {
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  height: 250px;
-  width: 100%;
-  
-  color:white;
-  //background: darkGray;
-  background: rgba(19, 141, 117 , 0.8); 
-  
-}
+      .spacer {
+        padding-top: 100px;
+      }
 
-.mobile-menu li {
-  margin-bottom: 10px;
-  
-  
-  
-  
-  text-align: left;
-  padding-left: 100px;
-  
-  
-  
-  
-  
-  
-  
-}
+      #image1menu,
+      #image2menu,
+      #image3menu,
+      #image4menu,
+      #image5menu {
+        float: right;
+        padding-right: 10px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
 
-@media only screen and (max-width: 600px) {
-  header nav {
-    display: none;
-  }
+      #tempfooter {
+        //position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.3);
+        color: darkGray; //white;
+        text-align: right;
+        font-size: 10px;
+        font-style: italic;
+        padding-right: 10px;
+      }
 
-  #hamburger-icon {
-    display: block;
-  }
-}
-
-
-
-// sticky menu
-
-/* Style the header */
-sHeader {
-  padding: 10px 16px;
-  background: #555;
-  color: #f1f1f1;
-}
-
-/* Page content */
-.parallax {
-  padding: 16px;
-}
-
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .parallax {
-  padding-top: 102px;
-}
-
-.spacer {
-  padding-top: 100px; 
-}
-
-#image1menu, #image2menu, #image3menu, #image4menu, #image5menu {
-     float: right;
-     padding-right: 10px; 
-     padding-top: 0px;
-     padding-bottom: 0px;
-}
-
-#tempfooter {
-   //position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: rgba(10, 10, 10 , 0.3);
-  color: darkGray; //white;
-  text-align: right;
-  font-size: 10px;
-  font-style: italic;
-  padding-right: 10px;
-}
-
-
-/*
+      /*
 .footer {
   position: fixed;
   left: 0;
@@ -392,176 +550,128 @@ sHeader {
   padding-right: 10px;
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// gallery
-
-// gallery
-* {
-  box-sizing: border-box;
-}
-
-/* Position the image container (needed to position the left and right arrows) */
-.container {
-  position: relative;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-  cursor: pointer;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 20px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Container for image text */
-.caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 16.66%;
-}
-
-/* Add a transparency effect for thumnbail images */
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	</style>
-	<script src="jquery-3.6.0.min.js" type="text/javascript">
-	</script>
-	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
-	<meta content="score input" name="description">
-	<meta content="Bryan M" name="author">
-	<title>info</title>
-	<link href="favicon.ico" rel="icon" type="image/x-icon">
-   
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-	</script>
- 
-</head>
-<body>
- 
-<!-- Top Navigation Menu -->
-<header id="sHeader">
-      <div id="brand"><img src="golf-ball.png" id="image3" width="60px"align=”center”><a href="#">Longhirst golf</a></div>
+      // gallery
+      // gallery
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Position the image container (needed to position the left and right arrows) */
+      .container {
+        position: relative;
+      }
+
+      /* Hide the images by default */
+      .mySlides {
+        display: none;
+      }
+
+      /* Add a pointer when hovering over the thumbnail images */
+      .cursor {
+        cursor: pointer;
+      }
+
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 20px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+
+      /* Container for image text */
+      .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+      }
+
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Six columns side by side */
+      .column {
+        float: left;
+        width: 16.66%;
+      }
+
+      /* Add a transparency effect for thumnbail images */
+      .demo {
+        opacity: 0.6;
+      }
+
+      .active,
+      .demo:hover {
+        opacity: 1;
+      }
+    </style>
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
+    <meta content="score input" name="description">
+    <meta content="Bryan M" name="author">
+    <title>info</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Top Navigation Menu -->
+    <header id="sHeader">
+      <div id="brand">
+        <img src="golf-ball.png" id="image3" width="60px" align=”center”>
+        <a href="#">Longhirst golf</a>
+      </div>
       <nav>
         <ul>
-          <li><a href="#home_tag">Home</a></li>
-          <li><a href="#fixtures_tag">Fixtures</a></li>
-          <li><a href="#information_tag">Information</a></li>
-          <li><a href="#information_tag">tba</a></li>
-          <li><a href="#gallery_tag">Gallery</a></li>
+          <li>
+            <a href="#home_tag">Home</a>
+          </li>
+          <li>
+            <a href="#fixtures_tag">Fixtures</a>
+          </li>
+          <li>
+            <a href="#information_tag">Information</a>
+          </li>
+          <li>
+            <a href="#information_tag">tba</a>
+          </li>
+          <li>
+            <a href="#gallery_tag">Gallery</a>
+          </li>
         </ul>
       </nav>
       <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
@@ -569,424 +679,350 @@ sHeader {
         <div class="bar2"></div>
         <div class="bar3"></div>
         <ul class="mobile-menu">
-          <li><a href="#home_tag">Home<img src="home-icon.png" id="image3menu" height="100%" align=”right”></a></li>
-          <li><a href="#fixtures_tag">Fixtures<img src="calendar-icon.png" id="image1menu" height="100%" align=”right”></a></li>
-          <li><a href="#information_tag">Information<img src="documents-icon.png" id="image2menu" height="100%" align=”right”></a></li>
-          <li><a href="#information_tag">tba<img src="documents-icon.png" id="image3menu" height="100%" align=”right”></a></li>
-          <li><a href="#gallery_tag">Gallery<img src="camera-icon.png" id="image4menu" height="100%" align=”right”></a></li>
+          <li>
+            <a href="#home_tag">Home<img src="home-icon.png" id="image3menu" height="100%" align=”right”>
+            </a>
+          </li>
+          <li>
+            <a href="#fixtures_tag">Fixtures<img src="calendar-icon.png" id="image1menu" height="100%" align=”right”>
+            </a>
+          </li>
+          <li>
+            <a href="#information_tag">Information<img src="documents-icon.png" id="image2menu" height="100%" align=”right”>
+            </a>
+          </li>
+          <li>
+            <a href="#information_tag">tba<img src="documents-icon.png" id="image3menu" height="100%" align=”right”>
+            </a>
+          </li>
+          <li>
+            <a href="#gallery_tag">Gallery<img src="camera-icon.png" id="image4menu" height="100%" align=”right”>
+            </a>
+          </li>
         </ul>
       </div>
     </header>
-
-<div id="parallax">
-<a id="home_tag"></a>
-<div id="mainheading">
-
-Seniors section
-<br>
-<p id="topInfo">
-<br>
-Longhirst Seniors play every Monday.
-<br><br>
-rambling ....
-<br><br>
-While the modern game of golf originated in 15th century Scotland, the game's ancient origins are unclear and much debated.
-<br>
-Some historians trace the sport back to the Roman game of paganica, in which participants used a bent stick to hit a stuffed leather ball. One theory asserts that paganica spread throughout Europe as the Romans conquered most of the continent, during the first century BC, and eventually evolved into the modern game.
-<br>
-Others cite chuiwan (捶丸; "chui" means striking and "wan" means small ball) as the progenitor, a Chinese game played between the eighth and fourteenth centuries. A Ming Dynasty scroll by the artist Youqiu dating back to 1368 entitled "The Autumn Banquet" shows a member of the Chinese Imperial court swinging what appears to be a golf club at a small ball with the aim of sinking it into a hole. The game is thought to have been introduced into Europe during the Middle Ages.
-</p>
-</div>   
- 
-<div class="spacer"></div> 
-<a id="fixtures_tag"></a> 
-<!-- section --> 
-<hr> 
-  
-<div id="header1">
-<p id="headertxt1"><a id="subHeader1">Longhirst seniors section<img src="calendar-icon.png" id="image1" width="50px"align=”right”></a><br>Fixtures</p>
-<br>
-<a id="list" class="list">
-</a>
-<div class="spacer"></div>
-<br><br>
-</div>
-<a id="information_tag"></a> 
- <!-- section --> 
- 
-<hr> 
- 
-<div id="header2">
-<p id="headertxt2"><a id="subHeader2">Longhirst seniors section<img src="documents-icon.png" id="image2" width="50px"align=”right”></a><br>Information</p>
-<br>
-<a id="allInfo">
-<!-- populated by a script -->
-</a>
-
-<div class="spacer"></div>
-
-</div>
-
-<hr> 
- 
-<div id="header3">
-<p id="headertxt3"><a id="subHeader3">Longhirst seniors section<img src="documents-icon.png" id="image2" width="50px"align=”right”></a><br>tba section</p>
-<br>
-Some information here.
-
-<div class="spacer"></div>
-
-</div>
-<a id="gallery_tag"></a> 
-<!-- section --> 
-<hr>
-
-<div id="header4">
-<p id="headertxt4"><a id="subHeader4">Longhirst seniors section<img src="camera-icon.png" id="image2" width="50px"align=”right”></a><br>Gallery</p>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Container for the image gallery -->
-<div class="container">
-
-  <!-- Full-width images with number text -->
-  <div class="mySlides">
-    <div class="numbertext">1 / 6</div>
-      <img src="andy1.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">2 / 6</div>
-      <img src="andy2.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">3 / 6</div>
-      <img src="andy3.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">4 / 6</div>
-      <img src="andy4.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">5 / 6</div>
-      <img src="andy5.jpg" style="width:100%">
-  </div>
-
-  <div class="mySlides">
-    <div class="numbertext">6 / 6</div>
-      <img src="andy6.jpg" style="width:100%">
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-  <!-- Image text -->
-  <div class="caption-container">
-    <p id="caption"></p>
-  </div>
-
-  <!-- Thumbnail images -->
-  <div class="row">
-    <div class="column">
-      <img class="demo cursor" src="andy1.jpg" style="width:100%" onclick="currentSlide(1)" alt="number 1">
+    <div id="parallax">
+      <a id="home_tag"></a>
+      <div id="mainheading"> Seniors section <br>
+        <p id="topInfo">
+          <br> Longhirst Seniors play every Monday. <br>
+          <br> rambling .... <br>
+          <br> While the modern game of golf originated in 15th century Scotland, the game's ancient origins are unclear and much debated. <br> Some historians trace the sport back to the Roman game of paganica, in which participants used a bent stick to hit a stuffed leather ball. One theory asserts that paganica spread throughout Europe as the Romans conquered most of the continent, during the first century BC, and eventually evolved into the modern game. <br> Others cite chuiwan (捶丸; "chui" means striking and "wan" means small ball) as the progenitor, a Chinese game played between the eighth and fourteenth centuries. A Ming Dynasty scroll by the artist Youqiu dating back to 1368 entitled "The Autumn Banquet" shows a member of the Chinese Imperial court swinging what appears to be a golf club at a small ball with the aim of sinking it into a hole. The game is thought to have been introduced into Europe during the Middle Ages.
+        </p>
+      </div>
+      <div class="spacer"></div>
+      <a id="fixtures_tag"></a>
+      <!-- section -->
+      <hr>
+      <div id="header1">
+        <p id="headertxt1">
+          <a id="subHeader1">Longhirst seniors section <img src="calendar-icon.png" id="image1" width="50px" align=”right”>
+          </a>
+          <br>Fixtures
+        </p>
+        <br>
+        <a id="list" class="list"></a>
+        <div class="spacer"></div>
+        <br>
+        <br>
+      </div>
+      <a id="information_tag"></a>
+      <!-- section -->
+      <hr>
+      <div id="header2">
+        <p id="headertxt2">
+          <a id="subHeader2">Longhirst seniors section <img src="documents-icon.png" id="image2" width="50px" align=”right”>
+          </a>
+          <br>Information
+        </p>
+        <br>
+        <a id="allInfo">
+          <!-- populated by a script -->
+        </a>
+        <div class="spacer"></div>
+      </div>
+      <hr>
+      <div id="header3">
+        <p id="headertxt3">
+          <a id="subHeader3">Longhirst seniors section <img src="documents-icon.png" id="image2" width="50px" align=”right”>
+          </a>
+          <br>tba section
+        </p>
+        <br> Some information here. <div class="spacer"></div>
+      </div>
+      <a id="gallery_tag"></a>
+      <!-- section -->
+      <hr>
+      <div id="header4">
+        <p id="headertxt4">
+          <a id="subHeader4">Longhirst seniors section <img src="camera-icon.png" id="image2" width="50px" align=”right”>
+          </a>
+          <br>Gallery
+        </p>
+        <br>
+        <!-- Container for the image gallery -->
+        <div class="container">
+          <!-- Full-width images with number text -->
+          <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+            <img src="andy1.jpg" style="width:100%">
+          </div>
+          <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+            <img src="andy2.jpg" style="width:100%">
+          </div>
+          <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+            <img src="andy3.jpg" style="width:100%">
+          </div>
+          <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+            <img src="andy4.jpg" style="width:100%">
+          </div>
+          <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+            <img src="andy5.jpg" style="width:100%">
+          </div>
+          <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+            <img src="andy6.jpg" style="width:100%">
+          </div>
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <!-- Image text -->
+          <div class="caption-container">
+            <p id="caption"></p>
+          </div>
+          <!-- Thumbnail images -->
+          <div class="row">
+            <div class="column">
+              <img class="demo cursor" src="andy1.jpg" style="width:100%" onclick="currentSlide(1)" alt="number 1">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="andy2.jpg" style="width:100%" onclick="currentSlide(2)" alt="number 2">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="andy3.jpg" style="width:100%" onclick="currentSlide(3)" alt="number 3">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="andy4.jpg" style="width:100%" onclick="currentSlide(4)" alt="number 4">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="andy5.jpg" style="width:100%" onclick="currentSlide(5)" alt="number 5">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="andy6.jpg" style="width:100%" onclick="currentSlide(6)" alt="number 6">
+            </div>
+          </div>
+        </div> Some information here. <div class="spacer"></div>
+      </div>
+      <!-- section -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
-    <div class="column">
-      <img class="demo cursor" src="andy2.jpg" style="width:100%" onclick="currentSlide(2)" alt="number 2">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="andy3.jpg" style="width:100%" onclick="currentSlide(3)" alt="number 3">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="andy4.jpg" style="width:100%" onclick="currentSlide(4)" alt="number 4">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="andy5.jpg" style="width:100%" onclick="currentSlide(5)" alt="number 5">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="andy6.jpg" style="width:100%" onclick="currentSlide(6)" alt="number 6">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Some information here.
-
-<div class="spacer"></div>
-
-</div>
-<!-- section --> 
-<br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
-
-</div> <!-- parallax --> 
-<!--
-<div class="footer">
-  <p>background photo by Andy</p>
-</div>
+    <!-- parallax -->
+    <!--
+<div class="footer"><p>background photo by Andy</p></div>
 -->
-<p id="tempfooter">background photo by Andy</p>
-<script> 
-var xupper = 10
-var xlower = 1
-var i
-// display diary
-element2 = document.getElementById("list") 
-element2.style.display="none"
-isDisplayDiary()
+    <p id="tempfooter">background photo by Andy</p>
+    <script>
+      var xupper = 10
+      var xlower = 1
+      var i
+      // display diary
+      element2 = document.getElementById("list")
+      element2.style.display = "none"
+      isDisplayDiary()
+      // display info
+      element1 = document.getElementById("allInfo")
+      element1.style.display = "none"
+      for (i = xupper; i >= xlower; i--) {
+        element1.innerHTML += '<div id="allInfo' + i + '"><button type="button" class="collapsible"><a id="oneleft' + i + '">empty</a><a id="oneright' + i + '">empty</a></button><div class="content"><p id="txt' + i + '"></p>'
+        isDisplay(i)
+      }
+      unfade("allInfo")
+      // operate the dropdowns
+      // non function javascript
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      for (i=0; i<coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+      // sticky header code
+      // When the user scrolls the page, execute myFunction
+      window.onscroll = function() {
+        stickyMenu()
+      };
+      // Get the header
+      var header = document.getElementById("sHeader");
+      // Get the offset position of the navbar
+      var sticky = header.offsetTop;
+      // gallery
+      let slideIndex = 1;
+      showSlides(slideIndex);
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
 
-// display info
-element1 = document.getElementById("allInfo") 
-element1.style.display="none"
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        if (n > slides.length) {
+          slideIndex = 1
+        }
+        if (n < 1) {
+          slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+      }
+      // ====== functions ======
+      function toggleMobileMenu(menu) {
+        menu.classList.toggle('open');
+      }
+      // end of menu
+      // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+      function stickyMenu() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
+        }
+      }
 
-for (i = xupper; i >= xlower; i--) {
-   element1.innerHTML += '<div id="allInfo' + i + '"><button type="button" class="collapsible"><a id="oneleft' + i + '">empty</a><a id="oneright' + i + '">empty</a></button><div class="content"><p id="txt' + i + '"></p>'
-   isDisplay(i)
-}
-
-unfade("allInfo")
-
-// operate the dropdowns
-// non function javascript
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}  
-
-// sticky header code
-
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {stickyMenu()};
-
-// Get the header
-var header = document.getElementById("sHeader");
-
-// Get the offset position of the navbar
-var sticky = header.offsetTop;
-
-
-
-
-
-
-
-// gallery
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("demo");
-  let captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ====== functions ======
-
-function toggleMobileMenu(menu) {
-    menu.classList.toggle('open');
-}
-
-// end of menu
-
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function stickyMenu() {
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
-
-function unfade(elementx) {
-    var op = 0.1;  // initial opacity
-    element = document.getElementById(elementx)
-    element.style.display = 'inline';
-    
-    var timer = setInterval(function () {
-        if (op >= 1){
+      function unfade(elementx) {
+        var op = 0.1; // initial opacity
+        element = document.getElementById(elementx)
+        element.style.display = 'inline';
+        var timer = setInterval(function() {
+          if (op >= 1) {
             clearInterval(timer);
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1;
-    }, 20);
-}
+          }
+          element.style.opacity = op;
+          element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+          op += op * 0.1;
+        }, 20);
+      }
 
-function unfadeDiary(elementx) {
-    var opD = 0.1;  // initial opacity
-    elementD = document.getElementById(elementx)
-    elementD.style.display = 'inline';
-    var timerD = setInterval(function () {
-        if (opD >= 1){
+      function unfadeDiary(elementx) {
+        var opD = 0.1; // initial opacity
+        elementD = document.getElementById(elementx)
+        elementD.style.display = 'inline';
+        var timerD = setInterval(function() {
+          if (opD >= 1) {
             clearInterval(timerD);
-        }
-        elementD.style.opacity = opD;
-        elementD.style.filter = 'alpha(opacity=' + opD * 100 + ")";
-        opD += opD * 0.1;
-    }, 20);
-}
+          }
+          elementD.style.opacity = opD;
+          elementD.style.filter = 'alpha(opacity=' + opD * 100 + ")";
+          opD += opD * 0.1;
+        }, 20);
+      }
 
-function isDisplay(fileno){
-    var filename = "text" + fileno + ".txt"
-    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
-    url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
-    var el=document.createElement('script');
-    el.id=filename;
-    el.onload=function(){if(el.onload)showInfo(fileno)}
-    el.src=url;
-    document.body.appendChild(el);
-}
- 
-// only runs if file exists
-function showInfo(numx) {
-    var txtFile = new XMLHttpRequest();
-    var allText = "file not found";
-    txtFile.onreadystatechange = function () {
-        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+      function isDisplay(fileno) {
+        var filename = "text" + fileno + ".txt"
+        url = "https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
+        url += "?" + new Date().getTime() + Math.floor(Math.random() * 1000000);
+        var el = document.createElement('script');
+        el.id = filename;
+        el.onload = function() {
+          if (el.onload) showInfo(fileno)
+        }
+        el.src = url;
+        document.body.appendChild(el);
+      }
+      // only runs if file exists
+      function showInfo(numx) {
+        var txtFile = new XMLHttpRequest();
+        var allText = "file not found";
+        txtFile.onreadystatechange = function() {
+          if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
             allText = txtFile.responseText;
             var allTextHeader = allText.split("#")
             var textHeaderLeft = allTextHeader[0]
             var textHeaderRight = allTextHeader[1]
             allText = allTextHeader[2].toString()
             allText = allText.split("\n").join("<br>");
+            }
+            document.getElementById('oneleft' + numx).innerHTML = textHeaderLeft;
+            document.getElementById('txt' + numx).innerHTML = allText;
+            document.getElementById('oneright' + numx).innerHTML = textHeaderRight;
+          }
+          // all setup now get the file info
+          txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text' + numx + '.txt', true);
+          txtFile.send(null);
+          document.getElementById('allInfo' + numx).style.display = "inline"
         }
-        document.getElementById('oneleft' + numx).innerHTML = textHeaderLeft;
-        document.getElementById('txt' + numx).innerHTML = allText;
-        document.getElementById('oneright' + numx).innerHTML = textHeaderRight;   
-    }
-    // all setup now get the file info
-    txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/text' + numx + '.txt', true);
-    txtFile.send(null);   
-    document.getElementById('allInfo' + numx).style.display="inline"
- }
-     
 
+        function isDisplayDiary() {
+          var filename = "textDiary.txt"
+          url = "https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
+          url += "?" + new Date().getTime() + Math.floor(Math.random() * 1000000);
+          var el = document.createElement('script');
+          el.id = filename;
+          el.onload = function() {
+            if (el.onload) showInfoDiary()
+          }
+          el.src = url;
+          document.body.appendChild(el);
+        }
 
-
-function isDisplayDiary(){
-    var filename = "textDiary.txt"
-    url="https://wintergolfsociety.github.io/WinterGolfSociety/" + filename;
-    url+="?"+new Date().getTime()+Math.floor(Math.random()*1000000);
-    var el=document.createElement('script');
-    el.id=filename;
-    el.onload=function(){if(el.onload)showInfoDiary()}
-    el.src=url;
-    document.body.appendChild(el);
-}
-
-function showInfoDiary() {
-    var txtFile = new XMLHttpRequest();
-    var allText = "file not found";
-    var allTextMod = "";
-    txtFile.onreadystatechange = function () {
-        if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
-            allText = txtFile.responseText;
-            allTextarray = allText.split("\n");
-            allTextarray.forEach((element, index) => {
-               if (allTextarray[index].length > 1) {
-                  allTextarray[index] = '<div class="listItem">' + element + '</div>';
+        function showInfoDiary() {
+          var txtFile = new XMLHttpRequest();
+          var allText = "file not found";
+          var allTextMod = "";
+          txtFile.onreadystatechange = function() {
+            if (txtFile.readyState === XMLHttpRequest.DONE && txtFile.status == 200) {
+              allText = txtFile.responseText;
+              allTextarray = allText.split("\n");
+              allTextarray.forEach((element, index) => {
+                if (allTextarray[index].length > 1) {
+                  allTextarray[index] = ' <div class="listItem"> ' + element + '</div>';
                   allTextMod = allTextMod + allTextarray[index]
-               }
-            });
+                }
+              });
+            }
+            document.getElementById('list').innerHTML = allTextMod;
+          }
+          // all setup now get the file info
+          txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/textDiary.txt', true);
+          txtFile.send(null);
+          document.getElementById('list').style.display = "inline"
+          unfadeDiary("list")
         }
-        document.getElementById('list').innerHTML = allTextMod;
-    }
-    
-    // all setup now get the file info
-    txtFile.open("GET", 'https://wintergolfsociety.github.io/WinterGolfSociety/textDiary.txt', true);
-    txtFile.send(null);   
-    document.getElementById('list').style.display="inline"
-    unfadeDiary("list")
-    
- }
-
-
-
-
-
-
-
-
-    
-</script>
-</body>
+    </script>
+  </body>
 </html>
-
-
