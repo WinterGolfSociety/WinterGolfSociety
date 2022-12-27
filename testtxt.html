@@ -709,6 +709,8 @@
           <br> Longhirst Seniors play every Monday. <br>
           <br> rambling .... <br>
           <br> While the modern game of golf originated in 15th century Scotland, the game's ancient origins are unclear and much debated. <br> Some historians trace the sport back to the Roman game of paganica, in which participants used a bent stick to hit a stuffed leather ball. One theory asserts that paganica spread throughout Europe as the Romans conquered most of the continent, during the first century BC, and eventually evolved into the modern game. <br> Others cite chuiwan (捶丸; "chui" means striking and "wan" means small ball) as the progenitor, a Chinese game played between the eighth and fourteenth centuries. A Ming Dynasty scroll by the artist Youqiu dating back to 1368 entitled "The Autumn Banquet" shows a member of the Chinese Imperial court swinging what appears to be a golf club at a small ball with the aim of sinking it into a hole. The game is thought to have been introduced into Europe during the Middle Ages.
+          <br><br>
+          - source Wikipedia.
         </p>
       </div>
       
@@ -865,10 +867,11 @@
 -->
     <p id="tempfooter">background photo by Andy</p>
     
-    <script>
-      var xupper = 50 // 10
+     <script>
+      var xupper = 10
       var xlower = 1
       var i
+      var j
       // display diary
       element2 = document.getElementById("list")
       element2.style.display = "none"
@@ -911,10 +914,6 @@
       // Next/previous controls
       function plusSlides(n) {
         showSlides(slideIndex += n);
-        
-        
-        
-        
       }
       // Thumbnail image controls
       function currentSlide(n) {
@@ -922,9 +921,6 @@
       }
 
       function showSlides(n) {
-         
-    
-         
         let i;
         let slides = document.getElementsByClassName("mySlides");
         let dots = document.getElementsByClassName("demo");
@@ -941,23 +937,9 @@
         for (i = 0; i < dots.length; i++) {
           dots[i].className = dots[i].className.replace(" active", "");
         }
-        
         slides[slideIndex - 1].style.display = "block";
-        
-        //dots[slideIndex - 1].className += " active";
-        
-        //captionText.innerHTML = dots[slideIndex - 1].alt;
-         
-        
-        // update slide number
-        let x = document.getElementById("numbertextCopy");
-        
-        x.innerText = " showing " + slideIndex + " of 6"
-        
-        
-        
-        
-        
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
       }
       // ====== functions ======
       function toggleMobileMenu(menu) {
@@ -1012,6 +994,42 @@
         }
         el.src = url;
         document.body.appendChild(el);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // wait every 20 to allow a catch up
+         j++
+         if (j == 20) {
+         var milliseconds2 = 100;
+         var date2 = Date.now();
+         let currentDate2 = null;
+         do {
+            currentDate2 = Date.now();
+            } while (currentDate2 - date2 < milliseconds2);
+            j = 0
+         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
       }
       // only runs if file exists
       function showInfo(numx) {
