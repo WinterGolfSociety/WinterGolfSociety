@@ -62,11 +62,11 @@
       text-align: center;
       padding: 10px;
       }
-      tr:nth-child(even) {
+      .left tr:nth-child(even) {
       background-color: lightgray;
        height: 50px;
       }
-      tr:nth-child(odd) {
+      .left tr:nth-child(odd) {
       background-color: darkgray;
        height: 50px;
       }
@@ -243,25 +243,27 @@
 
 
 <div class="right">
-<table class="card">
+<table class="strokes">
 	<caption></caption>
 	<thead>
 	<tr>
-		<th>1</th>
-		<th>2</th>
-		<th>3</th>
-		<th>4</th>
-      <th>5</th>
-		<th>6</th>
-		<th>7</th>
-		<th>8</th>
-      <th>9</th>
-		<th>10</th>
+		<tr><td><button class="scorebutton" id="score1-1" onClick="updateScore(this.id)">1</button></td></tr>
+		<tr><td><button class="scorebutton" id="score1-2" onClick="updateScore(this.id)">2</button></td></tr>
+		<tr><td><button class="scorebutton" id="score1-3" onClick="updateScore(this.id)">3</button></td></tr>
+		<tr><td><button class="scorebutton" id="score1-4" onClick="updateScore(this.id)">4</button></td></tr>
+      <tr><td><button class="scorebutton" id="score1-5" onClick="updateScore(this.id)">5</button></td></tr>
+		<tr><td><button class="scorebutton" id="score1-6" onClick="updateScore(this.id)">6</button></td></tr>
+		<tr><td><button class="scorebutton" id="score1-7" onClick="updateScore(this.id)">7</button></td></tr>
+		<tr><td><button class="scorebutton" id="score1-8" onClick="updateScore(this.id)">8</button></td></tr>
+      <tr><td><button class="scorebutton" id="score1-9" onClick="updateScore(this.id)">9</button></td></tr>
+		<tr><td><button class="scorebutton" id="score1-10" onClick="updateScore(this.id)">10</button></td></tr>
 	</tr>
 	</thead>
 	<tbody>
 	<tr>
 		<td><button class="scorebutton" id="score1-1" onClick="updateScore(this.id)">1</button></td>
+   </tr>
+   <tr></tr>   
 		<td><button class="scorebutton" id="score1-2" onClick="updateScore(this.id)">2</button></td>
 		<td><button class="scorebutton" id="score1-3" onClick="updateScore(this.id)">3</button></td>
 		<td><button class="scorebutton" id="score1-4" onClick="updateScore(this.id)">4</button></td>
