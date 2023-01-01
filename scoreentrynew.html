@@ -78,31 +78,57 @@
       font-size: 20px;
       background: dodgerBlue;
       border-radius: 10px;
-      
-      
       box-shadow: 10px 10px 25px black;
-	   //text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
-      
-      
-      
-      
       }
-      
-      
-      
-      
-      
- 
 
 #scroller-right{
     position: fixed;
     right: 0;
     background:dodgerBlue;
 }
-      
-      
-      
-      
+         
+.dropbtn {
+  color: white;
+  cursor: pointer;
+  width: 20vw; 
+  height:40px;
+  font-size: 20px;
+  background: dodgerBlue;
+  border-radius: 10px;
+  box-shadow: 10px 10px 25px black;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 10px 10px 25px black;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}     
       
       
       
@@ -120,6 +146,9 @@
 
 
 
+
+
+
 <div class="container">
 <div class="left">
 <table class="card">
@@ -130,6 +159,7 @@
 		<th></th>
 		<th></th>
 		<th></th>
+      <th></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -137,139 +167,181 @@
 		<td>1</td>
 		<td id="si1"></td>
 		<td id="par1"></td>
-		<td id="score1"></td>
+		<td id="score1" contentEditable="true"></td>
+      <td id="points1"></td>
 	</tr>
 	<tr>
 		<td>2</td>
 		<td id="si2"></td>
 		<td id="par2"></td>
-		<td id="score2"></td>
+		<td id="score2" contentEditable="true"></td>
+      <td id="points2"></td>
 	</tr>
 	<tr>
 		<td>3</td>
 		<td id="si3"></td>
 		<td id="par3"></td>
-		<td id="score3"></td>
+		<td id="score3" contentEditable="true"></td>
+      <td id="points3"></td>
 	</tr>
 	<tr>
 		<td>4</td>
 		<td id="si4"></td>
 		<td id="par4"></td>
-		<td id="score4"></td>
+		<td id="score4" contentEditable="true"></td>
+      <td id="points4"></td>
 	</tr>
 	<tr>
 		<td>5</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score5" contentEditable="true"></td>
+      <td id="points5"></td>
 	</tr>
 	<tr>
 		<td>6</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score6" contentEditable="true"></td>
+      <td id="points6"></td>
 	</tr>
 	<tr>
 		<td>7</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score7" contentEditable="true"></td>
+      <td id="points7"></td>
 	</tr>
 	<tr>
 		<td>8</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score8" contentEditable="true"></td>
+      <td id="points8"></td>
 	</tr>
 	<tr>
 		<td>9</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score9" contentEditable="true"></td>
+      <td id="points9"></td>
 	</tr>
 	<tr>
 		<td>10</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score10" contentEditable="true"></td>
+      <td id="points10"></td>
 	</tr>
 	<tr>
 		<td>11</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score11" contentEditable="true"></td>
+      <td id="points11"></td>
 	</tr>
 	<tr>
 		<td>12</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score12" contentEditable="true"></td>
+      <td id="points12"></td>
 	</tr>
 	<tr>
 		<td>13</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score13" contentEditable="true"></td>
+      <td id="points13"></td>
 	</tr>
 	<tr>
 		<td>14</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score14" contentEditable="true"></td>
+      <td id="points14"></td>
 	</tr>
 	<tr>
 		<td>15</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score15" contentEditable="true"></td>
+      <td id="points15"></td>
 	</tr>
 	<tr>
 		<td>16</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score16" contentEditable="true"></td>
+      <td id="points16"></td>
 	</tr>
 	<tr>
 		<td>17</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score17" contentEditable="true"></td>
+      <td id="points17"></td>
 	</tr>
 	<tr>
 		<td>18</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="score18" contentEditable="true"></td>
+      <td id="points18"></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="front9" ></td>
+      <td id="pointsFront9"></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="back9" ></td>
+      <td id="pointsBack9"></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="full18" ></td>
+      <td id="pointsFull18"></td>
 	</tr>
 	<tbody>
 </table>
 </div>
 
 <div class="right" id="scroller-right">
+   
+   
+   
+   
+ <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn" id="dropbtn">Dropdown</button>
+  <div id="myDropdown" class="dropdown-content">
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Bryan Maddison</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Peter Holleran</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Tony Smith</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+
+
+
+
+<br><br>  
+   
+   
+   
+   
+   
+   
 <table class="strokes">
 	<caption></caption>
 	<thead>
@@ -297,12 +369,95 @@
   
 <script>
 function updateScore(id) {
-numarray = id.split("-")
-hole=numarray[0]
-num=numarray[1]
-element = document.getElementById(hole)  
-element.innerText = num
+var i=0
+
+for (i = 1; i <= 18; i++) {
+   
+   var tempHole = "score" + i;
+   // cope with first hole score
+   if (i == 1) {
+      var varTemp = "score0"
+   }
+   
+   if ("1234567890".indexOf(document.getElementById(tempHole).innerText) !== 0) {
+      var varTemp = tempHole;
+   }
+   
 }
+
+var tempNum = varTemp.replace("score","")
+var nextHole = "score" + (Number(tempNum) + 1)
+var newScore = id.replace("score1-","")
+document.getElementById(nextHole).innerText = newScore
+
+// calculate totals
+var sumFront9 = 0
+// front 9
+for (i = 1; i <= 9; i++) {
+   sumFront9 += Number(document.getElementById("score" + i).innerText)
+}   
+document.getElementById("front9").innerText = sumFront9
+
+var sumBack9 = 0
+// back 9
+for (i = 10; i <= 18; i++) {
+   sumBack9 += Number(document.getElementById("score" + i).innerText)
+}   
+document.getElementById("back9").innerText = sumBack9
+
+document.getElementById("full18").innerText = sumFront9 + sumBack9
+}
+
+
+
+
+
+function dropSelected(playerName) {
+   
+  // replace button name
+  element = document.getElementById("dropbtn") 
+  element.innerText =  playerName 
+}
+
+
+
+
+
+
+
+
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 </script>  
