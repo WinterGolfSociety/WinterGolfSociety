@@ -131,26 +131,24 @@
       background: dodgerBlue;
       border-radius: 10px;
       box-shadow: 10px 10px 25px black;
-      
-      
-      
-      
-      
-      background-color 1s ease-out;
-  -moz-transition: background-color 1s ease-out;
-  -o-transition: background-color 1s ease-out;
-  transition: background-color 1s ease-out;
-      
-      
-      
       }
 
 
 
 
+
+@keyframes animate-color {
+  0% {background: dodgerBlue;}
+  50% {background:cyan;}
+  100% {background:dodgerBlue;}
+  }
+
+
+
+
 .scorebutton:hover {
-  background-color: cyan;
-  cursor: pointer;
+  animate-color 1s forwards;
+  -webkit-animation: animate-color 1s forwards;
 }
 
 
