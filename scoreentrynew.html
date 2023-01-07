@@ -247,13 +247,6 @@ text-orientation: mixed;
   
   
   
-  <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css" rel="stylesheet"/>
-<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/js/jquery-editable-poshytip.min.js"></script>
-  
-  
-  
-  
-  
   
   
   
@@ -309,7 +302,7 @@ text-orientation: mixed;
 		<td>1</td>
 		<td id="si1"></td>
 		<td id="par1"></td>
-		<td id="score1" contentEditable="true"></td>
+		<td id="score1" contentEditable="true""></td>
       <td id="points1"></td>
 	</tr>
 	<tr>
@@ -456,6 +449,8 @@ text-orientation: mixed;
 </table>
 </div>
 
+
+
 <div class="right" id="scroller-right">
    
    
@@ -495,19 +490,26 @@ text-orientation: mixed;
 </table>
 </div>
 </div>  
+ 
+ 
+ 
+ 
+ 
+ <br><br>
+<button class="scorebutton" id="recalc" onClick="recalc()">recalc</button>
+<br>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   
 <br><br><br><br><br>    
   
-<script>
-
-// make scores entered editable   
-$('#username').editable({
-    type: 'text',
-    title: 'Enter username',
-}); 
-
- 
-    
+<script> 
    
 // act on button pressed   
 function updateScore(id) {
@@ -531,6 +533,10 @@ var newScore = id.replace("score1-","")
 document.getElementById(nextHole).innerText = newScore
 }
 
+
+
+
+
 // calculate totals
 var sumFront9 = 0
 // front 9
@@ -549,10 +555,49 @@ document.getElementById("full18").innerText = sumFront9 + sumBack9
 
 
 
+
+
+
+
+
 window.scrollBy(0, 30);
 
 
 }
+
+
+function recalc() {
+   
+
+   
+// calculate totals
+var sumFront9 = 0
+// front 9
+for (j = 1; j <= 9; j++) {
+   sumFront9 += Number(document.getElementById("score" + j).innerText)
+}   
+document.getElementById("front9").innerText = sumFront9
+var sumBack9 = 0
+// back 9
+for (k = 10; k <= 18; k++) {
+   sumBack9 += Number(document.getElementById("score" + k).innerText)
+}   
+document.getElementById("back9").innerText = sumBack9
+
+document.getElementById("full18").innerText = sumFront9 + sumBack9
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
