@@ -229,6 +229,24 @@ text-orientation: mixed;
 
 .show {display: block;}     
       
+  
+  #recalc {
+      width: 25vw; 
+      height:40px;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+      }
+  
+  
+
+#recalc:hover {
+  animate-color 1s forwards;
+  -webkit-animation: animate-color 1s forwards;
+}
+  
+  
       
       
      </style>
@@ -496,7 +514,7 @@ text-orientation: mixed;
  
  
  <br><br>
-<button class="scorebutton" id="recalc" onClick="recalc()">recalc</button>
+<button id="recalc" onClick="recalc()">recalc</button>
 <br>
  
  
