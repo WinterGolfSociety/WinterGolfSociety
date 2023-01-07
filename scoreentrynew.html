@@ -230,7 +230,7 @@ text-orientation: mixed;
 .show {display: block;}     
       
   
-  #recalc {
+  #recalc, #submit {
       width: 25vw; 
       height:40px;
       font-size: 20px;
@@ -241,7 +241,7 @@ text-orientation: mixed;
   
   
 
-#recalc:hover {
+#recalc:hover, #submit:hover {
   animate-color 1s forwards;
   -webkit-animation: animate-color 1s forwards;
 }
@@ -282,6 +282,27 @@ text-orientation: mixed;
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </div>
 
 <br><br>
@@ -320,7 +341,7 @@ text-orientation: mixed;
 		<td>1</td>
 		<td id="si1"></td>
 		<td id="par1"></td>
-		<td id="score1" contentEditable="true""></td>
+		<td id="score1" contentEditable="true"></td>
       <td id="points1"></td>
 	</tr>
 	<tr>
@@ -346,99 +367,99 @@ text-orientation: mixed;
 	</tr>
 	<tr>
 		<td>5</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si5"></td>
+		<td id="par5"></td>
 		<td id="score5" contentEditable="true"></td>
       <td id="points5"></td>
 	</tr>
 	<tr>
 		<td>6</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si6"></td>
+		<td id="par6"></td>
 		<td id="score6" contentEditable="true"></td>
       <td id="points6"></td>
 	</tr>
 	<tr>
 		<td>7</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si7"></td>
+		<td id="par7"></td>
 		<td id="score7" contentEditable="true"></td>
       <td id="points7"></td>
 	</tr>
 	<tr>
 		<td>8</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si8"></td>
+		<td id="par8"></td>
 		<td id="score8" contentEditable="true"></td>
       <td id="points8"></td>
 	</tr>
 	<tr>
 		<td>9</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si9"></td>
+		<td id="par9"></td>
 		<td id="score9" contentEditable="true"></td>
       <td id="points9"></td>
 	</tr>
 	<tr>
 		<td>10</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si10"></td>
+		<td id="par10"></td>
 		<td id="score10" contentEditable="true"></td>
       <td id="points10"></td>
 	</tr>
 	<tr>
 		<td>11</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si11"></td>
+		<td id="par11"></td>
 		<td id="score11" contentEditable="true"></td>
       <td id="points11"></td>
 	</tr>
 	<tr>
 		<td>12</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si12"></td>
+		<td id="par12"></td>
 		<td id="score12" contentEditable="true"></td>
       <td id="points12"></td>
 	</tr>
 	<tr>
 		<td>13</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si13"></td>
+		<td id="par13"></td>
 		<td id="score13" contentEditable="true"></td>
       <td id="points13"></td>
 	</tr>
 	<tr>
 		<td>14</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si14"></td>
+		<td id="par14"></td>
 		<td id="score14" contentEditable="true"></td>
       <td id="points14"></td>
 	</tr>
 	<tr>
 		<td>15</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si15"></td>
+		<td id="par15"></td>
 		<td id="score15" contentEditable="true"></td>
       <td id="points15"></td>
 	</tr>
 	<tr>
 		<td>16</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si16"></td>
+		<td id="par16"></td>
 		<td id="score16" contentEditable="true"></td>
       <td id="points16"></td>
 	</tr>
 	<tr>
 		<td>17</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si17"></td>
+		<td id="par17"></td>
 		<td id="score17" contentEditable="true"></td>
       <td id="points17"></td>
 	</tr>
 	<tr>
 		<td>18</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
+		<td id="si18"></td>
+		<td id="par18"></td>
 		<td id="score18" contentEditable="true"></td>
       <td id="points18"></td>
 	</tr>
@@ -515,6 +536,7 @@ text-orientation: mixed;
  
  <br><br>
 <button id="recalc" onClick="recalc()">recalc</button>
+<button id="submit" onClick="submit()">submit</button>
 <br>
  
  
@@ -529,12 +551,96 @@ text-orientation: mixed;
   
 <script> 
    
+   
+   
+   
+ var hcp = "22"  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+// set course by day of week
+var options = {
+	       weekday: 'long',
+	       day: 'numeric',
+	       month: 'long',
+	       year: 'numeric'
+	   };
+const formatter = new Intl.DateTimeFormat('en-GB', options);
+const dd = formatter.format(new Date());  
+   
+ 
+if (dd.indexOf("Monday") > -1) {
+   alert(dd)
+   
+}
+// for testing  
+   
+if (dd.indexOf("Saturday") > -1) {
+      
+var siArray = ["dummy","11","11","11","11","11","1","11","11","11","11","11","11","11","11","1","11","11","11"]  
+
+var parArray = ["dummy","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4"]
+
+for (i = 1; i <= 18; i++) {
+   
+   document.getElementById("si" + i).innerText = siArray[i]
+   document.getElementById("par" + i).innerText = parArray[i]
+}
+
+}  
+
+if (dd.indexOf("Sunday") > -1) {
+   alert(dd)
+}  
+   
+   
+   
+   
+   
 // act on button pressed   
 function updateScore(id) {
 // if 1st hole is empty
 if ("0123456789".indexOf(document.getElementById("score1").innerText) == 0) {
    var x = id.replace("score1-","")  
-   document.getElementById("score1").innerText = x     
+   document.getElementById("score1").innerText = x   
+   
+   
+   // pointsCalc(hcp,par,si,score)
+
+var xpar = parseFloat(parArray[1])
+var xsi = parseFloat(siArray[1])
+var xpoints = "points1" //+ (Number(tempNum) + 1)
+var nhcp = parseFloat(hcp)
+var nnewScore = parseFloat(x)
+document.getElementById(xpoints).innerText = pointsCalc( nhcp, xpar, xsi, nnewScore)
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+     
 } else {
 // 2nd hole onwards
 var varTemp = "score1"
@@ -549,6 +655,22 @@ var tempNum = varTemp.replace("score","")
 var nextHole = "score" + (Number(tempNum) + 1)
 var newScore = id.replace("score1-","")
 document.getElementById(nextHole).innerText = newScore
+
+
+
+// pointsCalc(hcp,par,si,score)
+
+var xpar = parseFloat(parArray[(Number(tempNum) + 1)])
+var xsi = parseFloat(siArray[(Number(tempNum) + 1)])
+var xpoints = "points" + (Number(tempNum) + 1)
+var nhcp = parseFloat(hcp)
+var nnewScore = parseFloat(newScore)
+document.getElementById(xpoints).innerText = pointsCalc( nhcp, xpar, xsi, nnewScore)
+
+
+
+
+
 }
 
 
@@ -556,16 +678,21 @@ document.getElementById(nextHole).innerText = newScore
 
 
 // calculate totals
-var sumFront9 = 0
+
+// score ....
+
 // front 9
+var sumFront9 = 0
 for (j = 1; j <= 9; j++) {
    sumFront9 += Number(document.getElementById("score" + j).innerText)
 }   
 document.getElementById("front9").innerText = sumFront9
-var sumBack9 = 0
+
+
 // back 9
-for (k = 10; k <= 18; k++) {
-   sumBack9 += Number(document.getElementById("score" + k).innerText)
+var sumBack9 = 0
+for (n = 10; n <= 18; n++) {
+   sumBack9 += Number(document.getElementById("score" + n).innerText)
 }   
 document.getElementById("back9").innerText = sumBack9
 
@@ -573,36 +700,100 @@ document.getElementById("full18").innerText = sumFront9 + sumBack9
 
 
 
+// points ....
 
+// front 9
+var pointsSumFront9 = 0
+for (m = 1; m <= 9; m++) {
+   pointsSumFront9 += Number(document.getElementById("points" + m).innerText)
+}   
+document.getElementById("pointsFront9").innerText = pointsSumFront9
 
-
-
+// back 9
+var pointsSumBack9 = 0
+for (l = 10; l <= 18; l++) {
+   pointsSumBack9 += Number(document.getElementById("points" + l).innerText)
+}   
+document.getElementById("pointsBack9").innerText = pointsSumBack9
+document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
 window.scrollBy(0, 30);
-
 
 }
 
 
 function recalc() {
    
-
-   
 // calculate totals
-var sumFront9 = 0
+
+// score ....
+
 // front 9
+var sumFront9 = 0
 for (j = 1; j <= 9; j++) {
    sumFront9 += Number(document.getElementById("score" + j).innerText)
 }   
 document.getElementById("front9").innerText = sumFront9
-var sumBack9 = 0
+
+
 // back 9
-for (k = 10; k <= 18; k++) {
-   sumBack9 += Number(document.getElementById("score" + k).innerText)
+var sumBack9 = 0
+for (n = 10; n <= 18; n++) {
+   sumBack9 += Number(document.getElementById("score" + n).innerText)
 }   
 document.getElementById("back9").innerText = sumBack9
 
 document.getElementById("full18").innerText = sumFront9 + sumBack9
+
+
+
+// points ....
+// pointsCalc(hcp,par,si,score)
+var nhcp = parseFloat(hcp)
+for (o = 1; o <= 18; o++) {
+var xpar = parseFloat(parArray[o])
+var xsi = parseFloat(siArray[o])
+var xpoints = "points" + (o)
+//var nhcp = parseFloat(hcp)
+//var nnewScore = parseFloat("score" + o)
+var newScore = document.getElementById("score" + o).innerText
+var nnewScore = parseFloat(newScore)
+document.getElementById(xpoints).innerText = pointsCalc( nhcp, xpar, xsi, nnewScore)
+//alert("nhcp = " + typeof nhcp)
+//alert("nhcp = " + typeof nhcp)
+//alert("nhcp = " + typeof nhcp)
+//alert("nhcp = " + typeof nhcp)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// front 9
+var pointsSumFront9 = 0
+for (m = 1; m <= 9; m++) {
+   pointsSumFront9 += Number(document.getElementById("points" + m).innerText)
+}   
+document.getElementById("pointsFront9").innerText = pointsSumFront9
+
+// back 9
+var pointsSumBack9 = 0
+for (l = 10; l <= 18; l++) {
+   pointsSumBack9 += Number(document.getElementById("points" + l).innerText)
+}   
+document.getElementById("pointsBack9").innerText = pointsSumBack9
+document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
 }
 
@@ -661,7 +852,26 @@ window.onclick = function(event) {
 
 
 
+function pointsCalc(hcp,par,si,score) {
+ 
+// allowance   
+if (hcp > si) {
+  allowance = 1 
+} 
+if (hcp > (18 + si)) {
+  allowance = 2 
+} 
+if (hcp > (36 + si)) {
+  allowance = 3 
+}   
 
+
+// points
+
+var points =  (par + allowance + 2) - score
+//alert("return " + points)
+return points
+}
 
 
 
