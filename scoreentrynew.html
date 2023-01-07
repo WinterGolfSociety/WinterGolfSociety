@@ -499,74 +499,51 @@ text-orientation: mixed;
 <br><br><br><br><br>    
   
 <script>
-   
-   
-   
-   
-   
-   
-   
-   
-   
 
-   
-  $('#username').editable({
+// make scores entered editable   
+$('#username').editable({
     type: 'text',
     title: 'Enter username',
 }); 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-function updateScore(id) {
-var i=0
 
-for (i = 1; i <= 18; i++) {
+ 
+    
    
-   var tempHole = "score" + i;
-   // cope with first hole score
-   if (i == 1) {
-      var varTemp = "score0"
-   }
-   
-   if ("1234567890".indexOf(document.getElementById(tempHole).innerText) !== 0) {
+// act on button pressed   
+function updateScore(id) {
+// if 1st hole is empty
+if ("0123456789".indexOf(document.getElementById("score1").innerText) == 0) {
+   var x = id.replace("score1-","")  
+   document.getElementById("score1").innerText = x     
+} else {
+// 2nd hole onwards
+var varTemp = "score1"
+for (i = 2; i <= 18; i++) {
+   var tempHole = "score" + i
+   if ("1234567890".indexOf(document.getElementById(tempHole).innerText) > 0) {
       var varTemp = tempHole;
    }
-   
 }
 
 var tempNum = varTemp.replace("score","")
 var nextHole = "score" + (Number(tempNum) + 1)
 var newScore = id.replace("score1-","")
 document.getElementById(nextHole).innerText = newScore
+}
 
 // calculate totals
 var sumFront9 = 0
 // front 9
-for (i = 1; i <= 9; i++) {
-   sumFront9 += Number(document.getElementById("score" + i).innerText)
+for (j = 1; j <= 9; j++) {
+   sumFront9 += Number(document.getElementById("score" + j).innerText)
 }   
 document.getElementById("front9").innerText = sumFront9
-
 var sumBack9 = 0
 // back 9
-for (i = 10; i <= 18; i++) {
-   sumBack9 += Number(document.getElementById("score" + i).innerText)
+for (k = 10; k <= 18; k++) {
+   sumBack9 += Number(document.getElementById("score" + k).innerText)
 }   
 document.getElementById("back9").innerText = sumBack9
-
 document.getElementById("full18").innerText = sumFront9 + sumBack9
 }
 
