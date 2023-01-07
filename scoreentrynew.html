@@ -869,6 +869,10 @@ if (hcp > (36 + si)) {
 // points
 
 var points =  (par + allowance + 2) - score
+// remove negative numbers
+if (points < 0) {
+   points = 0
+}
 //alert("return " + points)
 return points
 }
