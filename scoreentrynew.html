@@ -302,7 +302,7 @@ text-orientation: mixed;
   
   
   
-  
+  <button class="dropbtn" id="coursebtn">course</button>
   
   
   
@@ -415,8 +415,8 @@ text-orientation: mixed;
 	</tr>
    <tr>
 		<td class="staticcolortotal"></td>
-		<td class="staticcolortotal" id="fsi9"></td>
-		<td class="staticcolortotal" id="fpar9"></td>
+		<td class="staticcolortotal">front</td>
+      <td class="staticcolortotal" id="fpar9"></td>
 		<td id="fscore9"></td>
       <td id="fpoints9"></td>
 	</tr>
@@ -485,29 +485,29 @@ text-orientation: mixed;
 	</tr>
    <tr>
 		<td class="staticcolortotal"></td>
-		<td class="staticcolortotal" id="bsi9"></td>
+		<td class="staticcolortotal" id="bsi9">back</td>
 		<td class="staticcolortotal" id="bpar9"></td>
 		<td id="bscore9"></td>
       <td id="bpoints9"></td>
 	</tr>
 	<tr>
 		<td class="staticcolorhole">&nbsp;</td>
-		<td class="staticcolor">&nbsp;</td>
-		<td class="staticcolor">&nbsp;</td>
+		<td class="staticcolor">front</td>
+		<td class="staticcolor" id="parfront"></td>
 		<td id="front9" ></td>
       <td id="pointsFront9"></td>
 	</tr>
 	<tr>
 		<td class="staticcolorhole">&nbsp;</td>
-		<td class="staticcolor">&nbsp;</td>
-		<td class="staticcolor">&nbsp;</td>
+		<td class="staticcolor">back</td>
+		<td class="staticcolor" id="parback"></td>
 		<td id="back9" ></td>
       <td id="pointsBack9"></td>
 	</tr>
 	<tr>
 		<td class="staticcolorhole">&nbsp;</td>
-		<td class="staticcolor">&nbsp;</td>
-		<td class="staticcolor">&nbsp;</td>
+		<td class="staticcolor">total</td>
+		<td class="staticcolor" id="partotal"></td>
 		<td id="full18" ></td>
       <td id="pointsFull18"></td>
 	</tr>
@@ -611,16 +611,26 @@ if (dd.indexOf("xMonday") > -1) {
 // for testing  
    
 if (dd.indexOf("day") > -1) {
+  document.getElementById("coursebtn").innerText = "Longhirst Lakes"     
+      
+      
       
 var siArray = ["dummy","11","11","11","11","11","1","11","11","11","11","11","11","11","11","1","11","11","11"]  
 
-var parArray = ["dummy","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4"]
+var parArray = ["dummy","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","5","36","37","73"]
 
 for (i = 1; i <= 18; i++) {
    
    document.getElementById("si" + i).innerText = siArray[i]
    document.getElementById("par" + i).innerText = parArray[i]
 }
+// odd ones
+document.getElementById("fpar9").innerText = parArray[19]
+document.getElementById("bpar9").innerText = parArray[20]
+//document.getElementById("tpar18").innerText = parArray[21]
+document.getElementById("parfront").innerText = parArray[19]
+document.getElementById("parback").innerText = parArray[20]
+document.getElementById("partotal").innerText = parArray[21]
 
 }  
 
@@ -714,6 +724,7 @@ for (j = 1; j <= 9; j++) {
    sumFront9 += Number(document.getElementById("score" + j).innerText)
 }   
 document.getElementById("front9").innerText = sumFront9
+document.getElementById("fscore9").innerText = sumFront9
 
 
 // back 9
@@ -722,7 +733,7 @@ for (n = 10; n <= 18; n++) {
    sumBack9 += Number(document.getElementById("score" + n).innerText)
 }   
 document.getElementById("back9").innerText = sumBack9
-
+document.getElementById("bscore9").innerText = sumBack9
 document.getElementById("full18").innerText = sumFront9 + sumBack9
 
 
@@ -735,13 +746,14 @@ for (m = 1; m <= 9; m++) {
    pointsSumFront9 += Number(document.getElementById("points" + m).innerText)
 }   
 document.getElementById("pointsFront9").innerText = pointsSumFront9
-
+document.getElementById("fpoints9").innerText = pointsSumFront9
 // back 9
 var pointsSumBack9 = 0
 for (l = 10; l <= 18; l++) {
    pointsSumBack9 += Number(document.getElementById("points" + l).innerText)
 }   
 document.getElementById("pointsBack9").innerText = pointsSumBack9
+document.getElementById("bpoints9").innerText = pointsSumBack9
 document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
 window.scrollBy(0, 30);
@@ -761,7 +773,7 @@ for (j = 1; j <= 9; j++) {
    sumFront9 += Number(document.getElementById("score" + j).innerText)
 }   
 document.getElementById("front9").innerText = sumFront9
-
+document.getElementById("fscore9").innerText = sumFront9
 
 // back 9
 var sumBack9 = 0
@@ -769,7 +781,7 @@ for (n = 10; n <= 18; n++) {
    sumBack9 += Number(document.getElementById("score" + n).innerText)
 }   
 document.getElementById("back9").innerText = sumBack9
-
+document.getElementById("bscore9").innerText = sumBack9
 document.getElementById("full18").innerText = sumFront9 + sumBack9
 
 
@@ -777,19 +789,30 @@ document.getElementById("full18").innerText = sumFront9 + sumBack9
 // points ....
 // pointsCalc(hcp,par,si,score)
 var nhcp = parseFloat(hcp)
+var fp9=0
+var bp9=0
 for (o = 1; o <= 18; o++) {
-var xpar = parseFloat(parArray[o])
-var xsi = parseFloat(siArray[o])
-var xpoints = "points" + (o)
+   var xpar = parseFloat(parArray[o])
+   var xsi = parseFloat(siArray[o])
+   var xpoints = "points" + (o)
 //var nhcp = parseFloat(hcp)
 //var nnewScore = parseFloat("score" + o)
-var newScore = document.getElementById("score" + o).innerText
-var nnewScore = parseFloat(newScore)
-document.getElementById(xpoints).innerText = pointsCalc( nhcp, xpar, xsi, nnewScore)
+   var newScore = document.getElementById("score" + o).innerText
+   var nnewScore = parseFloat(newScore)
+   var tempp = pointsCalc( nhcp, xpar, xsi, nnewScore) 
+   document.getElementById(xpoints).innerText = tempp
 //alert("nhcp = " + typeof nhcp)
 //alert("nhcp = " + typeof nhcp)
 //alert("nhcp = " + typeof nhcp)
 //alert("nhcp = " + typeof nhcp)
+//if (o <= 9) {
+//   fp9 += tempp
+//}
+
+//if (o > 9) {
+//   bp9 += tempp
+//}
+
 
 }
 
@@ -813,13 +836,14 @@ for (m = 1; m <= 9; m++) {
    pointsSumFront9 += Number(document.getElementById("points" + m).innerText)
 }   
 document.getElementById("pointsFront9").innerText = pointsSumFront9
-
+document.getElementById("fpoints9").innerText = pointsSumFront9
 // back 9
 var pointsSumBack9 = 0
 for (l = 10; l <= 18; l++) {
    pointsSumBack9 += Number(document.getElementById("points" + l).innerText)
 }   
 document.getElementById("pointsBack9").innerText = pointsSumBack9
+document.getElementById("bpoints9").innerText = pointsSumBack9
 document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
 }
@@ -910,7 +934,7 @@ return points
 
 
 
-</script>  
+</script>
   
   
       
