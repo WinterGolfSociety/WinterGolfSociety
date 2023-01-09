@@ -360,6 +360,22 @@
 		/* Microsoft Edge */
 		color: lightGray;
 	}
+   
+   
+   
+   
+ .overlay {
+  /* element always visible and covering the entire viewport */
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url("rip.png");
+  background-size: contain;
+  background-position: center;
+  z-index: 100;
+}
+   
+
+   
 	</style>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
@@ -373,6 +389,13 @@
 </head>
 
 <body>
+   
+   
+   
+   
+   
+   
+   
 	<div id="modalPlayerInfo" class="modalPlayerInfo">
 		<div class="modalPlayerInfo-content"> <a id="modalPlayerInfo-content-txt">searching ... </a> <img id="spin" width='45vw' height='40vw' src="spin.png" alt="spin" align="right">
 			<br>
@@ -508,6 +531,31 @@
 	<br>
 	<br>
 	<div id="spacer"></div>
+   
+   
+   
+   
+   
+   
+   
+   
+   <div class="overlay"></div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 	<script>
 	var close1x = document.getElementById("modalPlayerInfo");
 	close1x.onclick = function(event) {
