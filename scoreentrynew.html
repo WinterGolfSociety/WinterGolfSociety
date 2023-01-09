@@ -259,7 +259,9 @@ text-orientation: mixed;
   -webkit-animation: animate-color 1s forwards;
 }
   
-  
+ #my-form, #my-response-iframe { 
+         display: none; 
+	  } 
       
       
      </style>
@@ -288,8 +290,16 @@ text-orientation: mixed;
       <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn" id="dropbtn">who</button>
   <div id="myDropdown" class="dropdown-content">
-     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Bryan Maddison</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Dale Aitkenhead</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Paul Burt</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Craig Caesar</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Neil Coxon</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>John Dean</a>
      <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Peter Holleran</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Bryan Maddison</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Bob Nicholas</a>
+     <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Trevor Ord</a>
      <a id="myLink" href="#" onclick='dropSelected(this.innerText);return false;'>Tony Smith</a>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -556,69 +566,14 @@ text-orientation: mixed;
 </table>
 </div>
 </div>  
- 
- 
- 
- 
- 
- <br><br>
+<br><br>
 <button id="recalc" onClick="recalc()">recalc</button>
 <button id="submit" onClick="submitForm()">submit</button>
-<br>
- 
- 
- 
- 
- 
- 
- 
- 
+<br><br><br><br><br><br>    
   
-<br><br><br><br><br>    
+<!-- form to construct data prior to submit -->
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- fixdata notbusddbyet -->
-  
- <form action="https://docs.google.com/forms/d/e/1FAIpQLSc1X_7KyyRL_R8S2JDQLC1XMzQvQnVxc3Z1_fuAWRJTnZFiYA/formResponse" id="my-form" method="post" name="my-form" onsubmit="JavaScript:fixdata()" target="my-response-iframe">
-		<!-- player -->
-		
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSc1X_7KyyRL_R8S2JDQLC1XMzQvQnVxc3Z1_fuAWRJTnZFiYA/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">		
    
    <input id="mx1433824128" name="entry.1433824128" type="text" value="default">
    <input id="mx1119360478" name="entry.1119360478" type="text" value="default">
@@ -665,37 +620,19 @@ text-orientation: mixed;
    <input id="mx634266743" name="entry.634266743" type="text" value="default">
    <input id="mx64442179" name="entry.64442179" type="text" value="default">
    <input id="mx83976721" name="entry.83976721" type="text" value="default">
-    <input type="submit">
-	</form>
+   <input type="submit">
    
-   <iframe frameborder="0" height="40" id="my-response-iframe" marginheight="0" marginwidth="0" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSc1X_7KyyRL_R8S2JDQLC1XMzQvQnVxc3Z1_fuAWRJTnZFiYA/viewform?embedded=true" width="60">Loading…</iframe>
+</form>
+ 
+<!-- google forms inserted here - invisible -->   
+<iframe frameborder="0" height="40" id="my-response-iframe" marginheight="0" marginwidth="0" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSc1X_7KyyRL_R8S2JDQLC1XMzQvQnVxc3Z1_fuAWRJTnZFiYA/viewform?embedded=true" width="60">Loading…</iframe>
    
-   <button id="submitButton" onclick="submitForm()">Submit</button>
-	<div id="submitConfirm"></div><br>
-	<br>
-	<br> 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+<div id="submitConfirm"></div><br>
+<br>
+<br> 
   
 <script> 
-   
-   
-   
    
  var hcp = "22"  
    
@@ -719,264 +656,181 @@ var options = {
 const formatter = new Intl.DateTimeFormat('en-GB', options);
 const dd = formatter.format(new Date());  
    
- 
 if (dd.indexOf("xMonday") > -1) {
    alert(dd)
-   
 }
+
 // for testing  
-   
 if (dd.indexOf("day") > -1) {
-  document.getElementById("coursebtn").innerText = "Longhirst Lakes"     
-      
-      
-      
-var siArray = ["dummy","11","11","11","11","11","1","11","11","11","11","11","11","11","11","1","11","11","11"]  
-
-var parArray = ["dummy","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","5","36","37","73"]
-
-for (i = 1; i <= 18; i++) {
+   document.getElementById("coursebtn").innerText = "Longhirst Lakes"          
    
-   document.getElementById("si" + i).innerText = siArray[i]
-   document.getElementById("par" + i).innerText = parArray[i]
-}
-// odd ones
-document.getElementById("fpar9").innerText = parArray[19]
-document.getElementById("bpar9").innerText = parArray[20]
+   var siArray = ["dummy","11","11","11","11","11","1","11","11","11","11","11","11","11","11","1","11","11","11"]  
+
+   var parArray = ["dummy","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","4","5","36","37","73"]
+
+   for (i = 1; i <= 18; i++) {
+   
+      document.getElementById("si" + i).innerText = siArray[i]
+      document.getElementById("par" + i).innerText = parArray[i]
+   }
+   // odd ones
+   document.getElementById("fpar9").innerText = parArray[19]
+   document.getElementById("bpar9").innerText = parArray[20]
 //document.getElementById("tpar18").innerText = parArray[21]
-document.getElementById("parfront").innerText = parArray[19]
-document.getElementById("parback").innerText = parArray[20]
-document.getElementById("partotal").innerText = parArray[21]
+   document.getElementById("parfront").innerText = parArray[19]
+   document.getElementById("parback").innerText = parArray[20]
+   document.getElementById("partotal").innerText = parArray[21]
 
 }  
 
 if (dd.indexOf("xSunday") > -1) {
    alert(dd)
 }  
+ 
+// --- functions --- // 
    
-   
-   
-   
-   
-// act on button pressed   
+// act on score button pressed   
 function updateScore(id) {
-// if 1st hole is empty
-if ("0123456789".indexOf(document.getElementById("score1").innerText) == 0) {
-   var x = id.replace("score1-","")  
-   document.getElementById("score1").innerText = x   
-   
-   
-   // pointsCalc(hcp,par,si,score)
+   // if 1st hole is empty
+   if ("0123456789".indexOf(document.getElementById("score1").innerText) == 0) {
+      var x = id.replace("score1-","")  
+      document.getElementById("score1").innerText = x   
+      // pointsCalc(hcp,par,si,score)
 
-var xpar = parseFloat(parArray[1])
-var xsi = parseFloat(siArray[1])
-var xpoints = "points1" //+ (Number(tempNum) + 1)
-var nhcp = parseFloat(hcp)
-var nnewScore = parseFloat(x)
-document.getElementById(xpoints).innerText = pointsCalc( nhcp, xpar, xsi, nnewScore)
+      var xpar = parseFloat(parArray[1])
+      var xsi = parseFloat(siArray[1])
+      var xpoints = "points1" //+ (Number(tempNum) + 1)
+      var nhcp = parseFloat(hcp)
+      var nnewScore = parseFloat(x)
+      document.getElementById(xpoints).innerText = pointsCalc( nhcp, xpar, xsi, nnewScore)
+   } else {
+      // 2nd hole onwards
+      var varTemp = "score1"
+      for (i = 2; i <= 18; i++) {
+         var tempHole = "score" + i
+         if ("1234567890".indexOf(document.getElementById(tempHole).innerText) > 0) {
+            var varTemp = tempHole;
+         }
+      }
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-     
-} else {
-// 2nd hole onwards
-var varTemp = "score1"
-for (i = 2; i <= 18; i++) {
-   var tempHole = "score" + i
-   if ("1234567890".indexOf(document.getElementById(tempHole).innerText) > 0) {
-      var varTemp = tempHole;
+      var tempNum = varTemp.replace("score","")
+      var nextHole = "score" + (Number(tempNum) + 1)
+      var newScore = id.replace("score1-","")
+      document.getElementById(nextHole).innerText = newScore
+      var xpar = parseFloat(parArray[(Number(tempNum) + 1)])
+      var xsi = parseFloat(siArray[(Number(tempNum) + 1)])
+      var xpoints = "points" + (Number(tempNum) + 1)
+      var nhcp = parseFloat(hcp)
+      var nnewScore = parseFloat(newScore)
+      document.getElementById(xpoints).innerText = pointsCalc( nhcp, xpar, xsi, nnewScore)
+
    }
-}
 
-var tempNum = varTemp.replace("score","")
-var nextHole = "score" + (Number(tempNum) + 1)
-var newScore = id.replace("score1-","")
-document.getElementById(nextHole).innerText = newScore
+   // calculate totals
 
+   // score ....
 
+   // front 9
+   var sumFront9 = 0
+   for (j = 1; j <= 9; j++) {
+      sumFront9 += Number(document.getElementById("score" + j).innerText)
+   }   
+   document.getElementById("front9").innerText = sumFront9
+   document.getElementById("fscore9").innerText = sumFront9
 
-// pointsCalc(hcp,par,si,score)
+   // back 9
+   var sumBack9 = 0
+   for (n = 10; n <= 18; n++) {
+      sumBack9 += Number(document.getElementById("score" + n).innerText)
+   }   
+   document.getElementById("back9").innerText = sumBack9
+   document.getElementById("bscore9").innerText = sumBack9
 
-var xpar = parseFloat(parArray[(Number(tempNum) + 1)])
-var xsi = parseFloat(siArray[(Number(tempNum) + 1)])
-var xpoints = "points" + (Number(tempNum) + 1)
-var nhcp = parseFloat(hcp)
-var nnewScore = parseFloat(newScore)
-document.getElementById(xpoints).innerText = pointsCalc( nhcp, xpar, xsi, nnewScore)
+   document.getElementById("full18").innerText = sumFront9 + sumBack9
 
+   // points ....
 
+   // front 9
+   var pointsSumFront9 = 0
+   for (m = 1; m <= 9; m++) {
+      pointsSumFront9 += Number(document.getElementById("points" + m).innerText)
+   }   
+   document.getElementById("pointsFront9").innerText = pointsSumFront9
+   document.getElementById("fpoints9").innerText = pointsSumFront9
 
+   // back 9
+   var pointsSumBack9 = 0
+   for (l = 10; l <= 18; l++) {
+      pointsSumBack9 += Number(document.getElementById("points" + l).innerText)
+   }   
+   document.getElementById("pointsBack9").innerText = pointsSumBack9
+   document.getElementById("bpoints9").innerText = pointsSumBack9
+   document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
-
-}
-
-
-
-
-
-// calculate totals
-
-// score ....
-
-// front 9
-var sumFront9 = 0
-for (j = 1; j <= 9; j++) {
-   sumFront9 += Number(document.getElementById("score" + j).innerText)
-}   
-document.getElementById("front9").innerText = sumFront9
-document.getElementById("fscore9").innerText = sumFront9
-
-
-// back 9
-var sumBack9 = 0
-for (n = 10; n <= 18; n++) {
-   sumBack9 += Number(document.getElementById("score" + n).innerText)
-}   
-document.getElementById("back9").innerText = sumBack9
-document.getElementById("bscore9").innerText = sumBack9
-document.getElementById("full18").innerText = sumFront9 + sumBack9
-
-
-
-// points ....
-
-// front 9
-var pointsSumFront9 = 0
-for (m = 1; m <= 9; m++) {
-   pointsSumFront9 += Number(document.getElementById("points" + m).innerText)
-}   
-document.getElementById("pointsFront9").innerText = pointsSumFront9
-document.getElementById("fpoints9").innerText = pointsSumFront9
-// back 9
-var pointsSumBack9 = 0
-for (l = 10; l <= 18; l++) {
-   pointsSumBack9 += Number(document.getElementById("points" + l).innerText)
-}   
-document.getElementById("pointsBack9").innerText = pointsSumBack9
-document.getElementById("bpoints9").innerText = pointsSumBack9
-document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
-
-window.scrollBy(0, 30);
+   window.scrollBy(0, 30);
 
 }
 
 
 function recalc() {
    
-// calculate totals
+   // calculate totals by button
 
-// score ....
+   // score ....
 
-// front 9
-var sumFront9 = 0
-for (j = 1; j <= 9; j++) {
-   sumFront9 += Number(document.getElementById("score" + j).innerText)
-}   
-document.getElementById("front9").innerText = sumFront9
-document.getElementById("fscore9").innerText = sumFront9
+   // front 9
+   var sumFront9 = 0
+   for (j = 1; j <= 9; j++) {
+      sumFront9 += Number(document.getElementById("score" + j).innerText)
+   }   
+   document.getElementById("front9").innerText = sumFront9
+   document.getElementById("fscore9").innerText = sumFront9
 
-// back 9
-var sumBack9 = 0
-for (n = 10; n <= 18; n++) {
-   sumBack9 += Number(document.getElementById("score" + n).innerText)
-}   
-document.getElementById("back9").innerText = sumBack9
-document.getElementById("bscore9").innerText = sumBack9
-document.getElementById("full18").innerText = sumFront9 + sumBack9
+   // back 9
+   var sumBack9 = 0
+   for (n = 10; n <= 18; n++) {
+      sumBack9 += Number(document.getElementById("score" + n).innerText)
+   }   
+   document.getElementById("back9").innerText = sumBack9
+   document.getElementById("bscore9").innerText = sumBack9
+   document.getElementById("full18").innerText = sumFront9 + sumBack9
 
+   // points ....
 
+   // pointsCalc(hcp,par,si,score)
+   var nhcp = parseFloat(hcp)
+   var fp9=0
+   var bp9=0
+   for (o = 1; o <= 18; o++) {
+      var xpar = parseFloat(parArray[o])
+      var xsi = parseFloat(siArray[o])
+      var xpoints = "points" + (o)
+      var newScore = document.getElementById("score" + o).innerText
+      var nnewScore = parseFloat(newScore)
+      var tempp = pointsCalc( nhcp, xpar, xsi, nnewScore) 
+      document.getElementById(xpoints).innerText = tempp
 
-// points ....
-// pointsCalc(hcp,par,si,score)
-var nhcp = parseFloat(hcp)
-var fp9=0
-var bp9=0
-for (o = 1; o <= 18; o++) {
-   var xpar = parseFloat(parArray[o])
-   var xsi = parseFloat(siArray[o])
-   var xpoints = "points" + (o)
-//var nhcp = parseFloat(hcp)
-//var nnewScore = parseFloat("score" + o)
-   var newScore = document.getElementById("score" + o).innerText
-   var nnewScore = parseFloat(newScore)
-   var tempp = pointsCalc( nhcp, xpar, xsi, nnewScore) 
-   document.getElementById(xpoints).innerText = tempp
-//alert("nhcp = " + typeof nhcp)
-//alert("nhcp = " + typeof nhcp)
-//alert("nhcp = " + typeof nhcp)
-//alert("nhcp = " + typeof nhcp)
-//if (o <= 9) {
-//   fp9 += tempp
-//}
+   }
 
-//if (o > 9) {
-//   bp9 += tempp
-//}
+   // front 9
+   var pointsSumFront9 = 0
+   for (m = 1; m <= 9; m++) {
+      pointsSumFront9 += Number(document.getElementById("points" + m).innerText)
+   }   
+   document.getElementById("pointsFront9").innerText = pointsSumFront9
+   document.getElementById("fpoints9").innerText = pointsSumFront9
 
+   // back 9
+   var pointsSumBack9 = 0
+   for (l = 10; l <= 18; l++) {
+      pointsSumBack9 += Number(document.getElementById("points" + l).innerText)
+   }   
+   document.getElementById("pointsBack9").innerText = pointsSumBack9
+   document.getElementById("bpoints9").innerText = pointsSumBack9
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// front 9
-var pointsSumFront9 = 0
-for (m = 1; m <= 9; m++) {
-   pointsSumFront9 += Number(document.getElementById("points" + m).innerText)
-}   
-document.getElementById("pointsFront9").innerText = pointsSumFront9
-document.getElementById("fpoints9").innerText = pointsSumFront9
-// back 9
-var pointsSumBack9 = 0
-for (l = 10; l <= 18; l++) {
-   pointsSumBack9 += Number(document.getElementById("points" + l).innerText)
-}   
-document.getElementById("pointsBack9").innerText = pointsSumBack9
-document.getElementById("bpoints9").innerText = pointsSumBack9
-document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
+   document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function dropSelected(playerName) {
@@ -984,14 +838,8 @@ function dropSelected(playerName) {
   // replace button name
   element = document.getElementById("dropbtn") 
   element.innerText =  playerName 
+  
 }
-
-
-
-
-
-
-
 
 
 /* When the user clicks on the button, 
@@ -999,8 +847,6 @@ toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
-
 
 
 // Close the dropdown if the user clicks outside of it
@@ -1018,30 +864,29 @@ window.onclick = function(event) {
 }
 
 
-
 function pointsCalc(hcp,par,si,score) {
  
-// allowance   
-if (hcp > si) {
-  allowance = 1 
-} 
-if (hcp > (18 + si)) {
-  allowance = 2 
-} 
-if (hcp > (36 + si)) {
-  allowance = 3 
-}   
+   // allowance   
+   if (hcp > si) {
+      allowance = 1 
+   } 
+   if (hcp > (18 + si)) {
+      allowance = 2 
+   } 
+   if (hcp > (36 + si)) {
+      allowance = 3 
+   }   
 
+   // points
 
-// points
+   var points =  (par + allowance + 2) - score
+   // remove negative numbers
+   if (points < 0) {
+      points = 0
+   }
 
-var points =  (par + allowance + 2) - score
-// remove negative numbers
-if (points < 0) {
-   points = 0
-}
-//alert("return " + points)
-return points
+   return points
+   
 }
 
 
@@ -1060,8 +905,132 @@ https://docs.google.com/forms/d/e/1FAIpQLSc1X_7KyyRL_R8S2JDQLC1XMzQvQnVxc3Z1_fuA
 */
 
 function submitForm() {
+   // get the relevant info into a form
+      
    
+   //-- player --
+   document.getElementById("mx1433824128").value = "player"
+   //-- course --
+   document.getElementById("mx1119360478").value = "course"
+   //-- hcp --
+   document.getElementById("mx1885789242").value = "22"
+   //-- score1 --
+   document.getElementById("mx439780374").value = document.getElementById("score1").innerText
+   //-- score2 --
+   document.getElementById("mx1731892801").value = document.getElementById("score2").innerText
+   //-- score3 --
+   document.getElementById("mx1799374417").value = document.getElementById("score3").innerText
+   //-- score4 --
+   document.getElementById("mx1078642019").value = document.getElementById("score4").innerText
+   //-- score5 --
+   document.getElementById("mx1367093928").value = document.getElementById("score5").innerText
+   //-- score6 --
+   document.getElementById("mx1919880856").value = document.getElementById("score6").innerText
+   //-- score7 --
+   document.getElementById("mx363883450").value = document.getElementById("score7").innerText
+   //-- score8 --
+   document.getElementById("mx1985545500").value = document.getElementById("score8").innerText
+   //-- score9 --
+   document.getElementById("mx1948804695").value = document.getElementById("score9").innerText
+   //-- score10 --
+   document.getElementById("mx1668825208").value = document.getElementById("score10").innerText
+   //-- score11 --
+   document.getElementById("mx516315870").value = document.getElementById("score11").innerText
+   //-- score12 --
+   document.getElementById("mx1152185005").value = document.getElementById("score12").innerText
+   //-- score13 --
+   document.getElementById("mx299302373").value = document.getElementById("score13").innerText
+   //-- score14 --
+   document.getElementById("mx513988263").value = document.getElementById("score14").innerText
+   //-- score15 --
+   document.getElementById("mx66792647").value = document.getElementById("score15").innerText
+   //-- score16 --
+   document.getElementById("mx711918828").value = document.getElementById("score16").innerText
+   //-- score17 --
+   document.getElementById("mx1266687629").value = document.getElementById("score17").innerText
+   //-- score18 --
+   document.getElementById("mx1461956864").value = document.getElementById("score18").innerText
+   //-- points1 --
+   document.getElementById("mx232205141").value = document.getElementById("points1").innerText
+   //-- points2 --
+   document.getElementById("mx945543300").value = document.getElementById("points2").innerText
+   //-- points3 --
+   document.getElementById("mx1033226812").value = document.getElementById("points3").innerText
+   //-- points4 --
+   document.getElementById("mx577720568").value = document.getElementById("points4").innerText
+   //-- points5 --
+   document.getElementById("mx2139648342").value = document.getElementById("points5").innerText
+   //-- points6 --
+   document.getElementById("mx251812117").value = document.getElementById("points6").innerText
+   //-- points7 --
+   document.getElementById("mx718568000").value = document.getElementById("points7").innerText
+   //-- points8 --
+   document.getElementById("mx1391232714").value = document.getElementById("points8").innerText
+   //-- points9 --
+   document.getElementById("mx42855440").value = document.getElementById("points9").innerText
+   //-- points10 --
+   document.getElementById("mx910512739").value = document.getElementById("points10").innerText
+   //-- points11 --
+   document.getElementById("mx1379318653").value = document.getElementById("points11").innerText
+   //-- points12 --
+   document.getElementById("mx1263061594").value = document.getElementById("points12").innerText
+   //-- points13 --
+   document.getElementById("mx1772100943").value = document.getElementById("points13").innerText
+   //-- points14 --
+   document.getElementById("mx1226203700").value = document.getElementById("points14").innerText
+   //-- points15 --
+   document.getElementById("mx1800791630").value = document.getElementById("points15").innerText
+   //-- points16 --
+   document.getElementById("mx1397230483").value = document.getElementById("points16").innerText
+   //-- points17 --
+   document.getElementById("mx1160102181").value = document.getElementById("points17").innerText
+   //-- points18 --
+   document.getElementById("mx1942267356").value = document.getElementById("points18").innerText
+   //-- scorefront9 --
+   document.getElementById("mx625403315").value = document.getElementById("front9").innerText
+   //-- scoreback9 --
+   document.getElementById("mx1925155031").value = document.getElementById("back9").innerText
+   //-- scoretotal --
+   document.getElementById("mx452010659").value = document.getElementById("full18").innerText
+   //-- pointsfront9 --
+   document.getElementById("mx634266743").value = document.getElementById("pointsFront9").innerText
+   //-- pointsback9 --
+   document.getElementById("mx64442179").value = document.getElementById("pointsBack9").innerText
+   //-- pointstotal --
+   document.getElementById("mx83976721").value = document.getElementById("pointsFull18").innerText
+   
+   
+  // check data is complete 
+   
+   
+  // submit 
   document.forms[0].submit() 
+  
+  
+  // check somehow ?
+  
+  
+  
+  
+}  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
    
    /*
    
@@ -1121,23 +1090,6 @@ function submitForm() {
    
    */
    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
