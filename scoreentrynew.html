@@ -643,6 +643,15 @@ text-orientation: mixed;
    <input id="mx634266743" name="entry.634266743" type="text" value="default">
    <input id="mx64442179" name="entry.64442179" type="text" value="default">
    <input id="mx83976721" name="entry.83976721" type="text" value="default">
+   
+   
+   <input id="mx1288168418" name="entry.1288168418" type="text" value="default">
+   <input id="mx984726337" name="entry.984726337" type="text" value="default">
+   <input id="mx1307706252" name="entry.1307706252" type="text" value="default">
+   <input id="mx717166862" name="entry.717166862" type="text" value="default">
+   
+  
+   
    <input type="submit">
    
 </form>
@@ -661,14 +670,12 @@ var hcp = "22"
 var player = "player"
 var course = "course" 
 var dday = "today"  
+var cback1 = "0"
+var cback3 = "0"   
+var cback6 = "0"
+var cback9 = "0"
    
- 
-   
-function doRecalc(){
-  //alert('Handler for .change() called.');
-  recalc()
-} 
-   
+  
    
    
    
@@ -801,6 +808,12 @@ if (dd.indexOf("day") > -1) {
  
  
 // --- functions --- // 
+
+function doRecalc(){
+  //alert('Handler for .change() called.');
+  recalc()
+} 
+ 
    
 // act on score button pressed   
 function updateScore(id) {
@@ -880,6 +893,20 @@ function updateScore(id) {
    document.getElementById("bpoints9").innerText = pointsSumBack9
    document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
+   // countback 9, 6, 3, 1
+   // cback9
+   cback9 = pointsSumBack9
+   // cback6
+   for (var cb6 = 13; cb6 <= 18; cb6++) {
+      cback6 += Number(document.getElementById("points" + cb6).innerText)
+   }
+   // cback3
+   for (var cb3 = 16; cb3 <= 18; cb3++) {
+      cback3 += Number(document.getElementById("points" + cb3).innerText)
+   }
+   // cback1
+   cback1 = Number(document.getElementById("points18").innerText)
+   
    window.scrollBy(0, 30);
 
 }
@@ -943,6 +970,20 @@ function recalc() {
 
    document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
+   // countback 9, 6, 3, 1
+   // cback9
+   cback9 = pointsSumBack9
+   // cback6
+   for (var cb6 = 13; cb6 <= 18; cb6++) {
+      cback6 += Number(document.getElementById("points" + cb6).innerText)
+   }
+   // cback3
+   for (var cb3 = 16; cb3 <= 18; cb3++) {
+      cback3 += Number(document.getElementById("points" + cb3).innerText)
+   }
+   // cback1
+   cback1 = Number(document.getElementById("points18").innerText)
+   
 }
 
 
@@ -1080,6 +1121,21 @@ function pointsCalc(hcp,par,si,score) {
 
 /*
 
+https://docs.google.com/forms/d/e/1FAIpQLSc1X_7KyyRL_R8S2JDQLC1XMzQvQnVxc3Z1_fuAWRJTnZFiYA/viewform?usp=pp_url&entry.1433824128=a&entry.1119360478=b&entry.1885789242=c&entry.439780374=d&entry.1731892801=e&entry.1799374417=f&entry.1078642019=g&entry.1367093928=h&entry.1919880856=i&entry.363883450=j&entry.1985545500=k&entry.1948804695=l&entry.1668825208=m&entry.516315870=n&entry.1152185005=o&entry.299302373=p&entry.513988263=q&entry.66792647=r&entry.711918828=s&entry.1266687629=t&entry.1461956864=u&entry.232205141=v&entry.945543300=w&entry.1033226812=x&entry.577720568=y&entry.2139648342=z&entry.251812117=aa&entry.718568000=bb&entry.1391232714=cc&entry.42855440=dd&entry.910512739=ee&entry.1379318653=ff&entry.1263061594=gg&entry.1772100943=hh&entry.1226203700=ii&entry.1800791630=jj&entry.1397230483=kk&entry.1160102181=ll&entry.1942267356=mm&entry.625403315=nn&entry.1925155031=oo&entry.452010659=pp&entry.634266743=qq&entry.64442179=rr&entry.83976721=ss&entry.1288168418=tt&entry.984726337=uu&entry.1307706252=vv&entry.717166862=ww
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://docs.google.com/forms/d/e/1FAIpQLSc1X_7KyyRL_R8S2JDQLC1XMzQvQnVxc3Z1_fuAWRJTnZFiYA/viewform?usp=pp_url&entry.1433824128=a&entry.1119360478=b&entry.1885789242=c&entry.439780374=d&entry.1731892801=e&entry.1799374417=f&entry.1078642019=g&entry.1367093928=h&entry.1919880856=i&entry.363883450=j&entry.1985545500=k&entry.1948804695=l&entry.1668825208=m&entry.516315870=n&entry.1152185005=o&entry.299302373=p&entry.513988263=q&entry.66792647=r&entry.711918828=s&entry.1266687629=t&entry.1461956864=u&entry.232205141=v&entry.945543300=w&entry.1033226812=x&entry.577720568=y&entry.2139648342=z&entry.251812117=aa&entry.718568000=bb&entry.1391232714=cc&entry.42855440=dd&entry.910512739=ee&entry.1379318653=ff&entry.1263061594=gg&entry.1772100943=hh&entry.1226203700=ii&entry.1800791630=jj&entry.1397230483=kk&entry.1160102181=ll&entry.1942267356=mm&entry.625403315=nn&entry.1925155031=oo&entry.452010659=pp&entry.634266743=qq&entry.64442179=rr&entry.83976721=ss
 
 */
@@ -1179,6 +1235,16 @@ function submitForm() {
    document.getElementById("mx64442179").value = document.getElementById("pointsBack9").innerText
    //-- pointstotal --
    document.getElementById("mx83976721").value = document.getElementById("pointsFull18").innerText
+   
+   
+   //-- cback9 --
+   document.getElementById("mx1288168418").value = cback9
+   //-- cback6 --
+   document.getElementById("mx984726337").value = cback6
+   //-- cback3 --
+   document.getElementById("mx1307706252").value = cback3
+   //-- cback1 --
+   document.getElementById("mx717166862").value = cback1
    
    
   // check data is complete 
