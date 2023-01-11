@@ -937,7 +937,7 @@ function recalc() {
 function dropSelected(playerName) {
     
    player = playerName
-   for (i = 1; i < 16; i++) {
+   for (i = 0; i < 16; i++) {
       xx = localStorage.getItem("Player" + i);
       if (xx.indexOf(player) > -1) {
          player = xx
