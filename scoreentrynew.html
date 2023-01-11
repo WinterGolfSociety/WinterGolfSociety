@@ -358,7 +358,7 @@ text-orientation: mixed;
 		<td class="staticcolorhole">1</td>
 		<td class="staticcolor" id="si1"></td>
 		<td class="staticcolor" id="par1"></td>
-		<td id="score1" contentEditable="true"></td>
+		<td id="score1" contentEditable="true" onfocusout="doRecalc()"></td>
       <td id="points1"></td>
 	</tr>
 	<tr>
@@ -657,10 +657,22 @@ text-orientation: mixed;
   
 <script> 
    
- var hcp = "22"  
- var player = "player"
- var course = "course" 
- var dday = "today"  
+var hcp = "22"  
+var player = "player"
+var course = "course" 
+var dday = "today"  
+   
+ 
+   
+function doRecalc(){
+  alert('Handler for .change() called.');
+  recalc()
+} 
+   
+   
+   
+   
+   
    
 // set course by day of week
 var options = {
