@@ -670,10 +670,10 @@ var hcp = "22"
 var player = "player"
 var course = "course" 
 var dday = "today"  
-var cback1 = "0"
-var cback3 = "0"   
-var cback6 = "0"
-var cback9 = "0"
+var cback1 = 0
+var cback3 = 0
+var cback6 = 0
+var cback9 = 0
    
   
    
@@ -894,6 +894,7 @@ function updateScore(id) {
    document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
    // countback 9, 6, 3, 1
+   
    // cback9
    cback9 = pointsSumBack9
    // cback6
@@ -1238,13 +1239,13 @@ function submitForm() {
    
    
    //-- cback9 --
-   document.getElementById("mx1288168418").value = cback9
+   document.getElementById("mx1288168418").value = cback9.toString()
    //-- cback6 --
-   document.getElementById("mx984726337").value = cback6
+   document.getElementById("mx984726337").value = cback6.toString()
    //-- cback3 --
-   document.getElementById("mx1307706252").value = cback3
+   document.getElementById("mx1307706252").value = cback3.toString()
    //-- cback1 --
-   document.getElementById("mx717166862").value = cback1
+   document.getElementById("mx717166862").value = cback1.toString()
    
    
   // check data is complete 
