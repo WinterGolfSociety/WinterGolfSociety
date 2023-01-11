@@ -1074,14 +1074,15 @@ https://docs.google.com/forms/d/e/1FAIpQLSc1X_7KyyRL_R8S2JDQLC1XMzQvQnVxc3Z1_fuA
 
 function submitForm() {
    // get the relevant info into a form
-      
+   var playerArray = player.split(" ")   
+   var playerPart1 = playerArray[0] + " " + playerArray[1]
    
    //-- player --
-   document.getElementById("mx1433824128").value = "player"
+   document.getElementById("mx1433824128").value = playerPart1
    //-- course --
-   document.getElementById("mx1119360478").value = "course"
+   document.getElementById("mx1119360478").value = course
    //-- hcp --
-   document.getElementById("mx1885789242").value = "22"
+   document.getElementById("mx1885789242").value = hcp
    //-- score1 --
    document.getElementById("mx439780374").value = document.getElementById("score1").innerText
    //-- score2 --
