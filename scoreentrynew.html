@@ -244,7 +244,7 @@ text-orientation: mixed;
 .show {display: block;}     
       
   
-#cb1, #cb3, #cb6, #cb9 {
+#cb1, #cb3, #cb6, #cb9, #cb1txt, #cb3txt, #cb6txt, #cb9txt {
    color: white;
    font-size: 15px;
 }  
@@ -585,11 +585,14 @@ text-orientation: mixed;
 <div id="footnote"></div>
 
 <div id="countback">
-
-<div id="cb9txt"></div><div id="cb9"></div>
-<div id="cb6txt"></div><div id="cb9"></div>
-<div id="cb3txt"></div><div id="cb9"></div>
-<div id="cb1txt"></div><div id="cb9"></div>
+<br>
+<span><a id="cb9txt"></a><a id="cb9"></a></span>
+<br>
+<span><a id="cb6txt"></a><a id="cb6"></a></span>
+<br>
+<span><a id="cb3txt"></a><a id="cb3"></a></span>
+<br>
+<span><a id="cb1txt"></a><a id="cb1"></a></span>
 
 </div>
 
@@ -721,7 +724,7 @@ const dd = formatter.format(new Date());
 if (dd.indexOf("day") > -1) {
    
    dday = "Monday"
-   course = "La Cala - Campo Europa"
+   course = "La Cala - Europa"
    document.getElementById("coursebtn").innerText = course          
    
    var siArray = ["dummy","18","8","14","2","6","12","4","10","16","17","1","13","9","7","5","15","3","11"]  
@@ -772,7 +775,7 @@ if (dd.indexOf("Tuesday") > -1) {
 if (dd.indexOf("Wednesday") > -1) {
    
    dday = "Wednesday"
-   course = "La Cala - Campo Asia"
+   course = "La Cala - Asia"
    document.getElementById("coursebtn").innerText = course
    
    var siArray = ["dummy","12","16","18","2","10","4","14","8","6","1","13","3","5","17","11","7","15","9"]  
@@ -797,8 +800,8 @@ if (dd.indexOf("Wednesday") > -1) {
 
 if (dd.indexOf("Thursday") > -1) {
    
-   dday = "Wednesday"
-   course = "La Cala - Campo America"
+   dday = "Thursday"
+   course = "La Cala - America"
    document.getElementById("coursebtn").innerText = course
    
    var siArray = ["dummy","10","14","16","6","12","2","4","18","8","7","13","5","3","15","1","17","9","11"]  
@@ -943,7 +946,7 @@ function updateScore(id) {
    cback6num += Number(document.getElementById("points18").innerText)
    
    document.getElementById("cb6txt").innerText = "countback 6 = "
-   document.getElementById("cb6").innerText = back6num
+   document.getElementById("cb6").innerText = cback6num
    
    //cback6 = cback6num.toString()
    
@@ -973,7 +976,7 @@ function updateScore(id) {
    var cback1num = 0
    cback1num = Number(document.getElementById("points18").innerText)
    
-   document.getElementById("cb1txt").innerText = "countback 9 = "
+   document.getElementById("cb1txt").innerText = "countback 1 = "
    document.getElementById("cb1").innerText = cback1num
    
    
