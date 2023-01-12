@@ -244,7 +244,7 @@ text-orientation: mixed;
 .show {display: block;}     
       
   
-  #recalc, #submit, #hcpdownload {
+  #recalc, #submit, #hcpdownload, #checkdata {
       color: white;
       width: 75%; 
       height:50px;
@@ -256,7 +256,7 @@ text-orientation: mixed;
   
   
 
-#recalc:hover, #submit:hover, #hcpdownload:hover {
+#recalc:hover, #submit:hover, #hcpdownload:hover, #checkdata:hover {
   animate-color 1s forwards;
   -webkit-animation: animate-color 1s forwards;
 }
@@ -568,11 +568,11 @@ text-orientation: mixed;
 <button id="hcpdownload" onClick="hcpDownload()">hcp download</button>
 
 
-<br><br
+<br><br>
+<button id="checkdata" onClick="checkData()">check data</button>
+<br><br>
 
-
-
-<div id="footnote"></div>
+<div id="footnote">footnote</div>
 
 
 
@@ -1062,6 +1062,35 @@ function hcpDownload() {
 			complete: getPlayerInfo
 		});
 }
+
+
+function checkData() {
+   document.getElementById("footnote").innerHTML = "<br><br>" +
+   localStorage.getItem("Day", dday) + "<br><br>" +
+         localStorage.getItem("Player0") + "<br><br>" +
+			localStorage.getItem("Player1") + "<br><br>" +
+			localStorage.getItem("Player2") + "<br><br>" +
+			localStorage.getItem("Player3") + "<br><br>" +
+         localStorage.getItem("Player4") + "<br><br>" +
+			localStorage.getItem("Player5") + "<br><br>" +
+			localStorage.getItem("Player6") + "<br><br>" +
+         localStorage.getItem("Player7") + "<br><br>" +
+			localStorage.getItem("Player8") + "<br><br>" +
+			localStorage.getItem("Player9") + "<br><br>" +
+         localStorage.getItem("Player10") + "<br><br>" +
+			localStorage.getItem("Player11") + "<br><br>" +
+			localStorage.getItem("Player12") + "<br><br>" +
+         localStorage.getItem("Player13") + "<br><br>" +
+			localStorage.getItem("Player14") + "<br><br>" +
+			localStorage.getItem("Player15") + "<br><br>"
+
+}
+
+
+
+
+
+
 
 
 function getPlayerInfo(results) {
