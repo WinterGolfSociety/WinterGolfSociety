@@ -898,13 +898,38 @@ function updateScore(id) {
    // cback9
    cback9 = pointsSumBack9
    // cback6
+   
+   /*
    for (var cb6 = 13; cb6 <= 18; cb6++) {
       cback6 += Number(document.getElementById("points" + cb6).innerText)
    }
+   */
+   cback6 = ""
+   cback6 += Number(document.getElementById("points13").innerText)
+   cback6 += Number(document.getElementById("points14").innerText)
+   cback6 += Number(document.getElementById("points15").innerText)
+   cback6 += Number(document.getElementById("points16").innerText)
+   cback6 += Number(document.getElementById("points17").innerText)
+   cback6 += Number(document.getElementById("points18").innerText)
+   
+   
    // cback3
+   /*
    for (var cb3 = 16; cb3 <= 18; cb3++) {
       cback3 += Number(document.getElementById("points" + cb3).innerText)
    }
+   */
+   cback3 = ""
+   cback3 += Number(document.getElementById("points16").innerText)
+   cback3 += Number(document.getElementById("points17").innerText)
+   cback3 += Number(document.getElementById("points18").innerText)
+   
+   
+   
+   
+   
+   
+   
    // cback1
    cback1 = Number(document.getElementById("points18").innerText)
    
