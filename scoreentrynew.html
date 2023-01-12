@@ -1032,6 +1032,7 @@ function recalc() {
    
    // cback9
    cback9 = pointsSumBack9
+   document.getElementById("cb9").innerText = cback9
    // cback6
    
    /*
@@ -1046,7 +1047,10 @@ function recalc() {
    cback6num += Number(document.getElementById("points16").innerText)
    cback6num += Number(document.getElementById("points17").innerText)
    cback6num += Number(document.getElementById("points18").innerText)
-   cback6 = cback6num.toString()
+   
+   document.getElementById("cb6").innerText = cback6num
+   
+   //cback6 = cback6num.toString()
    
    // cback3
    /*
@@ -1058,7 +1062,11 @@ function recalc() {
    cback3num += Number(document.getElementById("points16").innerText)
    cback3num += Number(document.getElementById("points17").innerText)
    cback3num += Number(document.getElementById("points18").innerText)
-   cback3 = cback3num.toString()
+   
+   document.getElementById("cb3").innerText = cback3num
+   
+   
+   //cback3 = cback3num.toString()
    
    
    
@@ -1068,8 +1076,11 @@ function recalc() {
    // cback1
    var cback1num = 0
    cback1num = Number(document.getElementById("points18").innerText)
-   cback1 = cback1num.toString()
    
+   document.getElementById("cb1").innerText = cback1num
+   
+   
+   //cback1 = cback1num.toString()
    
 }
 
