@@ -254,6 +254,11 @@ text-orientation: mixed;
       box-shadow: 10px 10px 25px black;
       }
   
+  #submit {
+     color: yellow;
+     background: #306EFF;
+  }
+  
   
 
 #recalc:hover, #submit:hover, #hcpdownload:hover, #checkdata:hover {
@@ -572,7 +577,7 @@ text-orientation: mixed;
 <button id="checkdata" onClick="checkData()">check data</button>
 <br><br>
 
-<div id="footnote">footnote</div>
+<div id="footnote"></div>
 
 
 
@@ -1054,7 +1059,7 @@ window.onclick = function(event) {
 
 
 function hcpDownload() {
-   alert("func")
+   //alert("func")
   var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQCC4SI7nl-jIHy2Jnyd_z1HFHyps7Zv66Q7kUaTirPxEGVDOSMCR9avI5cl00YL4X4YYhfzdh4YGcm/pub?gid=42052231&single=true&output=csv';
 		Papa.parse(public_spreadsheet_url, {
 			download: true,
@@ -1302,10 +1307,10 @@ function submitForm() {
    //-- cback1 --
    document.getElementById("mx717166862").value = cback1.toString()
    
-   alert("cback9 = " + cback9.toString() + " - " + cback9)
-   alert("cback6 = " + cback6.toString() + " - " + cback6)
-   alert("cback3 = " + cback3.toString() + " - " + cback3)
-   alert("cback1 = " + cback1.toString() + " - " + cback1)
+   //alert("cback9 = " + cback9.toString() + " - " + cback9)
+   //alert("cback6 = " + cback6.toString() + " - " + cback6)
+   //alert("cback3 = " + cback3.toString() + " - " + cback3)
+   //alert("cback1 = " + cback1.toString() + " - " + cback1)
    
   // check data is complete 
    
