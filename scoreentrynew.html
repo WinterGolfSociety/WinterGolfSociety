@@ -244,6 +244,12 @@ text-orientation: mixed;
 .show {display: block;}     
       
   
+#cb1, #cb3, #cb6, #cb9 {
+   color: white;
+   font-size: 15px;
+}  
+  
+  
   #recalc, #submit, #hcpdownload, #checkdata {
       color: white;
       width: 75%; 
@@ -710,8 +716,36 @@ var options = {
 const formatter = new Intl.DateTimeFormat('en-GB', options);
 const dd = formatter.format(new Date());  
    
-if (dd.indexOf("Monday") > -1) {
+ 
+// for testing  
+if (dd.indexOf("day") > -1) {
+   
    dday = "Monday"
+   course = "La Cala - Campo Europa"
+   document.getElementById("coursebtn").innerText = course          
+   
+   var siArray = ["dummy","18","8","14","2","6","12","4","10","16","17","1","13","9","7","5","15","3","11"]  
+
+   var parArray = ["dummy","4","4","3","4","4","4","4","5","3","3","5","4","4","3","5","3","5","4","35","36","71"]
+
+   for (var i = 1; i <= 18; i++) {
+   
+      document.getElementById("si" + i).innerText = siArray[i]
+      document.getElementById("par" + i).innerText = parArray[i]
+   }
+   // odd ones
+   document.getElementById("fpar9").innerText = parArray[19]
+   document.getElementById("bpar9").innerText = parArray[20]
+//document.getElementById("tpar18").innerText = parArray[21]
+   document.getElementById("parfront").innerText = parArray[19]
+   document.getElementById("parback").innerText = parArray[20]
+   document.getElementById("partotal").innerText = parArray[21]
+
+}  
+   
+   
+if (dd.indexOf("Tuesday") > -1) {
+   dday = "Tuesday"
    course = "Alhaurin"
    document.getElementById("coursebtn").innerText = course
    
@@ -735,9 +769,9 @@ if (dd.indexOf("Monday") > -1) {
 }
 
 
-if (dd.indexOf("Tuesday") > -1) {
+if (dd.indexOf("Wednesday") > -1) {
    
-   dday = "Tuesday"
+   dday = "Wednesday"
    course = "La Cala - Campo Asia"
    document.getElementById("coursebtn").innerText = course
    
@@ -760,7 +794,8 @@ if (dd.indexOf("Tuesday") > -1) {
 
 }
 
-if (dd.indexOf("Wednesday") > -1) {
+
+if (dd.indexOf("Thursday") > -1) {
    
    dday = "Wednesday"
    course = "La Cala - Campo America"
@@ -796,34 +831,8 @@ if (dd.indexOf("Wednesday") > -1) {
 
 
 
-//if (dd.indexOf("Thursday") > -1) {
-   
-// for testing  
-if (dd.indexOf("day") > -1) {
-   
-   dday = "Thursday"
-   course = "La Cala - Campo Europa"
-   document.getElementById("coursebtn").innerText = course          
-   
-   var siArray = ["dummy","18","8","14","2","6","12","4","10","16","17","1","13","9","7","5","15","3","11"]  
 
-   var parArray = ["dummy","4","4","3","4","4","4","4","5","3","3","5","4","4","3","5","3","5","4","35","36","71"]
-
-   for (var i = 1; i <= 18; i++) {
-   
-      document.getElementById("si" + i).innerText = siArray[i]
-      document.getElementById("par" + i).innerText = parArray[i]
-   }
-   // odd ones
-   document.getElementById("fpar9").innerText = parArray[19]
-   document.getElementById("bpar9").innerText = parArray[20]
-//document.getElementById("tpar18").innerText = parArray[21]
-   document.getElementById("parfront").innerText = parArray[19]
-   document.getElementById("parback").innerText = parArray[20]
-   document.getElementById("partotal").innerText = parArray[21]
-
-}  
-
+  
  
  
 // --- functions --- // 
@@ -916,7 +925,7 @@ function updateScore(id) {
    
    // cback9
    cback9 = pointsSumBack9
-   document.getElementById("cb9").innerText = cback9
+   document.getElementById("cb9").innerText = "countback 9 = " + cback9
    // cback6
    
    /*
@@ -932,7 +941,7 @@ function updateScore(id) {
    cback6num += Number(document.getElementById("points17").innerText)
    cback6num += Number(document.getElementById("points18").innerText)
    
-   document.getElementById("cb6").innerText = cback6num
+   document.getElementById("cb6").innerText = "countback 6 = " + cback6num
    
    //cback6 = cback6num.toString()
    
@@ -947,7 +956,7 @@ function updateScore(id) {
    cback3num += Number(document.getElementById("points17").innerText)
    cback3num += Number(document.getElementById("points18").innerText)
    
-   document.getElementById("cb3").innerText = cback3num
+   document.getElementById("cb3").innerText = "countback 3 = " + cback3num
    
    
    //cback3 = cback3num.toString()
@@ -961,7 +970,7 @@ function updateScore(id) {
    var cback1num = 0
    cback1num = Number(document.getElementById("points18").innerText)
    
-   document.getElementById("cb1").innerText = cback1num
+   document.getElementById("cb1").innerText = "countback 1 = " + cback1num
    
    
    //cback1 = cback1num.toString()
@@ -1032,7 +1041,7 @@ function recalc() {
    
    // cback9
    cback9 = pointsSumBack9
-   document.getElementById("cb9").innerText = cback9
+   document.getElementById("cb9").innerText = "countback 9 = " + cback9
    // cback6
    
    /*
@@ -1048,7 +1057,7 @@ function recalc() {
    cback6num += Number(document.getElementById("points17").innerText)
    cback6num += Number(document.getElementById("points18").innerText)
    
-   document.getElementById("cb6").innerText = cback6num
+   document.getElementById("cb6").innerText = "countback 6 = " + cback6num
    
    //cback6 = cback6num.toString()
    
@@ -1063,7 +1072,7 @@ function recalc() {
    cback3num += Number(document.getElementById("points17").innerText)
    cback3num += Number(document.getElementById("points18").innerText)
    
-   document.getElementById("cb3").innerText = cback3num
+   document.getElementById("cb3").innerText = "countback 3 = " + cback3num
    
    
    //cback3 = cback3num.toString()
@@ -1077,7 +1086,7 @@ function recalc() {
    var cback1num = 0
    cback1num = Number(document.getElementById("points18").innerText)
    
-   document.getElementById("cb1").innerText = cback1num
+   document.getElementById("cb1").innerText = "countback 1 = " + cback1num
    
    
    //cback1 = cback1num.toString()
