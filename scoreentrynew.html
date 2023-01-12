@@ -578,6 +578,21 @@ text-orientation: mixed;
 
 <div id="footnote"></div>
 
+<div id="countback">
+
+<div id="cb9"></div>
+<div id="cb6"></div>
+<div id="cb3"></div>
+<div id="cb1"></div>
+
+</div>
+
+
+
+
+
+
+
 
 
 <br><br><br><br><br><br>    
@@ -901,6 +916,7 @@ function updateScore(id) {
    
    // cback9
    cback9 = pointsSumBack9
+   document.getElementById("cb9").innerText = cback9
    // cback6
    
    /*
@@ -915,7 +931,10 @@ function updateScore(id) {
    cback6num += Number(document.getElementById("points16").innerText)
    cback6num += Number(document.getElementById("points17").innerText)
    cback6num += Number(document.getElementById("points18").innerText)
-   cback6 = cback6num.toString()
+   
+   document.getElementById("cb6").innerText = cback6num
+   
+   //cback6 = cback6num.toString()
    
    // cback3
    /*
@@ -927,7 +946,11 @@ function updateScore(id) {
    cback3num += Number(document.getElementById("points16").innerText)
    cback3num += Number(document.getElementById("points17").innerText)
    cback3num += Number(document.getElementById("points18").innerText)
-   cback3 = cback3num.toString()
+   
+   document.getElementById("cb3").innerText = cback3num
+   
+   
+   //cback3 = cback3num.toString()
    
    
    
@@ -937,7 +960,11 @@ function updateScore(id) {
    // cback1
    var cback1num = 0
    cback1num = Number(document.getElementById("points18").innerText)
-   cback1 = cback1num.toString()
+   
+   document.getElementById("cb1").innerText = cback1num
+   
+   
+   //cback1 = cback1num.toString()
    window.scrollBy(0, 30);
 
 }
@@ -1002,18 +1029,47 @@ function recalc() {
    document.getElementById("pointsFull18").innerText = pointsSumFront9 + pointsSumBack9
 
    // countback 9, 6, 3, 1
+   
    // cback9
    cback9 = pointsSumBack9
    // cback6
+   
+   /*
    for (var cb6 = 13; cb6 <= 18; cb6++) {
       cback6 += Number(document.getElementById("points" + cb6).innerText)
    }
+   */
+   var cback6num = 0
+   cback6num += Number(document.getElementById("points13").innerText)
+   cback6num += Number(document.getElementById("points14").innerText)
+   cback6num += Number(document.getElementById("points15").innerText)
+   cback6num += Number(document.getElementById("points16").innerText)
+   cback6num += Number(document.getElementById("points17").innerText)
+   cback6num += Number(document.getElementById("points18").innerText)
+   cback6 = cback6num.toString()
+   
    // cback3
+   /*
    for (var cb3 = 16; cb3 <= 18; cb3++) {
       cback3 += Number(document.getElementById("points" + cb3).innerText)
    }
+   */
+   var cback3num = 0
+   cback3num += Number(document.getElementById("points16").innerText)
+   cback3num += Number(document.getElementById("points17").innerText)
+   cback3num += Number(document.getElementById("points18").innerText)
+   cback3 = cback3num.toString()
+   
+   
+   
+   
+   
+   
    // cback1
-   cback1 = Number(document.getElementById("points18").innerText)
+   var cback1num = 0
+   cback1num = Number(document.getElementById("points18").innerText)
+   cback1 = cback1num.toString()
+   
    
 }
 
@@ -1298,13 +1354,13 @@ function submitForm() {
    
    
    //-- cback9 --
-   document.getElementById("mx1288168418").value = cback9.toString()
+   document.getElementById("mx1288168418").value = document.getElementById("cb9").innerText
    //-- cback6 --
-   document.getElementById("mx984726337").value = cback6.toString()
+   document.getElementById("mx984726337").value = document.getElementById("cb6").innerText
    //-- cback3 --
-   document.getElementById("mx1307706252").value = cback3.toString()
+   document.getElementById("mx1307706252").value = document.getElementById("cb3").innerText
    //-- cback1 --
-   document.getElementById("mx717166862").value = cback1.toString()
+   document.getElementById("mx717166862").value = document.getElementById("points18").innerText
    
    //alert("cback9 = " + cback9.toString() + " - " + cback9)
    //alert("cback6 = " + cback6.toString() + " - " + cback6)
