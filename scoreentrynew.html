@@ -905,12 +905,12 @@ function updateScore(id) {
    }
    */
    cback6 = ""
-   cback6 += Number(document.getElementById("points13").innerText)
-   cback6 += Number(document.getElementById("points14").innerText)
-   cback6 += Number(document.getElementById("points15").innerText)
-   cback6 += Number(document.getElementById("points16").innerText)
-   cback6 += Number(document.getElementById("points17").innerText)
-   cback6 += Number(document.getElementById("points18").innerText)
+   cback6 += parseInt(document.getElementById("points13").innerText)
+   cback6 += parseInt(document.getElementById("points14").innerText)
+   cback6 += parseInt(document.getElementById("points15").innerText)
+   cback6 += parseInt(document.getElementById("points16").innerText)
+   cback6 += parseInt(document.getElementById("points17").innerText)
+   cback6 += parseInt(document.getElementById("points18").innerText)
    
    
    // cback3
@@ -919,11 +919,11 @@ function updateScore(id) {
       cback3 += Number(document.getElementById("points" + cb3).innerText)
    }
    */
-   cback3 = ""
-   cback3 += Number(document.getElementById("points16").innerText)
-   cback3 += Number(document.getElementById("points17").innerText)
-   cback3 += Number(document.getElementById("points18").innerText)
    
+   cback3 += parseInt(document.getElementById("points16").innerText)
+   cback3 += parseInt(document.getElementById("points17").innerText)
+   cback3 += parseInt(document.getElementById("points18").innerText)
+  
    
    
    
@@ -931,7 +931,7 @@ function updateScore(id) {
    
    
    // cback1
-   cback1 = Number(document.getElementById("points18").innerText)
+   cback1 = parseInt(document.getElementById("points18").innerText)
    
    window.scrollBy(0, 30);
 
