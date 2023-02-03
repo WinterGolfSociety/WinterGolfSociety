@@ -307,7 +307,7 @@
       #subHeader5 {
         font-size: 15px;
         text-shadow: .1em .1em .2em rgba(0, 0, 0, 1);
-        height: 10%;
+        height: 10%;      
       }
 
       #image1,
@@ -603,10 +603,39 @@
       }
       
       #numbertextCopy {
-          line-height: 250%;
+         line-height: 250%;
          font-size: 14px;  
          padding-left: 30px;
-   }
+	 }
+	 
+	 .normaltxt {
+		font-size: 15px;
+        //color: white; 
+        margin-left: 15px;
+        margin-right: 15px;
+	 }
+	 
+	  /* unvisited link */
+	.aref:link {
+    color: white;
+    }
+
+/* visited link */
+.aref:visited {
+  color: yellow;
+}
+
+/* mouse over link */
+.aref:hover {
+  color: white;
+  font-weight: bold;
+
+}
+
+/* selected link */
+.aref:active {
+  color: yellow;
+} 
       
       
     </style>
@@ -638,7 +667,7 @@
             <a href="#information_tag">Information</a>
           </li>
           <li>
-            <a href="#information_tag">tba</a>
+            <a href="#results_tag">Results</a>
           </li>
           <li>
             <a href="#gallery_tag">Gallery</a>
@@ -663,7 +692,7 @@
             </a>
           </li>
           <li>
-            <a href="#information_tag">tba<img src="documents-icon.png" id="image3menu" height="100%" align=”right”>
+            <a href="#results_tag">Results<img src="results-icon.png" id="image3menu" height="100%" align=”right”>
             </a>
           </li>
           <li>
@@ -691,6 +720,38 @@
       
       <div class="spacer"></div>
       
+      
+      
+      
+      
+      
+      
+      
+       
+      <a class="weatherwidget-io" href="https://forecast7.com/en/55d20n1d65/longhirst/" data-label_1="Longhirst golf" data-label_2="weather" data-theme="gray" data-highcolor="#ffffff" data-lowcolor="#ffffff" data-suncolor="#FFD700" >Longhirst golf weather</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="spacer"></div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <a id="fixtures_tag"></a>
       <!-- section -->
       <hr>
@@ -707,6 +768,7 @@
         <br>
         <br>
       </div>
+      
       
       <a id="information_tag"></a>
       <!-- section -->
@@ -725,22 +787,41 @@
         <div class="spacer"></div>
       </div>
       
-      <a id="tba_tag"></a>
+      <a id="results_tag"></a>
       <!-- section -->
       <hr>
       
       <div id="header3">
         <p id="headertxt3">
-          <a id="subHeader3">Longhirst seniors section <img src="documents-icon.png" id="image2" width="50px" align=”right”>
+          <a id="subHeader3">Longhirst seniors section <img src="results-icon.png" id="image2" width="50px" align=”right”>
           </a>
-          <br>tba section
+          <br>Results
         </p>
-        <br> Some information here.
-         <br> 
-        Some information here. 
-        <br>
-        Some information here. 
-        <br>
+        
+      
+<div class="normaltxt">    
+        
+             
+<br>Results open in a new tab/window
+<!--
+<a class="aref" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRirviMjfWteZP4KWw9JuYKv9rHG34fTPCgJorlMbAOBhPavVyE8qBhClyXj_eC8CHx_w3TiJghE_Tx/pubhtml?gid=1782463724&single=true">results here</a>  
+--> 
+
+<br><br>
+ <a class="aref" href="#" onclick='selectresults("Matchplay Singles");return false;'>Matchplay Singles 2023</a>
+ 
+ 
+ <br>
+         
+ <br>Matchplay Pairs
+
+<a class="aref" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRirviMjfWteZP4KWw9JuYKv9rHG34fTPCgJorlMbAOBhPavVyE8qBhClyXj_eC8CHx_w3TiJghE_Tx/pubhtml?gid=465334174&single=true">results here</a>  
+ <br>
+           
+</div>        
+         
+         
+ 
         
         <div class="spacer"></div>
       </div>
@@ -1044,6 +1125,20 @@
           document.getElementById('list').style.display = "inline"
           unfadeDiary("list")
         }
+        
+        function selectresults(r) {
+			//alert(r)
+			if (r=="Matchplay Singles") {
+				window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vRirviMjfWteZP4KWw9JuYKv9rHG34fTPCgJorlMbAOBhPavVyE8qBhClyXj_eC8CHx_w3TiJghE_Tx/pubhtml?gid=1782463724&single=true")
+			}
+		}
+        
+        
+        
+        
+        
+        
+        
     </script>
   </body>
 </html>
