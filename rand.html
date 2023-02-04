@@ -201,8 +201,20 @@ for (let j = 0; j < shuffledPlayers.length; j++) {
 
 counter++
 
+if (counter == 1) {
+	var p=" time, "
+} else {
+	var p=" times, "
+}
+
+if (loopNum == 1) {
+	var l=" iteration "
+} else {
+	var l=" iterations "
+}
+
 if (document.getElementById("noself").checked == true) {
-	document.getElementById("rr").innerText = "randomised " + counter + " times, " + loopNum + " iterations to eliminate self to self"
+	document.getElementById("rr").innerText = "randomised " + counter + p + loopNum + " iterations to eliminate self to self"
 } else {
 	document.getElementById("rr").innerText = "randomised " + counter + " times"
 }
