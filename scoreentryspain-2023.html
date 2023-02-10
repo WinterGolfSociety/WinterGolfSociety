@@ -6,57 +6,34 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>score</title>
     <style>
-      * {
+    * {
       box-sizing: border-box;
-      }
-      body {
+    }
+    
+    body {
       margin: 10px;
       font: normal 20px Arial, sans-serif;
       color: blue;
       background: dodgerBlue;
-      }
-     .card {
-		//border:1px solid #C0C0C0;
-		//border-collapse:collapse;
-		//padding:5px;
-      }
-      .card th {
-		//padding:5px;
-      }
-      .card td {
-		//padding:5px;
-		height: 100px;
-      }
-      .container {
-      width: 100%;
-      }
-      .left {
+    }
+      
+    .card td {
+	  height: 100px;
+    }
+      
+    .left {
       float: left;
       width: 100%;
-      //padding: 5px;
-      }     
-      /* Clearfix (clear floats) */
-      .container::after {
-      content: "";
-      clear: both;
-      display: table;
-      }
-      .left table {
-      width: 50%;
-      }
-      .left th, .left td {
+    }    
+        
+    .left th, .left td {
+	  background-color: dodgerBlue;
+      font-size: 20px;
+      color: yellow;
       text-align: center;
-      //padding: 5px;
-      width: 15%;
-      }
+    }
       
-    .left th {
-       background-color: dodgerBlue;
-       font-size: 20px;
-       color: yellow;
-      }
-      
-      .scorebutton, .scorebuttonNC {
+    .scorebutton, .scorebuttonNC {
       color: white;   
       width: 20vw; 
       height:100%;
@@ -64,165 +41,102 @@
       background: dodgerBlue;
       border-radius: 10px;
       box-shadow: 10px 10px 25px black;
-      }
+    }
 
-@keyframes animate-color {
-  0% {background: dodgerBlue;}
-  50% {background:cyan;}
-  100% {background:dodgerBlue;}
-  }
+    .scorebutton:hover {
+      animate-color 1s forwards;
+      -webkit-animation: animate-color 1s forwards;
+    }
 
-.scorebutton:hover {
-  animate-color 1s forwards;
-  -webkit-animation: animate-color 1s forwards;
-}
-     
-.dropbtn, .dropbtnNC {
-  color: white;
-  cursor: pointer;
-  padding-left:20px;
-  padding-right:20px;
-  width: 100%; 
-  
-  height:100%;
-  
-  
- // height:40px;
-  font-size: 15px;
-  background: dodgerBlue;
-  border-radius: 10px;
-  box-shadow: 10px 10px 25px black;
-  
-  
-  
-  
-  
-  margin-left:20px;
-  
-  
-  
-  
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: cyan; //#2980B9;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  
-  
-  
-  
-  
-  width:100%;
-  height:100%;
-  
-  
-  
-  
-  
-  
-  
-  
-  
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 10px;
-  box-shadow: 10px 10px 25px black;
-  
-  
-  
- 
-  
-  
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-//.dropdown a:hover {background-color: cyan;}
-
-.show {display: block;}     
-      
-  
-#cb1, #cb3, #cb6, #cb9, #cb1txt, #cb3txt, #cb6txt, #cb9txt {
-   color: white;
-   font-size: 15px;
-}  
-  
-  
-  #submit {
+    @keyframes animate-color {
+      0% {background: dodgerBlue;}
+      50% {background:cyan;}
+      100% {background:dodgerBlue;}
+    }
+    
+    .dropbtn, .dropbtnNC {
       color: white;
-      width: 75%; 
-      height: 100px; 
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
       font-size: 20px;
       background: dodgerBlue;
       border-radius: 10px;
       box-shadow: 10px 10px 25px black;
-      }
+    }
 
-#submit:hover, #numbertens:hover, #numberunits:hover {
-  animate-color 1s forwards;
-  -webkit-animation: animate-color 1s forwards;
-}
-  
- #my-form, #my-response-iframe { 
-         display: none; 
-	  } 
-      
-    
-       
-   #numbertensxxx, #numberunitsxxx {
-	  color: white;
-      width: 20vw;
-      height: 100px; 
-      //height:50px;
-      font-size: 25px;
-      background: dodgerBlue;
-      //border-radius: 10px;
+    .dropbtn:hover, .dropbtn:focus {
+      background-color: cyan;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      width:90%;
+      height:100%;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
       box-shadow: 10px 10px 25px black;
-     
-      }  
+    }
 
-      #numbertensxxx {
-		  border-top-left-radius : 10px;
-          border-top-right-radius : 10;
-          border-bottom-right-radius : 0;
-          border-bottom-left-radius : 10px;
-          margin-left:25px;
-          margin-right:0px;
-     }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .show {display: block;}     
       
-     #numberunitsxxx {
-		  border-top-left-radius : 0;
-          border-top-right-radius : 10px;
-          border-bottom-right-radius : 10px;
-          border-bottom-left-radius : 0;
-          //margin-left:25px;
-          margin-left:0px;
-          
-     } 
-      
-     .yellow {
-		font-size: 20px;
-		color: yellow; 
-		margin-left:25px;
-	  }
-      
+    #submit {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 30px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;   
+    }
+    
+    #countbackbutton {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:200%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;   
+    }
+
+	#submit:hover, #numbertens:hover, #numberunits:hover {
+      animate-color 1s forwards;
+      -webkit-animation: animate-color 1s forwards;
+    }
+  
+    #my-form, #my-response-iframe { 
+      display: none; 
+	} 
+            
+    .yellow {
+	  font-size: 20px;
+	  color: yellow; 	
+	}
+	  
+    #cb1, #cb3, #cb6, #cb9, #cb1txt, #cb3txt, #cb6txt, #cb9txt {
+      color: white;
+      font-size: 25px;
+    }
       
      </style>
     <!--<script src="jquery-3.6.0.min.js" type="text/javascript"></script>-->
@@ -239,21 +153,21 @@
 
 
 
-<div class="container">
+
 <div class="left">
-<table class="card">
+    <table class="card">
 	<caption></caption>
 	<thead>	
 	<tr>
-	  <th class="yellow"><br>select player<br><br></th>
-      <th class="yellow"></th>  
+	  <th><br>select player<br><br></th>
+      <th></th>  
 	</tr>
 	</thead>
 		
 	<tbody>
 	
   <tr>
-  <td colspan="2"><div class="dropdown">
+  <td colspan="2">
   <button onclick="myFunction()" class="dropbtn" id="dropbtn">who</button>
   <div id="myDropdown" class="dropdown-content">
      <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
@@ -273,21 +187,22 @@
      <a id="myLink15" href="#" onclick='dropSelected(this.innerText);return false;'>Trevor Ord</a>
      <a id="myLink16" href="#" onclick='dropSelected(this.innerText);return false;'>Brian Simpson</a> 
   </div>
+
   </td>	
   </tr>	
 
 	<tr>
-	  <th class="yellow"><br>todays course<br><br></th>
-      <th class="yellow"></th>  
+	  <th><br>todays course<br><br></th>
+      <th></th>  
 	</tr>
 
 	<tr>	
-		<td colspan="2" class="xscorebutton"><button class="dropbtnNC" id="coursebtn">course</button></td>
+		<td colspan="2" class="xdropdown"><button class="dropbtnNC" id="coursebtn">course</button></td>
 	</tr>		
 
 	<tr>
-	  <th class="yellow"><br>score<br><br></th>
-      <th class="yellow"></th>  
+	  <th><br>score<br><br></th>
+      <th></th>  
 	</tr>	
 		
 	<tr>
@@ -296,8 +211,8 @@
 	</tr>
 		
 	<tr>
-	  <th class="yellow"><br>hole<br><br></th>
-      <th class="yellow"><br>points<br><br></th>  
+	  <th><br>hole<br><br></th>
+      <th><br>points<br><br></th>  
 	</tr>
 		
      <tr>
@@ -338,66 +253,42 @@
 		<td><input type="button" class="scorebuttonNC" value="18"/></td>
 		<td><input type="button" class="scorebutton"  id="points18" onclick="incrementPoints18(this.id)" value="0" /></td>
 	</tr>
-   <tr>
-	<!--	<td colspan="2" class="staticcolortotal">back</td> -->
-		
-		<td class="staticcolortotal" id="bpar9"></td>
-		<td id="bscore9"></td>
-
-	</tr>
+    
 	<tr>
-	<!--	<td colspan="2" class="staticcolorhole">front</td> -->
-		
-		<td class="staticcolor" id="parfront"></td>
-		<td id="front9" ></td>
-
+	  <th><br>countback<br><br></th>
+      <th><br><br><br></th>  
 	</tr>
-	
+
+    <tr>
+	<td colspan="2">
+	<button id="countbackbutton">
+	<div id="countback">
+
+	<span><a id="cb9txt"></a><a id="cb9"></a></span>
+	<br>
+	<span><a id="cb6txt"></a><a id="cb6"></a></span>
+	<br>
+	<span><a id="cb3txt"></a><a id="cb3"></a></span>
+	<br>
+	<span><a id="cb1txt"></a><a id="cb1"></a></span>
+	<br>
+	</button>
+	</td>
+	</tr>
+
+    <tr>
+	<td colspan="2">
+	<button id="submit" onClick="submitForm()">submit</button>
+	</td>
+	</tr>
+
 	<tbody>
 </table>
-</div>
-
-
-<div class="right" id="scroller-right">
-
-<br><br>  
-   
-</div>
-</div>  
-
-
-<br><br>
-<button id="submit" onClick="submitForm()">submit</button>
-<br><br>
-<br><br>
-
-<div id="countback">
-<br>
-<span><a id="cb9txt"></a><a id="cb9"></a></span>
-<br>
-<span><a id="cb6txt"></a><a id="cb6"></a></span>
-<br>
-<span><a id="cb3txt"></a><a id="cb3"></a></span>
-<br>
-<span><a id="cb1txt"></a><a id="cb1"></a></span>
-<br><br><br>
-
-
-<table class="res">
-	<caption></caption>
-	<thead>
-      </thead>
-      <tbody>
-		<tr>
-			<td id="nn"></td>
-			<td id="ss"></td>
-		</tr>
-	</tbody>
-</table>
 
 </div>
+.
+<br><br><br><br><br>
 
-<br><br><br><br><br><br>    
   
   
 <!-- form to construct data prior to submit -->
@@ -538,11 +429,17 @@ var incpoints17 = 0;
 var incpoints18 = 0;
 
 function incrementValueTens() {
+if (incTens === 5) {
+	incTens = -1
+}
     document.getElementById('numbertens').value = ++incTens;
     
 }
 
 function incrementValueUnits() {
+if (incUnits === 9) {
+	incUnits = -1
+}
     document.getElementById('numberunits').value = ++incUnits;
 }
 
