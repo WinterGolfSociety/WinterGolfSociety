@@ -20,6 +20,7 @@
     .card td {
 	  height: 80px;
 	  width: 180px;
+	  padding-left:10px;
     }
       
     .left {
@@ -335,14 +336,12 @@
 </form>
 
 <!-- google forms inserted here - invisible -->
-<iframe height="40" id="my-response-iframe" name="my-response-iframe"
+<iframe height="20" id="my-response-iframe" name="my-response-iframe"
         src="https://docs.google.com/forms/d/e/1FAIpQLSfbKkQLYts7n4JVBeo5fGZxTdj9WGPn1E3hoZgTCQ9Bxlt2xQ/viewform?embedded=true"
         width="60"></iframe>
 
 
-<div id="submitConfirm"></div>
-<br>
-<br>
+
 <div id="completed"></div>
 <br>
 <br>
@@ -426,7 +425,7 @@ var incpoints16 = 0;
 var incpoints17 = 0;
 var incpoints18 = 0;
 var playerDone = []
-
+var playerComplete = []
 var playerList = [
 "Graham Airey",
 "Dale Aitkenhead",
@@ -704,29 +703,44 @@ function submitForm() {
       
   // submit 
   if (checkBeforeSubmit === 0) {
+	
 	document.forms[0].submit() 
+	
 	// keep a record of completed entries
     completedEntries = completedEntries + z + " " + player + "<br>"
     document.getElementById("completed").innerHTML = completedEntries
+    
     //increment array when player added
     playerDone.push(player)
-    playerList
+    
+    //increment array for later sorting
+    playerComplete.push(z + " - " + player)
  
 	var array3 = playerList.filter(function(obj) { 
 		return playerDone.indexOf(obj) == -1; 
 	});
 
-	var not = "not yet recorded" + "<br>"
+	var not = "not yet recorded (" +  + array3.length + ")<br>" 
 	for (i = 0; i < array3.length; i++) {
 		not = not + "<br>" + array3[i] 
 	}
 
 	document.getElementById("not").innerHTML = not 
     
-	} else {
+   } else {
 		alert("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n")
-	}
-  
+   }
+	
+   var dn=""
+   playerComplete.sort()
+   playerComplete.reverse()
+   
+   for (j = 0; j < playerComplete.length; j++) {
+		dn = dn + "<br>" + playerComplete[j] 
+   }
+
+   document.getElementById("completed").innerHTML = dn
+	
 }  
   
 </script>
