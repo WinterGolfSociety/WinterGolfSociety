@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>score</title>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 10px;
+      font: normal 20px Arial, sans-serif;
+      color: blue;
+      background: dodgerBlue;
+    }
+      
+    .card td {
+	  height: 80px;
+	  width: 250px;
+	  //padding-left:10px;
+    }
+      
+    .left {
+      float: left;
+      width: 100%;
+    }    
+        
+    .left th, .left td {
+	  background-color: dodgerBlue;
+      font-size: 20px;
+      color: yellow;
+      text-align: center;
+    }
+      
+    .scorebutton {
+      color: white;   
+      width: 100%; //20vw; 
+      height:100%;
+      font-size: 40px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+    }
+    
+    .scorebuttonNC {
+      color: white;   
+      width: 50%; //20vw; 
+      height:100%;
+      font-size: 40px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+    }
+
+    .scorebutton:hover {
+      animate-color 0.5s forwards;
+      -webkit-animation: animate-color 0.5s forwards;
+    }
+
+    @keyframes animate-color {
+      0% {background: dodgerBlue;}
+      50% {background:cyan;}
+      100% {background:dodgerBlue;}
+    }
+    
+    .dropbtn, .dropbtnNC {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+      background-color: cyan;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      width:90%;
+      height:100%;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .show {display: block;}     
+      
+    #submit {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 30px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;   
+    }
+    
+    #cbb {
+		height:150px;
+	}
+    #countbackbutton {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;   
+    }
+
+	#submit:hover, #numbertens:hover, #numberunits:hover {
+      animate-color 0.5s forwards;
+      -webkit-animation: animate-color 0.5s forwards;
+    }
+  
+    #my-form, #my-response-iframe { 
+      display: none; 
+	} 
+            
+    .yellow {
+	  font-size: 20px;
+	  color: yellow; 	
+	}
+	  
+    #cb1, #cb3, #cb6, #cb9, #cb1txt, #cb3txt, #cb6txt, #cb9txt {
+      color: white;
+      font-size: 25px;
+    }
+     
+     #aaal {
+		color: white;
+      cursor: pointer;
+      width: 40%; 
+      height:100%;
+      font-size: 50px;
+      background: dodgerBlue;
+      //border-radius: 10px;
+      border-radius: 10px 0px 0px 10px; 
+      //box-shadow: 10px 10px 25px black;    
+	 }
+     
+     #aaar {
+		color: white;
+      cursor: pointer;
+      width: 40%; 
+      height:100%;
+      font-size: 50px;
+      background: dodgerBlue;
+      //border-radius: 10px;
+      border-radius: 0px 10px 10px 0px; 
+      //box-shadow: 10px 10px 25px black;    
+	 }
+     
+     #aaac {
+		color: blue;
+      cursor: pointer;
+      width: 20%; 
+      //height:100%;
+      font-size: 50px;
+      background: dodgerBlue;
+      //border-radius: 10px;
+      //border-radius: 0px 10px 10px 0px; 
+      //box-shadow: 10px 10px 25px black;
+      
+      
+      padding-top:5%;
+      //padding-bottom:10%;
+     
+      
+          
+	 }
+     
+     
+     .aa {
+		color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;    
+	 }
+     
+     #aaal, #aaar, #aaac {
+		 		 float:left;
+	 }
+	 
+	 
+     
+     
+     
+     
+     
+      
+
+    </style>
+    <!--<script src="jquery-3.6.0.min.js" type="text/javascript"></script>-->
+    <meta content="score input" name="description">
+    <meta content="Bryan M" name="author">
+
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+</head>
+<body>
+
+
+<div class="left">
+    <table class="card">
+        <caption></caption>
+        <thead>
+        <tr>
+            <th><br>select player<br><br></th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr>
+            <td colspan="2">
+                <button onclick="myFunction()" class="dropbtn" id="dropbtn">who</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+                    <a id="myLink2" href="#" onclick='dropSelected(this.innerText);return false;'>Dale Aitkenhead</a>
+                    <a id="myLink3" href="#" onclick='dropSelected(this.innerText);return false;'>Paul Burt</a>
+                    <a id="myLink4" href="#" onclick='dropSelected(this.innerText);return false;'>Craig Caesar</a>
+                    <a id="myLink5" href="#" onclick='dropSelected(this.innerText);return false;'>Trevor Charlton</a>
+                    <a id="myLink6" href="#" onclick='dropSelected(this.innerText);return false;'>Neil Coxon</a>
+                    <a id="myLink7" href="#" onclick='dropSelected(this.innerText);return false;'>Paul Durance</a>
+                    <a id="myLink8" href="#" onclick='dropSelected(this.innerText);return false;'>Richard Hedley</a>
+                    <a id="myLink9" href="#" onclick='dropSelected(this.innerText);return false;'>Clive Herbert</a>
+                    <a id="myLink10" href="#" onclick='dropSelected(this.innerText);return false;'>Eddie Hicks</a>
+                    <a id="myLink11" href="#" onclick='dropSelected(this.innerText);return false;'>Peter Holleran</a>
+                    <a id="myLink12" href="#" onclick='dropSelected(this.innerText);return false;'>Jim Little</a>
+                    <a id="myLink13" href="#" onclick='dropSelected(this.innerText);return false;'>Bryan Maddison</a>
+                    <a id="myLink14" href="#" onclick='dropSelected(this.innerText);return false;'>Bob Nicholas</a>
+                    <a id="myLink15" href="#" onclick='dropSelected(this.innerText);return false;'>Trevor Ord</a>
+                    <a id="myLink16" href="#" onclick='dropSelected(this.innerText);return false;'>Brian Simpson</a>
+                </div>
+
+            </td>
+        </tr>
+
+        <tr>
+            <th><br>todays course<br><br></th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="xdropdown">
+                <button class="dropbtnNC" id="coursebtn">course</button>
+            </td>
+        </tr>
+
+        <tr>
+            <th><br>score<br><br></th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td><input type="button" class="scorebutton" id="numbertens" onclick="incrementValueTens()" value="0"/></td>
+            <td><input type="button" class="scorebutton" id="numberunits" onclick="incrementValueUnits()" value="0"/>
+            </td>
+        </tr>
+
+        <tr>
+            <th><br>hole<br><br></th>
+            <th><br>points<br><br></th>
+        </tr>
+
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="1"/></td>
+            
+            
+            
+            
+            
+            <td class="aa">
+				<!--
+				<input type="button" class="scorebutton" id="points1" onclick="incrementPoints1(this.id)" value="0"/>
+				-->
+			
+            <a class="aaa" id="aaal" onclick="decrementTest()">a</a>
+            <a class="aaa" id="aaac">0</a>
+            <a class="aaa" id="aaar" onclick="incrementTest()">b</a>
+            
+            </td>
+            
+            
+            
+            
+            
+        </tr>
+
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="2"/></td>
+            <td><input type="button" class="scorebutton" id="points2" onclick="incrementPoints2(this.id)" value="0"/>
+            </td>
+
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="3"/></td>
+            <td><input type="button" class="scorebutton" id="points3" onclick="incrementPoints3(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="4"/></td>
+            <td><input type="button" class="scorebutton" id="points4" onclick="incrementPoints4(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebutton" id="points5" onclick="incrementPoints5(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="6"/></td>
+            <td><input type="button" class="scorebutton" id="points6" onclick="incrementPoints6(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="7"/></td>
+            <td><input type="button" class="scorebutton" id="points7" onclick="incrementPoints7(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="8"/></td>
+            <td><input type="button" class="scorebutton" id="points8" onclick="incrementPoints8(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="9"/></td>
+            <td><input type="button" class="scorebutton" id="points9" onclick="incrementPoints9(this.id)" value="0"/>
+            </td>
+        </tr>
+
+		<tr>
+            <td><input type="button" class="scorebuttonNC" value="10"/></td>
+            <td><input type="button" class="scorebutton" id="points10" onclick="incrementPoints10(this.id)" value="0"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="11"/></td>
+            <td><input type="button" class="scorebutton" id="points11" onclick="incrementPoints11(this.id)" value="0"/>
+            </td>
+
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="12"/></td>
+            <td><input type="button" class="scorebutton" id="points12" onclick="incrementPoints12(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="13"/></td>
+            <td><input type="button" class="scorebutton" id="points13" onclick="incrementPoints13(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="14"/></td>
+            <td><input type="button" class="scorebutton" id="points14" onclick="incrementPoints14(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="15"/></td>
+            <td><input type="button" class="scorebutton" id="points15" onclick="incrementPoints15(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="16"/></td>
+            <td><input type="button" class="scorebutton" id="points16" onclick="incrementPoints16(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="17"/></td>
+            <td><input type="button" class="scorebutton" id="points17" onclick="incrementPoints17(this.id)" value="0"/>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="button" class="scorebuttonNC" value="18"/></td>
+            <td><input type="button" class="scorebutton" id="points18" onclick="incrementPoints18(this.id)" value="0"/>
+            </td>
+        </tr>
+
+
+        <tr>
+            <th><br>countback<br><br></th>
+            <th><br><br><br></th>
+        </tr>
+
+        <tr>
+            <td colspan="2" id="cbb">
+                <button id="countbackbutton">
+                    <div id="countback">
+
+                        <span><a id="cb9txt"></a><a id="cb9"></a></span>
+                        <br>
+                        <span><a id="cb6txt"></a><a id="cb6"></a></span>
+                        <br>
+                        <span><a id="cb3txt"></a><a id="cb3"></a></span>
+                        <br>
+                        <span><a id="cb1txt"></a><a id="cb1"></a></span>
+                        <br>
+                </button>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button id="submit" onClick="submitForm()">submit</button>
+            </td>
+        </tr>
+
+        <tbody>
+    </table>
+
+</div>
+.
+<br><br><br><br><br>
+
+
+<!-- form to construct data prior to submit -->
+
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSfbKkQLYts7n4JVBeo5fGZxTdj9WGPn1E3hoZgTCQ9Bxlt2xQ/formResponse"
+      id="my-form" method="post" name="my-form" target="my-response-iframe">
+
+    <input id="mx1433824128" name="entry.1433824128" type="text" value="default">
+    <input id="mx1119360478" name="entry.1119360478" type="text" value="default">
+    <input id="mx1885789242" name="entry.1885789242" type="text" value="default">
+
+    <input id="mx910512739" name="entry.910512739" type="text" value="default">
+    <input id="mx1379318653" name="entry.1379318653" type="text" value="default">
+    <input id="mx1263061594" name="entry.1263061594" type="text" value="default">
+    <input id="mx1772100943" name="entry.1772100943" type="text" value="default">
+    <input id="mx1226203700" name="entry.1226203700" type="text" value="default">
+    <input id="mx1800791630" name="entry.1800791630" type="text" value="default">
+    <input id="mx1397230483" name="entry.1397230483" type="text" value="default">
+    <input id="mx1160102181" name="entry.1160102181" type="text" value="default">
+    <input id="mx1942267356" name="entry.1942267356" type="text" value="default">
+
+    <input id="mx83976721" name="entry.83976721" type="text" value="default">
+    <input id="mx1288168418" name="entry.1288168418" type="text" value="default">
+    <input id="mx984726337" name="entry.984726337" type="text" value="default">
+    <input id="mx1307706252" name="entry.1307706252" type="text" value="default">
+    <input id="mx717166862" name="entry.717166862" type="text" value="default">
+
+
+    <input type="submit">
+
+</form>
+
+<!-- google forms inserted here - invisible -->
+<iframe height="20" id="my-response-iframe" name="my-response-iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfbKkQLYts7n4JVBeo5fGZxTdj9WGPn1E3hoZgTCQ9Bxlt2xQ/viewform?embedded=true"
+        width="60"></iframe>
+
+
+
+<div id="completed"></div>
+<br>
+<br>
+<div id="not" class="yellow"></div>
+<br>
+<br>
+
+<script>   
+	
+var hcp = "22"  
+var player = "player"
+var course = "course" 
+var dday = "today"  
+var cback1 = 0
+var cback3 = 0
+var cback6 = 0
+var cback9 = 0
+var rslts = ""
+var completedEntries = "Scores entered for:<br><br>"
+
+// set course by day of week
+var options = {
+	       weekday: 'long',
+	       day: 'numeric',
+	       month: 'long',
+	       year: 'numeric'
+	   };
+const formatter = new Intl.DateTimeFormat('en-GB', options);
+const dd = formatter.format(new Date());  
+    
+if (dd.indexOf("Monday") > -1) {
+   dday = "Monday"
+   course = "La Cala - Europa"
+   document.getElementById("coursebtn").innerText = course          
+}  
+   
+if (dd.indexOf("Tuesday") > -1) {
+   dday = "Tuesday"
+   course = "Alhaurin"
+   document.getElementById("coursebtn").innerText = course
+}
+
+if (dd.indexOf("Wednesday") > -1) {
+   dday = "Wednesday"
+   course = "La Cala - Asia"
+   document.getElementById("coursebtn").innerText = course
+}
+
+if (dd.indexOf("Thursday") > -1) {  
+   dday = "Thursday"
+   course = "La Cala - America"
+   document.getElementById("coursebtn").innerText = course
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+// --- functions --- // 
+
+var incTens = 0;
+var incUnits = 0;
+var incpoints1 = 0;
+var incpoints2 = 0;
+var incpoints3 = 0;
+var incpoints4 = 0;
+var incpoints5 = 0;
+var incpoints6 = 0;
+var incpoints7 = 0;
+var incpoints8 = 0;
+var incpoints9 = 0;
+var incpoints10 = 0;
+var incpoints11 = 0;
+var incpoints12 = 0;
+var incpoints13 = 0;
+var incpoints14 = 0;
+var incpoints15 = 0;
+var incpoints16 = 0;
+var incpoints17 = 0;
+var incpoints18 = 0;
+var playerDone = []
+var playerComplete = []
+var playerList = [
+"Graham Airey",
+"Dale Aitkenhead",
+"Paul Burt",
+"Craig Caesar",
+"Trevor Charlton",
+"Neil Coxon",
+"Paul Durance",
+"Richard Hedley",
+"Clive Herbert",
+"Eddie Hicks",
+"Peter Holleran",
+"Jim Little",
+"Bryan Maddison",
+"Bob Nicholas",
+"Trevor Ord",
+"Brian Simpson"];
+
+function incrementValueTens() {
+if (incTens === 5) {
+	incTens = -1
+}
+    document.getElementById('numbertens').value = ++incTens;   
+}
+
+function incrementValueUnits() {
+if (incUnits === 9) {
+	incUnits = -1
+}
+    document.getElementById('numberunits').value = ++incUnits;
+}
+
+function incrementPoints1(id) {
+if (incpoints1 === 5) {
+	incpoints1 = -1
+} 
+    document.getElementById(id).value = ++incpoints1; 
+    calcCbs()
+}
+
+function incrementPoints2(id) {
+if (incpoints2 === 5) {
+	incpoints2 = -1
+} 
+    document.getElementById(id).value = ++incpoints10; 
+    calcCbs()
+}
+
+function incrementPoints3(id) {
+if (incpoints3 === 5) {
+	incpoints3 = -1
+} 
+    document.getElementById(id).value = ++incpoints3; 
+    calcCbs()
+}
+
+function incrementPoints4(id) {
+if (incpoints4 === 5) {
+	incpoints4 = -1
+} 
+    document.getElementById(id).value = ++incpoints4; 
+    calcCbs()
+}
+
+function incrementPoints5(id) {
+if (incpoints5 === 5) {
+	incpoints5 = -1
+} 
+    document.getElementById(id).value = ++incpoints5; 
+    calcCbs()
+}
+
+function incrementPoints6(id) {
+if (incpoints6 === 5) {
+	incpoints6 = -1
+} 
+    document.getElementById(id).value = ++incpoints6; 
+    calcCbs()
+}
+
+function incrementPoints7(id) {
+if (incpoints7 === 5) {
+	incpoints7 = -1
+} 
+    document.getElementById(id).value = ++incpoints7; 
+    calcCbs()
+}
+
+function incrementPoints8(id) {
+if (incpoints8 === 5) {
+	incpoints8 = -1
+} 
+    document.getElementById(id).value = ++incpoints8; 
+    calcCbs()
+}
+
+function incrementPoints9(id) {
+if (incpoints9 === 5) {
+	incpoints9 = -1
+} 
+    document.getElementById(id).value = ++incpoints9; 
+    calcCbs()
+}
+
+function incrementPoints10(id) {
+if (incpoints10 === 5) {
+	incpoints10 = -1
+} 
+    document.getElementById(id).value = ++incpoints10; 
+    calcCbs()
+}
+
+function incrementPoints11(id) {
+if (incpoints11 === 5) {
+	incpoints11 = -1
+} 
+    document.getElementById(id).value = ++incpoints11;
+    calcCbs() 
+}
+function incrementPoints12(id) {
+if (incpoints12 === 5) {
+	incpoints12 = -1
+} 
+    document.getElementById(id).value = ++incpoints12;
+    calcCbs() 
+}
+function incrementPoints13(id) {
+if (incpoints13 === 5) {
+	incpoints13 = -1
+} 
+    document.getElementById(id).value = ++incpoints13;
+    calcCbs() 
+}
+function incrementPoints14(id) {
+if (incpoints14 === 5) {
+	incpoints14 = -1
+} 
+    document.getElementById(id).value = ++incpoints14;
+    calcCbs() 
+}
+function incrementPoints15(id) {
+if (incpoints15 === 5) {
+	incpoints15 = -1
+} 
+    document.getElementById(id).value = ++incpoints15;
+    calcCbs() 
+}
+function incrementPoints16(id) {
+if (incpoints16 === 5) {
+	incpoints16 = -1
+} 
+    document.getElementById(id).value = ++incpoints16;
+    calcCbs() 
+}
+function incrementPoints17(id) {
+if (incpoints17 === 5) {
+	incpoints17 = -1
+} 
+    document.getElementById(id).value = ++incpoints17;
+    calcCbs() 
+}
+function incrementPoints18(id) {
+if (incpoints18 === 5) {
+	incpoints18 = -1
+} 
+    document.getElementById(id).value = ++incpoints18;
+    calcCbs() 
+}
+
+function calcCbs() {
+cb9 = incpoints10+incpoints11+incpoints12+incpoints13+incpoints14+incpoints15+incpoints16+incpoints17+incpoints18	
+cb6 = incpoints13+incpoints14+incpoints15+incpoints16+incpoints17+incpoints18	
+cb3 = incpoints16+incpoints17+incpoints18	
+cb1 = incpoints18	
+
+document.getElementById("cb9txt").innerText = "countback 9 = "
+document.getElementById("cb9").innerText = cb9
+
+document.getElementById("cb6txt").innerText = "countback 6 = "
+document.getElementById("cb6").innerText = cb6
+   
+document.getElementById("cb3txt").innerText = "countback 3 = "
+document.getElementById("cb3").innerText = cb3
+   
+document.getElementById("cb1txt").innerText = "countback 1 = "
+document.getElementById("cb1").innerText = cb1      
+
+}
+
+
+function dropSelected(playerName) {
+    
+   player = playerName
+   
+  // replace button name
+  element = document.getElementById("dropbtn") 
+  element.innerText =  player 
+  
+}
+
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+function submitForm() {
+   // get the relevant info into a form
+   
+   var x=document.getElementById('numbertens').value
+   var y=document.getElementById('numberunits').value
+   var z=(10*x)+(y*1)
+   
+   //-- player --
+   document.getElementById("mx1433824128").value = player
+   //-- course --
+   document.getElementById("mx1119360478").value = course
+   //-- hcp --
+   document.getElementById("mx1885789242").value = hcp
+   
+
+   //-- points10 --
+   document.getElementById("mx910512739").value = document.getElementById("points10").value
+   //-- points11 --
+   document.getElementById("mx1379318653").value = document.getElementById("points11").value
+   //-- points12 --
+   document.getElementById("mx1263061594").value = document.getElementById("points12").value
+   //-- points13 --
+   document.getElementById("mx1772100943").value = document.getElementById("points13").value
+   //-- points14 --
+   document.getElementById("mx1226203700").value = document.getElementById("points14").value
+   //-- points15 --
+   document.getElementById("mx1800791630").value = document.getElementById("points15").value
+   //-- points16 --
+   document.getElementById("mx1397230483").value = document.getElementById("points16").value
+   //-- points17 --
+   document.getElementById("mx1160102181").value = document.getElementById("points17").value
+   //-- points18 --
+   document.getElementById("mx1942267356").value = document.getElementById("points18").value
+   
+   //-- scoretotal --
+   document.getElementById("mx83976721").value = z
+    
+   //-- cback9 --
+   document.getElementById("mx1288168418").value = document.getElementById("cb9").innerText
+   //-- cback6 --
+   document.getElementById("mx984726337").value = document.getElementById("cb6").innerText
+   //-- cback3 --
+   document.getElementById("mx1307706252").value = document.getElementById("cb3").innerText
+   //-- cback1 --
+   document.getElementById("mx717166862").value = document.getElementById("cb1").innerText
+   
+   // check data is complete 
+   var checkBeforeSubmit=0
+   var checkBeforeSubmitID=""
+   
+   //-- player --
+   if (document.getElementById("mx1433824128").value == "player undefined") {
+	   checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "player" + "\n"
+   }
+   //-- course --
+   if (document.getElementById("mx1119360478").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "course" + "\n"
+   }
+   //-- hcp --
+   if (document.getElementById("mx1885789242").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "hcp" + "\n"
+   }
+
+   //-- points10 --
+   if (document.getElementById("mx910512739").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "points10" + "\n"
+   }
+   //-- points11 --
+   if (document.getElementById("mx1379318653").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "points11" + "\n"
+   }
+   //-- points12 --
+   if (document.getElementById("mx1263061594").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "points12" + "\n"
+   }
+   //-- points13 --
+   if (document.getElementById("mx1772100943").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "points13" + "\n"
+   }
+   //-- points14 --
+   if (document.getElementById("mx1226203700").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "points14" + "\n"
+   }
+   //-- points15 --
+   if (document.getElementById("mx1800791630").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "poihts15" + "\n"
+   }
+   //-- points16 --
+   if (document.getElementById("mx1397230483").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "points16" + "\n"
+   }
+   //-- points17 --
+   if (document.getElementById("mx1160102181").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "points17" + "\n"
+   }
+   //-- points18 --
+   if (document.getElementById("mx1942267356").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "points18" + "\n"
+   }
+   
+   //-- scoretotal --
+   if (document.getElementById("mx83976721").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "scoretotal" + "\n"
+   }
+   
+   //-- cback9 --
+   if (document.getElementById("mx1288168418").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "cback9" + "\n"
+   }
+   //-- cback6 --
+   if (document.getElementById("mx984726337").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "cback6" + "\n"
+   }
+   //-- cback3 --
+   if (document.getElementById("mx1307706252").value == "") {
+       checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "cback3" + "\n"
+   }
+   //-- cback1 --
+   if (document.getElementById("mx717166862").value == "") {
+	   checkBeforeSubmit++
+	   checkBeforeSubmitID=checkBeforeSubmitID + "cback1" + "\n"
+   }
+      
+  // submit 
+  if (checkBeforeSubmit === 0) {
+	
+	document.forms[0].submit() 
+	
+	// keep a record of completed entries
+    completedEntries = completedEntries + z + " " + player + "<br>"
+    document.getElementById("completed").innerHTML = completedEntries
+    
+    //increment array when player added
+    playerDone.push(player)
+    
+    //increment array for later sorting
+    playerComplete.push(z + " - " + player)
+ 
+	var array3 = playerList.filter(function(obj) { 
+		return playerDone.indexOf(obj) == -1; 
+	});
+
+	var not = "not yet recorded (" +  + array3.length + ")<br>" 
+	for (i = 0; i < array3.length; i++) {
+		not = not + "<br>" + array3[i] 
+	}
+
+	document.getElementById("not").innerHTML = not 
+    
+   } else {
+		alert("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n")
+   }
+	
+   var dn=""
+   playerComplete.sort()
+   playerComplete.reverse()
+   
+   for (j = 0; j < playerComplete.length; j++) {
+		dn = dn + "<br>" + playerComplete[j] 
+   }
+
+   document.getElementById("completed").innerHTML = dn
+	
+}  
+  
+  
+  
+  
+  
+  
+  
+  
+function incrementTest() {
+incUnits = document.getElementById('aaac').innerText;
+if (incUnits === "9") {
+	incUnits = -1
+}
+    document.getElementById('aaac').innerText = ++incUnits;
+} 
+  
+function decrementTest() {
+incUnits = document.getElementById('aaac').innerText;
+if (incUnits === "0") {
+	incUnits = 1
+}
+    document.getElementById('aaac').innerText = --incUnits;
+}  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</script>
+</body>
+</html>    
+
+  
+      
