@@ -156,7 +156,7 @@
       font-size: 25px;
     }
      
-     #aaal,#aaal1,#aaal2,#aaal3,#aaal4,#aaal5,#aaal6,#aaal7,#aaal8,#aaal9,#aaal10,#aaal11,#aaal12,#aaal13,#aaal14,#aaal15,#aaal16,#aaal17,#aaal18 {
+     #aaal,#aaal1,#aaal2,#aaal3,#aaal4,#aaal5,#aaal6,#aaal7,#aaal8,#aaal9,#aaal10,#aaal11,#aaal12,#aaal13,#aaal14,#aaal15,#aaal16,#aaal17,#aaal18,#aaalscore {
 		color: #51a9ff;
       cursor: pointer;
       width: 40%; 
@@ -169,7 +169,7 @@
       float:left;
 	 }
 
-	#aaar,#aaar1,#aaar2,#aaar3,#aaar4,#aaar5,#aaar6,#aaar7,#aaar8,#aaar9,#aaar10,#aaar11,#aaar12,#aaar13,#aaar14,#aaar15,#aaar16,#aaar17,#aaar18 {
+	#aaar,#aaar1,#aaar2,#aaar3,#aaar4,#aaar5,#aaar6,#aaar7,#aaar8,#aaar9,#aaar10,#aaar11,#aaar12,#aaar13,#aaar14,#aaar15,#aaar16,#aaar17,#aaar18,#aaarscore {
 	  color: #51a9ff;
       cursor: pointer;
       width: 40%; 
@@ -181,7 +181,7 @@
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       float:left;
 	 }
-     #aaac,#aaac1,#aaac2,#aaac3,#aaac4,#aaac5,#aaac6,#aaac7,#aaac8,#aaac9,#aaac10,#aaac11,#aaac12,#aaac13,#aaac14,#aaac15,#aaac16,#aaac17,#aaac18 {
+     #aaac,#aaac1,#aaac2,#aaac3,#aaac4,#aaac5,#aaac6,#aaac7,#aaac8,#aaac9,#aaac10,#aaac11,#aaac12,#aaac13,#aaac14,#aaac15,#aaac16,#aaac17,#aaac18,#scoreaaa {
 		color: white;
       cursor: pointer;
       width: 20%; 
@@ -202,14 +202,13 @@
       box-shadow: 10px 10px 25px black;    
 	 }
      
-     #aaal, #aaar, #aaac, {	 
+     #aaal,#aaar,#aaac,#aaalscore,#aaarscore,#scoreaaa {	 
 	 float:left;
 	 }
 
     </style>
     <meta content="score input" name="description">
     <meta content="Bryan M" name="author">
-
     <link href="favicon.ico" rel="icon" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
@@ -269,12 +268,32 @@
             <th><br>score<br><br></th>
             <th></th>
         </tr>
-
+<!--
         <tr>
             <td><input type="button" class="scorebutton" id="numbertens" onclick="incrementValueTens()" value="0"/></td>
             <td><input type="button" class="scorebutton" id="numberunits" onclick="incrementValueUnits()" value="0"/>
             </td>
         </tr>
+
+-->
+
+
+		<tr> 
+            <td class="aa" colspan="2">
+			<button type="button"  class="scorebutton">
+				<a class="aaa" id="aaalscore" onclick="decrementScore('scoreaaa')">-</a>
+				<a class="aaa" id="scoreaaa">30</a>
+				<a class="aaa" id="aaarscore" onclick="incrementScore('scoreaaa')">+</a>
+            </button>
+            </td>  
+        </tr>
+
+
+
+
+
+
+
 
         <tr>
             <th><br>hole<br><br></th>
@@ -396,6 +415,30 @@
 
 
 -->
+
+
+
+
+
+
+
+		
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -657,8 +700,8 @@ window.onclick = function(event) {
 
 // --- functions --- // 
 
-var incTens = 0;
-var incUnits = 0;
+//var incTens = 0;
+//var incUnits = 0;
 var incPoints = 0;
 var player="none";
 var playerDone = []
@@ -680,21 +723,6 @@ var playerList = [
 "Bob Nicholas",
 "Trevor Ord",
 "Brian Simpson"];
-
-function incrementValueTens() {
-if (incTens === 5) {
-	incTens = -1
-}
-    document.getElementById('numbertens').value = ++incTens;   
-}
-
-function incrementValueUnits() {
-if (incUnits === 9) {
-	incUnits = -1
-}
-    document.getElementById('numberunits').value = ++incUnits;
-}
-
 
 function calcCbs() {
 var cb9=0;
@@ -754,9 +782,10 @@ function myFunction() {
 function submitForm() {
    // get the relevant info into a form
    
-   var x=document.getElementById('numbertens').value
-   var y=document.getElementById('numberunits').value
-   var z=(10*x)+(y*1)
+   //var x=document.getElementById('numbertens').value
+   //var y=document.getElementById('numberunits').value
+   //var z=(10*x)+(y*1)
+   var z=parseInt(document.getElementById('scoreaaa').innerText)
    
    //-- player --
    document.getElementById("mx1433824128").value = player
@@ -952,6 +981,40 @@ function decrementTest(id) {
     calcCbs() 
 }  
   
+
+
+
+
+
+
+
+
+
+
+function incrementScore(id) {
+	incPoints = document.getElementById(id).innerText;
+    document.getElementById(id).innerText = ++incPoints;
+    //calcCbs() 
+} 
+  
+  
+function decrementScore(id) {
+	incPoints = document.getElementById(id).innerText;
+	if (incPoints === "0") {
+		incPoints = 1
+	}
+    document.getElementById(id).innerText = --incPoints;
+    //calcCbs() 
+}  
+
+
+
+
+
+
+
+
+
 
 </script>
 </body>
