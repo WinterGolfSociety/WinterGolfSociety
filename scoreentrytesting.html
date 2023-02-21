@@ -20,7 +20,6 @@
     .card td {
 	  height: 80px;
 	  width: 220px;
-	  //padding-left:10px;
     }
       
     .left {
@@ -31,23 +30,17 @@
 	  background-color: dodgerBlue;
       font-size: 20px;
       color: yellow;
-      //text-align: center;
     }
       
     .scorebutton {
       color: white;   
-      width: 100%; //20vw; 
+      width: 100%;
       height:100%;
       font-size: 40px;
       background: dodgerBlue;
       border-radius: 10px;
       border: none;
       box-shadow: 10px 10px 25px black;
-      
-      
-      //padding: 14px 0;
-      
-      
     }
     
     .scorebuttonNC {
@@ -59,12 +52,6 @@
       border-radius: 10px;
       border: none;
       box-shadow: 10px 10px 25px black;
-      
-      
-      //padding: 14px 0;
-      
-      
-      
     }
 
     .xxxscorebutton:hover {
@@ -87,13 +74,7 @@
       background: dodgerBlue;
       border-radius: 10px;
       box-shadow: 10px 10px 25px black;
-      
-      
-      border: none;
-      
-      
-      
-      
+      border: none;  
     }
 
     .xxxdropbtn:hover, .xxxdropbtn:focus {
@@ -137,21 +118,13 @@
       background: dodgerBlue;
       border-radius: 10px;
       box-shadow: 10px 10px 25px black; 
-      
-      
-      
       border: none;
-      
-      
-      
-      
-      
-        
     }
     
     #cbb {
 		height:150px;
 	}
+	
     #countbackbutton {
       color: white;
       cursor: pointer;
@@ -161,16 +134,7 @@
       background: dodgerBlue;
       border-radius: 10px;
       box-shadow: 10px 10px 25px black;  
-      
-      
-      
       border: none;
-      
-      
-      
-      
-      
-       
     }
 
 	#submit:hover, #numbertens:hover, #numberunits:hover {
@@ -199,72 +163,34 @@
       height:100%;
       font-size: 40px;
       background: dodgerBlue;
-      //border-radius: 10px;
       border-radius: 10px 0px 0px 10px; 
-      //box-shadow: 10px 10px 25px black; 
-      
-      
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-        
-        
-       padding: 14px 0; 
-        
-        
-        float:left;
-        
-        
-        
-        
-        
-        
-        
-        
+      padding: 14px 0; 
+      float:left;
 	 }
-     
-     #aaar,#aaar1,#aaar2,#aaar3,#aaar4,#aaar5,#aaar6,#aaar7,#aaar8,#aaar9,#aaar10,#aaar11,#aaar12,#aaar13,#aaar14,#aaar15,#aaar16,#aaar17,#aaar18 {
-		color: #51a9ff;
+
+	#aaar,#aaar1,#aaar2,#aaar3,#aaar4,#aaar5,#aaar6,#aaar7,#aaar8,#aaar9,#aaar10,#aaar11,#aaar12,#aaar13,#aaar14,#aaar15,#aaar16,#aaar17,#aaar18 {
+	  color: #51a9ff;
       cursor: pointer;
       width: 40%; 
       height:100%;
       font-size: 40px;
       background: dodgerBlue;
-      //border-radius: 10px;
       border-radius: 0px 10px 10px 0px; 
-      //box-shadow: 10px 10px 25px black;    
-      
-      
       padding: 14px 0;
-      
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      
-      
-      
       float:left;
-      
-      
-      
 	 }
-     
      #aaac,#aaac1,#aaac2,#aaac3,#aaac4,#aaac5,#aaac6,#aaac7,#aaac8,#aaac9,#aaac10,#aaac11,#aaac12,#aaac13,#aaac14,#aaac15,#aaac16,#aaac17,#aaac18 {
 		color: white;
       cursor: pointer;
       width: 20%; 
-      //height:100%;
       font-size: 40px;
       background: dodgerBlue;
-      //border-radius: 10px;
-      //border-radius: 0px 10px 10px 0px; 
-      //box-shadow: 10px 10px 25px black;
-      
       padding: 14px 0;
-      //padding-top:5%;
-      //padding-bottom:10%;
-     
       float:left;
-          
 	 }
-     
-     
+
      .aa {
 	  color: white;
       cursor: pointer;
@@ -276,21 +202,11 @@
       box-shadow: 10px 10px 25px black;    
 	 }
      
-     #aaal, #aaar, #aaac, {
-		 
-		 		 float:left;
+     #aaal, #aaar, #aaac, {	 
+	 float:left;
 	 }
-	 
-	 
-     
-     
-     
-     
-     
-      
 
     </style>
-    <!--<script src="jquery-3.6.0.min.js" type="text/javascript"></script>-->
     <meta content="score input" name="description">
     <meta content="Bryan M" name="author">
 
@@ -353,13 +269,13 @@
             <th><br>score<br><br></th>
             <th></th>
         </tr>
-<!--
+
         <tr>
             <td><input type="button" class="scorebutton" id="numbertens" onclick="incrementValueTens()" value="0"/></td>
             <td><input type="button" class="scorebutton" id="numberunits" onclick="incrementValueUnits()" value="0"/>
             </td>
         </tr>
--->
+
         <tr>
             <th><br>hole<br><br></th>
             <th><br>points<br><br></th>
@@ -734,24 +650,8 @@ window.onclick = function(event) {
 
 var incTens = 0;
 var incUnits = 0;
-var incpoints1 = 0;
-var incpoints2 = 0;
-var incpoints3 = 0;
-var incpoints4 = 0;
-var incpoints5 = 0;
-var incpoints6 = 0;
-var incpoints7 = 0;
-var incpoints8 = 0;
-var incpoints9 = 0;
-var incpoints10 = 0;
-var incpoints11 = 0;
-var incpoints12 = 0;
-var incpoints13 = 0;
-var incpoints14 = 0;
-var incpoints15 = 0;
-var incpoints16 = 0;
-var incpoints17 = 0;
-var incpoints18 = 0;
+var incPoints = 0;
+var player="none";
 var playerDone = []
 var playerComplete = []
 var playerList = [
@@ -786,148 +686,28 @@ if (incUnits === 9) {
     document.getElementById('numberunits').value = ++incUnits;
 }
 
-function incrementPoints1(id) {
-if (incpoints1 === 5) {
-	incpoints1 = -1
-} 
-    document.getElementById(id).value = ++incpoints1; 
-    calcCbs()
-}
-
-function incrementPoints2(id) {
-if (incpoints2 === 5) {
-	incpoints2 = -1
-} 
-    document.getElementById(id).value = ++incpoints10; 
-    calcCbs()
-}
-
-function incrementPoints3(id) {
-if (incpoints3 === 5) {
-	incpoints3 = -1
-} 
-    document.getElementById(id).value = ++incpoints3; 
-    calcCbs()
-}
-
-function incrementPoints4(id) {
-if (incpoints4 === 5) {
-	incpoints4 = -1
-} 
-    document.getElementById(id).value = ++incpoints4; 
-    calcCbs()
-}
-
-function incrementPoints5(id) {
-if (incpoints5 === 5) {
-	incpoints5 = -1
-} 
-    document.getElementById(id).value = ++incpoints5; 
-    calcCbs()
-}
-
-function incrementPoints6(id) {
-if (incpoints6 === 5) {
-	incpoints6 = -1
-} 
-    document.getElementById(id).value = ++incpoints6; 
-    calcCbs()
-}
-
-function incrementPoints7(id) {
-if (incpoints7 === 5) {
-	incpoints7 = -1
-} 
-    document.getElementById(id).value = ++incpoints7; 
-    calcCbs()
-}
-
-function incrementPoints8(id) {
-if (incpoints8 === 5) {
-	incpoints8 = -1
-} 
-    document.getElementById(id).value = ++incpoints8; 
-    calcCbs()
-}
-
-function incrementPoints9(id) {
-if (incpoints9 === 5) {
-	incpoints9 = -1
-} 
-    document.getElementById(id).value = ++incpoints9; 
-    calcCbs()
-}
-
-function incrementPoints10(id) {
-if (incpoints10 === 5) {
-	incpoints10 = -1
-} 
-    document.getElementById(id).value = ++incpoints10; 
-    calcCbs()
-}
-
-function incrementPoints11(id) {
-if (incpoints11 === 5) {
-	incpoints11 = -1
-} 
-    document.getElementById(id).value = ++incpoints11;
-    calcCbs() 
-}
-function incrementPoints12(id) {
-if (incpoints12 === 5) {
-	incpoints12 = -1
-} 
-    document.getElementById(id).value = ++incpoints12;
-    calcCbs() 
-}
-function incrementPoints13(id) {
-if (incpoints13 === 5) {
-	incpoints13 = -1
-} 
-    document.getElementById(id).value = ++incpoints13;
-    calcCbs() 
-}
-function incrementPoints14(id) {
-if (incpoints14 === 5) {
-	incpoints14 = -1
-} 
-    document.getElementById(id).value = ++incpoints14;
-    calcCbs() 
-}
-function incrementPoints15(id) {
-if (incpoints15 === 5) {
-	incpoints15 = -1
-} 
-    document.getElementById(id).value = ++incpoints15;
-    calcCbs() 
-}
-function incrementPoints16(id) {
-if (incpoints16 === 5) {
-	incpoints16 = -1
-} 
-    document.getElementById(id).value = ++incpoints16;
-    calcCbs() 
-}
-function incrementPoints17(id) {
-if (incpoints17 === 5) {
-	incpoints17 = -1
-} 
-    document.getElementById(id).value = ++incpoints17;
-    calcCbs() 
-}
-function incrementPoints18(id) {
-if (incpoints18 === 5) {
-	incpoints18 = -1
-} 
-    document.getElementById(id).value = ++incpoints18;
-    calcCbs() 
-}
 
 function calcCbs() {
-cb9 = incpoints10+incpoints11+incpoints12+incpoints13+incpoints14+incpoints15+incpoints16+incpoints17+incpoints18	
-cb6 = incpoints13+incpoints14+incpoints15+incpoints16+incpoints17+incpoints18	
-cb3 = incpoints16+incpoints17+incpoints18	
-cb1 = incpoints18	
+var cb9=0;
+var cb6=0;
+var cb3=0;
+var cb1=0;
+
+cb1 = parseInt(document.getElementById("aaac18").innerText);	
+
+cb3 = cb3 + parseInt(document.getElementById("aaac16").innerText);	
+cb3 = cb3 + parseInt(document.getElementById("aaac17").innerText);		
+cb3 = cb3 + cb1
+
+cb6 = cb6 + parseInt(document.getElementById("aaac13").innerText);	
+cb6 = cb6 + parseInt(document.getElementById("aaac14").innerText);	
+cb6 = cb6 + parseInt(document.getElementById("aaac15").innerText);	
+cb6 = cb6 + cb3
+
+cb9 = cb9 + parseInt(document.getElementById("aaac10").innerText);	
+cb9 = cb9 + parseInt(document.getElementById("aaac11").innerText);	
+cb9 = cb9 + parseInt(document.getElementById("aaac12").innerText);	
+cb9 = cb9 + cb6
 
 document.getElementById("cb9txt").innerText = "countback 9 = "
 document.getElementById("cb9").innerText = cb9
@@ -977,24 +757,24 @@ function submitForm() {
    document.getElementById("mx1885789242").value = hcp
    
 
-   //-- points10 --
-   document.getElementById("mx910512739").value = document.getElementById("points10").value
-   //-- points11 --
-   document.getElementById("mx1379318653").value = document.getElementById("points11").value
-   //-- points12 --
-   document.getElementById("mx1263061594").value = document.getElementById("points12").value
-   //-- points13 --
-   document.getElementById("mx1772100943").value = document.getElementById("points13").value
-   //-- points14 --
-   document.getElementById("mx1226203700").value = document.getElementById("points14").value
-   //-- points15 --
-   document.getElementById("mx1800791630").value = document.getElementById("points15").value
-   //-- points16 --
-   document.getElementById("mx1397230483").value = document.getElementById("points16").value
-   //-- points17 --
-   document.getElementById("mx1160102181").value = document.getElementById("points17").value
-   //-- points18 --
-   document.getElementById("mx1942267356").value = document.getElementById("points18").value
+   //-- aaac10 --
+   document.getElementById("mx910512739").value = document.getElementById("aaac10").value
+   //-- aaac11 --
+   document.getElementById("mx1379318653").value = document.getElementById("aaac11").value
+   //-- aaac12 --
+   document.getElementById("mx1263061594").value = document.getElementById("aaac12").value
+   //-- aaac13 --
+   document.getElementById("mx1772100943").value = document.getElementById("aaac13").value
+   //-- aaac14 --
+   document.getElementById("mx1226203700").value = document.getElementById("aaac14").value
+   //-- aaac15 --
+   document.getElementById("mx1800791630").value = document.getElementById("aaac15").value
+   //-- aaac16 --
+   document.getElementById("mx1397230483").value = document.getElementById("aaac16").value
+   //-- aaac17 --
+   document.getElementById("mx1160102181").value = document.getElementById("aaac17").value
+   //-- aaac18 --
+   document.getElementById("mx1942267356").value = document.getElementById("aaac18").value
    
    //-- scoretotal --
    document.getElementById("mx83976721").value = z
@@ -1144,52 +924,26 @@ function submitForm() {
 }  
   
   
-  
-  
-  
-  
-  
-  
 function incrementTest(id) {
-incUnits = document.getElementById(id).innerText;
-if (incUnits === "9") {
-	incUnits = 8
-}
-    document.getElementById(id).innerText = ++incUnits;
+	incPoints = document.getElementById(id).innerText;
+	if (incPoints === "9") {
+		incPoints = 8
+	}
+    document.getElementById(id).innerText = ++incPoints;
+    calcCbs() 
 } 
   
+  
 function decrementTest(id) {
-incUnits = document.getElementById(id).innerText;
-if (incUnits === "0") {
-	incUnits = 1
-}
-    document.getElementById(id).innerText = --incUnits;
+	incPoints = document.getElementById(id).innerText;
+	if (incPoints === "0") {
+		incPoints = 1
+	}
+    document.getElementById(id).innerText = --incPoints;
+    calcCbs() 
 }  
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
 </script>
 </body>
 </html>    
