@@ -163,11 +163,13 @@ var arrPlayers=[
 
 function randm() {
 var repeat=0
-// make a copy of the array
-arrCopy = [...arrPlayers];
-	
-for (let i = 0; i < arrPlayers.length; i++) {
-	document.getElementById("p" + i).innerText = arrPlayers[i]
+// make a shuffled copy of array
+var shuffledOriginal=shuffle(arrPlayers);	
+// make a working copy of the array for shuffling
+arrCopy = [...shuffledOriginal];
+
+for (let i = 0; i < shuffledOriginal.length; i++) {
+	document.getElementById("p" + i).innerText = shuffledOriginal[i]
 }
 
 var shuffledPlayers=shuffle(arrCopy);
@@ -177,9 +179,8 @@ var dupe=0
 while (repeat == 0 && document.getElementById("noself").checked == true) {
 	loopNum++
 
-	for (let k = 0; k < arrPlayers.length; k++) {
-	
-		if (arrPlayers[k] == shuffledPlayers[k]) {
+	for (let k = 0; k < shuffledOriginal.length; k++) {
+		if (shuffledOriginal[k] == shuffledPlayers[k]) {
 			dupe++
 		}
 
@@ -192,7 +193,6 @@ while (repeat == 0 && document.getElementById("noself").checked == true) {
 		dupe=0
 		repeat=0	
 	}
-
 }
 
 for (let j = 0; j < shuffledPlayers.length; j++) {
