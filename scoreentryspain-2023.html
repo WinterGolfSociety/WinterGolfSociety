@@ -968,11 +968,10 @@ function submitForm() {
 
    } else {
 	   // create yes or no for submit
-       var response = confirm("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n" + "... submit anyway?");
+       var response = confirm("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n" + "... submit anyway?" + "\n\n");
 
        if (response) {
 		    calcCbs()
-        	document.forms[0].submit() 
 			// keep a record of completed entries
 			completedEntries = completedEntries + z + " " + player + "<br>"
 			document.getElementById("completed").innerHTML = completedEntries
@@ -1005,6 +1004,8 @@ function submitForm() {
 			for (j = 0; j < playerComplete.length; j++) {
 				dn = dn + "<br>" + playerComplete[j] 
 			}
+
+			document.forms[0].submit()
 
 			document.getElementById("completed").innerHTML = dn                     
        } 

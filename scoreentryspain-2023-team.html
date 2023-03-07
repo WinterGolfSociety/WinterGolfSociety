@@ -1028,7 +1028,6 @@ function submitForm() {
 
        if (response) {
 		    calcCbs()
-        	document.forms[0].submit() 
 			// keep a record of completed entries
 			completedEntries = completedEntries + z + " " + playerTeam + "<br>"
 			document.getElementById("completed").innerHTML = completedEntries
@@ -1061,6 +1060,8 @@ function submitForm() {
 			for (j = 0; j < playerComplete.length; j++) {
 				dn = dn + "<br>" + playerComplete[j] 
 			}
+
+			document.forms[0].submit() 
 
 			document.getElementById("completed").innerHTML = dn  
                    
