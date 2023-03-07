@@ -967,6 +967,7 @@ function submitForm() {
 			document.getElementById("completed").innerHTML = dn  
 
    } else {
+	   alert("not ok")
 	   // create yes or no for submit
        const confirmAction = () => {
        const response = confirm("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n" + "... submit anyway?");
@@ -980,7 +981,7 @@ function submitForm() {
      
 			// get the 2 players from team
 			//var temparray = playerTeam.split("/")
-   
+			var temparray = player
 			//increment array when player team members are added
 			playerDone.push(temparray[0])
 			//playerDone.push(temparray[1])
