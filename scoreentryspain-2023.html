@@ -967,11 +967,12 @@ function submitForm() {
 			document.getElementById("completed").innerHTML = dn  
 
    } else {
-	   alert("not ok")
+	   alert("not ok 1")
 	   // create yes or no for submit
        const confirmAction = () => {
+		   alert("not ok 2")
        const response = confirm("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n" + "... submit anyway?");
-
+alert("not ok 3")
        if (response) {
 		    calcCbs()
         	document.forms[0].submit() 
