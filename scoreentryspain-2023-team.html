@@ -1011,22 +1011,63 @@ function submitForm() {
 	}
 
 	document.getElementById("not").innerHTML = not 
+	
+	var dn=""
+			playerComplete.sort()
+			playerComplete.reverse()
+   
+			for (j = 0; j < playerComplete.length; j++) {
+				dn = dn + "<br>" + playerComplete[j] 
+			}
+
+			document.getElementById("completed").innerHTML = dn  
       
   } else {
-		alert("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n" + "... submitting anyway.")
-		calcCbs()
-  }
-  
-  var dn=""
-   playerComplete.sort()
-   playerComplete.reverse()
-   
-   for (j = 0; j < playerComplete.length; j++) {
-		dn = dn + "<br>" + playerComplete[j] 
-   }
+	   // create yes or no for submit
+       const confirmAction = () => {
+       const response = confirm("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n" + "... submit anyway?");
 
-   document.getElementById("completed").innerHTML = dn
-  
+       if (response) {
+		    calcCbs()
+        	document.forms[0].submit() 
+			// keep a record of completed entries
+			completedEntries = completedEntries + z + " " + playerTeam + "<br>"
+			document.getElementById("completed").innerHTML = completedEntries
+     
+			// get the 2 players from team
+			var temparray = playerTeam.split("/")
+   
+			//increment array when player team members are added
+			playerDone.push(temparray[0])
+			playerDone.push(temparray[1])
+    
+			//increment array for later sorting
+			playerComplete.push(z + " - " + playerTeam)
+ 
+			var array3 = playerList.filter(function(obj) { 
+			return playerDone.indexOf(obj) == -1; 
+	        });
+
+		    var not = "not yet recorded (" +  + array3.length + ")<br>" 
+		    for (i = 0; i < array3.length; i++) {
+			   not = not + "<br>" + array3[i] 
+		    }
+
+		    document.getElementById("not").innerHTML = not  
+		    
+		    var dn=""
+			playerComplete.sort()
+			playerComplete.reverse()
+   
+			for (j = 0; j < playerComplete.length; j++) {
+				dn = dn + "<br>" + playerComplete[j] 
+			}
+
+			document.getElementById("completed").innerHTML = dn  
+                   
+       } 
+    }
+  } 
 }   
   
 function incrementTest(id) {
