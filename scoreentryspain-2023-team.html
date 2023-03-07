@@ -601,13 +601,13 @@
                 <button id="countbackbutton">
                     <div id="countback">
 
-                        <span><a id="cb9txt"></a><a id="cb9"></a></span>
+                        <span><a id="cb9txt"></a><a id="cb9">0</a></span>
                         <br>
-                        <span><a id="cb6txt"></a><a id="cb6"></a></span>
+                        <span><a id="cb6txt"></a><a id="cb6">0</a></span>
                         <br>
-                        <span><a id="cb3txt"></a><a id="cb3"></a></span>
+                        <span><a id="cb3txt"></a><a id="cb3">0</a></span>
                         <br>
-                        <span><a id="cb1txt"></a><a id="cb1"></a></span>
+                        <span><a id="cb1txt"></a><a id="cb1">0</a></span>
                         <br>
                 </button>
             </td>
@@ -1022,7 +1022,10 @@ function submitForm() {
 
 			document.getElementById("completed").innerHTML = dn  
       
-  } else {
+  } 
+  
+ /* 
+  else {
 	   // create yes or no for submit
        var response = confirm("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n" + "... submit anyway?");
 
@@ -1067,6 +1070,9 @@ function submitForm() {
                    
        } 
     }
+    
+*/    
+    
 }   
   
 function incrementTest(id) {

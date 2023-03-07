@@ -577,13 +577,13 @@
                 <button id="countbackbutton">
                     <div id="countback">
 
-                        <span><a id="cb9txt"></a><a id="cb9"></a></span>
+                        <span><a id="cb9txt"></a><a id="cb9">0</a></span>
                         <br>
-                        <span><a id="cb6txt"></a><a id="cb6"></a></span>
+                        <span><a id="cb6txt"></a><a id="cb6">0</a></span>
                         <br>
-                        <span><a id="cb3txt"></a><a id="cb3"></a></span>
+                        <span><a id="cb3txt"></a><a id="cb3">0</a></span>
                         <br>
-                        <span><a id="cb1txt"></a><a id="cb1"></a></span>
+                        <span><a id="cb1txt"></a><a id="cb1">0</a></span>
                         <br>
                 </button>
             </td>
@@ -966,22 +966,21 @@ function submitForm() {
 
 			document.getElementById("completed").innerHTML = dn  
 
-   } else {
+   } 
+   
+ /*  
+   else {
 	   // create yes or no for submit
        var response = confirm("entry missing for" + "\n\n" + checkBeforeSubmitID + "\n\n" + "... submit anyway?" + "\n\n");
 
-       if (response) {
-		    calcCbs()
+       if (response) {   
+			calcCbs()
 			// keep a record of completed entries
 			completedEntries = completedEntries + z + " " + player + "<br>"
 			document.getElementById("completed").innerHTML = completedEntries
      
-			// get the 2 players from team
-			//var temparray = playerTeam.split("/")
-			//var temparray = player
-			//increment array when player team members are added
+			//increment array when players are added
 			playerDone.push(player)
-			//playerDone.push(temparray[1])
     
 			//increment array for later sorting
 			playerComplete.push(z + " - " + player)
@@ -1009,7 +1008,11 @@ function submitForm() {
 
 			document.getElementById("completed").innerHTML = dn                     
        } 
+  
     } 
+    
+*/ 
+    
 } 
   
 function incrementTest(id) {
