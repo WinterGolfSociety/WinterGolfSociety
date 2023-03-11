@@ -592,6 +592,11 @@ if (what == "recover") {
 	
 	var storedcourse = localStorage.course;
 	
+	if (storedcourse !== course){
+		// new course so clear local storage
+		localstorage.clear
+	}
+	
 	if (storedcourse == course){ 
 	
 		playerDone = JSON.parse(localStorage.playerDone);
@@ -599,24 +604,24 @@ if (what == "recover") {
 		completedEntries = JSON.parse(localStorage.completedEntries);
 		
 		var array3 = playerList.filter(function(obj) { 
-		return playerDone.indexOf(obj) == -1; 
-	});
+			return playerDone.indexOf(obj) == -1; 
+		});
 
-	var not = "not yet recorded (" +  + array3.length + ")<br>" 
+		var not = "not yet recorded (" +  + array3.length + ")<br>" 
 	
-	for (i = 0; i < array3.length; i++) {
-		not = not + "<br>" + array3[i] 
-	}
-	document.getElementById("not").innerHTML = not 
+		for (i = 0; i < array3.length; i++) {
+			not = not + "<br>" + array3[i] 
+		}
+		document.getElementById("not").innerHTML = not 
 	
-	var dn=""
-	playerComplete.sort()
-	playerComplete.reverse()
+		var dn=""
+		playerComplete.sort()
+		playerComplete.reverse()
    
-	for (j = 0; j < playerComplete.length; j++) {
-		dn = dn + "<br>" + playerComplete[j] 
-	}
-	document.getElementById("completed").innerHTML = dn  
+		for (j = 0; j < playerComplete.length; j++) {
+			dn = dn + "<br>" + playerComplete[j] 
+		}
+		document.getElementById("completed").innerHTML = dn  
 		
 	}
 
