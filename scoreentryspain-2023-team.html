@@ -125,14 +125,14 @@
       cursor: pointer;
       width: 100%; 
       height:100%;
-      font-size: 30px;
+      font-size: 50px;
       background: dodgerBlue;
       border-radius: 10px;
       box-shadow: 10px 10px 25px black; 
       border: none;
     }
     
-    #cbb {
+    #cbb, #sfb {
 		height:150px;
 	}
 	
@@ -160,6 +160,11 @@
     .yellow {
 	  font-size: 20px;
 	  color: yellow; 	
+	}
+	
+	.cyan {
+	  font-size: 20px;
+	  color: cyan; 	
 	}
 	  
     #cb1, #cb3, #cb6, #cb9, #cb1txt, #cb3txt, #cb6txt, #cb9txt {
@@ -439,8 +444,20 @@
             </td>
         </tr>
 
+
+		<tr>
+			<td colspan="2">
+				<div id="completed" class="cyan"></div>
+				<br>
+				<br>
+				<div id="not" class="yellow"></div>
+				<br>
+			</td>
+		</tr>
+
+
         <tr>
-            <td colspan="2">
+            <td colspan="2" id="sfb">
                 <button id="submit" onClick="submitForm()">submit</button>
             </td>
         </tr>
@@ -450,7 +467,7 @@
 
 </div>
 
-<br><br><br><br><br>
+<br><br>
 
 
 <!-- form to construct data prior to submit -->
