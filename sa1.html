@@ -304,61 +304,19 @@
             </td>
         </tr>
 
- <!--       
-
-        <tr>
-            <td colspan="3" class="xdropdown">
-                <button class="dropbtnNC" id="coursebtn">course</button>
-            </td>
-        </tr>
-
-        
--->
-
-
-
-
-<tr>
+ 
+		<tr>
             <td colspan="3">
                 <button onclick="myFunctionCourse()" class="dropbtnCourse" id="dropbtnCourse">select course</button>
                 <div id="myDropdownCourse" class="dropdown-contentCourse">
                     <a id="myLink1Course" href="#" onclick='dropSelectedCourse(this.innerText);return false;'>Longhirst Lakes</a>
                     <a id="myLink2Course" href="#" onclick='dropSelectedCourse(this.innerText);return false;'>Longhirst Dawson</a>
                     <a id="myLink3Course" href="#" onclick='dropSelectedCourse(this.innerText);return false;'>Bedlington</a>
-                    <a id="myLink4Course" href="#" onclick='dropSelected(this.innerText);return false;'>Whitley Bay</a>
+                    <a id="myLink4Course" href="#" onclick='dropSelectedCourse(this.innerText);return false;'>Whitley Bay</a>
                 </div>
 
             </td>
         </tr>
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-		<tr> 
-            <td class="aa" colspan="3">
-			<button type="button"  class="scorebutton">
-				<a class="aaa" id="aaalscore" onclick="decrementScore('scoreaaa')">-</a>
-				<a class="aaa" id="scoreaaa">30</a>
-				<a class="aaa" id="aaarscore" onclick="incrementScore('scoreaaa')">+</a>
-            </button>
-            </td>  
-        </tr>
-
-
-
--->
-
-
-
 
 
 		<tr>
@@ -369,25 +327,9 @@
         </tr>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="1"/></td>
-            <td><input type="button" class="scorebuttonNC" value="1"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap1" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal1" onclick="decrementTest('aaac1')">-</a>
@@ -400,7 +342,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="2"/></td>
-            <td><input type="button" class="scorebuttonNC" value="2"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap2" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal2" onclick="decrementTest('aaac2')">-</a>
@@ -413,7 +355,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="3"/></td>
-            <td><input type="button" class="scorebuttonNC" value="2"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap3" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal3" onclick="decrementTest('aaac3')">-</a>
@@ -427,7 +369,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="4"/></td>
-            <td><input type="button" class="scorebuttonNC" value="2"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap4" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal4" onclick="decrementTest('aaac4')">-</a>
@@ -440,7 +382,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="5"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap5" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal5" onclick="decrementTest('aaac5')">-</a>
@@ -453,7 +395,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="6"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap6" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal6" onclick="decrementTest('aaac6')">-</a>
@@ -466,7 +408,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="7"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap7" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal7" onclick="decrementTest('aaac7')">-</a>
@@ -479,7 +421,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="8"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap8" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal8" onclick="decrementTest('aaac8')">-</a>
@@ -492,7 +434,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="9"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap9" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal9" onclick="decrementTest('aaac9')">-</a>
@@ -502,12 +444,16 @@
             </td>  
         </tr>
 
-
+		<tr>
+            <td><button class="scorebuttonNC"/>out</td>
+            <td><button class="scorebuttonNC" id="aaapout"></button></td>
+            <td><button class="scorebuttonNC" id="aaasout"></button></td>  
+        </tr>
 
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="10"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap10" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal10" onclick="decrementTest('aaac10')">-</a>
@@ -520,7 +466,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="11"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap11" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal11" onclick="decrementTest('aaac11')">-</a>
@@ -533,7 +479,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="12"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap12" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal12" onclick="decrementTest('aaac12')">-</a>
@@ -547,7 +493,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="13"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap13" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal13" onclick="decrementTest('aaac13')">-</a>
@@ -560,7 +506,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="14"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap14" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal14" onclick="decrementTest('aaac14')">-</a>
@@ -573,7 +519,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="15"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap15" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal15" onclick="decrementTest('aaac15')">-</a>
@@ -586,7 +532,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="16"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap16" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal16" onclick="decrementTest('aaac16')">-</a>
@@ -599,7 +545,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="17"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap17" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal17" onclick="decrementTest('aaac17')">-</a>
@@ -612,7 +558,7 @@
 
 		<tr>
             <td><input type="button" class="scorebuttonNC" value="18"/></td>
-            <td><input type="button" class="scorebuttonNC" value="5"/></td>
+            <td><input type="button" class="scorebuttonNC" id="aaap18" value="0"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
 				<a class="aaa" id="aaal18" onclick="decrementTest('aaac18')">-</a>
@@ -623,8 +569,18 @@
         </tr>
 
 
+		<tr>
+            <td><button class="scorebuttonNC"/>back</td>
+            <td><button class="scorebuttonNC" id="aaapback"></button></td>
+            <td><button class="scorebuttonNC" id="aaasback"></button></td>  
+        </tr>
 
 
+		<tr>
+            <td><button class="scorebuttonNC"/>total</td>
+            <td><button class="scorebuttonNC" id="aaatotalpoints"></button></td>
+            <td><button class="scorebuttonNC" id="aaatotalscore"></button></td>  
+        </tr>
 
         <tr>
             <td colspan="3" id="cbb">
@@ -728,7 +684,7 @@
 <!-- google forms inserted here - invisible -->
 <iframe height="200" id="my-response-iframe" name="my-response-iframe"
         src="https://docs.google.com/forms/d/e/1FAIpQLSfpwrHPvjjQiIN9a-cmxBrE6aaORO6yBG6cu7kGXN2piQygGw/viewform?embedded=true"
-        width="60"></iframe>
+        width="600"></iframe>
 
 
 
@@ -740,6 +696,10 @@
 <br>
 
 <script>   
+	
+alert("ok")
+	
+	
 	
 /*
 
@@ -835,43 +795,6 @@ if (dd.indexOf("Thursday") > -1) {
 }
 
 
-// Close the dropdown if the user clicks outside of it
-/*
-window.onclick = function(event) {
-	alert("event")
-	alert(event.target)
-
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-  
-  
-  if (!event.target.matches('.dropbtnCourse')) {
-    var dropdowns = document.getElementsByClassName("dropdown-contentCourse");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-  
-
-  
-  
-  
-  
-}
- */
-
 // --- functions --- // 
 
 var incPoints = 0;
@@ -896,7 +819,13 @@ var playerList = [
 "Trevor Ord",
 "Brian Simpson"];
 
-recoverTempData("recover")
+//recoverTempData("recover")
+
+
+
+
+
+
 
 
 function recoverTempData(what) {
@@ -963,26 +892,29 @@ if (what == "recover") {
 }
 
 
+
+
+
 function calcCbs() {
 var cb9=0;
 var cb6=0;
 var cb3=0;
 var cb1=0;
 
-cb1 = parseInt(document.getElementById("aaac18").innerText);	
+cb1 = parseInt(document.getElementById("aaap18").value);	
 
-cb3 = cb3 + parseInt(document.getElementById("aaac16").innerText);	
-cb3 = cb3 + parseInt(document.getElementById("aaac17").innerText);		
+cb3 = cb3 + parseInt(document.getElementById("aaap16").value);	
+cb3 = cb3 + parseInt(document.getElementById("aaap17").value);		
 cb3 = cb3 + cb1
 
-cb6 = cb6 + parseInt(document.getElementById("aaac13").innerText);	
-cb6 = cb6 + parseInt(document.getElementById("aaac14").innerText);	
-cb6 = cb6 + parseInt(document.getElementById("aaac15").innerText);	
+cb6 = cb6 + parseInt(document.getElementById("aaap13").value);	
+cb6 = cb6 + parseInt(document.getElementById("aaap14").value);	
+cb6 = cb6 + parseInt(document.getElementById("aaap15").value);	
 cb6 = cb6 + cb3
 
-cb9 = cb9 + parseInt(document.getElementById("aaac10").innerText);	
-cb9 = cb9 + parseInt(document.getElementById("aaac11").innerText);	
-cb9 = cb9 + parseInt(document.getElementById("aaac12").innerText);	
+cb9 = cb9 + parseInt(document.getElementById("aaap10").value);	
+cb9 = cb9 + parseInt(document.getElementById("aaap11").value);	
+cb9 = cb9 + parseInt(document.getElementById("aaap12").value);	
 cb9 = cb9 + cb6
 
 document.getElementById("cb9txt").innerText = "countback 9 = "
@@ -997,7 +929,60 @@ document.getElementById("cb3").innerText = cb3
 document.getElementById("cb1txt").innerText = "countback 1 = "
 document.getElementById("cb1").innerText = cb1      
 
+
+// do front 9, back 9 and total
+front = parseInt(document.getElementById("aaap1").value);
+front = front + parseInt(document.getElementById("aaap2").value);
+front = front + parseInt(document.getElementById("aaap3").value);
+front = front + parseInt(document.getElementById("aaap4").value);
+front = front + parseInt(document.getElementById("aaap5").value);
+front = front + parseInt(document.getElementById("aaap6").value);
+front = front + parseInt(document.getElementById("aaap7").value);
+front = front + parseInt(document.getElementById("aaap8").value);
+front = front + parseInt(document.getElementById("aaap9").value);
+
+back = cb9
+document.getElementById("aaapout").innerText = front  
+document.getElementById("aaapback").innerText = back  
+
+
+
+frontscore = parseInt(document.getElementById("aaac1").innerText);
+frontscore = frontscore + parseInt(document.getElementById("aaac2").innerText);
+frontscore = frontscore + parseInt(document.getElementById("aaac3").innerText);
+frontscore = frontscore + parseInt(document.getElementById("aaac4").innerText);
+frontscore = frontscore + parseInt(document.getElementById("aaac5").innerText);
+frontscore = frontscore + parseInt(document.getElementById("aaac6").innerText);
+frontscore = frontscore + parseInt(document.getElementById("aaac7").innerText);
+frontscore = frontscore + parseInt(document.getElementById("aaac8").innerText);
+frontscore = frontscore + parseInt(document.getElementById("aaac9").innerText);
+
+backscore = parseInt(document.getElementById("aaac10").innerText);
+backscore = backscore + parseInt(document.getElementById("aaac11").innerText);
+backscore = backscore + parseInt(document.getElementById("aaac12").innerText);
+backscore = backscore + parseInt(document.getElementById("aaac13").innerText);
+backscore = backscore + parseInt(document.getElementById("aaac14").innerText);
+backscore = backscore + parseInt(document.getElementById("aaac15").innerText);
+backscore = backscore + parseInt(document.getElementById("aaac16").innerText);
+backscore = backscore + parseInt(document.getElementById("aaac17").innerText);
+backscore = backscore + parseInt(document.getElementById("aaac18").innerText);
+
+document.getElementById("aaasout").innerText = frontscore  
+document.getElementById("aaasback").innerText = backscore  
+
+totalpoints = front + back
+totalscore = frontscore + backscore
+
+document.getElementById("aaatotalpoints").innerText = totalpoints  
+document.getElementById("aaatotalscore").innerText = totalscore  
+
 }
+
+
+
+
+
+
 
 
 function dropSelected(playerName) {
@@ -1007,11 +992,7 @@ function dropSelected(playerName) {
   // replace button name
   element = document.getElementById("dropbtn") 
   element.innerText =  player 
-  
-  
-  
-  
-  
+
   var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -1020,16 +1001,6 @@ function dropSelected(playerName) {
         openDropdown.classList.remove('show');
       }
     }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
 
 function dropSelectedCourse(courseName) {
@@ -1040,10 +1011,6 @@ function dropSelectedCourse(courseName) {
   element = document.getElementById("dropbtnCourse") 
   element.innerText =  course 
   
-  
-  
-  
-  
   var dropdowns = document.getElementsByClassName("dropdown-contentCourse");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -1053,20 +1020,10 @@ function dropSelectedCourse(courseName) {
       }
     }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
+// When the user clicks on the button, 
+// toggle between hiding and showing the dropdown content 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -1078,7 +1035,7 @@ function myFunctionCourse() {
 function submitForm() {
    // get the relevant info into a form
    alert("ok - 1")
-   var z=parseInt(document.getElementById('scoreaaa').innerText)
+   //var z=parseInt(document.getElementById('scoreaaa').innerText)
    alert("ok - 2")
    //-- name --
    document.getElementById("mx2003556451").value = player
@@ -1130,37 +1087,37 @@ function submitForm() {
    document.getElementById("mx1439728916").value = parseInt(document.getElementById("aaac18").innerText)
    
    //-- points1 --
-   document.getElementById("mx1349672152").value = parseInt(document.getElementById("points1").innerText)
+   document.getElementById("mx1349672152").value = parseInt(document.getElementById("aaap1").value)
    //-- points2 --
-   document.getElementById("mx1987316709").value = parseInt(document.getElementById("points2").innerText)
+   document.getElementById("mx1987316709").value = parseInt(document.getElementById("aaap2").value)
    //-- points3 --
-   document.getElementById("mx330630509").value = parseInt(document.getElementById("points3").innerText)
+   document.getElementById("mx330630509").value = parseInt(document.getElementById("aaap3").value)
    //-- points4 --
-   document.getElementById("mx508495395").value = parseInt(document.getElementById("points4").innerText)
+   document.getElementById("mx508495395").value = parseInt(document.getElementById("aaap4").value)
    //-- points5 --
-   document.getElementById("mx1157412790").value = parseInt(document.getElementById("points5").innerText)
+   document.getElementById("mx1157412790").value = parseInt(document.getElementById("aaap5").value)
    //-- points6 --
-   document.getElementById("mx1214646986").value = parseInt(document.getElementById("points6").innerText)
+   document.getElementById("mx1214646986").value = parseInt(document.getElementById("aaap6").value)
    //-- points7 --
-   document.getElementById("mx576264834").value = parseInt(document.getElementById("points7").innerText)
+   document.getElementById("mx576264834").value = parseInt(document.getElementById("aaap7").value)
    //-- points8 --
-   document.getElementById("mx518074596").value = parseInt(document.getElementById("points8").innerText)
+   document.getElementById("mx518074596").value = parseInt(document.getElementById("aaap8").value)
    //-- points9 --
-   document.getElementById("mx509590122").value = parseInt(document.getElementById("points9").innerText)
+   document.getElementById("mx509590122").value = parseInt(document.getElementById("aaap9").value)
    
    
  
 
    //-- points10 --
-   document.getElementById("mx1720114013").value = parseInt(document.getElementById("points10").innerText)
+   document.getElementById("mx1720114013").value = parseInt(document.getElementById("aaap10").value)
    //-- points11 --
-   document.getElementById("mx1743453161").value = parseInt(document.getElementById("points11").innerText)
+   document.getElementById("mx1743453161").value = parseInt(document.getElementById("aaap11").value)
    //-- points12 --
-   document.getElementById("mx288611329").value = parseInt(document.getElementById("points12").innerText)
+   document.getElementById("mx288611329").value = parseInt(document.getElementById("aaap12").value)
    //-- points13 --
-   document.getElementById("mx47669545").value = parseInt(document.getElementById("points13").innerText)
+   document.getElementById("mx47669545").value = parseInt(document.getElementById("aaap13").value)
    //-- points14 --
-   document.getElementById("mx33173073").value = parseInt(document.getElementById("points14").innerText)
+   document.getElementById("mx33173073").value = parseInt(document.getElementById("aaap14").value)
    
    
    
@@ -1169,131 +1126,43 @@ function submitForm() {
    
    
    //-- points15 --
-   document.getElementById("mx1280921007").value = parseInt(document.getElementById("points15").innerText)
+   document.getElementById("mx1280921007").value = parseInt(document.getElementById("aaap15").value)
    //-- points16 --
-   document.getElementById("mx1548940919").value = parseInt(document.getElementById("points16").innerText)
+   document.getElementById("mx1548940919").value = parseInt(document.getElementById("aaap16").value)
    //-- points17 --
-   document.getElementById("mx135100134").value = parseInt(document.getElementById("points17").innerText)
+   document.getElementById("mx135100134").value = parseInt(document.getElementById("aaap17").value)
    //-- points18 --
-   document.getElementById("mx1074696692").value = parseInt(document.getElementById("points18").innerText)
-   
-   
-   
-     
-      
-    
-      
-      
-   
-   
-   
-   
-   
-   
-   
-   
+   document.getElementById("mx1074696692").value = parseInt(document.getElementById("aaap18").value)
    
    
    // check data is complete 
    var checkBeforeSubmit=0
    var checkBeforeSubmitID=""
    //-- player --
-   if (document.getElementById("mx1433824128").value == "none") {
+   if (document.getElementById("mx2003556451").value == "none") {
 	   checkBeforeSubmit++
 	   checkBeforeSubmitID=checkBeforeSubmitID + "player" + "\n"
    }
    //-- hcp --
-   if (document.getElementById("mx1885789242").value == "") {
+   if (document.getElementById("mx1532454185").value == "") {
        checkBeforeSubmit++
 	   checkBeforeSubmitID=checkBeforeSubmitID + "hcp" + "\n"
    }
    //-- course --
-   if (document.getElementById("mx1119360478").value == "course") {
+   if (document.getElementById("mx428875568").value == "course") {
        checkBeforeSubmit++
 	   checkBeforeSubmitID=checkBeforeSubmitID + "course" + "\n"
    }
-   //-- points10 --
-   if (document.getElementById("mx910512739").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "points10" + "\n"
-   }
-   //-- points11 --
-   if (document.getElementById("mx1379318653").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "points11" + "\n"
-   }
-   //-- points12 --
-   if (document.getElementById("mx1263061594").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "points12" + "\n"
-   }
-   //-- points13 --
-   if (document.getElementById("mx1772100943").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "points13" + "\n"
-   }
-   //-- points14 --
-   if (document.getElementById("mx1226203700").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "points14" + "\n"
-   }
-   alert(document.getElementById("mx1800791630").value)
-   //-- points15 --
-   if (document.getElementById("mx1800791630").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "poihts15" + "\n"
-   }
-   alert(document.getElementById("mx1397230483").value)
-   //-- points16 --
-   if (document.getElementById("mx1397230483").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "points16" + "\n"
-   }
-   //-- points17 --
-   if (document.getElementById("mx1160102181").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "points17" + "\n"
-   }
-   //-- points18 --
-   if (document.getElementById("mx1942267356").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "points18" + "\n"
-   }
    
-   //-- scoretotal --
-   if (document.getElementById("mx83976721").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "scoretotal" + "\n"
-   }
    
-   //-- cback9 --
-   if (document.getElementById("mx1288168418").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "cback9" + "\n"
-   }
-   //-- cback6 --
-   if (document.getElementById("mx984726337").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "cback6" + "\n"
-   }
-   //-- cback3 --
-   if (document.getElementById("mx1307706252").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "cback3" + "\n"
-   }
-   //-- cback1 --
-   if (document.getElementById("mx717166862").value == "") {
-	   checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "cback1" + "\n"
-   }
-      
-      
-      
+   alert("==== " + checkBeforeSubmitID)
+   
+     
       
     
       
-      
-      
+    alert(  checkBeforeSubmit + checkBeforeSubmitID)
+    checkBeforeSubmit=0  
       
   // submit if all OK
   if (checkBeforeSubmit === 0) {
@@ -1350,21 +1219,45 @@ function submitForm() {
 } 
   
 function incrementTest(id) {
-	incPoints = document.getElementById(id).innerText;
-	if (incPoints === "9") {
-		incPoints = 8
+	var incScore = document.getElementById(id).innerText;
+	if (incScore === "9") {
+		incScore = 8
 	}
-    document.getElementById(id).innerText = ++incPoints;
+    document.getElementById(id).innerText = ++incScore;
+    
+    if (incScore !== 0) {
+		// pointsCalc(hcp,par,si,score)
+		var temppoints = pointsCalc(22,4,12,incScore)
+	} else {
+		var temppoints = 0
+	}
+    
+    // find equivalent points id
+	var pointsID = id.replace("c","p")
+    document.getElementById(pointsID).value = temppoints
+	
     calcCbs() 
 } 
   
   
 function decrementTest(id) {
-	incPoints = document.getElementById(id).innerText;
-	if (incPoints === "0") {
-		incPoints = 1
+	incScore = document.getElementById(id).innerText;
+	if (incScore === "0") {
+		incScore = 1
 	}
-    document.getElementById(id).innerText = --incPoints;
+    document.getElementById(id).innerText = --incScore;
+    
+    if (incScore !== 0) {
+		// pointsCalc(hcp,par,si,score)
+		var temppoints = pointsCalc(22,4,12,incScore)
+	} else {
+		var temppoints = 0
+	}
+    
+    // find equivalent points id
+	var pointsID = id.replace("c","p")
+    document.getElementById(pointsID).value = temppoints
+    
     calcCbs() 
 }  
   
@@ -1372,6 +1265,7 @@ function decrementTest(id) {
 function incrementScore(id) {
 	incPoints = document.getElementById(id).innerText;
     document.getElementById(id).innerText = ++incPoints;
+     
 } 
   
   
@@ -1382,6 +1276,41 @@ function decrementScore(id) {
 	}
     document.getElementById(id).innerText = --incPoints;
 }  
+
+
+
+function pointsCalc(hcp,par,si,score) {
+ 
+   // allowance   
+   if (hcp > si) {
+      allowance = 1 
+   } 
+   if (hcp > (18 + si)) {
+      allowance = 2 
+   } 
+   if (hcp > (36 + si)) {
+      allowance = 3 
+   }   
+
+   // points
+
+   var points =  (par + allowance + 2) - score
+   // remove negative numbers
+   if (points < 0) {
+      points = 0
+   }
+
+   return points
+   
+}
+
+
+
+
+
+
+
+
 
 </script>
 </body>
