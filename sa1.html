@@ -101,7 +101,7 @@
       100% {background:dodgerBlue;}
     }
     
-    .dropbtn {
+    .dropbtn, .dropbtnCourse {
       color: white;
       cursor: pointer;
       width: 100%; 
@@ -135,7 +135,7 @@
       height:100%;
     }
 
-    .dropdown-content {
+    .dropdown-content, .dropdown-contentCourse {
       display: none;
       position: absolute;
       background-color: #f1f1f1;
@@ -147,7 +147,7 @@
       box-shadow: 10px 10px 25px black;
     }
 
-    .dropdown-content a {
+    .dropdown-content a, .dropdown-contentCourse a {
       color: black;
       padding: 12px 16px;
       text-decoration: none;
@@ -273,7 +273,6 @@
         <caption></caption>
         <thead>
         <tr>
-            <th><br>select player<br><br></th>
             <th></th>
         </tr>
         </thead>
@@ -282,7 +281,7 @@
 
         <tr>
             <td colspan="3">
-                <button onclick="myFunction()" class="dropbtn" id="dropbtn">who</button>
+                <button onclick="myFunction()" class="dropbtn" id="dropbtn">select player</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
                     <a id="myLink2" href="#" onclick='dropSelected(this.innerText);return false;'>Dale Aitkenhead</a>
@@ -305,10 +304,7 @@
             </td>
         </tr>
 
-        <tr>
-            <th><br>todays course<br><br></th>
-            <th></th>
-        </tr>
+ <!--       
 
         <tr>
             <td colspan="3" class="xdropdown">
@@ -316,9 +312,23 @@
             </td>
         </tr>
 
-        <tr>
-            <th><br>score<br><br></th>
-            <th></th>
+        
+-->
+
+
+
+
+<tr>
+            <td colspan="3">
+                <button onclick="myFunctionCourse()" class="dropbtnCourse" id="dropbtnCourse">select course</button>
+                <div id="myDropdownCourse" class="dropdown-contentCourse">
+                    <a id="myLink1Course" href="#" onclick='dropSelectedCourse(this.innerText);return false;'>Longhirst Lakes</a>
+                    <a id="myLink2Course" href="#" onclick='dropSelectedCourse(this.innerText);return false;'>Longhirst Dawson</a>
+                    <a id="myLink3Course" href="#" onclick='dropSelectedCourse(this.innerText);return false;'>Bedlington</a>
+                    <a id="myLink4Course" href="#" onclick='dropSelected(this.innerText);return false;'>Whitley Bay</a>
+                </div>
+
+            </td>
         </tr>
 
 
@@ -329,6 +339,9 @@
 
 
 
+
+
+<!--
 
 		<tr> 
             <td class="aa" colspan="3">
@@ -342,7 +355,7 @@
 
 
 
-
+-->
 
 
 
@@ -823,7 +836,11 @@ if (dd.indexOf("Thursday") > -1) {
 
 
 // Close the dropdown if the user clicks outside of it
+/*
 window.onclick = function(event) {
+	alert("event")
+	alert(event.target)
+
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
@@ -834,8 +851,26 @@ window.onclick = function(event) {
       }
     }
   }
-}
+  
+  
+  if (!event.target.matches('.dropbtnCourse')) {
+    var dropdowns = document.getElementsByClassName("dropdown-contentCourse");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+  
 
+  
+  
+  
+  
+}
+ */
 
 // --- functions --- // 
 
@@ -973,8 +1008,62 @@ function dropSelected(playerName) {
   element = document.getElementById("dropbtn") 
   element.innerText =  player 
   
+  
+  
+  
+  
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
 
+function dropSelectedCourse(courseName) {
+    
+   course = courseName
+   
+  // replace button name
+  element = document.getElementById("dropbtnCourse") 
+  element.innerText =  course 
+  
+  
+  
+  
+  
+  var dropdowns = document.getElementsByClassName("dropdown-contentCourse");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
@@ -982,6 +1071,9 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
+function myFunctionCourse() {
+  document.getElementById("myDropdownCourse").classList.toggle("show");
+}
 
 function submitForm() {
    // get the relevant info into a form
