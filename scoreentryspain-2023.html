@@ -222,6 +222,8 @@
 	 float:left;
 	 }
 
+	
+
     </style>
     <meta content="score input" name="description">
     <meta content="Bryan M" name="author">
@@ -297,7 +299,11 @@
         </tr>
 
 
-		<tr>
+
+
+
+
+		<tr id="xx10">
             <td><input type="button" class="scorebuttonNC" value="10"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -309,7 +315,7 @@
         </tr>
 
 
-		<tr>
+		<tr id="xx11">
             <td><input type="button" class="scorebuttonNC" value="11"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -321,7 +327,7 @@
         </tr>
 
 
-		<tr>
+		<tr id="xx12">
             <td><input type="button" class="scorebuttonNC" value="12"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -334,7 +340,7 @@
 
 
 
-		<tr>
+		<tr id="xx13">
             <td><input type="button" class="scorebuttonNC" value="13"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -346,7 +352,7 @@
         </tr>
 
 
-		<tr>
+		<tr id="xx14">
             <td><input type="button" class="scorebuttonNC" value="14"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -358,7 +364,7 @@
         </tr>
 
 
-		<tr>
+		<tr id="xx15">
             <td><input type="button" class="scorebuttonNC" value="15"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -370,7 +376,7 @@
         </tr>
 
 
-		<tr>
+		<tr id="xx16">
             <td><input type="button" class="scorebuttonNC" value="16"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -382,7 +388,7 @@
         </tr>
 
 
-		<tr>
+		<tr id="xx17">
             <td><input type="button" class="scorebuttonNC" value="17"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -394,7 +400,7 @@
         </tr>
 
 
-		<tr>
+		<tr id="xx18">
             <td><input type="button" class="scorebuttonNC" value="18"/></td>
             <td class="aa">
 			<button type="button"  class="scorebutton">
@@ -406,9 +412,17 @@
         </tr>
 
 
+
+
+
+
+
+
+
+
         <tr>
             <td colspan="2" id="cbb">
-                <button id="countbackbutton">
+                <button id="countbackbutton" onclick="hideholes()">
                     <div id="countback">
 
                         <span><a id="cb9txt">countback 9 = </a><a id="cb9">0</a></span>
@@ -580,6 +594,21 @@ var playerList = [
 "Brian Simpson"];
 
 recoverTempData("recover")
+
+
+function hideholes() {
+for (j = 10; j <19; j++) {
+	var x = document.getElementById("xx" + j);
+	if (x.style.display === "none") {
+		x.style.display = "block";
+	} else {
+		x.style.display = "none";
+	}	
+}
+}
+
+
+
 
 
 function recoverTempData(what) {
@@ -843,11 +872,18 @@ function submitForm() {
 	
 	//===== submit data
 	document.forms[0].submit() 
-	
+
 	
 	// keep a record of completed entries
-    completedEntries = completedEntries + z + " " + player + "<br>"
-    document.getElementById("completed").innerHTML = completedEntries
+//   completedEntries = completedEntries + z + " " + player + "<br>"
+    //document.getElementById("completed").innerHTML = completedEntries
+    
+    
+   
+    //document.getElementById("completed").innerHTML = completedEntries
+    
+    
+    
     
     //increment array when player added
     playerDone.push(player)
