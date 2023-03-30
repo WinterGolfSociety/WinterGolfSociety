@@ -17,27 +17,46 @@
       background: dodgerBlue;
     }
       
+    .card1 th {
+	  height: 80px;
+	  width: 100vw; //520px;
+	  
+    }
+    
+    
     .card1 td {
 	  height: 80px;
-	  width: 220px;
+	  width: 100%; //520px;
 	  
     }
      
-    .card2 td {
+    .card2 th {
 	  height: 80px;
-	  width: 220px;
+	  width: 100vw; //520px;
 	  
     } 
      
+    .card2 td {
+	  height: 80px;
+	  width: 50%;
+	  
+    } 
+     
+    .card3 th {
+	  height: 80px;
+	  width: 100vw; //520px;
+	  
+    }
+     
     .card3 td {
 	  height: 80px;
-	  width: 220px;
+	  width: 50%;
 	  
     } 
      
       
     .left {
-      width: 440px; //100%;
+      width: 100%;
     }    
         
     .left th, .left td {
@@ -230,7 +249,7 @@
 	 float:left;
 	 }
 
-	#showfinal, #hidefinal, #showtoday, #hidetoday, #clearstorage {
+	#showfinal, #hidefinal, #showtoday, #hidetoday, #clearstorage, #xxxyyy {
       color: yellow;
       cursor: pointer;
       width: 100%; 
@@ -269,19 +288,19 @@
 <body>
 
 
-<div class="left">
+<div class="xxxleft">
     <table class="card1">
         <caption></caption>
         <thead>
         <tr>
-            <th colspan="2" ><br><br></th>
+            <th></th>
         </tr>
         </thead>
 
         <tbody>
 
         <tr>
-            <td colspan="2">
+            <td>
                 <button onclick="myFunction()" class="dropbtn" id="dropbtn">select player name</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
@@ -339,6 +358,7 @@
 
 <table class="card2"><tbody>
 
+		<th></th>
 
 
 		<tr id="xx10">
@@ -458,6 +478,7 @@
 
 
 <table class="card3"><tbody>
+	<th></th>
         <tr>
             <td colspan="2" id="cbb">
                 <button id="countbackbutton" onclick="hideholes()">
@@ -494,36 +515,36 @@
 
 
 
-<br><br>
+
 
 		<tr>
-            <td id="st">
+            <td>
                 <button id="showtoday" onClick="showToday()">show today</button>
             </td>
-            <td id="ht">
+            <td>
                 <button id="hidetoday" onClick="hideToday()">hide today</button>
             </td>
         </tr>
 
-<br><br>
+
 
 		<tr>
-            <td id="sf">
+            <td>
                 <button id="showfinal" onClick="showFinal()">show final</button>
             </td>
-            <td id="hf">
+            <td>
                 <button id="hidefinal" onClick="hideFinal()">hide final</button>
             </td>
         </tr>
 
-<br><br>
 
-<tr>
-            <td id="sc">
+
+		<tr>
+            <td>
                 <button id="clearstorage" onClick="clearStorage()">clear storage</button>
             </td>
-            <td id="zzz">
-                <button id="hidefinal"></button>
+            <td>
+                <button id="xxxyyy"></button>
             </td>
         </tr>
 
