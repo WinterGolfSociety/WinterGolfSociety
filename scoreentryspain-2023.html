@@ -354,7 +354,7 @@
 	</table>
 
 
-<table class="card2"><tbody>
+<table class="card2" id="table2"><tbody>
 
 		<th></th>
 
@@ -889,6 +889,7 @@ function showToday(){
 
 
 function hideholes() {
+	/*
 for (j = 10; j <19; j++) {
 	var x = document.getElementById("xx" + j);
 	if (x.style.display === "none") {
@@ -897,6 +898,17 @@ for (j = 10; j <19; j++) {
 		x.style.display = "none";
 	}	
 }
+
+*/
+
+
+var lTable = document.getElementById("table2");
+    lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
+
+
+
+
+
 }
 
 
