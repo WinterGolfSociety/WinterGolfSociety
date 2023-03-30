@@ -215,7 +215,7 @@
 	 float:left;
 	 }
 
-	#showfinal, #hidefinal, #showtoday, #hidetoday {
+	#showfinal, #hidefinal, #showtoday, #hidetoday, #clearstorage {
       color: yellow;
       cursor: pointer;
       width: 100%; 
@@ -484,7 +484,16 @@
             </td>
         </tr>
 
+<br><br>
 
+<tr>
+            <td id="sc">
+                <button id="clearstorage" onClick="clearStorage()">clear storage</button>
+            </td>
+            <td id="zzz">
+                <button id="hidefinal"></button>
+            </td>
+        </tr>
 
 
 
@@ -630,6 +639,11 @@ var playerList = [
 "Trevor Ord"];
 
 recoverTempData("recover")
+
+function clearStorage() {
+	localStorage.clear(); 
+}
+
 
 function hideFinal(){
 	// get the relevant info into a form
