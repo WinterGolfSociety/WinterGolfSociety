@@ -224,7 +224,19 @@
 	 float:left;
 	 }
 
-	
+	#showfinal, #hidefinal, #showtoday, #hidetoday {
+      color: yellow;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black; 
+      border: none;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
 
     </style>
     <meta content="score input" name="description">
@@ -258,6 +270,7 @@
                     <a id="myLink4" href="#" onclick='dropSelected(this.innerText);return false;'>Craig Caesar</a>
                     <a id="myLink5" href="#" onclick='dropSelected(this.innerText);return false;'>Trevor Charlton</a>
                     <a id="myLink6" href="#" onclick='dropSelected(this.innerText);return false;'>Neil Coxon</a>
+                    <a id="myLink16" href="#" onclick='dropSelected(this.innerText);return false;'>John Dean</a>
                     <a id="myLink7" href="#" onclick='dropSelected(this.innerText);return false;'>Paul Durance</a>
                     <a id="myLink8" href="#" onclick='dropSelected(this.innerText);return false;'>Richard Hedley</a>
                     <a id="myLink9" href="#" onclick='dropSelected(this.innerText);return false;'>Clive Herbert</a>
@@ -267,7 +280,7 @@
                     <a id="myLink13" href="#" onclick='dropSelected(this.innerText);return false;'>Bryan Maddison</a>
                     <a id="myLink14" href="#" onclick='dropSelected(this.innerText);return false;'>Bob Nicholas</a>
                     <a id="myLink15" href="#" onclick='dropSelected(this.innerText);return false;'>Trevor Ord</a>
-                    <a id="myLink16" href="#" onclick='dropSelected(this.innerText);return false;'>Brian Simpson</a>
+                    
                 </div>
 
             </td>
@@ -456,6 +469,36 @@
             </td>
         </tr>
 
+
+
+<br><br>
+
+		<tr>
+            <td id="st">
+                <button id="showtoday" onClick="showToday()">show today</button>
+            </td>
+            <td id="ht">
+                <button id="hidetoday" onClick="hideToday()">hide today</button>
+            </td>
+        </tr>
+
+<br><br>
+
+		<tr>
+            <td id="sf">
+                <button id="showfinal" onClick="showFinal()">show final</button>
+            </td>
+            <td id="hf">
+                <button id="hidefinal" onClick="hideFinal()">hide final</button>
+            </td>
+        </tr>
+
+
+
+
+
+
+
         <tbody>
     </table>
 
@@ -584,6 +627,7 @@ var playerList = [
 "Craig Caesar",
 "Trevor Charlton",
 "Neil Coxon",
+"John Dean",
 "Paul Durance",
 "Richard Hedley",
 "Clive Herbert",
@@ -592,10 +636,204 @@ var playerList = [
 "Jim Little",
 "Bryan Maddison",
 "Bob Nicholas",
-"Trevor Ord",
-"Brian Simpson"];
+"Trevor Ord"];
 
 recoverTempData("recover")
+
+function hideFinal(){
+	// get the relevant info into a form
+   
+   //-- player --
+   document.getElementById("mx1433824128").value = "hide final"
+   //-- course --
+   document.getElementById("mx1119360478").value = "0"
+   //-- hcp --
+   document.getElementById("mx1885789242").value = "0"
+   
+
+   //-- aaac10 --
+   document.getElementById("mx910512739").value = "0"
+   //-- aaac11 --
+   document.getElementById("mx1379318653").value = "0"
+   //-- aaac12 --
+   document.getElementById("mx1263061594").value = "0"
+   //-- aaac13 --
+   document.getElementById("mx1772100943").value = "0"
+   //-- aaac14 --
+   document.getElementById("mx1226203700").value = "0"
+   //-- aaac15 --
+   document.getElementById("mx1800791630").value = "0"
+   //-- aaac16 --
+   document.getElementById("mx1397230483").value = "0"
+   //-- aaac17 --
+   document.getElementById("mx1160102181").value = "0"
+   //-- aaac18 --
+   document.getElementById("mx1942267356").value = "0"
+   
+   //-- scoretotal --
+   document.getElementById("mx83976721").value = "0"
+    
+   //-- cback9 --
+   document.getElementById("mx1288168418").value = "0"
+   //-- cback6 --
+   document.getElementById("mx984726337").value = "0"
+   //-- cback3 --
+   document.getElementById("mx1307706252").value = "0"
+   //-- cback1 --
+   document.getElementById("mx717166862").value = "0"
+	
+   //===== submit data
+   document.forms[0].submit() 
+}
+
+
+function showFinal(){
+	// get the relevant info into a form
+   
+   //-- player --
+   document.getElementById("mx1433824128").value = "show final"
+   //-- course --
+   document.getElementById("mx1119360478").value = "0"
+   //-- hcp --
+   document.getElementById("mx1885789242").value = "0"
+   
+
+   //-- aaac10 --
+   document.getElementById("mx910512739").value = "0"
+   //-- aaac11 --
+   document.getElementById("mx1379318653").value = "0"
+   //-- aaac12 --
+   document.getElementById("mx1263061594").value = "0"
+   //-- aaac13 --
+   document.getElementById("mx1772100943").value = "0"
+   //-- aaac14 --
+   document.getElementById("mx1226203700").value = "0"
+   //-- aaac15 --
+   document.getElementById("mx1800791630").value = "0"
+   //-- aaac16 --
+   document.getElementById("mx1397230483").value = "0"
+   //-- aaac17 --
+   document.getElementById("mx1160102181").value = "0"
+   //-- aaac18 --
+   document.getElementById("mx1942267356").value = "0"
+   
+   //-- scoretotal --
+   document.getElementById("mx83976721").value = "0"
+    
+   //-- cback9 --
+   document.getElementById("mx1288168418").value = "0"
+   //-- cback6 --
+   document.getElementById("mx984726337").value = "0"
+   //-- cback3 --
+   document.getElementById("mx1307706252").value = "0"
+   //-- cback1 --
+   document.getElementById("mx717166862").value = "0"
+	
+   //===== submit data
+   document.forms[0].submit() 
+}
+
+
+function hideToday(){
+	// get the relevant info into a form
+
+   //-- player --
+   document.getElementById("mx1433824128").value = "hide today"
+   //-- course --
+   document.getElementById("mx1119360478").value = "0"
+   //-- hcp --
+   document.getElementById("mx1885789242").value = "0"
+   
+
+   //-- aaac10 --
+   document.getElementById("mx910512739").value = "0"
+   //-- aaac11 --
+   document.getElementById("mx1379318653").value = "0"
+   //-- aaac12 --
+   document.getElementById("mx1263061594").value = "0"
+   //-- aaac13 --
+   document.getElementById("mx1772100943").value = "0"
+   //-- aaac14 --
+   document.getElementById("mx1226203700").value = "0"
+   //-- aaac15 --
+   document.getElementById("mx1800791630").value = "0"
+   //-- aaac16 --
+   document.getElementById("mx1397230483").value = "0"
+   //-- aaac17 --
+   document.getElementById("mx1160102181").value = "0"
+   //-- aaac18 --
+   document.getElementById("mx1942267356").value = "0"
+   
+   //-- scoretotal --
+   document.getElementById("mx83976721").value = "0"
+    
+   //-- cback9 --
+   document.getElementById("mx1288168418").value = "0"
+   //-- cback6 --
+   document.getElementById("mx984726337").value = "0"
+   //-- cback3 --
+   document.getElementById("mx1307706252").value = "0"
+   //-- cback1 --
+   document.getElementById("mx717166862").value = "0"
+	
+   //===== submit data
+   document.forms[0].submit() 
+}
+
+
+function showToday(){
+	// get the relevant info into a form
+   
+   //-- player --
+   document.getElementById("mx1433824128").value = "show today"
+   //-- course --
+   document.getElementById("mx1119360478").value = "0"
+   //-- hcp --
+   document.getElementById("mx1885789242").value = "0"
+   
+
+   //-- aaac10 --
+   document.getElementById("mx910512739").value = "0"
+   //-- aaac11 --
+   document.getElementById("mx1379318653").value = "0"
+   //-- aaac12 --
+   document.getElementById("mx1263061594").value = "0"
+   //-- aaac13 --
+   document.getElementById("mx1772100943").value = "0"
+   //-- aaac14 --
+   document.getElementById("mx1226203700").value = "0"
+   //-- aaac15 --
+   document.getElementById("mx1800791630").value = "0"
+   //-- aaac16 --
+   document.getElementById("mx1397230483").value = "0"
+   //-- aaac17 --
+   document.getElementById("mx1160102181").value = "0"
+   //-- aaac18 --
+   document.getElementById("mx1942267356").value = "0"
+   
+   //-- scoretotal --
+   document.getElementById("mx83976721").value = "0"
+    
+   //-- cback9 --
+   document.getElementById("mx1288168418").value = "0"
+   //-- cback6 --
+   document.getElementById("mx984726337").value = "0"
+   //-- cback3 --
+   document.getElementById("mx1307706252").value = "0"
+   //-- cback1 --
+   document.getElementById("mx717166862").value = "0"
+	
+   //===== submit data
+   document.forms[0].submit() 
+}
+
+
+
+
+
+
+
+
 
 
 function hideholes() {
