@@ -222,6 +222,30 @@
       padding-right: 50px;
     }
     
+    #showresults, #showdetail {
+      color: yellow;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+      border: none; 
+    }
+
+th {
+	  height: 80px;
+	  width: 100vw; //520px;  
+    }
+    
+    
+td {
+	  height: 80px;
+	  width: 50%; //520px;
+    }
+
+
 
     </style>
     <meta content="score input" name="description">
@@ -275,17 +299,34 @@
 				<a class="aaa" id="aaartwo" onclick="incrementTwo('twoaaa')">+</a>
             </button>
    
-<br><br><br><br> 
+<br><br><br><br>
 <button type="button"  class="submitbutton">
 
 				<a class="aaa" id="submitaaa">submit</a>
 				
             </button>
-<br><br>
 
 
 
 
+
+<table class="card2" id="table2">
+	<tbody>
+		<th></th>
+		<tr>
+            <td>
+                <button id="showresults" onClick="showResults()">Results</button>
+            </td>
+            <td>
+                <button id="showdetail" onClick="showDetail()">Detail</button>
+            </td>
+        </tr>
+	</tbody>
+</table>        
+        
+        
+   <br><br>     
+        
 
 
 
