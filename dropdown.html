@@ -626,6 +626,8 @@ function incrementTwo(id) {
 	incTwos = document.getElementById(id).innerText;
 	if (incTwos == "two's") {
 			incTwos = 0
+			// enlarge text for numbers
+			document.getElementById("twoaaa").style.fontSize = "40px"
 	}
     document.getElementById(id).innerText = ++incTwos;
 } 
@@ -635,6 +637,8 @@ function decrementTwo(id) {
 	incTwos = document.getElementById(id).innerText;
 	if (incTwos == "two's") {
 			incTwos = 0
+			// enlarge text for numbers
+			document.getElementById("twoaaa").style.fontSize = "40px"
 	}
 	if (incTwos == 0) {
 		incTwos = 1
@@ -652,6 +656,8 @@ function incrementScore(id) {
 	incPoints = document.getElementById(id).innerText;
 	if (incPoints == "points") {
 			incPoints = 0
+			// enlarge text for numbers
+			document.getElementById("scoreaaa").style.fontSize = "40px"
 	}
     document.getElementById(id).innerText = ++incPoints;
 } 
@@ -661,6 +667,8 @@ function decrementScore(id) {
 	incPoints = document.getElementById(id).innerText;
 	if (incPoints == "points") {
 			incPoints = 0
+			// enlarge text for numbers
+			document.getElementById("scoreaaa").style.fontSize = "40px"
 	}
 	if (incPoints == 0) {
 		incPoints = 1
