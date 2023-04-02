@@ -413,7 +413,7 @@ function dropSelected(playerName) {
 		// increment number of times chosen
 		var tc=parseInt(options[pos][1]) + 1
 		options[pos][1]=tc
-		document.getElementById("list").innerText =  options
+		// document.getElementById("list").innerText =  options
 		// store new order
 		localStorage.dropdown = JSON.stringify(options);
    }  
@@ -423,7 +423,7 @@ function dropSelected(playerName) {
    // replace button name
    element = document.getElementById("dropbtn") 
    element.innerText =  player
-   document.getElementById("list").innerText =  options
+   // document.getElementById("list").innerText =  options
   
 	// close dropdown
 	var dropdowns = document.getElementsByClassName("dropdown-content");
