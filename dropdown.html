@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>score</title>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font: normal 20px Arial, sans-serif;
+      color: blue;
+      background: dodgerBlue;
+      
+    }
+      
+     #parallax {
+        background-image: url("golfer-clipart.png");
+        min-height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      } 
+           
+    .scorebutton {
+      color: white;   
+      width: 100%;
+      height:100%;
+      font-size: 40px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 10px 10px 25px black;
+    }
+    
+    @keyframes animate-color {
+      0% {background: dodgerBlue;}
+      50% {background:cyan;}
+      100% {background:dodgerBlue;}
+    }
+    
+    .dropbtn {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+      border: none; 
+      
+      
+      
+      
+      
+      
+      color: white;   
+      width: 100%;
+      height:100%;
+      font-size: 40px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 10px 10px 25px black;
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    }
+ 
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      width:90%;
+      height:100%;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .show {display: block;}     
+      
+    #submit {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 50px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black; 
+      border: none;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    
+
+	#submit:hover {
+      animate-color 0.5s forwards;
+      -webkit-animation: animate-color 0.5s forwards;
+    }
+  
+    #my-form, #my-response-iframe { 
+      display: none; 
+	} 
+            
+    .yellow {
+	  font-size: 20px;
+	  color: yellow; 	
+	}
+	
+	.cyan {
+	  font-size: 20px;
+	  color: cyan; 	
+	}
+	  
+  
+     #aaalscore, #aaaltwo {
+		color: #51a9ff;
+      cursor: pointer;
+      width: 40%; 
+      height:100%;
+      font-size: 40px;
+      background: dodgerBlue;
+      border-radius: 10px 0px 0px 10px; 
+      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+      padding: 14px 0; 
+      float:left;
+	 }
+
+	#aaarscore, #aaartwo {
+	  color: #51a9ff;
+      cursor: pointer;
+      width: 40%; 
+      height:100%;
+      font-size: 40px;
+      background: dodgerBlue;
+      border-radius: 0px 10px 10px 0px; 
+      padding: 14px 0;
+      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+      float:left;
+	 }
+     #scoreaaa, #twoaaa, #submitaaa {
+		color: white;
+      cursor: pointer;
+      width: 20%; 
+      font-size: 40px;
+      background: dodgerBlue;
+      padding: 14px 0;
+      float:left;
+	 }
+
+	#submitaaa {
+		color: white;
+      cursor: pointer;
+      width: 100%; 
+      font-size: 40px;
+      background: dodgerBlue;
+      padding: 14px 0;
+      text-align: cehter;
+      //float:left;
+	 }
+
+
+     .aa {
+	  color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;    
+	 }
+     
+     #aaalscore,#aaarscore,#scoreaaa, #twoaaa, #aaartwo, #aaaltwo {	 
+	 float:left;
+	 }
+
+	.submitbutton {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 50px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black; 
+      border: none;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    
+
+    </style>
+    <meta content="score input" name="description">
+    <meta content="Bryan M" name="author">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+</head>
+<body>
+
+
+<div id="parallax">
+
+
+<br><br>
+<div class="left">
+	<button onclick="myFunction()" class="dropbtn" id="dropbtn">player</button>
+	<div id="myDropdown" class="dropdown-content">
+<!--		<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+		 populated by script -->
+</div>
+
+
+
+
+<!--
+<div class="xxxleft">
+    <select id="selectNumber" onChange="rundrop()">
+    
+   
+</select>
+
+</div>   
+
+-->
+
+
+<br><br><br><br>
+
+<button type="button"  class="scorebutton">
+				<a class="aaa" id="aaalscore" onclick="decrementScore('scoreaaa')">-</a>
+				<a class="aaa" id="scoreaaa">points</a>
+				<a class="aaa" id="aaarscore" onclick="incrementScore('scoreaaa')">+</a>
+            </button>
+
+
+<br><br><br><br> 
+<button type="button"  class="scorebutton">
+				<a class="aaa" id="aaaltwo" onclick="decrementTwo('twoaaa')">-</a>
+				<a class="aaa" id="twoaaa">two's</a>
+				<a class="aaa" id="aaartwo" onclick="incrementTwo('twoaaa')">+</a>
+            </button>
+<br><br><br><br>      
+<br><br><br><br> 
+<button type="button"  class="submitbutton">
+
+				<a class="aaa" id="submitaaa">submit</a>
+				
+            </button>
+<br><br><br><br>  
+
+
+
+
+
+
+
+
+<div id="list"></div>
+<!-- parallax -->
+</div>
+
+
+<script>   
+/*
+//=======================================================
+// clear data	
+localStorage.clear(); 
+	
+// add new "blank" data	
+var options = [
+["alan",0],
+["bryan",0],
+["colin",0],
+["dave",0],
+["eric",0],
+["fred",0],
+["gary",0],
+["henry",0]];
+
+// save to local storage
+localStorage.dropdown = JSON.stringify(options);
+//=======================================================	
+*/
+	
+if ("dropdown" in localStorage) {
+		var options = JSON.parse(localStorage.dropdown);
+} else {
+		var options = [
+["alan",0],
+["bryan",0],
+["colin",0],
+["dave",0],
+["eric",0],
+["fred",0],
+["gary",0],
+["henry",0]];
+
+		localStorage.dropdown = JSON.stringify(options);
+}
+	
+options.sort(compareSecondColumn);
+/*
+// create dropdown
+var select = document.getElementById("selectNumber");
+
+for(var i = 0; i < options.length; i++) {
+    var opt = options[i][0];
+    var el = document.createElement("option");
+    el.textContent = opt +"text";
+    el.value = opt + "value";
+    select.appendChild(el);
+}
+	
+*/
+
+
+// create top dropdown
+var select = document.getElementById("myDropdown");
+
+/* 
+<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+*/
+
+
+
+for(var i = 0; i < options.length; i++) {
+    
+    var el = document.createElement("a");
+    el.id="myLink" + (i+1)
+    el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+    el.setAttribute("href","#");
+    el.innerText = options[i][0];
+    
+    //alert(el.innerText)
+    
+    select.appendChild(el);
+}
+
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function rundrop() {
+	var e = document.getElementById("selectNumber");
+	if (e.selectedIndex > 0) {
+		var value = e.options[e.selectedIndex].value;
+		var text = e.options[e.selectedIndex].text;
+		// increment number of times chosen
+		var tc=parseInt(options[e.selectedIndex][1]) + 1
+		options[e.selectedIndex][1]=tc
+		document.getElementById("list").innerText =  options
+		// store new order
+		localStorage.dropdown = JSON.stringify(options);
+	}
+}
+
+
+// sort function
+function compareSecondColumn(a, b) {
+    if (a[1] === b[1]) {
+        return 0;
+    }
+    else {
+        return (a[1] > b[1]) ? -1 : 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+recoverTempData("recover")
+
+function clearStorage() {
+	localStorage.clear(); 
+}
+
+
+
+function recoverTempData(what) {
+// allows the current state of progress to be carried across restarts	
+// save and restore progress by updating the global variables	
+// globals - as defined
+	
+if (what == "save") {
+
+	if (storedcourse == course || storedcourse == null){ 
+	
+		localStorage.course = course;
+		localStorage.playerDone = JSON.stringify(playerDone);
+		localStorage.playerComplete = JSON.stringify(playerComplete);
+		localStorage.completedEntries = JSON.stringify(completedEntries);
+		
+	}
+}
+
+
+if (what == "recover") {	
+	
+	var storedcourse = localStorage.course;
+	
+	if (storedcourse !== course){
+		// new course so clear local storage
+		localstorage.clear
+	}
+	
+	if (storedcourse == course){ 
+	
+		playerDone = JSON.parse(localStorage.playerDone);
+		playerComplete = JSON.parse(localStorage.playerComplete);
+		completedEntries = JSON.parse(localStorage.completedEntries);
+		
+		var array3 = playerList.filter(function(obj) { 
+			return playerDone.indexOf(obj) == -1; 
+		});
+
+		var not = "not yet recorded (" +  + array3.length + ")<br>" 
+	
+		for (i = 0; i < array3.length; i++) {
+			not = not + "<br>" + array3[i] 
+		}
+		document.getElementById("not").innerHTML = not 
+	
+		var dn=""
+		playerComplete.sort()
+		playerComplete.reverse()
+   
+		for (j = 0; j < playerComplete.length; j++) {
+			dn = dn + "<br>" + playerComplete[j] 
+		}
+		document.getElementById("completed").innerHTML = dn  
+		
+	}
+
+}
+
+}
+
+
+
+function dropSelected(playerName) {
+
+	// change color
+
+
+  for(var k = 0; k < options.length; k++){
+    if(options[k][0] == playerName){
+        found = true;
+        var pos = k
+    }
+  }
+  
+  // change background color
+  document.getElementById("myLink" + (pos + 1)).style.background =  "cyan"
+  
+  if (pos > 0) {
+		// increment number of times chosen
+		var tc=parseInt(options[pos][1]) + 1
+		//alert("tc = " + tc)
+		options[pos][1]=tc
+		document.getElementById("list").innerText =  options
+		// store new order
+		localStorage.dropdown = JSON.stringify(options);
+   }  
+    
+   player = playerName
+   //alert(playerName)
+  // replace button name
+  element = document.getElementById("dropbtn") 
+  element.innerText =  player
+  
+  document.getElementById("list").innerText =  options
+  
+  // close dropdown
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
+
+
+// When the user clicks on the button, toggle between hiding and showing the dropdown content
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+
+
+
+
+
+
+
+
+
+function incrementTwo(id) {
+	incTwos = document.getElementById(id).innerText;
+	if (incTwos == "two's") {
+			incTwos = 0
+	}
+    document.getElementById(id).innerText = ++incTwos;
+} 
+  
+  
+function decrementTwo(id) {
+	incTwos = document.getElementById(id).innerText;
+	if (incTwos == "two's") {
+			incTwos = 0
+	}
+	if (incTwos == 0) {
+		incTwos = 1
+	}
+    document.getElementById(id).innerText = --incTwos;
+} 
+
+
+
+
+
+
+
+function incrementScore(id) {
+	incPoints = document.getElementById(id).innerText;
+	if (incPoints == "points") {
+			incPoints = 0
+	}
+    document.getElementById(id).innerText = ++incPoints;
+} 
+  
+  
+function decrementScore(id) {
+	incPoints = document.getElementById(id).innerText;
+	if (incPoints == "points") {
+			incPoints = 0
+	}
+	if (incPoints == 0) {
+		incPoints = 1
+	}
+    document.getElementById(id).innerText = --incPoints;
+}  
+
+</script>
+</body>
+</html>    
+
+  
+      
+
