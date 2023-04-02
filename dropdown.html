@@ -245,7 +245,16 @@ td {
 	  width: 50%; //520px;
     }
 
+#xxxsubmitbutton:hover, #xxxsubmitaaa:hover {
+      animate-color 2.5s forwards;
+      -webkit-animation: animate-color 2.5s forwards;
+    }
 
+@keyframes animate-color {
+      0% {background: dodgerBlue;}
+      50% {background:cyan;}
+      100% {background:dodgerBlue;}
+    }
 
     </style>
     <meta content="score input" name="description">
@@ -282,7 +291,7 @@ populated by script
 		<a class="aaa" id="aaartwo" onclick="incrementTwo('twoaaa')">+</a>
 </button>  
 <br><br>
-<button type="button"  class="submitbutton">
+<button type="button"  class="submitbutton" id="submitbutton" onClick="submitForm()">
 		<a class="aaa" id="submitaaa">submit</a>
 </button>
 
@@ -486,6 +495,30 @@ function decrementScore(id) {
 	}
     document.getElementById(id).innerText = --incPoints;
 }  
+
+
+function submitForm() {
+// 
+document.getElementById("submitbutton").style.background = "cyan"	
+document.getElementById("submitaaa").style.background = "cyan"
+
+setTimeout(() => { document.getElementById("submitbutton").style.background = "dodgerBlue"	
+		           document.getElementById("submitaaa").style.background = "dodgerBlue"
+}, 2000);
+		
+}
+
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
+
+
+
+
+
+
+
 
 </script>
 </body>
