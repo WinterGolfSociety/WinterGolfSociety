@@ -264,51 +264,27 @@ td {
 <div class="left">
 	<button onclick="myFunction()" class="dropbtn" id="dropbtn">player</button>
 	<div id="myDropdown" class="dropdown-content">
-<!--		<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-		 populated by script -->
-</div>
-
-
-
-
 <!--
-<div class="xxxleft">
-    <select id="selectNumber" onChange="rundrop()">
-    
-   
-</select>
-
-</div>   
-
+<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+populated by script
 -->
-
-
-<br><br>
-
-<button type="button"  class="scorebutton">
-				<a class="aaa" id="aaalscore" onclick="decrementScore('scoreaaa')">-</a>
-				<a class="aaa" id="scoreaaa">points</a>
-				<a class="aaa" id="aaarscore" onclick="incrementScore('scoreaaa')">+</a>
-            </button>
-
-
+</div>
 <br><br>
 <button type="button"  class="scorebutton">
-				<a class="aaa" id="aaaltwo" onclick="decrementTwo('twoaaa')">-</a>
-				<a class="aaa" id="twoaaa">two's</a>
-				<a class="aaa" id="aaartwo" onclick="incrementTwo('twoaaa')">+</a>
-            </button>
-   
+		<a class="aaa" id="aaalscore" onclick="decrementScore('scoreaaa')">-</a>
+		<a class="aaa" id="scoreaaa">points</a>
+		<a class="aaa" id="aaarscore" onclick="incrementScore('scoreaaa')">+</a>
+</button>
+<br><br>
+<button type="button"  class="scorebutton">
+		<a class="aaa" id="aaaltwo" onclick="decrementTwo('twoaaa')">-</a>
+		<a class="aaa" id="twoaaa">two's</a>
+		<a class="aaa" id="aaartwo" onclick="incrementTwo('twoaaa')">+</a>
+</button>  
 <br><br>
 <button type="button"  class="submitbutton">
-
-				<a class="aaa" id="submitaaa">submit</a>
-				
-            </button>
-
-
-
-
+		<a class="aaa" id="submitaaa">submit</a>
+</button>
 
 <table class="card2" id="table2">
 	<tbody>
@@ -324,26 +300,17 @@ td {
 	</tbody>
 </table>        
         
+<br><br>     
         
-   <br><br>     
-        
-
-
-
-
 <div id="list"></div>
 <!-- parallax -->
 </div>
 
 
-<script>   
-/*
-//=======================================================
-// clear data	
-localStorage.clear(); 
-	
-// add new "blank" data	
-var options = [
+<script> 
+// master array of members
+
+var master = [
 ["alan",0],
 ["bryan",0],
 ["colin",0],
@@ -351,54 +318,46 @@ var options = [
 ["eric",0],
 ["fred",0],
 ["gary",0],
-["henry",0]];
+["henry",0],
+["zane",0],
+["xxxgary",0],
+["xxxhenry",0],
+["xxxzane",0],
+["xxxnew",0]
+];
 
-// save to local storage
-localStorage.dropdown = JSON.stringify(options);
-//=======================================================	
-*/
 	
 if ("dropdown" in localStorage) {
+		// retrieve dropdown info
 		var options = JSON.parse(localStorage.dropdown);
+		var ol = options.length
+		var ml = master.length
+		// update to add anything new - if required
+		if (ml !== ol) {
+			for (var m = 0; m < (ml - ol) ; m++) {
+				options.push([master[ml - 1 - m][0],master[ml - 1 - m][1]])
+			}
+			// update local storage
+			localStorage.dropdown = JSON.stringify(options);
+		}
+		
 } else {
-		var options = [
-["alan",0],
-["bryan",0],
-["colin",0],
-["dave",0],
-["eric",0],
-["fred",0],
-["gary",0],
-["henry",0]];
-
+		// create/recreate options array
+		var options = []
+		for (var i = 0; i < master.length; i++) {
+			options[i] = master[i].slice();
+		}
+		// update local storage
 		localStorage.dropdown = JSON.stringify(options);
 }
-	
+// bring most commonly selected to thevtop
 options.sort(compareSecondColumn);
-/*
-// create dropdown
-var select = document.getElementById("selectNumber");
 
-for(var i = 0; i < options.length; i++) {
-    var opt = options[i][0];
-    var el = document.createElement("option");
-    el.textContent = opt +"text";
-    el.value = opt + "value";
-    select.appendChild(el);
-}
-	
-*/
-
-
-// create top dropdown
+// create player dropdown
 var select = document.getElementById("myDropdown");
-
 /* 
 <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
 */
-
-
-
 for(var i = 0; i < options.length; i++) {
     
     var el = document.createElement("a");
@@ -407,11 +366,8 @@ for(var i = 0; i < options.length; i++) {
     el.setAttribute("href","#");
     el.innerText = options[i][0];
     
-    //alert(el.innerText)
-    
     select.appendChild(el);
 }
-
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
@@ -427,56 +383,6 @@ window.onclick = function(event) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function rundrop() {
-	var e = document.getElementById("selectNumber");
-	if (e.selectedIndex > 0) {
-		var value = e.options[e.selectedIndex].value;
-		var text = e.options[e.selectedIndex].text;
-		// increment number of times chosen
-		var tc=parseInt(options[e.selectedIndex][1]) + 1
-		options[e.selectedIndex][1]=tc
-		document.getElementById("list").innerText =  options
-		// store new order
-		localStorage.dropdown = JSON.stringify(options);
-	}
-}
-
-
 // sort function
 function compareSecondColumn(a, b) {
     if (a[1] === b[1]) {
@@ -487,102 +393,11 @@ function compareSecondColumn(a, b) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-recoverTempData("recover")
-
 function clearStorage() {
 	localStorage.clear(); 
 }
 
-
-
-function recoverTempData(what) {
-// allows the current state of progress to be carried across restarts	
-// save and restore progress by updating the global variables	
-// globals - as defined
-	
-if (what == "save") {
-
-	if (storedcourse == course || storedcourse == null){ 
-	
-		localStorage.course = course;
-		localStorage.playerDone = JSON.stringify(playerDone);
-		localStorage.playerComplete = JSON.stringify(playerComplete);
-		localStorage.completedEntries = JSON.stringify(completedEntries);
-		
-	}
-}
-
-
-if (what == "recover") {	
-	
-	var storedcourse = localStorage.course;
-	
-	if (storedcourse !== course){
-		// new course so clear local storage
-		localstorage.clear
-	}
-	
-	if (storedcourse == course){ 
-	
-		playerDone = JSON.parse(localStorage.playerDone);
-		playerComplete = JSON.parse(localStorage.playerComplete);
-		completedEntries = JSON.parse(localStorage.completedEntries);
-		
-		var array3 = playerList.filter(function(obj) { 
-			return playerDone.indexOf(obj) == -1; 
-		});
-
-		var not = "not yet recorded (" +  + array3.length + ")<br>" 
-	
-		for (i = 0; i < array3.length; i++) {
-			not = not + "<br>" + array3[i] 
-		}
-		document.getElementById("not").innerHTML = not 
-	
-		var dn=""
-		playerComplete.sort()
-		playerComplete.reverse()
-   
-		for (j = 0; j < playerComplete.length; j++) {
-			dn = dn + "<br>" + playerComplete[j] 
-		}
-		document.getElementById("completed").innerHTML = dn  
-		
-	}
-
-}
-
-}
-
-
-
 function dropSelected(playerName) {
-
-	// change color
-
 
   for(var k = 0; k < options.length; k++){
     if(options[k][0] == playerName){
@@ -591,7 +406,7 @@ function dropSelected(playerName) {
     }
   }
   
-  // change background color
+  // change background color on selection
   document.getElementById("myLink" + (pos + 1)).style.background =  "cyan"
   
   if (pos > 0) {
@@ -605,15 +420,14 @@ function dropSelected(playerName) {
    }  
     
    player = playerName
-   //alert(playerName)
-  // replace button name
-  element = document.getElementById("dropbtn") 
-  element.innerText =  player
+
+   // replace button name
+   element = document.getElementById("dropbtn") 
+   element.innerText =  player
+   document.getElementById("list").innerText =  options
   
-  document.getElementById("list").innerText =  options
-  
-  // close dropdown
-  var dropdowns = document.getElementsByClassName("dropdown-content");
+	// close dropdown
+	var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
@@ -621,47 +435,12 @@ function dropSelected(playerName) {
         openDropdown.classList.remove('show');
       }
     }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
-
-
-// When the user clicks on the button, toggle between hiding and showing the dropdown content
 
 function myFunction() {
+  // When the user clicks on the button, toggle between hiding and showing the dropdown content
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
-
-
-
-
-
-
-
-
-
 
 function incrementTwo(id) {
 	incTwos = document.getElementById(id).innerText;
@@ -672,7 +451,6 @@ function incrementTwo(id) {
 	}
     document.getElementById(id).innerText = ++incTwos;
 } 
-  
   
 function decrementTwo(id) {
 	incTwos = document.getElementById(id).innerText;
@@ -687,12 +465,6 @@ function decrementTwo(id) {
     document.getElementById(id).innerText = --incTwos;
 } 
 
-
-
-
-
-
-
 function incrementScore(id) {
 	incPoints = document.getElementById(id).innerText;
 	if (incPoints == "points") {
@@ -702,7 +474,6 @@ function incrementScore(id) {
 	}
     document.getElementById(id).innerText = ++incPoints;
 } 
-  
   
 function decrementScore(id) {
 	incPoints = document.getElementById(id).innerText;
