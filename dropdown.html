@@ -502,7 +502,8 @@ function submitForm() {
 document.getElementById("submitbutton").style.background = "cyan"	
 document.getElementById("submitaaa").style.background = "cyan"
 
-setTimeout(() => { document.getElementById("submitbutton").style.background = "dodgerBlue"	
+setTimeout(() => { beep();
+	document.getElementById("submitbutton").style.background = "dodgerBlue"	
 		           document.getElementById("submitaaa").style.background = "dodgerBlue"
 		           beep();
 }, 1000);
