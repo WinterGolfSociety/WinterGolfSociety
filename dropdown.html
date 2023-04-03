@@ -316,7 +316,71 @@ populated by script
 </div>
 
 
+
+
+
+
+
+
+
+
+!-- form to construct data prior to submit -->
+
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSeGoxUhCVNRyZ72TqXbuezSpoME6O9A0OIRiH71HVR9tBUIyQ/formResponse"
+      id="my-form" method="post" name="my-form" target="my-response-iframe">
+
+    <input id="mx773506804" name="entry.773506804" type="text" value="default">
+    <input id="mx423743653" name="entry.423743653" type="text" value="default">
+    <input id="mx583172758" name="entry.583172758" type="text" value="default">
+
+
+    <input type="submit">
+
+</form>
+
+<!-- google forms inserted here - invisible -->
+<iframe height="20" id="my-response-iframe" name="my-response-iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeGoxUhCVNRyZ72TqXbuezSpoME6O9A0OIRiH71HVR9tBUIyQ/viewform?embedded=true"
+        width="60"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script> 
+	
+	
+/*	
+pre-filled link
+	https://docs.google.com/forms/d/e/1FAIpQLSeGoxUhCVNRyZ72TqXbuezSpoME6O9A0OIRiH71HVR9tBUIyQ/viewform?usp=pp_url&entry.773506804=player&entry.423743653=points&entry.583172758=twos
+	
+*/	
+	
+var player2submit = "empty"
+var points2submit = "30"	
+var twos2submit	= "0"
+	
+	
+	
 // master array of members
 
 var master = [
@@ -430,7 +494,8 @@ function dropSelected(playerName) {
   
   // change background color on selection
   document.getElementById("myLink" + (pos + 1)).style.background =  "cyan"
-  
+  // update player choice
+  player2submit = document.getElementById("myLink" + (pos + 1)).innerText
   if (pos > 0) {
 		// increment number of times chosen
 		var tc=parseInt(options[pos][1]) + 1
@@ -445,6 +510,10 @@ function dropSelected(playerName) {
    // replace button name
    element = document.getElementById("dropbtn") 
    element.innerText =  player
+   // update player choice
+   player2submit = player
+   
+   
    // document.getElementById("list").innerText =  options
   
 	// close dropdown
@@ -514,6 +583,30 @@ function submitForm() {
 // 
 document.getElementById("submitbutton").style.background = "cyan"	
 document.getElementById("submitaaa").style.background = "cyan"
+
+// get the relevant info into a form
+   //-- player --
+   
+   //-- points --
+   document.getElementById("scoreaaa").innerText
+   //-- twos --
+   document.getElementById("twoaaa").innerText
+   
+   
+   
+   //-- player --
+   document.getElementById("mx773506804").value = player2submit
+   //-- points --
+   document.getElementById("mx423743653").value = points2submit
+   //-- twos --
+   document.getElementById("mx583172758").value = twos2submit
+
+
+
+//===== submit data
+   document.forms[0].submit() 
+
+
 
 setTimeout(() => { beep();
 	document.getElementById("submitbutton").style.background = "dodgerBlue"	
