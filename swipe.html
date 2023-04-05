@@ -26,7 +26,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     
    .swipeView {
   display: grid;
-  grid-template-columns: repeat(4, 100%);
+  grid-template-columns: repeat(22, 100%);
   will-change: transform;
   align-content: center;
   overflow-x: auto;
@@ -37,7 +37,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 }
 
 section {
-  height: 100vh;
+  height: 99vh;
   scroll-snap-align: start;
 }
 
@@ -159,15 +159,16 @@ color: white;
 
 <body>
 <div class="swipeView">
-	<section class="green">  
-	<table class="card">
-		<caption>sagolf society</caption>
-        <thead>
-			<tr>
-            <th></th>
-			</tr>
-        </thead>
-      <tbody>	
+	
+<section class="green">  
+<table class="card">
+<caption>sagolf society</caption>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>	
 			<tr>	
 				<td id="trid">
 					<button type="button"  class="buttonblue" id="dawson" onclick="dawson()">Dawson</button>
@@ -309,130 +310,84 @@ color: white;
       
 </table>  	
 	
-	<table class="card">
-        
-
-        <tbody>	
-			
-			<tr id="trid">	
-				<td>
-				<select name="pets" id="playerselect">
-				<option value="">--select players--</option>
-				<option value="DA">Dale</option>
-				<option value="SA">Stephen</option>
-				<option value="JD">John</option>
-				<option value="JF">Joe</option>
-				<option value="PH">Pete</option>
-				<option value="BM">Bryan</option>
-				<option value="BT">Bob</option>
-				</select>
-				</td>
+<table class="card">
+<tbody>	
+<tr id="trid">	
+<td>
+<select name="pets" id="playerselect">
+<option value="">--select players--</option>
+<option value="DA">Dale</option>
+<option value="SA">Stephen</option>
+<option value="JD">John</option>
+<option value="JF">Joe</option>
+<option value="PH">Pete</option>
+<option value="BM">Bryan</option>
+<option value="BT">Bob</option>
+</select>
+</td>
 			
 				
-            <td class="tdhcp">
-    
-			<button type="button"  class="buttonblueongreen">
-				<a class="aaa" id="aaal4" onclick="decrementTest('aaac4')">-</a>
-				<a class="aaa" id="aaac4">10</a>
-				<a class="aaa" id="aaar4" onclick="incrementTest('aaac4')">+</a>
-			</button>
+<td class="tdhcp">
+<button type="button"  class="buttonblueongreen">
+<a class="aaa" id="aaal4" onclick="decrementTest('aaac4')">-</a>
+<a class="aaa" id="aaac4">10</a>
+<a class="aaa" id="aaar4" onclick="incrementTest('aaac4')">+</a>
+</button>
       
-			</td>
+</td>
 			
-			<td>
-			<!--	
-			<button type="button"  class="buttonblue">
-				add
-			</button>
-			-->
-			</td>
-			
-		</tr>
-		
-		<tr>
-			<td>
-				<button type="button"  class="buttonblue" id="add" onclick="addclicked()">
-				create 4-ball
-				</button>
-			</td>
-			<td></td>
-			<td></td>
-		</tr>
-      
-</table>  	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<button type="button"  class="buttonblue" id="add" onclick="addclicked()">
+create 4-ball
+</button>
+</td>
+<td></td>
+<td></td>
+</tr>
+</table>  		
 </section>	
 	
 <section class="gray">	
-	
-	
-	
-	
-	
-	  
-	  
 <table class="card">
-        <caption></caption>
-        <thead>
-        <tr>
-            <th></th>
-        </tr>
-        </thead>
+<caption></caption>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
 
-        <tbody>
+<tbody>
 			
-		<tr id="trid">	
-			------
-		</tr>	
+<tr id="trid">	
+------
+</tr>	
 			
-		<tr id="trid">	
-			hole 1
-		</tr>	
+<tr id="trid">	
+hole 1
+</tr>	
 		
-		<tr id="trid">	
-			Lakes
-		</tr>
-		
-		
-		
+<tr id="trid">	
+Lakes
+</tr>
 			
-        <tr id="trid">
-            <td colspan="2">
-    
-			<button type="button"  class="buttonblueongray">
-				<a class="aaa" id="aaal1" onclick="decrementTest('aaac1')">-</a>
-				<a class="aaa" id="aaac1">0</a>
-				<a class="aaa" id="aaar1" onclick="incrementTest('aaac1')">+</a>
-			</button>
-      
-			</td>
-			<td>
-			Stephen<br>Alldridge
-			</td>
-			
-		</tr>
-      
+<tr id="trid">
+     <td colspan="2">
+		<button type="button"  class="buttonblueongray">
+			<a class="aaa" id="aaal1" onclick="decrementTest('aaac1')">-</a>
+			<a class="aaa" id="aaac1">0</a>
+			<a class="aaa" id="aaar1" onclick="incrementTest('aaac1')">+</a>
+		</button>
+	</td>
+	<td>
+	Stephen<br>Alldridge
+	</td>
+</tr>
 </table>      
-      
-      
-      
-  </section>
+</section>
   
   <section class="purple">
 	  <button class="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
