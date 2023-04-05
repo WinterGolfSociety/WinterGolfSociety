@@ -101,7 +101,10 @@ section {
       height:100%;
       //padding: 14px 0;
       float:left; 
-      padding: 16px 0;     
+      padding: 16px 0;  
+      
+      
+         
 	 }
 
 
@@ -133,6 +136,35 @@ color: white;
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       padding: 16px 10px; 
       float:left;
+      
+      
+      
+      
+      
+      
+      
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+      border: none; 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 }
 
 .buttonblue {
@@ -146,11 +178,78 @@ color: white;
       padding: 16px;
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       float:left;
+      
+      
+      
+      
+      
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+      border: none; 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 }
 
 .tdhcp {
 	width: 100px;
 }
+
+#holes {
+display: none;	
+}
+
+
+
+.dropbtn {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+      border: none;  
+    }
+
+
+.dropdown {
+      position: relative;
+      display: inline-block;
+      width:90%;
+      height:100%;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .show {display: block;}     
+      
 
 
 
@@ -160,7 +259,7 @@ color: white;
 <body>
 <div class="swipeView">
 	
-<section class="green">  
+<section class="green" id="setup">  
 <table class="card">
 <caption>sagolf society</caption>
 <thead>
@@ -314,6 +413,8 @@ color: white;
 <tbody>	
 <tr id="trid">	
 <td>
+	
+<!--	
 <select name="pets" id="playerselect">
 <option value="">--select players--</option>
 <option value="DA">Dale</option>
@@ -324,6 +425,38 @@ color: white;
 <option value="BM">Bryan</option>
 <option value="BT">Bob</option>
 </select>
+-->
+
+
+
+<button onclick="myFunction()" class="dropbtn" id="playerselect">select player</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+                    <a id="myLink2" href="#" onclick='dropSelected(this.innerText);return false;'>Dale Aitkenhead</a>
+                    <a id="myLink3" href="#" onclick='dropSelected(this.innerText);return false;'>Paul Burt</a>
+                    <a id="myLink4" href="#" onclick='dropSelected(this.innerText);return false;'>Craig Caesar</a>
+                    <a id="myLink5" href="#" onclick='dropSelected(this.innerText);return false;'>Trevor Charlton</a>
+                    <a id="myLink6" href="#" onclick='dropSelected(this.innerText);return false;'>Neil Coxon</a>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </td>
 			
 				
@@ -342,14 +475,24 @@ color: white;
 <tr>
 <td>
 <button type="button"  class="buttonblue" id="add" onclick="addclicked()">
-create 4-ball
+Start Round
 </button>
 </td>
-<td></td>
+<td>
+<br><br><br>
+
+<div id="fourball"</div>
+
+
+
+</td>
 <td></td>
 </tr>
 </table>  		
 </section>	
+	
+	
+<div id="holes">	
 	
 <section class="gray">	
 <table class="card">
@@ -548,10 +691,12 @@ Lakes
 	  <br><br>
 	  <button class="showthuhcps" onClick="showthuhcps()">end</button>
   </section>
-  
+</div>  
 </div>
 
 <script>
+var player="empty"	
+	
 const card = document.querySelector(".card");
 const theDeleteButton = document.querySelector(".delete_button");
 const MOVE_THRESHOLD = 100;
@@ -585,6 +730,38 @@ card.addEventListener("touchend", e => {
 
 
 
+//===================================
+// When the user clicks on the button, 
+// toggle between hiding and showing the dropdown content 
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+
+function dropSelected(playerName) {
+    
+   player = playerName
+   
+  // replace button name
+  element = document.getElementById("fourball") 
+  element.innerText =  player 
+
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+}
+
+
+
+
+
+
 
 
  
@@ -607,16 +784,22 @@ function decrementTest(id) {
  
 function addclicked() {
 	document.getElementById("add").style.background = "cyan";
+	
+	document.getElementById("setup").style.display = "none";
+	
+	document.getElementById("holes").style.display = "grid";
+	
+	
 }
 
 function dawson() {
 	document.getElementById("dawson").style.color = "white";
-	document.getElementById("lakes").style.color = "dodgerblue";
+	document.getElementById("lakes").style.color = "cornflowerBlue";
 }
 
 function lakes() {
 	document.getElementById("lakes").style.color = "white";
-	document.getElementById("dawson").style.color = "dodgerblue";
+	document.getElementById("dawson").style.color = "cornflowerBlue";
 }
 
 
