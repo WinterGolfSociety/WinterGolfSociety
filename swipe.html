@@ -152,6 +152,8 @@ color: white;
 	width: 100px;
 }
 
+
+
 </style>
 </head>
 
@@ -159,12 +161,31 @@ color: white;
 <div class="swipeView">
 	<section class="green">  
 	<table class="card">
-        <caption>sagolf</caption>
+		<caption>sagolf society</caption>
         <thead>
-        <tr>
-            <th>players</th>
-        </tr>
+			<tr>
+            <th></th>
+			</tr>
         </thead>
+      <tbody>	
+			<tr>	
+				<td id="trid">
+					<button type="button"  class="buttonblue" id="dawson" onclick="dawson()">Dawson</button>
+				</td>
+				<td id="trid">
+					<button type="button"  class="buttonblue" id= "lakes" onclick="lakes()">Lakes</button>
+				</td>
+			</tr>
+	</tbody>	
+	</table>		
+		
+		
+		
+		
+		
+		
+	<table class="card">
+        
 
         <tbody>	
 			
@@ -489,9 +510,15 @@ function addclicked() {
 	document.getElementById("add").style.background = "cyan";
 }
 
+function dawson() {
+	document.getElementById("dawson").style.color = "white";
+	document.getElementById("lakes").style.color = "dodgerblue";
+}
 
-
-
+function lakes() {
+	document.getElementById("lakes").style.color = "white";
+	document.getElementById("dawson").style.color = "dodgerblue";
+}
 
 
 
