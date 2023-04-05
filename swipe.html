@@ -6,8 +6,10 @@
 name="viewport"
 content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 <title>Swipe test</title>
-<link rel="stylesheet" href="./style.css" />
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css"/>
+<meta content="Bryan M" name="author">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
     
    .swipeView {
@@ -43,6 +45,63 @@ section {
 	  font-size: 30px;
 }
 
+
+
+
+
+#aaal,#aaal1,#aaal2,#aaal3,#aaal4,#aaal5,#aaal6,#aaal7,#aaal8,#aaal9,#aaal10,#aaal11,#aaal12,#aaal13,#aaal14,#aaal15,#aaal16,#aaal17,#aaal18,#aaalscore {
+		color: #51a9ff;
+      cursor: pointer;
+      width: 30%; 
+      height:100%;
+      font-size: 40px;
+      background: dodgerBlue;
+      border-radius: 10px 0px 0px 10px; 
+      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+      padding: 16px 0; 
+      float:left;
+	 }
+
+	#aaar,#aaar1,#aaar2,#aaar3,#aaar4,#aaar5,#aaar6,#aaar7,#aaar8,#aaar9,#aaar10,#aaar11,#aaar12,#aaar13,#aaar14,#aaar15,#aaar16,#aaar17,#aaar18,#aaarscore {
+	  color: #51a9ff;
+      cursor: pointer;
+      width: 30%; 
+      height:100%;
+      font-size: 40px;
+      background: dodgerBlue;
+      border-radius: 0px 10px 10px 0px; 
+      padding: 16px 0;
+      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+      float:left;
+	 }
+     #aaac,#aaac1,#aaac2,#aaac3,#aaac4,#aaac5,#aaac6,#aaac7,#aaac8,#aaac9,#aaac10,#aaac11,#aaac12,#aaac13,#aaac14,#aaac15,#aaac16,#aaac17,#aaac18,#scoreaaa {
+		color: white;
+      cursor: pointer;
+      width: 40%; 
+      font-size: 40px;
+      background: dodgerBlue;
+      height:100%;
+      //padding: 14px 0;
+      float:left; 
+      padding: 16px 0;     
+	 }
+
+
+
+#trid {
+	//width: 30%;
+}
+
+.scorebutton {
+	width: 30vw;
+	background: #ABE66F;
+	border: none;
+}
+
+
+
+
+
 </style>
 </head>
 
@@ -55,6 +114,34 @@ section {
 	  <button class="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
 	  <br><br>
 	  <button class="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
+	  <br><br>
+	  
+	  
+<table class="card">
+        <caption></caption>
+        <thead>
+        <tr>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr id="trid">
+            <td colspan="3">
+    
+			<button type="button"  class="scorebutton">
+				<a class="aaa" id="aaal1" onclick="decrementTest('aaac1')">-</a>
+				<a class="aaa" id="aaac1">0</a>
+				<a class="aaa" id="aaar1" onclick="incrementTest('aaac1')">+</a>
+			</button>
+      
+			</td>
+		</tr>
+      
+</table>      
+      
+      
+      
   </section>
   
   <section class="purple">
@@ -104,6 +191,71 @@ card.addEventListener("touchend", e => {
 
   moveX = 0;
 });
+
+
+
+
+
+
+
+ 
+function incrementTest(id) {
+	var incScore = document.getElementById(id).innerText;
+	if (incScore === "9") {
+		incScore = 8
+	}
+    document.getElementById(id).innerText = ++incScore;
+    
+    if (incScore !== 0) {
+		// pointsCalc(hcp,par,si,score)
+		var temppoints = pointsCalc(22,4,12,incScore)
+	} else {
+		var temppoints = 0
+	}
+    
+    // find equivalent points id
+	var pointsID = id.replace("c","p")
+    document.getElementById(pointsID).value = temppoints
+	
+} 
+  
+
+
+  
+function decrementTest(id) {
+	incScore = document.getElementById(id).innerText;
+	if (incScore === "0") {
+		incScore = 1
+	}
+    document.getElementById(id).innerText = --incScore;
+    
+    if (incScore !== 0) {
+		// pointsCalc(hcp,par,si,score)
+		var temppoints = pointsCalc(22,4,12,incScore)
+	} else {
+		var temppoints = 0
+	}
+    
+    // find equivalent points id
+	var pointsID = id.replace("c","p")
+    document.getElementById(pointsID).value = temppoints
+    
+}  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </body>
