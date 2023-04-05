@@ -17,6 +17,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=no"/>
       font: normal 20px Arial, sans-serif;
       color: blue;
       background: dodgerBlue;
+      height: 100%;
       
     }
     
@@ -52,6 +53,10 @@ section {
   background: #FD8F58;
 }
 
+.gray {
+	background: gray;
+}
+
 .showthuhcps {
 	  font-size: 30px;
 }
@@ -61,27 +66,29 @@ section {
 
 
 #aaal,#aaal1,#aaal2,#aaal3,#aaal4,#aaal5,#aaal6,#aaal7,#aaal8,#aaal9,#aaal10,#aaal11,#aaal12,#aaal13,#aaal14,#aaal15,#aaal16,#aaal17,#aaal18,#aaalscore {
-		color: #51a9ff;
+		color: white;
       cursor: pointer;
       width: 30%; 
       height:100%;
-      font-size: 40px;
+      font-size: 20px;
       background: dodgerBlue;
       border-radius: 10px 0px 0px 10px; 
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      padding: 16px 0; 
+      padding: 16px 0;
+      //padding-right: 2px; 
       float:left;
 	 }
 
 	#aaar,#aaar1,#aaar2,#aaar3,#aaar4,#aaar5,#aaar6,#aaar7,#aaar8,#aaar9,#aaar10,#aaar11,#aaar12,#aaar13,#aaar14,#aaar15,#aaar16,#aaar17,#aaar18,#aaarscore {
-	  color: #51a9ff;
+	  color: white;
       cursor: pointer;
       width: 30%; 
       height:100%;
-      font-size: 40px;
+      font-size: 20px;
       background: dodgerBlue;
       border-radius: 0px 10px 10px 0px; 
       padding: 16px 0;
+      //padding-left: 2px;
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       float:left;
 	 }
@@ -89,7 +96,7 @@ section {
 		color: white;
       cursor: pointer;
       width: 40%; 
-      font-size: 40px;
+      font-size: 20px;
       background: dodgerBlue;
       height:100%;
       //padding: 14px 0;
@@ -103,29 +110,248 @@ section {
 	//width: 30%;
 }
 
-.scorebutton {
-	width: 50vw;
+.buttonblueongreen {
+	width: 100%; //50vw;
 	background: #ABE66F;
 	border: none;
 }
 
+.buttonblueongray {
+	width: 100%; //50vw;
+	background: gray;
+	border: none;
+}
 
+#playerselect {
+color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px 10px 10px 10px; 
+      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+      padding: 16px; 
+      float:left;
+}
 
+.buttonblue {
+	color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px 10px 10px 10px; 
+      padding: 16px;
+      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+      float:left;
+}
 
+.tdhcp {
+	width: 100px;
+}
 
 </style>
 </head>
 
 <body>
 <div class="swipeView">
+	<section class="green">  
+	<table class="card">
+        <caption>sagolf</caption>
+        <thead>
+        <tr>
+            <th>players</th>
+        </tr>
+        </thead>
+
+        <tbody>	
+			
+			<tr id="trid">	
+				<td>
+				<select name="pets" id="playerselect">
+				<option value="">--select players--</option>
+				<option value="DA">Dale</option>
+				<option value="SA">Stephen</option>
+				<option value="JD">John</option>
+				<option value="JF">Joe</option>
+				<option value="PH">Pete</option>
+				<option value="BM">Bryan</option>
+				<option value="BT">Bob</option>
+				</select>
+				</td>
+			
+				
+            <td class="tdhcp">
+    
+			<button type="button"  class="buttonblueongreen">
+				<a class="aaa" id="aaal1" onclick="decrementTest('aaac1')">-</a>
+				<a class="aaa" id="aaac1">10</a>
+				<a class="aaa" id="aaar1" onclick="incrementTest('aaac1')">+</a>
+			</button>
+      
+			</td>
+			
+			<td>
+			<!--	
+			<button type="button"  class="buttonblue">
+				add
+			</button>
+			-->
+			</td>
+			
+		</tr>
+      
+</table>  	
 	
-  <section class="green">  
-	  <button class="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
-	  <br><br>
-	  <button class="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
-	  <br><br>
-	  <button class="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
-	  <br><br>
+	<table class="card">
+        
+        <tbody>	
+			
+			<tr id="trid">	
+				<td>
+				<select name="pets" id="playerselect">
+				<option value="">--select players--</option>
+				<option value="DA">Dale</option>
+				<option value="SA">Stephen</option>
+				<option value="JD">John</option>
+				<option value="JF">Joe</option>
+				<option value="PH">Pete</option>
+				<option value="BM">Bryan</option>
+				<option value="BT">Bob</option>
+				</select>
+				</td>
+			
+				
+            <td class="tdhcp">
+    
+			<button type="button"  class="buttonblueongreen">
+				<a class="aaa" id="aaal2" onclick="decrementTest('aaac2')">-</a>
+				<a class="aaa" id="aaac2">10</a>
+				<a class="aaa" id="aaar2" onclick="incrementTest('aaac2')">+</a>
+			</button>
+      
+			</td>
+			
+			<td>
+			<!--	
+			<button type="button"  class="buttonblue">
+				add
+			</button>
+			-->
+			</td>
+			
+		</tr>
+      
+</table>  	
+	
+	<table class="card">
+        
+
+        <tbody>	
+			
+			<tr id="trid">	
+				<td>
+				<select name="pets" id="playerselect">
+				<option value="">--select players--</option>
+				<option value="DA">Dale</option>
+				<option value="SA">Stephen</option>
+				<option value="JD">John</option>
+				<option value="JF">Joe</option>
+				<option value="PH">Pete</option>
+				<option value="BM">Bryan</option>
+				<option value="BT">Bob</option>
+				</select>
+				</td>
+			
+				
+            <td class="tdhcp">
+    
+			<button type="button"  class="buttonblueongreen">
+				<a class="aaa" id="aaal3" onclick="decrementTest('aaac3')">-</a>
+				<a class="aaa" id="aaac3">10</a>
+				<a class="aaa" id="aaar3" onclick="incrementTest('aaac3')">+</a>
+			</button>
+      
+			</td>
+			
+			<td>
+			<!--	
+			<button type="button"  class="buttonblue">
+				add
+			</button>
+			-->
+			</td>
+			
+		</tr>
+      
+</table>  	
+	
+	<table class="card">
+        
+
+        <tbody>	
+			
+			<tr id="trid">	
+				<td>
+				<select name="pets" id="playerselect">
+				<option value="">--select players--</option>
+				<option value="DA">Dale</option>
+				<option value="SA">Stephen</option>
+				<option value="JD">John</option>
+				<option value="JF">Joe</option>
+				<option value="PH">Pete</option>
+				<option value="BM">Bryan</option>
+				<option value="BT">Bob</option>
+				</select>
+				</td>
+			
+				
+            <td class="tdhcp">
+    
+			<button type="button"  class="buttonblueongreen">
+				<a class="aaa" id="aaal4" onclick="decrementTest('aaac4')">-</a>
+				<a class="aaa" id="aaac4">10</a>
+				<a class="aaa" id="aaar4" onclick="incrementTest('aaac4')">+</a>
+			</button>
+      
+			</td>
+			
+			<td>
+			<button type="button"  class="buttonblue" id="add" onclick="addclicked()">
+				add
+			</button>
+			</td>
+			
+		</tr>
+      
+</table>  	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</section>	
+	
+<section class="gray">	
+	
+	
+	
+	
+	
 	  
 	  
 <table class="card">
@@ -137,10 +363,26 @@ section {
         </thead>
 
         <tbody>
+			
+		<tr id="trid">	
+			------
+		</tr>	
+			
+		<tr id="trid">	
+			hole 1
+		</tr>	
+		
+		<tr id="trid">	
+			Lakes
+		</tr>
+		
+		
+		
+			
         <tr id="trid">
             <td colspan="2">
     
-			<button type="button"  class="scorebutton">
+			<button type="button"  class="buttonblueongray">
 				<a class="aaa" id="aaal1" onclick="decrementTest('aaac1')">-</a>
 				<a class="aaa" id="aaac1">0</a>
 				<a class="aaa" id="aaar1" onclick="incrementTest('aaac1')">+</a>
@@ -216,22 +458,9 @@ card.addEventListener("touchend", e => {
  
 function incrementTest(id) {
 	var incScore = document.getElementById(id).innerText;
-	if (incScore === "9") {
-		incScore = 8
-	}
-    document.getElementById(id).innerText = ++incScore;
-    
-    if (incScore !== 0) {
-		// pointsCalc(hcp,par,si,score)
-		var temppoints = pointsCalc(22,4,12,incScore)
-	} else {
-		var temppoints = 0
-	}
-    
-    // find equivalent points id
-	var pointsID = id.replace("c","p")
-    document.getElementById(pointsID).value = temppoints
 	
+    document.getElementById(id).innerText = ++incScore;
+    	
 } 
   
 
@@ -239,25 +468,14 @@ function incrementTest(id) {
   
 function decrementTest(id) {
 	incScore = document.getElementById(id).innerText;
-	if (incScore === "0") {
-		incScore = 1
-	}
+	
     document.getElementById(id).innerText = --incScore;
-    
-    if (incScore !== 0) {
-		// pointsCalc(hcp,par,si,score)
-		var temppoints = pointsCalc(22,4,12,incScore)
-	} else {
-		var temppoints = 0
-	}
-    
-    // find equivalent points id
-	var pointsID = id.replace("c","p")
-    document.getElementById(pointsID).value = temppoints
-    
+ 
 }  
  
-
+function addclicked() {
+	document.getElementById("add").style.background = "cyan";
+}
 
 
 
