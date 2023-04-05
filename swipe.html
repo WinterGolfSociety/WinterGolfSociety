@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-
-    <title>Swipe Open Controls</title>
-
-    <link rel="stylesheet" href="./style.css" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css"
-    />
-    <style>
+<head>
+<meta charset="UTF-8" />
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<title>Swipe test</title>
+<link rel="stylesheet" href="./style.css" />
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css"/>
+<style>
     
    .swipeView {
   display: grid;
@@ -46,50 +39,55 @@ section {
   background: #FD8F58;
 }
 
+</style>
+</head>
 
-
-    </style>
-  </head>
-  <body>
- 
-
+<body>
 <div class="swipeView">
-  <section class="green">
-    
+	
+  <section class="green">  
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
+	  <br><br>
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
+	  <br><br>
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
   </section>
+  
   <section class="purple">
-   
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
+	  <br><br>
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
+	  <br><br>
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
   </section>
+  
   <section class="orange">
-     
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
+	  <br><br>
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
+	  <br><br>
+	  <button id="showthuhcps" onClick="showthuhcps()">show thu hcps</button>
   </section>
+  
 </div>
 
-
-
-    <script>
-    const card = document.querySelector(".card");
+<script>
+const card = document.querySelector(".card");
 const theDeleteButton = document.querySelector(".delete_button");
-
 const MOVE_THRESHOLD = 100;
 
 let initialX = 0;
 let moveX = 0;
 let isDeleteButtonOpen = false;
 
-
-
-
 card.addEventListener("touchstart", e => {
     initialX = e.touches[0].pageX;
 });
-
 
 card.addEventListener("touchmove", e => {
   let currentX = e.touches[0].pageX;
   moveX = currentX - initialX;
 });
-
 
 card.addEventListener("touchend", e => {
   if (moveX < MOVE_THRESHOLD * Math.sign(moveX) && !isDeleteButtonOpen) {
@@ -103,8 +101,7 @@ card.addEventListener("touchend", e => {
   moveX = 0;
 });
 
-    
-    
-    </script>
-  </body>
+</script>
+</body>
 </html>
+
