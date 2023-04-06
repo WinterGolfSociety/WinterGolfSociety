@@ -40,54 +40,148 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-
-
-
-
-.xxxcontainer {
-  min-width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .card {
 	width: 100vw;
 	height:100vh;
-	
-	
-  //width: 80%;
-  /* border: 2px solid black; */
   display: flex;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   background-color: aliceblue;
 }
 
-.todo_essentials {
-  padding: 10px 20px;
+
+.buttonblue {
+	color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      //border-radius: 10px 10px 10px 10px; 
+      //padding: 10px 0px;
+      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+      float:left;
+      //border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+      border: none;
+      padding-left: 10px; 
 }
 
-.xxxdelete_button {
-  margin-left: auto;
-  display: block;
-  height: match-parent;
-  padding: 5px 20px;
-  background-color: #da0d25;
-  color: white;
-  outline: none;
-  border: none;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  font-size: 1.3rem;
-  cursor: pointer;
+.tdleft {
+	width: 200px;
 }
 
-.delete_button:hover,
-.delete_button:focus {
-  background-color: #9c0315;
+.tdright {
+	width: 150px;
+	
 }
+
+
+
+.dropbtn {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+      border: none;  
+    }
+
+
+.dropdown {
+      position: relative;
+      display: inline-block;
+      width:90%;
+      height:100%;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 10px;
+      box-shadow: 10px 10px 25px black;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .show {display: block;}     
+      
+.tdhcp {
+	width: 100px;
+}
+
+
+.stdtr {
+	height: 60px;
+}
+
+.leftnum {
+	//height: 60px;
+	//width: 60px;
+	padding: 10px;
+	//padding-top: 20px;
+}
+
+.rightnum {
+	//height: 100%;
+	//width: 60px;
+	padding: 10px;
+}
+
+.midnum {
+	//height: 100%;
+	width: 60px;
+	padding: 40px 10px;
+}
+
+.midnum1 {
+	//height: 100%;
+	width: 60px;
+	padding: 40px 10px;
+}
+
+
+
+.tdleft {
+	height: 60px;
+	//width: 60px;
+
+}
+
+.tdright {
+	height: 60px;
+
+}
+
+.spacer {
+	height: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (min-width: 600px) {
   .container {
@@ -107,71 +201,163 @@ body {
 </head>
 
 <body>
-    <div class="container">
-      <div class="card">
-        <h3 class="todo_essentials">
-          Todo 001
-        </h3>
-        <!--
-        <button class="delete_button">
-          <span class="mdi mdi-trash-can-outline"></span>
-        </button>
-        -->
+<div class="container">
+	<div class="card" id="setup">
+    <br>scoring ...
+        
+     
+<table>
+<caption>sagolf society</caption>
+<thead>
+<tr class="spacer"><th></th></tr>
+</thead>
+
+<tbody>	
+	<tr class="stdtr">	
+		<td class="tdleft">
+		<button type="button"  class="buttonblue" id="dawson" onclick="dawson()">Dawson</button>
+		</td>
+		<td class="tdright">
+		<button type="button"  class="buttonblue" id= "lakes" onclick="lakes()">Lakes</button>
+		</td>
+	</tr>
+	
+	<tr class="spacer"></tr>
+	
+	<tr class="stdtr">	
+		
+		<td class="tdleft">
+		<select name="pets" class="buttonblue" id="playerselect1">
+		<option value="">--select players--</option>
+		<option value="DA">Dale</option>
+		<option value="SA">Stephen</option>
+		<option value="JD">John</option>
+		<option value="JF">Joe</option>
+		<option value="PH">Pete</option>
+		<option value="BM">Bryan</option>
+		<option value="BT">Bob</option>
+		</select>
+		</td>
+			
+	    <td class="tdright">
+			<button type="button"  class="buttonblue">
+			<a class="leftnum" id="aaal1" onclick="decrementTest('aaac1')">-</a>
+			<a class="midnum" id="aaac1">10</a>
+			<a class="rightnum" id="aaar1" onclick="incrementTest('aaac1')">+</a>
+			</button>
+		</td>
+			
+	</tr>
+		
+	<tr class="stdtr">	
+			<td class="tdleft">
+			<select name="pets" class="buttonblue" id="playerselect2">
+			<option value="">--select players--</option>
+			<option value="DA">Dale</option>
+			<option value="SA">Stephen</option>
+			<option value="JD">John</option>
+			<option value="JF">Joe</option>
+			<option value="PH">Pete</option>
+			<option value="BM">Bryan</option>
+			<option value="BT">Bob</option>
+			</select>
+			</td>
+				
+            <td class="tdright">
+    			<button type="button"  class="buttonblue">
+				<a class="leftnum" id="aaal2" onclick="decrementTest('aaac2')">-</a>
+				<a class="midnum" id="aaac2">10</a>
+				<a class="rightnum" id="aaar2" onclick="incrementTest('aaac2')">+</a>
+				</button>
+			</td>
+			
+		</tr>
+		
+		<tr class="stdtr">	
+			<td class="tdleft">
+			<select name="pets" class="buttonblue" id="playerselect3">
+			<option value="">--select players--</option>
+			<option value="DA">Dale</option>
+			<option value="SA">Stephen</option>
+			<option value="JD">John</option>
+			<option value="JF">Joe</option>
+			<option value="PH">Pete</option>
+			<option value="BM">Bryan</option>
+			<option value="BT">Bob</option>
+			</select>
+			</td>
+				
+            <td class="tdright">
+    			<button type="button"  class="buttonblue">
+				<a class="leftnum" id="aaal3" onclick="decrementTest('aaac3')">-</a>
+				<a class="midnum" id="aaac3">10</a>
+				<a class="rightnum" id="aaar3" onclick="incrementTest('aaac3')">+</a>
+				</button>
+			</td>
+			
+		</tr>
+		
+		<tr class="stdtr">	
+			<td class="tdleft">
+			<select name="pets" class="buttonblue" id="playerselect4">
+			<option value="">--select players--</option>
+			<option value="DA">Dale</option>
+			<option value="SA">Stephen</option>
+			<option value="JD">John</option>
+			<option value="JF">Joe</option>
+			<option value="PH">Pete</option>
+			<option value="BM">Bryan</option>
+			<option value="BT">Bob</option>
+			</select>
+			</td>
+				
+            <td class="tdright">
+    			<button type="button"  class="buttonblue">
+				<a class="leftnum" id="aaal4" onclick="decrementTest('aaac4')">-</a>
+				<a class="midnum" id="aaac4">10</a>
+				<a class="rightnum" id="aaar4" onclick="incrementTest('aaac4')">+</a>
+				</button>
+			</td>
+			
+		</tr>
+		
+		
+		
+		
+		
+		<tr class="spacer"></tr>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+</tbody>      
+</table>          
+         
+        
+        
+          
+        
+        
+        
       </div>
       
+      <div class="card" id="hole1">
+        Todo hole 1
+        </div>
       
-      <div class="card">
-        <h3 class="todo_essentials">
-          Todo 002
-        </h3>
-        <!--
-        <button class="delete_button">
-          <span class="mdi mdi-trash-can-outline"></span>
-        </button>
-        -->
-      </div>
+      <div class="card" id="hole2">
+        Todo hole 2
+        </div>
       
       
-      
-      <div class="card">
-        <h3 class="todo_essentials">
-          Todo 003
-        </h3>
-        <!--
-        <button class="delete_button">
-          <span class="mdi mdi-trash-can-outline"></span>
-        </button>
-        -->
-      </div>
-      
-      <div class="card">
-        <h3 class="todo_essentials">
-          Todo 004
-        </h3>
-        <!--
-        <button class="delete_button">
-          <span class="mdi mdi-trash-can-outline"></span>
-        </button>
-        -->
-      </div>
-      
-      <div class="card">
-        <h3 class="todo_essentials">
-          Todo 005
-        </h3>
-        <!--
-        <button class="delete_button">
-          <span class="mdi mdi-trash-can-outline"></span>
-        </button>
-        -->
-      </div>
-      
-      
-      
-      
-      
-      
-      
+      <div class="card" id="hole3">
+        Todo hole 3
+        </div>
       
       
       
@@ -217,6 +403,41 @@ card.addEventListener("touchend", e => {
 });
 
 */
+
+
+ 
+function incrementTest(id) {
+	var incScore = document.getElementById(id).innerText;
+	
+    document.getElementById(id).innerText = ++incScore;
+    	
+} 
+  
+
+
+  
+function decrementTest(id) {
+	incScore = document.getElementById(id).innerText;
+	
+    document.getElementById(id).innerText = --incScore;
+ 
+}  
+
+
+function dawson() {
+	document.getElementById("dawson").style.color = "white";
+	document.getElementById("lakes").style.color = "cornflowerBlue";
+}
+
+function lakes() {
+	document.getElementById("lakes").style.color = "white";
+	document.getElementById("dawson").style.color = "cornflowerBlue";
+}
+
+
+
+
+
 
 </script>
 </body>
