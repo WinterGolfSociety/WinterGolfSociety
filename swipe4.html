@@ -23,7 +23,23 @@ body {
   background-color: #e9e9e9;
 }
 
-.container {
+   .container {
+  display: grid;
+  grid-template-columns: repeat(22, 100%);
+  will-change: transform;
+  align-content: center;
+  overflow-x: auto;
+  scroll-snap-coordinate: 0 0;
+  scroll-snap-points-x: repeat(100%);
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+
+
+.xxxcontainer {
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -32,7 +48,11 @@ body {
 }
 
 .card {
-  width: 80%;
+	width: 100vw;
+	height:100vh;
+	
+	
+  //width: 80%;
   /* border: 2px solid black; */
   display: flex;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
@@ -93,11 +113,12 @@ body {
       </div>
     </div>
 
-    <script src="./app.js"></script>
+    
   </body>
 
 
 <script>
+
 
 const card = document.querySelector(".card");
 const theDeleteButton = document.querySelector(".delete_button");
@@ -127,6 +148,8 @@ card.addEventListener("touchend", e => {
     isDeleteButtonOpen = false;
   }
 });
+
+
 </script>
 </body>
 </html>
