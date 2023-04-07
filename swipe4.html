@@ -404,7 +404,6 @@ function decrementTest(id) {
     document.getElementById(id).innerText = --incScore;
     
        doCalcs() 	
- 
 }  
 
 
@@ -436,49 +435,54 @@ var m3 = (h3 * .9)
 var m4 = (h4 * .9)
 
 var mm = Math.min((h1 * .9), (h2 * .9), (h3 * .9), (h4 * .9))
+var m1txt = ""
+var m2txt = ""
+var m3txt = ""
+var m4txt = ""
 
-document.getElementById("calcs1").innerHTML = 
-"Strokeplay @ 95%" + "<br><br>" + 
-p1 + " " + h1 + " (playing " + Math.round(h1 * .95) + ")<br>" + 
-p2 + " " + h2 + " (playing " + Math.round(h2 * .95) + ")<br>" + 
-p3 + " " + h3 + " (playing " + Math.round(h3 * .95) + ")<br>" + 
-p4 + " " + h4 + " (playing " + Math.round(h4 * .95) + ")<br>" 
+ptotal = "Strokeplay @ 95%" + "<br><br>"
+mtotal = "Matchplay @ 90%" + "<br><br>"
 
-if (Math.round(m1 - mm) == 0) {
-	var m1txt = " scratch"
-} else {
-	var m1txt = " strokes"
+if (p1 !== "no player") {
+	ptotal+= p1 + " " + h1 + " (playing " + Math.round(h1 * .95) + ")<br>" 
+	if (Math.round(m1 - mm) == 0) {
+		var m1txt = " scratch"
+	} else {
+		var m1txt = " strokes"
+	}
+	mtotal+= Math.round(m1 - mm) + m1txt + "<br>"
 }
-
-if (Math.round(m2 - mm) == 0) {
-	var m2txt = " scratch"
-} else {
-	var m2txt = " strokes"
+if (p2 !== "no player") {
+	ptotal+= p2 + " " + h2 + " (playing " + Math.round(h2 * .95) + ")<br>"
+	if (Math.round(m2 - mm) == 0) {
+		var m2txt = " scratch"
+	} else {
+		var m2txt = " strokes"
+	}
+	mtotal+= Math.round(m2 - mm) + m2txt + "<br>"
 }
-
-if (Math.round(m3 - mm) == 0) {
-	var m3txt = " scratch"
-} else {
-	var m3txt = " strokes"
+if (p3 !== "no player") {
+	ptotal+= p3 + " " + h3 + " (playing " + Math.round(h3 * .95) + ")<br>"
+	if (Math.round(m3 - mm) == 0) {
+		var m3txt = " scratch"
+	} else {
+		var m3txt = " strokes"
+	}
+	mtotal+= Math.round(m3 - mm) + m3txt + "<br>"
 }
+if (p4 !== "no player") { 
+	ptotal+= p4 + " " + h4 + " (playing " + Math.round(h4 * .95) + ")<br>"
+	if (Math.round(m4 - mm) == 0) {
+		var m4txt = " scratch"
+	} else {
+		var m4txt = " strokes"
+	}
+	mtotal+= Math.round(m4 - mm) + m4txt + "<br>"
+} 
 
-if (Math.round(m4 - mm) == 0) {
-	var m4txt = " scratch"
-} else {
-	var m4txt = " strokes"
-}
+document.getElementById("calcs1").innerHTML = ptotal
 
-
-//alert(document.getElementById("calcs2").innerText)
-
-document.getElementById("calcs2").innerHTML =
-"Matchplay @ 90%" + "<br><br>" + 
-Math.round(m1 - mm) + m1txt + "<br>" + 
-Math.round(m2 - mm) + m2txt + "<br>" +
-Math.round(m3 - mm) + m3txt + "<br>" + 
-Math.round(m4 - mm) + m4txt + "<br>"
-
-
+document.getElementById("calcs2").innerHTML = mtotal
 
 }
 
