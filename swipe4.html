@@ -131,6 +131,15 @@ padding-left: 2px;
 	color: dodgerBlue;
 	font-size: 16px;
 }
+
+.hole {
+	background: lightGreen;
+}
+
+
+
+
+
 .dropbtn1, .dropbtn2, .dropbtn3, .dropbtn4 {
       color: white;
       cursor: pointer;
@@ -316,10 +325,7 @@ padding-left: 2px;
   
         
           
-        
-        
-        
-      </div>
+</div>
       
       
          
@@ -327,18 +333,18 @@ padding-left: 2px;
       
       
       
-      <div class="card" id="hole1">
-        Todo hole 1
-        </div>
+<div class="card" id="hole1">
+<p class="hole" id="hole-1"></p>	         
+</div>
       
-      <div class="card" id="hole2">
-        Todo hole 2
-        </div>
+<div class="card" id="hole2">
+<p class="hole" id="hole-2"></p>
+</div>
       
       
-      <div class="card" id="hole3">
-        Todo hole 3
-        </div>
+<div class="card" id="hole3">
+<p class="hole" id="hole-3"></p>
+</div>
       
       
       
@@ -386,6 +392,20 @@ card.addEventListener("touchend", e => {
 */
 
 
+// todo - get from local storage
+courseInPlay = "none"
+
+
+
+
+
+
+
+
+
+
+
+
  
 function incrementTest(id) {
 	var incScore = document.getElementById(id).innerText;
@@ -410,11 +430,21 @@ function decrementTest(id) {
 function dawson() {
 	document.getElementById("dawson").style.color = "white";
 	document.getElementById("lakes").style.color = "cornflowerBlue";
+	// set global var
+	courseInPlay="Dawson"
+	// setup Dawson
+	
 }
 
 function lakes() {
 	document.getElementById("lakes").style.color = "white";
 	document.getElementById("dawson").style.color = "cornflowerBlue";
+	// set global var
+	courseInPlay="Lakes"
+	// setup Lakes
+	for (var i = 0; i < 3; i++) {
+		document.getElementById("hole-" + (i + 1)).innerText = "hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + arrLakes[i][2]
+	}
 }
 
 function doCalcs() {
@@ -654,6 +684,119 @@ window.onclick = function(event) {
  
 }
 */
+
+
+
+
+
+vcourse = "Lakes"
+// array ["hole num",par,si]
+arrLakes = [[1,4,15],
+	   [2,4,7],
+	   [3,5,3],
+	   [4,4,1],
+	   [5,3,17],
+	   [6,3,11],
+	   [7,4,9],
+	   [8,4,5],
+	   [9,4,13],
+	   [10,3,16],
+	   [11,4,18],
+	   [12,4,10],
+	   [13,4,6],
+	   [14,3,14],
+	   [15,3,4],
+	   [16,5,12],
+	   [17,4,2],
+	   [18,5,8]]
+	   
+	   
+/*	   
+	   
+	   
+	   vhcp = pdawsonhcp;      
+	       vcourse = "Dawson"
+	       vpar1 = 5
+	       vpar2 = 4
+	       vpar3 = 3
+	       vpar4 = 4
+	       vpar5 = 4
+	       vpar6 = 5
+	       vpar7 = 4
+	       vpar8 = 4
+	       vpar9 = 5
+	       vpar10 = 4
+	       vpar11 = 5
+	       vpar12 = 3
+	       vpar13 = 4
+	       vpar14 = 4
+	       vpar15 = 4
+	       vpar16 = 3
+	       vpar17 = 4
+	       vpar18 = 4
+	       vsi1 = 13
+	       vsi2 = 15
+	       vsi3 = 17
+	       vsi4 = 3
+	       vsi5 = 1
+	       vsi6 = 11
+	       vsi7 = 7
+	       vsi8 = 9
+	       vsi9 = 5
+	       vsi10 = 16
+	       vsi11 = 14
+	       vsi12 = 18
+	       vsi13 = 2
+	       vsi14 = 4
+	       vsi15 = 12
+	       vsi16 = 6
+	       vsi17 = 10
+	       vsi18 = 8
+
+
+*/
+
+
+
+function pointsCalc(hcp,par,si,score) {
+ 
+   // allowance   
+   if (hcp > si) {
+      allowance = 1 
+   } 
+   if (hcp > (18 + si)) {
+      allowance = 2 
+   } 
+   if (hcp > (36 + si)) {
+      allowance = 3 
+   }   
+
+   // points
+
+   var points =  (par + allowance + 2) - score
+   // remove negative numbers
+   if (points < 0) {
+      points = 0
+   }
+
+   return points
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
