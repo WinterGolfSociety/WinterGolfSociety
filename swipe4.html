@@ -61,8 +61,10 @@ body {
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       float:left;
       border-radius: 5px;
-      box-shadow: 10px 10px 25px black;
-      border: none;
+      //box-shadow: 10px 10px 25px black;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+      //border: none;
+      border-width: thin;
       padding-left: 10px; 
 }
 
@@ -74,50 +76,7 @@ body {
 	width: 150px;
 	
 }
-
-
-
-.dropbtn {
-      color: white;
-      cursor: pointer;
-      width: 100%; 
-      height:100%;
-      font-size: 20px;
-      background: dodgerBlue;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black;
-      border: none;  
-    }
-
-
-.dropdown {
-      position: relative;
-      display: inline-block;
-      width:90%;
-      height:100%;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      overflow: auto;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black;
-    }
-
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .show {display: block;}     
-      
+   
 .tdhcp {
 	//width: 35vw;
 }
@@ -165,17 +124,50 @@ padding-left: 2px;
 }
 
 
+.dropbtn1, .dropbtn2, .dropbtn3, .dropbtn4 {
+      color: white;
+      cursor: pointer;
+      width: 100%; 
+      height:10vh; //100%;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+      border-width: thin;
+
+    }
 
 
+.dropdown1,.dropdown2,.dropdown3,.dropdown4 {
+      position: relative;
+      display: inline-block;
+      width:90%;
+      height:100%;
+    }
 
+    .dropdown-content1, .dropdown-content2, .dropdown-content3, .dropdown-content4 {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      //box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    }
 
+    .dropdown-content1 a, .dropdown-content2 a, .dropdown-content3 a, .dropdown-content4 a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
 
-
-
-
-
-
-
+    .show {display: block;}     
 
 
 @media only screen and (min-width: 600px) {
@@ -224,16 +216,9 @@ padding-left: 2px;
 	<tr class="stdtr">	
 		
 		<td class="tdleft">
-		<select name="pets" class="buttonblue" id="playerselect1">
-		<option value="">select player</option>
-		<option value="DA">Dale</option>
-		<option value="SA">Stephen</option>
-		<option value="JD">John</option>
-		<option value="JF">Joe</option>
-		<option value="PH">Pete</option>
-		<option value="BM">Bryan</option>
-		<option value="BT">Bob</option>
-		</select>
+		<button onclick="myFunction1()" class="dropbtn1" id="dropbtn1">player</button>
+		<div id="myDropdown1" class="dropdown-content1">
+		</div>	
 		</td>
 			
 	    <td class="tdright">
@@ -248,17 +233,10 @@ padding-left: 2px;
 		
 	<tr class="stdtr">	
 			<td class="tdleft">
-			<select name="pets" class="buttonblue" id="playerselect2">
-			<option value="">select player</option>
-			<option value="DA">Dale</option>
-			<option value="SA">Stephen</option>
-			<option value="JD">John</option>
-			<option value="JF">Joe</option>
-			<option value="PH">Pete</option>
-			<option value="BM">Bryan</option>
-			<option value="BT">Bob</option>
-			</select>
-			</td>
+		<button onclick="myFunction2()" class="dropbtn2" id="dropbtn2">player</button>
+		<div id="myDropdown2" class="dropdown-content2">	
+		</div>
+		</td>
 				
             <td class="tdright">
     			<button type="button"  class="buttonblue">
@@ -272,17 +250,10 @@ padding-left: 2px;
 		
 		<tr class="stdtr">	
 			<td class="tdleft">
-			<select name="pets" class="buttonblue" id="playerselect3">
-			<option value="">select player</option>
-			<option value="DA">Dale</option>
-			<option value="SA">Stephen</option>
-			<option value="JD">John</option>
-			<option value="JF">Joe</option>
-			<option value="PH">Pete</option>
-			<option value="BM">Bryan</option>
-			<option value="BT">Bob</option>
-			</select>
-			</td>
+		<button onclick="myFunction3()" class="dropbtn3" id="dropbtn3">player</button>
+		<div id="myDropdown3" class="dropdown-content3">
+		</div>
+		</td>
 				
             <td class="tdright">
     			<button type="button"  class="buttonblue">
@@ -296,17 +267,10 @@ padding-left: 2px;
 		
 		<tr class="stdtr">	
 			<td class="tdleft">
-			<select name="pets" class="buttonblue" id="playerselect4">
-			<option value="">select player</option>
-			<option value="DA">Dale</option>
-			<option value="SA">Stephen</option>
-			<option value="JD">John</option>
-			<option value="JF">Joe</option>
-			<option value="PH">Pete</option>
-			<option value="BM">Bryan</option>
-			<option value="BT">Bob</option>
-			</select>
-			</td>
+		<button onclick="myFunction4()" class="dropbtn4" id="dropbtn4">player</button>
+		<div id="myDropdown4" class="dropdown-content4">
+		</div>
+		</td>
 				
             <td class="tdright">
     			<button type="button"  class="buttonblue">
@@ -319,7 +283,7 @@ padding-left: 2px;
 		</tr>
 		
 		
-		
+		<tr id="calcs"></tr>   
 		
 		
 		<tr class="spacer"></tr>
@@ -335,13 +299,19 @@ padding-left: 2px;
 </tbody>      
 </table>          
          
-        
+  
         
           
         
         
         
       </div>
+      
+      
+         
+      
+      
+      
       
       <div class="card" id="hole1">
         Todo hole 1
@@ -408,6 +378,7 @@ function incrementTest(id) {
 	
     document.getElementById(id).innerText = ++incScore;
     	
+   doCalcs() 	
 } 
   
 
@@ -417,6 +388,8 @@ function decrementTest(id) {
 	incScore = document.getElementById(id).innerText;
 	
     document.getElementById(id).innerText = --incScore;
+    
+       doCalcs() 	
  
 }  
 
@@ -431,7 +404,190 @@ function lakes() {
 	document.getElementById("dawson").style.color = "cornflowerBlue";
 }
 
+function doCalcs() {
+	
+var h1 = document.getElementById("aaac1").innerText	
+var h2 = document.getElementById("aaac2").innerText
+var h3 = document.getElementById("aaac3").innerText
+var h4 = document.getElementById("aaac4").innerText	
 
+var p1 = document.getElementById("dropbtn1").innerText	
+var p2 = document.getElementById("dropbtn2").innerText
+var p3 = document.getElementById("dropbtn3").innerText
+var p4 = document.getElementById("dropbtn4").innerText	
+
+document.getElementById("calcs").innerHTML = p1 + " " + h1 + "<br>" + p2 + " " + h2 + "<br>" + p3 + " " + h3 + "<br>" + p4 + " " + h4 + "<br>" 
+
+}
+
+// sort out dropdowns
+var player="empty"	
+
+//===================================
+// When the user clicks on the button, 
+// toggle between hiding and showing the dropdown content 
+function myFunction1() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}
+
+function myFunction2() {
+  document.getElementById("myDropdown2").classList.toggle("show");
+}
+function myFunction3() {
+  document.getElementById("myDropdown3").classList.toggle("show");
+}
+function myFunction4() {
+  document.getElementById("myDropdown4").classList.toggle("show");
+}
+
+function dropSelected1(playerName) {
+  player = playerName
+  // replace button name
+  element = document.getElementById("dropbtn1") 
+  element.innerText =  player 
+  var dropdowns = document.getElementsByClassName("dropdown-content1");
+  for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+}
+
+function dropSelected2(playerName) {
+   player = playerName
+  // replace button name
+  element = document.getElementById("dropbtn2") 
+  element.innerText =  player 
+  var dropdowns = document.getElementsByClassName("dropdown-content2");
+  for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+}
+function dropSelected3(playerName) {
+   player = playerName
+  // replace button name
+  element = document.getElementById("dropbtn3") 
+  element.innerText =  player 
+  var dropdowns = document.getElementsByClassName("dropdown-content3");
+  for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+}
+function dropSelected4(playerName) {
+   player = playerName
+  // replace button name
+  element = document.getElementById("dropbtn4") 
+  element.innerText =  player 
+  var dropdowns = document.getElementsByClassName("dropdown-content4");
+  for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+}
+
+var options = ["alan",
+"bryan",
+"colin",
+"dave",
+"eric",
+"fred",
+"gary",
+"henry",
+"zane",
+"xxxgary",
+"xxxhenry",
+"xxxzane",
+"xxxnew"]
+;
+
+
+// create player dropdown
+var select1 = document.getElementById("myDropdown1");
+
+for(var i = 0; i < options.length; i++) {   
+    var el = document.createElement("a");
+    el.id="my1Link" + (i+1)
+    el.setAttribute("onclick", "dropSelected1(this.innerText);return false;");
+    el.setAttribute("href","#");
+    el.innerText = options[i];
+    select1.appendChild(el);
+}
+
+// create player dropdown
+var select2 = document.getElementById("myDropdown2");
+
+// <a id="my2Link1" href="#" onclick='dropSelected2(this.innerText);return false;'>Graham Airey</a>
+
+for(var i = 0; i < options.length; i++) {   
+    var el = document.createElement("a");
+    el.id="my2Link" + (i+1)
+    el.setAttribute("onclick", "dropSelected2(this.innerText);return false;");
+    el.setAttribute("href","#");
+    el.innerText = options[i];
+    select2.appendChild(el);
+}
+// Close the dropdown if the user clicks outside of it
+
+// create player dropdown
+var select3 = document.getElementById("myDropdown3");
+
+// <a id="my3Link1" href="#" onclick='dropSelected1(this.innerText);return false;'>Graham Airey</a>
+
+for(var i = 0; i < options.length; i++) {   
+    var el = document.createElement("a");
+    el.id="my3Link" + (i+1)
+    el.setAttribute("onclick", "dropSelected3(this.innerText);return false;");
+    el.setAttribute("href","#");
+    el.innerText = options[i];
+    select3.appendChild(el);
+}
+
+// create player dropdown
+var select4 = document.getElementById("myDropdown4");
+
+// <a id="my4Link1" href="#" onclick='dropSelected4(this.innerText);return false;'>Graham Airey</a>
+
+for(var i = 0; i < options.length; i++) {   
+    var el = document.createElement("a");
+    el.id="my4Link" + (i+1)
+    el.setAttribute("onclick", "dropSelected4(this.innerText);return false;");
+    el.setAttribute("href","#");
+    el.innerText = options[i];
+    select4.appendChild(el);
+}
+// Close the dropdown if the user clicks outside of it
+
+/*
+window.onclick = function(event) {
+  if (!event.target.matches('#myDropdown1')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content1");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+  
+ 
+}
+*/
+
+document.getElementById("myDropdown1").addEventListener("touchcancel", closeDrop);
+
+function closeDrop() {
+	alert("closeDrop")
+}
 
 
 
