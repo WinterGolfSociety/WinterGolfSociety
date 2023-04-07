@@ -524,12 +524,63 @@ var p2 = document.getElementById("dropbtn2").innerText
 var p3 = document.getElementById("dropbtn3").innerText
 var p4 = document.getElementById("dropbtn4").innerText	
 
-var m1 = (h1 * .9)
-var m2 = (h2 * .9)
-var m3 = (h3 * .9)
-var m4 = (h4 * .9)
+
+arr1 = []
+
+if (p1 !== "no player") {
+	// get hcp
+	arr1.push(h1)
+}
+
+if (p2 !== "no player") {
+	// get hcp
+	arr1.push(h2)
+}
+
+if (p3 !== "no player") {
+	// get hcp
+	arr1.push(h3)
+}
+
+if (p4 !== "no player") {
+	// get hcp
+	arr1.push(h4)
+}
+
+var mmTemp = Math.min(...arr1)
+
+
+if (p1 == "no player") {
+	// get hcp
+	h1 = mmTemp
+}
+
+if (p2 == "no player") {
+	// get hcp
+	h2 = mmTemp
+}
+
+if (p3 == "no player") {
+	// get hcp
+	h3 = mmTemp
+}
+
+if (p4 == "no player") {
+	// get hcp
+	h4 = mmTemp
+}
+
+m1 = (h1 * .9)
+m2 = (h2 * .9)
+m3 = (h3 * .9)
+m4 = (h4 * .9)
+
+
+
 
 var mm = Math.min((h1 * .9), (h2 * .9), (h3 * .9), (h4 * .9))
+//var mm = Math.min(m1, m2, m3, m4)
+
 var m1txt = ""
 var m2txt = ""
 var m3txt = ""
