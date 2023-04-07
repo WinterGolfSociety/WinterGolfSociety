@@ -23,28 +23,13 @@ body {
   background-color: #e9e9e9;
 }
 
-   .container {
+.container {
   display: grid;
   grid-template-columns: repeat(5, 100%);
   will-change: transform;
   align-content: center;
   overflow-x: auto;
- 
-  
-  
-  
-  
-  //scroll-snap-coordinate: 0 0;
-  //scroll-snap-points-x: repeat(100%);
   scroll-snap-type: x mandatory;
-  
-  
-  //scroll-snap-align: center;
-  
-  
-  
-  
-  
   -webkit-overflow-scrolling: touch;
 }
 
@@ -54,23 +39,8 @@ body {
   display: flex;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   background-color: aliceblue;
-  
-  
-  
-  scroll-snap-align: center; //start;
-  
-  
-  
-  
-  
+  scroll-snap-align: start; //center; //start;
 }
-
-
-
-
-
-
-
 
 .buttonblue {
 	color: white;
