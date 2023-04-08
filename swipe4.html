@@ -1,1228 +1,1041 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-<title>Swipe test</title>
-<link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css"/>
-<meta content="Bryan M" name="author">
-    <link href="favicon.ico" rel="icon" type="image/x-icon">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<style>
-    
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-  background-color: gainsboro;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(20, 100%);
-  will-change: transform;
-  align-content: center;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.card {
-  width: 100vw;
-  height:100vh;
-  display: flex;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-  background-color: aliceblue;
-  scroll-snap-align: start;
-}
-
-.buttonblue {
-	color: white;
-      cursor: pointer;
-      width: 100%; 
-      height:10vh; //100%;
-      font-size: 20px;
-      background: dodgerBlue;
-      //border-radius: 10px 10px 10px 10px; 
-      //padding: 10px 0px;
-      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      float:left;
-   //   border-radius: 5px;
-      //box-shadow: 10px 10px 25px black;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-      //border: none;
-      border-width: thin;
-      padding-left: 10px; 
-}
-
-.buttonblue1 {
-	color: white;
-      cursor: pointer;
-      width: 100%; 
-      height: 10vh; //10vh;
-      font-size: 20px;
-      background: dodgerBlue;
-      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      float:left;
-   //   border-radius: 5px;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-      border-width: thin;
-      padding-left: 10px; 
+   <head>
+      <meta charset="UTF-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+      <title>Swipe test</title>
+      <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.0.45/css/materialdesignicons.min.css"/>
+      <meta content="Bryan M" name="author">
+      <link href="favicon.ico" rel="icon" type="image/x-icon">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <style>
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         font-family: Arial, Helvetica, sans-serif;
+         }
+         body {
+         background-color: gainsboro;
+         }
+         .container {
+         display: grid;
+         grid-template-columns: repeat(20, 100%);
+         will-change: transform;
+         align-content: center;
+         overflow-x: auto;
+         scroll-snap-type: x mandatory;
+         -webkit-overflow-scrolling: touch;
+         }
+         .card {
+         width: 100vw;
+         height:100vh;
+         display: flex;
+         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+         background-color: aliceblue;
+         scroll-snap-align: start;
+         }
+         .buttonblue {
+         color: white;
+         cursor: pointer;
+         width: 100%; 
+         height:10vh; //100%;
+         font-size: 20px;
+         background: dodgerBlue;
+         //border-radius: 10px 10px 10px 10px; 
+         //padding: 10px 0px;
+         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+         float:left;
+         //   border-radius: 5px;
+         //box-shadow: 10px 10px 25px black;
+         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+         //border: none;
+         border-width: thin;
+         padding-left: 10px; 
+         }
+         .buttonblue1 {
+         color: white;
+         cursor: pointer;
+         width: 100%; 
+         height: 10vh; //10vh;
+         font-size: 20px;
+         background: dodgerBlue;
+         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+         float:left;
+         //   border-radius: 5px;
+         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+         border-width: thin;
+         padding-left: 10px; 
+         padding-top: 5px;
+         padding-bottom: 5px;
+         }
+         .tdleft {
+         width: 200px;
+         }
+         .tdright {
+         width: 150px;
+         }
+         .tdhcp {
+         //width: 35vw;
+         }
+         .stdtr {
+         height: 12vh;
+         width: 50%;
+         }
+         .leftnum {
+         //height: 60px;
+         //width: 60px;
+         padding: 10px;
+         //padding-top: 20px;
+         }
+         .rightnum {
+         //height: 100%;
+         //width: 60px;
+         padding: 10px;
+         }
+         .midnum {
+         //height: 100%;
+         width: 60px;
+         padding: 40px 10px;
+         }
+         .tdleft {
+         //height: 100%;
+         //width: 60px;
+         padding-left: 10px;
+         padding-right: 10px;
+         }
+         .tdright {
+         //height: 100%;
+         padding-left: 10px;
+         padding-right: 10px;
+         height: 50px;
+         }
+         .spacer {
+         height: 1vh;
+         }
+         #calcs1, #calcs2 {
+         color: slateGray;
+         padding: 5px;
+         }
+         #cap {
+         color: dodgerBlue;
+         font-size: 16px;
+         }
+         .dropbtn1, .dropbtn2, .dropbtn3, .dropbtn4 {
+         color: white;
+         cursor: pointer;
+         width: 100%; 
+         height:10vh; //100%;
+         font-size: 20px;
+         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+         background: dodgerBlue;
+         //     border-radius: 5px;
+         //box-shadow: 10px 10px 25px black;
+         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+         border-width: thin;
+         }
+         .dropdown1,.dropdown2,.dropdown3,.dropdown4 {
+         position: relative;
+         display: inline-block;
+         width:90%;
+         height:100%;
+         }
+         .dropdown-content1, .dropdown-content2, .dropdown-content3, .dropdown-content4 {
+         display: none;
+         position: absolute;
+         background-color: #f1f1f1;
+         min-width: 160px;
+         overflow: auto;
+         //box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+         z-index: 1;
+         border-radius: 5px;
+         //box-shadow: 10px 10px 25px black;
+         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+         }
+         .dropdown-content1 a, .dropdown-content2 a, .dropdown-content3 a, .dropdown-content4 a {
+         color: black;
+         padding: 12px 16px;
+         text-decoration: none;
+         display: block;
+         }
+         .show {display: block;}     
+         @media only screen and (min-width: 600px) {
+         .container {
+         min-width: 0;
+         max-width: 500px;
+         margin: 0 auto;
+         }
+         }
+         @media only screen and (min-width: 900px) {
+         .card:hover .delete_button {
+         transform: scaleX(1) !important;
+         }
+         }
+         table, th, td {
+         border: 1px solid;
+         padding-top: 0px;
+         padding-bottom: 0px;
+         }
+         table {
+         border-collapse: collapse;
+         border-color: lightGray;
+         }
+         #setup {
+         background: gainsboro;
+         }
+         #hole1 {
+         background: lightGreen;
+         }
+         #hole2 {
+         background: lightBlue;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="card" id="setup">
+            <br>
+            <table>
+               <caption id="cap">Longhirst sweep</caption>
+               <thead>
+                  <!--
+                     <tr class="spacer"><th></th></tr>
+                     -->
+               </thead>
+               <tbody>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button type="button"  class="buttonblue" id="dawson" onclick="dawson()">Dawson</button>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue" id= "lakes" onclick="lakes()">Lakes</button>
+                     </td>
+                  </tr>
+                  <!--
+                     <tr class="spacer"></tr>
+                     -->
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button onclick="myFunction1()" class="dropbtn1" id="dropbtn1">no player</button>
+                        <div id="myDropdown1" class="dropdown-content1">
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="aaal1" onclick="decrementTest('aaac1')">-</a>
+                        <a class="midnum" id="aaac1">10</a>
+                        <a class="rightnum" id="aaar1" onclick="incrementTest('aaac1')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button onclick="myFunction2()" class="dropbtn2" id="dropbtn2">no player</button>
+                        <div id="myDropdown2" class="dropdown-content2">	
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="aaal2" onclick="decrementTest('aaac2')">-</a>
+                        <a class="midnum" id="aaac2">10</a>
+                        <a class="rightnum" id="aaar2" onclick="incrementTest('aaac2')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button onclick="myFunction3()" class="dropbtn3" id="dropbtn3">no player</button>
+                        <div id="myDropdown3" class="dropdown-content3">
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="aaal3" onclick="decrementTest('aaac3')">-</a>
+                        <a class="midnum" id="aaac3">10</a>
+                        <a class="rightnum" id="aaar3" onclick="incrementTest('aaac3')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button onclick="myFunction4()" class="dropbtn4" id="dropbtn4">no player</button>
+                        <div id="myDropdown4" class="dropdown-content4">
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="aaal4" onclick="decrementTest('aaac4')">-</a>
+                        <a class="midnum" id="aaac4">10</a>
+                        <a class="rightnum" id="aaar4" onclick="incrementTest('aaac4')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td id="calcs1"></td>
+                     <td id="calcs2"></td>
+                  </tr>
+                  <tr class="spacer"></tr>
+               </tbody>
+            </table>
+         </div>
+         <!-- ========== hole 1 ==============================
+            =====================================================
+            -->        
+         <div class="card" id="hole1">
+            <br>
+            <table>
+               <caption id="cap">Longhirst sweep</caption>
+               <thead>
+                  <!--
+                     <tr class="spacer"><th></th></tr>
+                     -->
+               </thead>
+               <tbody>
+                  <tr class="stdtr">
+                     <td colspan=2 class="tdleft">
+                        <button type="button"  class="buttonblue" id="hole-1"></button>
+                     </td>
+                  </tr>
+                  <!--
+                     <tr class="spacer"></tr>
+                     -->
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button class="dropbtn1" id="h1p1">no player</button>
+                        <div id="xxxxxxh1p1">
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="h1hhl1" onclick="decrementScore('h1hhc1')">-</a>
+                        <a class="midnum" id="h1hhc1">0</a>
+                        <a class="rightnum" id="h1hhr1" onclick="incrementScore('h1hhc1')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button class="dropbtn2" id="h1p2">no player</button>
+                        <div id="mxxxxyDropdown2">	
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="h1hhl2" onclick="decrementScore('h1hhc2')">-</a>
+                        <a class="midnum" id="h1hhc2">0</a>
+                        <a class="rightnum" id="h1hhr2" onclick="incrementScore('h1hhc2')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button class="dropbtn3" id="h1p3">no player</button>
+                        <div id="xxxxxmyDropdown3" >
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="h1hhl3" onclick="decrementScore('h1hhc3')">-</a>
+                        <a class="midnum" id="h1hhc3">0</a>
+                        <a class="rightnum" id="h1hhr3" onclick="incrementScore('h1hhc3')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button class="dropbtn4" id="h1p4">no player</button>
+                        <div id="xxxxxmyDropdown4">
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="h1hhl4" onclick="decrementScore('h1hhc4')">-</a>
+                        <a class="midnum" id="h1hhc4">0</a>
+                        <a class="rightnum" id="h1hhr4" onclick="incrementScore('h1hhc4')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td id="h1calcs1"></td>
+                     <td id="h1calcs2"></td>
+                  </tr>
+                  <tr class="spacer"></tr>
+               </tbody>
+            </table>
+         </div>
+         <!-- ========== hole 2 ==============================
+            =====================================================
+            -->        
+         <div class="card" id="hole2">
+            <br>
+            <table>
+               <caption id="cap">Longhirst sweep</caption>
+               <thead></thead>
+               <tbody>
+                  <tr class="stdtr">
+                     <td colspan=2 class="tdleft">
+                        <button type="button"  class="buttonblue" id="hole-2"></button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button class="dropbtn1" id="h2p1">no player</button>
+                        <div id="xxxxxxh1p1">
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="aaal1" onclick="decrementTest('aaac1')">-</a>
+                        <a class="midnum" id="aaac1">0</a>
+                        <a class="rightnum" id="aaar1" onclick="incrementTest('aaac1')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button class="dropbtn2" id="h2p2">no player</button>
+                        <div id="mxxxxyDropdown2">	
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="aaal2" onclick="decrementTest('aaac2')">-</a>
+                        <a class="midnum" id="aaac2">0</a>
+                        <a class="rightnum" id="aaar2" onclick="incrementTest('aaac2')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button class="dropbtn3" id="h2p3">no player</button>
+                        <div id="xxxxxmyDropdown3" >
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="aaal3" onclick="decrementTest('aaac3')">-</a>
+                        <a class="midnum" id="aaac3">0</a>
+                        <a class="rightnum" id="aaar3" onclick="incrementTest('aaac3')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button class="dropbtn4" id="h2p4">no player</button>
+                        <div id="xxxxxmyDropdown4">
+                        </div>
+                     </td>
+                     <td class="tdright">
+                        <button type="button"  class="buttonblue">
+                        <a class="leftnum" id="aaal4" onclick="decrementTest('aaac4')">-</a>
+                        <a class="midnum" id="aaac4">0</a>
+                        <a class="rightnum" id="aaar4" onclick="incrementTest('aaac4')">+</a>
+                        </button>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td id="calcs1"></td>
+                     <td id="calcs2"></td>
+                  </tr>
+                  <tr class="spacer"></tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="card" id="hole3">
+            <a class="hole" id="hole-3"></a>
+         </div>
+         <div class="card" id="hole4">
+            <a class="hole" id="hole-4"></a>
+         </div>
+         <div class="card" id="hole5">
+            <a class="hole" id="hole-5"></a>
+         </div>
+         <div class="card" id="hole6">
+            <a class="hole" id="hole-6"></a>
+         </div>
+         <div class="card" id="hole7">
+            <a class="hole" id="hole-7"></a>
+         </div>
+         <div class="card" id="hole8">
+            <a class="hole" id="hole-8"></a>
+         </div>
+         <div class="card" id="hole9">
+            <a class="hole" id="hole-9"></a>
+         </div>
+         <div class="card" id="hole10">
+            <a class="hole" id="hole-10"></a>
+         </div>
+         <div class="card" id="hole11">
+            <a class="hole" id="hole-11"></a>
+         </div>
+         <div class="card" id="hole12">
+            <a class="hole" id="hole-12"></a>
+         </div>
+         <div class="card" id="hole13">
+            <a class="hole" id="hole-13"></a>
+         </div>
+         <div class="card" id="hole14">
+            <a class="hole" id="hole-14"></a>
+         </div>
+         <div class="card" id="hole15">
+            <a class="hole" id="hole-15"></a>
+         </div>
+         <div class="card" id="hole16">
+            <a class="hole" id="hole-16"></a>
+         </div>
+         <div class="card" id="hole17">
+            <a class="hole" id="hole-17"></a>
+         </div>
+         <div class="card" id="hole18">
+            <a class="hole" id="hole-18"></a>
+         </div>
+         <div class="card" id="final">
+            <a class="hole" id="final-page"></a>
+         </div>
+      </div>
+   </body>
+   <script>
+      alert("start")
       
+      const card = document.querySelector(".card");
+      const theDeleteButton = document.querySelector(".delete_button");
       
+      const MOVE_THRESHOLD = 50;
       
-      padding-top: 5px;
-      padding-bottom: 5px;
+      let initialX = 0;
+      let moveX = 0;
+      //let isDeleteButtonOpen = false;
       
-}
-
-
-
-
-
-
-
-.tdleft {
-	width: 200px;
-}
-
-.tdright {
-	width: 150px;
-	
-}
-   
-.tdhcp {
-	//width: 35vw;
-}
-
-
-.stdtr {
-	height: 12vh;
-	width: 50%;
-}
-
-.leftnum {
-	//height: 60px;
-	//width: 60px;
-	padding: 10px;
-	//padding-top: 20px;
-}
-
-.rightnum {
-	//height: 100%;
-	//width: 60px;
-	padding: 10px;
-}
-
-.midnum {
-	//height: 100%;
-	width: 60px;
-	padding: 40px 10px;
-}
-
-.tdleft {
-	//height: 100%;
-	//width: 60px;
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-.tdright {
-	//height: 100%;
-padding-left: 2px;
-	padding-right: 2px;
-	
-	height: 50px;
-	
-}
-
-.spacer {
-	height: 1vh;
-}
-
-#calcs1, #calcs2 {
-	color: slateGray;
-	padding: 5px;
-}
-
-#cap {
-	color: dodgerBlue;
-	font-size: 16px;
-}
-
-
-
-
-
-
-
-.dropbtn1, .dropbtn2, .dropbtn3, .dropbtn4 {
-      color: white;
-      cursor: pointer;
-      width: 100%; 
-      height:10vh; //100%;
-      font-size: 20px;
+      card.addEventListener("touchstart", e => {
+          initialX = e.touches[0].pageX;
+      });
       
-      
-      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      
-      
-      
-      background: dodgerBlue;
- //     border-radius: 5px;
-      //box-shadow: 10px 10px 25px black;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-      border-width: thin;
-
-    }
-
-
-.dropdown1,.dropdown2,.dropdown3,.dropdown4 {
-      position: relative;
-      display: inline-block;
-      width:90%;
-      height:100%;
-    }
-
-    .dropdown-content1, .dropdown-content2, .dropdown-content3, .dropdown-content4 {
-      display: none;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      overflow: auto;
-      //box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-      z-index: 1;
-      border-radius: 5px;
-      //box-shadow: 10px 10px 25px black;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .dropdown-content1 a, .dropdown-content2 a, .dropdown-content3 a, .dropdown-content4 a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .show {display: block;}     
-
-
-@media only screen and (min-width: 600px) {
-  .container {
-    min-width: 0;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .card:hover .delete_button {
-    transform: scaleX(1) !important;
-  }
-}
-
-
-
-
-table, th, td {
-  border: 1px solid;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  
-}
-table {
-	border-collapse: collapse;
-	border-color: lightGray;
-}
-
-#setup {
-	background: gainsboro;
-}
-
-#hole1 {
-	background: lightGreen;
-	
-}
-
-#hole2 {
-	background: lightBlue;
-	
-}
-
-
-
-</style>
-</head>
-
-<body>
-<div class="container">
-	<div class="card" id="setup">
-    <br>
+      card.addEventListener("touchmove", e => {
         
-     
-<table>
-<caption id="cap">Longhirst sweep</caption>
-<thead>
-	<!--
-<tr class="spacer"><th></th></tr>
--->
-</thead>
-
-<tbody>	
-	<tr class="stdtr">
-		<td class="tdleft">
-		<button type="button"  class="buttonblue" id="dawson" onclick="dawson()">Dawson</button>
-		</td>
-		<td class="tdright">
-		<button type="button"  class="buttonblue" id= "lakes" onclick="lakes()">Lakes</button>
-		</td>
-	</tr>
-	<!--
-	<tr class="spacer"></tr>
-	-->
-	<tr class="stdtr">	
-		
-		<td class="tdleft">
-		<button onclick="myFunction1()" class="dropbtn1" id="dropbtn1">no player</button>
-		<div id="myDropdown1" class="dropdown-content1">
-		</div>	
-		</td>
-			
-	    <td class="tdright">
-			<button type="button"  class="buttonblue">
-			<a class="leftnum" id="aaal1" onclick="decrementTest('aaac1')">-</a>
-			<a class="midnum" id="aaac1">10</a>
-			<a class="rightnum" id="aaar1" onclick="incrementTest('aaac1')">+</a>
-			</button>
-		</td>
-			
-	</tr>
-		
-	<tr class="stdtr">	
-			<td class="tdleft">
-		<button onclick="myFunction2()" class="dropbtn2" id="dropbtn2">no player</button>
-		<div id="myDropdown2" class="dropdown-content2">	
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal2" onclick="decrementTest('aaac2')">-</a>
-				<a class="midnum" id="aaac2">10</a>
-				<a class="rightnum" id="aaar2" onclick="incrementTest('aaac2')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		<tr class="stdtr">	
-			<td class="tdleft">
-		<button onclick="myFunction3()" class="dropbtn3" id="dropbtn3">no player</button>
-		<div id="myDropdown3" class="dropdown-content3">
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal3" onclick="decrementTest('aaac3')">-</a>
-				<a class="midnum" id="aaac3">10</a>
-				<a class="rightnum" id="aaar3" onclick="incrementTest('aaac3')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		<tr class="stdtr">	
-			<td class="tdleft">
-		<button onclick="myFunction4()" class="dropbtn4" id="dropbtn4">no player</button>
-		<div id="myDropdown4" class="dropdown-content4">
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal4" onclick="decrementTest('aaac4')">-</a>
-				<a class="midnum" id="aaac4">10</a>
-				<a class="rightnum" id="aaar4" onclick="incrementTest('aaac4')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		
-		
-		<tr>
-		<td id="calcs1"></td>
-		<td id="calcs2"></td>
-		</tr> 
-		
-		
-		<tr class="spacer"></tr>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-</tbody>      
-</table>          
-         
-  
-        
+        let currentX = e.touches[0].pageX;
+        moveX = currentX - initialX;
+      });
+      
+      /*
+      card.addEventListener("touchend", e => {
+        if (moveX < MOVE_THRESHOLD * Math.sign(moveX) && !isDeleteButtonOpen) {
+          theDeleteButton.style.transform = "scaleX(1)";
+          isDeleteButtonOpen = true;
+        } else if (moveX > MOVE_THRESHOLD * Math.sign(moveX) && isDeleteButtonOpen) {
+          theDeleteButton.style.transform = "scaleX(0)";
+          isDeleteButtonOpen = false;
+        }
+      });
+      
+      */
+      
+      //=========================================
+      //===== globals ===========================
+      //=========================================
+      // todo - get from local storage
+      courseInPlay = "none"
+      player1hcp = ""
+      player2hcp = ""
+      player3hcp = ""
+      player4hcp = ""
+      
+      player1name = ""
+      player2name = ""
+      player3name = ""
+      player4name = ""
+      
+      
+      
+      function incrementScore(id) {
+      	//alert(id)
+      	var incScore = document.getElementById(id).innerText;
+      	
+          document.getElementById(id).innerText = ++incScore;
           
-</div>
-      
-      
- <!-- ========== hole 1 ==============================
- =====================================================
- -->        
-      
-     	<div class="card" id="hole1">
-    <br>
-        
-     
-<table>
-<caption id="cap">Longhirst sweep</caption>
-<thead>
-	<!--
-<tr class="spacer"><th></th></tr>
--->
-</thead>
-
-<tbody>	
-	<tr class="stdtr">
-		<td colspan=2 class="tdleft">
-		<button type="button"  class="buttonblue" id="hole-1"></button>
-		</td>
-		
-	</tr>
-	<!--
-	<tr class="spacer"></tr>
-	-->
-	<tr class="stdtr">	
-		
-		<td class="tdleft">
-		<button class="dropbtn1" id="h1p1">no player</button>
-		<div id="xxxxxxh1p1">
-		</div>	
-		</td>
-			
-	    <td class="tdright">
-			<button type="button"  class="buttonblue">
-			<a class="leftnum" id="aaal1" onclick="decrementTest('aaac1')">-</a>
-			<a class="midnum" id="aaac1">0</a>
-			<a class="rightnum" id="aaar1" onclick="incrementTest('aaac1')">+</a>
-			</button>
-		</td>
-			
-	</tr>
-		
-	<tr class="stdtr">	
-			<td class="tdleft">
-		<button class="dropbtn2" id="h1p2">no player</button>
-		<div id="mxxxxyDropdown2">	
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal2" onclick="decrementTest('aaac2')">-</a>
-				<a class="midnum" id="aaac2">0</a>
-				<a class="rightnum" id="aaar2" onclick="incrementTest('aaac2')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		<tr class="stdtr">	
-			<td class="tdleft">
-		<button class="dropbtn3" id="h1p3">no player</button>
-		<div id="xxxxxmyDropdown3" >
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal3" onclick="decrementTest('aaac3')">-</a>
-				<a class="midnum" id="aaac3">0</a>
-				<a class="rightnum" id="aaar3" onclick="incrementTest('aaac3')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		<tr class="stdtr">	
-			<td class="tdleft">
-		<button class="dropbtn4" id="h1p4">no player</button>
-		<div id="xxxxxmyDropdown4">
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal4" onclick="decrementTest('aaac4')">-</a>
-				<a class="midnum" id="aaac4">0</a>
-				<a class="rightnum" id="aaar4" onclick="incrementTest('aaac4')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		
-		
-		<tr>
-		<td id="calcs1"></td>
-		<td id="calcs2"></td>
-		</tr> 
-		
-		
-		<tr class="spacer"></tr>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-</tbody>      
-</table>          
-         
-  
-        
           
-</div>
-      
- 
-      
-<!-- ========== hole 2 ==============================
- =====================================================
- -->        
-      
-     	<div class="card" id="hole2">
-    <br>
-        
-     
-<table>
-<caption id="cap">Longhirst sweep</caption>
-<thead>
-
-</thead>
-
-<tbody>	
-	<tr class="stdtr">
-		<td colspan=2 class="tdleft">
-		<button type="button"  class="buttonblue" id="hole-2"></button>
-		</td>
-		
-	</tr>
-	<!--
-	<tr class="spacer"></tr>
-	-->
-	<tr class="stdtr">	
-		
-		<td class="tdleft">
-		<button class="dropbtn1" id="h2p1">no player</button>
-		<div id="xxxxxxh1p1">
-		</div>	
-		</td>
-			
-	    <td class="tdright">
-			<button type="button"  class="buttonblue">
-			<a class="leftnum" id="aaal1" onclick="decrementTest('aaac1')">-</a>
-			<a class="midnum" id="aaac1">0</a>
-			<a class="rightnum" id="aaar1" onclick="incrementTest('aaac1')">+</a>
-			</button>
-		</td>
-			
-	</tr>
-		
-	<tr class="stdtr">	
-			<td class="tdleft">
-		<button class="dropbtn2" id="h2p2">no player</button>
-		<div id="mxxxxyDropdown2">	
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal2" onclick="decrementTest('aaac2')">-</a>
-				<a class="midnum" id="aaac2">0</a>
-				<a class="rightnum" id="aaar2" onclick="incrementTest('aaac2')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		<tr class="stdtr">	
-			<td class="tdleft">
-		<button class="dropbtn3" id="h2p3">no player</button>
-		<div id="xxxxxmyDropdown3" >
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal3" onclick="decrementTest('aaac3')">-</a>
-				<a class="midnum" id="aaac3">0</a>
-				<a class="rightnum" id="aaar3" onclick="incrementTest('aaac3')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		<tr class="stdtr">	
-			<td class="tdleft">
-		<button class="dropbtn4" id="h2p4">no player</button>
-		<div id="xxxxxmyDropdown4">
-		</div>
-		</td>
-				
-            <td class="tdright">
-    			<button type="button"  class="buttonblue">
-				<a class="leftnum" id="aaal4" onclick="decrementTest('aaac4')">-</a>
-				<a class="midnum" id="aaac4">0</a>
-				<a class="rightnum" id="aaar4" onclick="incrementTest('aaac4')">+</a>
-				</button>
-			</td>
-			
-		</tr>
-		
-		
-		
-		<tr>
-		<td id="calcs1"></td>
-		<td id="calcs2"></td>
-		</tr> 
-		
-		
-		<tr class="spacer"></tr>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-</tbody>      
-</table>          
-         
-  
-        
           
-</div>
+          document.getElementById("h1calcs1").innerText = incScore;	
+         //doCalcs() 	
+      } 
+        
+      
+      
+        
+      function decrementScore(id) {
+      	var incScore = document.getElementById(id).innerText;
+      	if (incScore == "0") {
+      		incScore = 1
+      	}
+          document.getElementById(id).innerText = --incScore;
+          document.getElementById("h1calcs2").innerText = incScore;	
+             //doCalcs() 	
+      } 
       
       
       
-<div class="card" id="hole3">
-<a class="hole" id="hole-3"></a>
-</div>
-      
- <div class="card" id="hole4">
-<a class="hole" id="hole-4"></a>
-</div>
-
-<div class="card" id="hole5">
-<a class="hole" id="hole-5"></a>
-</div>
-
-<div class="card" id="hole6">
-<a class="hole" id="hole-6"></a>
-</div>
-
-<div class="card" id="hole7">
-<a class="hole" id="hole-7"></a>
-</div>
-
-<div class="card" id="hole8">
-<a class="hole" id="hole-8"></a>
-</div>
-
-<div class="card" id="hole9">
-<a class="hole" id="hole-9"></a>
-</div>
-
-<div class="card" id="hole10">
-<a class="hole" id="hole-10"></a>
-</div>
-
-<div class="card" id="hole11">
-<a class="hole" id="hole-11"></a>
-</div>
-
-<div class="card" id="hole12">
-<a class="hole" id="hole-12"></a>
-</div>
-
-<div class="card" id="hole13">
-<a class="hole" id="hole-13"></a>
-</div>
-
-<div class="card" id="hole14">
-<a class="hole" id="hole-14"></a>
-</div>
-
-<div class="card" id="hole15">
-<a class="hole" id="hole-15"></a>
-</div>
-
-<div class="card" id="hole16">
-<a class="hole" id="hole-16"></a>
-</div>
-
-<div class="card" id="hole17">
-<a class="hole" id="hole-17"></a>
-</div>
-
-<div class="card" id="hole18">
-<a class="hole" id="hole-18"></a>
-</div>
-
-<div class="card" id="final">
-<a class="hole" id="final-page"></a>
-</div>
-
-     
       
       
+       
+      function incrementTest(id) {
+      	var incScore = document.getElementById(id).innerText;
+      	
+          document.getElementById(id).innerText = ++incScore;
+          	
+         doCalcs() 	
+      } 
+        
       
-    </div>
-
-    
-  </body>
-
-
-<script>
-
-
-const card = document.querySelector(".card");
-const theDeleteButton = document.querySelector(".delete_button");
-
-const MOVE_THRESHOLD = 50;
-
-let initialX = 0;
-let moveX = 0;
-//let isDeleteButtonOpen = false;
-
-card.addEventListener("touchstart", e => {
-    initialX = e.touches[0].pageX;
-});
-
-card.addEventListener("touchmove", e => {
-  
-  let currentX = e.touches[0].pageX;
-  moveX = currentX - initialX;
-});
-
-/*
-card.addEventListener("touchend", e => {
-  if (moveX < MOVE_THRESHOLD * Math.sign(moveX) && !isDeleteButtonOpen) {
-    theDeleteButton.style.transform = "scaleX(1)";
-    isDeleteButtonOpen = true;
-  } else if (moveX > MOVE_THRESHOLD * Math.sign(moveX) && isDeleteButtonOpen) {
-    theDeleteButton.style.transform = "scaleX(0)";
-    isDeleteButtonOpen = false;
-  }
-});
-
-*/
-
-
-// todo - get from local storage
-courseInPlay = "none"
-
-
-
-
-
-
-
-
-
-
-
-
+      
+        
+      function decrementTest(id) {
+      	incScore = document.getElementById(id).innerText;
+      	
+          document.getElementById(id).innerText = --incScore;
+          
+             doCalcs() 	
+      }  
+      
+      
+      function dawson() {
+      	document.getElementById("dawson").style.color = "white";
+      	document.getElementById("lakes").style.color = "cornflowerBlue";
+      	// set global var
+      	courseInPlay="Dawson"
+      	// setup Dawson
+      	
+      }
+      
+      function lakes() {
+      	document.getElementById("lakes").style.color = "white";
+      	document.getElementById("dawson").style.color = "cornflowerBlue";
+      	// set global var
+      	courseInPlay="Lakes"
+      	// setup Lakes
+      	for (var i = 0; i < 18; i++) {
+      		document.getElementById("hole-" + (i + 1)).innerText = "hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + arrLakes[i][2]
+      	}
+      }
+      
+      function doCalcs() {
+      	
+      var h1 = document.getElementById("aaac1").innerText	
+      var h2 = document.getElementById("aaac2").innerText
+      var h3 = document.getElementById("aaac3").innerText
+      var h4 = document.getElementById("aaac4").innerText	
+      
+      var p1 = document.getElementById("dropbtn1").innerText	
+      var p2 = document.getElementById("dropbtn2").innerText
+      var p3 = document.getElementById("dropbtn3").innerText
+      var p4 = document.getElementById("dropbtn4").innerText	
+      
+      
+      arr1 = []
+      
+      if (p1 !== "no player") {
+      	// get hcp
+      	arr1.push(h1)
+      }
+      
+      if (p2 !== "no player") {
+      	// get hcp
+      	arr1.push(h2)
+      }
+      
+      if (p3 !== "no player") {
+      	// get hcp
+      	arr1.push(h3)
+      }
+      
+      if (p4 !== "no player") {
+      	// get hcp
+      	arr1.push(h4)
+      }
+      
+      var mmTemp = Math.min(...arr1)
+      
+      
+      if (p1 == "no player") {
+      	// get hcp
+      	h1 = mmTemp
+      }
+      
+      if (p2 == "no player") {
+      	// get hcp
+      	h2 = mmTemp
+      }
+      
+      if (p3 == "no player") {
+      	// get hcp
+      	h3 = mmTemp
+      }
+      
+      if (p4 == "no player") {
+      	// get hcp
+      	h4 = mmTemp
+      }
+      
+      m1 = (h1 * .9)
+      m2 = (h2 * .9)
+      m3 = (h3 * .9)
+      m4 = (h4 * .9)
+      
+      var mm = Math.min((h1 * .9), (h2 * .9), (h3 * .9), (h4 * .9))
+      //var mm = Math.min(m1, m2, m3, m4)
+      
+      var m1txt = ""
+      var m2txt = ""
+      var m3txt = ""
+      var m4txt = ""
+      
+      ptotal = "Strokeplay @ 95%" + "<br><br>"
+      mtotal = "Matchplay @ 90%" + "<br><br>"
+      
+      if (p1 !== "no player") {
+      	ptotal+= p1 + " " + h1 + " (playing " + Math.round(h1 * .95) + ")<br>" 
+      	if (Math.round(m1 - mm) == 0) {
+      		var m1txt = " scratch"
+      	} else {
+      		var m1txt = " strokes"
+      	}
+      	mtotal+= Math.round(m1 - mm) + m1txt + "<br>"
+      }
+      if (p2 !== "no player") {
+      	ptotal+= p2 + " " + h2 + " (playing " + Math.round(h2 * .95) + ")<br>"
+      	if (Math.round(m2 - mm) == 0) {
+      		var m2txt = " scratch"
+      	} else {
+      		var m2txt = " strokes"
+      	}
+      	mtotal+= Math.round(m2 - mm) + m2txt + "<br>"
+      }
+      if (p3 !== "no player") {
+      	ptotal+= p3 + " " + h3 + " (playing " + Math.round(h3 * .95) + ")<br>"
+      	if (Math.round(m3 - mm) == 0) {
+      		var m3txt = " scratch"
+      	} else {
+      		var m3txt = " strokes"
+      	}
+      	mtotal+= Math.round(m3 - mm) + m3txt + "<br>"
+      }
+      if (p4 !== "no player") { 
+      	ptotal+= p4 + " " + h4 + " (playing " + Math.round(h4 * .95) + ")<br>"
+      	if (Math.round(m4 - mm) == 0) {
+      		var m4txt = " scratch"
+      	} else {
+      		var m4txt = " strokes"
+      	}
+      	mtotal+= Math.round(m4 - mm) + m4txt + "<br>"
+      } 
+      
+      document.getElementById("calcs1").innerHTML = ptotal
+      
+      document.getElementById("calcs2").innerHTML = mtotal
+      
+      // ============== setup globals
+      player1hcp = h1
+      player2hcp = h2
+      player3hcp = h3
+      player4hcp = h4
+      
+      player1name = p1
+      player2name = p2
+      player3name = p3
+      player4name = p4
+      
+      
+      
+      
+      }
+      
+      // sort out dropdowns
+      var player="empty"	
+      
+      //===================================
+      // When the user clicks on the button, 
+      // toggle between hiding and showing the dropdown content 
+      function myFunction1() {
+        document.getElementById("myDropdown1").classList.toggle("show");
+      }
+      
+      function myFunction2() {
+        document.getElementById("myDropdown2").classList.toggle("show");
+      }
+      function myFunction3() {
+        document.getElementById("myDropdown3").classList.toggle("show");
+      }
+      function myFunction4() {
+        document.getElementById("myDropdown4").classList.toggle("show");
+      }
+      
+      function dropSelected1(playerName) {
+        player = playerName
+        // replace button name
+        element = document.getElementById("dropbtn1") 
+        element.innerText =  player 
+        var dropdowns = document.getElementsByClassName("dropdown-content1");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+          // fill in all 18 holes - do for all
+          document.getElementById("h1p1").innerText = player
+          document.getElementById("h2p1").innerText = player
+          
+          
+          
+          doCalcs()
+      }
+      
+      function dropSelected2(playerName) {
+         player = playerName
+        // replace button name
+        element = document.getElementById("dropbtn2") 
+        element.innerText =  player 
+        var dropdowns = document.getElementsByClassName("dropdown-content2");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+          // fill in all 18 holes - do for all
+          document.getElementById("h1p2").innerText = player
+          document.getElementById("h2p2").innerText = player
+          
+          
+          
+          doCalcs()
+      }
+      
+      function dropSelected3(playerName) {
+         player = playerName
+        // replace button name
+        element = document.getElementById("dropbtn3") 
+        element.innerText =  player 
+        var dropdowns = document.getElementsByClassName("dropdown-content3");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+          // fill in all 18 holes - do for all
+          document.getElementById("h1p3").innerText = player
+          document.getElementById("h2p3").innerText = player
+          
+          
+          
+          doCalcs()
+      }
+      
+      function dropSelected4(playerName) {
+         player = playerName
+        // replace button name
+        element = document.getElementById("dropbtn4") 
+        element.innerText =  player 
+        var dropdowns = document.getElementsByClassName("dropdown-content4");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+          // fill in all 18 holes - do for all
+          document.getElementById("h1p4").innerText = player
+          document.getElementById("h2p4").innerText = player
+          
+          
+          
+          doCalcs()
+      }
+      
+      var options = ["alan",
+      "bryan",
+      "colin",
+      "dave",
+      "eric",
+      "fred",
+      "gary",
+      "henry",
+      "zane",
+      "xxxgary",
+      "xxxhenry",
+      "xxxzane",
+      "xxxnew"]
+      ;
+      
+      
+      // create player dropdown
+      var select1 = document.getElementById("myDropdown1");
+      
+      for(var i = 0; i < options.length; i++) {   
+          var el = document.createElement("a");
+          el.id="my1Link" + (i+1)
+          el.setAttribute("onclick", "dropSelected1(this.innerText);return false;");
+          el.setAttribute("href","#");
+          el.innerText = options[i];
+          select1.appendChild(el);
+      }
+      
+      // create player dropdown
+      var select2 = document.getElementById("myDropdown2");
+      
+      // <a id="my2Link1" href="#" onclick='dropSelected2(this.innerText);return false;'>Graham Airey</a>
+      
+      for(var i = 0; i < options.length; i++) {   
+          var el = document.createElement("a");
+          el.id="my2Link" + (i+1)
+          el.setAttribute("onclick", "dropSelected2(this.innerText);return false;");
+          el.setAttribute("href","#");
+          el.innerText = options[i];
+          select2.appendChild(el);
+      }
+      // Close the dropdown if the user clicks outside of it
+      
+      // create player dropdown
+      var select3 = document.getElementById("myDropdown3");
+      
+      // <a id="my3Link1" href="#" onclick='dropSelected1(this.innerText);return false;'>Graham Airey</a>
+      
+      for(var i = 0; i < options.length; i++) {   
+          var el = document.createElement("a");
+          el.id="my3Link" + (i+1)
+          el.setAttribute("onclick", "dropSelected3(this.innerText);return false;");
+          el.setAttribute("href","#");
+          el.innerText = options[i];
+          select3.appendChild(el);
+      }
+      
+      // create player dropdown
+      var select4 = document.getElementById("myDropdown4");
+      
+      // <a id="my4Link1" href="#" onclick='dropSelected4(this.innerText);return false;'>Graham Airey</a>
+      
+      for(var i = 0; i < options.length; i++) {   
+          var el = document.createElement("a");
+          el.id="my4Link" + (i+1)
+          el.setAttribute("onclick", "dropSelected4(this.innerText);return false;");
+          el.setAttribute("href","#");
+          el.innerText = options[i];
+          select4.appendChild(el);
+      }
+      // Close the dropdown if the user clicks outside of it
+      
+      /*
+      window.onclick = function(event) {
+        if (!event.target.matches('#myDropdown1')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content1");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+        
+       
+      }
+      */
  
-function incrementTest(id) {
-	var incScore = document.getElementById(id).innerText;
-	
-    document.getElementById(id).innerText = ++incScore;
-    	
-   doCalcs() 	
-} 
-  
-
-
-  
-function decrementTest(id) {
-	incScore = document.getElementById(id).innerText;
-	
-    document.getElementById(id).innerText = --incScore;
-    
-       doCalcs() 	
-}  
-
-
-function dawson() {
-	document.getElementById("dawson").style.color = "white";
-	document.getElementById("lakes").style.color = "cornflowerBlue";
-	// set global var
-	courseInPlay="Dawson"
-	// setup Dawson
-	
-}
-
-function lakes() {
-	document.getElementById("lakes").style.color = "white";
-	document.getElementById("dawson").style.color = "cornflowerBlue";
-	// set global var
-	courseInPlay="Lakes"
-	// setup Lakes
-	for (var i = 0; i < 18; i++) {
-		document.getElementById("hole-" + (i + 1)).innerText = "hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + arrLakes[i][2]
-	}
-}
-
-function doCalcs() {
-	
-var h1 = document.getElementById("aaac1").innerText	
-var h2 = document.getElementById("aaac2").innerText
-var h3 = document.getElementById("aaac3").innerText
-var h4 = document.getElementById("aaac4").innerText	
-
-var p1 = document.getElementById("dropbtn1").innerText	
-var p2 = document.getElementById("dropbtn2").innerText
-var p3 = document.getElementById("dropbtn3").innerText
-var p4 = document.getElementById("dropbtn4").innerText	
-
-
-arr1 = []
-
-if (p1 !== "no player") {
-	// get hcp
-	arr1.push(h1)
-}
-
-if (p2 !== "no player") {
-	// get hcp
-	arr1.push(h2)
-}
-
-if (p3 !== "no player") {
-	// get hcp
-	arr1.push(h3)
-}
-
-if (p4 !== "no player") {
-	// get hcp
-	arr1.push(h4)
-}
-
-var mmTemp = Math.min(...arr1)
-
-
-if (p1 == "no player") {
-	// get hcp
-	h1 = mmTemp
-}
-
-if (p2 == "no player") {
-	// get hcp
-	h2 = mmTemp
-}
-
-if (p3 == "no player") {
-	// get hcp
-	h3 = mmTemp
-}
-
-if (p4 == "no player") {
-	// get hcp
-	h4 = mmTemp
-}
-
-m1 = (h1 * .9)
-m2 = (h2 * .9)
-m3 = (h3 * .9)
-m4 = (h4 * .9)
-
-var mm = Math.min((h1 * .9), (h2 * .9), (h3 * .9), (h4 * .9))
-//var mm = Math.min(m1, m2, m3, m4)
-
-var m1txt = ""
-var m2txt = ""
-var m3txt = ""
-var m4txt = ""
-
-ptotal = "Strokeplay @ 95%" + "<br><br>"
-mtotal = "Matchplay @ 90%" + "<br><br>"
-
-if (p1 !== "no player") {
-	ptotal+= p1 + " " + h1 + " (playing " + Math.round(h1 * .95) + ")<br>" 
-	if (Math.round(m1 - mm) == 0) {
-		var m1txt = " scratch"
-	} else {
-		var m1txt = " strokes"
-	}
-	mtotal+= Math.round(m1 - mm) + m1txt + "<br>"
-}
-if (p2 !== "no player") {
-	ptotal+= p2 + " " + h2 + " (playing " + Math.round(h2 * .95) + ")<br>"
-	if (Math.round(m2 - mm) == 0) {
-		var m2txt = " scratch"
-	} else {
-		var m2txt = " strokes"
-	}
-	mtotal+= Math.round(m2 - mm) + m2txt + "<br>"
-}
-if (p3 !== "no player") {
-	ptotal+= p3 + " " + h3 + " (playing " + Math.round(h3 * .95) + ")<br>"
-	if (Math.round(m3 - mm) == 0) {
-		var m3txt = " scratch"
-	} else {
-		var m3txt = " strokes"
-	}
-	mtotal+= Math.round(m3 - mm) + m3txt + "<br>"
-}
-if (p4 !== "no player") { 
-	ptotal+= p4 + " " + h4 + " (playing " + Math.round(h4 * .95) + ")<br>"
-	if (Math.round(m4 - mm) == 0) {
-		var m4txt = " scratch"
-	} else {
-		var m4txt = " strokes"
-	}
-	mtotal+= Math.round(m4 - mm) + m4txt + "<br>"
-} 
-
-document.getElementById("calcs1").innerHTML = ptotal
-
-document.getElementById("calcs2").innerHTML = mtotal
-
-}
-
-// sort out dropdowns
-var player="empty"	
-
-//===================================
-// When the user clicks on the button, 
-// toggle between hiding and showing the dropdown content 
-function myFunction1() {
-  document.getElementById("myDropdown1").classList.toggle("show");
-}
-
-function myFunction2() {
-  document.getElementById("myDropdown2").classList.toggle("show");
-}
-function myFunction3() {
-  document.getElementById("myDropdown3").classList.toggle("show");
-}
-function myFunction4() {
-  document.getElementById("myDropdown4").classList.toggle("show");
-}
-
-function dropSelected1(playerName) {
-  player = playerName
-  // replace button name
-  element = document.getElementById("dropbtn1") 
-  element.innerText =  player 
-  var dropdowns = document.getElementsByClassName("dropdown-content1");
-  for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+      vcourse = "Lakes"
+      // array ["hole num",par,si]
+      arrLakes = [[1,4,15],
+      	   [2,4,7],
+      	   [3,5,3],
+      	   [4,4,1],
+      	   [5,3,17],
+      	   [6,3,11],
+      	   [7,4,9],
+      	   [8,4,5],
+      	   [9,4,13],
+      	   [10,3,16],
+      	   [11,4,18],
+      	   [12,4,10],
+      	   [13,4,6],
+      	   [14,3,14],
+      	   [15,3,4],
+      	   [16,5,12],
+      	   [17,4,2],
+      	   [18,5,8]]
+      	   
+      	   
+      /*	   
+      	   
+      	   
+      	   vhcp = pdawsonhcp;      
+      	       vcourse = "Dawson"
+      	       vpar1 = 5
+      	       vpar2 = 4
+      	       vpar3 = 3
+      	       vpar4 = 4
+      	       vpar5 = 4
+      	       vpar6 = 5
+      	       vpar7 = 4
+      	       vpar8 = 4
+      	       vpar9 = 5
+      	       vpar10 = 4
+      	       vpar11 = 5
+      	       vpar12 = 3
+      	       vpar13 = 4
+      	       vpar14 = 4
+      	       vpar15 = 4
+      	       vpar16 = 3
+      	       vpar17 = 4
+      	       vpar18 = 4
+      	       vsi1 = 13
+      	       vsi2 = 15
+      	       vsi3 = 17
+      	       vsi4 = 3
+      	       vsi5 = 1
+      	       vsi6 = 11
+      	       vsi7 = 7
+      	       vsi8 = 9
+      	       vsi9 = 5
+      	       vsi10 = 16
+      	       vsi11 = 14
+      	       vsi12 = 18
+      	       vsi13 = 2
+      	       vsi14 = 4
+      	       vsi15 = 12
+      	       vsi16 = 6
+      	       vsi17 = 10
+      	       vsi18 = 8
+      
+      
+      */
+      
+      
+      
+      function pointsCalc(hcp,par,si,score) {
+       
+         // allowance   
+         if (hcp > si) {
+            allowance = 1 
+         } 
+         if (hcp > (18 + si)) {
+            allowance = 2 
+         } 
+         if (hcp > (36 + si)) {
+            allowance = 3 
+         }   
+      
+         // points
+      
+         var points =  (par + allowance + 2) - score
+         // remove negative numbers
+         if (points < 0) {
+            points = 0
+         }
+      
+         return points
+         
       }
-    }
-    // fill in all 18 holes - do for all
-    document.getElementById("h1p1").innerText = player
-    document.getElementById("h2p1").innerText = player
-    
-    
-    
-    doCalcs()
-}
-
-function dropSelected2(playerName) {
-   player = playerName
-  // replace button name
-  element = document.getElementById("dropbtn2") 
-  element.innerText =  player 
-  var dropdowns = document.getElementsByClassName("dropdown-content2");
-  for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-    // fill in all 18 holes - do for all
-    document.getElementById("h1p2").innerText = player
-    document.getElementById("h2p2").innerText = player
-    
-    
-    
-    doCalcs()
-}
-
-function dropSelected3(playerName) {
-   player = playerName
-  // replace button name
-  element = document.getElementById("dropbtn3") 
-  element.innerText =  player 
-  var dropdowns = document.getElementsByClassName("dropdown-content3");
-  for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-    // fill in all 18 holes - do for all
-    document.getElementById("h1p3").innerText = player
-    document.getElementById("h2p3").innerText = player
-    
-    
-    
-    doCalcs()
-}
-
-function dropSelected4(playerName) {
-   player = playerName
-  // replace button name
-  element = document.getElementById("dropbtn4") 
-  element.innerText =  player 
-  var dropdowns = document.getElementsByClassName("dropdown-content4");
-  for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-    // fill in all 18 holes - do for all
-    document.getElementById("h1p4").innerText = player
-    document.getElementById("h2p4").innerText = player
-    
-    
-    
-    doCalcs()
-}
-
-var options = ["alan",
-"bryan",
-"colin",
-"dave",
-"eric",
-"fred",
-"gary",
-"henry",
-"zane",
-"xxxgary",
-"xxxhenry",
-"xxxzane",
-"xxxnew"]
-;
-
-
-// create player dropdown
-var select1 = document.getElementById("myDropdown1");
-
-for(var i = 0; i < options.length; i++) {   
-    var el = document.createElement("a");
-    el.id="my1Link" + (i+1)
-    el.setAttribute("onclick", "dropSelected1(this.innerText);return false;");
-    el.setAttribute("href","#");
-    el.innerText = options[i];
-    select1.appendChild(el);
-}
-
-// create player dropdown
-var select2 = document.getElementById("myDropdown2");
-
-// <a id="my2Link1" href="#" onclick='dropSelected2(this.innerText);return false;'>Graham Airey</a>
-
-for(var i = 0; i < options.length; i++) {   
-    var el = document.createElement("a");
-    el.id="my2Link" + (i+1)
-    el.setAttribute("onclick", "dropSelected2(this.innerText);return false;");
-    el.setAttribute("href","#");
-    el.innerText = options[i];
-    select2.appendChild(el);
-}
-// Close the dropdown if the user clicks outside of it
-
-// create player dropdown
-var select3 = document.getElementById("myDropdown3");
-
-// <a id="my3Link1" href="#" onclick='dropSelected1(this.innerText);return false;'>Graham Airey</a>
-
-for(var i = 0; i < options.length; i++) {   
-    var el = document.createElement("a");
-    el.id="my3Link" + (i+1)
-    el.setAttribute("onclick", "dropSelected3(this.innerText);return false;");
-    el.setAttribute("href","#");
-    el.innerText = options[i];
-    select3.appendChild(el);
-}
-
-// create player dropdown
-var select4 = document.getElementById("myDropdown4");
-
-// <a id="my4Link1" href="#" onclick='dropSelected4(this.innerText);return false;'>Graham Airey</a>
-
-for(var i = 0; i < options.length; i++) {   
-    var el = document.createElement("a");
-    el.id="my4Link" + (i+1)
-    el.setAttribute("onclick", "dropSelected4(this.innerText);return false;");
-    el.setAttribute("href","#");
-    el.innerText = options[i];
-    select4.appendChild(el);
-}
-// Close the dropdown if the user clicks outside of it
-
-/*
-window.onclick = function(event) {
-  if (!event.target.matches('#myDropdown1')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content1");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-  
- 
-}
-*/
-
-
-
-
-
-vcourse = "Lakes"
-// array ["hole num",par,si]
-arrLakes = [[1,4,15],
-	   [2,4,7],
-	   [3,5,3],
-	   [4,4,1],
-	   [5,3,17],
-	   [6,3,11],
-	   [7,4,9],
-	   [8,4,5],
-	   [9,4,13],
-	   [10,3,16],
-	   [11,4,18],
-	   [12,4,10],
-	   [13,4,6],
-	   [14,3,14],
-	   [15,3,4],
-	   [16,5,12],
-	   [17,4,2],
-	   [18,5,8]]
-	   
-	   
-/*	   
-	   
-	   
-	   vhcp = pdawsonhcp;      
-	       vcourse = "Dawson"
-	       vpar1 = 5
-	       vpar2 = 4
-	       vpar3 = 3
-	       vpar4 = 4
-	       vpar5 = 4
-	       vpar6 = 5
-	       vpar7 = 4
-	       vpar8 = 4
-	       vpar9 = 5
-	       vpar10 = 4
-	       vpar11 = 5
-	       vpar12 = 3
-	       vpar13 = 4
-	       vpar14 = 4
-	       vpar15 = 4
-	       vpar16 = 3
-	       vpar17 = 4
-	       vpar18 = 4
-	       vsi1 = 13
-	       vsi2 = 15
-	       vsi3 = 17
-	       vsi4 = 3
-	       vsi5 = 1
-	       vsi6 = 11
-	       vsi7 = 7
-	       vsi8 = 9
-	       vsi9 = 5
-	       vsi10 = 16
-	       vsi11 = 14
-	       vsi12 = 18
-	       vsi13 = 2
-	       vsi14 = 4
-	       vsi15 = 12
-	       vsi16 = 6
-	       vsi17 = 10
-	       vsi18 = 8
-
-
-*/
-
-
-
-function pointsCalc(hcp,par,si,score) {
- 
-   // allowance   
-   if (hcp > si) {
-      allowance = 1 
-   } 
-   if (hcp > (18 + si)) {
-      allowance = 2 
-   } 
-   if (hcp > (36 + si)) {
-      allowance = 3 
-   }   
-
-   // points
-
-   var points =  (par + allowance + 2) - score
-   // remove negative numbers
-   if (points < 0) {
-      points = 0
-   }
-
-   return points
-   
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-</body>
+   </script>
+   </body>
 </html>
