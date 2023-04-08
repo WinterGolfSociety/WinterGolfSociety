@@ -20,7 +20,7 @@ content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 }
 
 body {
-  background-color: lavender;
+  background-color: gainsboro;
 }
 
 .container {
@@ -156,10 +156,7 @@ padding-left: 2px;
 	font-size: 16px;
 }
 
-#hole1 {
-	background: lightGreen;
-	
-}
+
 
 
 
@@ -246,8 +243,20 @@ table {
 }
 
 #setup {
-	background: lavender;
+	background: gainsboro;
 }
+
+#hole1 {
+	background: lightGreen;
+	
+}
+
+#hole2 {
+	background: lightBlue;
+	
+}
+
+
 
 </style>
 </head>
@@ -374,7 +383,8 @@ table {
 </div>
       
       
- <!-- =============================================================================
+ <!-- ========== hole 1 ==============================
+ =====================================================
  -->        
       
      	<div class="card" id="hole1">
@@ -496,9 +506,125 @@ table {
       
  
       
-<div class="card" id="hole2">
-<a class="hole" id="hole-2"></a>
+<!-- ========== hole 2 ==============================
+ =====================================================
+ -->        
+      
+     	<div class="card" id="hole2">
+    <br>
+        
+     
+<table>
+<caption id="cap">Longhirst sweep</caption>
+<thead>
+
+</thead>
+
+<tbody>	
+	<tr class="stdtr">
+		<td colspan=2 class="tdleft">
+		<button type="button"  class="buttonblue" id="hole-2"></button>
+		</td>
+		
+	</tr>
+	<!--
+	<tr class="spacer"></tr>
+	-->
+	<tr class="stdtr">	
+		
+		<td class="tdleft">
+		<button class="dropbtn1" id="h2p1">no player</button>
+		<div id="xxxxxxh1p1">
+		</div>	
+		</td>
+			
+	    <td class="tdright">
+			<button type="button"  class="buttonblue">
+			<a class="leftnum" id="aaal1" onclick="decrementTest('aaac1')">-</a>
+			<a class="midnum" id="aaac1">0</a>
+			<a class="rightnum" id="aaar1" onclick="incrementTest('aaac1')">+</a>
+			</button>
+		</td>
+			
+	</tr>
+		
+	<tr class="stdtr">	
+			<td class="tdleft">
+		<button class="dropbtn2" id="h2p2">no player</button>
+		<div id="mxxxxyDropdown2">	
+		</div>
+		</td>
+				
+            <td class="tdright">
+    			<button type="button"  class="buttonblue">
+				<a class="leftnum" id="aaal2" onclick="decrementTest('aaac2')">-</a>
+				<a class="midnum" id="aaac2">0</a>
+				<a class="rightnum" id="aaar2" onclick="incrementTest('aaac2')">+</a>
+				</button>
+			</td>
+			
+		</tr>
+		
+		<tr class="stdtr">	
+			<td class="tdleft">
+		<button class="dropbtn3" id="h2p3">no player</button>
+		<div id="xxxxxmyDropdown3" >
+		</div>
+		</td>
+				
+            <td class="tdright">
+    			<button type="button"  class="buttonblue">
+				<a class="leftnum" id="aaal3" onclick="decrementTest('aaac3')">-</a>
+				<a class="midnum" id="aaac3">0</a>
+				<a class="rightnum" id="aaar3" onclick="incrementTest('aaac3')">+</a>
+				</button>
+			</td>
+			
+		</tr>
+		
+		<tr class="stdtr">	
+			<td class="tdleft">
+		<button class="dropbtn4" id="h2p4">no player</button>
+		<div id="xxxxxmyDropdown4">
+		</div>
+		</td>
+				
+            <td class="tdright">
+    			<button type="button"  class="buttonblue">
+				<a class="leftnum" id="aaal4" onclick="decrementTest('aaac4')">-</a>
+				<a class="midnum" id="aaac4">0</a>
+				<a class="rightnum" id="aaar4" onclick="incrementTest('aaac4')">+</a>
+				</button>
+			</td>
+			
+		</tr>
+		
+		
+		
+		<tr>
+		<td id="calcs1"></td>
+		<td id="calcs2"></td>
+		</tr> 
+		
+		
+		<tr class="spacer"></tr>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+</tbody>      
+</table>          
+         
+  
+        
+          
 </div>
+      
       
       
 <div class="card" id="hole3">
@@ -821,7 +947,7 @@ function dropSelected1(playerName) {
     }
     // fill in all 18 holes - do for all
     document.getElementById("h1p1").innerText = player
-    
+    document.getElementById("h2p1").innerText = player
     
     
     
@@ -842,7 +968,7 @@ function dropSelected2(playerName) {
     }
     // fill in all 18 holes - do for all
     document.getElementById("h1p2").innerText = player
-    
+    document.getElementById("h2p2").innerText = player
     
     
     
@@ -863,7 +989,7 @@ function dropSelected3(playerName) {
     }
     // fill in all 18 holes - do for all
     document.getElementById("h1p3").innerText = player
-    
+    document.getElementById("h2p3").innerText = player
     
     
     
@@ -884,7 +1010,7 @@ function dropSelected4(playerName) {
     }
     // fill in all 18 holes - do for all
     document.getElementById("h1p4").innerText = player
-    
+    document.getElementById("h2p4").innerText = player
     
     
     
