@@ -360,28 +360,28 @@ font-size:30px;
 						</tr>
 						
 						<tr>
-							<td class="tdtest" id="h1p1result1">colin</td>
-							<td class="tdtest" id="h1p1result2"colspan="2">1 points</td>
+							<td class="tdtest" id="h1p1result1"></td>
+							<td class="tdtest" id="h1p1result2"colspan="2"></td>
 				
 						</tr>
 					
 						<tr>
-							<td class="tdtest" id="h1p2result1">bryan</td>
-							<td class="tdtest" id="h1p2result2"colspan="2">3 points (1 up)</td>
+							<td class="tdtest" id="h1p2result1"></td>
+							<td class="tdtest" id="h1p2result2"colspan="2"></td>
 							
 							
 						</tr>
 						
 						<tr>
-							<td class="tdtest" id="h1p3result1">stephen</td>
-							<td class="tdtest" id="h1p3result2"colspan="2">2 points</td>
+							<td class="tdtest" id="h1p3result1"></td>
+							<td class="tdtest" id="h1p3result2"colspan="2"></td>
 						
 							
 						</tr>
 						
 						<tr>
-							<td class="tdtest" id="h1p4result1">colin</td>
-							<td class="tdtest" id="h1p4result2" colspan="2">0 points</td>
+							<td class="tdtest" id="h1p4result1"></td>
+							<td class="tdtest" id="h1p4result2" colspan="2"></td>
 							
 						</tr>
 						
@@ -1783,79 +1783,222 @@ font-size:30px;
       //=========================================
       //===== globals ===========================
       //=========================================
-      // todo - get from local storage
+      // todo - put and get from local storage
+      
       courseInPlay = "none"
-      player1hcp = ""
-      player2hcp = ""
-      player3hcp = ""
-      player4hcp = ""
       
       player1name = ""
       player2name = ""
       player3name = ""
       player4name = ""
       
+      player1hcp = ""
+      player2hcp = ""
+      player3hcp = ""
+      player4hcp = ""
+      
+      player1hcp90percent = ""
+      player2hcp90percent = ""
+      player3hcp90percent = ""
+      player4hcp90percent = ""
+      
+      
+      player1matchplayshotsrecorded = ""
+      player2matchplayshotsrecorded = ""
+      player3matchplayshotsrecorded = ""
+      player4matchplayshotsrecorded = ""
+      
+      player1hole1shotsrecorded = ""
+      player2hole1shotsrecorded = ""
+      player3hole1shotsrecorded = ""
+      player4hole1shotsrecorded = ""
+      
+      player1hole2shotsrecorded = ""
+      player2hole2shotsrecorded = ""
+      player3hole2shotsrecorded = ""
+      player4hole2shotsrecorded = ""
+      
+      player1hole3shotsrecorded = ""
+      player2hole3shotsrecorded = ""
+      player3hole3shotsrecorded = ""
+      player4hole3shotsrecorded = ""
+      
+      player1hole4shotsrecorded = ""
+      player2hole4shotsrecorded = ""
+      player3hole4shotsrecorded = ""
+      player4hole4shotsrecorded = ""
+      
+      player1hole5shotsrecorded = ""
+      player2hole5shotsrecorded = ""
+      player3hole5shotsrecorded = ""
+      player4hole5shotsrecorded = ""
+      
+      player1hole6shotsrecorded = ""
+      player2hole6shotsrecorded = ""
+      player3hole6shotsrecorded = ""
+      player4hole6shotsrecorded = ""
+      
+      player1hole7shotsrecorded = ""
+      player2hole7shotsrecorded = ""
+      player3hole7shotsrecorded = ""
+      player4hole7shotsrecorded = ""
+      
+      player1hole8shotsrecorded = ""
+      player2hole8shotsrecorded = ""
+      player3hole8shotsrecorded = ""
+      player4hole8shotsrecorded = ""
+      
+      player1hole9shotsrecorded = ""
+      player2hole9shotsrecorded = ""
+      player3hole9shotsrecorded = ""
+      player4hole9shotsrecorded = ""
+      
+      player1hole10shotsrecorded = ""
+      player2hole10shotsrecorded = ""
+      player3hole10shotsrecorded = ""
+      player4hole10shotsrecorded = ""
+      
+      player1hole11shotsrecorded = ""
+      player2hole11shotsrecorded = ""
+      player3hole11shotsrecorded = ""
+      player4hole11shotsrecorded = ""
+      
+      player1hole12shotsrecorded = ""
+      player2hole12shotsrecorded = ""
+      player3hole12shotsrecorded = ""
+      player4hole12shotsrecorded = ""
+      
+      player1hole13shotsrecorded = ""
+      player2hole13shotsrecorded = ""
+      player3hole13shotsrecorded = ""
+      player4hole13shotsrecorded = ""
+      
+      player1hole14shotsrecorded = ""
+      player2hole14shotsrecorded = ""
+      player3hole14shotsrecorded = ""
+      player4hole14shotsrecorded = ""
+      
+      player1hole15shotsrecorded = ""
+      player2hole15shotsrecorded = ""
+      player3hole15shotsrecorded = ""
+      player4hole15shotsrecorded = ""
+      
+      player1hole16shotsrecorded = ""
+      player2hole16shotsrecorded = ""
+      player3hole16shotsrecorded = ""
+      player4hole16shotsrecorded = ""
+      
+      player1hole17shotsrecorded = ""
+      player2hole17shotsrecorded = ""
+      player3hole17shotsrecorded = ""
+      player4hole17shotsrecorded = ""
+      
+      player1hole18shotsrecorded = ""
+      player2hole18shotsrecorded = ""
+      player3hole18shotsrecorded = ""
+      player4hole18shotsrecorded = ""
+      
+      
+      
+      
+      
+      
       
       
       function incrementScore(id) {
-      	//alert(id)
-      	var incScore = document.getElementById(id).innerText;
-      	
+      	  //alert(id)
+      	  var incScore = document.getElementById(id).innerText;
+		  // increment score on screen
           document.getElementById(id).innerText = ++incScore;
-          
+          //work out hole number and player number
           var temphole = id.substring(0,3).replaceAll("h","")
+          // player is 1,2,3 or 4
           var tempplayer = id.substring(id.length - 1)
+          
           //alert(id.substring(0, id.length - 1))
           var temptxt="temptxt - "
-         
-          ttt = document.getElementById("h" + temphole + "p1").innerText
-          if (ttt !== "no player") {
-			  temptxt+= ttt + document.getElementById(id.substring(0, id.length - 1) + "1").innerText + "<br>" 
-			  // do bottom bit on each hole
-			document.getElementById("h" + temphole + "p1result1").innerHTML = ttt;
-			document.getElementById("h" + temphole + "p1result2").innerHTML = incScore + " points";
-		  }
           
-          ttt = document.getElementById("h" + temphole + "p2").innerText
-          if (ttt !== "no player") {
-			  temptxt+= ttt + document.getElementById(id.substring(0, id.length - 1) + "2").innerText + "<br>"
-			  // do bottom bit on each hole
-         document.getElementById("h" + temphole + "p2result1").innerHTML = ttt;
-         document.getElementById("h" + temphole + "p2result2").innerHTML = incScore + " points"; 
+          // update info at bottom of page
+          // get player1 name
+          tempplayername = document.getElementById("h" + temphole + "p1").innerText
+          if (tempplayername !== "no player") {
+			  // do player name, player points at bottom on each hole
+			  // player name
+			  document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername;
+			  courseInPlay = "Dawson"
+			  thcp = "22"
+			  if (courseInPlay == "Dawson") {
+				temppar = arrDawson[temphole -1][1]  
+				tempsi =  arrDawson[temphole -1][2] 
+			  } else {
+				temppar = arrLakes[temphole -1][1]  
+				tempsi =  arrLakes[temphole -1][2]  
+			  }
+			  //pointsCalc(hcp,par,si,score)
+			  var tempscore = document.getElementById("h" + temphole + "hhc1").innerText
+			  var temppoints = pointsCalc(thcp,temppar,tempsi,tempscore)
+			  alert(temppoints + " = " + thcp + " " + temppar + " " + tempsi + " " + tempscore)
+			  document.getElementById("h" + temphole + "p1result2").innerHTML = temppoints + " points";
 		  }
-          
-          ttt = document.getElementById("h" + temphole + "p3").innerText
-          if (ttt !== "no player") {
-			  temptxt+= ttt + document.getElementById(id.substring(0, id.length - 1) + "3").innerText + "<br>" 
-			  // do bottom bit on each hole
-         document.getElementById("h" + temphole + "p3result1").innerHTML = ttt;
-         document.getElementById("h" + temphole + "p3result2").innerHTML = incScore + " points";
+          // get player2 name
+          tempplayername = document.getElementById("h" + temphole + "p2").innerText
+          if (tempplayername !== "no player") {
+			  // do bottom bit on each hole, player name, player points
+              document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername;
+			  courseInPlay = "Dawson"
+			  thcp = "2"
+			  if (courseInPlay == "Dawson") {
+				temppar = arrDawson[temphole -1][1]  
+				tempsi =  arrDawson[temphole -1][2] 
+			  } else {
+				temppar = arrLakes[temphole -1][1]  
+				tempsi =  arrLakes[temphole -1][2]  
+			  }
+			  var tempscore = document.getElementById("h" + temphole + "hhc2").innerText
+			  var temppoints = pointsCalc(thcp,temppar,tempsi,tempscore)
+			  alert(temppoints + " = " + thcp + " " + temppar + " " + tempsi + " " + tempscore)
+			  document.getElementById("h" + temphole + "p2result2").innerHTML = temppoints + " points"; 
 		  }
-          
-          ttt = document.getElementById("h" + temphole + "p4").innerText
-          if (ttt !== "no player") {
-			  temptxt+= ttt + document.getElementById(id.substring(0, id.length - 1) + "4").innerText + "<br>" 
-			  // do bottom bit on each hole
-         document.getElementById("h" + temphole + "p4result1").innerHTML = ttt;
-         document.getElementById("h" + temphole + "p4result2").innerHTML = incScore + " points";
-		  }
-          
-        
-          document.getElementById("h" + temphole + "calcs1").innerHTML = temptxt;	
-         //doCalcs() 
-         // do bottom bit on each hole
-         //document.getElementById("h" + temphole + "p1result1").innerHTML = p1;
-         //document.getElementById("h" + temphole + "p1result2").innerHTML = incscore;
-         
-         
-         
-         
-         
-         
-         
-         
-         //document.getElementById("h" + temphole + "p1result1").innerHTML = p1;
-         	
+          // get player3 name
+          tempplayername = document.getElementById("h" + temphole + "p3").innerText
+          if (tempplayername !== "no player") {
+			  // do bottom bit on each hole, player name, player points
+              document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername;
+			  courseInPlay = "Dawson"
+			  thcp = "22"
+			  if (courseInPlay == "Dawson") {
+				temppar = arrDawson[temphole -1][1]  
+				tempsi =  arrDawson[temphole -1][2] 
+			  } else {
+				temppar = arrLakes[temphole -1][1]  
+				tempsi =  arrLakes[temphole -1][2]  
+			  }
+			  var tempscore = document.getElementById("h" + temphole + "hhc3").innerText
+			  var temppoints = pointsCalc(thcp,temppar,tempsi,tempscore)
+			  alert(temppoints + " = " + thcp + " " + temppar + " " + tempsi + " " + tempscore)
+			  document.getElementById("h" + temphole + "p3result2").innerHTML = temppoints + " points";
+		   }
+          // get player4 name
+          tempplayername = document.getElementById("h" + temphole + "p4").innerText
+          if (tempplayername !== "no player") {
+			  // do bottom bit on each hole, player name, player points
+              document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername;
+			  courseInPlay = "Dawson"
+			  thcp = "2"
+			  if (courseInPlay == "Dawson") {
+				temppar = arrDawson[temphole -1][1]  
+				tempsi =  arrDawson[temphole -1][2] 
+			  } else {
+				temppar = arrLakes[temphole -1][1]  
+				tempsi =  arrLakes[temphole -1][2]  
+			  }
+			  //pointsCalc(hcp,par,si,score)
+			  var tempscore = document.getElementById("h" + temphole + "hhc4").innerText
+			  var temppoints = pointsCalc(thcp,temppar,tempsi,tempscore)
+			  alert(temppoints + " = " + thcp + " " + temppar + " " + tempsi + " " + tempscore)
+			  document.getElementById("h" + temphole + "p4result2").innerHTML = temppoints + " points";
+		}
+
       } 
         
       
@@ -2298,16 +2441,19 @@ font-size:30px;
       function pointsCalc(hcp,par,si,score) {
        
          // allowance   
-         if (hcp > si) {
+         
+         allowance = 0
+         
+         if (hcp >= si) {
             allowance = 1 
          } 
-         if (hcp > (18 + si)) {
+         if (hcp >= (18 + si)) {
             allowance = 2 
          } 
-         if (hcp > (36 + si)) {
+         if (hcp >= (36 + si)) {
             allowance = 3 
          }   
-      
+      alert("hcp = " + hcp + " allowance = " + allowance)
          // points
       
          var points =  (par + allowance + 2) - score
