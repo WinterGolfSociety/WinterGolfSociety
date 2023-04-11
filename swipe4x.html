@@ -314,27 +314,13 @@ font-size:30px;
                         <div id="playerdropdown1" class="dropdown-content1">
                         </div>
                      </td>
-                     
-                     
-                     
-                     
-                     
-                     
                      <td class="tdright" >
                         <div class="wrapper buttonblue">
-						<span class="minus">-</span>
-						<span class="num">10</span>
-						<span class="plus">+</span>
+						<span class="minus" id="minussetupplayer1" onclick='decrementhcp("numsetupplayer1")'>-</span>
+						<span class="num"  id="numsetupplayer1">10</span>
+						<span class="plus"  id="plussetupplayer1" onclick='incrementhcp("numsetupplayer1")'>+</span>
 						</div
                      </td>
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                     
                   </tr>
                   <tr class="stdtr">
                      <td class="tdleft">
@@ -344,9 +330,9 @@ font-size:30px;
                      </td>
                      <td class="tdright" >
                         <div class="wrapper buttonblue">
-						<span class="minus">-</span>
-						<span class="num">10</span>
-						<span class="plus">+</span>
+						<span class="minus" id="minussetupplayer2" onclick='decrementhcp("numsetupplayer2")'>-</span>
+						<span class="num"  id="numsetupplayer2">10</span>
+						<span class="plus"  id="plussetupplayer2" onclick='incrementhcp("numsetupplayer2")'>+</span>
 						</div
                      </td>
                   </tr>
@@ -358,9 +344,9 @@ font-size:30px;
                      </td>
                      <td class="tdright" >
                         <div class="wrapper buttonblue">
-						<span class="minus">-</span>
-						<span class="num">10</span>
-						<span class="plus">+</span>
+						<span class="minus" id="minussetupplayer3" onclick='decrementhcp("numsetupplayer3")'>-</span>
+						<span class="num"  id="numsetupplayer3">10</span>
+						<span class="plus"  id="plussetupplayer3" onclick='incrementhcp("numsetupplayer3")'>+</span>
 						</div
                      </td>
                   </tr>
@@ -372,9 +358,9 @@ font-size:30px;
                      </td>
                      <td class="tdright" >
                         <div class="wrapper buttonblue">
-						<span class="minus">-</span>
-						<span class="num">10</span>
-						<span class="plus">+</span>
+						<span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
+						<span class="num"  id="numsetupplayer4">10</span>
+						<span class="plus"  id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
 						</div
                      </td>
                   </tr>
@@ -3326,7 +3312,7 @@ font-size:30px;
       
       
       
-      
+ /*     
  const plus = document.querySelector(".plus"),
     minus = document.querySelector(".minus"),
     num = document.querySelector(".num");
@@ -3348,11 +3334,24 @@ font-size:30px;
     });     
       
       
+  */    
       
+      function decrementhcp(hcp) {
+		  tempnumberlocation = document.getElementById(hcp)
+		  tempnumbertoupdate = tempnumberlocation.innerText
+		  
+		  if (tempnumbertoupdate > 0) {
+			tempnumbertoupdate--
+		  }
+		  tempnumberlocation.innerText = tempnumbertoupdate
+	  }
       
-      
-      
-      
+      function incrementhcp(hcp) {
+		  tempnumberlocation = document.getElementById(hcp)
+		  tempnumbertoupdate = tempnumberlocation.innerText
+		  tempnumbertoupdate++
+		  tempnumberlocation.innerText = tempnumbertoupdate
+	  }
       
       
       
