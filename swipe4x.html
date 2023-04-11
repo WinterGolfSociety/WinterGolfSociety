@@ -2487,6 +2487,35 @@ font-size:30px;
       
       
       
+      
+      
+      <div class="card" id="hole18">
+            <br>
+            <table>
+               <caption class="cap">Longhirst sweep</caption>
+               <thead></thead>
+               <tbody>
+                  <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        <div id="resultspage"></div>
+                     </td>
+                  </tr>
+                  
+      
+      </tbody>
+            </table>
+         </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       </div>
       
       
@@ -2996,8 +3025,10 @@ font-size:30px;
       player4name = p4
       
       
-      
-      
+      document.getElementById("resultspage").innerHTML = p1 + h1 + "<br>" +
+      p2 + h2 + "<br>" +
+      p3 + h3 + "<br>" +
+      p4 + h4 + "<br>"
       }
       
       // sort out dropdowns
@@ -3124,7 +3155,7 @@ font-size:30px;
       
       // create player dropdown
       var select1 = document.getElementById("playerdropdown1");
-      alert("xxx")
+
       for(var i = 0; i < options.length; i++) {   
           var el = document.createElement("a");
           el.id="my1Link" + (i+1)
