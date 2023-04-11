@@ -40,7 +40,7 @@
      
 table {
   width: 100%;
-  //border: 1px solid red;
+
 }
 
 td {
@@ -69,58 +69,33 @@ padding-left: 20px;
 padding-right: 15px; 
 float: right;
 background: dodgerBlue;
-//width: 40%;
 font-size:30px;
 }
-
- 
- 
- 
          .buttonblue {
          color: white;
          cursor: pointer;
          width: 100%; 
-         height:10vh; //100%;
+         height:10vh;
          font-size: 30px;
          background: dodgerBlue;
          text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
          float:left;
-         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-         border-width: thin;
-         padding-left: 10px; 
-         }
-         .buttonblue1 {
-         color: white;
-         cursor: pointer;
-         width: 100%; 
-         height: 10vh;
-         font-size: 30px;
-         background: dodgerBlue;
-         text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-         float:left;
-         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-         border-width: thin;
-         padding-left: 30px; //10px; 
-         padding-top: 5px;
-         padding-bottom: 5px;
-			}
-	 
-         
+         //padding-left: 10px; 
+         } 
          #calcs1, #calcs2 {
          color: slateGray;
          padding: 5px;
          }
-         
          .dropbtn1, .dropbtn2, .dropbtn3, .dropbtn4 {
          color: white;
          cursor: pointer;
          width: 100%; 
          height:10vh;
          font-size: 30px;
+         text-align: center;
+         padding-top: 1vh;
          text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
          background: dodgerBlue;
-         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-         border-width: thin;
          }
          .dropdown1,.dropdown2,.dropdown3,.dropdown4 {
          position: relative;
@@ -134,10 +109,7 @@ font-size:30px;
          background-color: #f1f1f1;
          min-width: 160px;
          overflow: auto;
-         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
          z-index: 1;
-         //border-radius: 5px;
-         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
          }
          .dropdown-content1 a, .dropdown-content2 a, .dropdown-content3 a, .dropdown-content4 a {
          color: black;
@@ -157,8 +129,7 @@ font-size:30px;
          .card:hover .delete_button {
          transform: scaleX(1) !important;
          }
-         }
-         
+         }      
          #setup {
          background: lightGray;
          }
@@ -167,8 +138,7 @@ font-size:30px;
          }
          #final {
          background: dodgerBlue;
-         }
-         
+         }        
          .tdtest {
 		   color:dodgerBlue;
 		   font-size:20px;
@@ -179,75 +149,29 @@ font-size:30px;
 		 color: dodgerBlue;
 		  font-size:20px; 
 	   }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   .tdright, .tdleft {
-	  width:50%; 
-   }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-  .wrapper{
-  //height: 120px;
+  .wrapper{  
+  height:10vh; //100%;
+  color: white;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
   //min-width: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: dodgerBlue;
-  //border-radius: 12px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 .wrapper span{
   width: 100%;
   text-align: center;
   font-size: 40px;
-  //font-weight: 600;
   cursor: pointer;
   user-select: none;
 }
 .wrapper span.num{
   font-size: 30px;
-  border-right: 2px solid rgba(0,0,0,0.2);
-  border-left: 2px solid rgba(0,0,0,0.2);
   pointer-events: none;
 }
  
-   
-   
-   
+  
    
    
    
@@ -310,12 +234,12 @@ font-size:30px;
                      -->
                   <tr class="stdtr">
                      <td class="tdleft">
-                        <button onclick="hideorshowplayerdropdown1()" class="dropbtn1" id="dropbtn1">no player</button>
+                        <div onclick="hideorshowplayerdropdown1()" class="dropbtn1" id="dropbtn1">no player</div>
                         <div id="playerdropdown1" class="dropdown-content1">
                         </div>
                      </td>
                      <td class="tdright" >
-                        <div class="wrapper buttonblue">
+                        <div class="wrapper">
 						<span class="minus" id="minussetupplayer1" onclick='decrementhcp("numsetupplayer1")'>-</span>
 						<span class="num"  id="numsetupplayer1">10</span>
 						<span class="plus"  id="plussetupplayer1" onclick='incrementhcp("numsetupplayer1")'>+</span>
@@ -324,12 +248,12 @@ font-size:30px;
                   </tr>
                   <tr class="stdtr">
                      <td class="tdleft">
-                        <button onclick="hideorshowplayerdropdown2()" class="dropbtn2" id="dropbtn2">no player</button>
+                        <div onclick="hideorshowplayerdropdown2()" class="dropbtn2" id="dropbtn2">no player</div>
                         <div id="playerdropdown2" class="dropdown-content2">	
                         </div>
                      </td>
                      <td class="tdright" >
-                        <div class="wrapper buttonblue">
+                        <div class="wrapper">
 						<span class="minus" id="minussetupplayer2" onclick='decrementhcp("numsetupplayer2")'>-</span>
 						<span class="num"  id="numsetupplayer2">10</span>
 						<span class="plus"  id="plussetupplayer2" onclick='incrementhcp("numsetupplayer2")'>+</span>
@@ -338,12 +262,12 @@ font-size:30px;
                   </tr>
                   <tr class="stdtr">
                      <td class="tdleft">
-                        <button onclick="hideorshowplayerdropdown3()" class="dropbtn3" id="dropbtn3">no player</button>
+                        <div onclick="hideorshowplayerdropdown3()" class="dropbtn3" id="dropbtn3">no player</div>
                         <div id="playerdropdown3" class="dropdown-content3">
                         </div>
                      </td>
                      <td class="tdright" >
-                        <div class="wrapper buttonblue">
+                        <div class="wrapper">
 						<span class="minus" id="minussetupplayer3" onclick='decrementhcp("numsetupplayer3")'>-</span>
 						<span class="num"  id="numsetupplayer3">10</span>
 						<span class="plus"  id="plussetupplayer3" onclick='incrementhcp("numsetupplayer3")'>+</span>
@@ -352,12 +276,12 @@ font-size:30px;
                   </tr>
                   <tr class="stdtr">
                      <td class="tdleft">
-                        <button onclick="hideorshowplayerdropdown4()" class="dropbtn4" id="dropbtn4">no player</button>
+                        <div onclick="hideorshowplayerdropdown4()" class="dropbtn4" id="dropbtn4">no player</div>
                         <div id="playerdropdown4" class="dropdown-content4">
                         </div>
                      </td>
                      <td class="tdright" >
-                        <div class="wrapper buttonblue">
+                        <div class="wrapper">
 						<span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
 						<span class="num"  id="numsetupplayer4">10</span>
 						<span class="plus"  id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
