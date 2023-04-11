@@ -52,7 +52,7 @@ width: 45%;
 padding-left: 15px; 
 padding-right: 20px; 
 float: left;
-background: green; //dodgerBlue;
+background: dodgerBlue;
 //width: 40%;
 font-size:30px;
 }
@@ -186,47 +186,65 @@ font-size:30px;
    
    
    
- .xleftnum {
-height:10vh;
-padding-left: 15px; 
-float: left;
-background: dodgerBlue;
-font-size:30px;
-width:35%;
-text-align: left;
+   
+   
+   
+   
+   
+   
+   .tdright, .tdleft {
+	  width:50%; 
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  .wrapper{
+  //height: 120px;
+  //min-width: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: dodgerBlue;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
-
-.xmidnum {
-height:10vh;
-background: cyan;
-font-size:30px;
-//width: 10px;
-padding-left: 10px; 
-padding-right: 10px; 
-
-
-
+.wrapper span{
+  width: 100%;
+  text-align: center;
+  font-size: 55px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
 }
-.xrightnum {
-height:10vh;
-padding-right: 15px; 
-float: right;
-background: dodgerBlue;
-font-size:30px;
-width:35%;
-text-align: right;
+.wrapper span.num{
+  font-size: 40px;
+  border-right: 2px solid rgba(0,0,0,0.2);
+  border-left: 2px solid rgba(0,0,0,0.2);
+  pointer-events: none;
 }
  
- .xtdright {
-	 background: green; //dodgerBlue;
-	 width:30%;
- }
-   
-   
-   
-   
-   
-   
    
    
    
@@ -241,6 +259,31 @@ text-align: right;
    
    
       </style>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
    </head>
    <body>
       <div class="container">
@@ -265,70 +308,60 @@ text-align: right;
                   <!--
                      <tr class="spacer"></tr>
                      -->
-                     
-                     <!--
                   <tr class="stdtr">
                      <td class="tdleft">
                         <button onclick="hideorshowplayerdropdown1()" class="dropbtn1" id="dropbtn1">no player</button>
                         <div id="playerdropdown1" class="dropdown-content1">
                         </div>
                      </td>
-                     <td class="tdright">
-                        <span  class="xbuttonblue">
-                        <a class="leftnum buttonblue" id="aaal1" onclick="decrementsetupscreenhcp('aaac1')">-</a>
-                        <a class="midnum" id="aaac1">10</a>
-                        <a class="rightnum" id="aaar1" onclick="incrementsetupscreenhcp('aaac1')">+</a>
-                        </span>
+                     
+                     
+                     
+                     
+                     
+                     
+                     <td class="tdright" >
+                        <div class="wrapper buttonblue">
+						<span class="minus">-</span>
+						<span class="num">0</span>
+						<span class="plus">+</span>
+						</div
                      </td>
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
                   </tr>
-                  
-                  
-                  -->
-                  
-                  
                   <tr class="stdtr">
                      <td class="tdleft">
                         <button onclick="hideorshowplayerdropdown2()" class="dropbtn2" id="dropbtn2">no player</button>
                         <div id="playerdropdown2" class="dropdown-content2">	
                         </div>
                      </td>
-                     
-                     
-                     
-                     
-                     
-                     <td class="xtdright">
-						<!-- 
-                        <button type="button"  class="buttonblue">
-						-->	
-                        <a class="xleftnum" id="aaal2" onclick="decrementsetupscreenhcp('aaac2')">-</a>
-                        <a class="xmidnum" id="aaac2">10</a>
-                        <a class="xrightnum" id="aaar2" onclick="incrementsetupscreenhcp('aaac2')">+</a>
-                        <!--
-                        </button>
-                        -->
+                     <td class="tdright" >
+                        <div class="wrapper buttonblue">
+						<span class="minus">-</span>
+						<span class="num">0</span>
+						<span class="plus">+</span>
+						</div
                      </td>
-                     
-                     
-                     
-                     
-                     
                   </tr>
-                  
-                  
-                  
                   <tr class="stdtr">
                      <td class="tdleft">
                         <button onclick="hideorshowplayerdropdown3()" class="dropbtn3" id="dropbtn3">no player</button>
                         <div id="playerdropdown3" class="dropdown-content3">
                         </div>
                      </td>
-                     <td class="tdright">
-                        <button type="button"  class="buttonblue">
-                        <a class="leftnum" id="aaal3" onclick="decrementsetupscreenhcp('aaac3')">-</a>
-                        <a class="midnum" id="aaac3">10</a>
-                        <a class="rightnum" id="aaar3" onclick="incrementsetupscreenhcp('aaac3')">+</a>
-                        </button>
+                     <td class="tdright" >
+                        <div class="wrapper buttonblue">
+						<span class="minus">-</span>
+						<span class="num">0</span>
+						<span class="plus">+</span>
+						</div
                      </td>
                   </tr>
                   <tr class="stdtr">
@@ -337,12 +370,12 @@ text-align: right;
                         <div id="playerdropdown4" class="dropdown-content4">
                         </div>
                      </td>
-                     <td class="tdright">
-                        <button type="button"  class="buttonblue">
-                        <a class="leftnum" id="aaal4" onclick="decrementsetupscreenhcp('aaac4')">-</a>
-                        <a class="midnum" id="aaac4">10</a>
-                        <a class="rightnum" id="aaar4" onclick="incrementsetupscreenhcp('aaac4')">+</a>
-                        </button>
+                     <td class="tdright" >
+                        <div class="wrapper buttonblue">
+						<span class="minus">-</span>
+						<span class="num">0</span>
+						<span class="plus">+</span>
+						</div
                      </td>
                   </tr>
                   <tr>
@@ -3108,7 +3141,7 @@ text-align: right;
       "Temp3",
       "Temp4"];
       
-    
+      alert("here")
       
       // create player dropdown
       var select1 = document.getElementById("playerdropdown1");
@@ -3265,6 +3298,74 @@ text-align: right;
          return points
 	 }
       }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+ const plus = document.querySelector(".plus"),
+    minus = document.querySelector(".minus"),
+    num = document.querySelector(".num");
+
+    let a = 0;
+
+    plus.addEventListener("click", ()=>{
+      a++;
+      //a = (a < 10) ? a : a;
+      num.innerText = a;
+    });
+
+    minus.addEventListener("click", ()=>{
+      if(a > 0){
+        a--;
+        //a = (a < 10) ? a : a;
+        num.innerText = a;
+      }
+    });     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
    </script>
    </body>
 </html>
