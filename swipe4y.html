@@ -2512,11 +2512,28 @@ font-size:30px;
                   
                   
                   
-                  
+          front 9        
                   
                   <tr class="stdtr">
                      <td colspan="2" class="tdleft">
-                        <div id="resultspagexxx"></div>
+                        <div id="front9p1"></div>
+                     </td>
+              </tr>  
+                  
+              <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        <div id="front9p2"></div>
+                     </td>
+             </tr>  
+                  
+            <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        <div id="front9p3"></div>
+                     </td>
+            </tr>    
+        <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        <div id="front9p4"></div>
                      </td>
                   </tr>
                   
@@ -2524,11 +2541,31 @@ font-size:30px;
                   
                   
                   
+            back 9      
                   
+                  <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        <div id="back9p1"></div>
+                     </td>
+                  </tr>
                   
+                  <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        <div id="back9p2"></div>
+                     </td>
+                  </tr>
                   
+                  <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        <div id="back9p3"></div>
+                     </td>
+                  </tr>
                   
-                  
+                  <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        <div id="back9p4"></div>
+                     </td>
+                  </tr>
                   
                   
       
@@ -2751,6 +2788,126 @@ font-size:30px;
 			  player4holepointsrecorded[temphole] = temppoints	  
 		}
 		
+		
+		
+		
+		
+	
+		// update total scores
+		// front 9
+		var tempfront9p1 = 0
+		var tempfront9p2 = 0
+		var tempfront9p3 = 0
+		var tempfront9p4 = 0
+		
+		for (var i = 0; i < 9; i++) {
+			// player 1
+			var temp1 = document.getElementById("h" + (i + 1) + "p1result2").innerText
+			var temp2 = temp1.replace(" points","")
+			var temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempfront9p1 = (tempfront9p1 + temp3)
+			}
+			// player 2
+			var temp1 = document.getElementById("h" + (i + 1) + "p2result2").innerText
+			var temp2 = temp1.replace(" points","")
+			var temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempfront9p2 = (tempfront9p2 + temp3)
+			}
+			// player 3
+			var temp1 = document.getElementById("h" + (i + 1) + "p3result2").innerText
+			var temp2 = temp1.replace(" points","")
+			temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempfront9p3 = (tempfront9p3 + temp3)
+			}
+			// player 4
+			var temp1 = document.getElementById("h" + (i + 1) + "p4result2").innerText
+			var temp2 = temp1.replace(" points","")
+			temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempfront9p4 = (tempfront9p4 + temp3)
+			}	
+			//alert(tempfront9p1 + " " + tempfront9p2 + " " + tempfront9p3 + " " + tempfront9p4 + " ")
+      	}
+      	
+      	
+      	//alert(tempfront9p1 + " " + tempfront9p2 + " " + tempfront9p3 + " " + tempfront9p4)
+      	
+        // front 9
+      	document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points"
+      	document.getElementById("front9p2").innerText = player2name + " " + tempfront9p2 + " points"
+      	document.getElementById("front9p3").innerText = player3name + " " + tempfront9p3 + " points"
+      	document.getElementById("front9p4").innerText = player4name + " " + tempfront9p4 + " points"
+      	
+		// back 9
+		
+		// h1p1result1
+		
+		
+		
+		//===========================================================
+		// back 9
+		//===========================================================
+		var tempback9p1 = 0
+		var tempback9p2 = 0
+		var tempback9p3 = 0
+		var tempback9p4 = 0
+		
+		for (var i = 10; i < 19; i++) {
+			// player 1
+			var temp1 = document.getElementById("h" + (i) + "p1result2").innerText
+			var temp2 = temp1.replace(" points","")
+			var temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempback9p1 = (tempback9p1 + temp3)
+			}
+			// player 2
+			var temp1 = document.getElementById("h" + (i) + "p2result2").innerText
+			var temp2 = temp1.replace(" points","")
+			var temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempback9p2 = (tempback9p2 + temp3)
+			}
+			// player 3
+			var temp1 = document.getElementById("h" + (i) + "p3result2").innerText
+			var temp2 = temp1.replace(" points","")
+			temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempback9p3 = (tempback9p3 + temp3)
+			}
+			// player 4
+			var temp1 = document.getElementById("h" + (i) + "p4result2").innerText
+			var temp2 = temp1.replace(" points","")
+			temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempback9p4 = (tempback9p4 + temp3)
+			}	
+      	}
+      	
+      	
+      	//alert(tempback9p1 + " " + tempback9p2 + " " + tempback9p3 + " " + tempback9p4)
+      	
+        // back 9
+      	document.getElementById("back9p1").innerText = player1name + " " + tempback9p1 + " points"
+      	document.getElementById("back9p2").innerText = player2name + " " + tempback9p2 + " points"
+      	document.getElementById("back9p3").innerText = player3name + " " + tempback9p3 + " points"
+      	document.getElementById("back9p4").innerText = player4name + " " + tempback9p4 + " points"
+      	
+		// back 9
+		
+		// h1p1result1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
       } 
         
       
@@ -2923,16 +3080,125 @@ font-size:30px;
 		// update total scores
 		// front 9
 		var tempfront9p1 = 0
-		for (var i = 0; i < 9; i++) {
-			temp = document.getElementById("h" + (i + 1) + "p1result2").innerText
-      		tempfront9p1 = tempfront9p1 + parseInt(temp)
+		var tempfront9p2 = 0
+		var tempfront9p3 = 0
+		var tempfront9p4 = 0
+		
+		for (var i = 1; i < 10; i++) {
+			// player 1
+			var temp1 = document.getElementById("h" + (i) + "p1result2").innerText
+			var temp2 = temp1.replace(" points","")
+			var temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempfront9p1 = (tempfront9p1 + temp3)
+			}
+			// player 2
+			var temp1 = document.getElementById("h" + (i) + "p2result2").innerText
+			var temp2 = temp1.replace(" points","")
+			var temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempfront9p2 = (tempfront9p2 + temp3)
+			}
+			// player 3
+			var temp1 = document.getElementById("h" + (i) + "p3result2").innerText
+			var temp2 = temp1.replace(" points","")
+			temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempfront9p3 = (tempfront9p3 + temp3)
+			}
+			// player 4
+			var temp1 = document.getElementById("h" + (i) + "p4result2").innerText
+			var temp2 = temp1.replace(" points","")
+			temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempfront9p4 = (tempfront9p4 + temp3)
+			}	
       	}
-      	document.getElementById("resultspagexxx").innerText = tempfront9p1
+      	
+      	
+      	//alert(tempfront9p1 + " " + tempfront9p2 + " " + tempfront9p3 + " " + tempfront9p4)
+      	
+        // front 9
+      	document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points"
+      	document.getElementById("front9p2").innerText = player2name + " " + tempfront9p2 + " points"
+      	document.getElementById("front9p3").innerText = player3name + " " + tempfront9p3 + " points"
+      	document.getElementById("front9p4").innerText = player4name + " " + tempfront9p4 + " points"
+      	
 		// back 9
 		
 		// h1p1result1
 		
 		
+		//===========================================================
+		// back 9
+		//===========================================================
+		var tempback9p1 = 0
+		var tempback9p2 = 0
+		var tempback9p3 = 0
+		var tempback9p4 = 0
+		
+		for (var i = 10; i < 19; i++) {
+			// player 1
+			var temp1 = document.getElementById("h" + (i) + "p1result2").innerText
+			var temp2 = temp1.replace(" points","")
+			var temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempback9p1 = (tempback9p1 + temp3)
+			}
+			// player 2
+			var temp1 = document.getElementById("h" + (i) + "p2result2").innerText
+			var temp2 = temp1.replace(" points","")
+			var temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempback9p2 = (tempback9p2 + temp3)
+			}
+			// player 3
+			var temp1 = document.getElementById("h" + (i) + "p3result2").innerText
+			var temp2 = temp1.replace(" points","")
+			temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempback9p3 = (tempback9p3 + temp3)
+			}
+			// player 4
+			var temp1 = document.getElementById("h" + (i) + "p4result2").innerText
+			var temp2 = temp1.replace(" points","")
+			temp3 = parseInt(temp2)
+			if (temp3 > 0) {
+				tempback9p4 = (tempback9p4 + temp3)
+			}	
+      	}
+      	
+      	
+      	//alert(tempback9p1 + " " + tempback9p2 + " " + tempback9p3 + " " + tempback9p4)
+      	
+        // back 9
+      	document.getElementById("back9p1").innerText = player1name + " " + tempback9p1 + " points"
+      	document.getElementById("back9p2").innerText = player2name + " " + tempback9p2 + " points"
+      	document.getElementById("back9p3").innerText = player3name + " " + tempback9p3 + " points"
+      	document.getElementById("back9p4").innerText = player4name + " " + tempback9p4 + " points"
+      	
+		// back 9
+		
+		// h1p1result1
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
       } 
       
       
