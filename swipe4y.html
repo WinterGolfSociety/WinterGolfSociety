@@ -2924,7 +2924,8 @@ font-size:30px;
 		// front 9
 		var tempfront9p1 = 0
 		for (var i = 0; i < 9; i++) {
-      		tempfront9p1 = tempfront9p1 + parseInt(document.getElementById("h" + (i + 1) + "p1result2").innerText.replace(" points",""))
+			temp = document.getElementById("h" + (i + 1) + "p1result2").innerText
+      		tempfront9p1 = tempfront9p1 + parseInt(temp)
       	}
       	document.getElementById("resultspagexxx").innerText = tempfront9p1
 		// back 9
