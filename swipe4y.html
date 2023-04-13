@@ -125,11 +125,25 @@ font-size:30px;
          margin: 0 auto;
          }
          }
+         
+         
+         // @media only screen and (min-width: 900px) {
+         // .card:hover .delete_button {
+         // transform: scaleX(1) !important;
+         //}
+         //}  
+         
+          
+          
          @media only screen and (min-width: 900px) {
-         .card:hover .delete_button {
+         .card:hover {
          transform: scaleX(1) !important;
          }
-         }      
+         }
+          
+          
+          
+             
          #setup {
          background: lightGray;
          }
@@ -189,7 +203,7 @@ font-size:30px;
    
    
    
-   #showcalcs {
+   #showstartmsg {
       //visibility: hidden;
       font-size: 15px;
       color: cyan;
@@ -200,15 +214,15 @@ font-size:30px;
       padding-left: 10px;
       padding-bottom: 10px;
       left: 10vw;
-      top: 30vh;
-      width: 50%;
-      height: 50%;
+      top: 15vh;
+      width: 80vw;
+      height: 50vh;
       overflow: auto;
       background-color: dodgerBlue;
       background-color: rgba(0, 0, 0, 0.7);
    }
    
-   #buttonshowcalcs {
+   #buttonshowstartmsg {
      	font-size: 30px;
       color: white;
       padding: 10px;
@@ -275,7 +289,7 @@ font-size:30px;
 			 
 		<div class="demo">
          <!-- modal calculations -->   
-         <div class="showcalcs" id="showcalcs" onclick="calcclose()">
+         <div class="showstartmsg" id="showstartmsg" onclick="startmsgclose()">
          </div>
          </div>	 
 			 
@@ -2601,9 +2615,9 @@ font-size:30px;
    <script>
       
       const card = document.querySelector(".card");
-      const theDeleteButton = document.querySelector(".delete_button");
+      //const theDeleteButton = document.querySelector(".delete_button");
       
-      const MOVE_THRESHOLD = 50;
+      //const MOVE_THRESHOLD = 50;
       
       let initialX = 0;
       let moveX = 0;
@@ -3731,21 +3745,26 @@ font-size:30px;
 	  }
       
       
-      function calcclose() {
-      document.getElementById("showcalcs").style.visibility = "hidden";
+      function startmsgclose() {
+      document.getElementById("showstartmsg").style.visibility = "hidden";
    } 
       
       
-     function showcalcs() {
+     function showstartmsg() {
      
-      document.getElementById("showcalcs").innerHTML = 
-      "Longhirst sweep<br><br>1 - Select the course<br><br>2 - Select players<br><br>3 - Select handicaps<br><br>4 - Scroll right to start<br><br><br>tap to close this message<br>"
+      document.getElementById("showstartmsg").innerHTML = 
+      "Longhirst sweep<br><br>
+      Select the course from above<br>
+      then:<br><br>
+      Select players and handicaps for the group<br><br>
+      Scroll right to start<br><br><br>
+      < tap to close ><br>"
       
-      document.getElementById("showcalcs").style.visibility = "visible";
+      document.getElementById("showstartmsg").style.visibility = "visible";
      
  } 
       
-      showcalcs()
+      showstartmsg()
       
       
       
