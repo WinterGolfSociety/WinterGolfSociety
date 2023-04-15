@@ -2172,20 +2172,26 @@
                <tbody>
                   <tr class="stdtr">
                      <td colspan="2" class="tdleft">
-                        group
+                        ----- group -----
                         <div id="resultspage"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
                      <td colspan="2" class="tdleft">
-                        matchplay
+                        ----- matchplay -----
                         <div id="mplay"></div>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td colspan="2" class="tdleft">
+                        ----- matchplay team -----
+                        <div id="mplayteam">-</div>
                      </td>
                   </tr>
                   <!--      front 9    -->    
                   <tr class="stdtr">
                      <td colspan="2" class="tdleft">
-                        front 9
+                        ----- front 9 -----
                         <div id="front9p1"></div>
                      </td>
                   </tr>
@@ -2207,7 +2213,7 @@
                   <!--  back 9     --> 
                   <tr class="stdtr">
                      <td colspan="2" class="tdleft">
-                        back 9
+                        ----- back 9 -----
                         <div id="back9p1"></div>
                      </td>
                   </tr>
@@ -3202,7 +3208,9 @@ function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
     var h2 = 0;
     var h3 = 0;
     var h4 = 0;
-
+	var t1 = "";
+	var t1tem = "";
+	
     if (player1name !== "no player" && score1 == lowestscore) {
         // get score
         h1 = lowestscore;
@@ -3230,23 +3238,86 @@ function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
     if (countlowestscore == 1) {
         if (h1 == lowestscore) {
             var matchplayscoretxt = player1name + " wins hole";
+            var t1 = player1name + " & " + player2name
         }
         if (h2 == lowestscore) {
             var matchplayscoretxt = player2name + " wins hole";
+            var t1 = player1name + " & " + player2name
         }
         if (h3 == lowestscore) {
             var matchplayscoretxt = player3name + " wins hole";
+            var t1 = player3name + " & " + player4name
         }
         if (h4 == lowestscore) {
             var matchplayscoretxt = player4name + " wins hole";
+            var t1 = player3name + " & " + player4name
         }
     } else {
         var matchplayscoretxt = "hole halved";
+        if (h1 == lowestscore && h2 == lowestscore && h3 !== lowestscore && h4 !== lowestscore) {
+				var t1 = player1name + " & " + player2name
+		}
+		if (h1 !== lowestscore && h2 !== lowestscore && h3 == lowestscore && h4 == lowestscore) {
+				var t1 = player3name + " & " + player4name
+		}
     }
 
     document.getElementById("h" + holenumber + "matchplayresult").innerText = matchplayscoretxt;
+    
+    
+    //alert(t1)
+  //  t1temp = document.getElementById("mplayfinal").innerText
+    //document.getElementById("mplayfinal").innerText = t1temp + "\n" + t1
+    // do a loop instead
+  
+    var team1 = 0
+    var team2 = 0
+    
+    for (var i = 1; i <= 3; i++) {
+		temp = document.getElementById("h" + i + "matchplayresult").innerText	
+
+		if (temp.indexOf(player1name) > -1) {
+			team1++
+		}
+		if (temp.indexOf(player2name) > -1) {
+			team1++
+		}
+		if (temp.indexOf(player3name) > -1) {
+			team2++
+		}
+		if (temp.indexOf(player4name) > -1) {
+			team2++
+		}
+		
+	}
+	
+	
+	
+	if (team1 > team2) {
+		t1 = player1name + " & " + player2name + " = " + (team1 - team2) + " up"
+	}
+	if (team2 > team1) {
+		t1 = player3name + " & " + player4name + " = " + (team2 - team1) + " up"
+	}
+	
+	if (team1 == team2) {
+		t1 = "all square"
+	}
+	
+	document.getElementById("mplayteam").innerText = t1
+	
+	
+
+	
+	
 }
+
+
+
+
+
 
       </script>
    </body>
 </html>
+
