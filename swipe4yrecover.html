@@ -232,7 +232,12 @@
          
          
          #savedata, #recoverdata {
-			 font-size: 20px;
+			 color: blue;
+			 background: cyan;
+			 font-size: 30px;
+			 padding: 10px;
+			 border-radius:15px;
+			 box-shadow: 10px 10px 25px black;
 		 }
          
          
@@ -2353,12 +2358,12 @@
                   
                   <tr class="stdtr">
                      <td class="tdleft">
-                        <button id="back9p4" onclick="savedata()">save</button>
+                        <button id="savedata" onclick="savedata()">save test</button>
                      </td>
                   </tr>
                   <tr class="stdtr">
                      <td class="tdleft">
-                        <button id="back9p4" onclick="recoverdata()">recover</button>
+                        <button id="recoverdata" onclick="recoverdata()">recover test</button>
                      </td>
                   </tr>
                   
@@ -2376,8 +2381,18 @@
                   
                </tbody>
             </table>
+            
+            <br><br><br><br>
+            
          </div>
       </div>
+      
+      
+      
+      
+      
+      
+      
       <script>
        const card = document.querySelector(".card");
 //const theDeleteButton = document.querySelector(".delete_button");
@@ -3478,22 +3493,40 @@ function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
 
 
 function savedata() {
-	alert("savedata()" +document.getElementById("dropbtn1").innerText)
-localStorage.setItem("player1name",document.getElementById("dropbtn1").innerText)
-localStorage.setItem("player2name",document.getElementById("dropbtn2").innerText)	
-localStorage.setItem("player3name",document.getElementById("dropbtn3").innerText)
-localStorage.setItem("player4name",document.getElementById("dropbtn4").innerText)	
+// setup page
+// save data
+localStorage.setItem("player1name",document.getElementById("setupp1").innerText)
+localStorage.setItem("player2name",document.getElementById("setupp2").innerText)	
+localStorage.setItem("player3name",document.getElementById("setupp3").innerText)
+localStorage.setItem("player4name",document.getElementById("setupp4").innerText)	
 
-alert("saved " + localstorage.getItem("player1name"))
+localStorage.setItem("player1hcp",document.getElementById("numsetupplayer1").innerText)
+localStorage.setItem("player2hcp",document.getElementById("numsetupplayer2").innerText)	
+localStorage.setItem("player3hcp",document.getElementById("numsetupplayer3").innerText)
+localStorage.setItem("player4hcp",document.getElementById("numsetupplayer4").innerText)	
+
+
+
+
+
+/*
+
+*/
 	
 }
 
 function recoverdata() {
-	alert("recoverdata()")
-document.getElementById("dropbtn1").innerText = localStorage.getItem("player1name")	
-document.getElementById("dropbtn2").innerText = localStorage.getItem("player2name")	
-document.getElementById("dropbtn3").innerText = localStorage.getItem("player3name")	
-document.getElementById("dropbtn4").innerText = localStorage.getItem("player4name")	
+// setup page
+// get data
+document.getElementById("setupp1").innerText = localStorage.getItem("player1name")	
+document.getElementById("setupp2").innerText = localStorage.getItem("player2name")	
+document.getElementById("setupp3").innerText = localStorage.getItem("player3name")	
+document.getElementById("setupp4").innerText = localStorage.getItem("player4name")	
+// run function
+doCalcs();
+// end of setup page
+
+
 }
 
 
