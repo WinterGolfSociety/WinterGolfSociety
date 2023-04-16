@@ -119,7 +119,7 @@
 		 //-o-transition: background-color 2s ease-out;
 		 //transition: background-color 2s ease-out;
          }
-         .dropdown-content1 a:hover {
+         .dropdown-content1 a:hover, .dropdown-content2 a:hover, .dropdown-content3 a:hover, .dropdown-content4 a:hover,  {
 		 background-color: cyan;
 		 cursor: pointer;
 		 }
@@ -3495,6 +3495,8 @@ function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
 function savedata() {
 // setup page
 // save data
+localStorage.setItem("course",courseInPlay)
+
 localStorage.setItem("player1name",document.getElementById("setupp1").innerText)
 localStorage.setItem("player2name",document.getElementById("setupp2").innerText)	
 localStorage.setItem("player3name",document.getElementById("setupp3").innerText)
@@ -3518,10 +3520,22 @@ localStorage.setItem("player4hcp",document.getElementById("numsetupplayer4").inn
 function recoverdata() {
 // setup page
 // get data
+if (localStorage.getItem("course") == "Lakes") {
+	lakes()
+} else {
+	dawson()
+}
+
 document.getElementById("setupp1").innerText = localStorage.getItem("player1name")	
 document.getElementById("setupp2").innerText = localStorage.getItem("player2name")	
 document.getElementById("setupp3").innerText = localStorage.getItem("player3name")	
 document.getElementById("setupp4").innerText = localStorage.getItem("player4name")	
+
+document.getElementById("numsetupplayer1").innerText = localStorage.getItem("player1hcp")
+document.getElementById("numsetupplayer2").innerText = localStorage.getItem("player2hcp")
+document.getElementById("numsetupplayer3").innerText = localStorage.getItem("player3hcp")
+document.getElementById("numsetupplayer4").innerText = localStorage.getItem("player4hcp")
+
 // run function
 doCalcs();
 // end of setup page
