@@ -232,7 +232,7 @@
          }
          
          
-         #savedata, #recoverdata {
+         #savedata, #recoverdata, #submitdata, #showresults {
 			 color: blue;
 			 background: cyan;
 			 font-size: 30px;
@@ -2369,7 +2369,16 @@
                         <button id="recoverdata" onclick="recoverdata()">recover test</button>
                      </td>
                   </tr>
-                  
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button id="submitdata" onclick="submitData()">submit test</button>
+                     </td>
+                  </tr>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <button id="showresults" onclick="showResults()">show results test</button>
+                     </td>
+                  </tr>
                   <tr class="stdtr">
                      <td class="tdleft">
                         <br><br>
@@ -2391,6 +2400,30 @@
             
             <br><br>
             
+
+<!-- form to construct data prior to submit -->
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6GcMt--u6cf8Q/formResponse"
+      id="my-form" method="post" name="my-form" target="my-response-iframe">
+<!-- player -->
+    <input id="mx1236548227" name="entry.1236548227" type="text" value="default">
+<!-- course -->    
+    <input id="mx1523345164" name="entry.1523345164" type="text" value="default">
+<!-- points -->    
+    <input id="mx748643520" name="entry.748643520" type="text" value="default">
+<!-- twos --> 
+    <input id="mx189869333" name="entry.189869333" type="text" value="default">
+<!-- hcp -->     
+    <input id="mx671103580" name="entry.671103580" type="text" value="default">
+
+    <input type="submit">
+
+</form>
+
+<!-- google forms inserted here - invisible -->
+<iframe height="30" id="my-response-iframe" name="my-response-iframe"
+src="https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6GcMt--u6cf8Q/viewform?embedded=true"
+width="60"></iframe>
+
          </div>
         
       </div>
@@ -3500,6 +3533,49 @@ function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
 }
 
 
+
+function submitData(){
+	// get the relevant info into a form
+
+   //-- player --
+   document.getElementById("mx1236548227").value = "player"
+   //-- course --
+   document.getElementById("mx1523345164").value = "course"
+   //-- points --
+   document.getElementById("mx748643520").value = "points"
+   //-- twos --
+   document.getElementById("mx189869333").value = "twos"
+   //-- hcp --
+   document.getElementById("mx671103580").value = "hcp"
+   
+   
+   
+   //===== submit data
+   document.forms[0].submit() 
+   
+   
+ }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function savedata() {
 // setup page
 // save data
@@ -3551,11 +3627,15 @@ doCalcs();
 
 }
 
+/*
+https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6GcMt--u6cf8Q/viewform?usp=pp_url&entry.1236548227=player&entry.1523345164=course&entry.748643520=points&entry.189869333=twos&entry.671103580=hcp
+*/
 
 
-
-
-
+function showResults() {
+	
+	window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=0&single=true", "_blank")
+}
       </script>
    </body>
 </html>
