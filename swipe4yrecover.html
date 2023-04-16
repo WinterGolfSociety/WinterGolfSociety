@@ -129,10 +129,29 @@
          }
          #hole1, #hole2, #hole3, #hole4, #hole5, #hole6, #hole7, #hole8, #hole9, #hole10, #hole11, #hole12, #hole13, #hole14, #hole15, #hole16, #hole17, #hole18 {
          background-image: linear-gradient(to right, rgba(124,252,0,0.8), rgba(124,252,0,0.1));
+         
+         
+         
+         
+ //-webkit-filter: blur(4px);
+ // filter: blur(4px);
+
+         
+         
+         
+         
+         
+         
          }
          #final {
          background: dodgerBlue;
-         }        
+         padding-left: 20px;
+         }    
+         #finalpage {
+			 color: blue;
+         background: lightGray;
+         padding-left: 20px;
+         }    
          .tdtest {
          color:dodgerBlue;
          font-size:20px;
@@ -217,7 +236,9 @@
 		 }
          
          
-         
+        #front9p1, front9p2, front9p3, front9p4 {
+			width: 80vw;
+		} 
          
          
          
@@ -237,17 +258,17 @@
   } 
          
          
+      
          
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+  #vt0, #vt1, #vt2, #vt3, #vt4 {
+	  font-size: 10px;
+	  text-align:left;
+	  float: left;
+	  writing-mode: vertical-rl;
+	  text-orientation: mixed;  
+	  padding: 1px;
+	  
+	  }       
          
          
          
@@ -272,7 +293,7 @@
          <tbody>
             <tr class="stdtr">
                <td class="tdleft">
-                  <button type="button"  class="buttonblue" id="dawson" onclick="dawson()">Dawson</button>
+                  <button type="button"  class="buttonblue" id="dawson" onclick="dawson()"><a id="vt0" >course</a>Dawson</button>
                </td>
                <td class="tdright">
                   <button type="button"  class="buttonblue" id= "lakes" onclick="lakes()">Lakes</button>
@@ -280,7 +301,7 @@
             </tr>
             <tr class="stdtr">
                <td class="tdleft">
-                  <div onclick="hideorshowplayerdropdown1()" class="dropbtn1" id="dropbtn1">no player</div>
+                  <div onclick="hideorshowplayerdropdown1()" class="dropbtn1" id="dropbtn1"><a id="vt1" >team 1</a><a id="setupp1">no player</a></div>
                   <div id="playerdropdown1" class="dropdown-content1">
                   </div>
                </td>
@@ -294,7 +315,7 @@
             </tr>
             <tr class="stdtr">
                <td class="tdleft">
-                  <div onclick="hideorshowplayerdropdown2()" class="dropbtn2" id="dropbtn2">no player</div>
+                  <div onclick="hideorshowplayerdropdown2()" class="dropbtn2" id="dropbtn2"><a id="vt2" >team 1</a><a id="setupp2">no player</a></div>
                   <div id="playerdropdown2" class="dropdown-content2">	
                   </div>
                </td>
@@ -308,7 +329,7 @@
             </tr>
             <tr class="stdtr">
                <td class="tdleft">
-                  <div onclick="hideorshowplayerdropdown3()" class="dropbtn3" id="dropbtn3">no player</div>
+                  <div onclick="hideorshowplayerdropdown3()" class="dropbtn3" id="dropbtn3"><a id="vt3" >team 2</a><a id="setupp3">no player</a></div>
                   <div id="playerdropdown3" class="dropdown-content3">
                   </div>
                </td>
@@ -322,7 +343,7 @@
             </tr>
             <tr class="stdtr">
                <td class="tdleft">
-                  <div onclick="hideorshowplayerdropdown4()" class="dropbtn4" id="dropbtn4">no player</div>
+                  <div onclick="hideorshowplayerdropdown4()" class="dropbtn4" id="dropbtn4"><a id="vt4" >team 2</a><a id="setupp4">no player</a></div>
                   <div id="playerdropdown4" class="dropdown-content4">
                   </div>
                </td>
@@ -335,6 +356,9 @@
                </td>
             </tr>
             <tr>
+				
+				
+				
             <td id="calcs1"></td>
             <td id="calcs2"></td>
             </tr>
@@ -769,6 +793,10 @@
                            <td class="tdtest" id="h4p4result1"></td>
                            <td class="tdtest" id="h4p4result2" colspan="2"></td>
                         </tr>
+                        <tr>
+                           <td class="tdtest" id="h4matchplayresult"></td>
+                           <td class="tdtest" id="h4matchplayleader" colspan="2"></td>
+                        </tr>
                      </table>
                   </td>
                </tr>
@@ -869,6 +897,10 @@
                         <tr>
                            <td class="tdtest" id="h5p4result1"></td>
                            <td class="tdtest" id="h5p4result2" colspan="2"></td>
+                        </tr>
+                        <tr>
+                           <td class="tdtest" id="h5matchplayresult"></td>
+                           <td class="tdtest" id="h5matchplayleader" colspan="2"></td>
                         </tr>
                      </table>
                   </td>
@@ -971,6 +1003,10 @@
                            <td class="tdtest" id="h6p4result1"></td>
                            <td class="tdtest" id="h6p4result2" colspan="2"></td>
                         </tr>
+                        <tr>
+                           <td class="tdtest" id="h6matchplayresult"></td>
+                           <td class="tdtest" id="h6matchplayleader" colspan="2"></td>
+                        </tr>
                      </table>
                   </td>
                </tr>
@@ -1071,6 +1107,10 @@
                         <tr>
                            <td class="tdtest" id="h7p4result1"></td>
                            <td class="tdtest" id="h7p4result2" colspan="2"></td>
+                        </tr>
+                        <tr>
+                           <td class="tdtest" id="h7matchplayresult"></td>
+                           <td class="tdtest" id="h7matchplayleader" colspan="2"></td>
                         </tr>
                      </table>
                   </td>
@@ -1173,6 +1213,10 @@
                            <td class="tdtest" id="h8p4result1"></td>
                            <td class="tdtest" id="h8p4result2" colspan="2"></td>
                         </tr>
+                        <tr>
+                           <td class="tdtest" id="h8matchplayresult"></td>
+                           <td class="tdtest" id="h8matchplayleader" colspan="2"></td>
+                        </tr>
                      </table>
                   </td>
                </tr>
@@ -1273,6 +1317,10 @@
                         <tr>
                            <td class="tdtest" id="h9p4result1"></td>
                            <td class="tdtest" id="h9p4result2" colspan="2"></td>
+                        </tr>
+                        <tr>
+                           <td class="tdtest" id="h9matchplayresult"></td>
+                           <td class="tdtest" id="h9matchplayleader" colspan="2"></td>
                         </tr>
                      </table>
                   </td>
@@ -1375,6 +1423,10 @@
                            <td class="tdtest" id="h10p4result1"></td>
                            <td class="tdtest" id="h10p4result2" colspan="2"></td>
                         </tr>
+                        <tr>
+                           <td class="tdtest" id="h10matchplayresult"></td>
+                           <td class="tdtest" id="h10matchplayleader" colspan="2"></td>
+                        </tr>
                      </table>
                   </td>
                </tr>
@@ -1475,6 +1527,10 @@
                         <tr>
                            <td class="tdtest" id="h11p4result1"></td>
                            <td class="tdtest" id="h11p4result2" colspan="2"></td>
+                        </tr>
+                        <tr>
+                           <td class="tdtest" id="h11matchplayresult"></td>
+                           <td class="tdtest" id="h11matchplayleader" colspan="2"></td>
                         </tr>
                      </table>
                   </td>
@@ -1577,6 +1633,10 @@
                            <td class="tdtest" id="h12p4result1"></td>
                            <td class="tdtest" id="h12p4result2" colspan="2"></td>
                         </tr>
+                        <tr>
+                           <td class="tdtest" id="h12matchplayresult"></td>
+                           <td class="tdtest" id="h12matchplayleader" colspan="2"></td>
+                        </tr>
                      </table>
                   </td>
                </tr>
@@ -1677,6 +1737,10 @@
                         <tr>
                            <td class="tdtest" id="h13p4result1"></td>
                            <td class="tdtest" id="h13p4result2" colspan="2"></td>
+                        </tr>
+                        <tr>
+                           <td class="tdtest" id="h13matchplayresult"></td>
+                           <td class="tdtest" id="h13matchplayleader" colspan="2"></td>
                         </tr>
                      </table>
                   </td>
@@ -1779,6 +1843,10 @@
                            <td class="tdtest" id="h14p4result1"></td>
                            <td class="tdtest" id="h14p4result2" colspan="2"></td>
                         </tr>
+                        <tr>
+                           <td class="tdtest" id="h14matchplayresult"></td>
+                           <td class="tdtest" id="h14matchplayleader" colspan="2"></td>
+                        </tr>
                      </table>
                   </td>
                </tr>
@@ -1879,6 +1947,10 @@
                         <tr>
                            <td class="tdtest" id="h15p4result1"></td>
                            <td class="tdtest" id="h15p4result2" colspan="2"></td>
+                        </tr>
+                        <tr>
+                           <td class="tdtest" id="h15matchplayresult"></td>
+                           <td class="tdtest" id="h15matchplayleader" colspan="2"></td>
                         </tr>
                      </table>
                   </td>
@@ -1981,6 +2053,10 @@
                            <td class="tdtest" id="h16p4result1"></td>
                            <td class="tdtest" id="h16p4result2" colspan="2"></td>
                         </tr>
+                        <tr>
+                           <td class="tdtest" id="h16matchplayresult"></td>
+                           <td class="tdtest" id="h16matchplayleader" colspan="2"></td>
+                        </tr>
                      </table>
                   </td>
                </tr>
@@ -2081,6 +2157,10 @@
                <tr>
                <td class="tdtest" id="h17p4result1"></td>
                <td class="tdtest" id="h17p4result2" colspan="2"></td>
+               </tr>
+               <tr>
+               <td class="tdtest" id="h17matchplayresult"></td>
+               <td class="tdtest" id="h17matchplayleader" colspan="2"></td>
                </tr>
                </table>
                </td>
@@ -2187,6 +2267,10 @@
                               <td class="tdtest" id="h18p4result1"></td>
                               <td class="tdtest" id="h18p4result2" colspan="2"></td>
                            </tr>
+                           <tr>
+                           <td class="tdtest" id="h18matchplayresult"></td>
+                           <td class="tdtest" id="h18matchplayleader" colspan="2"></td>
+                        </tr>
                         </table>
                      </td>
                   </tr>
@@ -2194,6 +2278,9 @@
                </tbody>
             </table>
          </div>
+         
+         <!-- final page -->
+         
          <div class="card" id="finalpage">
             <br>
             <table>
@@ -2201,64 +2288,64 @@
                <thead></thead>
                <tbody>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         ----- group -----
                         <div id="resultspage"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         ----- matchplay -----
                         <div id="mplay"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         ----- matchplay team -----
                         <div id="mplayteam">-</div>
                      </td>
                   </tr>
                   <!--      front 9    -->    
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         ----- front 9 -----
                         <div id="front9p1"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         <div id="front9p2"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         <div id="front9p3"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         <div id="front9p4"></div>
                      </td>
                   </tr>
                   <!--  back 9     --> 
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         ----- back 9 -----
                         <div id="back9p1"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         <div id="back9p2"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         <div id="back9p3"></div>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         <div id="back9p4"></div>
                      </td>
                   </tr>
@@ -2268,12 +2355,12 @@
                   
                   
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         <button id="back9p4" onclick="savedata()">save</button>
                      </td>
                   </tr>
                   <tr class="stdtr">
-                     <td colspan="2" class="tdleft">
+                     <td class="tdleft">
                         <button id="back9p4" onclick="recoverdata()">recover</button>
                      </td>
                   </tr>
@@ -2388,12 +2475,12 @@ function incrementScore(id) {
         document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername;
         //courseInPlay = "Dawson"
         //thcp = "22"
-        if (courseInPlay == "Dawson") {
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
             temppar = arrDawson[temphole - 1][1];
             tempsi = arrDawson[temphole - 1][2];
-        } else {
-            temppar = arrLakes[temphole - 1][1];
-            tempsi = arrLakes[temphole - 1][2];
         }
         // player points - pointsCalc(hcp,par,si,score)
         var tempscore = document.getElementById("h" + temphole + "hhc1").innerText;
@@ -2411,12 +2498,12 @@ function incrementScore(id) {
         document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername;
         //courseInPlay = "Dawson"
         //thcp = "2"
-        if (courseInPlay == "Dawson") {
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
             temppar = arrDawson[temphole - 1][1];
             tempsi = arrDawson[temphole - 1][2];
-        } else {
-            temppar = arrLakes[temphole - 1][1];
-            tempsi = arrLakes[temphole - 1][2];
         }
         var tempscore = document.getElementById("h" + temphole + "hhc2").innerText;
         var temppoints = pointsCalc(player2hcp, temppar, tempsi, tempscore);
@@ -2431,12 +2518,12 @@ function incrementScore(id) {
     if (tempplayername !== "no player") {
         // do bottom bit on each hole, player name, player points
         document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername;
-        if (courseInPlay == "Dawson") {
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
             temppar = arrDawson[temphole - 1][1];
             tempsi = arrDawson[temphole - 1][2];
-        } else {
-            temppar = arrLakes[temphole - 1][1];
-            tempsi = arrLakes[temphole - 1][2];
         }
         var tempscore = document.getElementById("h" + temphole + "hhc3").innerText;
         var temppoints = pointsCalc(player3hcp, temppar, tempsi, tempscore);
@@ -2452,14 +2539,13 @@ function incrementScore(id) {
     if (tempplayername !== "no player") {
         // do bottom bit on each hole, player name, player points
         document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername;
-        if (courseInPlay == "Dawson") {
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
             temppar = arrDawson[temphole - 1][1];
             tempsi = arrDawson[temphole - 1][2];
-        } else {
-            temppar = arrLakes[temphole - 1][1];
-            tempsi = arrLakes[temphole - 1][2];
         }
-
         //pointsCalc(hcp,par,si,score)
         var tempscore = document.getElementById("h" + temphole + "hhc4").innerText;
         var temppoints = pointsCalc(player4hcp, temppar, tempsi, tempscore);
@@ -2477,30 +2563,30 @@ function incrementScore(id) {
     var tempfront9p3 = 0;
     var tempfront9p4 = 0;
 
-    for (var i = 0; i < 9; i++) {
+    for (var i = 1; i <= 9; i++) {
         // player 1
-        var temp1 = document.getElementById("h" + (i + 1) + "p1result2").innerText;
+        var temp1 = document.getElementById("h" + (i) + "p1result2").innerText;
         var temp2 = temp1.replace(" points", "");
         var temp3 = parseInt(temp2);
         if (temp3 > 0) {
             tempfront9p1 = tempfront9p1 + temp3;
         }
         // player 2
-        var temp1 = document.getElementById("h" + (i + 1) + "p2result2").innerText;
+        var temp1 = document.getElementById("h" + (i) + "p2result2").innerText;
         var temp2 = temp1.replace(" points", "");
         var temp3 = parseInt(temp2);
         if (temp3 > 0) {
             tempfront9p2 = tempfront9p2 + temp3;
         }
         // player 3
-        var temp1 = document.getElementById("h" + (i + 1) + "p3result2").innerText;
+        var temp1 = document.getElementById("h" + (i) + "p3result2").innerText;
         var temp2 = temp1.replace(" points", "");
         temp3 = parseInt(temp2);
         if (temp3 > 0) {
             tempfront9p3 = tempfront9p3 + temp3;
         }
         // player 4
-        var temp1 = document.getElementById("h" + (i + 1) + "p4result2").innerText;
+        var temp1 = document.getElementById("h" + (i) + "p4result2").innerText;
         var temp2 = temp1.replace(" points", "");
         temp3 = parseInt(temp2);
         if (temp3 > 0) {
@@ -2520,7 +2606,7 @@ function incrementScore(id) {
     var tempback9p3 = 0;
     var tempback9p4 = 0;
 
-    for (var i = 10; i < 19; i++) {
+    for (var i = 10; i <= 18; i++) {
         // player 1
         var temp1 = document.getElementById("h" + i + "p1result2").innerText;
         var temp2 = temp1.replace(" points", "");
@@ -2576,12 +2662,12 @@ function decrementScore(id) {
         // do player name, player points at bottom on each hole
         // player name
         document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername;
-        if (courseInPlay == "Dawson") {
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
             temppar = arrDawson[temphole - 1][1];
             tempsi = arrDawson[temphole - 1][2];
-        } else {
-            temppar = arrLakes[temphole - 1][1];
-            tempsi = arrLakes[temphole - 1][2];
         }
         //pointsCalc(hcp,par,si,score)
         var tempscore = document.getElementById("h" + temphole + "hhc1").innerText;
@@ -2598,12 +2684,12 @@ function decrementScore(id) {
     if (tempplayername !== "no player") {
         // do bottom bit on each hole, player name, player points
         document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername;
-        if (courseInPlay == "Dawson") {
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
             temppar = arrDawson[temphole - 1][1];
             tempsi = arrDawson[temphole - 1][2];
-        } else {
-            temppar = arrLakes[temphole - 1][1];
-            tempsi = arrLakes[temphole - 1][2];
         }
         var tempscore = document.getElementById("h" + temphole + "hhc2").innerText;
         var temppoints = pointsCalc(player2hcp, temppar, tempsi, tempscore);
@@ -2619,12 +2705,12 @@ function decrementScore(id) {
     if (tempplayername !== "no player") {
         // do bottom bit on each hole, player name, player points
         document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername;
-        if (courseInPlay == "Dawson") {
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
             temppar = arrDawson[temphole - 1][1];
             tempsi = arrDawson[temphole - 1][2];
-        } else {
-            temppar = arrLakes[temphole - 1][1];
-            tempsi = arrLakes[temphole - 1][2];
         }
         var tempscore = document.getElementById("h" + temphole + "hhc3").innerText;
         var temppoints = pointsCalc(player3hcp, temppar, tempsi, tempscore);
@@ -2639,15 +2725,13 @@ function decrementScore(id) {
     if (tempplayername !== "no player") {
         // do bottom bit on each hole, player name, player points
         document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername;
-
-        if (courseInPlay == "Dawson") {
+		if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
             temppar = arrDawson[temphole - 1][1];
             tempsi = arrDawson[temphole - 1][2];
-        } else {
-            temppar = arrLakes[temphole - 1][1];
-            tempsi = arrLakes[temphole - 1][2];
         }
-
         //pointsCalc(hcp,par,si,score)
         var tempscore = document.getElementById("h" + temphole + "hhc4").innerText;
         var temppoints = pointsCalc(player4hcp, temppar, tempsi, tempscore);
@@ -2665,7 +2749,7 @@ function decrementScore(id) {
     var tempfront9p3 = 0;
     var tempfront9p4 = 0;
 
-    for (var i = 1; i < 10; i++) {
+    for (var i = 1; i <= 9; i++) {
         // player 1
         var temp1 = document.getElementById("h" + i + "p1result2").innerText;
         var temp2 = temp1.replace(" points", "");
@@ -2710,7 +2794,7 @@ function decrementScore(id) {
     var tempback9p3 = 0;
     var tempback9p4 = 0;
 
-    for (var i = 10; i < 19; i++) {
+    for (var i = 10; i <= 18; i++) {
         // player 1
         var temp1 = document.getElementById("h" + i + "p1result2").innerText;
         var temp2 = temp1.replace(" points", "");
@@ -2773,8 +2857,8 @@ function dawson() {
     // set global var
     courseInPlay = "Dawson";
     // setup Dawson
-    for (var i = 0; i < 18; i++) {
-        document.getElementById("hole-" + (i + 1)).innerText = "hole " + arrDawson[i][0] + " (par " + arrDawson[i][1] + ", si " + arrDawson[i][2] + ")";
+    for (var i = 1; i <= 18; i++) {
+        document.getElementById("hole-" + (i)).innerText = "hole " + arrDawson[i-1][0] + " (par " + arrDawson[i-1][1] + ", si " + arrDawson[i-1][2] + ")";
     }
 }
 
@@ -2785,8 +2869,8 @@ function lakes() {
     // set global var
     courseInPlay = "Lakes";
     // setup Lakes
-    for (var i = 0; i < 18; i++) {
-        document.getElementById("hole-" + (i + 1)).innerText = "hole " + arrLakes[i][0] + " ( par " + arrLakes[i][1] + ", si " + arrLakes[i][2] + ")";
+    for (var i = 1; i <= 18; i++) {
+        document.getElementById("hole-" + (i)).innerText = "hole " + arrLakes[i-1][0] + " ( par " + arrLakes[i-1][1] + ", si " + arrLakes[i-1][2] + ")";
     }
 }
 
@@ -2796,10 +2880,10 @@ function doCalcs() {
     var h3 = document.getElementById("numsetupplayer3").innerText;
     var h4 = document.getElementById("numsetupplayer4").innerText;
 
-    var p1 = document.getElementById("dropbtn1").innerText;
-    var p2 = document.getElementById("dropbtn2").innerText;
-    var p3 = document.getElementById("dropbtn3").innerText;
-    var p4 = document.getElementById("dropbtn4").innerText;
+    var p1 = document.getElementById("setupp1").innerText;
+    var p2 = document.getElementById("setupp2").innerText;
+    var p3 = document.getElementById("setupp3").innerText;
+    var p4 = document.getElementById("setupp4").innerText;
 
     hcparray = [];
 
@@ -2939,7 +3023,8 @@ function hideorshowplayerdropdown4() {
 function playerdropdownselected1(playerName) {
     player = playerName;
     // replace button name
-    element = document.getElementById("dropbtn1");
+    //element = document.getElementById("dropbtn1");
+    element = document.getElementById("setupp1");
     element.innerText = player;
     var dropdowns = document.getElementsByClassName("dropdown-content1");
     for (var i = 0; i < dropdowns.length; i++) {
@@ -2959,7 +3044,8 @@ function playerdropdownselected1(playerName) {
 function playerdropdownselected2(playerName) {
     player = playerName;
     // replace button name
-    element = document.getElementById("dropbtn2");
+    //element = document.getElementById("dropbtn2");
+    element = document.getElementById("setupp2");
     element.innerText = player;
     var dropdowns = document.getElementsByClassName("dropdown-content2");
     for (var i = 0; i < dropdowns.length; i++) {
@@ -2979,7 +3065,8 @@ function playerdropdownselected2(playerName) {
 function playerdropdownselected3(playerName) {
     player = playerName;
     // replace button name
-    element = document.getElementById("dropbtn3");
+    //element = document.getElementById("dropbtn3");
+    element = document.getElementById("setupp3");
     element.innerText = player;
     var dropdowns = document.getElementsByClassName("dropdown-content3");
     for (var i = 0; i < dropdowns.length; i++) {
@@ -2999,7 +3086,8 @@ function playerdropdownselected3(playerName) {
 function playerdropdownselected4(playerName) {
     player = playerName;
     // replace button name
-    element = document.getElementById("dropbtn4");
+    //element = document.getElementById("dropbtn4");
+    element = document.getElementById("setupp4");
     element.innerText = player;
     var dropdowns = document.getElementsByClassName("dropdown-content4");
     for (var i = 0; i < dropdowns.length; i++) {
@@ -3072,7 +3160,7 @@ for (var i = 0; i < options.length; i++) {
     select4.appendChild(el);
 }
 
-vcourse = "Lakes";
+
 // array ["hole num",par,si]
 arrLakes = [
     [1, 4, 15],
@@ -3095,7 +3183,7 @@ arrLakes = [
     [18, 5, 8],
 ];
 
-vcourse = "Dawson";
+
 // array ["hole num",par,si]
 arrDawson = [
     [1, 5, 13],
@@ -3168,7 +3256,7 @@ function startmsgclose() {
 
 function showstartmsg() {
     document.getElementById("showstartmsg").innerHTML =
-        'Longhirst sweep<br><br>Select the course from the buttons above then choose players and handicaps for the group from the dropdowns<br><br>Then scroll right to start<br><br><br><p style="text-align: center;font-size: 15px;">- tap to close -</p>';
+        'Longhirst sweep<br><br>Select the course from one of the buttons above and choose players and handicaps for the group from the dropdowns<br><br>Then scroll right to start<br><br><br><p style="text-align: center;font-size: 15px;">- tap to close -</p>';
 
     document.getElementById("showstartmsg").style.visibility = "visible";
 }
@@ -3352,7 +3440,7 @@ function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
     var team1 = 0
     var team2 = 0
     
-    for (var i = 1; i <= 3; i++) {
+    for (var i = 1; i <= 18; i++) {
 		temp = document.getElementById("h" + i + "matchplayresult").innerText	
 
 		if (temp.indexOf(player1name) > -1) {
