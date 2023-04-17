@@ -121,9 +121,9 @@
 		 //-o-transition: background-color 2s ease-out;
 		 //transition: background-color 2s ease-out;
 		 
-		 
-		 background-image: linear-gradient(to right, rgba(30, 144, 255,1), rgba(30, 144, 255,0.6));
-		 border: 5px solid rgba(30, 144, 255,0.6);
+		 background-color: dodgerBlue;
+		 //background-image: linear-gradient(to right, rgba(30, 144, 255,1), rgba(30, 144, 255,0.6));
+		 //border: 5px solid rgba(30, 144, 255,0.6);
 		 
          }
          .dropdown-content1 a:hover, .dropdown-content2 a:hover, .dropdown-content3 a:hover, .dropdown-content4 a:hover,  {
@@ -3442,6 +3442,24 @@ function totupmatchplay(holenumber) {
 }
 
 function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
+// stop 0 being the lowest score
+ if (score1 == 0) {
+	 score1 = 99
+ }
+ if (score2 == 0) {
+	 score2 = 99
+ }
+ if (score3 == 0) {
+	 score3 = 99
+ }
+ if (score4 == 0) {
+	 score4 = 99
+ }
+ 
+ 
+ 
+ 
+ 
     // find lowest score
     var scorearray = [];
   
