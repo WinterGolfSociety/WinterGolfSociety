@@ -103,13 +103,14 @@
          .dropdown-content1, .dropdown-content2, .dropdown-content3, .dropdown-content4 {
          display: none;
          position: absolute;
-         background-color: dodgerBlue; //#f1f1f1;
+         //background-color: dodgerBlue; //#f1f1f1;
+         //background-image: linear-gradient(to right, rgba(30, 144, 255,0.8), rgba(0,255,255,0.1));
          min-width: 35vw;
          overflow: auto;
          z-index: 1;
          }
          .dropdown-content1 a, .dropdown-content2 a, .dropdown-content3 a, .dropdown-content4 a {
-         color: white;
+         color: yellow; //white;
          font-size: 30px;
          padding: 12px 16px;
          text-decoration: none;
@@ -119,11 +120,17 @@
 		 //-moz-transition: background-color 2s ease-out;
 		 //-o-transition: background-color 2s ease-out;
 		 //transition: background-color 2s ease-out;
+		 
+		 
+		 background-image: linear-gradient(to right, rgba(30, 144, 255,1), rgba(30, 144, 255,0.6));
+		 
+		 
          }
          .dropdown-content1 a:hover, .dropdown-content2 a:hover, .dropdown-content3 a:hover, .dropdown-content4 a:hover,  {
 		 background-color: cyan;
 		 cursor: pointer;
 		 }
+		 
          .show {display: block;}    
          #setup {
          background: lightGray;
@@ -3191,7 +3198,7 @@ function playerdropdownselected4(playerName) {
     doCalcs();
 }
 
-var options = ["Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Stephen", "Temp1", "Temp2", "Temp3", "Temp4"];
+var options = ["Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen", "Temp1", "Temp2", "Temp3", "Temp4"];
 
 // create player dropdown
 var select1 = document.getElementById("playerdropdown1");
