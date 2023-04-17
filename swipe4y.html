@@ -3538,9 +3538,11 @@ function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
     } else {
         var matchplayscoretxt = "hole halved";
         if (h1 == lowestscore && h2 == lowestscore && h3 !== lowestscore && h4 !== lowestscore) {
+				var matchplayscoretxt = player1name + " & " + player2name + " wins hole";
 				var t1 = player1name + " & " + player2name
 		}
 		if (h1 !== lowestscore && h2 !== lowestscore && h3 == lowestscore && h4 == lowestscore) {
+				var matchplayscoretxt = player3name + " & " + player4name + " wins hole";
 				var t1 = player3name + " & " + player4name
 		}
     }
@@ -3559,16 +3561,16 @@ function MatchplayCalcs(holenumber, score1, score2, score3, score4) {
     for (var i = 1; i <= 18; i++) {
 		temp = document.getElementById("h" + i + "matchplayresult").innerText	
 
-		if (temp.indexOf(player1name) > -1) {
+		if (temp.indexOf(player1name + " wins hole") > -1) {
 			team1++
 		}
-		if (temp.indexOf(player2name) > -1) {
+		if (temp.indexOf(player2name + " wins hole") > -1) {
 			team1++
 		}
-		if (temp.indexOf(player3name) > -1) {
+		if (temp.indexOf(player3name + " wins hole") > -1) {
 			team2++
 		}
-		if (temp.indexOf(player4name) > -1) {
+		if (temp.indexOf(player4name + " wins hole") > -1) {
 			team2++
 		}
 		
