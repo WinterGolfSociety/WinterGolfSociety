@@ -21,7 +21,7 @@
          }
          .container {
          display: grid;
-         grid-template-columns: repeat(20, 100%);
+         grid-template-columns: repeat(21, 100%);
          will-change: transform;
          align-content: center;
          overflow-x: auto;
@@ -156,7 +156,7 @@
          background: dodgerBlue;
          padding-left: 20px;
          }    
-         #finalpage {
+         #finalpage, #penultimatepage {
 			 color: blue;
          background: lightGray;
          padding-left: 20px;
@@ -2329,20 +2329,16 @@
             </table>
          </div>
          
-         <!-- final page -->
+         <!-- ===================================
+         penultimate page 
+         ======================================== -->
          
-         <div class="card" id="finalpage">
+         <div class="card" id="penultimatepage">
             <br>
             <table>
                <caption class="cap">Longhirst sweep</caption>
                <thead></thead>
                <tbody>
-                  <tr class="stdtr">
-                     <td class="tdleft">
-                        ----- group -----
-                        <div id="resultspage"></div>
-                     </td>
-                  </tr>
                   <tr class="stdtr">
                      <td class="tdleft">
                         ----- matchplay -----
@@ -2353,6 +2349,34 @@
                      <td class="tdleft">
                         ----- matchplay team -----
                         <div id="mplayteam">-</div>
+                     </td>
+                  </tr>
+                  
+                  
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        <br><br>
+                     </td>
+                  </tr>
+                 </tbody>
+            </table>
+         </div> 
+                  
+        <!-- ===================================
+         final page 
+         ======================================== -->                  
+                  
+                  
+ <div class="card" id="finalpage">
+            <br>
+            <table>
+               <caption class="cap">Longhirst sweep</caption>
+               <thead></thead>
+               <tbody>
+                  <tr class="stdtr">
+                     <td class="tdleft">
+                        ----- group -----
+                        <div id="resultspage"></div>
                      </td>
                   </tr>
                   <!--      front 9    -->    
@@ -2426,17 +2450,7 @@
                         <br><br>
                      </td>
                   </tr>
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
+                      
                </tbody>
             </table>
             
@@ -2996,6 +3010,17 @@ function doCalcs() {
     var p3 = document.getElementById("setupp3").innerText;
     var p4 = document.getElementById("setupp4").innerText;
 
+	// setup globals
+    player1hcp = h1;
+    player2hcp = h2;
+    player3hcp = h3;
+    player4hcp = h4;
+
+    player1name = p1;
+    player2name = p2;
+    player3name = p3;
+    player4name = p4;
+
     hcparray = [];
 
     if (p1 !== "no player") {
@@ -3098,6 +3123,7 @@ function doCalcs() {
     document.getElementById("calcs2").innerHTML = mtotal;
 
     // setup globals
+/*
     player1hcp = h1;
     player2hcp = h2;
     player3hcp = h3;
@@ -3107,8 +3133,23 @@ function doCalcs() {
     player2name = p2;
     player3name = p3;
     player4name = p4;
-
-    document.getElementById("resultspage").innerHTML = p1 + h1 + "<br>" + p2 + h2 + "<br>" + p3 + h3 + "<br>" + p4 + h4 + "<br>";
+*/
+    var tempgrouptxt = ""
+    if (player1name !== "no player") {
+		tempgrouptxt += player1name + " (" + player1hcp + ")<br>"
+    }
+    if (player2name !== "no player") {
+		tempgrouptxt += player2name + " (" + player2hcp + ")<br>"
+    } 
+    if (player3name !== "no player") { 
+		tempgrouptxt += player3name + " (" + player3hcp + ")<br>"
+	}
+    if (player4name !== "no player") { 
+		tempgrouptxt += player4name + " (" + player4hcp + ")<br>"
+    } 
+    
+    document.getElementById("resultspage").innerHTML = tempgrouptxt
+   
 }
 
 // sort out dropdowns
@@ -3698,6 +3739,12 @@ for (var i = 1; i <= 18; i++) {
 
 function recoverdata() {
 // close message windows
+
+alert(localStorage.getItem("player1name")+"<br>"+localStorage.getItem("player2name")+"<br>"+localStorage.getItem("player3name")+"<br>"+localStorage.getItem("player4name")+"<br>")
+
+alert(localStorage.getItem("player1hcp")+"<br>"+localStorage.getItem("player2hcp")+"<br>"+localStorage.getItem("player3hcp")+"<br>"+localStorage.getItem("player4hcp")+"<br>")
+
+
 coursemsgclose()	
 startmsgclose()
 	
