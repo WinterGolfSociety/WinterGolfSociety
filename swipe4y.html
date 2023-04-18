@@ -4011,20 +4011,22 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
             
             
             
-            
-  let lastClick = 0;
-const ele = document.querySelector('div');
-ele.addEventListener('touchstart', function(e) {
-  e.preventDefault(); // to disable browser default zoom on double tap
-  let date = new Date();
-  let time = date.getTime();
-  const time_between_taps = 200; // 200ms
-  if (time - lastClick < time_between_taps) {
-    // do stuff
-    console.log("done");
-  }
-  lastClick = time;
-})
+ var tapped=false
+$("#mini-cart .dropdown-toggle").on("touchstart",function(e){
+    if(!tapped){ //if tap is not set, set up single tap
+      tapped=setTimeout(function(){
+          tapped=null
+          alert("double tapped")
+          //insert things you want to do when single tapped
+      },300);   //wait 300ms then run single click code
+    } else {    //tapped within 300ms of last tap. double tap
+      clearTimeout(tapped); //stop single tap callback
+      tapped=null
+      //insert things you want to do when double tapped
+    }
+    e.preventDefault()
+});
+
        
             
             
