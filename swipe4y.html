@@ -35,6 +35,7 @@
          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
          background-color: aliceblue;
          scroll-snap-align: start;
+         scroll-snap-stop: always;
          }
          table {
          width: 100%;
@@ -2494,10 +2495,26 @@ card.addEventListener("touchmove", (e) => {
     moveX = currentX - initialX;
 });
 
-// try this
+// for drag down
 /*
+card.addEventListener("touchstart", (e) => {
+    initialY = e.touches[0].pageY;
+});
+
+card.addEventListener("touchmove", (e) => {
+    let currentY = e.touches[0].pageY;
+    moveY = currentY - initialY;
+});
+*/
+
+
+
+// try this
+
 card.addEventListener("touchend", e => {
-alert("touch end");
+if (moveY > MOVE_THRESHOLD * Math.sign(moveX)) {
+    alert("moved down")
+    }
 });
 /*
          card.addEventListener("touchend", e => {
@@ -3646,7 +3663,13 @@ function submitData(){
 
 
 function savedata() {
-// setup page
+	
+	
+localStorage.clear(); 	
+	
+	
+	
+// setup page ==========================================
 // save data
 localStorage.setItem("course",courseInPlay)
 
@@ -3660,22 +3683,31 @@ localStorage.setItem("player2hcp",document.getElementById("numsetupplayer2").inn
 localStorage.setItem("player3hcp",document.getElementById("numsetupplayer3").innerText)
 localStorage.setItem("player4hcp",document.getElementById("numsetupplayer4").innerText)	
 
+// end of setup page ===========================================
 
-
-
-
-/*
-
-*/
+// 18 holes =======================================================
+for (var i = 1; i <= 18; i++) {
+	localStorage.setItem("hole" + i + "player1score",document.getElementById("h" + i + "hhc1").innerText)	
+	localStorage.setItem("hole" + i + "player2score",document.getElementById("h" + i + "hhc2").innerText)	
+	localStorage.setItem("hole" + i + "player3score",document.getElementById("h" + i + "hhc3").innerText)	
+	localStorage.setItem("hole" + i + "player4score",document.getElementById("h" + i + "hhc4").innerText)	
+}
+// end of 18 holes =======================================================
 	
 }
 
 function recoverdata() {
-// setup page
+// close message windows
+coursemsgclose()	
+startmsgclose()
+	
+// setup page ===========================================
 // get data
 if (localStorage.getItem("course") == "Lakes") {
+	// run function
 	lakes()
 } else {
+	// run function
 	dawson()
 }
 
@@ -3691,14 +3723,254 @@ document.getElementById("numsetupplayer4").innerText = localStorage.getItem("pla
 
 // run function
 doCalcs();
-// end of setup page
+// end of setup page ===========================================
+
+// 18 holes =======================================================
+for (var i = 1; i <= 18; i++) {
+	document.getElementById("h" + i + "hhc1").innerText = localStorage.getItem("hole" + i + "player1score")
+	document.getElementById("h" + i + "hhc2").innerText = localStorage.getItem("hole" + i + "player2score")	
+	document.getElementById("h" + i + "hhc3").innerText = localStorage.getItem("hole" + i + "player3score")
+	document.getElementById("h" + i + "hhc4").innerText = localStorage.getItem("hole" + i + "player4score")
+	
+	document.getElementById("h" + i + "p1").innerText = localStorage.getItem("player1name")	
+	document.getElementById("h" + i + "p2").innerText = localStorage.getItem("player2name")	
+	document.getElementById("h" + i + "p3").innerText = localStorage.getItem("player3name")	
+	document.getElementById("h" + i + "p4").innerText = localStorage.getItem("player4name")	
+	
+	// get matchplay info
+	doMatchplayCalcs(i)
+	
+	recoverHoleInfo(i)
+	
+}
+// end of 18 holes =======================================================
 
 
 }
 
+
+
 /*
 https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6GcMt--u6cf8Q/viewform?usp=pp_url&entry.1236548227=player&entry.1523345164=course&entry.748643520=points&entry.189869333=twos&entry.671103580=hcp
 */
+
+
+function recoverHoleInfo(i) {
+    //var incScore = document.getElementById(id).innerText;
+    //if (incScore == "0") {
+    //    incScore = 1;
+    //}
+    //document.getElementById(id).innerText = --incScore;
+    //work out hole number and player number
+    var temphole = i
+    // player is 1,2,3 or 4
+    //var tempplayer = id.substring(id.length - 1);
+    var temptxt = "temptxt - ";
+    // update info at bottom of page
+    // get player1 name
+    tempplayername = document.getElementById("h" + temphole + "p1").innerText;
+    if (tempplayername !== "no player") {
+        // do player name, player points at bottom on each hole
+        // player name
+        document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername;
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
+            temppar = arrDawson[temphole - 1][1];
+            tempsi = arrDawson[temphole - 1][2];
+        }
+        //pointsCalc(hcp,par,si,score)
+        var tempscore = document.getElementById("h" + temphole + "hhc1").innerText;
+        var temppoints = pointsCalc(player1hcp, temppar, tempsi, tempscore);
+        document.getElementById("h" + temphole + "p1result2").innerHTML = temppoints + " points";
+
+        // update globals
+        player1name = tempplayername;
+        player1shotsrecorded[temphole] = tempscore;
+        player1holepointsrecorded[temphole] = temppoints;
+    }
+    // get player2 name
+    tempplayername = document.getElementById("h" + temphole + "p2").innerText;
+    if (tempplayername !== "no player") {
+        // do bottom bit on each hole, player name, player points
+        document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername;
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
+            temppar = arrDawson[temphole - 1][1];
+            tempsi = arrDawson[temphole - 1][2];
+        }
+        var tempscore = document.getElementById("h" + temphole + "hhc2").innerText;
+        var temppoints = pointsCalc(player2hcp, temppar, tempsi, tempscore);
+        //alert(temppoints + " = " + thcp + " " + temppar + " " + tempsi + " " + tempscore)
+        document.getElementById("h" + temphole + "p2result2").innerHTML = temppoints + " points";
+        // update globals
+        player2name = tempplayername;
+        player2shotsrecorded[temphole] = tempscore;
+        player2holepointsrecorded[temphole] = temppoints;
+    }
+    // get player3 name
+    tempplayername = document.getElementById("h" + temphole + "p3").innerText;
+    if (tempplayername !== "no player") {
+        // do bottom bit on each hole, player name, player points
+        document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername;
+        if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
+            temppar = arrDawson[temphole - 1][1];
+            tempsi = arrDawson[temphole - 1][2];
+        }
+        var tempscore = document.getElementById("h" + temphole + "hhc3").innerText;
+        var temppoints = pointsCalc(player3hcp, temppar, tempsi, tempscore);
+        document.getElementById("h" + temphole + "p3result2").innerHTML = temppoints + " points";
+        // update globals
+        player3name = tempplayername;
+        player3shotsrecorded[temphole] = tempscore;
+        player3holepointsrecorded[temphole] = temppoints;
+    }
+    // get player4 name
+    tempplayername = document.getElementById("h" + temphole + "p4").innerText;
+    if (tempplayername !== "no player") {
+        // do bottom bit on each hole, player name, player points
+        document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername;
+		if (courseInPlay == "Lakes") {
+			temppar = arrLakes[temphole - 1][1];
+            tempsi = arrLakes[temphole - 1][2];
+        } else {
+            temppar = arrDawson[temphole - 1][1];
+            tempsi = arrDawson[temphole - 1][2];
+        }
+        //pointsCalc(hcp,par,si,score)
+        var tempscore = document.getElementById("h" + temphole + "hhc4").innerText;
+        var temppoints = pointsCalc(player4hcp, temppar, tempsi, tempscore);
+        document.getElementById("h" + temphole + "p4result2").innerHTML = temppoints + " points";
+        // update globals
+        player4name = tempplayername;
+        player4shotsrecorded[temphole] = tempscore;
+        player4holepointsrecorded[temphole] = temppoints;
+    }
+
+    // update total scores
+    // front 9
+    var tempfront9p1 = 0;
+    var tempfront9p2 = 0;
+    var tempfront9p3 = 0;
+    var tempfront9p4 = 0;
+
+    for (var i = 1; i <= 9; i++) {
+        // player 1
+        var temp1 = document.getElementById("h" + i + "p1result2").innerText;
+        var temp2 = temp1.replace(" points", "");
+        var temp3 = parseInt(temp2);
+        if (temp3 > 0) {
+            tempfront9p1 = tempfront9p1 + temp3;
+        }
+        // player 2
+        var temp1 = document.getElementById("h" + i + "p2result2").innerText;
+        var temp2 = temp1.replace(" points", "");
+        var temp3 = parseInt(temp2);
+        if (temp3 > 0) {
+            tempfront9p2 = tempfront9p2 + temp3;
+        }
+        // player 3
+        var temp1 = document.getElementById("h" + i + "p3result2").innerText;
+        var temp2 = temp1.replace(" points", "");
+        temp3 = parseInt(temp2);
+        if (temp3 > 0) {
+            tempfront9p3 = tempfront9p3 + temp3;
+        }
+        // player 4
+        var temp1 = document.getElementById("h" + i + "p4result2").innerText;
+        var temp2 = temp1.replace(" points", "");
+        temp3 = parseInt(temp2);
+        if (temp3 > 0) {
+            tempfront9p4 = tempfront9p4 + temp3;
+        }
+    }
+
+    // front 9
+    document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points";
+    document.getElementById("front9p2").innerText = player2name + " " + tempfront9p2 + " points";
+    document.getElementById("front9p3").innerText = player3name + " " + tempfront9p3 + " points";
+    document.getElementById("front9p4").innerText = player4name + " " + tempfront9p4 + " points";
+
+    //===========================================================
+    // back 9
+    //===========================================================
+    var tempback9p1 = 0;
+    var tempback9p2 = 0;
+    var tempback9p3 = 0;
+    var tempback9p4 = 0;
+
+    for (var i = 10; i <= 18; i++) {
+        // player 1
+        var temp1 = document.getElementById("h" + i + "p1result2").innerText;
+        var temp2 = temp1.replace(" points", "");
+        var temp3 = parseInt(temp2);
+        if (temp3 > 0) {
+            tempback9p1 = tempback9p1 + temp3;
+        }
+        // player 2
+        var temp1 = document.getElementById("h" + i + "p2result2").innerText;
+        var temp2 = temp1.replace(" points", "");
+        var temp3 = parseInt(temp2);
+        if (temp3 > 0) {
+            tempback9p2 = tempback9p2 + temp3;
+        }
+        // player 3
+        var temp1 = document.getElementById("h" + i + "p3result2").innerText;
+        var temp2 = temp1.replace(" points", "");
+        temp3 = parseInt(temp2);
+        if (temp3 > 0) {
+            tempback9p3 = tempback9p3 + temp3;
+        }
+        // player 4
+        var temp1 = document.getElementById("h" + i + "p4result2").innerText;
+        var temp2 = temp1.replace(" points", "");
+        temp3 = parseInt(temp2);
+        if (temp3 > 0) {
+            tempback9p4 = tempback9p4 + temp3;
+        }
+    }
+
+    // back 9
+    document.getElementById("back9p1").innerText = player1name + " " + tempback9p1 + " points";
+    document.getElementById("back9p2").innerText = player2name + " " + tempback9p2 + " points";
+    document.getElementById("back9p3").innerText = player3name + " " + tempback9p3 + " points";
+    document.getElementById("back9p4").innerText = player4name + " " + tempback9p4 + " points";
+
+    doMatchplayCalcs(temphole);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function showResults() {
