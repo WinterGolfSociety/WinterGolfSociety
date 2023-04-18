@@ -2483,6 +2483,31 @@
                 let currentX = e.touches[0].pageX;
                 moveX = currentX - initialX;
             });
+            
+            
+            
+            
+            
+            let initialY = 0;
+            let moveY = 0;
+            card.addEventListener("touchmoveup", (e) => {
+                let currentY = e.touches[0].pageY;
+                moveY = initialY - currentY;
+                if (moveY > 0) {
+					alert("up")
+				}
+                
+                
+                
+            });
+            
+            
+            
+            
+            
+            
+            
+            
 
             // for drag down
             /*
