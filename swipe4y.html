@@ -3976,6 +3976,66 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
             function showResults() {
                 window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=0&single=true", "_blank");
             }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+     
+var tapedTwice = false;
+const divs = document.querySelectorAll('.a');
+
+divs.forEach(el => el.addEventListener("touchstart", event => {
+  if(!tapedTwice) {
+        tapedTwice = true;
+        setTimeout( function() { tapedTwice = false; }, 300 );
+        return false;
+    }
+    event.preventDefault();
+    //if double tap
+    alert('You tapped me Twice !!!');
+}));
+
+       
+            
+            
+            
+            
+            
+            
+            
         </script>
     </body>
 </html>
