@@ -3541,36 +3541,48 @@ card.addEventListener("touchmove", (e) => {
                 }
 
                 var matchplayscoretxt = "empty";
+                // if only one lowest score we have a winner
                 if (countlowestscore == 1) {
                     if (h1 == lowestscore) {
                         var matchplayscoretxt = player1name + " wins hole";
-                        var t1 = player1name + " & " + player2name;
                     }
                     if (h2 == lowestscore) {
                         var matchplayscoretxt = player2name + " wins hole";
-                        var t1 = player1name + " & " + player2name;
                     }
                     if (h3 == lowestscore) {
                         var matchplayscoretxt = player3name + " wins hole";
-                        var t1 = player3name + " & " + player4name;
                     }
                     if (h4 == lowestscore) {
                         var matchplayscoretxt = player4name + " wins hole";
-                        var t1 = player3name + " & " + player4name;
                     }
-                } else {
+                } else { // no single winner
                     var matchplayscoretxt = "hole halved";
-                    if (h1 == lowestscore && h2 == lowestscore && h3 !== lowestscore && h4 !== lowestscore) {
-                        var matchplayscoretxt = player1name + " & " + player2name + " wins hole";
-                        var t1 = player1name + " & " + player2name;
-                    }
-                    if (h1 !== lowestscore && h2 !== lowestscore && h3 == lowestscore && h4 == lowestscore) {
-                        var matchplayscoretxt = player3name + " & " + player4name + " wins hole";
-                        var t1 = player3name + " & " + player4name;
-                    }
                 }
 
+
+
+
+
+
+
+
+
+
+
+
+
                 document.getElementById("h" + holenumber + "matchplayresult").innerText = matchplayscoretxt;
+
+
+
+
+
+
+
+
+
+
+
 
                 var team1 = 0;
                 var team2 = 0;
@@ -3578,8 +3590,8 @@ card.addEventListener("touchmove", (e) => {
                 var player2namewins = 0;
                 var player3namewins = 0;
                 var player4namewins = 0;
-                var matchplaywinsarray = [];
-
+                
+				// recalc all holes
                 for (var i = 1; i <= 18; i++) {
                     temp = document.getElementById("h" + i + "matchplayresult").innerText;
 
@@ -3600,81 +3612,70 @@ card.addEventListener("touchmove", (e) => {
                         player4namewins++;
                     }
                 }
-
+                
+                
+                
+                
+                
+				// less than 4 players
+				var matchplaywinsarray = [];
                 if (player1name == "no player" || player2name == "no player" || player3name == "no player" || player4name == "no player") {
-                    if (player1namewins > 0) {
-                        matchplaywinsarray.push(player1namewins);
-                    }
-                    if (player2namewins > 0) {
-                        matchplaywinsarray.push(player2namewins);
-                    }
-                    if (player3namewins > 0) {
-                        matchplaywinsarray.push(player3namewins);
-                    }
-                    if (player4namewins > 0) {
-                        matchplaywinsarray.push(player4namewins);
-                    }
-
-                    var foundmatch = false;
-                    var eye = 0;
-                    var jay = 0;
-                    for (let ii = 0; ii < matchplaywinsarray.length; ii++) {
-                        for (let jj = 0; jj < matchplaywinsarray.length; jj++) {
-                            if (ii !== jj) {
-                                if (matchplaywinsarray[ii] === matchplaywinsarray[jj]) {
-                                    foundmatch = true;
-                                    eye = ii;
-                                    jay = jj;
-                                    break;
-                                }
-                            }
-                        }
-                        if (foundmatch) {
-                            break;
-                        }
-                    }
-
-                    if (foundmatch == true) {
-                        t1 = "all square";
-                    } else {
-                        var highestscoreindividual = Math.max(...matchplaywinsarray);
-                        var shighestscoreindividual = matchplaywinsarray.sort(function (a, b) {
+                    matchplaywinsarray.push(player1namewins);
+                    matchplaywinsarray.push(player2namewins);
+                    matchplaywinsarray.push(player3namewins);
+                    matchplaywinsarray.push(player4namewins);
+                   
+                    // make a copy of array
+                    matchplaywinsarrayCopy = [...matchplaywinsarray];
+                    // find most wins from something like [0,4,4,2]
+                    var highestscoreindividual = Math.max(...matchplaywinsarrayCopy);
+                    var secondhighestscoreindividual = matchplaywinsarrayCopy.sort(function (a, b) {
                             return b - a;
                         })[1];
-                        if (shighestscoreindividual == null) {
-                            shighestscoreindividual = 0;
-                        }
-
-                        if (player1namewins == highestscoreindividual) {
-                            t1 = player1name + " " + (highestscoreindividual - shighestscoreindividual) + " up";
-                        }
-                        if (player2namewins == highestscoreindividual) {
-                            t1 = player2name + " " + (highestscoreindividual - shighestscoreindividual) + " up";
-                        }
-                        if (player3namewins == highestscoreindividual) {
-                            t1 = player3name + " " + (highestscoreindividual - shighestscoreindividual) + " up";
-                        }
-                        if (player4namewins == highestscoreindividual) {
-                            t1 = player4name + " " + (highestscoreindividual - shighestscoreindividual) + " up";
-                        }
+                        
+                    if (secondhighestscoreindividual == null) {
+                        secondhighestscoreindividual = 0;
                     }
-                } else {
+                    
+                    if (highestscoreindividual == secondhighestscoreindividual) {
+						currentmatchplaylevel = "all square"
+					} else {
+						if (matchplaywinsarray.indexOf(highestscoreindividual) == 0) {
+							currentmatchplaylevel = player1name + (highestscoreindividual - secondhighestscoreindividual) + " up"
+						}
+						if (matchplaywinsarray.indexOf(highestscoreindividual) == 1) {
+							currentmatchplaylevel = player2name + (highestscoreindividual - secondhighestscoreindividual) + " up"
+						}
+						if (matchplaywinsarray.indexOf(highestscoreindividual) == 2) {
+							currentmatchplaylevel = player3name + (highestscoreindividual - secondhighestscoreindividual) + " up"
+						}
+						if (matchplaywinsarray.indexOf(highestscoreindividual) == 3) {
+							currentmatchplaylevel = player4name + (highestscoreindividual - secondhighestscoreindividual) + " up"
+						}
+					}
+                } else { // 4 players, 2 teams
                     if (team1 > team2) {
-                        t1 = player1name + " & " + player2name + " = " + (team1 - team2) + " up";
+                        currentmatchplaylevel = player1name + " & " + player2name + " = " + (team1 - team2) + " up";
                     }
                     if (team2 > team1) {
-                        t1 = player3name + " & " + player4name + " = " + (team2 - team1) + " up";
+                        currentmatchplaylevel = player3name + " & " + player4name + " = " + (team2 - team1) + " up";
                     }
 
                     if (team1 == team2) {
-                        t1 = "all square";
+                        currentmatchplaylevel = "all square";
                     }
                 }
-                document.getElementById("mplayteam").innerText = t1;
+
+                document.getElementById("mplayteam").innerText = currentmatchplaylevel;
 
                 // update latest hole
-                document.getElementById("h" + holenumber + "matchplayleader").innerText = t1;
+                document.getElementById("h" + holenumber + "matchplayleader").innerText = currentmatchplaylevel;
+            
+               
+                
+                
             }
+                
 
             function submitData() {
                 // get the relevant info into a form
