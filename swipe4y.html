@@ -4012,22 +4012,19 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
             
             
             
-            
-     
-var tapedTwice = false;
-const divs = document.querySelectorAll('.a');
-
-divs.forEach(el => el.addEventListener("touchstart", event => {
-  if(!tapedTwice) {
-        tapedTwice = true;
-        setTimeout( function() { tapedTwice = false; }, 300 );
-        return false;
-    }
-    event.preventDefault();
-    //if double tap
-    alert('You tapped me Twice !!!');
-}));
-
+  let lastClick = 0;
+const ele = document.querySelector('div');
+ele.addEventListener('touchstart', function(e) {
+  e.preventDefault(); // to disable browser default zoom on double tap
+  let date = new Date();
+  let time = date.getTime();
+  const time_between_taps = 200; // 200ms
+  if (time - lastClick < time_between_taps) {
+    // do stuff
+    console.log("done");
+  }
+  lastClick = time;
+})
        
             
             
