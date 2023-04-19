@@ -3229,7 +3229,7 @@ card.addEventListener("touchmove", (e) => {
                 doCalcs();
             }
 
-            var options = ["Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen", "Temp1", "Temp2", "Temp3", "Temp4"];
+            var options = ["Barry", "Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen", "Temp1", "Temp2", "Temp3", "Temp4"];
 
             // create player dropdown
             var select1 = document.getElementById("playerdropdown1");
@@ -3642,16 +3642,16 @@ card.addEventListener("touchmove", (e) => {
 						currentmatchplaylevel = "all square"
 					} else {
 						if (matchplaywinsarray.indexOf(highestscoreindividual) == 0) {
-							currentmatchplaylevel = player1name + (highestscoreindividual - secondhighestscoreindividual) + " up"
+							currentmatchplaylevel = player1name + " " + (highestscoreindividual - secondhighestscoreindividual) + " up"
 						}
 						if (matchplaywinsarray.indexOf(highestscoreindividual) == 1) {
-							currentmatchplaylevel = player2name + (highestscoreindividual - secondhighestscoreindividual) + " up"
+							currentmatchplaylevel = player2name + " " + (highestscoreindividual - secondhighestscoreindividual) + " up"
 						}
 						if (matchplaywinsarray.indexOf(highestscoreindividual) == 2) {
-							currentmatchplaylevel = player3name + (highestscoreindividual - secondhighestscoreindividual) + " up"
+							currentmatchplaylevel = player3name + " " + (highestscoreindividual - secondhighestscoreindividual) + " up"
 						}
 						if (matchplaywinsarray.indexOf(highestscoreindividual) == 3) {
-							currentmatchplaylevel = player4name + (highestscoreindividual - secondhighestscoreindividual) + " up"
+							currentmatchplaylevel = player4name + " " + (highestscoreindividual - secondhighestscoreindividual) + " up"
 						}
 					}
                 } else { // 4 players, 2 teams
