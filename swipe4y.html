@@ -3979,63 +3979,6 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
             
             
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
- var tapped=false
-$("#mini-cart .dropdown-toggle").on("touchstart",function(e){
-    if(!tapped){ //if tap is not set, set up single tap
-      tapped=setTimeout(function(){
-          tapped=null
-          alert("double tapped")
-          //insert things you want to do when single tapped
-      },300);   //wait 300ms then run single click code
-    } else {    //tapped within 300ms of last tap. double tap
-      clearTimeout(tapped); //stop single tap callback
-      tapped=null
-      //insert things you want to do when double tapped
-       alert("double tapped")
-    }
-    e.preventDefault()
-});
-
-       
-            
-            
-            
-            
-            
-            
-            
         </script>
     </body>
 </html>
