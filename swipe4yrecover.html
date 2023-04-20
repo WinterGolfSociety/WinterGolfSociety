@@ -3584,105 +3584,69 @@ card.addEventListener("touchmove", (e) => {
 
 
 
+//===================================
+// bob wins - etc at this point
+//===================================
 
-
-
-
-
-
-
-
-                var team1 = 0;
-                var team2 = 0;
-                var player1namewins = 0;
-                var player2namewins = 0;
-                var player3namewins = 0;
-                var player4namewins = 0;
-                
-				// recalc all holes
-                for (var i = 1; i <= 18; i++) {
-                    temp = document.getElementById("h" + i + "matchplayresult").innerText;
-
-                    if (temp.indexOf(player1name + " wins hole") > -1) {
-                        team1++;
-                        player1namewins++;
-                    }
-                    if (temp.indexOf(player2name + " wins hole") > -1) {
-                        team1++;
-                        player2namewins++;
-                    }
-                    if (temp.indexOf(player3name + " wins hole") > -1) {
-                        team2++;
-                        player3namewins++;
-                    }
-                    if (temp.indexOf(player4name + " wins hole") > -1) {
-                        team2++;
-                        player4namewins++;
-                    }
-                }
-                
-                
-                
-                
-                
-				// less than 4 players
-				var matchplaywinsarray = [];
-                if (player1name == "no player" || player2name == "no player" || player3name == "no player" || player4name == "no player") {
-                    matchplaywinsarray.push(player1namewins);
-                    matchplaywinsarray.push(player2namewins);
-                    matchplaywinsarray.push(player3namewins);
-                    matchplaywinsarray.push(player4namewins);
-                   
-                    // make a copy of array
-                    matchplaywinsarrayCopy = [...matchplaywinsarray];
-                    // find most wins from something like [0,4,4,2]
-                    var highestscoreindividual = Math.max(...matchplaywinsarrayCopy);
-                    var secondhighestscoreindividual = matchplaywinsarrayCopy.sort(function (a, b) {
-                            return b - a;
-                        })[1];
-                        
-                    if (secondhighestscoreindividual == null) {
-                        secondhighestscoreindividual = 0;
-                    }
-                    
-                    if (highestscoreindividual == secondhighestscoreindividual) {
-						currentmatchplaylevel = "all square"
-					} else {
-						if (matchplaywinsarray.indexOf(highestscoreindividual) == 0) {
-							currentmatchplaylevel = player1name + " " + (highestscoreindividual - secondhighestscoreindividual) + " up"
-						}
-						if (matchplaywinsarray.indexOf(highestscoreindividual) == 1) {
-							currentmatchplaylevel = player2name + " " + (highestscoreindividual - secondhighestscoreindividual) + " up"
-						}
-						if (matchplaywinsarray.indexOf(highestscoreindividual) == 2) {
-							currentmatchplaylevel = player3name + " " + (highestscoreindividual - secondhighestscoreindividual) + " up"
-						}
-						if (matchplaywinsarray.indexOf(highestscoreindividual) == 3) {
-							currentmatchplaylevel = player4name + " " + (highestscoreindividual - secondhighestscoreindividual) + " up"
+for (var i = 1; i <= 18; i++) {
+	temp = document.getElementById("h" + i + "matchplayresult").innerText;
+	if (temp !== "") { // ie only holes with scores
+		if (i == 1) { // first hole special case
+			if (temp.indexOf("wins hole") > -1) {
+				arr1 = temp.split(" ")
+				newtxt = arr1[0] + " 1 up"
+			}
+			if (temp.indexOf("hole halved") > -1) {
+				newtxt = "all square"
+			}
+		} else {
+			// holes 2 to 18
+			j = i-1
+			tempprevious = document.getElementById("h" + j + "matchplayresult").innerText;
+			temppreviousR = document.getElementById("h" + j + "matchplayleader").innerText
+			arr1 = temp.split(" ")
+			arr2 = tempprevious.split(" ")
+			// this hole
+			if (temp.indexOf("wins hole") > -1) {
+				// same player - increment
+				if (arr1[0] == arr2[0]) {
+					// use "fred 1 up" etc
+					arr2R = temppreviousR.split(" ")
+					tempnumnew = (parseInt(arr2R[1]) + 1)
+					newtxt = arr2[0] + " " + tempnumnew + " up"
+				} else {
+					// different player - decrement
+					if (arr1[0] !== arr2[0]) {
+						// use "fred 1 up" etc
+						arr2R = temppreviousR.split(" ")
+						if (arr2R[2] == "up") {
+							tempnumnew = (parseInt(arr2R[1]) - 1)
+							if (tempnumnew == 0) {
+								newtxt = "all square"
+							} else {
+								newtxt = arr2[0] + " " + tempnumnew + " up"
+							}
+						} else { 
+							newtxt = arr1[0] + " 1 up"
 						}
 					}
-                } else { // 4 players, 2 teams
-                    if (team1 > team2) {
-                        currentmatchplaylevel = player1name + " & " + player2name + " = " + (team1 - team2) + " up";
-                    }
-                    if (team2 > team1) {
-                        currentmatchplaylevel = player3name + " & " + player4name + " = " + (team2 - team1) + " up";
-                    }
-
-                    if (team1 == team2) {
-                        currentmatchplaylevel = "all square";
-                    }
-                }
-
-                document.getElementById("mplayteam").innerText = currentmatchplaylevel;
-
-                // update latest hole
-                document.getElementById("h" + holenumber + "matchplayleader").innerText = currentmatchplaylevel;
-            
-               
-                
-                
-            }
+				}
+				// no change
+				if (temp.indexOf("hole halved") > -1) {
+					newtxt = temppreviousR
+				}	
+			}
+		} 
+	}    
+	
+	document.getElementById("h" + i + "matchplayleader").innerText = newtxt;
+	             
+} // end for loop
+          
+}          
+          
+          
+          
                 
 
             function submitData() {
