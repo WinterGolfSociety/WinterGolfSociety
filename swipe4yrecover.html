@@ -8,6 +8,7 @@
         <link href="favicon.ico" rel="icon" type="image/x-icon" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <style>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
             * {
                 margin: 0;
                 padding: 0;
@@ -329,7 +330,7 @@
         width: 80px;
         height: 50px;
         background: dodgerBlue;
-        border-radius: 15%;
+        border-radius: 15px;
         position: relative;
         bottom: 0px;
         right: 5px;
@@ -340,32 +341,21 @@
    }
             
             
-            
-            
-            #xround {
-				color: white;
-				font-size:30px;
-      width: 70px;
-  height: 70px;
-  background: dodgerBlue;
-  border-radius: 50%;
-  position: relative;
-bottom: 0px;
-right: 5px;
-
-
-width: 100px;
-      height: 50px;
-      background: dodgerBlue;
-      border-radius: 100px / 50px;
-
-
-
-border: 3px solid rgba(255, 255, 255, 0.2);
+ #roundhcp {
+	   	color: white;
+		font-size:30px;
+        width: 280px;
+        height: 50px;
+        background: dodgerBlue;
+        border-radius: 15px;
+        position: relative;
+        bottom: 0px;
+        left: 5px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
 		box-shadow: 10px 10px 25px black;
-      background-clip: padding-box;
+		background-clip: padding-box;
 
-}
+   }
   
  #spacer {
 	 height: 1vh;
@@ -454,6 +444,9 @@ border: 3px solid rgba(255, 255, 255, 0.2);
                                     <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                        <td><div id="buttoncontainerhcp"><button id="roundhcp" onclick="doGetHCP()">search for HCP's</button></div></td>
                         </tr>
                         <tr>
                             <td id="calcs1"></td>
@@ -2629,6 +2622,12 @@ card.addEventListener("touchmove", (e) => {
             player3matchplayshotsrecorded = "";
             player4matchplayshotsrecorded = "";
 
+			player1matchplayshotsdifference = "";
+            player2matchplayshotsdifference = "";
+            player3matchplayshotsdifference = "";
+            player4matchplayshotsdifference = "";
+
+
             // arrays of each hole
             var player1shotsrecorded = [];
             var player2shotsrecorded = [];
@@ -3148,6 +3147,8 @@ card.addEventListener("touchmove", (e) => {
                         var matchplayhcp1txt = " strokes";
                     }
                     mtotal += Math.round(matchplayhcp1 - lowestmatchplayhcp) + matchplayhcp1txt + "<br>";
+                    // update global
+                    player1matchplayshotsdifference = Math.round(matchplayhcp1 - lowestmatchplayhcp)
                 }
                 if (p2 !== "no player") {
                     ptotal += p2 + " plays " + h2 + "<br>";
@@ -3157,6 +3158,8 @@ card.addEventListener("touchmove", (e) => {
                         var matchplayhcp2txt = " strokes";
                     }
                     mtotal += Math.round(matchplayhcp2 - lowestmatchplayhcp) + matchplayhcp2txt + "<br>";
+                    // update global
+                    player2matchplayshotsdifference = Math.round(matchplayhcp2 - lowestmatchplayhcp)
                 }
                 if (p3 !== "no player") {
                     ptotal += p3 + " plays " + h3 + "<br>";
@@ -3166,6 +3169,8 @@ card.addEventListener("touchmove", (e) => {
                         var matchplayhcp3txt = " strokes";
                     }
                     mtotal += Math.round(matchplayhcp3 - lowestmatchplayhcp) + matchplayhcp3txt + "<br>";
+                    // update global
+                    player3matchplayshotsdifference = Math.round(matchplayhcp3 - lowestmatchplayhcp)
                 }
                 if (p4 !== "no player") {
                     ptotal += p4 + " plays " + h4 + "<br>";
@@ -3175,6 +3180,8 @@ card.addEventListener("touchmove", (e) => {
                         var matchplayhcp4txt = " strokes";
                     }
                     mtotal += Math.round(matchplayhcp4 - lowestmatchplayhcp) + matchplayhcp4txt + "<br>";
+                    // update global
+                    player4matchplayshotsdifference = Math.round(matchplayhcp4 - lowestmatchplayhcp)
                 }
 
                 document.getElementById("calcs1").innerHTML = ptotal;
@@ -4100,7 +4107,106 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 	}    
           
         
-          
+   function doGetHCP() {
+	var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pub?gid=1661582897&single=true&output=csv" 
+	
+			Papa.parse(public_spreadsheet_url, {
+				download: true,
+				header: true,
+				complete: getHCP
+			});
+	
+	
+	
+	
+	   
+   }
+		   
+	function getHCP(results) {
+	var newPlayerName = localStorage.getItem("playerName");
+		var datax = results.data
+			//search google sheets for info
+		for(i = 0; i < datax.length; i++) {
+			
+			
+			/*
+			if(datax[i].Name == newPlayerName) {
+				// add player hcp details here
+				localStorage.setItem("playerName", datax[i].Name.toString());
+				localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+				localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+				localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+				localStorage.setItem("WinterHCP", datax[i].Winter.toString());
+			}
+			
+			*/
+			
+			
+			alert(datax[i].player.toString() + " " + datax[i].hcp.toString());
+			
+			
+			
+			
+			
+		}
+		
+	}	   	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		   
+		   
+	//================================
+	function modalPlayerSearchButton() {
+		x = document.getElementById("myAold").innerText;
+		if(x == "cancel") {
+			window.location.reload()
+		} else {
+			if("playerName" in localStorage) {
+				var playerNameretrieved = localStorage.getItem("playerName");
+			}
+			document.getElementById("txtForSearch").innerText = "replacing " + playerNameretrieved + " with " + x + " please wait";
+			localStorage.setItem("playerName", x);
+			// hcp list from 2022
+			var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pub?gid=1210420478&single=true&output=csv';
+			Papa.parse(public_spreadsheet_url, {
+				download: true,
+				header: true,
+				complete: showInfoPlayerSearch
+			});
+		}
+	}
+
+	function showInfoPlayerSearch(results) {
+		var newPlayerName = localStorage.getItem("playerName");
+		var datax = results.data
+			//search google sheets for info
+		for(i = 0; i < datax.length; i++) {
+			if(datax[i].Name == newPlayerName) {
+				// add player hcp details here
+				localStorage.setItem("playerName", datax[i].Name.toString());
+				localStorage.setItem("playerHCP", datax[i].Handicap.toString());
+				localStorage.setItem("LakesHCP", datax[i].Lakes.toString());
+				localStorage.setItem("DawsonHCP", datax[i].Dawson.toString());
+				localStorage.setItem("WinterHCP", datax[i].Winter.toString());
+			}
+		}
+		window.location.reload();
+	}	   
+		   
+		   
+		   
+		   
+		          
             
             
         </script>
