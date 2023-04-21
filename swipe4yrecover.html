@@ -391,7 +391,7 @@
     
  
  .btn1container {
-	  height: 12vh;
+	  height: 5vh;
 	   }  
     
     
@@ -408,18 +408,20 @@
   }  
     
   .stdtable {
-	  width: 100%;
+	  width: 98%;
   }  
  
    
    
    
-            .tdleft {
+            td {
                height: 100%;
-               width: 45%;
+               //width: 45%;
             } 
     
-    
+     .cap {
+                color: dodgerBlue;
+                font-size: 20px;
     
         </style>
     </head>
@@ -532,7 +534,7 @@
                     <!-- modal calculations -->
                     <div class="showcoursemsg" id="showcoursemsg" onclick="coursemsgclose()"></div>
                 </div>
-                <br />
+               
                 <table class="stdtable">
                     <caption class="cap">
                         Longhirst sweep
@@ -544,32 +546,24 @@
                     </thead>
                     <tbody>
                         <tr class="btn1container">
-                            <td colspan="2" class="tdleft">
+                            <td colspan="2">
                                 <button type="button" class="buttonblue" id="hole-1"></button>
                             </td>
                         </tr>
-                        <!--
-                  <tr class="spacer"><td colspan="2"></td></tr>
-                  -->
+                        
                         <tr class="btn1container">
-                            <td class="tdleft">
+                            <td>
                                 <button class="btn1" id="h1p1">no player</button>
-                                <div></div>
                             </td>
-                            <td class="tdright">
-                                <!--
-                        <button type="button"  class="buttonblue">
-                        -->
+                            <td>
                                 <div class="wrapper">
                                     <a class="leftnum" id="h1hhl1" onclick="decrementScore('h1hhc1')">-</a>
                                     <a class="midnum" id="h1hhc1">0</a>
                                     <a class="rightnum" id="h1hhr1" onclick="incrementScore('h1hhc1')">+</a>
-                                    <!--
-                           </button>
-                           -->
                                 </div>
                             </td>
                         </tr>
+                        
                         <tr class="stdtr">
                             <td class="tdleft">
                                 <button class="dropbtn2" id="h1p2">no player</button>
