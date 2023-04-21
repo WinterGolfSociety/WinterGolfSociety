@@ -3979,7 +3979,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 	var bounding = myElement.getBoundingClientRect();
 
 	if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
-		
+		myElement.innerText = "yyybackup"
 		// do backup
 		j = i - 1
 		if (i == 1) {
