@@ -3972,25 +3972,65 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
           
         
   function autoBackup() {        
-          
-  var myElement = document.getElementById('h1p1');
-var bounding = myElement.getBoundingClientRect();
+  
+  for (var i = 1; i <= 18; i++) {        
+	var myElement = document.getElementById("h" + i + "p1");
+	var bounding = myElement.getBoundingClientRect();
 
-if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
-myElement.innerText = "backup"
-    //alert('Element is in the viewport, so do backup and continue');
-} 
+	if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
+		// do backup
+		j = i - 1
+		if (i == 1) {
+			// backup setup screen
+            localStorage.setItem("course", courseInPlay);
 
-//else {
+            localStorage.setItem("player1name", document.getElementById("setupp1").innerText);
+            localStorage.setItem("player2name", document.getElementById("setupp2").innerText);
+            localStorage.setItem("player3name", document.getElementById("setupp3").innerText);
+            localStorage.setItem("player4name", document.getElementById("setupp4").innerText);
 
-//    alert('Element is NOT in the viewport!');
-//}   
+            localStorage.setItem("player1hcp", document.getElementById("numsetupplayer1").innerText);
+            localStorage.setItem("player2hcp", document.getElementById("numsetupplayer2").innerText);
+            localStorage.setItem("player3hcp", document.getElementById("numsetupplayer3").innerText);
+            localStorage.setItem("player4hcp", document.getElementById("numsetupplayer4").innerText);
+            // end of setup page ===========================================
+
+		} else {
+			// backup previous hole j
+			localStorage.setItem("hole" + j + "player1score", document.getElementById("h" + j + "hhc1").innerText);
+            localStorage.setItem("hole" + j + "player2score", document.getElementById("h" + j + "hhc2").innerText);
+            localStorage.setItem("hole" + j + "player3score", document.getElementById("h" + j + "hhc3").innerText);
+            localStorage.setItem("hole" + j + "player4score", document.getElementById("h" + j + "hhc4").innerText);
+		}
+		//myElement.innerText = "backup"
+	} 
+  }         
+ }       
           
-}         
-         
           
-          
-          
+         // setup page ==========================================
+                // save data
+                localStorage.setItem("course", courseInPlay);
+
+                localStorage.setItem("player1name", document.getElementById("setupp1").innerText);
+                localStorage.setItem("player2name", document.getElementById("setupp2").innerText);
+                localStorage.setItem("player3name", document.getElementById("setupp3").innerText);
+                localStorage.setItem("player4name", document.getElementById("setupp4").innerText);
+
+                localStorage.setItem("player1hcp", document.getElementById("numsetupplayer1").innerText);
+                localStorage.setItem("player2hcp", document.getElementById("numsetupplayer2").innerText);
+                localStorage.setItem("player3hcp", document.getElementById("numsetupplayer3").innerText);
+                localStorage.setItem("player4hcp", document.getElementById("numsetupplayer4").innerText);
+
+                // end of setup page ===========================================
+
+                // 18 holes =======================================================
+                for (var i = 1; i <= 18; i++) {
+                    localStorage.setItem("hole" + i + "player1score", document.getElementById("h" + i + "hhc1").innerText);
+                    localStorage.setItem("hole" + i + "player2score", document.getElementById("h" + i + "hhc2").innerText);
+                    localStorage.setItem("hole" + i + "player3score", document.getElementById("h" + i + "hhc3").innerText);
+                    localStorage.setItem("hole" + i + "player4score", document.getElementById("h" + i + "hhc4").innerText);
+                }    
           
           
             
