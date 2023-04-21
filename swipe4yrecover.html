@@ -84,6 +84,30 @@
                 color: slateGray;
                 padding: 5px;
             }
+            
+            .dropbtn1setup,
+            .dropbtn2setup,
+            .dropbtn3setup,
+            .dropbtn4setup {
+                color: white;
+                cursor: pointer;
+                width: 100%;
+                height: 10vh;
+                font-size: 30px;
+                text-align: center;
+                //padding-top: 2vh; 
+                text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+                background: dodgerBlue;
+                border: none;
+            }
+            
+            
+            
+            
+            
+            
+            
+            
             .dropbtn1,
             .dropbtn2,
             .dropbtn3,
@@ -91,7 +115,7 @@
                 color: white;
                 cursor: pointer;
                 width: 100%;
-                height: 10vh;
+                height: 12vh;
                 font-size: 30px;
                 text-align: center;
                 //padding-top: 2vh; 
@@ -197,7 +221,7 @@
                 font-size: 20px;
             }
             .wrapper {
-                height: 10vh; //100%;
+                height: 12vh; //10vh; //100%;
                 color: white;
                 text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
                 //min-width: 380px;
@@ -326,7 +350,7 @@
             
    #round {
 	   	color: white;
-		font-size:30px;
+		font-size: 30px;
         width: 80px;
         height: 50px;
         background: dodgerBlue;
@@ -343,7 +367,7 @@
             
  #roundhcp {
 	   	color: white;
-		font-size:30px;
+		font-size: 30px;
         width: 280px;
         height: 50px;
         background: dodgerBlue;
@@ -365,6 +389,15 @@
   position: relative;
   
     }
+    
+ 
+ // .tdleft {
+//	  height: 12vh;
+// }  
+    
+    
+    
+    
         </style>
     </head>
     <body>
@@ -387,7 +420,7 @@
                     <tbody>
                         <tr class="stdtr">
                             <td class="tdleft">
-                                <button type="button" class="buttonblue" id="dawson" onclick="dawson()"><a id="vt0">course</a>Dawson</button>
+                                <button type="button" class="buttonblue" id="dawson" onclick="dawson()"><span id="vt0">course</span>Dawson</button>
                             </td>
                             <td class="tdright">
                                 <button type="button" class="buttonblue" id="lakes" onclick="lakes()">Lakes</button>
@@ -395,7 +428,7 @@
                         </tr>
                         <tr class="stdtr">
                             <td class="tdleft">
-                                <div onclick="hideorshowplayerdropdown1()" class="dropbtn1" id="dropbtn1"><a id="vt1">team 1</a><a id="setupp1">no player</a></div>
+                                <div onclick="hideorshowplayerdropdown1()" class="dropbtn1setup" id="dropbtn1"><a id="vt1">team 1</a><a id="setupp1">no player</a></div>
                                 <div id="playerdropdown1" class="dropdown-content1"></div>
                             </td>
                             <td class="tdright">
@@ -408,7 +441,7 @@
                         </tr>
                         <tr class="stdtr">
                             <td class="tdleft">
-                                <div onclick="hideorshowplayerdropdown2()" class="dropbtn2" id="dropbtn2"><a id="vt2">team 1</a><a id="setupp2">no player</a></div>
+                                <div onclick="hideorshowplayerdropdown2()" class="dropbtn2setup" id="dropbtn2"><a id="vt2">team 1</a><a id="setupp2">no player</a></div>
                                 <div id="playerdropdown2" class="dropdown-content2"></div>
                             </td>
                             <td class="tdright">
@@ -421,7 +454,7 @@
                         </tr>
                         <tr class="stdtr">
                             <td class="tdleft">
-                                <div onclick="hideorshowplayerdropdown3()" class="dropbtn3" id="dropbtn3"><a id="vt3">team 2</a><a id="setupp3">no player</a></div>
+                                <div onclick="hideorshowplayerdropdown3()" class="dropbtn3setup" id="dropbtn3"><a id="vt3">team 2</a><a id="setupp3">no player</a></div>
                                 <div id="playerdropdown3" class="dropdown-content3"></div>
                             </td>
                             <td class="tdright">
@@ -434,7 +467,7 @@
                         </tr>
                         <tr class="stdtr">
                             <td class="tdleft">
-                                <div onclick="hideorshowplayerdropdown4()" class="dropbtn4" id="dropbtn4"><a id="vt4">team 2</a><a id="setupp4">no player</a></div>
+                                <div onclick="hideorshowplayerdropdown4()" class="dropbtn4setup" id="dropbtn4"><a id="vt4">team 2</a><a id="setupp4">no player</a></div>
                                 <div id="playerdropdown4" class="dropdown-content4"></div>
                             </td>
                             <td class="tdright">
@@ -446,13 +479,16 @@
                             </td>
                         </tr>
                         <tr>
-                        <td><div id="buttoncontainerhcp"><button id="roundhcp" onclick="doGetHCP()">search for HCP's</button></div></td>
+                        <td colspan="2"><div id="buttoncontainerhcp"><button id="roundhcp" onclick="doGetHCP()">search for HCPs</button></div></td>
                         </tr>
                         <tr>
                             <td id="calcs1"></td>
                             <td id="calcs2"></td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer">
+                        <td></td>
+                        <td></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -490,7 +526,7 @@
                             </td>
                         </tr>
                         <!--
-                  <tr class="spacer"></tr>
+                  <tr class="spacer"><td colspan="2"></td></tr>
                   -->
                         <tr class="stdtr">
                             <td class="tdleft">
@@ -553,7 +589,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <!--		<tr colspan="2">   -->
+                                    <!--		<tr>   -->
                                     <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
@@ -588,7 +624,7 @@
                             </td>
                         </tr>
                         
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                         
                     </tbody>
                 </table>
@@ -671,7 +707,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -693,7 +729,8 @@
                                         <td class="tdtest" id="h2p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h2matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h2matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole2')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h2matchplayleader" colspan="3"></td>
@@ -701,7 +738,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -776,7 +813,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -798,7 +835,8 @@
                                         <td class="tdtest" id="h3p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h3matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h3matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole3')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h3matchplayleader" colspan="3"></td>
@@ -806,7 +844,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -881,7 +919,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -903,7 +941,8 @@
                                         <td class="tdtest" id="h4p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h4matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h4matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole4')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h4matchplayleader" colspan="3"></td>
@@ -911,7 +950,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -986,7 +1025,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1008,7 +1047,8 @@
                                         <td class="tdtest" id="h5p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h5matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h5matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole5')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h5matchplayleader" colspan="3"></td>
@@ -1016,7 +1056,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1091,7 +1131,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1113,7 +1153,8 @@
                                         <td class="tdtest" id="h6p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h6matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h6matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole6')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h6matchplayleader" colspan="3"></td>
@@ -1121,7 +1162,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1196,7 +1237,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1218,7 +1259,8 @@
                                         <td class="tdtest" id="h7p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h7matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h7matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole7')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h7matchplayleader" colspan="3"></td>
@@ -1226,7 +1268,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1301,7 +1343,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1323,7 +1365,8 @@
                                         <td class="tdtest" id="h8p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h8matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h8matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole8')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h8matchplayleader" colspan="3"></td>
@@ -1331,7 +1374,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1406,7 +1449,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1428,7 +1471,8 @@
                                         <td class="tdtest" id="h9p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h9matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h9matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole9')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h9matchplayleader" colspan="3"></td>
@@ -1436,7 +1480,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1511,7 +1555,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1533,7 +1577,8 @@
                                         <td class="tdtest" id="h10p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h10matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h10matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole10')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h10matchplayleader" colspan="3"></td>
@@ -1541,7 +1586,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1616,7 +1661,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1638,7 +1683,8 @@
                                         <td class="tdtest" id="h11p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h11matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h11matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole11')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h11matchplayleader" colspan="3"></td>
@@ -1646,7 +1692,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1721,7 +1767,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1743,7 +1789,8 @@
                                         <td class="tdtest" id="h12p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h12matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h12matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole12')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h12matchplayleader" colspan="3"></td>
@@ -1751,7 +1798,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1826,7 +1873,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1848,7 +1895,8 @@
                                         <td class="tdtest" id="h13p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h13matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h13matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole13')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h13matchplayleader" colspan="3"></td>
@@ -1856,7 +1904,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1931,7 +1979,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -1953,7 +2001,8 @@
                                         <td class="tdtest" id="h14p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h14matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h14matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole14')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h14matchplayleader" colspan="3"></td>
@@ -1961,7 +2010,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -2036,7 +2085,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -2058,7 +2107,8 @@
                                         <td class="tdtest" id="h15p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h15matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h15matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole15')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h15matchplayleader" colspan="3"></td>
@@ -2066,7 +2116,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -2141,7 +2191,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -2163,7 +2213,8 @@
                                         <td class="tdtest" id="h16p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h16matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h16matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole16')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h16matchplayleader" colspan="3"></td>
@@ -2171,7 +2222,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -2246,7 +2297,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -2267,9 +2318,10 @@
                                         <td class="tdtest" id="h17p4result1"></td>
                                         <td class="tdtest" id="h17p4result2" colspan="2"></td>
                                     </tr>
-                                    <tr></tr>
+                                    <tr><td colspan ="3"></td></tr>
                                     <tr>
-                                        <td class="tdtest" id="h17matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h17matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole17')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h17matchplayleader" colspan="3"></td>
@@ -2277,7 +2329,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -2352,7 +2404,7 @@
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
-                                    <tr colspan="2">
+                                    <tr>
                                         <td class="tdtest">&nbsp;</td>
                                         <td class="tdtest"></td>
                                         <td class="tdtest"></td>
@@ -2374,11 +2426,8 @@
                                         <td class="tdtest" id="h18p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h18p4result1"></td>
-                                        <td class="tdtest" id="h18p4result2" colspan="2"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdtest" id="h18matchplayresult" colspan="3"></td>
+                                        <td class="tdtest" id="h18matchplayresult" colspan="2"></td>
+                                        <td><div id="buttoncontainer"><button id="round" onclick="doSave('hole18')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h18matchplayleader" colspan="3"></td>
@@ -2386,7 +2435,7 @@
                                 </table>
                             </td>
                         </tr>
-                        <tr class="spacer"></tr>
+                        <tr class="spacer"><td colspan="2"></td></tr>
                     </tbody>
                 </table>
             </div>
