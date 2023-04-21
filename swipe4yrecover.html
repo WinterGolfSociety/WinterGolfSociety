@@ -3978,10 +3978,8 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 
 	if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
 		
-    for (var i = 1; i <= 18; i++) {        
-		// do backup
-		j = i - 1
-		if (i == 1) {
+    
+		//if (i == 1) {
 			// backup setup screen
             localStorage.setItem("course", courseInPlay);
 
@@ -3996,12 +3994,16 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
             localStorage.setItem("player4hcp", document.getElementById("numsetupplayer4").innerText);
             // end of setup page ===========================================
 
-		} else {
+		}
+			for (var i = 1; i <= 18; i++) {        
+		// do backup
+		j = i - 1
 			// backup previous hole j
 			localStorage.setItem("hole" + j + "player1score", document.getElementById("h" + j + "hhc1").innerText);
             localStorage.setItem("hole" + j + "player2score", document.getElementById("h" + j + "hhc2").innerText);
             localStorage.setItem("hole" + j + "player3score", document.getElementById("h" + j + "hhc3").innerText);
             localStorage.setItem("hole" + j + "player4score", document.getElementById("h" + j + "hhc4").innerText);
+            
 		}
 		
 
@@ -4010,12 +4012,12 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 		myElement.innerText = "backup"
 	} 
 	
-			
+		/*	
 		alert("i = " + i + " " + localStorage.getItem("hole" + j + "player1score") + "<br>" +
 		localStorage.getItem("hole" + j + "player2score") + "<br>" +
 		localStorage.getItem("hole" + j + "player3score") + "<br>" +
 		localStorage.getItem("hole" + j + "player4score") + "<br>" )
-	
+	*/
 	
   }         
  }       
