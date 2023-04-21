@@ -37,13 +37,7 @@
                 scroll-snap-align: start;
                 scroll-snap-stop: always;
             }
-            table {
-                width: 100%;
-            }
-            td {
-                height: 10%;
-                width: 45%;
-            }
+            
             .leftnum {
                 padding-left: 15px;
                 padding-right: 20px;
@@ -396,10 +390,34 @@
     }
     
  
- // .tdleft {
-//	  height: 12vh;
-// }  
+ .btn1container {
+	  height: 12vh;
+	   }  
     
+    
+  .btn1 {
+	  color: white;
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                font-size: 30px;
+                text-align: center;
+                text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+                background: dodgerBlue;
+                border: none;
+  }  
+    
+  .stdtable {
+	  width: 100%;
+  }  
+ 
+   
+   
+   
+            .tdleft {
+               height: 100%;
+               width: 45%;
+            } 
     
     
     
@@ -515,7 +533,7 @@
                     <div class="showcoursemsg" id="showcoursemsg" onclick="coursemsgclose()"></div>
                 </div>
                 <br />
-                <table>
+                <table class="stdtable">
                     <caption class="cap">
                         Longhirst sweep
                     </caption>
@@ -525,7 +543,7 @@
                   -->
                     </thead>
                     <tbody>
-                        <tr class="stdtr">
+                        <tr class="btn1container">
                             <td colspan="2" class="tdleft">
                                 <button type="button" class="buttonblue" id="hole-1"></button>
                             </td>
@@ -533,9 +551,9 @@
                         <!--
                   <tr class="spacer"><td colspan="2"></td></tr>
                   -->
-                        <tr class="stdtr">
+                        <tr class="btn1container">
                             <td class="tdleft">
-                                <button class="dropbtn1" id="h1p1" style="border: none;">no player</button>
+                                <button class="btn1" id="h1p1">no player</button>
                                 <div></div>
                             </td>
                             <td class="tdright">
