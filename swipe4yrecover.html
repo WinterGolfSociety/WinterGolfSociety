@@ -2499,7 +2499,7 @@
                 let currentX = e.touches[0].pageX;
                 moveX = currentX - initialX;
                 
-                //autoBackup()
+                autoBackup()
             });
             
 
@@ -3979,10 +3979,12 @@ var bounding = myElement.getBoundingClientRect();
 if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
 
     alert('Element is in the viewport!');
-} else {
+} 
 
-    alert('Element is NOT in the viewport!');
-}   
+//else {
+
+//    alert('Element is NOT in the viewport!');
+//}   
           
 }         
          
