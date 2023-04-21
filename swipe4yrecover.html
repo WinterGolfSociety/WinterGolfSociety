@@ -2489,6 +2489,8 @@
             card.addEventListener("touchmove", (e) => {
                 let currentX = e.touches[0].pageX;
                 moveX = currentX - initialX;
+                
+                autoBackup()
             });
             
 
@@ -2506,12 +2508,14 @@ card.addEventListener("touchmove", (e) => {
 */
 
             // try this
-
+/*
             card.addEventListener("touchend", (e) => {
                 if (moveY > MOVE_THRESHOLD * Math.sign(moveX)) {
                     alert("moved down");
                 }
             });
+            */
+            
             /*
          card.addEventListener("touchend", e => {
            if (moveX < MOVE_THRESHOLD * Math.sign(moveX) && !isDeleteButtonOpen) {
@@ -3958,7 +3962,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
           
           
         
-          
+  function autoBackup() {        
           
   var myElement = document.getElementById('hole1');
 var bounding = myElement.getBoundingClientRect();
@@ -3971,7 +3975,7 @@ if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWid
     alert('Element is NOT in the viewport!');
 }   
           
-          
+}         
          
           
           
