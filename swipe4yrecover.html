@@ -3971,14 +3971,19 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
           
           
         
-  function autoBackup() {        
-    var myElement = document.getElementById("h" + i + "p1");
-	myElement.innerText = "xxxbackup"
-	var bounding = myElement.getBoundingClientRect();
+  function autoBackup() { 
+	  var progress = "no"
+	for (var i = 1; i <= 18; i++) {           
+		var myElement = document.getElementById("h" + i + "p1");
+		myElement.innerText = "xxxbackup"
+		var bounding = myElement.getBoundingClientRect();
 
-	if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
+		if (bounding.top >= 0 && bounding.left >= 0 && bounding.right <= window.innerWidth && bounding.bottom <= window.innerHeight) {
+			progress="yes"
 		
-    
+        }
+	}
+        /*
 		//if (i == 1) {
 			// backup setup screen
             localStorage.setItem("course", courseInPlay);
@@ -3995,9 +4000,13 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
             // end of setup page ===========================================
 
 		}
-			for (var i = 1; i <= 18; i++) {        
+		
+		*/
+		
+		if (progress == "yes") {
+		for (var ii = 1; ii <= 18; ii++) {        
 		// do backup
-		j = i - 1
+		j = ii
 			// backup previous hole j
 			localStorage.setItem("hole" + j + "player1score", document.getElementById("h" + j + "hhc1").innerText);
             localStorage.setItem("hole" + j + "player2score", document.getElementById("h" + j + "hhc2").innerText);
@@ -4005,11 +4014,12 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
             localStorage.setItem("hole" + j + "player4score", document.getElementById("h" + j + "hhc4").innerText);
             
 		}
-		
+		myElement.innerText = "backup"
+		}
 
 		
 		
-		myElement.innerText = "backup"
+		
 	} 
 	
 		/*	
@@ -4019,8 +4029,8 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 		localStorage.getItem("hole" + j + "player4score") + "<br>" )
 	*/
 	
-  }         
- }       
+           
+        
           
         
           
