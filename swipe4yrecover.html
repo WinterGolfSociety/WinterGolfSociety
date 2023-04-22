@@ -17,6 +17,7 @@
                 
             }
             body {
+				color: white;
                 background-color: gainsboro;
                 font-family: Arial, Helvetica, sans-serif;
                 overscroll-behavior: none 
@@ -35,7 +36,7 @@
                 height: 100vh;
                 display: flex;
                 box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-                background-color: mediumspringgreen; //aliceblue;
+                background-color: darkSlateGray;
                 scroll-snap-align: start;
                 scroll-snap-stop: always;
             }
@@ -301,7 +302,7 @@
             
   .tdtop1 {
 	  color: white;
-	  background: dodgerBlue;
+	  background: darkSlateGray;
 	   border: none;
 	//border: 2px solid gray;
 	width: 100%;
@@ -319,7 +320,7 @@
 	height: 100%;
 	font-size: 25px;
     text-align: left;
-    padding-left: 20px;
+    padding-left: 30px;
 			 }		 
 			        
             
@@ -344,6 +345,7 @@
    .small1 {
 	    font-size: 20px;
 	    color: cyan;
+	    background: darkSlateGray;
               
    }         
             
@@ -426,7 +428,7 @@
    
    
    .spacer {
-	 height: 2vh;  
+	 height: 3vh;  
    }
    
    
@@ -449,8 +451,8 @@
     <body>
         <div class="container">
             <div class="card" id="setup">
-                <div class="demo">
-                    <!-- modal calculations -->
+                <div class="modal">
+                    <!-- modal-->
                     <div class="showstartmsg" id="showstartmsg" onclick="startmsgclose()"></div>
                 </div>
                 <br />
@@ -466,7 +468,7 @@
 						
                         <tr class="btn1container">
                             <td class="tdleft">
-                                <button type="button" class="btn1" id="dawson" onclick="dawson()"><a id="vt0">course</a>Dawson</button>
+                                <button type="button" class="btn1" id="dawson" onclick="dawson()"><span id="vt0">course</span>Dawson</button>
                             </td>
                             <td class="tdright">
                                 <button type="button" class="btn1" id="lakes" onclick="lakes()">Lakes</button>
@@ -474,7 +476,7 @@
                         </tr>
 						
 						
-						<tr class="spacer"><td></td></tr>
+						<tr class="spacer" colspan="2"><td></td></tr>
 
 						
 						
@@ -531,6 +533,12 @@
                                 </div>
                             </td>
                         </tr>
+                        
+                        
+						<tr class="spacer" colspan="2"><td></td></tr>
+
+                        
+                        
                         <tr>
 							<!--
                         <td colspan="2"><div id="buttoncontainerhcp"><button id="roundhcp"   onclick="doGetHCP()">search for HCPs</button></div></td>
@@ -556,7 +564,7 @@
          -->
             <div class="card" id="hole1">
 				
-                <div class="demo">
+                <div class="modal">
                     <!-- modal calculations -->
                     <div class="showcoursemsg" id="showcoursemsg" onclick="coursemsgclose()"></div>
                 </div>
@@ -653,7 +661,7 @@
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h1matchplayresult" colspan="2"></td>
-										<td><div id="buttoncontainer"><button id="round" onclick="doSave('hole1')">save</button></div></td>
+										<td><div><button id="round" onclick="doSave('hole1')">save</button></div></td>
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h1matchplayleader" colspan="3"></td>
@@ -4240,7 +4248,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
      
     document.getElementById("roundhcp").innerHTML = "search for HCPs"
      
-      
+    doCalcs()  
 }
 
          
