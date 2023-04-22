@@ -290,13 +290,13 @@
    #round {
 	   	color: white;
 		font-size: 30px;
-        width: 80px;
-        height: 50px;
+        width: 100%;
+        //height: 50px;
         background: dodgerBlue;
         border-radius: 10px;
-        position: relative;
-        bottom: 0px;
-        right: 5px;
+        //position: relative;
+        //bottom: 0px;
+        //right: 5px;
 		border: 3px solid rgba(255, 255, 255, 0.2);
 		box-shadow: 10px 10px 25px black;
 		background-clip: padding-box;
@@ -722,6 +722,12 @@
                                 </div>
                             </td>
                         </tr>
+                        
+                        
+                        <td colspan="3"><div><button id="round" onclick="doSave('hole1')">save</button></div></td>
+                        
+                        
+                        
                         <tr>
                             <td colspan="2" class="bbb">
                                 <table class="thishole">
@@ -748,8 +754,8 @@
                                         <td class="tdtest" id="h1p4result2" colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td class="tdtest" id="h1matchplayresult" colspan="2"></td>
-										<td><div><button id="round" onclick="doSave('hole1')">save</button></div></td>
+                                        <td class="tdtest" id="h1matchplayresult" colspan="3"></td>
+										
                                     </tr>
                                     <tr>
                                         <td class="tdtest" id="h1matchplayleader" colspan="3"></td>
