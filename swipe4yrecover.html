@@ -35,7 +35,7 @@
                 height: 100vh;
                 display: flex;
                 box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-                background-color: aliceblue;
+                background-color: mediumspringgreen; //aliceblue;
                 scroll-snap-align: start;
                 scroll-snap-stop: always;
             }
@@ -253,7 +253,7 @@
 
    }
    
-   }
+   
             #hole1,
             #hole2,
             #hole3,
@@ -277,7 +277,7 @@
             
          .stdtable {
 			  border: none;
-  //border: 1px solid;
+  border: none;
   width: 100%;
   height:10%;
   //border-collapse: collapse;
@@ -303,6 +303,7 @@
 	  background: dodgerBlue;
 	   border: none;
 	//border: 2px solid gray;
+	border: none;
 	width: 100%;
 	height: 100%;
 	font-size: 15px;
@@ -316,8 +317,9 @@
 	//border: 2px solid gray;
 	width: 100%;
 	height: 100%;
-	font-size: 30px;
-    text-align: center;
+	font-size: 25px;
+    text-align: left;
+    padding-left: 20px;
 			 }		 
 			        
             
@@ -340,7 +342,8 @@
   }             
             
    .small1 {
-	    font-size: 20px;
+	    font-size: 15px;
+	    color: cyan;
               
    }         
             
@@ -4236,7 +4239,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
    function doGetHCP() {
 	btninfo = document.getElementById("roundhcp")
 	originalinfo = btninfo.innerHTML
-	btninfo.innerHTML = 'searching <img src="loading.jpg" alt="" width="25" height="25">'
+	btninfo.innerHTML = 'searching &nbsp;&nbsp;<img src="loading.jpg" alt="" width="20" height="20">'
 	   
    var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pub?gid=1661582897&single=true&output=csv';
   	  
