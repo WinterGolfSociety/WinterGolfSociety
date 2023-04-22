@@ -233,19 +233,31 @@
 				color: lightgray;
 				background: dodgerBlue;
 				//height: 100%;
-                font-size: 30px;
+                font-size: 12px;
                 text-align: left;
-                padding-left: 10px;
-               
+                padding-left: 3px;
+               padding-right: 3px;
                 //float: left;
-               // writing-mode: vertical-rl;
-               // text-orientation: mixed;
+                writing-mode: vertical-rl;
+                text-orientation: mixed;
                 //padding-top: 5px;
 				//padding-bottom: 15px;
-				
-				
+				//border-spacing: 0px;
+				//border-right-style: none;
 	
             }
+
+.xl {
+ border-right-style: none;
+ border-spacing: 0px;
+ width: 1%	
+}
+
+
+
+
+
+
 
  #buttoncontainer { 
   position: relative;
@@ -336,7 +348,7 @@
 .tdright {
 	 border: none;
 	//border: 2px solid gray;
-	width: 48%;
+	width: 49%;
 	height: 100%;
 			 }			 
             
@@ -502,12 +514,13 @@
                     <tbody>
 						
 						<tr class="tdtop">
-							<td colspan="2" class="tdtop1"><a class="small1">Longhirst sweep</a></td>
+							<td colspan="3" class="tdtop1"><a class="small1">Longhirst sweep</a></td>
 						</tr>
 						
 						
                         <tr class="btn1container">
-                            <td class="tdleft">
+							
+                            <td class="tdleft" colspan="2">
                                 <div class="wrapperleft" id="dawson" onclick="dawson()">
 								Dawson
                                 </div>
@@ -520,20 +533,19 @@
                         </tr>
 						
 						
-						<tr class="spacer" colspan="2"><td></td></tr>
+						<tr class="spacer" colspan="3"><td></td></tr>
 
 						
-						 <tr class="btn1container">
-                        <!--
+						 
                         <tr class="stdtr">
-						-->	
-							
+					
+							<td class="xl"><div id="vt1">(team 1)</div></td>
 							
                             <td class="tdleft" onclick="hideorshowplayerdropdown1()">
 								
                                 <div class="wrapperleft" id="dropbtn1">
 								<div id="setupp1">no player</div>	
-								<div id="vt1">(team 1)</div>
+								
                                 </div>
                                 
                                 <div id="playerdropdown1" class="dropdown-content1"></div>
@@ -547,11 +559,14 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
+							
+							<td class="xl"><div id="vt2">(team 1)</div></td>
+							
                             <td class="tdleft" onclick="hideorshowplayerdropdown2()">
                                 
                                 <div class="wrapperleft" id="dropbtn2">
 								<div id="setupp2">no player</div>	
-								<div id="vt2">(team 1)</div>
+								
                                 </div>
                                 
                                 <div id="playerdropdown2" class="dropdown-content2"></div>
@@ -565,11 +580,13 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
+							<td class="xl"><div id="vt3">(team 2)</div></td>
+							
+							
                             <td class="tdleft" onclick="hideorshowplayerdropdown3()">
 								
 								<div class="wrapperleft" id="dropbtn3">
 								<div id="setupp3">no player</div>	
-								<div id="vt3">(team 2)</div>
                                 </div>
                                 
                                 <div id="playerdropdown3" class="dropdown-content3"></div>
@@ -583,11 +600,13 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
+							
+							<td class="xl"><div id="vt4">(team 1)</div></td>
+							
                             <td class="tdleft" onclick="hideorshowplayerdropdown4()">
                                 
                                 <div class="wrapperleft" id="dropbtn4">
 								<div id="setupp4">no player</div>	
-								<div id="vt4">(team 2)</div>
                                 </div>
                                 
                                 <div id="playerdropdown4" class="dropdown-content4"></div>
@@ -602,26 +621,27 @@
                         </tr>
                         
                         
-						<tr class="spacer" colspan="2"><td></td></tr>
+						<tr class="spacer" colspan="3"><td></td></tr>
 
                         
                         
                         <tr>
+							
 							<!--
                         <td colspan="2"><div id="buttoncontainerhcp"><button id="roundhcp"   onclick="doGetHCP()">search for HCPs</button></div></td>
                         </tr>
                         -->
-                        <td colspan="2"><button id="roundhcp" onclick="doGetHCP()">search for HCPs</button></td>
+                        <td colspan="3"><button id="roundhcp" onclick="doGetHCP()">search for HCPs</button></td>
                         </tr>
                         
                         
                         <tr>
+							<td></td>
                             <td id="calcs1"></td>
                             <td id="calcs2"></td>
                         </tr>
-                        <tr class="spacer">
-                        <td></td>
-                        <td></td>
+                        <tr class="spacer" colspan="3">
+                        
                         </tr>
                     </tbody>
                 </table>
