@@ -13,10 +13,11 @@
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
-                font-family: Arial, Helvetica, sans-serif;
+                
             }
             body {
                 background-color: gainsboro;
+                font-family: Arial, Helvetica, sans-serif;
                 overscroll-behavior: none 
             }
             .container {
@@ -38,12 +39,18 @@
                 scroll-snap-stop: always;
             }
             
+            
+            
+            
+            
+            
+          
+            
             .leftnum {
                 padding-left: 15px;
                 padding-right: 20px;
                 float: left;
                 background: dodgerBlue;
-                //width: 40%;
                 font-size: 30px;
             }
             .midnum {
@@ -51,7 +58,6 @@
                 padding-right: 0px;
                 float: center;
                 background: dodgerBlue;
-                //width: 15%;
                 font-size: 30px;
             }
             .rightnum {
@@ -61,64 +67,18 @@
                 background: dodgerBlue;
                 font-size: 30px;
             }
-            .buttonblue {
-                color: white;
-                cursor: pointer;
-                width: 100%;
-                height: 10vh;
-                font-size: 30px;
-                background: dodgerBlue;
-                text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-                float: left;
-                //padding-left: 10px;
-                border: none;
-            }
-            #calcs1,
-            #calcs2 {
-                color: slateGray;
-                padding: 5px;
-            }
-            
-            .dropbtn1setup,
-            .dropbtn2setup,
-            .dropbtn3setup,
-            .dropbtn4setup {
-                color: white;
-                cursor: pointer;
-                width: 100%;
-                height: 10vh;
-                font-size: 30px;
-                text-align: center;
-                //padding-top: 2vh; 
-                text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-                background: dodgerBlue;
-                border: none;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            
-            
-            
-       
-            
-            
-            
-            
-            .dropbtn1,
-            .dropbtn2,
-            .dropbtn3,
-            .dropbtn4 {
-                color: white;
-                cursor: pointer;
-                width: 100%;
-                height: 12vh;
-                font-size: 30px;
-                text-align: center;
-                //padding-top: 2vh; 
-                text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-                background: dodgerBlue;
-                border: none;
-               
-            }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
             .dropdown1,
             .dropdown2,
             .dropdown3,
@@ -134,8 +94,6 @@
             .dropdown-content4 {
                 display: none;
                 position: absolute;
-                //background-color: dodgerBlue; //#f1f1f1;
-                //background-image: linear-gradient(to right, rgba(30, 144, 255,0.8), rgba(0,255,255,0.1));
                 min-width: 35vw;
                 overflow: auto;
                 z-index: 1;
@@ -144,20 +102,13 @@
             .dropdown-content2 a,
             .dropdown-content3 a,
             .dropdown-content4 a {
-                color: yellow; //white;
+                color: yellow;
                 font-size: 30px;
                 padding: 12px 16px;
                 text-decoration: none;
                 display: block;
                 text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-                //webkit-transition: background-color 2s ease-out;
-                //-moz-transition: background-color 2s ease-out;
-                //-o-transition: background-color 2s ease-out;
-                //transition: background-color 2s ease-out;
-
                 background-color: dodgerBlue;
-                //background-image: linear-gradient(to right, rgba(30, 144, 255,1), rgba(30, 144, 255,0.6));
-                //border: 5px solid rgba(30, 144, 255,0.6);
             }
             .dropdown-content1 a:hover,
             .dropdown-content2 a:hover,
@@ -170,63 +121,34 @@
             .show {
                 display: block;
             }
-            #setup {
-                background: lightGray;
-            }
-            #hole1,
-            #hole2,
-            #hole3,
-            #hole4,
-            #hole5,
-            #hole6,
-            #hole7,
-            #hole8,
-            #hole9,
-            #hole10,
-            #hole11,
-            #hole12,
-            #hole13,
-            #hole14,
-            #hole15,
-            #hole16,
-            #hole17,
-            #hole18 {
-                background-image: linear-gradient(to right, rgba(124, 252, 0, 0.8), rgba(124, 252, 0, 0.1));
-
-                //-webkit-filter: blur(4px);
-                // filter: blur(4px);
-            }
-            #final {
-                background: dodgerBlue;
-                padding-left: 20px;
-            }
+           
+           
+           
+           
+           
+       
+            
+            
             #finalpage,
             #penultimatepage {
                 color: blue;
                 background: lightGray;
                 padding-left: 20px;
             }
-            .tdtest {
-                color: dodgerBlue;
-                font-size: 20px;
-                padding: 0px;
-                padding-left: 10px;
-            }
-            .cap {
-                color: dodgerBlue;
-                font-size: 20px;
-            }
+
+            
+            
             .wrapper {
-                height: 12vh; //10vh; //100%;
                 color: white;
+                height: 100%;
                 text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-                //min-width: 380px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 background: dodgerBlue;
                 font-family: Arial, Helvetica, sans-serif;
             }
+            
             .wrapper span {
                 width: 100%;
                 text-align: center;
@@ -238,8 +160,17 @@
                 font-size: 30px;
                 pointer-events: none;
             }
+          
+          
+          
+          
+          
+          
+          
+            
+            
             #showstartmsg {
-                //visibility: hidden;
+				display: none;
                 border-radius: 10px;
                 font-size: 20px;
                 color: cyan;
@@ -261,7 +192,7 @@
             }
 
             #showcoursemsg {
-                //visibility: hidden;
+				display: none;
                 border-radius: 10px;
                 font-size: 20px;
                 color: cyan;
@@ -282,31 +213,7 @@
                 font-family: Arial, Helvetica, sans-serif;
             }
 
-            #smalltxt {
-                font-size: 15px;
-                text-align: center;
-            }
-
-            #savedata,
-            #recoverdata,
-            #submitdata,
-            #showresults {
-                color: blue;
-                background: cyan;
-                font-size: 30px;
-                padding: 10px;
-                margin-left: 50px;
-                margin-bottom: 20px;
-                border-radius: 15px;
-                box-shadow: 10px 10px 25px black;
-            }
-
-            #front9p1,
-            front9p2,
-            front9p3,
-            front9p4 {
-                width: 80vw;
-            }
+            
 
             @media only screen and (max-height: 400px) {
                 body {
@@ -328,6 +235,14 @@
                 }
             }
 
+
+
+
+
+
+
+
+
             #vt0,
             #vt1,
             #vt2,
@@ -341,12 +256,35 @@
                 padding: 1px;
    
             }
-            
-            #dropbtn1, #dropbtn2, #dropbtn3, #dropbtn4 {
-				padding-top: 2vh;
+
+ #buttoncontainer { 
+  position: relative;
+  
+    }
+    
+ 
+ 
+    
+     .cap {
+                color: dodgerBlue;
+                font-size: 20px;
 			}
-            
-            
+    #roundhcp {
+	   	color: white;
+		font-size: 30px;
+        width: 280px;
+        height: 50px;
+        background: dodgerBlue;
+        border-radius: 15px;
+        position: relative;
+        bottom: 0px;
+        left: 5px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 10px 10px 25px black;
+		background-clip: padding-box;
+
+   }
+   
    #round {
 	   	color: white;
 		font-size: 30px;
@@ -362,36 +300,62 @@
 		background-clip: padding-box;
 
    }
-            
-            
- #roundhcp {
-	   	color: white;
-		font-size: 30px;
-        width: 280px;
-        height: 50px;
-        background: dodgerBlue;
-        border-radius: 15px;
-        position: relative;
-        bottom: 0px;
-        left: 5px;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-
+   
    }
-  
- #spacer {
-	 height: 1vh;
- } 
-  
- #buttoncontainer { 
-  position: relative;
-  
-    }
-    
- 
+            #hole1,
+            #hole2,
+            #hole3,
+            #hole4,
+            #hole5,
+            #hole6,
+            #hole7,
+            #hole8,
+            #hole9,
+            #hole10,
+            #hole11,
+            #hole12,
+            #hole13,
+            #hole14,
+            #hole15,
+            #hole16,
+            #hole17,
+            #hole18 {
+                background-image: linear-gradient(to right, rgba(124, 252, 0, 0.8), rgba(124, 252, 0, 0.1));
+            }
+            
+         .stdtable {
+  border: 1px solid;
+  width: 100%;
+  height:10%;
+  border-collapse: collapse;
+} 
+			 
+			 
+.tdleft {
+	border: 2px solid gray;
+	width: 50%;
+	height: 100%;
+			 }   
+			 
+.tdright {
+	border: 2px solid gray;
+	width: 48%;
+	height: 100%;
+			 }			 
+            
+  .tdtop {
+	  color: white;
+	  background: dodgerBlue;
+	border: 2px solid gray;
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+    text-align: center;
+			 }		       
+            
  .btn1container {
-	  height: 5vh;
+	  height: 10vh;
+	  width: 99vw;
 	   }  
     
     
@@ -405,24 +369,17 @@
                 text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
                 background: dodgerBlue;
                 border: none;
-  }  
-    
-  .stdtable {
-	  width: 98%;
-  }  
- 
-   
-   
-   
-            td {
-               height: 100%;
-               //width: 45%;
-            } 
-    
-     .cap {
-                color: dodgerBlue;
-                font-size: 20px;
-    
+  }             
+            
+   .small1 {
+	    font-size: 20px;
+              
+   }         
+            
+            
+            
+            
+            
         </style>
     </head>
     <body>
@@ -434,14 +391,10 @@
                 </div>
                 <br />
                 <table>
-                    <caption class="cap">
-                        Longhirst sweep
-                    </caption>
-                    <thead>
-                        <!--
-               <tr class="spacer"><th></th></tr>
-               -->
-                    </thead>
+                    
+                    <tr class="cap">
+                     Longhirst sweep
+                    </tr>
                     <tbody>
                         <tr class="stdtr">
                             <td class="tdleft">
@@ -522,40 +475,29 @@
          -->
             <div class="card" id="hole1">
 				
-				
-			<!--	
-				<p ontouchend="autoBackup()">
-				
-			-->	
-				
-				
-				
                 <div class="demo">
                     <!-- modal calculations -->
                     <div class="showcoursemsg" id="showcoursemsg" onclick="coursemsgclose()"></div>
                 </div>
                
                 <table class="stdtable">
-                    <caption class="cap">
-                        Longhirst sweep
-                    </caption>
-                    <thead>
-                        <!--
-                  <tr class="spacer"><th></th></tr>
-                  -->
-                    </thead>
+                    
+                    
                     <tbody>
-                        <tr class="btn1container">
-                            <td colspan="2">
-                                <button type="button" class="buttonblue" id="hole-1"></button>
-                            </td>
+						<tr class="tdtop">
+							<td colspan="2" class="tdtop"><a class="small1">Longhirst sweep</a></td>
+						</tr>
+						
+						
+                        <tr class="tdtop">
+                            <td colspan="2" class="tdtop" id="hole-1">hole 1, course not set</td>
                         </tr>
                         
                         <tr class="btn1container">
-                            <td>
+                            <td class="tdleft">
                                 <button class="btn1" id="h1p1">no player</button>
                             </td>
-                            <td>
+                            <td class="tdright">
                                 <div class="wrapper">
                                     <a class="leftnum" id="h1hhl1" onclick="decrementScore('h1hhc1')">-</a>
                                     <a class="midnum" id="h1hhc1">0</a>
@@ -564,9 +506,9 @@
                             </td>
                         </tr>
                         
-                        <tr class="stdtr">
+                        <tr class="btn1container">
                             <td class="tdleft">
-                                <button class="dropbtn2" id="h1p2">no player</button>
+                                <button class="btn1" id="h1p2">no player</button>
                                 <div></div>
                             </td>
                             <td class="tdright">
@@ -577,9 +519,9 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="stdtr">
+                        <tr class="btn1container">
                             <td class="tdleft">
-                                <button class="dropbtn3" id="h1p3">no player</button>
+                                <button class="btn1" id="h1p3">no player</button>
                                 <div></div>
                             </td>
                             <td class="tdright">
@@ -590,9 +532,9 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="stdtr">
+                        <tr class="btn1container">
                             <td class="tdleft">
-                                <button class="dropbtn4" id="h1p4">no player</button>
+                                <button class="btn1" id="h1p4">no player</button>
                                 <div></div>
                             </td>
                             <td class="tdright">
@@ -870,7 +812,7 @@
          -->
             <div class="card" id="hole4">
                 <br />
-                <table>
+                <table class="stdtable">
                     <caption class="cap">
                         Longhirst sweep
                     </caption>
