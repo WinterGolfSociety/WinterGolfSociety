@@ -7,8 +7,9 @@
         <meta content="Bryan M" name="author" />
         <link href="favicon.ico" rel="icon" type="image/x-icon" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
         <style>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+		
             * {
                 margin: 0;
                 padding: 0;
@@ -71,58 +72,7 @@
    
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-            .dropdown1,
-            .dropdown2,
-            .dropdown3,
-            .dropdown4 {
-                position: relative;
-                display: inline-block;
-                width: 90%;
-                height: 100%;
-            }
-            .dropdown-content1,
-            .dropdown-content2,
-            .dropdown-content3,
-            .dropdown-content4 {
-                display: none;
-                position: absolute;
-                min-width: 35vw;
-                overflow: auto;
-                z-index: 1;
-            }
-            .dropdown-content1 a,
-            .dropdown-content2 a,
-            .dropdown-content3 a,
-            .dropdown-content4 a {
-                color: yellow;
-                font-size: 30px;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-                text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-                background-color: dodgerBlue;
-            }
-            .dropdown-content1 a:hover,
-            .dropdown-content2 a:hover,
-            .dropdown-content3 a:hover,
-            .dropdown-content4 a:hover {
-                background-color: cyan;
-                cursor: pointer;
-            }
-
-            .show {
-                display: block;
-            }
-           
-           
+         
            
            
            
@@ -249,11 +199,13 @@
             #vt3,
             #vt4 {
                 font-size: 10px;
-                text-align: left;
+                text-align: center;
+                padding-top: 5px;
+                padding-left: 5px;
                 float: left;
                 writing-mode: vertical-rl;
                 text-orientation: mixed;
-                padding: 1px;
+                
    
             }
 
@@ -324,34 +276,50 @@
             }
             
          .stdtable {
-  border: 1px solid;
+			  border: none;
+  //border: 1px solid;
   width: 100%;
   height:10%;
-  border-collapse: collapse;
+  //border-collapse: collapse;
 } 
 			 
 			 
 .tdleft {
-	border: 2px solid gray;
+	 border: none;
+	//border: 2px solid gray;
 	width: 50%;
 	height: 100%;
 			 }   
 			 
 .tdright {
-	border: 2px solid gray;
+	 border: none;
+	//border: 2px solid gray;
 	width: 48%;
 	height: 100%;
 			 }			 
             
-  .tdtop {
+  .tdtop1 {
 	  color: white;
 	  background: dodgerBlue;
-	border: 2px solid gray;
+	   border: none;
+	//border: 2px solid gray;
 	width: 100%;
 	height: 100%;
-	font-size: 20px;
+	font-size: 15px;
     text-align: center;
-			 }		       
+			 }		
+			 
+	.tdtop2 {
+	  color: white;
+	  background: dodgerBlue;
+	   border: none;
+	//border: 2px solid gray;
+	width: 100%;
+	height: 100%;
+	font-size: 30px;
+    text-align: center;
+			 }		 
+			        
             
  .btn1container {
 	  height: 10vh;
@@ -359,7 +327,7 @@
 	   }  
     
     
-  .btn1 {
+  .btn1, .btn2, .btn3, .btn4 {
 	  color: white;
                 cursor: pointer;
                 width: 100%;
@@ -376,7 +344,92 @@
               
    }         
             
+ /*           
+   .dropbtn1,
+            .dropbtn2,
+            .dropbtn3,
+            .dropbtn4 {
+                color: white;
+                cursor: pointer;
+                width: 100%;
+                height: 10vh;
+                font-size: 30px;
+                text-align: center;
+                //padding-top: 2vh; 
+                text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+                background: dodgerBlue;
+                border: none;
+            }
             
+  */          
+            
+            .dropdown1,
+            .dropdown2,
+            .dropdown3,
+            .dropdown4 {
+                position: relative;
+                display: inline-block;
+                width: 90%;
+                height: 100%;
+            }
+            .dropdown-content1,
+            .dropdown-content2,
+            .dropdown-content3,
+            .dropdown-content4 {
+                display: none;
+                position: absolute;
+                //background-color: dodgerBlue; //#f1f1f1;
+                //background-image: linear-gradient(to right, rgba(30, 144, 255,0.8), rgba(0,255,255,0.1));
+                min-width: 35vw;
+                overflow: auto;
+                z-index: 1;
+            }
+            .dropdown-content1 a,
+            .dropdown-content2 a,
+            .dropdown-content3 a,
+            .dropdown-content4 a {
+                color: yellow; //white;
+                font-size: 30px;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+                //webkit-transition: background-color 2s ease-out;
+                //-moz-transition: background-color 2s ease-out;
+                //-o-transition: background-color 2s ease-out;
+                //transition: background-color 2s ease-out;
+
+                background-color: dodgerBlue;
+                //background-image: linear-gradient(to right, rgba(30, 144, 255,1), rgba(30, 144, 255,0.6));
+                //border: 5px solid rgba(30, 144, 255,0.6);
+            }
+            .dropdown-content1 a:hover,
+            .dropdown-content2 a:hover,
+            .dropdown-content3 a:hover,
+            .dropdown-content4 a:hover {
+                background-color: cyan;
+                cursor: pointer;
+            }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   #playerdropdown1, #playerdropdown2, #playerdropdown3, #playerdropdown4 
+   {
+      display: none;
+   }
+   
+   
+   #playerdropdown1.show, #playerdropdown2.show, #playerdropdown3.show, #playerdropdown4.show 
+   {
+      display: block;
+   }
+           
             
             
             
@@ -390,23 +443,33 @@
                     <div class="showstartmsg" id="showstartmsg" onclick="startmsgclose()"></div>
                 </div>
                 <br />
-                <table>
+                <table class="stdtable">
                     
-                    <tr class="cap">
-                     Longhirst sweep
-                    </tr>
+                    
                     <tbody>
-                        <tr class="stdtr">
+						
+						<tr class="tdtop">
+							<td colspan="2" class="tdtop1"><a class="small1">Longhirst sweep</a></td>
+						</tr>
+						
+						
+                        <tr class="btn1container">
                             <td class="tdleft">
-                                <button type="button" class="buttonblue" id="dawson" onclick="dawson()"><span id="vt0">course</span>Dawson</button>
+                                <button type="button" class="btn1" id="dawson" onclick="dawson()"><a id="vt0">course</a>Dawson</button>
                             </td>
                             <td class="tdright">
-                                <button type="button" class="buttonblue" id="lakes" onclick="lakes()">Lakes</button>
+                                <button type="button" class="btn1" id="lakes" onclick="lakes()">Lakes</button>
                             </td>
                         </tr>
+						
+						
+						
+						
+						
+                        
                         <tr class="stdtr">
-                            <td class="tdleft">
-                                <div onclick="hideorshowplayerdropdown1()" class="dropbtn1setup" id="dropbtn1"><a id="vt1">team 1</a><a id="setupp1">no player</a></div>
+                            <td class="tdleft" onclick="hideorshowplayerdropdown1()">
+                                <div class="btn1" id="dropbtn1"><a id="vt1">team 1</a><a id="setupp1">no player</a></div>
                                 <div id="playerdropdown1" class="dropdown-content1"></div>
                             </td>
                             <td class="tdright">
@@ -418,8 +481,8 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
-                            <td class="tdleft">
-                                <div onclick="hideorshowplayerdropdown2()" class="dropbtn2setup" id="dropbtn2"><a id="vt2">team 1</a><a id="setupp2">no player</a></div>
+                            <td class="tdleft" onclick="hideorshowplayerdropdown2()">
+                                <div class="btn1" id="dropbtn2"><a id="vt2">team 1</a><a id="setupp2">no player</a></div>
                                 <div id="playerdropdown2" class="dropdown-content2"></div>
                             </td>
                             <td class="tdright">
@@ -431,8 +494,8 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
-                            <td class="tdleft">
-                                <div onclick="hideorshowplayerdropdown3()" class="dropbtn3setup" id="dropbtn3"><a id="vt3">team 2</a><a id="setupp3">no player</a></div>
+                            <td class="tdleft" onclick="hideorshowplayerdropdown3()">
+                                <div class="btn1" id="dropbtn3"><a id="vt3">team 2</a><a id="setupp3">no player</a></div>
                                 <div id="playerdropdown3" class="dropdown-content3"></div>
                             </td>
                             <td class="tdright">
@@ -444,8 +507,8 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
-                            <td class="tdleft">
-                                <div onclick="hideorshowplayerdropdown4()" class="dropbtn4setup" id="dropbtn4"><a id="vt4">team 2</a><a id="setupp4">no player</a></div>
+                            <td class="tdleft" onclick="hideorshowplayerdropdown4()">
+                                <div class="btn1" id="dropbtn4"><a id="vt4">team 2</a><a id="setupp4">no player</a></div>
                                 <div id="playerdropdown4" class="dropdown-content4"></div>
                             </td>
                             <td class="tdright">
@@ -457,8 +520,14 @@
                             </td>
                         </tr>
                         <tr>
-                        <td colspan="2"><div id="buttoncontainerhcp"><button id="roundhcp" onclick="doGetHCP()">search for HCPs</button></div></td>
+							<!--
+                        <td colspan="2"><div id="buttoncontainerhcp"><button id="roundhcp"   onclick="doGetHCP()">search for HCPs</button></div></td>
                         </tr>
+                        -->
+                        <td colspan="2"><button id="roundhcp" onclick="doGetHCP()">search for HCPs</button></td>
+                        </tr>
+                        
+                        
                         <tr>
                             <td id="calcs1"></td>
                             <td id="calcs2"></td>
@@ -485,12 +554,12 @@
                     
                     <tbody>
 						<tr class="tdtop">
-							<td colspan="2" class="tdtop"><a class="small1">Longhirst sweep</a></td>
+							<td colspan="2" class="tdtop1"><a class="small1">Longhirst sweep</a></td>
 						</tr>
 						
 						
                         <tr class="tdtop">
-                            <td colspan="2" class="tdtop" id="hole-1">hole 1, course not set</td>
+                            <td colspan="2" class="tdtop2" id="hole-1">hole 1, course not set</td>
                         </tr>
                         
                         <tr class="btn1container">
@@ -508,7 +577,7 @@
                         
                         <tr class="btn1container">
                             <td class="tdleft">
-                                <button class="btn1" id="h1p2">no player</button>
+                                <button class="btn2" id="h1p2">no player</button>
                                 <div></div>
                             </td>
                             <td class="tdright">
@@ -521,7 +590,7 @@
                         </tr>
                         <tr class="btn1container">
                             <td class="tdleft">
-                                <button class="btn1" id="h1p3">no player</button>
+                                <button class="btn3" id="h1p3">no player</button>
                                 <div></div>
                             </td>
                             <td class="tdright">
@@ -534,7 +603,7 @@
                         </tr>
                         <tr class="btn1container">
                             <td class="tdleft">
-                                <button class="btn1" id="h1p4">no player</button>
+                                <button class="btn4" id="h1p4">no player</button>
                                 <div></div>
                             </td>
                             <td class="tdright">
@@ -2636,6 +2705,11 @@ card.addEventListener("touchmove", (e) => {
             player4matchplayshotsdifference = "";
 
 
+			player1exacthcp = "";
+			player2exacthcp = "";
+			player3exacthcp = "";
+			player4exacthcp = "";
+
             // arrays of each hole
             var player1shotsrecorded = [];
             var player2shotsrecorded = [];
@@ -2645,6 +2719,7 @@ card.addEventListener("touchmove", (e) => {
             var player2holepointsrecorded = [];
             var player3holepointsrecorded = [];
             var player4holepointsrecorded = [];
+
 
             function incrementScore(id) {
                 //alert(id)
@@ -3232,7 +3307,9 @@ card.addEventListener("touchmove", (e) => {
             // When the user clicks on the button,
             // toggle between hiding and showing the dropdown content
             function hideorshowplayerdropdown1() {
+				//alert(document.getElementById("playerdropdown1").innerHTML)
                 document.getElementById("playerdropdown1").classList.toggle("show");
+                //alert(document.getElementById("playerdropdown1").classList)
             }
 
             function hideorshowplayerdropdown2() {
@@ -3251,7 +3328,10 @@ card.addEventListener("touchmove", (e) => {
                 //element = document.getElementById("dropbtn1");
                 element = document.getElementById("setupp1");
                 element.innerText = player;
-                var dropdowns = document.getElementsByClassName("dropdown-content1");
+                
+                var dropdowns = document.getElementsByClassName("playerdropdown1");
+                
+                
                 for (var i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
                     if (openDropdown.classList.contains("show")) {
@@ -3272,7 +3352,9 @@ card.addEventListener("touchmove", (e) => {
                 //element = document.getElementById("dropbtn2");
                 element = document.getElementById("setupp2");
                 element.innerText = player;
-                var dropdowns = document.getElementsByClassName("dropdown-content2");
+                //var dropdowns = document.getElementsByClassName("dropdown-content2");
+                var dropdowns = document.getElementsByClassName("playerdropdown2");
+                
                 for (var i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
                     if (openDropdown.classList.contains("show")) {
@@ -3293,7 +3375,9 @@ card.addEventListener("touchmove", (e) => {
                 //element = document.getElementById("dropbtn3");
                 element = document.getElementById("setupp3");
                 element.innerText = player;
-                var dropdowns = document.getElementsByClassName("dropdown-content3");
+                //var dropdowns = document.getElementsByClassName("dropdown-content3");
+                var dropdowns = document.getElementsByClassName("playerdropdown3");
+                
                 for (var i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
                     if (openDropdown.classList.contains("show")) {
@@ -3314,7 +3398,9 @@ card.addEventListener("touchmove", (e) => {
                 //element = document.getElementById("dropbtn4");
                 element = document.getElementById("setupp4");
                 element.innerText = player;
-                var dropdowns = document.getElementsByClassName("dropdown-content4");
+                //var dropdowns = document.getElementsByClassName("dropdown-content4");
+                var dropdowns = document.getElementsByClassName("playerdropdown4");
+                
                 for (var i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
                     if (openDropdown.classList.contains("show")) {
@@ -3322,7 +3408,7 @@ card.addEventListener("touchmove", (e) => {
                     }
                 }
                 // fill in all 18 holes - do for all
-                for (var i = 1; i < 19; i++) {
+                for (var i = 1; i <= 18; i++) {
                     document.getElementById("h" + i + "p4").innerText = player;
                 }
 
@@ -3341,6 +3427,7 @@ card.addEventListener("touchmove", (e) => {
                 el.setAttribute("href", "#");
                 el.innerText = options[i];
                 select1.appendChild(el);
+               //alert(el.id)
             }
 
             // create player dropdown
@@ -4110,34 +4197,67 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 	*/
 	
            
-    function doSave(hole) {
-		alert(hole)
-	}    
-          
+ function getHCP(results) {
+    //Data is usable here
+    
+    var datax = results.data
+		//search google sheets for info
+		for(i = 0; i < datax.length; i++) {
+			if(datax[i].player == player1name) {
+				player1hcp = datax[i].hcp
+				player1exacthcp = datax[i].exacthcp
+			}
+			if(datax[i].player == player2name) {
+				player2hcp = datax[i].hcp
+				player2exacthcp = datax[i].exacthcp
+			}
+			if(datax[i].player == player3name) {
+				player3hcp = datax[i].hcp
+				player3exacthcp = datax[i].exacthcp
+			}
+			if(datax[i].player == player4name) {
+				player4hcp = datax[i].hcp
+				player4exacthcp = datax[i].exacthcp
+			}
+		}
+    
+    document.getElementById("numsetupplayer1").innerText = player1hcp
+    document.getElementById("numsetupplayer2").innerText = player2hcp
+    document.getElementById("numsetupplayer3").innerText = player3hcp 
+    document.getElementById("numsetupplayer4").innerText = player4hcp
+     
+    document.getElementById("roundhcp").innerHTML = "search for HCPs"
+     
+      
+}
+
+         
         
    function doGetHCP() {
-	var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pub?gid=1661582897&single=true&output=csv" 
-	
-			Papa.parse(public_spreadsheet_url, {
-				download: true,
-				header: true,
-				complete: getHCP
-			});
-	
-	
-	
-	
+	btninfo = document.getElementById("roundhcp")
+	originalinfo = btninfo.innerHTML
+	btninfo.innerHTML = 'searching <img src="loading.jpg" alt="" width="25" height="25">'
 	   
-   }
-		   
-	function getHCP(results) {
+   var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pub?gid=1661582897&single=true&output=csv';
+  	  
+   Papa.parse(public_spreadsheet_url, {
+        download: true,
+        header: true,
+        complete: getHCP
+    });
+   }	
+	   
+	
+	  
+	
+	/*
 	//var newPlayerName = localStorage.getItem("playerName");
 		var datax = results.data
 			//search google sheets for info
 		for(i = 0; i < datax.length; i++) {
 			
 			
-			/*
+			
 			if(datax[i].Name == newPlayerName) {
 				// add player hcp details here
 				localStorage.setItem("playerName", datax[i].Name.toString());
@@ -4147,10 +4267,10 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 				localStorage.setItem("WinterHCP", datax[i].Winter.toString());
 			}
 			
-			*/
 			
 			
-			alert(datax[i].player.toString() + " " + datax[i].hcp.toString());
+			
+			//alert(datax[i].player.toString() + " " + datax[i].hcp.toString());
 			
 			
 			
@@ -4160,7 +4280,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 		
 	}	   	
 		
-		
+	*/	
 		
 		
 		
