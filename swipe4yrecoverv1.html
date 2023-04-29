@@ -3735,6 +3735,15 @@
             }
 
             function team3playersMatchplayCalcs(holenumber, strokes1, strokes2, strokes3, strokes4) {
+				// its confusing to leave the stroke adjusted scores in view
+				// so overwrite them
+				
+				document.getElementById("h" + holenumber + "p1result2").innerHTML = "scratch";
+				document.getElementById("h" + holenumber + "p2result2").innerHTML = "scratch";
+				document.getElementById("h" + holenumber + "p3result2").innerHTML = "scratch";
+				document.getElementById("h" + holenumber + "p4result2").innerHTML = "scratch";
+				
+				
                 if (strokes1 == 0) {
                     strokes1 = 99;
                 }
