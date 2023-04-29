@@ -495,8 +495,9 @@
 		color: blue;
 	}        
      .tdtestR {
-		color: blue;
-		padding-left: 50%;
+		color: black;
+		//padding-left: 50%;
+		text-shadow: 1px 1px 5px greenYellow;
 	}        
         </style>
     </head>
@@ -736,32 +737,44 @@
                         </tr>
                         
                         
-                        
+                        <tr class="spacer" colspan="3"><td></td></tr>
                         
                         <tr>
-							<td class="tdtest">&nbsp;</td>
-                            <td class="tdtest"></td>
+							<td class="tdtestR">stableford</td>
+                            <td class="tdtestR">matchplay</td>
+                       </tr>
+                       
+                       	<tr class="spacer" colspan="3"><td></td></tr>
+                       	
+                       <tr>
+							<td class="tdtestR" id="h1p1result1"></td>
+							<td class="tdtestR" id="h1p1result2"></td>
                        </tr>
                        <tr>
-							<td class="tdtest" id="h1p1result1"></td>
-							<td class="tdtest" id="h1p1result2"></td>
+                            <td class="tdtestR" id="h1p2result1"></td>
+                            <td class="tdtestR" id="h1p2result2"></td>
                        </tr>
                        <tr>
-                            <td class="tdtest" id="h1p2result1"></td>
-                            <td class="tdtest" id="h1p2result2"></td>
+							<td class="tdtestR" id="h1p3result1"></td>
+							<td class="tdtestR" id="h1p3result2"></td>
                        </tr>
                        <tr>
-							<td class="tdtest" id="h1p3result1"></td>
-							<td class="tdtest" id="h1p3result2"></td>
-                       </tr>
-                       <tr>
-                            <td class="tdtest" id="h1p4result1"></td>
-                            <td class="tdtest" id="h1p4result2"></td>
+                            <td class="tdtestR" id="h1p4result1"></td>
+                            <td class="tdtestR" id="h1p4result2"></td>
                        </tr>             
+                       
+                       <tr class="spacer" colspan="3"><td></td></tr>
+                       
+                       <tr>
+						    <td class="tdtest"></td>
+                            <td class="tdtestR" id="h1matchplayresult"></td>
+                            
+                       </tr>  
                         
-                        
-                        
-                        
+                       <tr>
+                            <td class="tdtest"></td>
+                            <td class="tdtestR" id="h1matchplayleader"></td>
+                       </tr>  
                        
 
                         <tr class="spacer"><td colspan="2"></td></tr>
@@ -3340,7 +3353,7 @@ card.addEventListener("touchmove", (e) => {
                 
 					// do a matchplay version
                     var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p1result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
+                    document.getElementById("h" + temphole + "p1result2").innerHTML = tempplayername + " " + temppoints + " points mplay";
                 
 			}
                 
@@ -3358,7 +3371,7 @@ card.addEventListener("touchmove", (e) => {
                 
 					// do a matchplay version
                     var temppoints = pointsCalc(player2matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p2result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
+                    document.getElementById("h" + temphole + "p2result2").innerHTML = tempplayername + " " + temppoints + " points mplay";
                 }
                 // get player3 name
                 tempplayername = document.getElementById("h" + temphole + "p3").innerText;
@@ -3374,7 +3387,7 @@ card.addEventListener("touchmove", (e) => {
                 
 					// do a matchplay version
                     var temppoints = pointsCalc(player3matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
+                    document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " points mplay";
                 }
                 // get player4 name
                 tempplayername = document.getElementById("h" + temphole + "p4").innerText;
@@ -3390,7 +3403,7 @@ card.addEventListener("touchmove", (e) => {
                 
 					// do a matchplay version
                     var temppoints = pointsCalc(player4matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
+                    document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " points mplay";
   
                 }
                 // update total scores
@@ -4292,9 +4305,9 @@ card.addEventListener("touchmove", (e) => {
                     scorearray.push(score4);
                 }
 
-                var lowestscore = Math.min(...scorearray);
+                var bestscore = Math.max(...scorearray);
 
-                var countlowestscore = 0;
+                var countbestscore = 0;
                 var h1 = 0;
                 var h2 = 0;
                 var h3 = 0;
@@ -4302,43 +4315,43 @@ card.addEventListener("touchmove", (e) => {
                 var t1 = "";
                 var t1tem = "";
 
-                if (player1name !== "no player" && score1 == lowestscore) {
+                if (player1name !== "no player" && score1 == bestscore) {
                     // get score
-                    h1 = lowestscore;
-                    countlowestscore++;
+                    h1 = bestscore;
+                    countbestscore++;
                 }
 
-                if (player2name !== "no player" && score2 == lowestscore) {
+                if (player2name !== "no player" && score2 == bestscore) {
                     // get score
-                    h2 = lowestscore;
-                    countlowestscore++;
+                    h2 = bestscore;
+                    countbestscore++;
                 }
 
-                if (player3name !== "no player" && score3 == lowestscore) {
+                if (player3name !== "no player" && score3 == bestscore) {
                     // get score
-                    h3 = lowestscore;
-                    countlowestscore++;
+                    h3 = bestscore;
+                    countbestscore++;
                 }
 
-                if (player4name !== "no player" && score4 == lowestscore) {
+                if (player4name !== "no player" && score4 == bestscore) {
                     // get score
-                    h4 = lowestscore;
-                    countlowestscore++;
+                    h4 = bestscore;
+                    countbestscore++;
                 }
 
                 var matchplayscoretxt = "empty";
-                // if only one lowest score we have a winner
-                if (countlowestscore == 1) {
-                    if (h1 == lowestscore) {
+                // if only one best score we have a winner
+                if (countbestscore == 1) {
+                    if (h1 == bestscore) {
                         var matchplayscoretxt = player1name + " wins hole";
                     }
-                    if (h2 == lowestscore) {
+                    if (h2 == bestscore) {
                         var matchplayscoretxt = player2name + " wins hole";
                     }
-                    if (h3 == lowestscore) {
+                    if (h3 == bestscore) {
                         var matchplayscoretxt = player3name + " wins hole";
                     }
-                    if (h4 == lowestscore) {
+                    if (h4 == bestscore) {
                         var matchplayscoretxt = player4name + " wins hole";
                     }
                 } else { // no single winner
