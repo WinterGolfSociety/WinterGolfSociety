@@ -380,6 +380,14 @@
                 font-size: 16px;
                 text-shadow: 1px 1px 5px black;
             }
+            
+            #twosaccount {
+				width: 50vw;
+				height: 10vh;
+			}
+            
+            
+            
         </style>
     </head>
     <body>
@@ -2750,6 +2758,42 @@
                             </td>
                         </tr>
 
+						<tr class="stdtr">
+                            <td class="tdleft">
+                                <span>
+                                    <button id="twosaccount" onclick="doGetTwos()">search for Twos credit</button>
+                                    
+                                </span>
+                            </td>
+                        </tr>
+<tr class="stdtr">
+                            <td class="tdleft">
+                                <span>
+                                    
+                                    <div id="twosaccountreturned1">results test</div>
+                                    
+                                </span>
+                            </td>
+                            <td class="tdleft">
+                                <span>
+                                    
+                                  
+                                    <div id="twosaccountreturned2">results test</div>
+                                </span>
+                            </td>
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+
+
                         <tr class="stdtr">
                             <td class="tdleft">
                                 <br />
@@ -4546,6 +4590,51 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
                     complete: getHCP,
                 });
             }
+
+
+				function getTwos(results) {
+                //Data is usable here
+				var strng1 = ""
+				var strng2 = ""
+                var datax = results.data;
+                //search google sheets for info
+                for (i = 0; i < datax.length; i++) {
+                        playername = datax[i].playerx;
+                        playercredit = datax[i].credit; 
+                        strng1 += playername + "<br>"
+                        strng2 += playercredit + "<br>"
+                }
+
+                document.getElementById("twosaccountreturned1").innerHTML = strng1;
+                document.getElementById("twosaccountreturned2").innerHTML = strng2;
+
+                document.getElementById("twosaccount").innerHTML = "search for Twos credit";
+
+                
+            }
+
+            function doGetTwos() {
+                btninfo = document.getElementById("twosaccount");
+                //originalinfo = btninfo.innerHTML;
+                btninfo.innerHTML = 'searching &nbsp;&nbsp;<img src="loading.jpg" alt="" width="20" height="20">';
+
+                var public_twos_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pub?gid=1661582897&single=true&output=csv";
+
+                Papa.parse(public_twos_url, {
+                    download: true,
+                    header: true,
+                    complete: getTwos,
+                });
+             
+            }
+
+
+
+
+
+
+
+
 
             /*
 	//var newPlayerName = localStorage.getItem("playerName");
