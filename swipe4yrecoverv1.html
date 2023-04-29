@@ -496,7 +496,7 @@
 	}        
      .tdtestR {
 		color: blue;
-		padding-left: 10vw;
+		padding-left: 50%;
 	}        
         </style>
     </head>
@@ -723,54 +723,47 @@
                             </td>
                         </tr>
                         
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         <tr>
-                        <td colspan="3"><div><button id="round" onclick="doSave('hole1')">save</button></div></td>
+                        <td colspan="2"><div><button id="round" onclick="doSave('hole1')">save</button></div></td>
                         </tr>
                         
                         
+                        
+                        
                         <tr>
-                            <td class="bbb">
-                                <table class="thishole">
-                                    <!--		<tr>   -->
-                                    <tr>
-                                        <td class="tdtest">&nbsp;</td>
-                                        <td class="tdtest"></td>
-                                        <td class="tdtest"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdtest" id="h1p1result1"></td>
-                                        <td class="tdtest" id="h1p1result2"></td>
-                                        <td class="tdtestR" id="h1matchplayresultR1"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdtest" id="h1p2result1"></td>
-                                        <td class="tdtest" id="h1p2result2"></td>
-                                        <td class="tdtest" id="h1matchplayresultR2"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdtest" id="h1p3result1"></td>
-                                        <td class="tdtest" id="h1p3result2"></td>
-                                        <td class="tdtestR" id="h1matchplayresultR3"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdtest" id="h1p4result1"></td>
-                                        <td class="tdtest" id="h1p4result2"></td>
-                                        <td class="tdtestR" id="h1matchplayresultR4"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tdtest" id="h1matchplayresult" colspan="3"></td>
-										
-                                    </tr>
-                                    <tr>
-                                        <td class="tdtest" id="h1matchplayleader" colspan="3"></td>
-                                    
-                                    </tr>
- 
-						</table>
+							<td class="tdtest">&nbsp;</td>
+                            <td class="tdtest"></td>
+                       </tr>
+                       <tr>
+							<td class="tdtest" id="h1p1result1"></td>
+							<td class="tdtest" id="h1p1result2"></td>
+                       </tr>
+                       <tr>
+                            <td class="tdtest" id="h1p2result1"></td>
+                            <td class="tdtest" id="h1p2result2"></td>
+                       </tr>
+                       <tr>
+							<td class="tdtest" id="h1p3result1"></td>
+							<td class="tdtest" id="h1p3result2"></td>
+                       </tr>
+                       <tr>
+                            <td class="tdtest" id="h1p4result1"></td>
+                            <td class="tdtest" id="h1p4result2"></td>
+                       </tr>             
+                        
+                        
+                        
+                        
+                       
 
-                            </td>
-                        </tr>
-                        
                         <tr class="spacer"><td colspan="2"></td></tr>
                         
                     </tbody>
@@ -3336,14 +3329,10 @@ card.addEventListener("touchmove", (e) => {
                 // get player1 name
                 tempplayername = document.getElementById("h" + temphole + "p1").innerText;
                 if (tempplayername !== "no player") {
-                    // do player name, player points at bottom on each hole
-                    // player name
-                    document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername;
-                    
                     // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc1").innerText;
                     var temppoints = pointsCalc(player1hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p1result2").innerHTML = temppoints + " points";
+                    document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
                     //player1shotsrecorded[temphole] = tempscore;
@@ -3351,85 +3340,57 @@ card.addEventListener("touchmove", (e) => {
                 
 					// do a matchplay version
                     var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "matchplayresultR1").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
+                    document.getElementById("h" + temphole + "p1result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
                 
 			}
                 
                 // get player2 name
                 tempplayername = document.getElementById("h" + temphole + "p2").innerText;
                 if (tempplayername !== "no player") {
-                    // do bottom bit on each hole, player name, player points
-                    document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername;
-                    //courseInPlay = "Dawson"
-                    //thcp = "2"
-                    if (courseInPlay == "Lakes") {
-                        temppar = arrLakes[temphole - 1][1];
-                        tempsi = arrLakes[temphole - 1][2];
-                    } else {
-                        temppar = arrDawson[temphole - 1][1];
-                        tempsi = arrDawson[temphole - 1][2];
-                    }
+                    // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc2").innerText;
                     var temppoints = pointsCalc(player2hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p2result2").innerHTML = temppoints + " points";
+                    document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername + " " + temppoints + " points";
+
                     // update globals
-                    //player2name = tempplayername;
-                    //player2shotsrecorded[temphole] = tempscore;
-                    //player2holepointsrecorded[temphole] = temppoints;
-
-                var temppoints = pointsCalc(player2matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "matchplayresultR2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
-
+                    //player1shotsrecorded[temphole] = tempscore;
+                    //player1holepointsrecorded[temphole] = temppoints;         
+                
+					// do a matchplay version
+                    var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
+                    document.getElementById("h" + temphole + "p2result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
                 }
                 // get player3 name
                 tempplayername = document.getElementById("h" + temphole + "p3").innerText;
                 if (tempplayername !== "no player") {
-                    // do bottom bit on each hole, player name, player points
-                    document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername;
-                    if (courseInPlay == "Lakes") {
-                        temppar = arrLakes[temphole - 1][1];
-                        tempsi = arrLakes[temphole - 1][2];
-                    } else {
-                        temppar = arrDawson[temphole - 1][1];
-                        tempsi = arrDawson[temphole - 1][2];
-                    }
+                    // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc3").innerText;
                     var temppoints = pointsCalc(player3hcp, temppar, tempsi, tempscore);
-                    //alert("xxxxxx" + temppoints + " = " + player3hcp + " " + temppar + " " + tempsi + " " + tempscore)
-                    document.getElementById("h" + temphole + "p3result2").innerHTML = temppoints + " points";
-                    // update globals
-                    //player3name = tempplayername;
-                    //player3shotsrecorded[temphole] = tempscore;
-                    //player3holepointsrecorded[temphole] = temppoints;
- 
-                var temppoints = pointsCalc(player3matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "matchplayresultR3").innerHTML = tempplayername + " " + temppoints + " points";
+                    document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername + " " + temppoints + " points";
 
+                    // update globals
+                    //player1shotsrecorded[temphole] = tempscore;
+                    //player1holepointsrecorded[temphole] = temppoints;         
+                
+					// do a matchplay version
+                    var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
+                    document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
                 }
                 // get player4 name
                 tempplayername = document.getElementById("h" + temphole + "p4").innerText;
                 if (tempplayername !== "no player") {
-                    // do bottom bit on each hole, player name, player points
-                    document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername;
-                    if (courseInPlay == "Lakes") {
-                        temppar = arrLakes[temphole - 1][1];
-                        tempsi = arrLakes[temphole - 1][2];
-                    } else {
-                        temppar = arrDawson[temphole - 1][1];
-                        tempsi = arrDawson[temphole - 1][2];
-                    }
-                    //pointsCalc(hcp,par,si,score)
+                    // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc4").innerText;
                     var temppoints = pointsCalc(player4hcp, temppar, tempsi, tempscore);
-                    //alert(temppoints + " = " + thcp + " " + temppar + " " + tempsi + " " + tempscore)
-                    document.getElementById("h" + temphole + "p4result2").innerHTML = temppoints + " points";
+                    document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername + " " + temppoints + " points";
+
                     // update globals
-                    //player4name = tempplayername;
-                    //player4shotsrecorded[temphole] = tempscore;
-                    //player4holepointsrecorded[temphole] = temppoints;
-    
-                var temppoints = pointsCalc(player4matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "matchplayresultR4").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
+                    //player1shotsrecorded[temphole] = tempscore;
+                    //player1holepointsrecorded[temphole] = temppoints;         
+                
+					// do a matchplay version
+                    var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
+                    document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
   
                 }
                 // update total scores
