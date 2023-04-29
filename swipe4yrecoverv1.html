@@ -3357,7 +3357,7 @@ card.addEventListener("touchmove", (e) => {
                     //player1holepointsrecorded[temphole] = temppoints;         
                 
 					// do a matchplay version
-                    var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
+                    var temppoints = pointsCalc(player2matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p2result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
                 }
                 // get player3 name
@@ -3373,7 +3373,7 @@ card.addEventListener("touchmove", (e) => {
                     //player1holepointsrecorded[temphole] = temppoints;         
                 
 					// do a matchplay version
-                    var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
+                    var temppoints = pointsCalc(player3matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
                 }
                 // get player4 name
@@ -3389,7 +3389,7 @@ card.addEventListener("touchmove", (e) => {
                     //player1holepointsrecorded[temphole] = temppoints;         
                 
 					// do a matchplay version
-                    var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
+                    var temppoints = pointsCalc(player4matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " pointsxxx";
   
                 }
