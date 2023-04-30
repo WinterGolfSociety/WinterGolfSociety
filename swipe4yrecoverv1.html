@@ -426,7 +426,8 @@
     border: 1px solid #aaa;
     padding: 2px;
     text-align: center;
-    width: 80px;
+    width: 100px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -4885,7 +4886,8 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 
 
 function doSomething(){
-	if (localStorage.getItem("course")) {
+	test = localStorage.getItem("course")
+	if ( test == "Lakes" || test == "Dawson" ) {
         document.getElementById('id_confrmdiv').style.display="block";
 
         document.getElementById('id_truebtn').onclick = function(){
@@ -4903,7 +4905,7 @@ function doSomething(){
  
  //document.getElementById('id_confrmdiv').style.display="none"
  
-    }
+    
 
 
 
