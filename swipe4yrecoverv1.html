@@ -4885,6 +4885,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 
 
 function doSomething(){
+	if (localStorage.getItem("course")) {
         document.getElementById('id_confrmdiv').style.display="block";
 
         document.getElementById('id_truebtn').onclick = function(){
@@ -4895,7 +4896,9 @@ function doSomething(){
              localStorage.clear();
              document.getElementById('id_confrmdiv').style.display="none"
            return false;
-        };
+		}
+}
+}
  
  
  //document.getElementById('id_confrmdiv').style.display="none"
