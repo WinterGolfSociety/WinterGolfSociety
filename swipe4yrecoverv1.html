@@ -22,7 +22,7 @@
             }
             .container {
                 display: grid;
-                grid-template-columns: repeat(23, 100%);
+                grid-template-columns: repeat(24, 100%);
                 will-change: transform;
                 align-content: center;
                 overflow-x: auto;
@@ -451,7 +451,18 @@
 			
 			
 			
-			
+.menu {
+	width:90vw;
+	margin-left: 5vw;
+	height: 15vh;
+	background: dodgerBlue;
+	text-align: center;
+	font-size: 30px;
+	padding-top: 15px;
+	border-radius: 3px;
+    border: 1px solid #aaa;
+	
+}			
 			
 			
 			
@@ -2756,6 +2767,68 @@
                 </table>
             </div>
 
+
+           <!-- ===================================
+         final page when finished work - menu buttons
+         ======================================== -->
+
+            <div class="card" id="soontobefinalpage">
+                <br />
+                <table>
+                    <caption class="cap">
+                        Longhirst sweep
+                    </caption>
+                    <thead></thead>
+                    <tbody>
+                        <tr class="stdtr">
+                            <td class="xtdleft">
+                                <div class="menu" id="menu1" onclick="showResults()">
+                                Results
+                                </div>
+                            </td>
+                        </tr>
+                        <!--      front 9    -->
+                        <tr class="stdtr">
+                            <td class="xtdleft">
+                                <div class="menu" id="menu2" onclick="showTwos()">
+                                Twos money    
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="stdtr">
+                            <td class="xtdleft">
+                                <div class="menu" id="menu3" onclick="showHandicaps()">
+                                Handicaps
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="stdtr">
+                            <td class="xtdleft">
+                                <div class="menu" id="menu4" onclick="submitData()">
+                                Submit score    
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- ===================================
          final page 
          ======================================== -->
@@ -4314,20 +4387,79 @@ doSomething()
 
             function submitData() {
                 // get the relevant info into a form
+				// do each player with gsp ?
+				if (player1name !== "no player") {
+					//-- player --
+					document.getElementById("mx1236548227").value = player1name;
+					//-- course --
+					document.getElementById("mx1523345164").value = courseinplay;
+					//-- points --
+					temp = document.getElementById("total18p1").innerText
+					document.getElementById("mx748643520").value = temp;
+					//-- twos --
+					document.getElementById("mx189869333").value = "twos";
+					//-- hcp --
+					document.getElementById("mx671103580").value = player1hcp;
 
-                //-- player --
-                document.getElementById("mx1236548227").value = "player";
-                //-- course --
-                document.getElementById("mx1523345164").value = "course";
-                //-- points --
-                document.getElementById("mx748643520").value = "points";
-                //-- twos --
-                document.getElementById("mx189869333").value = "twos";
-                //-- hcp --
-                document.getElementById("mx671103580").value = "hcp";
+					//===== submit data
+					document.forms[0].submit();
+					
+				}
 
-                //===== submit data
-                document.forms[0].submit();
+				if (player2name !== "no player") {
+					//-- player --
+					document.getElementById("mx1236548227").value = player2name;
+					//-- course --
+					document.getElementById("mx1523345164").value = courseinplay;
+					//-- points --
+					temp = document.getElementById("total18p2").innerText
+					document.getElementById("mx748643520").value = temp;
+					//-- twos --
+					document.getElementById("mx189869333").value = "twos";
+					//-- hcp --
+					document.getElementById("mx671103580").value = player2hcp;
+
+					//===== submit data
+					document.forms[0].submit();
+					
+				}
+				
+				if (player3name !== "no player") {
+					//-- player --
+					document.getElementById("mx1236548227").value = player3name;
+					//-- course --
+					document.getElementById("mx1523345164").value = courseinplay;
+					//-- points --
+					temp = document.getElementById("total18p3").innerText
+					document.getElementById("mx748643520").value = temp;
+					//-- twos --
+					document.getElementById("mx189869333").value = "twos";
+					//-- hcp --
+					document.getElementById("mx671103580").value = player3hcp;
+
+					//===== submit data
+					document.forms[0].submit();
+					
+				}
+				
+				if (player4name !== "no player") {
+					//-- player --
+					document.getElementById("mx1236548227").value = player4name;
+					//-- course --
+					document.getElementById("mx1523345164").value = courseinplay;
+					//-- points --
+					temp = document.getElementById("total18p4").innerText
+					document.getElementById("mx748643520").value = temp;
+					//-- twos --
+					document.getElementById("mx189869333").value = "twos";
+					//-- hcp --
+					document.getElementById("mx671103580").value = player4hcp;
+
+					//===== submit data
+					document.forms[0].submit();
+					
+				}
+
             }
 
             function savedata() {
@@ -4610,23 +4742,37 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 				
 				
 				
+			
+                doMatchplayCalcs(temphole);
+            }	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 
-
-
-
-
-
-
-
-
-
-
-                doMatchplayCalcs(temphole);
+           function showTwos() {
+                window.open("//docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=1142456077&single=true", "_blank");
             }
+
+
+
 
             function showResults() {
                 window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=0&single=true", "_blank");
+            }
+
+			function showHandicaps() {
+                window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=1073272304&single=true", "_blank");
             }
 
             function autoBackup() {
@@ -4790,24 +4936,6 @@ function doSomething(){
 }
  
  
- //document.getElementById('id_confrmdiv').style.display="none"
- 
-    
-
-
-
-   	
-		
-
-
-            /*
-
-sacopy link		
-		   
-	https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=817374683&single=true	   
-	   
-		   
-*/
         </script>
     </body>
 </html>
