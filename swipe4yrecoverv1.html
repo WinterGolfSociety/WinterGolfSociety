@@ -2787,7 +2787,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <!--      front 9    -->
+                        <!--      twos    -->
                         <tr class="stdtr">
                             <td class="xtdleft">
                                 <div class="menu" id="menu2" onclick="showTwos()">
@@ -2992,12 +2992,18 @@
             var player2holepointsrecorded = [];
             var player3holepointsrecorded = [];
             var player4holepointsrecorded = [];
+/*
+			var tempfront9p1 = 0;
+            var tempfront9p2 = 0;
+            var tempfront9p3 = 0;
+            var tempfront9p4 = 0;
 
+			var tempback9p1 = 0;
+            var tempback9p2 = 0;
+            var tempback9p3 = 0;
+            var tempback9p4 = 0;
 
-
-
-
-
+*/
 
 
 
@@ -3343,7 +3349,7 @@ doSomething()
                     var temp3 = parseInt(temp2[1]);
                     if (temp3 > 0) {
                         tempfront9p4 = tempfront9p4 + temp3;
-                    }
+                    }  
                 }
                 // front 9
                 document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points";
@@ -3353,10 +3359,10 @@ doSomething()
                 //===========================================================
                 // back 9
                 //===========================================================
-                var tempback9p1 = 0;
-                var tempback9p2 = 0;
-                var tempback9p3 = 0;
-                var tempback9p4 = 0;
+                //var tempback9p1 = 0;
+                //var tempback9p2 = 0;
+                //var tempback9p3 = 0;
+                //var tempback9p4 = 0;
 
                 for (var i = 10; i <= 18; i++) {
                     // player 1
