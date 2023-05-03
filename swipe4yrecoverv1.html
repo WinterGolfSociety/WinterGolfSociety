@@ -2984,15 +2984,15 @@
             player4exacthcp = "";
 
             // arrays of each hole
-            var player1shotsrecorded = [];
-            var player2shotsrecorded = [];
-            var player3shotsrecorded = [];
-            var player4shotsrecorded = [];
-            var player1holepointsrecorded = [];
-            var player2holepointsrecorded = [];
-            var player3holepointsrecorded = [];
-            var player4holepointsrecorded = [];
-/*
+            var player1shotsrecorded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            var player2shotsrecorded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            var player3shotsrecorded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            var player4shotsrecorded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            var player1holepointsrecorded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            var player2holepointsrecorded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            var player3holepointsrecorded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            var player4holepointsrecorded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 			var tempfront9p1 = 0;
             var tempfront9p2 = 0;
             var tempfront9p3 = 0;
@@ -3003,7 +3003,7 @@
             var tempback9p3 = 0;
             var tempback9p4 = 0;
 
-*/
+
 
 
 
@@ -3034,7 +3034,6 @@ doSomething()
 
             function incrementScore(id) {
                 //alert(id)
-                var savedataswitch = "no"
                 var incScore = document.getElementById(id).innerText;
                 // increment score on screen
                 document.getElementById(id).innerText = ++incScore;
@@ -3068,6 +3067,7 @@ doSomething()
                     player1shotsrecorded[temphole] = tempscore;
                     player1holepointsrecorded[temphole] = temppoints;
 
+					//temptotal18p1 = tempfront9p1 + tempback9p1
                     // do a matchplay version
                     var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p1result2").innerHTML = tempplayername + " " + temppoints + " points";
@@ -3099,9 +3099,10 @@ doSomething()
                     document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
-                    player1shotsrecorded[temphole] = tempscore;
-                    player1holepointsrecorded[temphole] = temppoints;
-
+                    player3shotsrecorded[temphole] = tempscore;
+                    player3holepointsrecorded[temphole] = temppoints;
+					
+					//temptotal18p3 = tempfront9p3 + tempback9p3
                     // do a matchplay version
                     var temppoints = pointsCalc(player3matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " points";
@@ -3116,110 +3117,75 @@ doSomething()
                     document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
-                    player1shotsrecorded[temphole] = tempscore;
-                    player1holepointsrecorded[temphole] = temppoints;
-
+                    player4shotsrecorded[temphole] = tempscore;
+                    player4holepointsrecorded[temphole] = temppoints;
+					
                     // do a matchplay version
                     var temppoints = pointsCalc(player4matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " points";
                 }
 
-                // update total scores
-                // front 9
-                var tempfront9p1 = 0;
-                var tempfront9p2 = 0;
-                var tempfront9p3 = 0;
-                var tempfront9p4 = 0;
+                    // update totals
+                    // front 9
+                    tempfront9p1 = 0
+                    tempfront9p2 = 0
+                    tempfront9p3 = 0
+                    tempfront9p4 = 0
+                    
+					for (var i = 1; i <= 9; i++) {
+						tempfront9p1 += player1holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p2 += player2holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p3 += player3holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p4 += player4holepointsrecorded[i];
+					}
+					
+					// back 9
+					tempback9p1 = 0
+					tempback9p2 = 0
+					tempback9p3 = 0
+					tempback9p4 = 0
+					for (var i = 10; i <= 18; i++) {
+						tempback9p1 += player1holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p2 += player2holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p3 += player3holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p4 += player4holepointsrecorded[i];
+					}
 
-                for (var i = 1; i <= 9; i++) {
-                    // player 1
-                    var temp1 = document.getElementById("h" + i + "p1result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempfront9p1 = tempfront9p1 + temp3;
-                    }
-                    // player 2
-                    var temp1 = document.getElementById("h" + i + "p2result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempfront9p2 = tempfront9p2 + temp3;
-                    }
-                    // player 3
-                    var temp1 = document.getElementById("h" + i + "p3result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempfront9p3 = tempfront9p3 + temp3;
-                    }
-                    // player 4
-                    var temp1 = document.getElementById("h" + i + "p4result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempfront9p4 = tempfront9p4 + temp3;
-                    }
-                }
+					// all 18
+					//temptotal18p1 = (tempfront9p1 + tempback9p1)
+					//temptotal18p2 = (tempfront9p2 + tempback9p2)
+					//temptotal18p3 = (tempfront9p3 + tempback9p3)
+					//temptotal18p4 = (tempfront9p4 + tempback9p4)
+					
                 // front 9
                 document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points";
                 document.getElementById("front9p2").innerText = player2name + " " + tempfront9p2 + " points";
                 document.getElementById("front9p3").innerText = player3name + " " + tempfront9p3 + " points";
                 document.getElementById("front9p4").innerText = player4name + " " + tempfront9p4 + " points";
-                //===========================================================
-                // back 9
-                //===========================================================
-                var tempback9p1 = 0;
-                var tempback9p2 = 0;
-                var tempback9p3 = 0;
-                var tempback9p4 = 0;
-
-                for (var i = 10; i <= 18; i++) {
-                    // player 1
-                    var temp1 = document.getElementById("h" + i + "p1result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempback9p1 = tempback9p1 + temp3;
-                    }
-                    // player 2
-                    var temp1 = document.getElementById("h" + i + "p2result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempback9p2 = tempback9p2 + temp3;
-                    }
-                    // player 3
-                    var temp1 = document.getElementById("h" + i + "p3result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempback9p3 = tempback9p3 + temp3;
-                    }
-                    // player 4
-                    var temp1 = document.getElementById("h" + i + "p4result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempback9p4 = tempback9p4 + temp3;
-                    }
-                }
+               
                 // back 9
                 document.getElementById("back9p1").innerText = player1name + " " + tempback9p1 + " points";
                 document.getElementById("back9p2").innerText = player2name + " " + tempback9p2 + " points";
                 document.getElementById("back9p3").innerText = player3name + " " + tempback9p3 + " points";
                 document.getElementById("back9p4").innerText = player4name + " " + tempback9p4 + " points";
 
-
-
 				// total
                 document.getElementById("total18p1").innerText = player1name + " " + (tempfront9p1+tempback9p1) + " points";
                 document.getElementById("total18p2").innerText = player2name + " " + (tempfront9p2+tempback9p2) + " points";
                 document.getElementById("total18p3").innerText = player3name + " " + (tempfront9p3+tempback9p3) + " points";
                 document.getElementById("total18p4").innerText = player4name + " " + (tempfront9p4+tempback9p4) + " points";
-				
-				
-
 
                 doMatchplayCalcs(temphole);
             }
@@ -3258,6 +3224,7 @@ doSomething()
                     player1shotsrecorded[temphole] = tempscore;
                     player1holepointsrecorded[temphole] = temppoints;
 
+					//temptotal18p1 = tempfront9p1 + tempback9p1
                     // do a matchplay version
                     var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p1result2").innerHTML = tempplayername + " " + temppoints + " points";
@@ -3289,9 +3256,10 @@ doSomething()
                     document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
-                    player1shotsrecorded[temphole] = tempscore;
-                    player1holepointsrecorded[temphole] = temppoints;
-
+                    player3shotsrecorded[temphole] = tempscore;
+                    player3holepointsrecorded[temphole] = temppoints;
+					
+					//temptotal18p3 = tempfront9p3 + tempback9p3
                     // do a matchplay version
                     var temppoints = pointsCalc(player3matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " points";
@@ -3306,107 +3274,75 @@ doSomething()
                     document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
-                    player1shotsrecorded[temphole] = tempscore;
-                    player1holepointsrecorded[temphole] = temppoints;
-
+                    player4shotsrecorded[temphole] = tempscore;
+                    player4holepointsrecorded[temphole] = temppoints;
+					
                     // do a matchplay version
                     var temppoints = pointsCalc(player4matchplayshotsdifference, temppar, tempsi, tempscore);
                     document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " points";
                 }
 
-                // update total scores
-                // front 9
-                var tempfront9p1 = 0;
-                var tempfront9p2 = 0;
-                var tempfront9p3 = 0;
-                var tempfront9p4 = 0;
+                    // update totals
+                    // front 9
+                    tempfront9p1 = 0
+                    tempfront9p2 = 0
+                    tempfront9p3 = 0
+                    tempfront9p4 = 0
+                    
+					for (var i = 1; i <= 9; i++) {
+						tempfront9p1 += player1holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p2 += player2holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p3 += player3holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p4 += player4holepointsrecorded[i];
+					}
+					
+					// back 9
+					tempback9p1 = 0
+					tempback9p2 = 0
+					tempback9p3 = 0
+					tempback9p4 = 0
+					for (var i = 10; i <= 18; i++) {
+						tempback9p1 += player1holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p2 += player2holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p3 += player3holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p4 += player4holepointsrecorded[i];
+					}
 
-                for (var i = 1; i <= 9; i++) {
-                    // player 1
-                    var temp1 = document.getElementById("h" + i + "p1result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempfront9p1 = tempfront9p1 + temp3;
-                    }
-                    // player 2
-                    var temp1 = document.getElementById("h" + i + "p2result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempfront9p2 = tempfront9p2 + temp3;
-                    }
-                    // player 3
-                    var temp1 = document.getElementById("h" + i + "p3result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempfront9p3 = tempfront9p3 + temp3;
-                    }
-                    // player 4
-                    var temp1 = document.getElementById("h" + i + "p4result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempfront9p4 = tempfront9p4 + temp3;
-                    }  
-                }
+					// all 18
+					//temptotal18p1 = (tempfront9p1 + tempback9p1)
+					//temptotal18p2 = (tempfront9p2 + tempback9p2)
+					//temptotal18p3 = (tempfront9p3 + tempback9p3)
+					//temptotal18p4 = (tempfront9p4 + tempback9p4)
+					
                 // front 9
                 document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points";
                 document.getElementById("front9p2").innerText = player2name + " " + tempfront9p2 + " points";
                 document.getElementById("front9p3").innerText = player3name + " " + tempfront9p3 + " points";
                 document.getElementById("front9p4").innerText = player4name + " " + tempfront9p4 + " points";
-                //===========================================================
-                // back 9
-                //===========================================================
-                //var tempback9p1 = 0;
-                //var tempback9p2 = 0;
-                //var tempback9p3 = 0;
-                //var tempback9p4 = 0;
-
-                for (var i = 10; i <= 18; i++) {
-                    // player 1
-                    var temp1 = document.getElementById("h" + i + "p1result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempback9p1 = tempback9p1 + temp3;
-                    }
-                    // player 2
-                    var temp1 = document.getElementById("h" + i + "p2result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempback9p2 = tempback9p2 + temp3;
-                    }
-                    // player 3
-                    var temp1 = document.getElementById("h" + i + "p3result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempback9p3 = tempback9p3 + temp3;
-                    }
-                    // player 4
-                    var temp1 = document.getElementById("h" + i + "p4result2").innerText;
-                    var temp2 = temp1.split(" ");
-                    var temp3 = parseInt(temp2[1]);
-                    if (temp3 > 0) {
-                        tempback9p4 = tempback9p4 + temp3;
-                    }
-                }
+               
                 // back 9
                 document.getElementById("back9p1").innerText = player1name + " " + tempback9p1 + " points";
                 document.getElementById("back9p2").innerText = player2name + " " + tempback9p2 + " points";
                 document.getElementById("back9p3").innerText = player3name + " " + tempback9p3 + " points";
                 document.getElementById("back9p4").innerText = player4name + " " + tempback9p4 + " points";
 
-
 				// total
                 document.getElementById("total18p1").innerText = player1name + " " + (tempfront9p1+tempback9p1) + " points";
                 document.getElementById("total18p2").innerText = player2name + " " + (tempfront9p2+tempback9p2) + " points";
                 document.getElementById("total18p3").innerText = player3name + " " + (tempfront9p3+tempback9p3) + " points";
                 document.getElementById("total18p4").innerText = player4name + " " + (tempfront9p4+tempback9p4) + " points";
-
 
                 doMatchplayCalcs(temphole);
             }
