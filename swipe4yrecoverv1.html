@@ -400,7 +400,22 @@
 			
 			
 			
-			
+#submit_confirmdiv
+{
+    display: none;
+    color: blue;
+    background-color: #eee;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    position: fixed;
+    width: 90vw;
+    //left: 50%;
+    margin-left: 5vw;
+    margin-top: 20vh;
+    padding: 10px 10px 10px; // t lr b
+    box-sizing: border-box;
+    text-align: center;
+}			
 			
 			
 #id_confrmdiv
@@ -420,7 +435,7 @@
     text-align: center;
 }
 
-#id_confrmdiv button {
+#id_confrmdiv button, #submit_confirmdiv button {
     background-color: #ccc;
     display: inline-block;
     border-radius: 3px;
@@ -437,12 +452,14 @@
     background-color: #ddd;
 }
 
+
+/*
 #confirmBox .message
 {
     text-align: left;
     margin-bottom: 8px;
 }
-			
+*/			
 			
 			
 			
@@ -463,14 +480,33 @@
     border: 1px solid #aaa;
 	
 }			
+
+#my-response-iframe, #my-form {
+	display: none;  
+  }     			
 			
 			
 			
-			
+.bar {
+	padding-left: 5vw;
+	display: none;
+	
+}	
+	
+	
+	
+	
+	
 			
             
         </style>
     </head>
+    
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    
+    
     <body>
         <div class="container">
             <div class="card" id="setup">
@@ -2774,6 +2810,11 @@
 
             <div class="card" id="soontobefinalpage">
                 <br />
+              
+              
+              
+                
+             
                 <table>
                     <caption class="cap">
                         Longhirst sweep
@@ -2805,9 +2846,18 @@
                         <tr class="stdtr">
                             <td class="xtdleft">
                                 <div class="menu" id="menu4" onclick="submitData()">
-                                Submit score    
+								Submit
                                 </div>
                             </td>
+                       </tr>     
+                        <tr class="stdtr">  
+							
+                            <td class="bar" id="thebar">
+								<div class="w3-light-grey">
+								<div id="myBar" class="w3-container w3-blue w3-center w3-round" style="height:100%;width:1%"; min-height: 10vh;></div>
+								</div>	 
+                            </td>
+                          
                         </tr>
                         
                         
@@ -2841,64 +2891,9 @@
                     </caption>
                     <thead></thead>
                     <tbody>
-                        <tr class="stdtr">
-                            <td class="tdleft">
-                                <span>
-                                    <button id="savedata" onclick="savedata()">save test</button>
-                                    <button id="recoverdata" onclick="recoverdata()">recover test</button>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr class="stdtr">
-                            <td class="tdleft">
-                                <span>
-                                    <button id="submitdata" onclick="submitData()">submit test</button>
-                                    <button id="showresults" onclick="showResults()">results test</button>
-                                </span>
-                            </td>
-                        </tr>
-
-						<tr class="stdtr">
-                            <td class="tdleft">
-                                <span>
-                                    <button id="twosaccount" onclick="doGetTwos()">search for Twos credit</button>
-                                    
-                                </span>
-                            </td>
-                        </tr>
-<tr class="stdtr">
-                            <td class="tdleft">
-                                <span>
-                                    
-                                    <div id="twosaccountreturned1">results test</div>
-                                    
-                                </span>
-                            </td>
-                            <td class="tdleft">
-                                <span>
-                                    
-                                  
-                                    <div id="twosaccountreturned2">results test</div>
-                                </span>
-                            </td>
-                        </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-                        <tr class="stdtr">
-                            <td class="tdleft">
-                                <br />
-                                <br />
-                            </td>
+						<tr class="spacer" colspan="3"></tr>
+                        <tr class="xstdtr">
+                            <td>Page left blank at the moment</td>
                         </tr>
                     </tbody>
                 </table>
@@ -3020,12 +3015,130 @@ doSomething()
 
 
 
+function move(nom1,nom2,nom3,nom4) {
+  var elem = document.getElementById("myBar");
+  var width = 1;
+  var id = setInterval(frame, 50);
+  var nom = ""
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+		if (width == 20) {
+			sub1()
+			nom = nom1 + " "
+		}
+		if (width == 40) {
+			sub2()
+			nom = nom2 + " "
+		}
+		if (width == 60) {
+			sub3()
+			nom = nom3 + " "
+		}
+		if (width == 80) {
+			sub4()
+			nom = nom4 + " "
+		}
+		if (width == 99) {
+			sub4()
+			nom = "complete "
+		}
+      width++;
+      elem.style.width = width + '%';
+      elem.innerText = nom + width + '%';
+    }
+  }
+}
 
+function sub1() {
+	 // get the relevant info into a form
+				// do each player with gap ?
+				if (player1name !== "no player") {
+					//-- player --
+					document.getElementById("mx1236548227").value = player1name;
+					//-- course --
+					document.getElementById("mx1523345164").value = courseInPlay;
+					//-- points --
+					temp = document.getElementById("total18p1").innerText
+					arr = temp.split(" ")
+					document.getElementById("mx748643520").value = arr[1];
+					//-- twos --
+					document.getElementById("mx189869333").value = "twos";
+					//-- hcp --
+					document.getElementById("mx671103580").value = player1hcp;
 
+					//===== submit data
+					document.forms[0].submit();
+					
+				}
+}
+function sub2() {
+	 // get the relevant info into a form
+				// do each player with gap ?
+				if (player2name !== "no player") {
+					//-- player --
+					document.getElementById("mx1236548227").value = player2name;
+					//-- course --
+					document.getElementById("mx1523345164").value = courseInPlay;
+					//-- points --
+					temp = document.getElementById("total18p2").innerText
+					arr = temp.split(" ")
+					document.getElementById("mx748643520").value = arr[1];
+					//-- twos --
+					document.getElementById("mx189869333").value = "twos";
+					//-- hcp --
+					document.getElementById("mx671103580").value = player2hcp;
 
+					//===== submit data
+					document.forms[0].submit();
+					
+				}
+}
+function sub3() {
+	 // get the relevant info into a form
+				// do each player with gap ?
+				if (player3name !== "no player") {
+					//-- player --
+					document.getElementById("mx1236548227").value = player3name;
+					//-- course --
+					document.getElementById("mx1523345164").value = courseInPlay;
+					//-- points --
+					temp = document.getElementById("total18p3").innerText
+					arr = temp.split(" ")
+					document.getElementById("mx748643520").value = arr[1];
+					//-- twos --
+					document.getElementById("mx189869333").value = "twos";
+					//-- hcp --
+					document.getElementById("mx671103580").value = player3hcp;
 
+					//===== submit data
+					document.forms[0].submit();
+					
+				}
+}
+function sub4() {
+	 // get the relevant info into a form
+				// do each player with gap ?
+				if (player4name !== "no player") {
+					//-- player --
+					document.getElementById("mx1236548227").value = player4name;
+					//-- course --
+					document.getElementById("mx1523345164").value = courseInPlay;
+					//-- points --
+					temp = document.getElementById("total18p4").innerText
+					arr = temp.split(" ")
+					document.getElementById("mx748643520").value = arr[1];
+					//-- twos --
+					document.getElementById("mx189869333").value = "twos";
+					//-- hcp --
+					document.getElementById("mx671103580").value = player4hcp;
 
-
+					//===== submit data
+					document.forms[0].submit();
+					
+				}
+}
 
 
 
@@ -3655,7 +3768,7 @@ doSomething()
                 doCalcs();
             }
 
-            var options = ["Barry", "Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen", "Trevor", "Temp1", "Temp2"];
+            var options = ["Barry", "Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen", "Temp1", "Temp2"];
 
             // create player dropdown
             var select1 = document.getElementById("playerdropdown1");
@@ -4327,82 +4440,15 @@ doSomething()
                 } // end for loop
             }
 
-            function submitData() {
-                // get the relevant info into a form
-				// do each player with gsp ?
-				if (player1name !== "no player") {
-					//-- player --
-					document.getElementById("mx1236548227").value = player1name;
-					//-- course --
-					document.getElementById("mx1523345164").value = courseinplay;
-					//-- points --
-					temp = document.getElementById("total18p1").innerText
-					document.getElementById("mx748643520").value = temp;
-					//-- twos --
-					document.getElementById("mx189869333").value = "twos";
-					//-- hcp --
-					document.getElementById("mx671103580").value = player1hcp;
-
-					//===== submit data
-					document.forms[0].submit();
-					
-				}
-
-				if (player2name !== "no player") {
-					//-- player --
-					document.getElementById("mx1236548227").value = player2name;
-					//-- course --
-					document.getElementById("mx1523345164").value = courseinplay;
-					//-- points --
-					temp = document.getElementById("total18p2").innerText
-					document.getElementById("mx748643520").value = temp;
-					//-- twos --
-					document.getElementById("mx189869333").value = "twos";
-					//-- hcp --
-					document.getElementById("mx671103580").value = player2hcp;
-
-					//===== submit data
-					document.forms[0].submit();
-					
-				}
+          function submitData() {
+				document.getElementById("menu4").style.display = "none"
+				document.getElementById("thebar").style.display = "block"	
+				move(player1name, player2name, player3name, player4name)
 				
-				if (player3name !== "no player") {
-					//-- player --
-					document.getElementById("mx1236548227").value = player3name;
-					//-- course --
-					document.getElementById("mx1523345164").value = courseinplay;
-					//-- points --
-					temp = document.getElementById("total18p3").innerText
-					document.getElementById("mx748643520").value = temp;
-					//-- twos --
-					document.getElementById("mx189869333").value = "twos";
-					//-- hcp --
-					document.getElementById("mx671103580").value = player3hcp;
-
-					//===== submit data
-					document.forms[0].submit();
-					
-				}
 				
-				if (player4name !== "no player") {
-					//-- player --
-					document.getElementById("mx1236548227").value = player4name;
-					//-- course --
-					document.getElementById("mx1523345164").value = courseinplay;
-					//-- points --
-					temp = document.getElementById("total18p4").innerText
-					document.getElementById("mx748643520").value = temp;
-					//-- twos --
-					document.getElementById("mx189869333").value = "twos";
-					//-- hcp --
-					document.getElementById("mx671103580").value = player4hcp;
+							
 
-					//===== submit data
-					document.forms[0].submit();
-					
-				}
-
-            }
+          }
 
             function savedata() {
                 //localStorage.clear();
@@ -4489,12 +4535,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 */
 
             function recoverHoleInfo(i) {
-                //var incScore = document.getElementById(id).innerText;
-                //if (incScore == "0") {
-                //    incScore = 1;
-                //}
-                //document.getElementById(id).innerText = --incScore;
-                //work out hole number and player number
+                 //work out hole number and player number
                 var temphole = i;
                 // player is 1,2,3 or 4
                 //var tempplayer = id.substring(id.length - 1);
@@ -4503,192 +4544,138 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
                 // get player1 name
                 tempplayername = document.getElementById("h" + temphole + "p1").innerText;
                 if (tempplayername !== "no player") {
-                    // do player name, player points at bottom on each hole
-                    // player name
-                    document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername;
-                    if (courseInPlay == "Lakes") {
-                        temppar = arrLakes[temphole - 1][1];
-                        tempsi = arrLakes[temphole - 1][2];
-                    } else {
-                        temppar = arrDawson[temphole - 1][1];
-                        tempsi = arrDawson[temphole - 1][2];
-                    }
-                    //pointsCalc(hcp,par,si,score)
+                    // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc1").innerText;
                     var temppoints = pointsCalc(player1hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p1result2").innerHTML = temppoints + " points";
+                    document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
-                    player1name = tempplayername;
                     player1shotsrecorded[temphole] = tempscore;
                     player1holepointsrecorded[temphole] = temppoints;
+
+					//temptotal18p1 = tempfront9p1 + tempback9p1
+                    // do a matchplay version
+                    var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
+                    document.getElementById("h" + temphole + "p1result2").innerHTML = tempplayername + " " + temppoints + " points";
                 }
+
                 // get player2 name
                 tempplayername = document.getElementById("h" + temphole + "p2").innerText;
                 if (tempplayername !== "no player") {
-                    // do bottom bit on each hole, player name, player points
-                    document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername;
-                    if (courseInPlay == "Lakes") {
-                        temppar = arrLakes[temphole - 1][1];
-                        tempsi = arrLakes[temphole - 1][2];
-                    } else {
-                        temppar = arrDawson[temphole - 1][1];
-                        tempsi = arrDawson[temphole - 1][2];
-                    }
+                    // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc2").innerText;
                     var temppoints = pointsCalc(player2hcp, temppar, tempsi, tempscore);
-                    //alert(temppoints + " = " + thcp + " " + temppar + " " + tempsi + " " + tempscore)
-                    document.getElementById("h" + temphole + "p2result2").innerHTML = temppoints + " points";
+                    document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername + " " + temppoints + " points";
+
                     // update globals
-                    player2name = tempplayername;
                     player2shotsrecorded[temphole] = tempscore;
                     player2holepointsrecorded[temphole] = temppoints;
+
+                    // do a matchplay version
+                    var temppoints = pointsCalc(player2matchplayshotsdifference, temppar, tempsi, tempscore);
+                    document.getElementById("h" + temphole + "p2result2").innerHTML = tempplayername + " " + temppoints + " points";
                 }
+
                 // get player3 name
                 tempplayername = document.getElementById("h" + temphole + "p3").innerText;
                 if (tempplayername !== "no player") {
-                    // do bottom bit on each hole, player name, player points
-                    document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername;
-                    if (courseInPlay == "Lakes") {
-                        temppar = arrLakes[temphole - 1][1];
-                        tempsi = arrLakes[temphole - 1][2];
-                    } else {
-                        temppar = arrDawson[temphole - 1][1];
-                        tempsi = arrDawson[temphole - 1][2];
-                    }
+                    // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc3").innerText;
                     var temppoints = pointsCalc(player3hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p3result2").innerHTML = temppoints + " points";
+                    document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername + " " + temppoints + " points";
+
                     // update globals
-                    player3name = tempplayername;
                     player3shotsrecorded[temphole] = tempscore;
                     player3holepointsrecorded[temphole] = temppoints;
+					
+					//temptotal18p3 = tempfront9p3 + tempback9p3
+                    // do a matchplay version
+                    var temppoints = pointsCalc(player3matchplayshotsdifference, temppar, tempsi, tempscore);
+                    document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " points";
                 }
+
                 // get player4 name
                 tempplayername = document.getElementById("h" + temphole + "p4").innerText;
                 if (tempplayername !== "no player") {
-                    // do bottom bit on each hole, player name, player points
-                    document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername;
-                    if (courseInPlay == "Lakes") {
-                        temppar = arrLakes[temphole - 1][1];
-                        tempsi = arrLakes[temphole - 1][2];
-                    } else {
-                        temppar = arrDawson[temphole - 1][1];
-                        tempsi = arrDawson[temphole - 1][2];
-                    }
-                    //pointsCalc(hcp,par,si,score)
+                    // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc4").innerText;
                     var temppoints = pointsCalc(player4hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p4result2").innerHTML = temppoints + " points";
+                    document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername + " " + temppoints + " points";
+
                     // update globals
-                    player4name = tempplayername;
                     player4shotsrecorded[temphole] = tempscore;
                     player4holepointsrecorded[temphole] = temppoints;
+					
+                    // do a matchplay version
+                    var temppoints = pointsCalc(player4matchplayshotsdifference, temppar, tempsi, tempscore);
+                    document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " points";
                 }
 
-                // update total scores
-                // front 9
-                var tempfront9p1 = 0;
-                var tempfront9p2 = 0;
-                var tempfront9p3 = 0;
-                var tempfront9p4 = 0;
+                    // update totals
+                    // front 9
+                    tempfront9p1 = 0
+                    tempfront9p2 = 0
+                    tempfront9p3 = 0
+                    tempfront9p4 = 0
+                    
+					for (var i = 1; i <= 9; i++) {
+						tempfront9p1 += player1holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p2 += player2holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p3 += player3holepointsrecorded[i];
+					}
+                    for (var i = 1; i <= 9; i++) {
+						tempfront9p4 += player4holepointsrecorded[i];
+					}
+					
+					// back 9
+					tempback9p1 = 0
+					tempback9p2 = 0
+					tempback9p3 = 0
+					tempback9p4 = 0
+					for (var i = 10; i <= 18; i++) {
+						tempback9p1 += player1holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p2 += player2holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p3 += player3holepointsrecorded[i];
+					}
+                    for (var i = 10; i <= 18; i++) {
+						tempback9p4 += player4holepointsrecorded[i];
+					}
 
-                for (var i = 1; i <= 9; i++) {
-                    // player 1
-                    var temp1 = document.getElementById("h" + i + "p1result2").innerText;
-                    var temp2 = temp1.replace(" points", "");
-                    var temp3 = parseInt(temp2);
-                    if (temp3 > 0) {
-                        tempfront9p1 = tempfront9p1 + temp3;
-                    }
-                    // player 2
-                    var temp1 = document.getElementById("h" + i + "p2result2").innerText;
-                    var temp2 = temp1.replace(" points", "");
-                    var temp3 = parseInt(temp2);
-                    if (temp3 > 0) {
-                        tempfront9p2 = tempfront9p2 + temp3;
-                    }
-                    // player 3
-                    var temp1 = document.getElementById("h" + i + "p3result2").innerText;
-                    var temp2 = temp1.replace(" points", "");
-                    temp3 = parseInt(temp2);
-                    if (temp3 > 0) {
-                        tempfront9p3 = tempfront9p3 + temp3;
-                    }
-                    // player 4
-                    var temp1 = document.getElementById("h" + i + "p4result2").innerText;
-                    var temp2 = temp1.replace(" points", "");
-                    temp3 = parseInt(temp2);
-                    if (temp3 > 0) {
-                        tempfront9p4 = tempfront9p4 + temp3;
-                    }
-                }
-
+					// all 18
+					//temptotal18p1 = (tempfront9p1 + tempback9p1)
+					//temptotal18p2 = (tempfront9p2 + tempback9p2)
+					//temptotal18p3 = (tempfront9p3 + tempback9p3)
+					//temptotal18p4 = (tempfront9p4 + tempback9p4)
+					
                 // front 9
                 document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points";
                 document.getElementById("front9p2").innerText = player2name + " " + tempfront9p2 + " points";
                 document.getElementById("front9p3").innerText = player3name + " " + tempfront9p3 + " points";
                 document.getElementById("front9p4").innerText = player4name + " " + tempfront9p4 + " points";
-
-                //===========================================================
-                // back 9
-                //===========================================================
-                var tempback9p1 = 0;
-                var tempback9p2 = 0;
-                var tempback9p3 = 0;
-                var tempback9p4 = 0;
-
-                for (var i = 10; i <= 18; i++) {
-                    // player 1
-                    var temp1 = document.getElementById("h" + i + "p1result2").innerText;
-                    var temp2 = temp1.replace(" points", "");
-                    var temp3 = parseInt(temp2);
-                    if (temp3 > 0) {
-                        tempback9p1 = tempback9p1 + temp3;
-                    }
-                    // player 2
-                    var temp1 = document.getElementById("h" + i + "p2result2").innerText;
-                    var temp2 = temp1.replace(" points", "");
-                    var temp3 = parseInt(temp2);
-                    if (temp3 > 0) {
-                        tempback9p2 = tempback9p2 + temp3;
-                    }
-                    // player 3
-                    var temp1 = document.getElementById("h" + i + "p3result2").innerText;
-                    var temp2 = temp1.replace(" points", "");
-                    temp3 = parseInt(temp2);
-                    if (temp3 > 0) {
-                        tempback9p3 = tempback9p3 + temp3;
-                    }
-                    // player 4
-                    var temp1 = document.getElementById("h" + i + "p4result2").innerText;
-                    var temp2 = temp1.replace(" points", "");
-                    temp3 = parseInt(temp2);
-                    if (temp3 > 0) {
-                        tempback9p4 = tempback9p4 + temp3;
-                    }
-                }
-
+               
                 // back 9
                 document.getElementById("back9p1").innerText = player1name + " " + tempback9p1 + " points";
                 document.getElementById("back9p2").innerText = player2name + " " + tempback9p2 + " points";
                 document.getElementById("back9p3").innerText = player3name + " " + tempback9p3 + " points";
                 document.getElementById("back9p4").innerText = player4name + " " + tempback9p4 + " points";
 
-
 				// total
                 document.getElementById("total18p1").innerText = player1name + " " + (tempfront9p1+tempback9p1) + " points";
                 document.getElementById("total18p2").innerText = player2name + " " + (tempfront9p2+tempback9p2) + " points";
                 document.getElementById("total18p3").innerText = player3name + " " + (tempfront9p3+tempback9p3) + " points";
                 document.getElementById("total18p4").innerText = player4name + " " + (tempfront9p4+tempback9p4) + " points";
-				
-				
-				
-			
+
                 doMatchplayCalcs(temphole);
-            }	
-				
-				
+            }
+
 				
 				
 				
@@ -4703,7 +4690,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSdbKJdNucqTUVWnubK7YlqxToWzOjWh0-WDd6Gc
 				
 
            function showTwos() {
-                window.open("//docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=1142456077&single=true", "_blank");
+                window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=1142456077&single=true", "_blank");
             }
 
 
