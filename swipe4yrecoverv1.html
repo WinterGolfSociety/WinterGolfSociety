@@ -2974,13 +2974,30 @@
 
             doSomething();
 
+			function afterSubmit() {
+				var elem1 = document.getElementById("thebar");
+				var elem2 = document.getElementById("menu4");
+                
+                var id2 = setInterval(endframe, 1000);
+                clearInterval(id2);
+                function endframe() {
+                    
+                    elem1.style.display = "none";
+                    elem2.style.display = "block";
+                    
+                }
+            }
+
             function move(nom1, nom2, nom3, nom4) {
                 var elem = document.getElementById("myBar");
                 var width = 1;
                 var id = setInterval(frame, 50);
                 var nom = "";
                 function frame() {
-                    if (width >= 100) {
+					// run extra time delay
+                    if (width >= 140) {
+                        document.getElementById("thebar").style.display = "none";
+                        document.getElementById("menu4").style.display = "block";
                         clearInterval(id);
                     } else {
                         if (width == 35) {
@@ -3002,9 +3019,13 @@
                         if (width == 99) {
                             nom = "complete ";
                         }
+                        
                         width++;
-                        elem.style.width = width + "%";
-                        elem.innerText = nom + width + "%";
+                        // only use 100 steps for progress bar
+                        if (width <= 100) {
+							elem.style.width = width + "%";
+							elem.innerText = nom + width + "%";
+						}
                     }
                 }
             }
@@ -4369,6 +4390,7 @@
                 document.getElementById("menu4").style.display = "none";
                 document.getElementById("thebar").style.display = "block";
                 move(player1name, player2name, player3name, player4name);
+                afterSubmit()
             }
 
             function savedata() {
