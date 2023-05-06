@@ -13,7 +13,7 @@
     body {
       margin: 0;
       font: normal 25px Arial, sans-serif;
-      color: blue;
+      color: dodgerBlue;
       background: lightgray; //dodgerBlue;
       
     }
@@ -282,7 +282,9 @@
       
     }
     
-    
+    .spacer {
+		height: 3vh;
+	}
     
     
     #table2 {
@@ -307,17 +309,17 @@
 
 <div class="xxxleft">
     <table class="card1">
-        <caption></caption>
+        
         <thead>
         <tr>
-            <th></th>
+            <th>Bridlington trip</th>
         </tr>
         </thead>
 
         <tbody>
 
         <tr>
-            <td>
+            <td class="aa" colspan="2">
 				
                <button onclick="myFunction()" class="dropbtn" id="dropbtn">select player name</button>
                 <div id="myDropdown" class="dropdown-content">
@@ -333,7 +335,7 @@
             </td>
         </tr>
 
-        
+  <tr class="spacer"></tr>         
 
         <tr>
             <td colspan="2" class="xxxxdropdown">
@@ -350,18 +352,18 @@
 				<a class="aaa" id="scoreaaa">30</a>
 				<a class="aaa" id="aaarscore" onclick="incrementScore('scoreaaa')">+</a>
             </button>
-            <br>
             </td>  
         </tr>
 
-        
+ <tr class="spacer"></tr>  
+         
        <tr>
             <td colspan="2" class="xxxxdropdown">
                 <button class="dropbtnNC" id="coursebtn">par 3 total</button>
             </td>
-        </tr>
+       </tr>
 
-        
+     
 
 		<tr> 
             <td class="aa" colspan="2">
@@ -376,7 +378,7 @@
 		</tbody>
 	</table>
 
-
+<!-- allows table to be hidden -->
 <table class="card2" id="table2"><tbody>
 
 		<th></th>
@@ -493,7 +495,7 @@
 
 
 </tbody></table>
-
+<!-- end of table to be hidden -->
 
 
 
@@ -649,8 +651,8 @@ if (dd.indexOf("Thursday") > -1) {
 
 // testing
  
-   dday = "Thursday"
-   course = "South Cliff"
+   dday = "Monday"
+   course = "Filey"
    document.getElementById("coursebtn").innerText = course
 
 
