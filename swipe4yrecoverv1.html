@@ -479,7 +479,9 @@
             }
             
             
-            
+            #arrow {
+				float: right;
+			}
             
             
             
@@ -502,6 +504,10 @@
                     <!-- modal-->
                     <div class="showstartmsg" id="showstartmsg" onclick="startmsgclose()"></div>
                 </div>
+                
+                
+
+
 
                 <div id="id_confrmdiv">
                     <br />
@@ -606,9 +612,16 @@
                             <td id="calcs1"></td>
                             <td id="calcs2"></td>
                         </tr>
-                        <tr class="spacer" colspan="3"></tr>
+                        <tr class="xxxspacer" >
+							<td></td>
+							<td></td>
+							<td>
+							<a href="#lastpage"><img src="ra.png" width="30px" height="20px"/></a>
+							</td>
+                        </tr>
                     </tbody>
                 </table>
+                
             </div>
             <!-- ========== hole 1 ==============================
          =====================================================
@@ -2852,6 +2865,7 @@
                         
                     </tbody>
                 </table>
+                <a name="lastpage"></a>
             </div>
 
             <!-- ===================================
@@ -2972,21 +2986,7 @@
             var tempback9p3 = 0;
             var tempback9p4 = 0;
 
-            doSomething();
-
-			function afterSubmit() {
-				var elem1 = document.getElementById("thebar");
-				var elem2 = document.getElementById("menu4");
-                
-                var id2 = setInterval(endframe, 1000);
-                clearInterval(id2);
-                function endframe() {
-                    
-                    elem1.style.display = "none";
-                    elem2.style.display = "block";
-                    
-                }
-            }
+            doSomething()
 
             function move(nom1, nom2, nom3, nom4) {
                 var elem = document.getElementById("myBar");
@@ -3021,6 +3021,7 @@
                         }
                         
                         width++;
+                        
                         // only use 100 steps for progress bar
                         if (width <= 100) {
 							elem.style.width = width + "%";
@@ -4390,11 +4391,15 @@
                 document.getElementById("menu4").style.display = "none";
                 document.getElementById("thebar").style.display = "block";
                 move(player1name, player2name, player3name, player4name);
-                afterSubmit()
+                
+                // get rid of values used in submit
+                // to allow fresh start next time
+                localStorage.clear();
             }
 
             function savedata() {
-                //localStorage.clear();
+				// get rid of old values lying around
+                localStorage.clear();
 
                 // setup page ==========================================
                 // save data
