@@ -242,14 +242,16 @@
                             </td>
                         </tr>
 
+                        
+                        
                         <tr class="stdtr">
                             <td class="tdleft">
-                                <br />
-                                <br />
+                                <span>
+									<div class="wrapperleft" id="showtwos" onclick="showTwos()">
+                                    Twos sheet</div>
+                                </span>
                             </td>
                         </tr>
-                        
-                        
                         
                         
                     </tbody>
@@ -326,7 +328,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSezy_o7IHYmFr8ofShytPknB-kb0E6t2KE2mIAp
             }
 
            
-            var options = ["Barry", "Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen", "Temp1", "Temp2", "Temp3", "Temp4"];
+            var options = ["Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen", "Tom"];
 
             // create player dropdown
             var select1 = document.getElementById("playerdropdown1");
@@ -372,7 +374,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSezy_o7IHYmFr8ofShytPknB-kb0E6t2KE2mIAp
             function doInfo() {
 				money = document.getElementById("numsetupplayer1").innerText
 				who = document.getElementById("setupp1").innerText
-				document.getElementById("info").innerText = money + " added for " + who
+				document.getElementById("info").innerText = "£" + money + " added for " + who
 			}
 
                 
@@ -399,7 +401,9 @@ https://docs.google.com/forms/d/e/1FAIpQLSezy_o7IHYmFr8ofShytPknB-kb0E6t2KE2mIAp
                 doInfo()
             }
 
-  
+  function showTwos() {
+                window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pubhtml?gid=1142456077&single=true", "_blank");
+            }
       
             
         </script>
