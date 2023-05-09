@@ -44,30 +44,9 @@ body {
   color: blue;
 }
 
-
-
-
-/*
-.active {
-  background-color: cyan;
-  color: white;
-}
-*/
-
-
-
-
-
-
-
-
 .container {
   display: inline-block;
   cursor: pointer;
-  
- 
-  
-  
 }
 
 .bar1, .bar2, .bar3 {
@@ -95,27 +74,18 @@ body {
 	color: white;
 }
 
-
-
-
 .menu {
   width: 20%;
   float: left;
   padding: 15px;
-
 }
 
 .main {
   width: 80%;
   float: left;
-  
   padding: 5px;
-  
-  
-  //padding-left: 2vw;
   font-size: 20px;
   color: white;
-
 }
 
 .left {
@@ -124,21 +94,52 @@ body {
   padding: 5px;
   font-size: 15px;
   color: white;
-
 }
 
 .right {
   width: 50%;
   float: left;
-  
   padding: 5px;
-  
-  
- 
   font-size: 15px;
   color: white;
-
 }
+
+.acontainer {
+                display: grid;
+                grid-template-columns: repeat(3, 100%);
+                will-change: transform;
+                align-content: center;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+.acard {
+                width: 100%; //96vw; //100vw;
+                height: 100vh;
+                display: flex;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+                background-color: darkSlateGray;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+            }
+
+.page1 {
+                width: 100%;
+                height: 100vh;
+                display: block;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+                background-color: darkSlateGray;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+            }
+
+
+
+
+
+
+
+
 
 
 
@@ -147,7 +148,25 @@ body {
 </head>
 <body>
 
+
+
+<div class="acontainer">
+            <div class="acard" id="page1">
+					<div class="page1">
+
+
+
+
+
+
+
+
+
+
+
 <!-- Top Navigation Menu -->	
+
+
 <div class="topnav">
 
   <div id="myLinks">
@@ -171,7 +190,6 @@ body {
 	  
   </div>
   
-  
   <div class="main">
   <p>Winter golf society</p>
   </div>
@@ -179,8 +197,7 @@ body {
 </div>
 
 
-
-
+<br><br><br><br>
 
 <div>
 	
@@ -195,16 +212,52 @@ body {
 <p>Dawson stableford.</p>
 </div>
 
-
 </div>
 
 
+</div> <!-- page1 -->
+</div> <!-- acard page1 -->
+
+<div class="acard" id="page2"></div>
+<div class="acard" id="page3"></div>
 
 
+</div> <!-- acontainer -->
 
 
 
 <script>
+// =========================================
+const card = document.querySelector(".card");
+
+            //const MOVE_THRESHOLD = 50;
+
+            let initialX = 0;
+            let moveX = 0;
+
+            card.addEventListener("touchstart", (e) => {
+                initialX = e.touches[0].pageX;
+            });
+
+            card.addEventListener("touchmove", (e) => {
+                let currentX = e.touches[0].pageX;
+                moveX = currentX - initialX;
+
+            });
+
+
+//===========================================================
+
+
+
+
+
+
+
+
+
+
+
 
 
 
