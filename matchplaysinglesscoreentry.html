@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html style="font-size: 16px; font-family:Arial, Helvetica, sans-serif;">
 <head lang="en">
@@ -86,10 +85,13 @@ Select the name of the winning player and which match was played. The match labe
 <div id="matchinput"></div>
 
 <br><br>
-
+<!--
+// old https://docs.google.com/forms/d/e/1FAIpQLScypIbYiGsn-AZ2K3ApAw8CJFP7wiD5ESL-sXIPSEeEvrfGYw/formResponse"
+// new https://docs.google.com/forms/d/e/1FAIpQLSdaMUgLYQsAQq0is0TtVBSD4k3CoTAt8IskZGy7KtLlRm1Yog/viewform?usp=pp_url&entry.1937014137=a&entry.957190470=b
+-->
 <form id="my-form" 
     target="my-response-iframe" 
-    action="https://docs.google.com/forms/d/e/1FAIpQLScypIbYiGsn-AZ2K3ApAw8CJFP7wiD5ESL-sXIPSEeEvrfGYw/formResponse" 
+    action="https://docs.google.com/forms/d/e/1FAIpQLSdaMUgLYQsAQq0is0TtVBSD4k3CoTAt8IskZGy7KtLlRm1Yog/formResponse" 
     method="post" 
     onSubmit="JavaScript:buttonSubmit()">
         <!-- match -->
@@ -110,7 +112,7 @@ Select the name of the winning player and which match was played. The match labe
 
 <iframe id="my-response-iframe" 
     name="my-response-iframe"
-    src="https://docs.google.com/forms/d/e/1FAIpQLScypIbYiGsn-AZ2K3ApAw8CJFP7wiD5ESL-sXIPSEeEvrfGYw/viewform?embedded=true" 
+    src="https://docs.google.com/forms/d/e/1FAIpQLSdaMUgLYQsAQq0is0TtVBSD4k3CoTAt8IskZGy7KtLlRm1Yog/viewform?embedded=true" 
     width="640" 
     height="407" 
     frameborder="0" 
@@ -127,8 +129,7 @@ Select the name of the winning player and which match was played. The match labe
 Updates can take up to 5 minutes to complete.
 <br><br>
 
-<input type="button" id="return2results" onclick="location.href='
-https://docs.google.com/spreadsheets/d/e/2PACX-1vRirviMjfWteZP4KWw9JuYKv9rHG34fTPCgJorlMbAOBhPavVyE8qBhClyXj_eC8CHx_w3TiJghE_Tx/pubhtml?gid=0&single=true';" value="Return to singles" />
+<input type="button" id="return2results" onclick="location.href='https://docs.google.com/spreadsheets/d/e/2PACX-1vRirviMjfWteZP4KWw9JuYKv9rHG34fTPCgJorlMbAOBhPavVyE8qBhClyXj_eC8CHx_w3TiJghE_Tx/pubhtml?gid=0&single=true';" value="Return to singles" />
 
 <br><br><br><br>
 
@@ -137,8 +138,7 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vRirviMjfWteZP4KWw9JuYKv9rHG34fT
 //document.getElementById("lastm").innerText = "last updated: " + d.toGMTString('en-UK')
 
 
-// https://docs.google.com/forms/d/e/1FAIpQLScypIbYiGsn-AZ2K3ApAw8CJFP7wiD5ESL-sXIPSEeEvrfGYw/viewform?usp=pp_url&entry.1937014137=match&entry.957190470=player
-  
+
 
 
 
@@ -146,68 +146,19 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vRirviMjfWteZP4KWw9JuYKv9rHG34fT
 var x =""
 
 var arr = ["dummy", 
-"Mike Riddell",
-"Craig Caesar",
-"John Matthews",
-"Ken Heslop",
-"Joe Waddle",
-"Roger Ireland",
-"Rob Connelly",
-"Jed Cornhill",
-"Tony Smith",
-"Brian Simpson",
-"Gordon Willis",
-"Tom Lemin",
-"Pete Holleran",
-"Eric Sadler",
-"Keith Belshaw",
-"John Jackson",
-"Barry Hill",
-"Richard Hedley",
-"Andy Davison",
-"Steff Murray",
-"Martin Edwards",
-"Bryan Craggs",
-"Rob Green",
-"Joe Fletcher",
-"John Dean",
-"Neil Tait",
-"Ray Straker"
-]
+"R Hedley", 
+"E Saddler"
+]  
+
+
+
+
+
+
 
 
 var xx =""
-var arr1 = ["dummy",
-"match 1",
-"match 2",
-"match 3",
-"match 4",
-"match 5",
-"match 6",
-"match 7",
-"match 8",
-"match 9",
-"match 10",
-"match 11",
-"match 12",
-"match 13",
-"match 14",
-"match 15",
-"match 16",
-"match 17",
-"match 18",
-"match 19",
-"match 20",
-"match 21",
-"match 22", 
-"match 23",
-"match 24",
-"match 25",
-"match 26",
-"match 27",
-"match 28",
-"match 29",
-"match 30",          
+var arr1 = ["dummy", 
 "winner"
  ]
 
@@ -333,4 +284,3 @@ if (s1.length > 0) {
 <br><br>
 </body>
 </html>
-
