@@ -622,6 +622,9 @@ populated by script
                     document.getElementById("scoreaaa").style.fontSize = "40px";
                 }
                 document.getElementById(id).innerText = ++incPoints;
+                if (incPoints == "99") {
+					clearStorage()
+				}
             }
 
             function decrementScore(id) {
