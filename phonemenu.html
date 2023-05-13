@@ -622,7 +622,8 @@ populated by script
                     document.getElementById("scoreaaa").style.fontSize = "40px";
                 }
                 document.getElementById(id).innerText = ++incPoints;
-                if (incPoints == "99") {
+                if (incPoints >= "99") {
+					alert("local storage will be cleared"
 					clearStorage()
 				}
             }
