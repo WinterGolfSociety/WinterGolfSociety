@@ -446,10 +446,8 @@ populated by script
             var twos2submit = "0";
 
             // master array of members
-			if ("dropdown" in localStorage) {
-				var master = JSON.parse(localStorage.dropdown);
-			} else {
-				alert("no local storage")
+			
+			// set a default list
             var master = [
                 ["alan", 0],
                 ["bryan", 0],
@@ -465,8 +463,7 @@ populated by script
                 ["xxxzane", 0],
                 ["xxxnew", 0]
             ];
-		  }
-
+            
             if ("dropdown" in localStorage) {
                 // retrieve dropdown info
                 var options = JSON.parse(localStorage.dropdown);
@@ -481,16 +478,32 @@ populated by script
                     localStorage.dropdown = JSON.stringify(options);
                 }
                 // create/recreate options array
-                var options = [];
-                for (var i = 0; i < master.length; i++) {
-                    options[i] = master[i].slice();
-                }
+                //var options = [];
+                //for (var i = 0; i < master.length; i++) {
+                //    options[i] = master[i].slice();
+                //}
                 // update local storage
-                localStorage.dropdown = JSON.stringify(options);
-            }
+                //localStorage.dropdown = JSON.stringify(options);
+            } else { // no local storage
+				var options= [
+                ["alan", 0],
+                ["bryan", 0],
+                ["colin", 0],
+                ["dave", 0],
+                ["eric", 0],
+                ["fred", 0],
+                ["gary", 0],
+                ["henry", 0],
+                ["zane", 0],
+                ["xxxgary", 0],
+                ["xxxhenry", 0],
+                ["xxxzane", 0],
+                ["xxxnew", 0]
+				];
+			}
+
             // bring most commonly selected to the top
             options.sort(compareSecondColumn);
-
             // create player dropdown
             var select = document.getElementById("myDropdown");
             /* 
@@ -624,7 +637,7 @@ populated by script
                     document.getElementById("scoreaaa").style.fontSize = "40px";
                 }
                 document.getElementById(id).innerText = ++incPoints;
-                if (incPoints >= "99") {
+                if (incPoints > "99") {
 					alert("local storage will be cleared")
 					clearStorage()
 				}
