@@ -262,8 +262,8 @@
                   
                   position: absolute;
                   background-color: lightgray;
-                  min-width: 150px;
-                  max-height: 50vh;
+                  min-width: 60vw;
+                  max-height: 60vh;
                   overflow: auto;
                   z-index: 1;
                   padding: 2px 10px;
@@ -649,19 +649,21 @@ populated by script
 			
 			// set a default list
             var master = [
-                ["alan", 0],
-                ["bryan", 0],
-                ["colin", 0],
-                ["dave", 0],
-                ["eric", 0],
-                ["fred", 0],
-                ["gary", 0],
-                ["henry", 0],
-                ["zane", 0],
-                ["xxxgary", 0],
-                ["xxxhenry", 0],
-                ["xxxzane", 0],
-                ["xxxnew", 0]
+                ["Graham Airey", 0],
+                ["Dale Aitkenhead", 0],
+                ["Stephen Alldridge", 0],
+                ["Craig Caesar", 0],
+                ["Bob Connelly", 0],
+                ["Bryan Craggs", 0],
+                ["Joe Fletcher", 0],
+                ["Chris Green", 0],
+                ["Rob Green", 0], 
+                ["Peter Holleran", 0],
+                ["Jim Little", 0],
+                ["Bryan Maddison", 0],
+                ["Darren Nelson", 0],
+                ["Tony Smith", 0],
+                ["Bob Toward", 0]                            
             ];
             
             if ("dropdown" in localStorage) {
@@ -686,20 +688,22 @@ populated by script
                 //localStorage.dropdown = JSON.stringify(options);
             } else { // no local storage
 				var options= [
-                ["alan", 0],
-                ["bryan", 0],
-                ["colin", 0],
-                ["dave", 0],
-                ["eric", 0],
-                ["fred", 0],
-                ["gary", 0],
-                ["henry", 0],
-                ["zane", 0],
-                ["xxxgary", 0],
-                ["xxxhenry", 0],
-                ["xxxzane", 0],
-                ["xxxnew", 0]
-				];
+                ["Graham Airey", 0],
+                ["Dale Aitkenhead", 0],
+                ["Stephen Alldridge", 0],
+                ["Craig Caesar", 0],
+                ["Bob Connelly", 0],
+                ["Bryan Craggs", 0],
+                ["Joe Fletcher", 0],
+                ["Chris Green", 0],
+                ["Rob Green", 0], 
+                ["Peter Holleran", 0],
+                ["Jim Little", 0],
+                ["Bryan Maddison", 0],
+                ["Darren Nelson", 0],
+                ["Tony Smith", 0],
+                ["Bob Toward", 0]                            
+            ];
 			}
 
             // bring most commonly selected to the top
