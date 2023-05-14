@@ -721,6 +721,9 @@ populated by script
                 el.id = "myLink" + (i + 1);
                 el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
                 el.setAttribute("href", "#");
+                if (options[i][1] > 0) {
+					el.setAttribute("style", "color:purple;");
+				}
                 el.innerText = options[i][0];
                 select.appendChild(el);
             }
