@@ -134,7 +134,7 @@
                         }
 
                         .acontainer {
-							background-color: blue; //lightgray;
+							background-color: black; //lightgray;
                             display: grid;
                             grid-template-columns: repeat(3, 100%);
                             will-change: transform;
@@ -398,7 +398,7 @@
                     <div class="topnav">
                         <div id="myLinks">
                             <a href="#scoreinput">Score input</a>
-                            <a href="#results">Results</a>
+                            <a href="#results" onclick="showResults()">Results</a>
                             <a href="#hcp">Hcp list</a>
                             <a href="#info">Info</a>
                         </div>
@@ -419,20 +419,21 @@
                     </div>
 
                     <br>
-                    <br>
-                    <br>
-                    <br>
-
+ 
                     <div>
                         <p style="padding: 5px; color: white;">Next competitions</p>
                         <div class="left">
-                            <p>Friday 3rd Nov</p>
-                            <p>Monday 6th Nov</p>
+                            <p id="ncd1">empty</p>
+                            <p id="ncd2">empty</p>
+                            <p id="ncd3">empty</p>
+                            <p id="ncd4">empty</p>
                         </div>
 
                         <div class="right">
-                            <p>Lakes stableford.</p>
-                            <p>Dawson stableford.</p>
+                            <p id="ncd1r">empty</p>
+                            <p id="ncd2r">empty</p>
+                            <p id="ncd3r">empty</p>
+                            <p id="ncd4r">empty</p>
                         </div>
                     </div>
                 </div>
@@ -480,8 +481,9 @@ populated by script
             </div>
 			</div>
             <div class="acard" id="page3">
-			<div class="page3">	
-            Last page at the moment
+			<div class="page3">
+				<p style="padding: 5px; color: white;">	
+            Last page at the moment</p>
             
 	           
 	        </div>
@@ -510,7 +512,112 @@ populated by script
 
 
 
+ // update competitions
+            var comparray = [
+                ["Fri 3rd May", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+                ["Mon 6th Nov", "Dawson stableford"],
+                ["Fri 3rd Nov", "Lakes stableford"],
+            ];
 
+            // Sat May 13 2023
+            // create a number to allow date comparisons
+            var ext = "th";
+            dd = new Date();
+
+            d = dd.getDay();
+            n = dd.getDate();
+            m = dd.getMonth();
+            y = dd.getFullYear();
+            testtoday = y * 100 + m * 10 + n;
+            var j = 0;
+
+            for (var i = 0; i < comparray.length; i++) {
+                var xx = comparray[i][0].split(" ");
+                xx1 = xx[1].replace("th", "");
+                xx2 = xx1.replace("st", "");
+                xx3 = xx2.replace("nd", "");
+                xx4 = xx3.replace("rd", "");
+                xx4n = parseInt(xx4);
+                if (xx[2] == "May") {
+                    mm4 = 202300 + 50;
+                }
+                if (xx[2] == "Oct") {
+                    mm4 = 202300 + 100;
+                }
+                if (xx[2] == "Nov") {
+                    mm4 = 202300 + 110;
+                }
+                if (xx[2] == "Dec") {
+                    mm4 = 202300 + 120;
+                }
+                if (xx[2] == "Jan") {
+                    mm4 = 202400 + 10;
+                }
+                if (xx[2] == "Feb") {
+                    mm4 = 202400 + 20;
+                }
+                if (xx[2] == "Mar") {
+                    mm4 = 202400 + 30;
+                }
+
+                testcompday = mm4 + xx4n;
+
+                if (testcompday > testtoday) {
+                    //alert(testcompday + " is after " + testtoday)
+                    j++;
+
+                    if (j == 1) {
+                        document.getElementById("ncd1").innerText = comparray[i][0];
+                        document.getElementById("ncd1r").innerText = comparray[i][1];
+                    }
+                    if (j == 2) {
+                        document.getElementById("ncd2").innerText = comparray[i][0];
+                        document.getElementById("ncd2r").innerText = comparray[i][1];
+                    }
+                    if (j == 3) {
+                        document.getElementById("ncd3").innerText = comparray[i][0];
+                        document.getElementById("ncd3r").innerText = comparray[i][1];
+                    }
+                    if (j == 4) {
+                        document.getElementById("ncd4").innerText = comparray[i][0];
+                        document.getElementById("ncd4r").innerText = comparray[i][1];
+                    }
+
+                    if (j == 5) {
+                        i = 99;
+                    }
+                }
+            }
 
 
 
