@@ -410,6 +410,7 @@
                             <a href="#" onclick="showResults()">Results</a>
                             <a href="#" onclick="showTwos()">Twos</a>
                             <a href="#" onclick="showHCPs()">Hcp list</a>
+                            <a href="#" onclick="showBRS()">BRS tee booking</a>
                         </div>
 
                         <!-- hamburger -->
@@ -757,7 +758,30 @@ populated by script
 
             function showResults() {
                 window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vSYr0CNuuUeOLD6ZJCDZF29A2jY5LEhYNZ7bkwid2LLpYIDZsmG4BCV_B3SmNFeZ-zuYVJyZzFvWEwC/pubhtml?gid=2066505855&single=true");
+                var x = document.getElementById("myLinks");
+                x.style.display = "none";
             }
+
+			function showBRS() {
+                window.open("https://members.brsgolf.com/longhirsthall/login");
+                var x = document.getElementById("myLinks");
+                x.style.display = "none";
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             // sort function
             function compareSecondColumn(a, b) {
