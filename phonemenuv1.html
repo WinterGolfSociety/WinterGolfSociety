@@ -358,7 +358,7 @@
             	  
                 }
 
-               #submitbutton:hover, #submitaaa:hover {
+               #submitbutton:hover, submitbutton:hover > span {
                   animate-color 0.5s forwards;
                   -webkit-animation: animate-color 0.5s forwards;
                 }
@@ -407,16 +407,16 @@
 
                     <div class="topnav">
                         <div id="myLinks">
-                            <a href="#" onclick="showResults()">Results</a>
-                            <a href="#" onclick="showTwos()">Twos</a>
-                            <a href="#" onclick="showHCPs()">Hcp list</a>
-                            <a href="#" onclick="showBRS()">BRS tee booking</a>
+                            <a id="ml1" href="#" onclick="showResults()">Results</a>
+                            <a id="ml2" href="#" onclick="showTwos()">Twos</a>
+                            <a id="ml3" href="#" onclick="showHCPs()">Hcp list</a>
+                            <a id="ml4" href="#" onclick="showBRS()">BRS tee booking</a>
                         </div>
 
                         <!-- hamburger -->
 
                         <div class="menu">
-                            <div class="container" onclick="hamburger(this)">
+                            <div class="container" id="containerid" onclick="hamburger(this)">
                                 <div class="bar1"></div>
                                 <div class="bar2"></div>
                                 <div class="bar3"></div>
@@ -495,14 +495,61 @@ populated by script
 			</div>
             <div class="acard" id="page3">
 			<div class="page3">
-				<p style="padding: 15px; color: white;">Information</p>
-				<p style="padding: 15px; color: white;">A driver can only be used for the initial tee shot from the teeing area.</p>
-	            <p style="padding: 15px; color: white;">When a player&apos;s ball lies in a part of the general area cut to fairway height or less, the player may prefer the lie within 6 inches. See Model Local Rule E-3 for details of how this must be done.</p>
-	            <p style="padding: 15px; color: white;">Score entry is the responsibility of the competitor.</p>
+				<p style="padding: 15px; color: blue;">Information</p>
+				<p style="padding: 15px; color: blue;">A driver can only be used for the initial tee shot from the teeing area.</p>
+	            <p style="padding: 15px; color: blue;">When a player&apos;s ball lies in a part of the general area cut to fairway height or less, the player may prefer the lie within 6 inches. See Model Local Rule E-3 for details of how this must be done.</p>
+	            <p style="padding: 15px; color: blue;">Score entry is the responsibility of the competitor.</p>
 	        </div>
             </div>
         </div>
         <!-- acontainer -->
+        
+        
+        
+        https://docs.google.com/forms/d/e/1FAIpQLSeGoxUhCVNRyZ72TqXbuezSpoME6O9A0OIRiH71HVR9tBUIyQ/viewform
+        
+        
+        
+ 
+<!-- form to construct data prior to submit -->
+
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSeGoxUhCVNRyZ72TqXbuezSpoME6O9A0OIRiH71HVR9tBUIyQ/formResponse"
+     id="my-form" method="post" name="my-form" target="my-response-iframe">
+<!-- player -->
+    <input id="mx773506804" name="entry.773506804" type="text" value="default">
+<!-- points -->    
+    <input id="mx423743653" name="entry.423743653" type="text" value="default">
+<!-- twos -->
+    <input id="mx583172758" name="entry.583172758" type="text" value="default">
+
+    
+	
+	<br>
+    <input type="submit">
+</form>
+<br><br>
+<!-- google forms inserted here - invisible -->
+<iframe height="20" id="my-response-iframe" name="my-response-iframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSeGoxUhCVNRyZ72TqXbuezSpoME6O9A0OIRiH71HVR9tBUIyQ/viewform?embedded=true"
+        width="60"></iframe>
+
+
+
+
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         <script>
 			
@@ -639,8 +686,8 @@ populated by script
 
             function hamburger(x) {
                 x.classList.toggle("change");
-
                 var x = document.getElementById("myLinks");
+                
                 if (x.style.display === "block") {
                     x.style.display = "none";
                 } else {
@@ -648,7 +695,8 @@ populated by script
                 }
             }
 
-
+      
+            
 
 
             var player2submit = "empty";
@@ -757,33 +805,16 @@ populated by script
             }
 
             function showResults() {
-				var x = document.getElementById("myLinks");
-                x.style.display = "none";
-                window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vSYr0CNuuUeOLD6ZJCDZF29A2jY5LEhYNZ7bkwid2LLpYIDZsmG4BCV_B3SmNFeZ-zuYVJyZzFvWEwC/pubhtml?gid=2066505855&single=true");
-                
+
+                window.location.assign("https://docs.google.com/spreadsheets/d/e/2PACX-1vSYr0CNuuUeOLD6ZJCDZF29A2jY5LEhYNZ7bkwid2LLpYIDZsmG4BCV_B3SmNFeZ-zuYVJyZzFvWEwC/pubhtml?gid=2066505855&single=true");
+               
             }
 
 			function showBRS() {
-				var x = document.getElementById("myLinks");
-                x.style.display = "none";
-                window.open("https://members.brsgolf.com/longhirsthall/login");
-                
+				  
+                window.location.assign("https://members.brsgolf.com/longhirsthall/login");
+
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             // sort function
             function compareSecondColumn(a, b) {
@@ -900,8 +931,8 @@ populated by script
 
             function submitForm() {
                 //
-                document.getElementById("submitbutton").style.background = "cyan";
-                document.getElementById("submitaaa").style.background = "cyan";
+                document.getElementById("submitaaa").style.color = "yellow";
+                document.getElementById("submitaaa").innerText = "updating";
 
                 // get the relevant info into a form
                 //-- player --
@@ -920,17 +951,16 @@ populated by script
 
                 //===== submit data
                 document.forms[0].submit();
-
-                setTimeout(() => {
-                    beep();
-                    document.getElementById("submitbutton").style.background = "dodgerBlue";
-                    document.getElementById("submitaaa").style.background = "dodgerBlue";
-                    beep();
-                }, 1000);
+				document.getElementById("submitaaa").style.color = "white";
+				document.getElementById("submitaaa").innerText = "submit";
+				setTimeout(beep, 2000);
+               
             }
 
             function delay(time) {
+				alert("before")
                 return new Promise((resolve) => setTimeout(resolve, time));
+                alert("after")
             }
 
             function beep() {
