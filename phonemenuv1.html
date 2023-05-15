@@ -966,14 +966,10 @@ populated by script
                 document.forms[0].submit();
 				document.getElementById("submitaaa").style.color = "white";
 				document.getElementById("submitaaa").innerText = "submit";
-				setTimeout(beep, 2000);
-               
-            }
-
-            function delay(time) {
-				alert("before")
-                return new Promise((resolve) => setTimeout(resolve, time));
-                alert("after")
+				beep(1)
+				setTimeout(function(){
+					window.location.reload();
+				}, 3000);
             }
 
             function beep() {
