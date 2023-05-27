@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <title>Swipe test</title>
+        <title>bubble menu</title>
         <meta content="Bryan M" name="author" />
         <link href="favicon.ico" rel="icon" type="image/x-icon" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -147,7 +147,7 @@ nav {
 
 
 
-.bubble img:hover ~ h3 {
+.bubble a:hover ~ h3 {
      opacity: 1;
 }
 
@@ -174,9 +174,14 @@ nav {
     font-family: 'Roboto', sans-serif;
     font-size: 26px;
     color: #111111;
-    top: 50%;
-    left: 75px;
-    transform: translateY(-50%);
+    //top: 50%;
+    //left: 75px;
+     top: 75px;
+    left: 50%;
+    
+    //transform: translateY(-50%);
+       transform: translateX(-50%);
+   
 }
 #two {
     background-color: #FDD0BC;
@@ -188,11 +193,12 @@ nav {
 #two>h3 {
     position: absolute;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 26px;
     color: #111111;
     top: 75px;
     left: 50%;
     transform: translateX(-50%);
+  
 }
 #three {
     background-color: #EDB4B5;
@@ -204,11 +210,17 @@ nav {
 #three>h3 {
     position: absolute;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 26px;
     color: #111111;
-    top: 50%;
-    left: -75px;
-    transform: translateY(-50%);
+    //top: 50%;
+    //left: -75px;
+    //transform: translateY(-50%);
+    
+    top: 75px;
+    left: 50%;
+    
+    //transform: translateY(-50%);
+       transform: translateX(-50%);
 }
 #four {
     background-color: #CB86A0;
@@ -220,11 +232,13 @@ nav {
 #four>h3 {
     position: absolute;
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 26px;
     color: #111111;
-    top: -30px;
+    top: -40px; //-30px;
     left: 50%;
     transform: translateX(-50%);
+   
+   
 }
 section {
     width: 100vw;
@@ -289,7 +303,9 @@ h2 {
     margin: 50px 10px;
 }
 
-
+#onetxt {
+    line-height: 60px;
+}
 
 	
 </style>
@@ -309,9 +325,14 @@ h2 {
 
   </div>
   <div class="bubble" id="one">
-
+    
+   <a id="onetxt">about</a> 
+    
+    
+    
+<!--
 <img src="about.png" width="60px" height="60px">
-
+-->
 <!--
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 492.014 492.014" style="enable-background:new 0 0 492.014 492.014;" xml:space="preserve" width="40px" height="40px">
 <g id="XMLID_144_">
@@ -460,7 +481,7 @@ h2 {
 
 <section class="start">
   <div class="content">
-    <h2>Longhirst Seniors</h2>
+    <h2>Winter 2023-2024</h2>
   </div>
 </section>
 <section class="first">
