@@ -3,12 +3,13 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detect Swipe Direction</title>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
+   <meta charset="UTF-8" />
+    
+        <meta content="Bryan M" name="author" />
+        <link href="favicon.ico" rel="icon" type="image/x-icon" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+        
     <style>
     * {
                 margin: 0;
@@ -152,81 +153,81 @@ background: dodgerBlue;
       <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">1</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore1" onclick='decrementscore("numscore1")'>-</span>
+            <span class="num" id="numscore1">1</span>
+            <span class="plus" id="plusscore1" onclick='incrementscore("numscore1")'>+</span>
          </div>
        </td>      
       </tr>                        
   <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">2</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore2" onclick='decrementscore("numscore2")'>-</span>
+            <span class="num" id="numscore2">2</span>
+            <span class="plus" id="plusscore2" onclick='incrementscore("numscore2")'>+</span>
          </div>
        </td>      
       </tr>
        <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">3</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore3" onclick='decrementscore("numscore3")'>-</span>
+            <span class="num" id="numscore3">3</span>
+            <span class="plus" id="plusscore3" onclick='incrementscore("numscore3")'>+</span>
          </div>
        </td>      
       </tr>
         <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">4</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore4" onclick='decrementscore("numscore4")'>-</span>
+            <span class="num" id="numscore4">4</span>
+            <span class="plus" id="plusscore4" onclick='incrementscore("numscore4")'>+</span>
          </div>
        </td>      
       </tr>
          <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">5</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore5" onclick='decrementscore("numscore5")'>-</span>
+            <span class="num" id="numscore5">5</span>
+            <span class="plus" id="plusscore5" onclick='incrementscore("numscore5")'>+</span>
          </div>
        </td>      
       </tr>
           <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">6</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore6" onclick='decrementscore("numscore6")'>-</span>
+            <span class="num" id="numscore6">6</span>
+            <span class="plus" id="plusscore6" onclick='incrementscore("numscore6")'>+</span>
          </div>
        </td>      
       </tr>
            <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">7</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore7" onclick='decrementscore("numscore7")'>-</span>
+            <span class="num" id="numscore7">7</span>
+            <span class="plus" id="plusscore7" onclick='incrementscore("numscore7")'>+</span>
          </div>
        </td>      
       </tr>
             <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">8</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore8" onclick='decrementscore("numscore8")'>-</span>
+            <span class="num" id="numscore8">8</span>
+            <span class="plus" id="plusscore8" onclick='incrementscore("numscore8")'>+</span>
          </div>
        </td>      
       </tr>
              <tr class="tr1">                        
         <td class="xtdright">
           <div class="wrapper">
-            <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
-            <span class="num" id="numsetupplayer4">9</span>
-            <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+            <span class="minus" id="minusscore9" onclick='decrementscore("numscore9")'>-</span>
+            <span class="num" id="numscore9">9</span>
+            <span class="plus" id="plusscore9" onclick='incrementscore("numscore9")'>+</span>
          </div>
        </td>      
       </tr>     
@@ -270,6 +271,45 @@ document.addEventListener('touchend', e => {
   touchendX = e.changedTouches[0].screenX
   checkDirection()
 })
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    function incrementScore(id) {
+                alert(id)
+                var incScore = document.getElementById(id).innerText;
+                // increment score on screen
+                document.getElementById(id).innerText = ++incScore;
+               
+    }          
+          
+  
+ 
+    function decrementScore(id) {
+                //alert(id)
+                var incScore = document.getElementById(id).innerText;
+                // increment score on screen
+                document.getElementById(id).innerText = --incScore;
+              
+    }          
+          
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
     
     </script>
