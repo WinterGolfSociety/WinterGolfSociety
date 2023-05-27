@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>Swipe test</title>
+        <meta content="Bryan M" name="author" />
+        <link href="favicon.ico" rel="icon" type="image/x-icon" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+<style>
+	
+	
+	@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.va_menu_icon {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    z-index: 99;
+}
+
+.va_menu_icon:focus {
+    outline: none;
+}
+
+.va_menu_icon span {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 7px;
+    background: #fff;
+}
+
+.va_menu_icon span:before, .va_menu_icon span:after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background-color: #fff;
+    content: "";
+}
+
+.va_menu_icon span:before {
+    top: -14px;
+}
+
+.va_menu_icon span:after {
+    bottom: -14px;
+}
+
+.va_menu_icon-X span {
+    transition: background 0s 0.3s;
+}
+
+.va_menu_icon-X span:before, .va_menu_icon-X span:after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.va_menu_icon-X span:before {
+    transition-property: top, transform;
+}
+
+.va_menu_icon-X span:after {
+    transition-property: bottom, transform;
+}
+
+.va_menu_icon-X.is-active span {
+    background: none;
+}
+
+.va_menu_icon-X.is-active span:before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.va_menu_icon-X.is-active span:after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.va_menu_icon-X.is-active span:before, .va_menu_icon-X.is-active span:after {
+    transition-delay: 0s, 0.3s;
+}
+nav {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    z-index: 4;
+}
+.bubble_all {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FD898A;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    z-index: 4;
+}
+#one, #two, #three, #four {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    z-index: 3;
+    box-shadow: 0 0 20px -5px #111;
+    text-align: center;
+}
+.bubble svg:hover ~ h3 {
+     opacity: 1;
+}
+
+
+
+.bubble h3 {
+    opacity: 0;
+    transition: all 400ms;
+    -webkit-transition: all 600ms;
+}
+#one {
+    background-color: #FDEECF;
+}
+#one svg {
+    width: 40px;
+    margin-top: 12px;
+}
+#one>h3 {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    color: #111111;
+    top: 50%;
+    left: 75px;
+    transform: translateY(-50%);
+}
+#two {
+    background-color: #FDD0BC;
+}
+#two svg {
+    width: 40px;
+    margin-top: 12px;
+}
+#two>h3 {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #111111;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#three {
+    background-color: #EDB4B5;
+}
+#three svg {
+    width: 40px;
+    margin-top: 14px;
+}
+#three>h3 {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #111111;
+    top: 50%;
+    left: -75px;
+    transform: translateY(-50%);
+}
+#four {
+    background-color: #CB86A0;
+}
+#four svg {
+    width: 40px;
+    margin-top: 12px;
+}
+#four>h3 {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #111111;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+section {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+.start {
+    top: 0;
+    left: 0;
+    background-color: #445369;
+    text-align: center;
+}
+.first {
+    left: 100vw;
+    top: 0;
+    background-color: #FDEECF;
+}
+.second {
+    left: 0;
+    top: 100vh;
+    background-color: #FDD0BC;
+}
+.third {
+    left: -100vw;
+    top: 0;
+    background-color: #EDB4B5;
+}
+.fourth {
+    left: 0;
+    top: -100vh;
+    background-color: #CB86A0;
+}
+section:first-child.content {
+    width: 100%;
+    height: 100vh;
+    opacity: 1;
+}
+.content {
+    width: 70%;
+    height: 100vh;
+    opacity: 1;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+.start h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    line-height: 100vh;
+    color: #111111;
+}
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    color: #111111;
+    margin-top: 200px;
+}
+.content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 1.3;
+    color: #111111;
+    margin: 50px 10px;
+}
+
+
+
+	
+</style>
+
+
+</head>
+
+
+
+<body>
+
+<nav id="nav">
+  <div class="bubble_all" id="icon">
+    <button class="va_menu_icon va_menu_icon-X">
+      <span></span>
+    </button>
+
+  </div>
+  <div class="bubble" id="one">
+
+<img src="about.png" width="60px" height="60px">
+
+<!--
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 492.014 492.014" style="enable-background:new 0 0 492.014 492.014;" xml:space="preserve" width="40px" height="40px">
+<g id="XMLID_144_">
+  <path id="XMLID_151_" d="M339.277,459.566H34.922V32.446h304.354v105.873l32.446-32.447V16.223C371.723,7.264,364.458,0,355.5,0   H18.699C9.739,0,2.473,7.264,2.473,16.223v459.568c0,8.959,7.265,16.223,16.226,16.223H355.5c8.958,0,16.223-7.264,16.223-16.223   V297.268l-32.446,32.447V459.566z" fill="#111111"/>
+  <path id="XMLID_150_" d="M291.446,71.359H82.751c-6.843,0-12.396,5.553-12.396,12.398c0,6.844,5.553,12.397,12.396,12.397h208.694   c6.845,0,12.397-5.553,12.397-12.397C303.843,76.912,298.29,71.359,291.446,71.359z" fill="#111111"/>
+  <path id="XMLID_149_" d="M303.843,149.876c0-6.844-5.553-12.398-12.397-12.398H82.751c-6.843,0-12.396,5.554-12.396,12.398   c0,6.845,5.553,12.398,12.396,12.398h208.694C298.29,162.274,303.843,156.722,303.843,149.876z" fill="#111111"/>
+  <path id="XMLID_148_" d="M274.004,203.6H82.751c-6.843,0-12.396,5.554-12.396,12.398c0,6.845,5.553,12.397,12.396,12.397h166.457   L274.004,203.6z" fill="#111111"/>
+  <path id="XMLID_147_" d="M204.655,285.79c1.678-5.618,4.076-11.001,6.997-16.07h-128.9c-6.843,0-12.396,5.553-12.396,12.398   c0,6.844,5.553,12.398,12.396,12.398h119.304L204.655,285.79z" fill="#111111"/>
+  <path id="XMLID_146_" d="M82.751,335.842c-6.843,0-12.396,5.553-12.396,12.398c0,6.843,5.553,12.397,12.396,12.397h108.9   c-3.213-7.796-4.044-16.409-1.775-24.795H82.751z" fill="#111111"/>
+  <path id="XMLID_145_" d="M479.403,93.903c-6.496-6.499-15.304-10.146-24.48-10.146c-9.176,0-17.982,3.647-24.471,10.138   L247.036,277.316c-5.005,5.003-8.676,11.162-10.703,17.942l-14.616,48.994c-0.622,2.074-0.057,4.318,1.477,5.852   c1.122,1.123,2.624,1.727,4.164,1.727c0.558,0,1.13-0.08,1.688-0.249l48.991-14.618c6.782-2.026,12.941-5.699,17.943-10.702   l183.422-183.414c6.489-6.49,10.138-15.295,10.138-24.472C489.54,109.197,485.892,100.392,479.403,93.903z" fill="#111111"/>
+
+
+
+</g>  -->
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+    <h3>About</h3>
+  </div>
+  <div class="bubble" id="two">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 512 512" enable-background="new 0 0 512 512" width="40px" height="40px">
+      <g>
+        <g>
+          <path d="M11,501h117.8V301.9H11V501z M31.9,321.7H108v158.5H31.9V321.7z" fill="#111111"/>
+          <path d="M197.6,501h116.8h1V220.6H197.6V501z M217.4,240.4h76.1v239.8h-76.1V240.4z" fill="#111111"/>
+          <path d="M383.2,11v490H501V11H383.2z M480.1,480.1H404V31.9h76.1V480.1z" fill="#111111"/>
+        </g>
+      </g>
+    </svg>
+    <h3>Skills</h3>
+  </div>
+  <div class="bubble" id="three">
+    <?xml version="1.0" encoding="iso-8859-1"?>
+    <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 307.116 307.116" style="enable-background:new 0 0 307.116 307.116;" xml:space="preserve" width="40px" height="40px">
+<g>
+  <g>
+    <path d="M299.257,35.934c2.761,0,5-2.238,5-5V5c0-2.762-2.239-5-5-5H7.859c-2.761,0-5,2.238-5,5v25.934c0,2.762,2.239,5,5,5h9.451    v155.804H7.859c-2.761,0-5,2.238-5,5v25.934c0,2.762,2.239,5,5,5h140.699v15.399l-54.567,55.541    c-1.935,1.97-1.907,5.136,0.063,7.07c1.969,1.938,5.136,1.907,7.071-0.063l19.347-19.692h66.172l19.347,19.692    c1.934,1.97,5.102,1.998,7.071,0.063c1.97-1.935,1.998-5.101,0.063-7.07l-54.567-55.541v-15.399h140.699c2.761,0,5-2.238,5-5    v-25.934c0-2.762-2.239-5-5-5h-9.451V35.934H299.257z M176.819,275.927h-46.523l23.261-23.677L176.819,275.927z M294.257,201.737    v15.934H12.859v-15.934h9.451h262.496H294.257z M27.31,191.737V35.934h252.496v155.803H27.31z M12.859,25.934V10h281.398v15.934    C279.275,25.934,26.773,25.934,12.859,25.934z" fill="#111111"/>
+  </g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+    <h3>Projects</h3>
+  </div>
+  <div class="bubble" id="four">
+    <?xml version="1.0" encoding="iso-8859-1"?>
+    <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 484.849 484.849" style="enable-background:new 0 0 484.849 484.849;" xml:space="preserve" width="40px" height="40px">
+<g>
+  <path d="M262.797,274.552c30.206,30.206,63.252,49.446,81.428,47.771c13.579-1.252,30.7-19.862,30.7-19.862l-38.945-38.944   l-15.532,15.532L258.3,216.901l15.532-15.532l-38.945-38.944c0,0-18.611,17.12-19.862,30.699   C213.351,211.3,232.59,244.345,262.797,274.552z" fill="#111111"/>
+  <path d="M49.924,0v113.712h-22.5v30h22.5v83.712h-25v30h25v83.712h-25v30h25v113.712h410V0H49.924z M79.924,371.136h25v-30h-25   v-83.712h25v-30h-25v-83.712h25v-30h-25V30h50v424.849h-50V371.136z M429.924,454.849h-270V30h270V454.849z" fill="#111111"/>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+
+    <h3>Contact</h3>
+  </div>
+</nav>
+
+<section class="start">
+  <div class="content">
+    <h1>Longhirst Seniors</h1>
+  </div>
+</section>
+<section class="first">
+  <div class="content">
+    <h2>About</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br><br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+      Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+
+      Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+      Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+      At vero eos et accusam et justo duo dolores et ea rebum.<br><br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur</p>
+  </div>
+</section>
+<section class="second">
+  <div class="content">
+    <h2>Skills</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br><br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+      Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+
+      Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+      Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+      At vero eos et accusam et justo duo dolores et ea rebum.<br><br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur</p>
+  </div>
+</section>
+<section class="third">
+  <div class="content">
+    <h2>Projects</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br><br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+      Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+
+      Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+      Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+      At vero eos et accusam et justo duo dolores et ea rebum.<br><br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur</p>
+  </div>
+</section>
+<section class="fourth">
+  <div class="content">
+    <h2>Contact</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.<br><br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+      Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+      Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+
+      Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+
+      Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
+
+      At vero eos et accusam et justo duo dolores et ea rebum.<br><br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur</p>
+  </div>
+</section>
+<script>
+	
+	
+	var isTop = true;
+  var menuIsOpen = false;
+
+  var menuIcon = $('.va_menu_icon');
+
+  var one = $('#one');
+  var two = $('#two');
+  var three = $('#three');
+  var four = $('#four');
+
+  menuIcon.click(function() {
+    if (isTop === true) {
+      $('#nav').animate({ top: '50%', left: '50%' }, 400);
+      $('.content').animate({ opacity: '0' }, 700);
+      showBubbles();
+      isTop = false;
+    } else {
+      if (menuIsOpen === false) {
+        showBubbles();
+      } else {
+        hideBubbles();
+      }
+    }
+  });
+
+  function showBubbles() {
+    menuIcon.addClass('is-active');
+
+    one.animate({ opacity: '1' }, 10);
+    two.animate({ opacity: '1' }, 10);
+    three.animate({ opacity: '1' }, 10);
+    four.animate({ opacity: '1' }, 10);
+
+    one.animate({ left: '140px' }, 110);
+    two.animate({ top: '140px' }, 200);
+    one.animate({ left: '130px' }, 100);
+    three.animate({ left: '-65px' }, 300);
+    two.animate({ top: '130px' }, 210);
+    four.animate({ top: '-65px' }, 400);
+    three.animate({ left: '-55px' }, 310);
+    four.animate({ top: '-55px' }, 400);
+
+    menuIsOpen = true;
+  }
+
+  function hideBubbles() {
+    menuIcon.removeClass('is-active');
+
+    setTimeout(function() {
+      $('#nav').animate({ top: '100px', left: '100px' }, 400);
+      $('.content').animate({ opacity: '1' }, 900);
+    }, 500);
+    four.animate({ top: '-65px' }, 400);
+    three.animate({ left: '-65px' }, 300);
+    four.animate({ top: '50%' }, 400);
+    two.animate({ top: '140px' }, 200);
+    three.animate({ left: '50%' }, 310);
+    one.animate({ left: '140px' }, 110);
+    two.animate({ top: '50%' }, 200);
+    one.animate({ left: '50%' }, 110);
+
+    menuIsOpen = false;
+    isTop = true
+  }
+
+  $('.bubble').click(function() {
+    menuIcon.removeClass('is-active');
+    hideBubbles();
+    setTimeout(function() {
+      $('#nav').animate({ top: '100px', left: '100px' }, 400);
+    }, 500);
+    isTop = true;
+  });
+
+  one.click(function() {
+    moveToPage('0', '100vw', '-100vw', '-100vw');
+  });
+
+  two.click(function() {
+    moveToPage('100vw', '0', '-100vw', '-100vw');
+  });
+
+  three.click(function() {
+    moveToPage('100vw', '100vw', '0', '-100vw');
+  });
+
+  four.click(function() {
+    moveToPage('100vw', '100vw', '-100vw', '0');
+  });
+
+  function moveToPage(firstLeft, secondTop, thirdLeft, fourthTop) {
+    $('.first').animate({ left: firstLeft }, 400);
+    $('.second').animate({ top: secondTop }, 400);
+    $('.third').animate({ left: thirdLeft }, 400);
+    $('.fourth').animate({ top: fourthTop }, 400);
+
+    isTop = true;
+  }
+
+
+Resources
+	
+</script>
+</body>
+
+
