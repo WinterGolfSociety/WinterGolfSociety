@@ -87,8 +87,8 @@ padding-top: 100px;
 let touchendX = 0
     
 function checkDirection() {
-  if (touchendX < touchstartX) alert('swiped left!')
-  if (touchendX > touchstartX) alert('swiped right!')
+  if (touchendX < touchstartX) document.getElementById("test").innerText="swiped left"
+  if (touchendX > touchstartX) document.getElementById("test").innerText="swiped right"
 }
 
 document.addEventListener('touchstart', e => {
