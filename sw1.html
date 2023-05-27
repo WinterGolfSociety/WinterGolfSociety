@@ -18,12 +18,36 @@
 body {
   background-color: #9679ff;
 }
-.container {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-}
+//.container {
+ // position: absolute;
+ // transform: translate(-50%, -50%);
+ // top: 50%;
+ // left: 50%;
+//}
+
+
+ .container {
+                display: grid;
+                grid-template-columns: repeat(4, 100%);
+                will-change: transform;
+                align-content: center;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+            .card {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+                background-color: darkSlateGray;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+            }
+
+
+
+
 #touch-area {
   background-color: #ffffff;
   height: 30em;
@@ -39,13 +63,23 @@ body {
   border-radius: 0.3em;
   margin-top: 1em;
 }
+
+#test {
+color: yellow;
+font-size: 25px;
+padding-left: 100px;
+padding-top: 100px;
+}
+
+
     </style>
     
   </head>
   <body>
     <div class="container">
-      <div id="touch-area"></div>
-      <p id="output">Swipe Across The Above Area</p>
+      <div class="card">
+     <a id="test">xxxx</a>
+      </div>
     </div>
     <!-- Script -->
     <script>
