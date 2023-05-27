@@ -11,12 +11,17 @@
     <!-- Stylesheet -->
     <style>
     * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-body {
-  background-color: #9679ff;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                color: white;
+                background-color: gainsboro;
+                font-family: Arial, Helvetica, sans-serif;
+  
+  
+  
 }
 //.container {
  // position: absolute;
@@ -69,9 +74,11 @@ font-size: 150px;
   border-width: thick;
   border-color: red;
   background: cyan; 
-width:70vw;  
+width:98vw;  
 height: 8vh;
-border-radius: 10px;
+border-radius: 3px;
+padding-left: 1vw;
+padding-right: 1vw;
 }
 
 
@@ -87,7 +94,45 @@ border-radius: 10px;
   //height:8vh;
   //width: 100vw;
   //padding 10px 50px;
+background: cyan;
+}
 
+.plus {
+  font-size: 50px;
+  color: white;
+  width: 40vw;
+  padding-right: 2vw;
+  padding-left: 20vw;
+  
+  display: flex; 
+  justify-content: center;
+  
+  
+  float: right;
+
+}
+
+.minus {
+  font-size: 50px;
+  color: white;
+  width: 40vw;
+  padding-left: 2vw;
+  padding-right: 20vw;
+ display: flex; 
+  justify-content: center; 
+  
+  float: left;
+
+}
+.num {
+  font-size: 50px;
+  color: white;
+  width: 18vw;
+
+  float: left;
+  
+  display: flex; 
+  justify-content: center;
 }
 
 
@@ -116,9 +161,31 @@ border-radius: 10px;
         </td>
       </tr>                         
       <tr class="tr1">
-        <td>
-        <div class="hole">003</div>
-        </td>
+       
+          
+          
+          
+          
+      
+                            
+                            <td class="xtdright">
+                                <div class="wrapper">
+                                    <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span>
+                                    <span class="num" id="numsetupplayer4">10</span>
+                                    <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span>
+                                </div>
+                            </td>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+       
       </tr>                        
       <tr class="tr1">
       <td>
