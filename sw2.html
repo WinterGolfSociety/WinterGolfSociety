@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+      <title>Swipe test</title>
+      <meta content="Bryan M" name="author" />
+      <link href="favicon.ico" rel="icon" type="image/x-icon" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+      <style>
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         body {
+         color: white;
+         background-color: gainsboro;
+         font-family: Arial, Helvetica, sans-serif;
+         }
+        
+         .container {
+         display: grid;
+         grid-template-columns: repeat(4, 100%);
+         will-change: transform;
+         align-content: center;
+         overflow-x: auto;
+         scroll-snap-type: x mandatory;
+         -webkit-overflow-scrolling: touch;
+         }
+         .card {
+         width: 100vw;
+         height: 100vh;
+         display: flex;
+         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+         background-color: cyan;
+         scroll-snap-align: start;
+         scroll-snap-stop: always;
+         }
+         #test, #test3 {
+         background: cyan;
+         color: blue;
+         font-size: 150px;
+         }
+         #test2, #test4 {
+         background: dodgerBlue;
+         color: yellow;
+         font-size: 150px;
+         }
+         .hole {
+         border-width: thick;
+         border-color: red;
+         background: cyan; 
+         width:98vw;  
+         height: 8vh;
+         border-radius: 3px;
+         padding-left: 1vw;
+         padding-right: 1vw;
+         }
+         .stdtable {
+         height:80vh;
+         }
+         .tr1 {
+         background: dodgerBlue;
+         }
+         .plus {
+         font-size: 50px;
+         color: white;
+         width: 40vw;
+         padding-right: 2vw;
+         padding-left: 20vw;
+         display: flex; 
+         justify-content: center;
+         float: right;
+         }
+         .minus {
+         font-size: 50px;
+         color: white;
+         width: 40vw;
+         padding-left: 2vw;
+         padding-right: 20vw;
+         display: flex; 
+         justify-content: center; 
+         float: left;
+         }
+         .num {
+         font-size: 50px;
+         color: white;
+         width: 18vw;
+         float: left;
+         display: flex; 
+         justify-content: center;
+         }
+         .hide {
+         opacity: 0 !important;
+         }
+         
+         
+         
+         
+         
+    /*      
+         ::-webkit-scrollbar {
+         display: none;
+         }
+  */
+    .va_menu_icon {
+         display: block;
+         position: absolute;
+         overflow: hidden;
+         margin: 0;
+         padding: 0;
+         width: 45px;
+         height: 45px;
+         font-size: 0;
+         text-indent: -9999px;
+         appearance: none;
+         box-shadow: none;
+         border-radius: none;
+         border: none;
+         cursor: pointer;
+         transition: background 0.3s;
+         top: 57%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background-color: transparent;
+         z-index: 99;
+         }
+         .va_menu_icon:focus {
+         outline: none;
+         }
+         .va_menu_icon span {
+         display: block;
+         position: absolute;
+         top: 15px;
+         left: 0;
+         right: 0;
+         height: 7px;
+         background: #fff;
+         }
+         .va_menu_icon span:before, .va_menu_icon span:after {
+         position: absolute;
+         display: block;
+         left: 0;
+         width: 100%;
+         height: 7px;
+         background-color: #fff;
+         content: "";
+         }
+         .va_menu_icon span:before {
+         top: -14px;
+         }
+         .va_menu_icon span:after {
+         bottom: -14px;
+         }
+         .va_menu_icon-X span {
+         transition: background 0s 0.3s;
+         }
+         .va_menu_icon-X span:before, .va_menu_icon-X span:after {
+         transition-duration: 0.3s, 0.3s;
+         transition-delay: 0.3s, 0s;
+         }
+         .va_menu_icon-X span:before {
+         transition-property: top, transform;
+         }
+         .va_menu_icon-X span:after {
+         transition-property: bottom, transform;
+         }
+         .va_menu_icon-X.is-active span {
+         background: none;
+         }
+         .va_menu_icon-X.is-active span:before {
+         top: 0;
+         transform: rotate(45deg);
+         }
+         .va_menu_icon-X.is-active span:after {
+         bottom: 0;
+         transform: rotate(-45deg);
+         }
+         .va_menu_icon-X.is-active span:before, .va_menu_icon-X.is-active span:after {
+         transition-delay: 0s, 0.3s;
+         }
+         
+         
+             
+         
+            
+         
+         
+         
+         
+         nav {
+         position: absolute;
+         top: 75px;
+         left: 75px;
+         transform: translate(-50%, -50%);
+         border-radius: 50%;
+         width: 75px;
+         height: 75px;
+         z-index: 4;
+         border: 5px solid white;
+         }
+         .bubble_all {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         background-color: dodgerBlue;
+         border-radius: 50%;
+         width: 75px;
+         height: 75px;
+         z-index: 4;
+         border:5px solid white;
+         }
+
+         #one, #two, #three, #four {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         border-radius: 50%;
+         width: 75px;
+         height: 75px;
+         z-index: 3;
+         box-shadow: 0 0 20px -5px #111;
+         text-align: center;
+         border:5px solid white;
+         }
+         .bubble img:hover ~ h3 {
+         opacity: 1;
+         }
+         .bubble svg:hover ~ h3 {
+         opacity: 1;
+         }
+         .bubble h3 {
+         opacity: 0;
+         transition: all 400ms;
+         -webkit-transition: all 600ms;
+         }
+   
+       #one {
+         background-color: salmon;
+         }
+         #one svg {
+         width: 40px;
+         margin-top: 15px;
+         }
+         #one>h3 {
+         position: absolute;
+         font-size: 26px;
+         color: #111111;
+         top: 75px;
+         left: 50%;
+         transform: translateX(-50%);
+         }
+         #two {
+         background-color: DarkKhaki;
+         }
+         #two svg {
+         width: 40px;
+         margin-top: 12px;
+         }
+         #two>h3 {
+         position: absolute;
+         font-size: 26px;
+         color: #111111;
+         top: 75px;
+         left: 50%;
+         transform: translateX(-50%);
+         }
+         #three {
+         background-color: orchid;
+         }
+         #three svg {
+         width: 40px;
+         margin-top: 14px;
+         }
+         #three>h3 {
+         position: absolute;
+         font-size: 26px;
+         color: #111111;
+         top: 75px;
+         left: 50%;
+         transform: translateX(-50%);
+         }
+         #four {
+         background-color: lightSteelBlue;
+         }
+         #four svg {
+         width: 40px;
+         margin-top: 12px;
+         }
+         #four>h3 {
+         position: absolute;
+         font-size: 26px;
+         color: #111111;
+         top: -40px; //-30px;
+         left: 50%;
+         transform: translateX(-50%);
+         }
+         section {
+         width: 100vw;
+         height: 100vh;
+         position: absolute;
+         }
+         .start {
+         top: 0;
+         left: 0;
+         background-color: darkSlateGray;
+         text-align: center;
+         }
+         .first {
+         left: 100vw;
+         top: 0;
+         background-color: #FDEECF;
+         }
+         .second {
+         left: 0;
+         top: 100vh;
+         background-color: #FDD0BC;
+         }
+         .third {
+         left: -100vw;
+         top: 0;
+         background-color: #EDB4B5;
+         }
+         .fourth {
+         left: 0;
+         top: -100vh;
+         background-color: #CB86A0;
+         }
+         section:first-child.content {
+         width: 100%;
+         height: 100vh;
+         opacity: 1;
+         }
+         .content {
+         width: 70%;
+         height: 100vh;
+         opacity: 1;
+         margin: 0 auto;
+         //overflow-y: scroll;
+         }
+         .start h1 {
+         font-size: 40px;
+         line-height: 100vh;
+         color: #111111;
+         }
+         h2 {
+         font-size: 40px;
+         color: #111111;
+         margin-top: 200px;
+         }
+         .content p {
+         font-family: 'Roboto', sans-serif;
+         font-size: 20px;
+         line-height: 1.3;
+         color: #111111;
+         margin: 50px 10px;
+         }
+         #onetxt, #twotxt, #threetxt, #fourtxt {
+         line-height: 80px;
+         font-size: 23px;
+         color: blue;
+         font-family: 'Kalam';
+         }
+         .title {
+         color: white;
+         font-family: 'Kalam';
+         font-size: 40px;
+         }
+
+         .centered {
+         position: absolute;
+         top: 1vh;
+         right: 3vw;
+         font-family: 'Kalam';
+         font-size: 20px;
+         color: white;
+         }
+         
+         
+         
+         
+         
+         
+ 
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="card">
+            <nav id="nav">
+               <div class="bubble_all" id="icon">
+                  <button class="va_menu_icon va_menu_icon-X">
+                  <span></span>
+                  </button>
+               </div>
+               <div class="bubble" id="one">
+                  <a id="onetxt">Diary</a>  
+                  <h3>Diary</h3>
+               </div>
+               <div class="bubble" id="two">
+                  <a id="twotxt">HCPs</a>  
+                  <h3>Handicaps</h3>
+               </div>
+               <div class="bubble" id="three">
+                  <a id="threetxt">Twos</a>  
+                  <h3>Twos</h3>
+               </div>
+               <div class="bubble" id="four">
+                  <a id="fourtxt" onclick="doFour()">Results</a>  
+                  <h3>Results</h3>
+               </div>
+            </nav>
+            <section class="start">
+               <div class="content">
+                  <h2 class="title">Winter<br>2023-2024</h2>
+               </div>
+               <div class="ccontainer">
+                  <!--
+                     <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="swipe-right.png" alt="swipe right">
+                     -->
+                  <img src="swipe-right-white.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">
+                  <div class="centered">score entry</div>
+               </div>
+            </section>
+            <a id="test">xxxxxxxxx</a>
+         </div>
+         <div class="card">
+            <table class="stdtable">
+               <tbody                   
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore1" onclick='decrementScore("numscore1")'>-</span>
+                        <span class="num" id="numscore1">hole 1</span>
+                        <span class="plus" id="plusscore1" onclick='incrementScore("numscore1");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore2" onclick='decrementScore("numscore2")'>-</span>
+                        <span class="num" id="numscore2">hole 2</span>
+                        <span class="plus" id="plusscore2" onclick='incrementScore("numscore2");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore3" onclick='decrementScore("numscore3")'>-</span>
+                        <span class="num" id="numscore3">hole 3</span>
+                        <span class="plus" id="plusscore3" onclick='incrementScore("numscore3");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore4" onclick='decrementScore("numscore4")'>-</span>
+                        <span class="num" id="numscore4">hole 4</span>
+                        <span class="plus" id="plusscore4" onclick='incrementScore("numscore4");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore5" onclick='decrementScore("numscore5")'>-</span>
+                        <span class="num" id="numscore5">hole 5</span>
+                        <span class="plus" id="plusscore5" onclick='incrementScore("numscore5");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore6" onclick='decrementScore("numscore6")'>-</span>
+                        <span class="num" id="numscore6">hole 6</span>
+                        <span class="plus" id="plusscore6" onclick='incrementScore("numscore6");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore7" onclick='decrementScore("numscore7")'>-</span>
+                        <span class="num" id="numscore7">hole 7</span>
+                        <span class="plus" id="plusscore7" onclick='incrementScore("numscore7");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore8" onclick='decrementScore("numscore8")'>-</span>
+                        <span class="num" id="numscore8">hole 8</span>
+                        <span class="plus" id="plusscore8" onclick='incrementScore("numscore8");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               <tr class="tr1">
+                  <td class="xtdright">
+                     <div class="wrapper">
+                        <span class="minus" id="minusscore9" onclick='decrementScore("numscore9")'>-</span>
+                        <span class="num" id="numscore9">hole 9</span>
+                        <span class="plus" id="plusscore9" onclick='incrementScore("numscore9");'>+</span>
+                     </div>
+                  </td>
+               </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="card"> 
+            <a id="test3">xxxxxxxxx</a>
+         </div>
+         <div class="card">
+            <a id="test4">xxxxxxxx</a>
+         </div>
+      </div>
+      <!-- container -->
+      <!-- Script -->
+      <script>
+         var touchstartX = 0
+         var touchendX = 0
+             
+         function checkDirection() {
+           if (touchendX < touchstartX) document.getElementById("test").innerText="swiped left"
+           if (touchendX > touchstartX) document.getElementById("test").innerText="swiped right"
+         }
+         
+         document.addEventListener('touchstart', e => {
+           touchstartX = e.changedTouches[0].screenX
+         })
+         
+         document.addEventListener('touchend', e => {
+           touchendX = e.changedTouches[0].screenX
+           checkDirection()
+         })
+           
+           
+           
+           
+           // alert(document.getElementById("numscore1").innerText)
+           
+         
+           
+           
+           
+           
+             function incrementScore(id){  
+                         // if it is first input
+                         var incScore = document.getElementById(id).innerText;
+                         if (incScore.indexOf("hole") > -1) {
+                             incScore = 0;
+                             document.getElementById(id).style.color = "yellow";
+                             // increment score on screen
+                             document.getElementById(id).innerText = ++incScore;
+                         } else {                
+                         if (incScore >= 0) {        
+                             // increment score on screen
+                             document.getElementById(id).innerText = ++incScore;
+                         }
+                         }     
+             }          
+                   
+           
+          
+             function decrementScore(id) {
+              // if it is first input
+                         var incScore = document.getElementById(id).innerText;
+                         if (incScore.indexOf("hole") > -1) {
+                             incScore = 0;
+                             document.getElementById(id).style.color = "yellow";
+                             // increment score on screen
+                             document.getElementById(id).innerText = incScore;
+                         } else {                
+                         if (incScore > 0) {        
+                             // increment score on screen
+                             document.getElementById(id).innerText = --incScore;
+                         }
+                         }
+                         
+                         
+                         doChange();
+                         
+                         
+                         
+             }                    
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+         
+           
+         
+         function doChange() {
+           for (var i = 0; i < 5; i++) {
+           
+            var text = ["hole 1", "-"];
+         var counter = 0;
+         var elem = document.getElementById("minusscore1");
+         
+         if (elem.innerText == "hole 1") {
+           counter = 1
+         } else {
+           counter = 0
+         }
+         
+         //setInterval(dummy, 2500);
+           
+            // elem.classList.add('hide');
+             setTimeout(function () {
+                 elem.innerText = text[counter];
+                // elem.classList.remove('hide');
+                 //counter++;
+                 //if (counter > 0) {
+                 //    counter = 0;
+                 //}
+             }, 5000);
+             
+             //document.getElementById("minusscore1") = elem.innerText;
+           } //for ..
+         }
+         
+              
+              
+              
+              
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+            
+         	var isTop = true;
+           var menuIsOpen = false;
+         
+           var menuIcon = $('.va_menu_icon');
+         
+           var one = $('#one');
+           var two = $('#two');
+           var three = $('#three');
+           var four = $('#four');
+         
+           menuIcon.click(function() {
+             if (isTop === true) {
+               $('#nav').animate({ top: '50%', left: '50%' }, 400);
+               $('.content').animate({ opacity: '0' }, 700);
+               showBubbles();
+               isTop = false;
+             } else {
+               if (menuIsOpen === false) {
+                 showBubbles();
+               } else {
+                 hideBubbles();
+               }
+             }
+           });
+         
+           function showBubbles() {
+             menuIcon.addClass('is-active');
+         
+             one.animate({ opacity: '1' }, 10);
+             two.animate({ opacity: '1' }, 10);
+             three.animate({ opacity: '1' }, 10);
+             four.animate({ opacity: '1' }, 10);
+         
+             one.animate({ left: '140px' }, 110);
+             two.animate({ top: '140px' }, 200);
+             one.animate({ left: '130px' }, 100);
+             three.animate({ left: '-65px' }, 300);
+             two.animate({ top: '130px' }, 210);
+             four.animate({ top: '-65px' }, 400);
+             three.animate({ left: '-55px' }, 310);
+             four.animate({ top: '-55px' }, 400);
+         
+             menuIsOpen = true;
+           }
+         
+           function hideBubbles() {
+             menuIcon.removeClass('is-active');
+         
+             setTimeout(function() {
+               $('#nav').animate({ top: '75px', left: '75px' }, 400);
+               $('.content').animate({ opacity: '1' }, 900);
+             }, 500);
+             four.animate({ top: '-65px' }, 400);
+             three.animate({ left: '-65px' }, 300);
+             four.animate({ top: '50%' }, 400);
+             two.animate({ top: '140px' }, 200);
+             three.animate({ left: '50%' }, 310);
+             one.animate({ left: '140px' }, 110);
+             two.animate({ top: '50%' }, 200);
+             one.animate({ left: '50%' }, 110);
+         
+             menuIsOpen = false;
+             isTop = true
+           }
+         
+           $('.bubble').click(function() {
+             menuIcon.removeClass('is-active');
+             hideBubbles();
+             setTimeout(function() {
+               $('#nav').animate({ top: '100px', left: '100px' }, 400);
+             }, 500);
+             isTop = true;
+           });
+         
+           one.click(function() {
+             moveToPage('0', '100vw', '-100vw', '-100vw');
+           });
+         
+           two.click(function() {
+             moveToPage('100vw', '0', '-100vw', '-100vw');
+           });
+         
+           three.click(function() {
+             moveToPage('100vw', '100vw', '0', '-100vw');
+           });
+         
+           four.click(function() {
+             moveToPage('100vw', '100vw', '-100vw', '0');
+           });
+         
+           function moveToPage(firstLeft, secondTop, thirdLeft, fourthTop) {
+           //  $('.first').animate({ left: firstLeft }, 400);
+           //  $('.second').animate({ top: secondTop }, 400);
+           //  $('.third').animate({ left: thirdLeft }, 400);
+           //  $('.fourth').animate({ top: fourthTop }, 400);
+         
+             isTop = true;
+           }
+           
+           
+           
+           
+           
+         
+         function onehint() {
+             
+             alert("about")
+             
+         }
+         
+         function doFour() {
+         window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1210420478&single=true","_blank")
+         }
+           
+              
+              
+              
+              
+                   
+            
+               
+             
+      </script>
+   </body>
+</html>
