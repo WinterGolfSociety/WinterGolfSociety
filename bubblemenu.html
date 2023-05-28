@@ -3,13 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <title>bubble menu</title>
+        <title>Seniors winter</title>
         <meta content="Bryan M" name="author" />
         <link href="favicon.ico" rel="icon" type="image/x-icon" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-        
-        <link href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 <style>
 	
@@ -197,7 +195,7 @@ nav {
    
 }
 #two {
-    background-color: #FDD0BC;
+    background-color: DarkKhaki;
 }
 #two svg {
     width: 40px;
@@ -214,7 +212,7 @@ nav {
   
 }
 #three {
-    background-color: #EDB4B5;
+    background-color: orchid;
 }
 #three svg {
     width: 40px;
@@ -236,7 +234,7 @@ nav {
        transform: translateX(-50%);
 }
 #four {
-    background-color: #CB86A0;
+    background-color: lightSteelBlue;
 }
 #four svg {
     width: 40px;
@@ -261,7 +259,7 @@ section {
 .start {
     top: 0;
     left: 0;
-    background-color: salmon;
+    background-color: darkSlateGray;
     text-align: center;
 }
 .first {
@@ -318,13 +316,12 @@ h2 {
 
 #onetxt, #twotxt, #threetxt, #fourtxt {
     line-height: 80px;
-    font-size: 60px;
+    font-size: 23px;
     color: blue;
      font-family: 'Kalam';
-    // padding-bottom: 25px;
+    // padding-bottom: 20px;
     //font-weight: bold;
 }
-
 
 
 
@@ -354,6 +351,30 @@ h2 {
 }
 
 
+.ccontainer {
+ // position: relative;
+ // float: right;
+//  text-align: center;
+//  color: blue;
+}
+
+.centered {
+  position: absolute;
+  //top: 50%;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
+  
+  
+  position: absolute;
+  top: 5vh;
+  right: 3vw;
+  
+   font-family: 'Kalam';
+    font-size: 20px;
+color: white;
+  
+}
+
 
 
 
@@ -375,22 +396,22 @@ h2 {
   </div>
   
   <div class="bubble" id="one"> 
-  <a id="onetxt">A</a>  
-  <h3>About</h3>
+  <a id="onetxt">Diary</a>  
+  <h3>Diary</h3>
   </div>
   
   <div class="bubble" id="two">
-    <a id="twotxt">H</a>  
+    <a id="twotxt">HCPs</a>  
   <h3>Handicaps</h3>
   </div>
   
   <div class="bubble" id="three">
-    <a id="threetxt">2</a>  
+    <a id="threetxt">Twos</a>  
   <h3>Twos</h3>
   </div>
   
   <div class="bubble" id="four">
-    <a id="fourtxt">R</a>  
+    <a id="fourtxt" onclick="doFour()">Results</a>  
   <h3>Results</h3>
   </div>
 </nav>
@@ -402,7 +423,24 @@ h2 {
   <div class="content">
   <h2 class="title">Winter<br>2023-2024</h2>
   </div>
+  
+  <div class="ccontainer">
+    <!--
+    <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="swipe-right.png" alt="swipe right">
+    -->
+    <img src="swipe-right-white.png" alt="swipe" style="position: absolute; top: 10vh; right: 3vw; height: 100px; width: 100px;">
+    <div class="centered">score entry</div>
+  </div>
+  
+  
+  
 </section>
+
+
+
+
+<!--
+
 
 <section class="first">
   <div class="content">
@@ -440,7 +478,7 @@ h2 {
   </div>
 </section>
 
-
+-->
 
 <script>
 	
@@ -536,13 +574,18 @@ h2 {
   });
 
   function moveToPage(firstLeft, secondTop, thirdLeft, fourthTop) {
-    $('.first').animate({ left: firstLeft }, 400);
-    $('.second').animate({ top: secondTop }, 400);
-    $('.third').animate({ left: thirdLeft }, 400);
-    $('.fourth').animate({ top: fourthTop }, 400);
+  //  $('.first').animate({ left: firstLeft }, 400);
+  //  $('.second').animate({ top: secondTop }, 400);
+  //  $('.third').animate({ left: thirdLeft }, 400);
+  //  $('.fourth').animate({ top: fourthTop }, 400);
 
     isTop = true;
   }
+  
+  
+  
+  
+  
 
 function onehint() {
     
@@ -550,7 +593,10 @@ function onehint() {
     
 }
 
-	
+function doFour() {
+window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1210420478&single=true","_blank")
+}
+
 </script>
 </body>
 
