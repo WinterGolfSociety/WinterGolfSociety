@@ -11,12 +11,13 @@
 <style>
 	
 	
-	@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
 * {
     margin: 0;
     padding: 0;
 }
 body {
+      font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
 ::-webkit-scrollbar {
@@ -120,13 +121,17 @@ nav {
     width: 75px;
     height: 75px;
     z-index: 4;
+    
+    
+       border:5px solid white;
+    
 }
 .bubble_all {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #FD898A;
+    background-color: dodgerBlue;
     border-radius: 50%;
     width: 75px;
     height: 75px;
@@ -138,16 +143,21 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    width: 65px;
-    height: 65px;
+    width: 75px;
+    height: 75px;
     z-index: 3;
     box-shadow: 0 0 20px -5px #111;
     text-align: center;
+    
+    
+    border:5px solid white;
+    
+    
 }
 
 
 
-.bubble a:hover ~ h3 {
+.bubble img:hover ~ h3 {
      opacity: 1;
 }
 
@@ -163,7 +173,7 @@ nav {
     -webkit-transition: all 600ms;
 }
 #one {
-    background-color: #FDEECF;
+    background-color: salmon;
 }
 #one svg {
     width: 40px;
@@ -171,7 +181,7 @@ nav {
 }
 #one>h3 {
     position: absolute;
-    font-family: 'Roboto', sans-serif;
+  //  font-family: 'Roboto', sans-serif;
     font-size: 26px;
     color: #111111;
     //top: 50%;
@@ -192,7 +202,7 @@ nav {
 }
 #two>h3 {
     position: absolute;
-    font-family: 'Roboto', sans-serif;
+  //  font-family: 'Roboto', sans-serif;
     font-size: 26px;
     color: #111111;
     top: 75px;
@@ -209,7 +219,7 @@ nav {
 }
 #three>h3 {
     position: absolute;
-    font-family: 'Roboto', sans-serif;
+  //  font-family: 'Roboto', sans-serif;
     font-size: 26px;
     color: #111111;
     //top: 50%;
@@ -231,7 +241,7 @@ nav {
 }
 #four>h3 {
     position: absolute;
-    font-family: 'Roboto', sans-serif;
+//    font-family: 'Roboto', sans-serif;
     font-size: 26px;
     color: #111111;
     top: -40px; //-30px;
@@ -284,13 +294,13 @@ section:first-child.content {
     overflow-y: scroll;
 }
 .start h1 {
-    font-family: 'Roboto', sans-serif;
+//    font-family: 'Roboto', sans-serif;
     font-size: 40px;
     line-height: 100vh;
     color: #111111;
 }
 h2 {
-    font-family: 'Roboto', sans-serif;
+ //   font-family: 'Roboto', sans-serif;
     font-size: 40px;
     color: #111111;
     margin-top: 200px;
@@ -304,10 +314,13 @@ h2 {
 }
 
 #onetxt {
-    line-height: 60px;
+    //line-height: 60px;
+    font-size: 60px;
+    color: blue;
 }
 
-	
+#oneimg {
+    padding-top: 5px;
 </style>
 
 
@@ -324,14 +337,14 @@ h2 {
     </button>
 
   </div>
-  <div class="bubble" id="one">
+  <div class="bubble" id="one" onmouseover="onehint()">
     
-   <a id="onetxt">about</a> 
-    
+ 
+  <a id="onetxt">A</a>  
     
     
 <!--
-<img src="about.png" width="60px" height="60px">
+<img id="oneimg" src="a.png" width="50px" height="50px">
 -->
 <!--
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 492.014 492.014" style="enable-background:new 0 0 492.014 492.014;" xml:space="preserve" width="40px" height="40px">
@@ -609,7 +622,11 @@ h2 {
     isTop = true;
   }
 
-
+function onehint() {
+    
+    alert("about")
+    
+}
 
 	
 </script>
