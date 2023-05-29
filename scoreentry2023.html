@@ -86,7 +86,7 @@
          .num {
          font-size: 15px;
          
-         padding-top: 18px;
+         padding-top: 20px;
          
          color: white;
          width: 17vw;
@@ -1035,15 +1035,23 @@ function incrementScore(id) {
   
 function decrementScore(id) {
 	incPoints = document.getElementById(id).innerText;
-    if (incPoints.indexOf("hole") > -1){
-        document.getElementById(id).style.fontSize = "50px";
-        document.getElementById(id).style.paddingTop = 0;
-        incPoints = 0
+    // if already at 0 say what hole it is
+    if (incPoints == 0) {
+        document.getElementById(id).style.fontSize = "15px";
+        document.getElementById(id).style.paddingTop = "20px";
+        holenum = id.replace("numscore","")
+        document.getElementById(id).innerText = "hole " + holenum
+    } else {
+        if (incPoints.indexOf("hole") > -1){
+            document.getElementById(id).style.fontSize = "50px";
+            document.getElementById(id).style.paddingTop = 0;
+            incPoints = 0
+        }
+    	if (incPoints > 0) {
+        	--incPoints;
+        }
+        document.getElementById(id).innerText = incPoints;
     }
-	if (incPoints > 0) {
-		--incPoints;
-	}
-    document.getElementById(id).innerText = incPoints;
 }  
 
 
