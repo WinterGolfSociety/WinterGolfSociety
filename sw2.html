@@ -3,7 +3,7 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-      <title>Swipe test</title>
+      <title>winter 2023</title>
       <meta content="Bryan M" name="author" />
       <link href="favicon.ico" rel="icon" type="image/x-icon" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -17,7 +17,7 @@
          }
          body {
          color: white;
-         background-color: gainsboro;
+         background-color: black;
          font-family: Arial, Helvetica, sans-serif;
          }
         
@@ -39,26 +39,8 @@
          scroll-snap-align: start;
          scroll-snap-stop: always;
          }
-         #test, #test3 {
-         background: cyan;
-         color: blue;
-         font-size: 150px;
-         }
-         #test2, #test4 {
-         background: dodgerBlue;
-         color: yellow;
-         font-size: 150px;
-         }
-         .hole {
-         border-width: thick;
-         border-color: red;
-         background: cyan; 
-         width:98vw;  
-         height: 8vh;
-         border-radius: 3px;
-         padding-left: 1vw;
-         padding-right: 1vw;
-         }
+       
+         
          .stdtable {
          height:80vh;
          }
@@ -202,7 +184,7 @@
          z-index: 4;
          border: 5px solid white;
          }
-         .bubble_all {
+         .bubble_menu {
          position: absolute;
          top: 50%;
          left: 50%;
@@ -219,7 +201,7 @@
          position: absolute;
          top: 50%;
          left: 50%;
-         transform: translate(-50%, -50%);
+        transform: translate(-52%, -50%);
          border-radius: 50%;
          width: 75px;
          height: 75px;
@@ -228,78 +210,30 @@
          text-align: center;
          border:5px solid white;
          }
-         .bubble img:hover ~ h3 {
-         opacity: 1;
-         }
-         .bubble svg:hover ~ h3 {
-         opacity: 1;
-         }
-         .bubble h3 {
-         opacity: 0;
-         transition: all 400ms;
-         -webkit-transition: all 600ms;
-         }
+     
+      
    
        #one {
          background-color: salmon;
+         padding-top: 18px;
+        
          }
-         #one svg {
-         width: 40px;
-         margin-top: 15px;
-         }
-         #one>h3 {
-         position: absolute;
-         font-size: 26px;
-         color: #111111;
-         top: 75px;
-         left: 50%;
-         transform: translateX(-50%);
-         }
+        
          #two {
          background-color: DarkKhaki;
+           padding-top: 25px;
          }
-         #two svg {
-         width: 40px;
-         margin-top: 12px;
-         }
-         #two>h3 {
-         position: absolute;
-         font-size: 26px;
-         color: #111111;
-         top: 75px;
-         left: 50%;
-         transform: translateX(-50%);
-         }
+        
          #three {
          background-color: orchid;
+           padding-top: 25px;
          }
-         #three svg {
-         width: 40px;
-         margin-top: 14px;
-         }
-         #three>h3 {
-         position: absolute;
-         font-size: 26px;
-         color: #111111;
-         top: 75px;
-         left: 50%;
-         transform: translateX(-50%);
-         }
+       
          #four {
          background-color: lightSteelBlue;
+           padding-top: 22px;
          }
-         #four svg {
-         width: 40px;
-         margin-top: 12px;
-         }
-         #four>h3 {
-         position: absolute;
-         font-size: 26px;
-         color: #111111;
-         top: -40px; //-30px;
-         left: 50%;
-         transform: translateX(-50%);
-         }
+       
          section {
          width: 100vw;
          height: 100vh;
@@ -360,9 +294,34 @@
          color: #111111;
          margin: 50px 10px;
          }
-         #onetxt, #twotxt, #threetxt, #fourtxt {
+         #twotxt, #threetxt, #fourtxt {
          line-height: 80px;
          font-size: 23px;
+         color: blue;
+         font-family: 'Kalam';
+         }
+         
+         #onetxt {
+       line-height: 0.8;
+         font-size: 20px;
+         color: blue;
+         font-family: 'Kalam';
+         }
+         #twotxt {
+         line-height: 0.8;
+         font-size: 20px;
+         color: blue;
+         font-family: 'Kalam';
+         }
+         #threetxt {
+         line-height: 0.8;
+         font-size: 20px;
+         color: blue;
+         font-family: 'Kalam';
+         }
+         #fourtxt {
+         line-height: 0.8;
+         font-size: 18px;
          color: blue;
          font-family: 'Kalam';
          }
@@ -403,134 +362,30 @@
       <div class="container">
          <div class="card">
             <nav id="nav">
-               <div class="bubble_all" id="icon">
+               <div class="bubble_menu" id="icon">
                   <button class="va_menu_icon va_menu_icon-X">
                   <span></span>
                   </button>
                </div>
                <div class="bubble" id="one">
-                  <a id="onetxt">Diary</a>  
-                  <h3>Diary</h3>
+                  <a id="onetxt" onclick="doOne()">Score entry</a>  
                </div>
                <div class="bubble" id="two">
                   <a id="twotxt">HCPs</a>  
-                  <h3>Handicaps</h3>
                </div>
                <div class="bubble" id="three">
                   <a id="threetxt">Twos</a>  
-                  <h3>Twos</h3>
                </div>
                <div class="bubble" id="four">
                   <a id="fourtxt" onclick="doFour()">Results</a>  
-                  <h3>Results</h3>
                </div>
             </nav>
             <section class="start">
                <div class="content">
                   <h2 class="title">Winter<br>2023-2024</h2>
-               </div>
-               <div class="ccontainer">
-                  <!--
-                     <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="swipe-right.png" alt="swipe right">
-                     -->
-                  <img src="swipe-right-white.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">
-                  <div class="centered">score entry</div>
-               </div>
+               </div>              
             </section>
             <a id="test">xxxxxxxxx</a>
-         </div>
-         <div class="card">
-            <table class="stdtable">
-               <tbody                   
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore1" onclick='decrementScore("numscore1")'>-</span>
-                        <span class="num" id="numscore1">hole 1</span>
-                        <span class="plus" id="plusscore1" onclick='incrementScore("numscore1");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore2" onclick='decrementScore("numscore2")'>-</span>
-                        <span class="num" id="numscore2">hole 2</span>
-                        <span class="plus" id="plusscore2" onclick='incrementScore("numscore2");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore3" onclick='decrementScore("numscore3")'>-</span>
-                        <span class="num" id="numscore3">hole 3</span>
-                        <span class="plus" id="plusscore3" onclick='incrementScore("numscore3");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore4" onclick='decrementScore("numscore4")'>-</span>
-                        <span class="num" id="numscore4">hole 4</span>
-                        <span class="plus" id="plusscore4" onclick='incrementScore("numscore4");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore5" onclick='decrementScore("numscore5")'>-</span>
-                        <span class="num" id="numscore5">hole 5</span>
-                        <span class="plus" id="plusscore5" onclick='incrementScore("numscore5");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore6" onclick='decrementScore("numscore6")'>-</span>
-                        <span class="num" id="numscore6">hole 6</span>
-                        <span class="plus" id="plusscore6" onclick='incrementScore("numscore6");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore7" onclick='decrementScore("numscore7")'>-</span>
-                        <span class="num" id="numscore7">hole 7</span>
-                        <span class="plus" id="plusscore7" onclick='incrementScore("numscore7");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore8" onclick='decrementScore("numscore8")'>-</span>
-                        <span class="num" id="numscore8">hole 8</span>
-                        <span class="plus" id="plusscore8" onclick='incrementScore("numscore8");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               <tr class="tr1">
-                  <td class="xtdright">
-                     <div class="wrapper">
-                        <span class="minus" id="minusscore9" onclick='decrementScore("numscore9")'>-</span>
-                        <span class="num" id="numscore9">hole 9</span>
-                        <span class="plus" id="plusscore9" onclick='incrementScore("numscore9");'>+</span>
-                     </div>
-                  </td>
-               </tr>
-               </tbody>
-            </table>
-         </div>
-         <div class="card"> 
-            <a id="test3">xxxxxxxxx</a>
-         </div>
-         <div class="card">
-            <a id="test4">xxxxxxxx</a>
          </div>
       </div>
       <!-- container -->
@@ -774,7 +629,7 @@
              menuIcon.removeClass('is-active');
              hideBubbles();
              setTimeout(function() {
-               $('#nav').animate({ top: '100px', left: '100px' }, 400);
+               $('#nav').animate({ top: '75px', left: '75px' }, 400);
              }, 500);
              isTop = true;
            });
@@ -819,7 +674,9 @@
          window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1210420478&single=true","_blank")
          }
            
-              
+          function doOne() {
+         window.open("scoreentry2023.html","_blank")
+         }    
               
               
               
