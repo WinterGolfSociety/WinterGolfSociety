@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+      <title>winter 2023</title>
+      <meta content="Bryan M" name="author" />
+      <link href="favicon.ico" rel="icon" type="image/x-icon" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+
+
+
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+    background-color: darkSlateGray;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.va_menu_icon {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 0;
+    text-indent: -9999px;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    z-index: 99;
+}
+
+.va_menu_icon:focus {
+    outline: none;
+}
+
+.va_menu_icon span {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    height: 7px;
+    background: #fff;
+}
+
+.va_menu_icon span:before, .va_menu_icon span:after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background-color: #fff;
+    content: "";
+}
+
+.va_menu_icon span:before {
+    top: -14px;
+}
+
+.va_menu_icon span:after {
+    bottom: -14px;
+}
+
+.va_menu_icon-X span {
+    transition: background 0s 0.3s;
+}
+
+.va_menu_icon-X span:before, .va_menu_icon-X span:after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+.va_menu_icon-X span:before {
+    transition-property: top, transform;
+}
+
+.va_menu_icon-X span:after {
+    transition-property: bottom, transform;
+}
+
+.va_menu_icon-X.is-active span {
+    background: none;
+}
+
+.va_menu_icon-X.is-active span:before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.va_menu_icon-X.is-active span:after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.va_menu_icon-X.is-active span:before, .va_menu_icon-X.is-active span:after {
+    transition-delay: 0s, 0.3s;
+}
+nav {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    z-index: 4;
+    border: 5px solid white;
+}
+.bubble_menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: dodgerBlue;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    z-index: 4;
+}
+#one, #two, #three, #four {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    z-index: 3;
+  //  box-shadow: 0 0 20px -5px lightGray;
+    text-align: center;
+    border: 5px solid white;
+}
+
+#one {
+    background-color: salmon;
+}
+
+#two {
+    background-color: DarkKhaki;
+}
+
+#three {
+    background-color: orchid;
+}
+
+#four {
+    background-color: lightSteelBlue;
+}
+
+
+
+.title {
+   	color: white;
+    font-family: 'Kalam';
+    font-size: 40px;
+
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+.start {
+    top: 0;
+    left: 0;
+    //background-color: salmon;
+    text-align: center;
+}
+.content {
+    width: 70%;
+    height: 100vh;
+    opacity: 1;
+    margin: 0 auto;
+    //overflow-y: scroll;
+}
+
+
+
+
+
+.title {
+   	color: white;
+    font-family: 'Kalam';
+    font-size: 40px;
+
+}
+
+h2 {
+ //   font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    color: #111111;
+    margin-top: 200px;
+}
+
+</style>
+
+
+
+
+
+
+
+<body>
+
+<nav id="nav">
+  <div class="bubble_menu" id="icon">
+    <button class="va_menu_icon va_menu_icon-X">
+      <span></span>
+    </button>
+  </div>
+  
+  <div class="bubble" id="one">
+  </div>
+  
+  <div class="bubble" id="two">
+  </div>
+  
+  <div class="bubble" id="three">
+  </div>
+  
+  <div class="bubble" id="four">
+  </div>
+</nav>
+
+
+<section class="start">
+  <div class="content">
+  <h2 class="title">Winter<br>2023-2024</h2>
+  </div>
+  
+  <div><img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="swipe-right-white.png" alt="swipe right">score</div>
+  
+</section>
+
+</body>
+
+<script>
+var isTop = true;
+  var menuIsOpen = false;
+
+  var menuIcon = $('.va_menu_icon');
+
+  var one = $('#one');
+  var two = $('#two');
+  var three = $('#three');
+  var four = $('#four');
+
+  menuIcon.click(function() {
+    if (isTop === true) {
+      $('#nav').animate({ top: '50%', left: '50%' }, 400);
+      $('.content').animate({ opacity: '0' }, 700);
+      showBubbles();
+      isTop = false;
+    } else {
+      if (menuIsOpen === false) {
+        showBubbles();
+      } else {
+        hideBubbles();
+      }
+    }
+  });
+
+  function showBubbles() {
+    menuIcon.addClass('is-active');
+
+    one.animate({ opacity: '1' }, 10);
+    two.animate({ opacity: '1' }, 10);
+    three.animate({ opacity: '1' }, 10);
+    four.animate({ opacity: '1' }, 10);
+
+    one.animate({ left: '140px' }, 110);
+    two.animate({ top: '140px' }, 200);
+    one.animate({ left: '130px' }, 100);
+    three.animate({ left: '-65px' }, 300);
+    two.animate({ top: '130px' }, 210);
+    four.animate({ top: '-65px' }, 400);
+    three.animate({ left: '-55px' }, 310);
+    four.animate({ top: '-55px' }, 400);
+
+    menuIsOpen = true;
+  }
+
+  function hideBubbles() {
+    menuIcon.removeClass('is-active');
+
+    setTimeout(function() {
+      $('#nav').animate({ top: '100px', left: '100px' }, 400);
+    $('.content').animate({ opacity: '1' }, 900);
+    }, 500);
+    four.animate({ top: '-65px' }, 400);
+    three.animate({ left: '-65px' }, 300);
+    four.animate({ top: '50%' }, 400);
+    two.animate({ top: '140px' }, 200);
+    three.animate({ left: '50%' }, 310);
+    one.animate({ left: '140px' }, 110);
+    two.animate({ top: '50%' }, 200);
+    one.animate({ left: '50%' }, 110);
+
+    menuIsOpen = false;
+    isTop = true
+  }
+
+  $('.bubble').click(function() {
+    menuIcon.removeClass('is-active');
+    hideBubbles();
+    setTimeout(function() {
+      $('#nav').animate({ top: '100px', left: '100px' }, 400);
+    }, 500);
+    isTop = true;
+  });
+
+
+
+</script>
+
+  </body>
+</html>
+
+
+
+
+
