@@ -358,8 +358,35 @@ var isTop = true;
   });
 
 
+ one.click(function() {
+    moveToPage('0', '100vw', '-100vw', '-100vw');
+  });
+
+  two.click(function() {
+    moveToPage('100vw', '0', '-100vw', '-100vw');
+  });
+
+  three.click(function() {
+    moveToPage('100vw', '100vw', '0', '-100vw');
+  });
+
+  four.click(function() {
+    moveToPage('100vw', '100vw', '-100vw', '0');
+  });
+
+  function moveToPage(firstLeft, secondTop, thirdLeft, fourthTop) {
+ //   $('.first').animate({ left: firstLeft }, 400);
+    $('.second').animate({ top: secondTop }, 400);
+    $('.third').animate({ left: thirdLeft }, 400);
+    $('.fourth').animate({ top: fourthTop }, 400);
+
+    isTop = true;
+  }
+
+
+
 function doFour() {
-window.open("results2023.html","_blank")
+window.open("results2023.html","_blank");
 }
 
 </script>
