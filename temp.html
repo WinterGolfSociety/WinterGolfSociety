@@ -371,11 +371,12 @@ var isTop = true;
   });
 
   four.click(function() {
-    moveToPage('100vw', '100vw', '-100vw', '0');
+    //moveToPage('100vw', '100vw', '-100vw', '0');
+     window.open("results2023.html","_blank");
   });
 
   function moveToPage(firstLeft, secondTop, thirdLeft, fourthTop) {
- //   $('.first').animate({ left: firstLeft }, 400);
+    $('.first').animate({ left: firstLeft }, 400);
     $('.second').animate({ top: secondTop }, 400);
     $('.third').animate({ left: thirdLeft }, 400);
     $('.fourth').animate({ top: fourthTop }, 400);
@@ -386,8 +387,8 @@ var isTop = true;
 
 
 function doFour() {
-   hideBubbles()
-window.open("results2023.html","_blank");
+//   hideBubbles()
+//window.open("results2023.html","_blank");
 }
 
 </script>
