@@ -327,12 +327,14 @@ var isTop = true;
   }
 
   function hideBubbles() {
+     // add 500ms delay
+      setTimeout(function() {
     menuIcon.removeClass('is-active');
-
+      },500);
     setTimeout(function() {
       $('#nav').animate({ top: '100px', left: '100px' }, 400);
     $('.content').animate({ opacity: '1' }, 900);
-    }, 1500);
+    }, 500);
     four.animate({ top: '-65px' }, 400);
     three.animate({ left: '-65px' }, 300);
     four.animate({ top: '50%' }, 400);
