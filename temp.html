@@ -274,7 +274,7 @@ h2 {
   <h2 class="title">Winter<br>2023-2024</h2>
   </div>
   
-  <div><img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="swipe-right-white.png" alt="swipe right">score</div>
+  <div id="pressbutton"><img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="pressbuttonwhite.png" alt="press"></div>
   
 </section>
 
@@ -324,6 +324,9 @@ var isTop = true;
     four.animate({ top: '-55px' }, 400);
 
     menuIsOpen = true;
+    // hide pressbutton
+      $('#pressbutton').animate({ opacity: '0' }, 700);
+    //document.getElementById("pressbutton").style.display = "none";
   }
 
   function hideBubbles() {
@@ -371,12 +374,11 @@ var isTop = true;
   });
 
   four.click(function() {
-    //moveToPage('100vw', '100vw', '-100vw', '0');
-     
-         setTimeout(function() {
-     window.open("results2023.html","_blank");
-             }, 1000);
-  });
+    // put menu back then move to results page
+    setTimeout(function() {
+      window.open("results2023.html","_blank");
+      }, 1000);
+    });
 
   function moveToPage(firstLeft, secondTop, thirdLeft, fourthTop) {
     $('.first').animate({ left: firstLeft }, 400);
@@ -398,7 +400,6 @@ function doFour() {
 
   </body>
 </html>
-
 
 
 
