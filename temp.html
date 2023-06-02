@@ -236,6 +236,10 @@ h2 {
  :focus {outline:none;}
     ::-moz-focus-inner {border:0;}
 
+    
+    
+    
+    
 </style>
 
 
@@ -273,7 +277,9 @@ h2 {
   <h2 class="title">Winter<br>2023-2024</h2>
   </div>
   
-  <div id="pressbutton"><img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="pressbuttontransparent.png" alt="press"></div>
+  <div class="fadein" id="pressbutton">
+   <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="pressbuttonflash.png" alt="press"> 
+  </div>
   
 </section>
 
@@ -324,8 +330,8 @@ var isTop = true;
 
     menuIsOpen = true;
     // hide pressbutton
-      $('#pressbutton').animate({ opacity: '0' }, 700);
-    //document.getElementById("pressbutton").style.display = "none";
+    $('#pressbutton').animate({ opacity: '0' }, 700);
+      
   }
 
   function hideBubbles() {
