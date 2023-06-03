@@ -333,70 +333,70 @@
                <tbody>
                 <tr>
                  <td class="holesinfo">1</td>
-                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h1">2</td>
                  <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
+                 <td class="holesinfo" id="h10">4</td>
                 </tr>
                  <tr>
-                 <td class="holesinfo">1</td>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                  <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h2">1</td>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                   <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h11">3</td>
+                 </tr>
+                 <tr>
+                 <td class="holesinfo">2</td>                   
+                 <td class="holesinfo" id="h3">1</td>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                    <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h12">3</td>
+                 </tr>
+                 <tr>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                     <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h4">1</td>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                      <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h13">3</td>
+                 </tr>
+                 <tr>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                       <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h5">1</td>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                        <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h14">3</td>
+                 </tr>
+                 <tr>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                         <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h6">1</td>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
-                          <tr>
-                 <td class="holesinfo">1</td>
+                 <td class="holesinfo" id="h15">3</td>
+                 </tr>
+                 <tr>
                  <td class="holesinfo">2</td>
-                 <td class="holesinfo">3</td>
-                 <td class="holesinfo">4</td>
-                </tr>
+                 <td class="holesinfo" id="h7">1</td>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h16">3</td>
+                 </tr>
+                 <tr>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h8">1</td>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h17">3</td>
+                 </tr>
+                 <tr>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h9">1</td>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h18">3</td>
+                 </tr>
+                 <tr>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h1"">1</td>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h1"">3</td>
+                 </tr>
+                 <tr>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h1"">1</td>
+                 <td class="holesinfo">2</td>
+                 <td class="holesinfo" id="h1"">3</td>
+                 </tr>
                </tbody>
                </table>
                  </td>
@@ -1317,6 +1317,11 @@ function incrementScore(id) {
         incPoints = 0
     }
     document.getElementById(id).innerText = ++incPoints;
+    document.getElementById( id.replace("numscore","h")).innerText = incPoints;
+    
+    
+    
+    
 } 
   
   
@@ -1338,6 +1343,9 @@ function decrementScore(id) {
         	--incPoints;
         }
         document.getElementById(id).innerText = incPoints;
+        document.getElementById(id.replace("numscore","h")).innerText = incPoints;
+    
+    
     }
 }  
 
