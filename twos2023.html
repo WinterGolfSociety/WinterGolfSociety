@@ -22,13 +22,9 @@ body {
 
 .holder {
     width: 100vw;
-    height:96vh;
-    position:relative
-}
-.frame {
-    width: 100%;
-    height:100%;
-    background-color:white;
+    height:100vh;
+    position:relative;
+    overflow: hidden;
 }
 .bar {
     position:absolute;
@@ -50,23 +46,36 @@ body {
     height:30px;
     background-color: white;
     }
-   
    #spin {
     text-align: center;
    }
-   
 </style>
 <body>
 <div class="holder">
-    <iframe class="frame" id="frameId" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pubhtml?gid=1266484079&single=true"></iframe>
-    <div class="bar" id="barId">loading ... may take a few seconds&nbsp;<img id="spin" src="spin.png" height="100" width="100"></div>
-    <div class="barbottom"></div>
+<iframe
+  src=" https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pubhtml?gid=1266484079&single=true"
+  style="
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: 999999;
+    height: 100%;
+  ">
+</iframe>
+<div class="bar" id="barId">loading ... may take a few seconds;<img id="spin" src="spin.png" height="100" width="100"></div>
+<div class="barbottom"></div>
 </div>
 </body>
 <script>
 const iframe = document.getElementById("frameId");
 iframe.addEventListener("load", function() {
-document.getElementById("barId").innerText = "Twos - Winter 2023";
+document.getElementById("barId").innerText = "twos - Winter 2023";
 });
 </script>
 </body>
