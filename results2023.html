@@ -8,11 +8,7 @@
       <meta content="Bryan M" name="author" />
       <link href="favicon.ico" rel="icon" type="image/x-icon" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
       <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-
-
-
 <style>
 
 * {
@@ -45,8 +41,6 @@ body {
     font-size: 20px;
     color: black;
     font-family: 'Kalam';
-//    display: flex; 
-  //       justify-content: center;
     }
  .barbottom {
     position:absolute;
@@ -61,40 +55,21 @@ body {
     text-align: center;
    }
    
-   
-   
 </style>
-
 <body>
- 
- 
- 
- 
- 
- 
- 
- 
- 
 <div class="holder">
     <iframe class="frame" id="frameId" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=612102443&single=true"></iframe>
-    <div class="bar" id="barId">loading ... may take a few seconds&nbsp;<img id="spin" src="spin.png" height="16" width="16"></div>
+    <div class="bar" id="barId">loading ... may take a few seconds&nbsp;<img id="spin" src="spin.png" height="100" width="100"></div>
     <div class="barbottom"></div>
 </div>
 </body>
-
 <script>
- 
-
 const iframe = document.getElementById("frameId");
 iframe.addEventListener("load", function() {
 document.getElementById("barId").innerText = "Results - Winter 2023";
 });
- 
- 
-
 </script>
-
-  </body>
+</body>
 </html>
 
 
