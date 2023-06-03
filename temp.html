@@ -156,14 +156,20 @@ nav {
 
 #one {
     background-color: salmon;
+    display: flex; 
+         justify-content: center;
 }
 
 #two {
     background-color: DarkKhaki;
+    display: flex; 
+         justify-content: center;
 }
 
 #three {
     background-color: orchid;
+    display: flex; 
+         justify-content: center;
 }
 
 #four {
@@ -223,7 +229,32 @@ h2 {
     font-size: 23px;
     color: blue;
      font-family: 'Kalam';
-} 
+}
+
+
+#onetxt {
+    margin: auto;
+    font-size: 18px;
+    color: blue;
+    font-family: 'Kalam';
+    
+}
+
+#twotxt {
+    margin: auto;
+    font-size: 18px;
+    color: blue;
+    font-family: 'Kalam';
+    
+}
+
+#threetxt {
+    margin: auto;
+    font-size: 18px;
+    color: blue;
+    font-family: 'Kalam';
+    
+}
 
 #fourtxt {
     margin: auto;
@@ -258,16 +289,19 @@ h2 {
   </div>
   
   <div class="bubble" id="one">
+     <a id="onetxt" onclick="doOne();">HCPs</a>  
   </div>
   
   <div class="bubble" id="two">
+     <a id="twotxt" onclick="doTwo();">Score entry</a>  
   </div>
   
   <div class="bubble" id="three">
+     <a id="threetxt" onclick="doThree();">Twos</a>  
   </div>
   
   <div class="bubble" id="four">
-   <a id="fourtxt" onclick="doFour()">Results</a>  
+   <a id="fourtxt" onclick="doFour();">Results</a>  
   </div>
 </nav>
 
@@ -330,8 +364,8 @@ var isTop = true;
 
     menuIsOpen = true;
     // hide pressbutton
-    $('#pressbutton').animate({ opacity: '0' }, 700);
-      
+    // $('#pressbutton').animate({ opacity: '0' }, 700);
+    $( "#pressbutton" ).html("");  
   }
 
   function hideBubbles() {
@@ -341,7 +375,7 @@ var isTop = true;
       },500);
     setTimeout(function() {
       $('#nav').animate({ top: '100px', left: '100px' }, 400);
-    $('.content').animate({ opacity: '1' }, 900);
+      $('.content').animate({ opacity: '1' }, 900);
     }, 500);
     four.animate({ top: '-65px' }, 400);
     three.animate({ left: '-65px' }, 300);
@@ -367,16 +401,25 @@ var isTop = true;
 
 
  one.click(function() {
-    moveToPage('0', '100vw', '-100vw', '-100vw');
-  });
+    // put menu back then move to hcp page
+    setTimeout(function() {
+      window.open("hcp2023.html","_blank");
+      }, 1000);
+    });
 
   two.click(function() {
-    moveToPage('100vw', '0', '-100vw', '-100vw');
+  // put menu back then move to score entry page
+    setTimeout(function() {
+      window.open("scoreentry2023.html","_blank");
+      }, 1000);
   });
 
   three.click(function() {
-    moveToPage('100vw', '100vw', '0', '-100vw');
-  });
+    // put menu back then move to twos page
+    setTimeout(function() {
+      window.open("twos2023.html","_blank");
+      }, 1000);
+    });
 
   four.click(function() {
     // put menu back then move to results page

@@ -225,6 +225,17 @@
  <div class="container">
       <div class="pagecard" id="setup">
      <!--    <div class="xxxxxleft">   -->
+     
+     
+     
+     
+                   
+                      
+                      
+     
+     
+     
+     
             <table class="table1">
                <caption></caption>
                <thead>
@@ -255,17 +266,50 @@
                            <a id="myLink16" href="#" onclick='dropSelected(this.innerText);return false;'>Brian Simpson</a>
                         </div>
                      </td>
+                     </tr?
                      
+                     <tr>
                      <td>
                      <div>
                       
+                      
+                      
+                      
+                      
+                      
+                      <div class="ccontainer">
+                  <!--
+                     <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="swipe-right.png" alt="swipe right">
+                     -->
+                  <img src="swipe-right-white.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">
+              <!--
+                  <div class="centered">your round</div>
+               -->
+               </div>
                       
                      </div> 
                       
                       
                       
                      </td>
+                     </tr>
                      
+                     
+                     <tr>
+                      
+                     <td>
+                      
+                      <br>
+                      <br>
+                      <br>
+                      
+                      
+                      <div class="wrapper">
+                      <div id="playernamelookup">hcp goes here</div>
+                      
+                      </div>
+                      
+                     </td>
                      
                   </tr>
                </tbody>
@@ -585,7 +629,8 @@
       <br>
       <br>
       <button id="test" onClick="test()">test</button>
-      <script>   
+      <script>
+       
          /*
          
          https://docs.google.com/forms/d/e/1FAIpQLSfpwrHPvjjQiIN9a-cmxBrE6aaORO6yBG6cu7kGXN2piQygGw/viewform?usp=pp_url
@@ -876,7 +921,15 @@
             
            // replace button name
            element = document.getElementById("dropbtn") 
-           element.innerText =  player 
+           element.innerText =  player
+           
+           
+           
+  
+           
+           
+           
+           
          
            var dropdowns = document.getElementsByClassName("dropdown-content");
              var i;
@@ -886,6 +939,15 @@
                  openDropdown.classList.remove('show');
                }
              }
+             
+             
+             
+               doGetHCP();       
+             
+             
+             
+             
+             
          }
          
          function dropSelectedCourse(courseName) {
@@ -1314,12 +1376,71 @@ function decrementScore(id) {
          
          
          
+            function getHCP(results) {
+                //Data is usable here
+                var strng1 = "not found";
+                var strng2 = "not found";
+                var datax = results.data;
+                //search google sheets for info
+                 document.getElementById("playernamelookup").innerText = "not found";
+              //  alert(datax[5].player + " " + datax[5].hcp)
+                
+                
+                for (i = 0; i < datax.length; i++) {
+                    if (player == datax[i].player) {
+                     strng1 = datax[i].player;
+                     strng2 = datax[i].hcp;
+                    }
+                }
+ 
+                document.getElementById("playernamelookup").innerText = strng1 + " it looks like your hcp is "+ strng2;
+
+               
+            }
+
+            function doGetHCP() {
+            //    btninfo = document.getElementById("hcplookup");
+                 document.getElementById("playernamelookup").innerText = "started";
+           //     btninfo.innerHTML = 'searching &nbsp;&nbsp;<img src="loading.jpg" alt="" width="20" height="20">';
+                var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
+
+                Papa.parse(public_hcp_url, {
+                    download: true,
+                    header: true,
+                    complete: getHCP,
+                });
+            }
+
          
          
          
          
+  /*
+   
+  hcp list       
          
+  https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pubhtml?gid=1210420478&single=true       
+     
+ 
+ hcpcsv    
+     
+   https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv  
+     
+     
+ all results
+ 
+ https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pubhtml?gid=612102443&single=true
+     
+   
+   
+   
+ twos
+ 
+ https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pubhtml?gid=1266484079&single=true
+   
+     
          
+   */      
          
          
          
