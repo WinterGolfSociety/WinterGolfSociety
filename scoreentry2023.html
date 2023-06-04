@@ -19,12 +19,21 @@
           overflow-y: hidden;    
          }
          
+         ::selection {
+    background: none;
+}
+
+::-moz-selection {
+    background: none
+}
+
+
          .container {
          display: grid;
          grid-template-columns: repeat(3, 100%);
-         will-change: transform;
+       //  will-change: transform;
          align-content: center;
-//         overflow-x: auto;
+        overflow-x: auto;
          scroll-snap-type: x mandatory;
          -webkit-overflow-scrolling: touch;      
          }
@@ -46,7 +55,6 @@
        border-collapse: collapse;
         display: flex; 
          justify-content: top;
- 
          }
          
       .stdtable {
@@ -179,20 +187,20 @@
          }
        
        .holesinfo {
-        width: 15vw;
+        width: 12vw;
         text-align: center;
         color: cyan;
        }
        
        .holesinfoy {
-         width: 15vw;
+         width: 12vw;
         text-align: center;
         color: yellow;
         
        }
        
         .holesinfog {
-         width: 15vw;
+         width: 12vw;
         text-align: center;
         color: lime;
         
