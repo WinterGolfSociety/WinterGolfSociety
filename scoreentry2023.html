@@ -831,7 +831,7 @@
       <br>
    
       <script>
-       
+       alert("here")
        
        var touchstartX = 0
          var touchendX = 0
@@ -839,7 +839,7 @@
          function checkDirection() {
           // if (touchendX < touchstartX) document.getElementById("test").innerText="swiped left"
            if (touchendX > touchstartX)
-           document.getElementById("test").innerText="swiped right"
+        //   document.getElementById("test").innerText="swiped right"
            
            
            
@@ -927,9 +927,9 @@
          &entry.135100134=p17
          &entry.1074696692=p18
          
-         */	
+       */	
          	
-         
+      
          	
          	
          var hcp = "22"  
@@ -970,7 +970,7 @@
             // temp
             course = "Lakes"
             
-     //       hcp = 22
+     //      hcp = 22
             
             
             
@@ -1466,51 +1466,7 @@
            
          } 
            
-         function incrementTest(id) {
-         	var incScore = document.getElementById(id).innerText;
-         	if (incScore === "9") {
-         		incScore = 8
-         	}
-             document.getElementById(id).innerText = ++incScore;
-             
-             if (incScore !== 0) {
-         		// pointsCalc(hcp,par,si,score)
-         		var temppoints = pointsCalc(22,4,12,incScore)
-         	} else {
-         		var temppoints = 0
-         	}
-             
-             // find equivalent points id
-         	var pointsID = id.replace("c","p")
-             document.getElementById(pointsID).value = temppoints
-         	
-             calcCbs() 
-         } 
-           
-           
-         function decrementTest(id) {
-         	incScore = document.getElementById(id).innerText;
-         	if (incScore === "0") {
-         		incScore = 1
-         	}
-             document.getElementById(id).innerText = --incScore;
-             
-             if (incScore !== 0) {
-         		// pointsCalc(hcp,par,si,score)
-         		var temppoints = pointsCalc(22,4,12,incScore)
-         	} else {
-         		var temppoints = 0
-         	}
-             
-             // find equivalent points id
-         	var pointsID = id.replace("c","p")
-             document.getElementById(pointsID).value = temppoints
-             
-             calcCbs() 
-         }  
-           
- 
- 
+       
  
  
           
@@ -1525,6 +1481,8 @@ function incrementHcp(id) {
     
     document.getElementById(id).innerText = ++incScore;
     
+   hcp = incScore
+
    recalcScores()
     
 } 
@@ -1583,13 +1541,14 @@ function decrementHcp(id) {
             document.getElementById(id).style.paddingTop = 0;
             incScore = 0
         }
-    	if (incScore > 0) {
+    	   if (incScore > 0) {
         	--incScore;
         }
         document.getElementById(id).innerText = incScore;
         
     }
     
+    hcp = incScore
     
     recalcScores()
     
@@ -1598,7 +1557,6 @@ function decrementHcp(id) {
 }  
 
    
-  
   
   
   
@@ -1650,6 +1608,7 @@ function decrementScore(id) {
 
  
 function totalScore() {
+ //alert("totalscore")
 var ih = 0
 var ip = 0
 var c6 = 0;
@@ -1696,15 +1655,20 @@ document.getElementById("cback").innerText = cb;
          
          
          function pointsCalc(hcp,par,si,score) {
-
+          allowance = 0
+      //    alert("hcp = " + hcp + " par = " + par + " si = " + si + " score = " + score)
+          
+          if (score == 0) {
+           return 0
+          } else {
             // allowance   
-            if (hcp > si) {
+            if (hcp >= si) {
                allowance = 1 
             } 
-            if (hcp > (18 + si)) {
+            if (hcp >= (18 + si)) {
                allowance = 2 
             } 
-            if (hcp > (36 + si)) {
+            if (hcp >= (36 + si)) {
                allowance = 3 
             }   
          
@@ -1717,7 +1681,7 @@ document.getElementById("cback").innerText = cb;
             }
          
             return points
-            
+          }
          }
          
          
@@ -1732,7 +1696,8 @@ document.getElementById("cback").innerText = cb;
          
          
          
-         
+
+       
          
          
          
@@ -1875,33 +1840,46 @@ document.getElementById("cback").innerText = cb;
       
       
       
-             
+           
        
 function recalcScores() {
 for (i = 1; i <= 18; i++) {
  
-  tempscore = document.getElementById("numscore" + i).innerText;
- alert(tempscore)
-   if (course == "Lakes"){
-      par =  arrLakes[i)][1]
-      si = arrLakes[i][2]
-   } else {
-    par = arrDawson[i][1]
-    si =  arrDawson[i[2]   
+ tempscore = document.getElementById("numscore" + i).innerText;
+ if (tempscore.indexOf("hole") > -1) {
+  tempscore = "0"
+ }
+
+ 
+ 
+ 
+
+  if (course == "Lakes"){
+      temppar =  arrLakes[i][1]
+      tempsi = arrLakes[i][2]
+  } else {
+    temppar = arrDawson[i][1]
+    tempsi =  arrDawson[i][2]   
    }
    
-   temppoints = pointsCalc(hcp,par,si,tempscore)
- 
+  
+   
+   
+   
+  //  alert("recalcscores - hcp = " + hcp + " par = " + temppar + " si = " + tempsi + " score = " + tempscore)
+   
+ temppoints = pointsCalc(hcp,temppar,tempsi,tempscore)
+   // alert("score = " + tempscore + " points = " + temppoints)
   
   document.getElementById("h" + i).innerText = tempscore;
  
 
-  document.getElementById("p" + i).innerText = temppoints;
+ document.getElementById("p" + i).innerText = temppoints;
  
- totalScore()
+
  
 }
- 
+ totalScore()
 }
   
       
@@ -1917,12 +1895,18 @@ for (i = 1; i <= 18; i++) {
       
       
       
+    
       
       
       
       
-      
-      
+  
+  
+  
+  
+  
+  
+  
          
          
   /*
