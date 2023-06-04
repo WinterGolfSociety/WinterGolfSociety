@@ -63,6 +63,7 @@
       //  display: flex; 
       //   justify-content: top;
         }
+        
       .stdtable {
        border: none;
        border-collapse: collapse;
@@ -1524,7 +1525,7 @@ function incrementHcp(id) {
     
     document.getElementById(id).innerText = ++incScore;
     
-   
+   recalcScores()
     
 } 
  
@@ -1588,6 +1589,11 @@ function decrementHcp(id) {
         document.getElementById(id).innerText = incScore;
         
     }
+    
+    
+    recalcScores()
+    
+    
      
 }  
 
@@ -1862,6 +1868,61 @@ document.getElementById("cback").innerText = cb;
 
          
          
+      
+      
+      
+      
+      
+      
+      
+             
+       
+function recalcScores() {
+for (i = 1; i <= 18; i++) {
+ 
+  tempscore = document.getElementById("numscore" + i).innerText;
+ alert(tempscore)
+   if (course == "Lakes"){
+      par =  arrLakes[i)][1]
+      si = arrLakes[i][2]
+   } else {
+    par = arrDawson[i][1]
+    si =  arrDawson[i[2]   
+   }
+   
+   temppoints = pointsCalc(hcp,par,si,tempscore)
+ 
+  
+  document.getElementById("h" + i).innerText = tempscore;
+ 
+
+  document.getElementById("p" + i).innerText = temppoints;
+ 
+ totalScore()
+ 
+}
+ 
+}
+  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
          
          
   /*
