@@ -264,7 +264,7 @@
                 <tr>
                 <td>
                 <div>       
-                <div class="ccontainer">
+                <div class="ccontainer" id="swiperight">
                 <!--
                 <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="swipe-right.png" alt="swipe right">
                 -->
@@ -801,6 +801,58 @@
       <br>
    
       <script>
+       
+       
+       var touchstartX = 0
+         var touchendX = 0
+             
+         function checkDirection() {
+          // if (touchendX < touchstartX) document.getElementById("test").innerText="swiped left"
+           if (touchendX > touchstartX)
+           document.getElementById("test").innerText="swiped right"
+           
+           
+           
+           
+                document.getElementById("swiperight").innerHTML=""
+           
+           
+           
+           
+           
+           
+           
+         }
+         
+         document.addEventListener('touchstart', e => {
+           touchstartX = e.changedTouches[0].screenX
+         })
+         
+         document.addEventListener('touchend', e => {
+           touchendX = e.changedTouches[0].screenX
+           checkDirection()
+         })
+          
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
        
          /*
          
