@@ -39,10 +39,10 @@
          }
          
          .pagecard {
-         width: 98vw;
-         height: 100vh
-         padding-left: 1vw;
-         padding-right: 1vw;
+         width: 100vw;
+         height: 100vh;
+     //    padding-left: 1vw;
+    //     padding-right: 1vw;
          overflow: hidden;
          display: flex;
          background-color: darkSlateGray;
@@ -70,7 +70,7 @@
          }
          
          .tr1 {
-         background: dodgerBlue;
+         background: dodgerBlue; //midnightBlue;
         // width: 90vw;
          }
          
@@ -172,7 +172,7 @@
          }
          
          .wrapper {
-         background: dodgerBlue;
+    //     background: bluejay; //dodgerBlue;
          width: 100vw;
          }
          
@@ -831,14 +831,14 @@
       <br>
    
       <script>
-       alert("here")
+  //     alert("here")
        
-       var touchstartX = 0
-         var touchendX = 0
+       var touchstartX = 0;
+         var touchendX = 0;
              
          function checkDirection() {
           // if (touchendX < touchstartX) document.getElementById("test").innerText="swiped left"
-           if (touchendX > touchstartX)
+           if (touchendX < touchstartX)
         //   document.getElementById("test").innerText="swiped right"
            
            
