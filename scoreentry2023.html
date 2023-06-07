@@ -665,25 +665,11 @@
           ["Tony Smith",0],
           ["reset list",0]]
          
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
          if ("dropdown" in localStorage) {
          // retrieve dropdown info
          var options = JSON.parse(localStorage.dropdown);
          var ol = options.length
          var ml = master.length
-         
-         alert(ol + " " + ml)
          
          // update to add anything new - if required
          if (ol !== ml) {
@@ -717,24 +703,9 @@
            
            select.appendChild(el);
            
-           
-           
-           
-           
-           
-           
            if (options[i][1] > 0) {
-              document.getElementById("myLink" + (i + 1)).style.color =  "purple"
-            
+              document.getElementById("myLink" + (i + 1)).style.color =  "purple"      
            }
-           
-           
-           
-           
-           
-           
-           
-           
          }
          
          // Close the dropdown if the user clicks outside of it
@@ -753,7 +724,42 @@
          
          //=============================================================
          // functions
-         //=============================================================
+         //=============================================================     
+         
+         
+         function resetNames() {
+            // create/recreate options array
+         options = JSON.parse(JSON.stringify(master));
+         // update local storage
+         localStorage.dropdown = JSON.stringify(options);
+         // bring most commonly selected to thevtop
+        // options.sort(compareSecondColumn);
+         
+         // create player dropdown
+         var select = document.getElementById("myDropdown");
+         // empty names
+         select.innerHTML = "";
+         /* 
+         <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+         */
+         for(var i = 0; i < options.length; i++) {
+           
+           var el = document.createElement("a");
+           el.id="myLink" + (i+1)
+           el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+           el.setAttribute("href","#");
+           el.innerText = options[i][0];
+           
+           select.appendChild(el);
+           
+           
+         }
+          
+         }
+         
+         
+         
+         
          function showDetail() {
          window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vSYr0CNuuUeOLD6ZJCDZF29A2jY5LEhYNZ7bkwid2LLpYIDZsmG4BCV_B3SmNFeZ-zuYVJyZzFvWEwC/pubhtml?gid=1997373341&single=true');
             ;
@@ -780,15 +786,17 @@
          
          function dropSelected(playerName) {
          if (playerName == "reset list") {
-          clearStorage();
-         } else {
+          resetNames()
+         // clearStorage();
+        
+         }
+         else {
          for(var k = 0; k < options.length; k++){
            if(options[k][0] == playerName){
                found = true;
                var pos = k
            }
          }
-         alert("change color")
          // change color on selection
          document.getElementById("myLink" + (pos + 1)).style.color =  "purple"
          // update player choice
@@ -800,7 +808,7 @@
          // document.getElementById("list").innerText =  options
          // store new order
          localStorage.dropdown = JSON.stringify(options);
-          }  
+         }  
            
           player = playerName
          
@@ -833,7 +841,7 @@
          // When the user clicks on the button, toggle between hiding and showing the dropdown content
          document.getElementById("myDropdown").classList.toggle("show");
          }    
-         
+   /*      
          alert(localStorage.getItem("hole1") + "1\n" +
               localStorage.getItem("hole2") + "2\n" +
               localStorage.getItem("hole3") + "3\n" +
@@ -853,7 +861,7 @@
               localStorage.getItem("hole17") + "17\n" +
               localStorage.getItem("hole18") + "18\n"
                 )
-              
+     */         
               var touchstartX = 0;
                 var touchendX = 0;
                     
@@ -950,9 +958,6 @@
               */
             
             dd = new Date()
-                
-                
-                alert("dd")
                 
                   d1 = dd.getDate();
                   if (d1 < 10) {
