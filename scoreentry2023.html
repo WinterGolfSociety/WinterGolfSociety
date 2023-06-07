@@ -124,7 +124,7 @@
          z-index: 1;
          border-radius: 3px;
          box-shadow: 10px 10px 25px black;
-          max-height: 75vh;
+          max-height: 65vh;
          }
          .dropdown-content a {
          color: gray; //black;
@@ -704,7 +704,8 @@
            select.appendChild(el);
            
            if (options[i][1] > 0) {
-              document.getElementById("myLink" + (i + 1)).style.color =  "purple"      
+              document.getElementById("myLink" + (i + 1)).style.color =  "blue";
+               document.getElementById("myLink" + (i + 1)).style.background = "lightBlue";
            }
          }
          
@@ -798,7 +799,8 @@
            }
          }
          // change color on selection
-         document.getElementById("myLink" + (pos + 1)).style.color =  "purple"
+         document.getElementById("myLink" + (i + 1)).style.color =  "blue";
+               document.getElementById("myLink" + (i + 1)).style.background = "lightBlue";
          // update player choice
          player2submit = document.getElementById("myLink" + (pos + 1)).innerText
          if (pos > 0) {
