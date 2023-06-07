@@ -685,21 +685,16 @@
          alert(ol + " " + ml)
          
          // update to add anything new - if required
-          if (ol !== ml) {
-          alert(ol + " !== " + ml) 
-         	for (var m = 0; m < (ml - ol) ; m++) {
-         		options.push([master[ml - 1 - m][0],master[ml - 1 - m][1]])
-         	}
+         if (ol !== ml) {
+         options = JSON.parse(JSON.stringify(master));
+         
          	// update local storage
          	localStorage.dropdown = JSON.stringify(options);
          }
          
          } else {
          // create/recreate options array
-         var options = []
-         for (var i = 0; i < master.length; i++) {
-         	options[i] = master[i].slice();
-         }
+         options = JSON.parse(JSON.stringify(master));
          // update local storage
          localStorage.dropdown = JSON.stringify(options);
          }
