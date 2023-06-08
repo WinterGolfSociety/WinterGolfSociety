@@ -70,10 +70,14 @@
 	}
 	
 	.tr1 {
-		background: dodgerBlue; //midnightBlue;
+		//background: dodgerBlue;
 		// width: 90vw;
 	}
-	
+ 
+	 #tr1, #tr2, #tr3, #tr4, #tr5, #tr6, #tr7, #tr8, #tr9, #tr10, #tr11, #tr12, #tr13, #tr14, #tr15, #tr16, #tr17, #tr18 {
+   	background: dodgerBlue;
+  }
+  
 	.plus {
 		font-size: 50px;
 		color: white;
@@ -85,6 +89,10 @@
 		float: right;
 	}
 	
+  #plusscore1, #plusscore2, #plusscore3, #plusscore4, #plusscore5, #plusscore6, #plusscore7, #plusscore8, #plusscore9, #plusscore10, #plusscore11, #plusscore12, #plusscore13, #plusscore14, #plusscore15, #plusscore16, #plusscore17, #plusscore18 {
+   	color: white;
+  }
+ 
 	.minus {
 		font-size: 50px;
 		color: white;
@@ -96,6 +104,10 @@
 		float: left;
 	}
 	
+  #minusscore1, #minusscore2, #minusscore3, #minusscore4, #minusscore5, #minusscore6, #minusscore7, #minusscore8, #minusscore9, #minusscore10, #minusscore11, #minusscore12, #minusscore13, #minusscore14, #minusscore15, #minusscore16, #minusscore17, #minusscore18 {
+   	color: white;
+  }
+ 
 	.num {
 		font-size: 15px;
 		padding-top: 20px;
@@ -106,6 +118,10 @@
 		justify-content: center;
 	}
 	
+  #numscore1, #numscore2, #numscore3, #numscore4, #numscore5, #numscore6, #numscore7, #numscore8, #numscore9, #numscore10, #numscore11, #numscore12, #numscore13, #numscore14, #numscore15, #numscore16, #numscore17, #numscore18 {
+   	color: white;
+  }
+ 
 	.hide {
 		opacity: 0 !important;
 	}
@@ -122,7 +138,7 @@
 		}
 	}
 	
-	.dropbtn {
+	#dropbtn {
 		color: white;
 		cursor: pointer;
 		width: 100vw;
@@ -183,22 +199,22 @@
 	}
 	
 	.wrapper {
-		//     background: bluejay; //dodgerBlue;
 		width: 100vw;
 	}
 	
-	.hcpwrapper {
-		background: dodgerBlue;
-		// width: 100vw;
-	}
-	
 	.submitwrapper {
+  color: white;
 		background: dodgerBlue;
 		width: 100vw;
 		height: 9vh;
 		text-align: center;
 		padding-top: 2.5vh;
 	}
+ 
+ #trhcp {
+  color: white;
+  		background: dodgerBlue;
+ }
 	
 	#setup {
 		//          background-color: darkSlateGray;
@@ -396,7 +412,7 @@
 										<td class="holesinfoy"></td>
 										<td class="holesinfoy"></td>
 									</tr>
-									<tr class="tr1">
+									<tr class="tr1" id="trhcp">
 										<td class="xxxxtdright" colspan="6">
 											<div class="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
 										</td>
@@ -411,8 +427,21 @@
 									</tr>
 									<tr class="xxxtr1">
 										<td class="xxxxtdright" colspan="6">
-											<div class="submitwrapper">
+											<div class="submitwrapper" id="submitwrapper">
 												<div>Submit score</div>
+											</div>
+										</td>
+									</tr>
+         <tr class="xxxtr1">
+										<td class="xxxxtdright" colspan="6">
+											<div class="xsubmitwrapper" id="submitwrapper">
+												<div>
+             <img
+                  src="contrastwhite.png"
+                  alt="contrast"
+                  onclick="togglecontrast()"
+                  style="position: absolute; bottom: 6vh; right: 3vw; height: 50px; width: 50px;">
+            </div>
 											</div>
 										</td>
 									</tr>
@@ -435,47 +464,47 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="tr1">
+						<tr class="tr1" id="tr1">
 							<td>
 								<div class="wrapper"> <span class="minus" id="minusscore1" onclick='decrementScore("numscore1")'>-</span> <span class="num" id="numscore1">hole 1</span> <span class="plus" id="plusscore1" onclick='incrementScore("numscore1");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr2">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore2" onclick='decrementScore("numscore2")'>-</span> <span class="num" id="numscore2">hole 2</span> <span class="plus" id="plusscore2" onclick='incrementScore("numscore2");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr3">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore3" onclick='decrementScore("numscore3")'>-</span> <span class="num" id="numscore3">hole 3</span> <span class="plus" id="plusscore3" onclick='incrementScore("numscore3");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr4">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore4" onclick='decrementScore("numscore4")'>-</span> <span class="num" id="numscore4">hole 4</span> <span class="plus" id="plusscore4" onclick='incrementScore("numscore4");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr5">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore5" onclick='decrementScore("numscore5")'>-</span> <span class="num" id="numscore5">hole 5</span> <span class="plus" id="plusscore5" onclick='incrementScore("numscore5");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr6">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore6" onclick='decrementScore("numscore6")'>-</span> <span class="num" id="numscore6">hole 6</span> <span class="plus" id="plusscore6" onclick='incrementScore("numscore6");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr7">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore7" onclick='decrementScore("numscore7")'>-</span> <span class="num" id="numscore7">hole 7</span> <span class="plus" id="plusscore7" onclick='incrementScore("numscore7");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr8">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore8" onclick='decrementScore("numscore8")'>-</span> <span class="num" id="numscore8">hole 8</span> <span class="plus" id="plusscore8" onclick='incrementScore("numscore8");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr9">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore9" onclick='decrementScore("numscore9")'>-</span> <span class="num" id="numscore9">hole 9</span> <span class="plus" id="plusscore9" onclick='incrementScore("numscore9");'>+</span> </div>
 							</td>
@@ -494,47 +523,47 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="tr1">
+						<tr class="tr1" id="tr10">
 							<td>
-								<div class="wrapper"> <span class="minus" id="minusscore1" onclick='decrementScore("numscore10")'>-</span> <span class="num" id="numscore10">hole 10</span> <span class="plus" id="plusscore1" onclick='incrementScore("numscore10");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore10" onclick='decrementScore("numscore10")'>-</span> <span class="num" id="numscore10">hole 10</span> <span class="plus" id="plusscore10" onclick='incrementScore("numscore10");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr11">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore11" onclick='decrementScore("numscore11")'>-</span> <span class="num" id="numscore11">hole 11</span> <span class="plus" id="plusscore11" onclick='incrementScore("numscore11");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr12">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore12" onclick='decrementScore("numscore12")'>-</span> <span class="num" id="numscore12">hole 12</span> <span class="plus" id="plusscore12" onclick='incrementScore("numscore12");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr13">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore13" onclick='decrementScore("numscore13")'>-</span> <span class="num" id="numscore13">hole 13</span> <span class="plus" id="plusscore13" onclick='incrementScore("numscore13");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr14">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore14" onclick='decrementScore("numscore14")'>-</span> <span class="num" id="numscore14">hole 14</span> <span class="plus" id="plusscore14" onclick='incrementScore("numscore14");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr15">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore15" onclick='decrementScore("numscore15")'>-</span> <span class="num" id="numscore15">hole 15</span> <span class="plus" id="plusscore15" onclick='incrementScore("numscore15");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr16">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore16" onclick='decrementScore("numscore16")'>-</span> <span class="num" id="numscore16">hole 16</span> <span class="plus" id="plusscore16" onclick='incrementScore("numscore16");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr17">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore17" onclick='decrementScore("numscore17")'>-</span> <span class="num" id="numscore17">hole 17</span> <span class="plus" id="plusscore17" onclick='incrementScore("numscore17");'>+</span> </div>
 							</td>
 						</tr>
-						<tr class="tr1">
+						<tr class="tr1" id="tr18">
 							<td class="xtdright">
 								<div class="wrapper"> <span class="minus" id="minusscore18" onclick='decrementScore("numscore18")'>-</span> <span class="num" id="numscore18">hole 18</span> <span class="plus" id="plusscore18" onclick='incrementScore("numscore18");'>+</span> </div>
 							</td>
@@ -1479,6 +1508,111 @@
 		}
 		totalScore()
 	}
+ 
+ 
+ function togglecontrast() {
+  alert(document.getElementById("plusscore1").style.color)
+  
+  // toggle between normal and high contrast
+if (document.getElementById("plusscore1").style.color == "yellow") {
+ // put back to normal
+ 
+for(i = 1; i <= 18; i++) {
+document.getElementById("plusscore" + i).style.color = "white";
+document.getElementById("plusscore" + i).style.fontWeight = "400";
+
+document.getElementById("minusscore" + i).style.color = "white";
+document.getElementById("minusscore" + i).style.fontWeight = "400";
+
+document.getElementById("numscore" + i).style.color = "white";
+document.getElementById("numscore" + i).style.fontWeight = "400";
+
+document.getElementById("tr" + i).style.background = "dodgerBlue";
+}
+
+document.getElementById("submitwrapper").style.background = "dodgerBlue";
+document.getElementById("submitwrapper").style.color = "white";
+document.getElementById("submitwrapper").style.fontWeight = "400";
+
+document.getElementById("dropbtn").style.background = "dodgerBlue";
+document.getElementById("dropbtn").style.color = "white";
+document.getElementById("dropbtn").style.fontWeight = "400";
+
+document.getElementById("numhcp").style.background = "dodgerBlue";
+document.getElementById("numhcp").style.color = "white";
+document.getElementById("numhcp").style.fontWeight = "400";
+
+document.getElementById("plushcp").style.background = "dodgerBlue";
+document.getElementById("plushcp").style.color = "white";
+document.getElementById("plushcp").style.fontWeight = "400";
+
+document.getElementById("minushcp").style.background = "dodgerBlue";
+document.getElementById("minushcp").style.color = "white";
+document.getElementById("minushcp").style.fontWeight = "400";
+
+document.getElementById("trhcp").style.background = "dodgerBlue";
+
+document.getElementById("setup").style.backgroundColor = "darkSlateGray";
+ 
+} else {
+ // put into high contrast
+ 
+for(i = 1; i <= 18; i++) {
+document.getElementById("plusscore" + i).style.color = "yellow";
+document.getElementById("plusscore" + i).style.fontWeight = "700";
+
+document.getElementById("minusscore" + i).style.color = "yellow";
+document.getElementById("minusscore" + i).style.fontWeight = "700";
+
+document.getElementById("numscore" + i).style.color = "yellow";
+document.getElementById("numscore" + i).style.fontWeight = "700";
+
+document.getElementById("tr" + i).style.background = "midnightBlue";
+}
+
+document.getElementById("submitwrapper").style.background = "midnightBlue";
+document.getElementById("submitwrapper").style.color = "yellow";
+document.getElementById("submitwrapper").style.fontWeight = "700";
+
+document.getElementById("dropbtn").style.background = "midnightBlue";
+document.getElementById("dropbtn").style.color = "yellow";
+document.getElementById("dropbtn").style.fontWeight = "700";
+
+
+document.getElementById("numhcp").style.background = "midnightBlue";
+document.getElementById("numhcp").style.color = "yellow";
+document.getElementById("numhcp").style.fontWeight = "700";
+
+document.getElementById("plushcp").style.background = "midnightBlue";
+document.getElementById("plushcp").style.color = "yellow";
+document.getElementById("plushcp").style.fontWeight = "700";
+
+document.getElementById("minushcp").style.background = "midnightBlue";
+document.getElementById("minushcp").style.color = "yellow";
+document.getElementById("minushcp").style.fontWeight = "700";
+
+document.getElementById("trhcp").style.background = "midnightBlue";
+
+document.getElementById("setup").style.backgroundColor = "black";
+ 
+ }
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 	/*
 	 
 	hcp list       
