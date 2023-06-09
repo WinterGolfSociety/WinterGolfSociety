@@ -127,6 +127,7 @@ nav {
     z-index: 4;
     border: 5px solid white;
 }
+
 .bubble_menu {
     position: absolute;
     top: 50%;
@@ -159,8 +160,6 @@ nav {
     display: flex; 
          justify-content: center;
 }
-
-#one:focus { outline-style: none; }
 
 #two {
     background-color: DarkKhaki;
@@ -207,33 +206,24 @@ section {
     margin: 0 auto;
     //overflow-y: scroll;
 }
-
-
-
-
-
 .title {
    	color: white;
     font-family: 'Kalam';
     font-size: 40px;
 
 }
-
 h2 {
  //   font-family: 'Roboto', sans-serif;
     font-size: 40px;
     color: #111111;
     margin-top: 200px;
 }
-
 #onetxt, #twotxt, #threetxt, #fourtxt {
      margin: auto;
     font-size: 23px;
     color: blue;
      font-family: 'Kalam';
 }
-
-
 #onetxt {
     margin: auto;
     font-size: 18px;
@@ -241,15 +231,12 @@ h2 {
     font-family: 'Kalam';
     
 }
-
 #twotxt {
     margin: auto;
     font-size: 18px;
     color: blue;
     font-family: 'Kalam';
-    
 }
-
 #threetxt {
     margin: auto;
     font-size: 18px;
@@ -257,29 +244,17 @@ h2 {
     font-family: 'Kalam';
     
 }
-
 #fourtxt {
     margin: auto;
     font-size: 18px;
     color: blue;
-    font-family: 'Kalam';
-    
+    font-family: 'Kalam'; 
 }
-
- div:focus {outline:none;
- background: red;}
-  //  ::-moz-focus-inner {border:0;}
-
- /*   
-    
-  ::selection {
-   background: none;
-  }
-   ::-moz-selection {
-   background: none;
-  }
-  
-  */
+#one:active, #two:active, #three:active, #four:active {
+ // background: red;
+ border-radius: 5%;
+ }
+ 
 </style>
 
 
@@ -415,8 +390,8 @@ function doOne() {
    //$('#one').animate({ borderRadius: '0'}, 200);
    //$('#one').animate({ borderRadius: '50%' }, 200);
 
-   $('#one').animate({ visibility: 'hidden'}, 10);
-   $('#one').animate({ visibliity: 'visible' }, 200);
+  // $('#one').animate({ visibility: 'hidden'}, 10);
+ //  $('#one').animate({ visibliity: 'visible' }, 200);
    
   // put menu back then move to hcp page
     setTimeout(function() {
