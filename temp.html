@@ -404,10 +404,10 @@ var isTop = true;
   $('.bubble').click(function() {
     menuIcon.removeClass('is-active');
     hideBubbles();
-    // change 400, 500 to 900, 100
+    // change 400, 500 to 900, 500
     setTimeout(function() {
       $('#nav').animate({ top: '100px', left: '100px' }, 900);
-    }, 100);
+    }, 500);
     isTop = true;
   });
 
@@ -417,7 +417,7 @@ function doOne() {
  
  
  
- 
+   $("#one").css("outline","none");
  
  
   // put menu back then move to hcp page
