@@ -266,7 +266,8 @@ h2 {
     
 }
 
- div:focus {outline:none;}
+ div:focus {outline:none;
+ background: red;}
   //  ::-moz-focus-inner {border:0;}
 
  /*   
@@ -410,16 +411,15 @@ var isTop = true;
     isTop = true;
   });
 
-/*
- one.click(function() {
-    // put menu back then move to hcp page
-    setTimeout(function() {
-      window.open("hcp2023.html","_blank");
-      }, 1000);
-    });
-*/
-
 function doOne() {
+   $('#one').animate({ opacity: '0' }, 1);
+   $('#one').animate({ opacity: '1' }, 1);
+ 
+ 
+ 
+ 
+ 
+ 
   // put menu back then move to hcp page
     setTimeout(function() {
       window.open("hcp2023.html","_blank");
