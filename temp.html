@@ -385,7 +385,7 @@ var isTop = true;
       // move x icon back to hamburger
       $('#nav').animate({ top: '100px', left: '100px' }, 400);
       // fade background title
-      $('.content').animate({ opacity: '1' }, 900);
+      $('.content').animate({ opacity: '1' }, 1000);
     }, 500);
     // move menu items
     four.animate({ top: '-65px' }, 400);
@@ -412,14 +412,12 @@ var isTop = true;
   });
 
 function doOne() {
-   $('#one').animate({ opacity: '0' }, 1);
-   $('#one').animate({ opacity: '1' }, 1);
- 
- 
- 
-   $("#one").css("outline","none");
- 
- 
+   //$('#one').animate({ borderRadius: '0'}, 200);
+   //$('#one').animate({ borderRadius: '50%' }, 200);
+
+   $('#one').animate({ visibility: 'hidden'}, 10);
+   $('#one').animate({ visibliity: 'visible' }, 200);
+   
   // put menu back then move to hcp page
     setTimeout(function() {
       window.open("hcp2023.html","_blank");
