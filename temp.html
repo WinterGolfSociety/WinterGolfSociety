@@ -296,8 +296,8 @@ h2 {
     </button>
   </div>
   
-  <div class="bubble" id="one">
-     <a id="onetxt" onclick="doOne();">HCPs</a>  
+  <div class="bubble" id="one" onclick="doOne();">
+     <a id="onetxt" >HCPs</a>  
   </div>
   
   <div class="bubble" id="two">
@@ -356,16 +356,10 @@ var isTop = true;
   function showBubbles() {
     menuIcon.addClass('is-active');
 
-//    one.animate({ opacity: '1' }, 10);
+    one.animate({ opacity: '1' }, 10);
     two.animate({ opacity: '1' }, 10);
     three.animate({ opacity: '1' }, 10);
     four.animate({ opacity: '1' }, 10);
-
-    one.animate({ left: '140px' }, 110);
-    
-    
-    one.animate({ opacity: '1' }, 10);
-    
     
     two.animate({ top: '140px' }, 200);
     one.animate({ left: '130px' }, 100);
@@ -398,14 +392,6 @@ var isTop = true;
     four.animate({ top: '50%' }, 400);
     two.animate({ top: '140px' }, 200);
     three.animate({ left: '50%' }, 310);
-    
-    
-  //  one.animate({ left: '139px' }, 1);
-    one.animate({ left: '140px' }, 1);
-  //  one.animate({ left: '141px' }, 1);
-    
-    
-    
     one.animate({ left: '140px' }, 110);
     two.animate({ top: '50%' }, 200);
     one.animate({ left: '50%' }, 110);
