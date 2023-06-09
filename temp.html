@@ -300,16 +300,16 @@ h2 {
      <a id="onetxt" >HCPs</a>  
   </div>
   
-  <div class="bubble" id="two">
-     <a id="twotxt" onclick="doTwo();">Score entry</a>  
+  <div class="bubble" id="two" onclick="doTwo();">
+     <a id="twotxt">Score entry</a>  
   </div>
   
-  <div class="bubble" id="three">
-     <a id="threetxt" onclick="doThree();">Twos</a>  
+  <div class="bubble" id="three" onclick="doThree();">
+     <a id="threetxt">Twos</a>  
   </div>
   
-  <div class="bubble" id="four">
-   <a id="fourtxt" onclick="doFour();">Results</a>  
+  <div class="bubble" id="four" onclick="doFour();">
+   <a id="fourtxt">Results</a>  
   </div>
 </nav>
 
@@ -419,32 +419,37 @@ var isTop = true;
 */
 
 function doOne() {
-
-
-
-//  two.click(function() {
-  // put menu back then move to score entry page
+  // put menu back then move to hcp page
     setTimeout(function() {
       window.open("hcp2023.html","_blank");
       }, 1000);
-//  });
 }
-  
-  
-  
-  three.click(function() {
-    // put menu back then move to twos page
+
+function doTwo() {
+  // put menu back then move to score entry page
+    setTimeout(function() {
+      window.open("scoreentry2023.html","_blank");
+      }, 1000);
+}  
+
+function doThree() {
+  // put menu back then move to twos page
     setTimeout(function() {
       window.open("twos2023.html","_blank");
       }, 1000);
-    });
+}  
 
-  four.click(function() {
-    // put menu back then move to results page
+function doFour() {
+  // put menu back then move to results page
     setTimeout(function() {
       window.open("results2023.html","_blank");
       }, 1000);
-    });
+}
+
+
+
+
+ 
 
   function moveToPage(firstLeft, secondTop, thirdLeft, fourthTop) {
     $('.first').animate({ left: firstLeft }, 400);
@@ -456,11 +461,6 @@ function doOne() {
   }
 
 
-
-function doFour() {
-//   hideBubbles()
-//window.open("results2023.html","_blank");
-}
 
 </script>
 
