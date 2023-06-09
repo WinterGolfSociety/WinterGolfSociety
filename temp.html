@@ -265,7 +265,7 @@ h2 {
     font-family: 'Kalam';
     
 }
-
+/*
  :focus {outline:none;}
     ::-moz-focus-inner {border:0;}
 
@@ -276,7 +276,9 @@ h2 {
   }
    ::-moz-selection {
    background: none;
-  } 
+  }
+  
+  */
 </style>
 
 
@@ -375,19 +377,30 @@ var isTop = true;
   }
 
   function hideBubbles() {
-     // add 500ms delay
+     // add 500ms delay to change X to hamburger
       setTimeout(function() {
     menuIcon.removeClass('is-active');
       },500);
     setTimeout(function() {
+      // move x icon back to hamburger
       $('#nav').animate({ top: '100px', left: '100px' }, 400);
+      // fade background title
       $('.content').animate({ opacity: '1' }, 900);
     }, 500);
+    // move menu items
     four.animate({ top: '-65px' }, 400);
     three.animate({ left: '-65px' }, 300);
     four.animate({ top: '50%' }, 400);
     two.animate({ top: '140px' }, 200);
     three.animate({ left: '50%' }, 310);
+    
+    
+    one.animate({ left: '139px' }, 1);
+    one.animate({ left: '140px' }, 1);
+    one.animate({ left: '141px' }, 1);
+    
+    
+    
     one.animate({ left: '140px' }, 110);
     two.animate({ top: '50%' }, 200);
     one.animate({ left: '50%' }, 110);
