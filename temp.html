@@ -352,13 +352,15 @@ var isTop = true;
   var menuIsOpen = false;
 
   var menuIcon = $('.va_menu_icon');
+  var bubblemenu = $('.bubble_menu');
 
   var one = $('#one');
   var two = $('#two');
   var three = $('#three');
   var four = $('#four');
 
-  menuIcon.click(function() {
+ // menuIcon.click(function() {
+  bubblemenu.click(function() { 
     if (isTop === true) {
       $('#nav').animate({ top: '50%', left: '50%' }, 400);
       $('.content').animate({ opacity: '0' }, 700);
@@ -404,8 +406,8 @@ var isTop = true;
       // move x icon back to hamburger
       $('#nav').animate({ top: '100px', left: '100px' }, 400);
       // fade background title
-      $('.content').animate({ opacity: '1' }, 1000);
-    }, 500);
+      $('.content').animate({ opacity: '1' }, 1500);
+    }, 400);
     // move menu items
     four.animate({ top: '-65px' }, 400);
     three.animate({ left: '-65px' }, 300);
