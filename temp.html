@@ -265,11 +265,11 @@ h2 {
     font-family: 'Kalam';
     
 }
-/*
- :focus {outline:none;}
-    ::-moz-focus-inner {border:0;}
 
-    
+ div:focus {outline:none;}
+  //  ::-moz-focus-inner {border:0;}
+
+ /*   
     
   ::selection {
    background: none;
@@ -403,9 +403,10 @@ var isTop = true;
   $('.bubble').click(function() {
     menuIcon.removeClass('is-active');
     hideBubbles();
+    // change 400, 500 to 900, 100
     setTimeout(function() {
-      $('#nav').animate({ top: '100px', left: '100px' }, 400);
-    }, 500);
+      $('#nav').animate({ top: '100px', left: '100px' }, 900);
+    }, 100);
     isTop = true;
   });
 
