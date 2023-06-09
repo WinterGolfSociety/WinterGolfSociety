@@ -356,12 +356,17 @@ var isTop = true;
   function showBubbles() {
     menuIcon.addClass('is-active');
 
-    one.animate({ opacity: '1' }, 10);
+//    one.animate({ opacity: '1' }, 10);
     two.animate({ opacity: '1' }, 10);
     three.animate({ opacity: '1' }, 10);
     four.animate({ opacity: '1' }, 10);
 
     one.animate({ left: '140px' }, 110);
+    
+    
+    one.animate({ opacity: '1' }, 10);
+    
+    
     two.animate({ top: '140px' }, 200);
     one.animate({ left: '130px' }, 100);
     three.animate({ left: '-65px' }, 300);
@@ -395,9 +400,9 @@ var isTop = true;
     three.animate({ left: '50%' }, 310);
     
     
-    one.animate({ left: '139px' }, 1);
-    one.animate({ left: '140px' }, 1);
-    one.animate({ left: '141px' }, 1);
+  //  one.animate({ left: '139px' }, 1);
+  //  one.animate({ left: '140px' }, 1);
+  //  one.animate({ left: '141px' }, 1);
     
     
     
@@ -406,7 +411,7 @@ var isTop = true;
     one.animate({ left: '50%' }, 110);
 
     menuIsOpen = false;
-    isTop = true
+    isTop = true;
   }
 
   $('.bubble').click(function() {
