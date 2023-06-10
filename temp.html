@@ -27,13 +27,13 @@ body {
 ::-webkit-scrollbar {
     display: none;
 }
-.va_menu_icon {
+.square_menu_icon {
     display: block;
     position: absolute;
     overflow: hidden;
     margin: 0;
     padding: 0;
-    width: 45px;
+    width: 60px;
     height: 45px;
     font-size: 0;
     text-indent: -9999px;
@@ -50,11 +50,11 @@ body {
     z-index: 99;
 }
 
-.va_menu_icon:focus {
+.square_menu_icon:focus {
     outline: none;
 }
 
-.va_menu_icon span {
+.square_menu_icon span {
     display: block;
     position: absolute;
     top: 15px;
@@ -64,7 +64,7 @@ body {
     background: #fff;
 }
 
-.va_menu_icon span:before, .va_menu_icon span:after {
+.square_menu_icon span:before, .square_menu_icon span:after {
     position: absolute;
     display: block;
     left: 0;
@@ -74,46 +74,46 @@ body {
     content: "";
 }
 
-.va_menu_icon span:before {
+.square_menu_icon span:before {
     top: -14px;
 }
 
-.va_menu_icon span:after {
+.square_menu_icon span:after {
     bottom: -14px;
 }
 
-.va_menu_icon-X span {
+.square_menu_icon-X span {
     transition: background 0s 0.3s;
 }
 
-.va_menu_icon-X span:before, .va_menu_icon-X span:after {
+.square_menu_icon-X span:before, .square_menu_icon-X span:after {
     transition-duration: 0.3s, 0.3s;
     transition-delay: 0.3s, 0s;
 }
 
-.va_menu_icon-X span:before {
+.square_menu_icon-X span:before {
     transition-property: top, transform;
 }
 
-.va_menu_icon-X span:after {
+.square_menu_icon-X span:after {
     transition-property: bottom, transform;
 }
 
-.va_menu_icon-X.is-active span {
+.square_menu_icon-X.is-active span {
     background: none;
 }
 
-.va_menu_icon-X.is-active span:before {
+.square_menu_icon-X.is-active span:before {
     top: 0;
     transform: rotate(45deg);
 }
 
-.va_menu_icon-X.is-active span:after {
+.square_menu_icon-X.is-active span:after {
     bottom: 0;
     transform: rotate(-45deg);
 }
 
-.va_menu_icon-X.is-active span:before, .va_menu_icon-X.is-active span:after {
+.square_menu_icon-X.is-active span:before, .square_menu_icon-X.is-active span:after {
     transition-delay: 0s, 0.3s;
 }
 nav {
@@ -299,6 +299,16 @@ h2 {
  //box-shadow: 0 0 15px 10px dodgerBlue;
    border: 5px solid dodgerBlue;
  }
+ 
+ .dates {
+ // position: relative;
+  //bottom: 10vh;
+  //left: 10vw;
+  
+  font-family: 'Kalam';
+  color: gray;
+  font-size: 20px;
+ }
 </style>
 
 
@@ -311,7 +321,7 @@ h2 {
 
 <nav id="nav">
   <div class="bubble_menu" id="icon">
-    <button class="va_menu_icon va_menu_icon-X">
+    <button class="square_menu_icon square_menu_icon-X">
       <span></span>
     </button>
   </div>
@@ -337,7 +347,29 @@ h2 {
 <section class="start">
   <div class="content">
   <h2 class="title">Winter<br>2023-2024</h2>
+  
+  <br><br><br>
+   <div class="datescontent">
+  <a class="dates">Monday 6th November - Lakes</a>
+  <br>
+  <a class="dates">Friday 10th November - Dawson</a>
   </div>
+  
+  
+  
+  </div>
+  
+  
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
   
   <div class="fadein" id="pressbutton">
    <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="pressbuttonflash.png" alt="press"> 
@@ -351,7 +383,7 @@ h2 {
 var isTop = true;
   var menuIsOpen = false;
 
-  var menuIcon = $('.va_menu_icon');
+  var menuIcon = $('.square_menu_icon');
   var bubblemenu = $('.bubble_menu');
 
   var one = $('#one');
