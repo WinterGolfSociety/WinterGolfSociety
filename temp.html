@@ -362,7 +362,7 @@ h2 {
    <div class="datescontent">
    <a class="dates" id="upcoming">upcoming ...</a>
   <br><br><br>
-  <a class="dates" id="xdcomp1">Monday 6th November - Lakes<br>Friday 10th November - Dawson</a>
+  <a class="dates" id="xdcomp1"></a>
   
   </div>
   
@@ -594,22 +594,31 @@ function getNextComps() {
  
 	dd = new Date();
 
-  // should give something like: 03 June 2023
-  darr = new Date(temptest);
- // alert(dnow)
- // alert(dnow.getMonth)
- 
-	d1 = darr.getDate();
-	if(d1 < 10) {
-	  	d1 = "0" + d1;
-	}
-	d2 = darr.getMonth();
- d3 = darr.getYear();
- d4 = darr.getDay();
+
 	// get course from ?????
 	dlist = ""
  dlistcount = 0
 	for(i = 0; i < arrComps.length; i++) {
+  
+  	temptest = arrComps[i].replace("Lakes ", "");
+		temptest = temptest.replace("Dawson ", "");
+   
+  // should give something like: 03 June 2023
+  darr = new Date(temptest);
+   
+	d1 = darr.getDate();
+	if(d1 < 10) {
+	  	d1 = "0" + d1;
+	}
+ 
+	d2 = darr.getMonth();
+ d3 = darr.getYear();
+ d4 = darr.getDay();
+ 
+ // alert(dnow)
+ // alert(dnow.getMonth)
+  
+  
 		if(d2 == 10) {
 			m = "November";
 		}
@@ -659,9 +668,7 @@ function getNextComps() {
 			d = "Saturday";
 		}
   
-		temptest = arrComps[i].replace("Lakes ", "");
-		temptest = temptest.replace("Dawson ", "");
-   
+	
  
  
  
