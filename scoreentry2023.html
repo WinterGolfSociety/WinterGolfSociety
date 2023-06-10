@@ -719,7 +719,8 @@
 ['Marcus Wilkinson',0],
 ['Gordon Willis',0],
 ['Ron Woodcock',0],
-['reset list', 0]
+['reset list', 0],
+['xxx',0]
 	];
 	if("dropdown" in localStorage) {
 		// retrieve dropdown info
@@ -734,7 +735,7 @@
    		for (var i = 0; i < options.length; i++) {
       	for (var j = 0; j < master.length; j++) {
           if (options[i][0] == master[j][0]) {
-             master[i][1] = options[j][1]
+             master[j][1] = options[i][1]
           }
        }
      }
