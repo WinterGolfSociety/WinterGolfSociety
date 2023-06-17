@@ -432,7 +432,7 @@
 									</tr>
 									<tr class="tr1" id="trhcp">
 										<td class="xxxxtdright" colspan="6">
-											<div class="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp search</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
+											<div class="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
 										</td>
 									</tr>
 									<tr>
@@ -1367,7 +1367,7 @@ document.getElementById('mx789190149').value = comp+player;
 	
 	function incrementHcp(id) {
 		incScore = document.getElementById(id).innerText;
-		if(incScore.indexOf("hcp search") > -1) {
+		if(incScore.indexOf("hcp") > -1) {
 			document.getElementById(id).style.fontSize = "50px";
 			document.getElementById(id).style.paddingTop = 0;
 			incScore = 0;
@@ -1407,7 +1407,7 @@ document.getElementById('mx789190149').value = comp+player;
 			document.getElementById(id).style.fontSize = "15px";
 			document.getElementById(id).style.paddingTop = "20px";
 			holenum = id.replace("numscore", "");
-			document.getElementById(id).innerText = "hcp search";
+			document.getElementById(id).innerText = "hcp";
 		} else {
 			if(incScore.indexOf("hcp") > -1) {
 				document.getElementById(id).style.fontSize = "50px";
@@ -1543,7 +1543,7 @@ document.getElementById('mx789190149').value = comp+player;
 
 	function doGetHCP() {
 		
-	 if (document.getElementById("numhcp").innerText == "hcp search"){
+	 if (document.getElementById("numhcp").innerText == "hcp"){
 		
 	 document.getElementById("numhcp").style.paddingTop = "20px";
 		document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
