@@ -1348,6 +1348,7 @@ document.getElementById('mx789190149').value = comp+player;
 				document.getElementById('submittxt').innerText = "submitting data";
    // allow some time for submit then give a completion message
 		 setTimeout(function() {
+				document.getElementById('submitwrapper').style.borderColor = "cyan";
 				document.getElementById('submittxt').style.color = "cyan";
     document.getElementById('submittxt').innerText = "submitted - OK";
       }, 5000);
