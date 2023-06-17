@@ -1038,7 +1038,7 @@ function checkIfCompDay() {
 					}
 	}
  if (compday == "no") {
-		alert("not a comp day");
+		alert("not a competition day");
 	}
 }
 
@@ -1331,12 +1331,9 @@ twoscount = 0;
 		// check data is complete 
 //		var checkBeforeSubmit = 0;
 //		var checkBeforeSubmitID = "";
-alert("here 1");
 for(ii = 1; ii <= 18; ii++) {
-	alert(document.getElementById("h" + ii).innerText );
 				if (document.getElementById("h" + ii).innerText == "2") {
 				    twoscount++;
-								alert(twoscount);
 				}
 				if ("12345678910".indexOf(document.getElementById("h" + ii).innerText) == -1) {
 				    checkBeforeSubmit++;
