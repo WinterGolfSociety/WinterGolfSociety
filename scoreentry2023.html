@@ -446,7 +446,7 @@
 									<tr class="xxxtr1">
 										<td class="xxxxtdright" colspan="6">
 											<div class="submitwrapper" id="submitwrapper" onclick="submitForm()">
-												<div>Submit score</div>
+												<div id="submittxt">Submit score</div>
 											</div>
 										</td>
 									</tr>
@@ -1345,14 +1345,20 @@ document.getElementById('mx967906330').value = twoscount.toString();
 document.getElementById('mx789190149').value = comp+player;
 		
 
-	
-			// submit if all OK
-	//	if(checkBeforeSubmit === 0) {
+
 			//===== submit data
 			document.forms[0].submit();
-		//} else {
-		//	alert("not valid so not submitted");
-//		}
+   	document.getElementById('submitwrapper').style.borderColor = "white";
+				document.getElementById('submitwrapper').style.background = "dodgerBlue";
+   // allow some time for submit then give a completion message
+		 setTimeout(function() {
+				document.getElementById('submitwrapper').style.borderColor = "cyan";
+				document.getElementById('submitwrapper').style.background = "blue";
+				document.getElementById('submittxt').style.color = "cyan";
+    document.getElementById('submittxt').innerText = "submitted - OK";
+      }, 4000);
+			
+			
 	}
 
 	
