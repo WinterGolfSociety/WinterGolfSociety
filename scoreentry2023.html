@@ -40,7 +40,7 @@
 	
 	.pagecard {
 		width: 100vw;
-		height: 98vh; //100vh;
+		height: 98vh;
 		//    padding-left: 1vw;
 		//     padding-right: 1vw;
 		overflow: hidden;
@@ -178,14 +178,16 @@
 		display: block;
 	}
 	
-	#xxxsubmit:hover {
-		animate-color 0.5s forwards;
-		-webkit-animation: animate-color 0.5s forwards;
+	#submitwrapper:hover {
+		background: cyan;
+		color: blue;
+		//animate-color: 3s forwards;
+		//-webkit-animation: animate-color 3s forwards;
 	}
 	
 	#my-form,
 	#my-response-iframe {
-		display: none;
+//		display: none;
 	}
 	
 	.yellow {
@@ -208,10 +210,13 @@
 		width: 100vw;
 		height: 9vh;
 		text-align: center;
+			font-size: 20px;
 		padding-top: 2.5vh;
+		border-radius: 5px;
+		border: 5px outset white;
 	}
  
- 	.xsubmitwrapper {
+		.xsubmitwrapper {
   //color: white;
 		//background: dodgerBlue;
 		width: 95vw;
@@ -219,15 +224,12 @@
 		//text-align: center;
 		//padding-top: 2.5vh;
 	}
- 
+	
+	
  #trhcp {
   color: white;
   		background: dodgerBlue;
  }
-	
-	#setup {
-		//          background-color: darkSlateGray;
-	}
 	
 	.holesinfo {
 		font-size: 15px;
@@ -430,7 +432,7 @@
 									</tr>
 									<tr class="tr1" id="trhcp">
 										<td class="xxxxtdright" colspan="6">
-											<div class="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
+											<div class="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp search</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
 										</td>
 									</tr>
 									<tr>
@@ -443,7 +445,7 @@
 									</tr>
 									<tr class="xxxtr1">
 										<td class="xxxxtdright" colspan="6">
-											<div class="submitwrapper" id="submitwrapper">
+											<div class="submitwrapper" id="submitwrapper" onclick="submitForm()">
 												<div>Submit score</div>
 											</div>
 										</td>
@@ -539,8 +541,8 @@
 			</div>
 		</div>
 		<div class="pagecard" id="front">
-			<div class="left">
-				<table class="table3">
+			<div class="left">			
+ 			<table class="table3">
 					<caption></caption>
 					<thead>
 						<tr>
@@ -600,75 +602,177 @@
 	</div>
 	<br>
 	<br>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<!-- form to construct data prior to submit -->
-	<form action="https://docs.google.com/forms/d/e/1FAIpQLSfpwrHPvjjQiIN9a-cmxBrE6aaORO6yBG6cu7kGXN2piQygGw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
-		<!-- name, hcp, course -->
-		<input id="mx2003556451" name="entry.2003556451" type="text" value="default">
-		<input id="mx1532454185" name="entry.1532454185" type="text" value="default">
-		<input id="mx428875568" name="entry.428875568" type="text" value="default">
-		<!-- holes 1 to 9 score -->
-		<input id="mx1306174258" name="entry.1306174258" type="text" value="default">
-		<input id="mx1024942641" name="entry.1024942641" type="text" value="default">
-		<input id="mx568424031" name="entry.568424031" type="text" value="default">
-		<input id="mx282366893" name="entry.282366893" type="text" value="default">
-		<input id="mx1389150313" name="entry.1389150313" type="text" value="default">
-		<input id="mx1775556170" name="entry.1775556170" type="text" value="default">
-		<input id="mx349500276" name="entry.349500276" type="text" value="default">
-		<input id="mx643274554" name="entry.643274554" type="text" value="default">
-		<input id="mx775193141" name="entry.775193141" type="text" value="default">
-		<!-- holes 10 to 18 score -->
-		<input id="mx139361628" name="entry.139361628" type="text" value="default">
-		<input id="mx117381068" name="entry.117381068" type="text" value="default">
-		<input id="mx215681049" name="entry.215681049" type="text" value="default">
-		<input id="mx879551333" name="entry.879551333" type="text" value="default">
-		<input id="mx692811717" name="entry.692811717" type="text" value="default">
-		<input id="mx2028451995" name="entry.2028451995" type="text" value="default">
-		<input id="mx1271313293" name="entry.1271313293" type="text" value="default">
-		<input id="mx112006379" name="entry.112006379" type="text" value="default">
-		<input id="mx1439728916" name="entry.1439728916" type="text" value="default">
-		<!-- holes 1 to 9 points -->
-		<input id="mx1349672152" name="entry.1349672152" type="text" value="default">
-		<input id="mx1987316709" name="entry.1987316709" type="text" value="default">
-		<input id="mx330630509" name="entry.330630509" type="text" value="default">
-		<input id="mx508495395" name="entry.508495395" type="text" value="default">
-		<input id="mx1157412790" name="entry.1157412790" type="text" value="default">
-		<input id="mx1214646986" name="entry.1214646986" type="text" value="default">
-		<input id="mx576264834" name="entry.576264834" type="text" value="default">
-		<input id="mx518074596" name="entry.518074596" type="text" value="default">
-		<input id="mx509590122" name="entry.509590122" type="text" value="default">
-		<!-- holes 10 to 18 points -->
-		<input id="mx1720114013" name="entry.1720114013" type="text" value="default">
-		<input id="mx1743453161" name="entry.1743453161" type="text" value="default">
-		<input id="mx288611329" name="entry.288611329" type="text" value="default">
-		<input id="mx47669545" name="entry.47669545" type="text" value="default">
-		<input id="mx33173073" name="entry.33173073" type="text" value="default">
-		<input id="mx1280921007" name="entry.1280921007" type="text" value="default">
-		<input id="mx1548940919" name="entry.1548940919" type="text" value="default">
-		<input id="mx135100134" name="entry.135100134" type="text" value="default">
-		<input id="mx1074696692" name="entry.1074696692" type="text" value="default">
-		<input type="submit"> </form>
+	
+	
+	
+	<form height="20" width="60" action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+
+
+	
+	
+	<!-- name, hcp, course -->
+	
+	
+	
+	<input id='mx474474348' name='entry.474474348' type='text' value='default'>
+<input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
+<input id='mx477101370' name='entry.477101370' type='text' value='default'>
+
+<input id='mx1980297491' name='entry.1980297491' type='text' value='default'>
+<input id='mx463832232' name='entry.463832232' type='text' value='default'>
+<input id='mx205704642' name='entry.205704642' type='text' value='default'>
+<input id='mx278278589' name='entry.278278589' type='text' value='default'>
+<input id='mx949547387' name='entry.949547387' type='text' value='default'>
+<input id='mx703011397' name='entry.703011397' type='text' value='default'>
+<input id='mx1460583253' name='entry.1460583253' type='text' value='default'>
+<input id='mx462940045' name='entry.462940045' type='text' value='default'>
+<input id='mx477691508' name='entry.477691508' type='text' value='default'>
+<input id='mx413249407' name='entry.413249407' type='text' value='default'>
+<input id='mx108900453' name='entry.108900453' type='text' value='default'>
+<input id='mx1841236411' name='entry.1841236411' type='text' value='default'>
+<input id='mx1864644918' name='entry.1864644918' type='text' value='default'>
+<input id='mx1538428689' name='entry.1538428689' type='text' value='default'>
+<input id='mx1449918213' name='entry.1449918213' type='text' value='default'>
+<input id='mx38761817' name='entry.38761817' type='text' value='default'>
+<input id='mx247392471' name='entry.247392471' type='text' value='default'>
+<input id='mx741809181' name='entry.741809181' type='text' value='default'>
+<input id='mx1362729237' name='entry.1362729237' type='text' value='default'>
+<input id='mx1372983908' name='entry.1372983908' type='text' value='default'>
+<input id='mx2002196917' name='entry.2002196917' type='text' value='default'>
+<input id='mx640802794' name='entry.640802794' type='text' value='default'>
+<input id='mx2076656246' name='entry.2076656246' type='text' value='default'>
+<input id='mx486346919' name='entry.486346919' type='text' value='default'>
+<input id='mx1918313229' name='entry.1918313229' type='text' value='default'>
+<input id='mx638821' name='entry.638821' type='text' value='default'>
+<input id='mx737099688' name='entry.737099688' type='text' value='default'>
+<input id='mx488827232' name='entry.488827232' type='text' value='default'>
+<input id='mx1203421487' name='entry.1203421487' type='text' value='default'>
+<input id='mx979421831' name='entry.979421831' type='text' value='default'>
+<input id='mx929858153' name='entry.929858153' type='text' value='default'>
+<input id='mx1330487443' name='entry.1330487443' type='text' value='default'>
+<input id='mx940496448' name='entry.940496448' type='text' value='default'>
+<input id='mx1127168348' name='entry.1127168348' type='text' value='default'>
+<input id='mx638332104' name='entry.638332104' type='text' value='default'>
+<input id='mx1626319908' name='entry.1626319908' type='text' value='default'>
+<input id='mx362674948' name='entry.362674948' type='text' value='default'>
+<input id='mx544180710' name='entry.544180710' type='text' value='default'>
+<input id='mx893562950' name='entry.893562950' type='text' value='default'>
+<input id='mx335596501' name='entry.335596501' type='text' value='default'>
+<input id='mx1453506389' name='entry.1453506389' type='text' value='default'>
+<input id='mx1045870519' name='entry.1045870519' type='text' value='default'>
+<input id='mx683300283' name='entry.683300283' type='text' value='default'>
+<input id='mx967906330' name='entry.967906330' type='text' value='default'>
+<input id='mx789190149' name='entry.789190149' type='text' value='default'>		
+<input type="submit"> </form>
+	
+
 	<!-- google forms inserted here - invisible -->
-	<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfpwrHPvjjQiIN9a-cmxBrE6aaORO6yBG6cu7kGXN2piQygGw/viewform?embedded=true" width="60"></iframe>
+	
+	
+	
+	<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="60"></iframe>
+	
+
+	
+	
+	
 	<br>
 	<br>
 	<br>
 	<br>
+		
+		
+		
+		
+		
 	<script>
   
-  // globals
+  // put in screen - score entry unlocked for Monday 09 June 2023 etc.
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+// declare global variables
  var hcp;
 	var player = "player";
 	var course = "course";
-	var dday = "today";
-	var cback1 = 0;
-	var cback3 = 0;
-	var cback6 = 0;
-	var cback9 = 0;
-	var rslts = "";
-	var completedEntries = "Scores entered for:<br><br>";
+	var comp = "none";
+				
+		// array ["hole num",par,si]
+	arrLakes = [
+		[0, 0, 0],
+		[1, 4, 15],
+		[2, 4, 7],
+		[3, 5, 3],
+		[4, 4, 1],
+		[5, 3, 17],
+		[6, 3, 11],
+		[7, 4, 9],
+		[8, 4, 5],
+		[9, 4, 13],
+		[10, 3, 16],
+		[11, 4, 18],
+		[12, 4, 10],
+		[13, 4, 6],
+		[14, 3, 14],
+		[15, 3, 4],
+		[16, 5, 12],
+		[17, 4, 2],
+		[18, 5, 8],
+	];
+
+	// array ["hole num",par,si]
+	arrDawson = [
+		[0, 0, 0],
+		[1, 5, 13],
+		[2, 4, 15],
+		[3, 3, 17],
+		[4, 4, 3],
+		[5, 4, 1],
+		[6, 5, 11],
+		[7, 4, 7],
+		[8, 4, 9],
+		[9, 5, 5],
+		[10, 4, 16],
+		[11, 5, 14],
+		[12, 3, 18],
+		[13, 4, 2],
+		[14, 4, 4],
+		[15, 4, 12],
+		[16, 3, 6],
+		[17, 4, 10],
+		[18, 4, 8],
+	];
   
  // array of competition dates
- arrComps = ["Lakes 03 July 2023",
+ arrComps = ["Lakes 17 June 2023",
+													
+													"Lakes 03 July 2023",
              "Dawson 07 July 2023",
              "Lakes 10 July 2023",
              "Dawson 14 July 2023",
@@ -801,6 +905,11 @@
 ['reset list', 0]
 	];
 	
+	
+// code to run on startup
+
+	// check for any new members etc.
+	
  if("dropdown" in localStorage) {
 		// retrieve dropdown info
 		var options = JSON.parse(localStorage.dropdown);
@@ -885,21 +994,113 @@
 			select.appendChild(el);
 		}
 	}
-
- 
- 
-	function showDetail() {
-		window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vSYr0CNuuUeOLD6ZJCDZF29A2jY5LEhYNZ7bkwid2LLpYIDZsmG4BCV_B3SmNFeZ-zuYVJyZzFvWEwC/pubhtml?gid=1997373341&single=true');
+	
+function checkIfCompDay() {
+ // eg Dawson 26 June 2023
+	dd = new Date();
+ // date number
+	d1 = dd.getDate();
+	if(d1 < 10) {
+	  	d1 = "0" + d1;
 	}
+	// month
+	d2 = dd.getMonth();
+ if (d2 == 10) {
+			m = "November";
+	}
+	if (d2 == 11) {
+			m = "December";
+	}
+	if (d2 == 0) {
+			m = "January";
+	}
+	if (d2 == 1) {
+			m = "February";
+	}
+	if (d2 == 3) {
+			m = "March";
+	}
+	if (d2 == 5) {
+			m = "June";
+	}
+ if (d2 == 6) {
+			m = "July";
+	}
+ if (d2 == 7) {
+			m = "August";
+	}
+ compday = "no";
+ for(i = 0; i < arrComps.length; i++) {
+		   if (arrComps[i].indexOf(d1 + " " + m) > -1){
+						   // if a comp day
+									compday = "yes";
+									comp = arrComps[i]
+					}
+	}
+ if (compday == "no") {
+		alert("not a comp day");
+	}
+}
 
- 
- 
-	function showResults() {
-		window.open('https://docs.google.com/spreadsheets/d/e/2PACX-1vSYr0CNuuUeOLD6ZJCDZF29A2jY5LEhYNZ7bkwid2LLpYIDZsmG4BCV_B3SmNFeZ-zuYVJyZzFvWEwC/pubhtml?gid=2066505855&single=true');
+//============== 
+// run function	
+//==============	
+checkIfCompDay();
+//==============
+
+function getComp() {
+ // eg Dawson 26 June 2023
+	dd = new Date();
+ // date number
+	d1 = dd.getDate();
+	if(d1 < 10) {
+	  	d1 = "0" + d1;
+	}
+	// month
+	d2 = dd.getMonth();
+ if (d2 == 10) {
+			m = "November";
+	}
+	if (d2 == 11) {
+			m = "December";
+	}
+	if (d2 == 0) {
+			m = "January";
+	}
+	if (d2 == 1) {
+			m = "February";
+	}
+	if (d2 == 3) {
+			m = "March";
+	}
+	if (d2 == 5) {
+			m = "June";
+	}
+ if (d2 == 6) {
+			m = "July";
+	}
+ if (d2 == 7) {
+			m = "August";
+	}
+  
+ for(i = 0; i < arrComps.length; i++) {
+		   if (arrComps[i].indexOf(d1 + " " + m) > -1){
+						   // global comp
+									comp = arrComps[i];
+						  if (arrComps[i].indexOf("Lakes") > -1){   
+						      // global course
+												course = "Lakes";
+								}
+								if (arrComps[i].indexOf("Dawson") > -1){   
+						      // global course
+												course = "Dawson";
+								}
+					}
 	}
  
+}
  
-	// sort function
+// sort function
 	function compareSecondColumn(a, b) {
 		if(a[1] === b[1]) {
 			return 0;
@@ -907,14 +1108,10 @@
 			return(a[1] > b[1]) ? -1 : 1;
 		}
 	}
-
- 
  
 	function clearStorage() {
 		localStorage.clear();
 	}
-
- 
  
 	function dropSelected(playerName) {
 		if(playerName == "reset list") {
@@ -940,14 +1137,15 @@
 					// store new order
 				localStorage.dropdown = JSON.stringify(options);
 			}
+			// global player
 			player = playerName;
-				// replace button name
+			// replace button name
 			element = document.getElementById("dropbtn");
 			element.innerText = player;
-				// update player choice
+			// update player choice
 			player2submit = player;
-				// document.getElementById("list").innerText =  options
-				// close dropdown
+			// document.getElementById("list").innerText =  options
+			// close dropdown
 			var dropdowns = document.getElementsByClassName("dropdown-content");
 			var i;
 			for(i = 0; i < dropdowns.length; i++) {
@@ -959,16 +1157,14 @@
 			doGetHCP();
 		}
 	}
-
- 
  
 	function myFunction() {
 		// When the user clicks on the button, toggle between hiding and showing the dropdown content
 		document.getElementById("myDropdown").classList.toggle("show");
 	}
- 
- 
+  
  // global keep track of swipes
+	/*
 	var touchstartX = 0;
 	var touchendX = 0;
 
@@ -986,460 +1182,199 @@
 		  	touchendX = e.changedTouches[0].screenX;
 			  checkDirection();
 		});
-		/*
-                
-                https://docs.google.com/forms/d/e/1FAIpQLSfpwrHPvjjQiIN9a-cmxBrE6aaORO6yBG6cu7kGXN2piQygGw/viewform?usp=pp_url
-                &entry.2003556451=name
-                &entry.1532454185=hcp
-                &entry.428875568=course
-                &entry.1306174258=h1
-                &entry.1024942641=h2
-                &entry.568424031=h3
-                &entry.282366893=h4
-                &entry.1389150313=h5
-                &entry.1775556170=h6
-                &entry.349500276=h7
-                &entry.643274554=h8
-                &entry.775193141=h9
-                &entry.139361628=h10
-                &entry.117381068=h11
-                &entry.215681049=h12
-                &entry.879551333=h13
-                &entry.692811717=h14
-                &entry.2028451995=h15
-                &entry.1271313293=h16
-                &entry.112006379=h17
-                &entry.1439728916=h18
-                &entry.1349672152=p1
-                &entry.1987316709=p2
-                &entry.330630509=p3
-                &entry.508495395=p4
-                &entry.1157412790=p5
-                &entry.1214646986=p6
-                &entry.576264834=p7
-                &entry.518074596=p8
-                &entry.509590122=p9
-                &entry.1720114013=p10
-                &entry.1743453161=p11
-                &entry.288611329=p12
-                &entry.47669545=p13
-                &entry.33173073=p14
-                &entry.1280921007=p15
-                &entry.1548940919=p16
-                &entry.135100134=p17
-                &entry.1074696692=p18
-                
-              */
-
 		
-	dd = new Date();
-	d1 = dd.getDate();
-	if(d1 < 10) {
-	  	d1 = "0" + d1;
-	}
-	d2 = dd.getMonth();
- d3 = dd.getYear()
-;	// get course from ?????
-	dlist = ""
- dlistcount = 0
-	for(i = 0; i < arrComps.length; i++) {
-		if(d2 == 10) {
-			m = "November";
-		}
-		if(d2 == 11) {
-			m = "December";
-		}
-		if(d2 == 0) {
-			m = "January";
-		}
-		if(d2 == 1) {
-			m = "February";
-		}
-		if(d2 == 3) {
-			m = "March";
-		}
-		if(d2 == 5) {
-			m = "June";
-		}
-		temptest = arrComps[i].replace("Lakes ", "");
-		temptest = temptest.replace("Dawson ", "");
-  
-  // should give something like: 03 June 2023
-  darr = new Date(temptest);
- // alert(dnow)
- // alert(dnow.getMonth)
-  
- // alert("xxxxx" + darr + dd);
-  if (darr > dd && dlistcount < 3) {
-   dlist = dlist + arrComps[i] + "<br>"
-   dlistcount++
-   
-  }
-  
-  
-  
-  
-  
-  
-  
-		//      if (temptest.indexOf(m) > -1 && temptest.indexOf(d1) > -1){
-		//          alert(arrComps[i]);
-		//      }
-	}
- 
+		
+		*/
 
+
+
+
+/*
+ prefilled form
  
  
-	// temp
-	course = "Lakes";
-		//      hcp = 22
-		// array ["hole num",par,si]
-	arrLakes = [
-		[0, 0, 0],
-		[1, 4, 15],
-		[2, 4, 7],
-		[3, 5, 3],
-		[4, 4, 1],
-		[5, 3, 17],
-		[6, 3, 11],
-		[7, 4, 9],
-		[8, 4, 5],
-		[9, 4, 13],
-		[10, 3, 16],
-		[11, 4, 18],
-		[12, 4, 10],
-		[13, 4, 6],
-		[14, 3, 14],
-		[15, 3, 4],
-		[16, 5, 12],
-		[17, 4, 2],
-		[18, 5, 8],
-	];
-	// array ["hole num",par,si]
-	arrDawson = [
-		[0, 0, 0],
-		[1, 5, 13],
-		[2, 4, 15],
-		[3, 3, 17],
-		[4, 4, 3],
-		[5, 4, 1],
-		[6, 5, 11],
-		[7, 4, 7],
-		[8, 4, 9],
-		[9, 5, 5],
-		[10, 4, 16],
-		[11, 5, 14],
-		[12, 3, 18],
-		[13, 4, 2],
-		[14, 4, 4],
-		[15, 4, 12],
-		[16, 3, 6],
-		[17, 4, 10],
-		[18, 4, 8],
-	];
-	// --- functions --- // 
-	var incPoints = 0;
-	var player = "none";
-	var playerDone = [];
-	var playerComplete = [];
-	var playerList = ["Graham Airey", "Dale Aitkenhead", "Paul Burt", "Craig Caesar", "Trevor Charlton", "Neil Coxon", "Paul Durance", "Richard Hedley", "Clive Herbert", "Eddie Hicks", "Peter Holleran", "Jim Little", "Bryan Maddison", "Bob Nicholas", "Trevor Ord", "Brian Simpson"];
+ 
+ 
+ 
+ https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?usp=pp_url&
+	entry.474474348=player&
+	entry.2131369517=comp&
+	entry.477101370=hcp&
+	entry.1980297491=s1&
+	entry.463832232=s2&
+	entry.205704642=s3&
+	entry.278278589=s4&
+	entry.949547387=s5&
+	entry.703011397=s6&
+	entry.1460583253=s7&
+	entry.462940045=s8&
+	entry.477691508=s9&
+	entry.413249407=s10&
+	entry.108900453=s11&
+	entry.1841236411=s12&
+	entry.1864644918=s13&
+	entry.1538428689=s14&
+	entry.1449918213=s15&
+	entry.38761817=s16&
+	entry.247392471=s17&
+	entry.741809181=s18&
+	entry.1362729237=p1&
+	entry.1372983908=p2&
+	entry.2002196917=p3&
+	entry.640802794=p4&
+	entry.2076656246=p5&
+	entry.486346919=p6&
+	entry.1918313229=p7&
+	entry.638821=p8&
+	entry.737099688=p9&
+	entry.488827232=p10&
+	entry.1203421487=p11&
+	entry.979421831=p12&
+	entry.929858153=p13&
+	entry.1330487443=p14&
+	entry.940496448=p15&
+	entry.1127168348=p16&
+	entry.638332104=p17&
+	entry.1626319908=p18&
+	entry.362674948=out9&
+	entry.544180710=back9&
+	entry.893562950=totalpoints&
+	entry.335596501=cb9&
+	entry.1453506389=cb6&
+	entry.1045870519=cb3&
+	entry.683300283=cb1&
+	entry.967906330=twos&
+	entry.789190149=compplayer
+	*/
 
-	function recoverTempData(what) {
-		// allows the current state of prorress to be carried across restarts	
-		// save and restore progress by updating the global variables	
-		// globals - as defined
-		// var completedEntries = "Scores entered for:<br><br>"
-		// var playerDone = []
-		// var playerComplete = []
-		if(what == "save") {
-			if(storedcourse == course || storedcourse == null) {
-				localStorage.course = course;
-				localStorage.playerDone = JSON.stringify(playerDone);
-				localStorage.playerComplete = JSON.stringify(playerComplete);
-				localStorage.completedEntries = JSON.stringify(completedEntries);
-			}
-		}
-		if(what == "recover") {
-			var storedcourse = localStorage.course;
-			if(storedcourse !== course) {
-				// new course so clear local storage
-				localstorage.clear();
-			}
-			if(storedcourse == course) {
-				playerDone = JSON.parse(localStorage.playerDone);
-				playerComplete = JSON.parse(localStorage.playerComplete);
-				completedEntries = JSON.parse(localStorage.completedEntries);
-				var array3 = playerList.filter(function(obj) {
-					return playerDone.indexOf(obj) == -1;
-				});
-				var not = "not yet recorded (" + +array3.length + ")<br>";
-				for(i = 0; i < array3.length; i++) {
-					not = not + "<br>" + array3[i]
-				}
-				document.getElementById("not").innerHTML = not;
-				var dn = ""
-				playerComplete.sort()
-				playerComplete.reverse()
-				for(j = 0; j < playerComplete.length; j++) {
-					dn = dn + "<br>" + playerComplete[j]
-				}
-				document.getElementById("completed").innerHTML = dn
-			}
-		}
-	}
 
-	function calcCbs() {
-		var cb9 = 0;
-		var cb6 = 0;
-		var cb3 = 0;
-		var cb1 = 0;
-		cb1 = parseInt(document.getElementById("aaap18").value);
-		cb3 = cb3 + parseInt(document.getElementById("aaap16").value);
-		cb3 = cb3 + parseInt(document.getElementById("aaap17").value);
-		cb3 = cb3 + cb1
-		cb6 = cb6 + parseInt(document.getElementById("aaap13").value);
-		cb6 = cb6 + parseInt(document.getElementById("aaap14").value);
-		cb6 = cb6 + parseInt(document.getElementById("aaap15").value);
-		cb6 = cb6 + cb3
-		cb9 = cb9 + parseInt(document.getElementById("aaap10").value);
-		cb9 = cb9 + parseInt(document.getElementById("aaap11").value);
-		cb9 = cb9 + parseInt(document.getElementById("aaap12").value);
-		cb9 = cb9 + cb6
-		document.getElementById("cb9txt").innerText = "countback 9 = "
-		document.getElementById("cb9").innerText = cb9
-		document.getElementById("cb6txt").innerText = "countback 6 = "
-		document.getElementById("cb6").innerText = cb6
-		document.getElementById("cb3txt").innerText = "countback 3 = "
-		document.getElementById("cb3").innerText = cb3
-		document.getElementById("cb1txt").innerText = "countback 1 = "
-		document.getElementById("cb1").innerText = cb1
-			// do front 9, back 9 and total
-		front = parseInt(document.getElementById("aaap1").value);
-		front = front + parseInt(document.getElementById("aaap2").value);
-		front = front + parseInt(document.getElementById("aaap3").value);
-		front = front + parseInt(document.getElementById("aaap4").value);
-		front = front + parseInt(document.getElementById("aaap5").value);
-		front = front + parseInt(document.getElementById("aaap6").value);
-		front = front + parseInt(document.getElementById("aaap7").value);
-		front = front + parseInt(document.getElementById("aaap8").value);
-		front = front + parseInt(document.getElementById("aaap9").value);
-		back = cb9
-		document.getElementById("aaapout").innerText = front
-		document.getElementById("aaapback").innerText = back
-		frontscore = parseInt(document.getElementById("aaac1").innerText);
-		frontscore = frontscore + parseInt(document.getElementById("aaac2").innerText);
-		frontscore = frontscore + parseInt(document.getElementById("aaac3").innerText);
-		frontscore = frontscore + parseInt(document.getElementById("aaac4").innerText);
-		frontscore = frontscore + parseInt(document.getElementById("aaac5").innerText);
-		frontscore = frontscore + parseInt(document.getElementById("aaac6").innerText);
-		frontscore = frontscore + parseInt(document.getElementById("aaac7").innerText);
-		frontscore = frontscore + parseInt(document.getElementById("aaac8").innerText);
-		frontscore = frontscore + parseInt(document.getElementById("aaac9").innerText);
-		backscore = parseInt(document.getElementById("aaac10").innerText);
-		backscore = backscore + parseInt(document.getElementById("aaac11").innerText);
-		backscore = backscore + parseInt(document.getElementById("aaac12").innerText);
-		backscore = backscore + parseInt(document.getElementById("aaac13").innerText);
-		backscore = backscore + parseInt(document.getElementById("aaac14").innerText);
-		backscore = backscore + parseInt(document.getElementById("aaac15").innerText);
-		backscore = backscore + parseInt(document.getElementById("aaac16").innerText);
-		backscore = backscore + parseInt(document.getElementById("aaac17").innerText);
-		backscore = backscore + parseInt(document.getElementById("aaac18").innerText);
-		document.getElementById("aaasout").innerText = frontscore
-		document.getElementById("aaasback").innerText = backscore
-		totalpoints = front + back
-		totalscore = frontscore + backscore
-		document.getElementById("aaatotalpoints").innerText = totalpoints
-		document.getElementById("aaatotalscore").innerText = totalscore
-	}
 
-	function tttdropSelected(playerName) {
-		player = playerName
-			// replace button name
-		element = document.getElementById("dropbtn")
-		element.innerText = player
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for(i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if(openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
-			}
-		}
-		doGetHCP();
+	function xsubmitForm() {
+	alert("vvv")
 	}
-
-	function dropSelectedCourse(courseName) {
-		course = courseName
-			// replace button name
-		element = document.getElementById("dropbtnCourse")
-		element.innerText = course
-		var dropdowns = document.getElementsByClassName("dropdown-contentCourse");
-		var i;
-		for(i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if(openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
-			}
-		}
-	}
-	// When the user clicks on the button, 
-	// toggle between hiding and showing the dropdown content 
-	function tttmyFunction() {
-		document.getElementById("myDropdown").classList.toggle("show");
-	}
-
-	function myFunctionCourse() {
-		document.getElementById("myDropdownCourse").classList.toggle("show");
-	}
+		
 
 	function submitForm() {
 		// get the relevant info into a form
-		//var z=parseInt(document.getElementById('scoreaaa').innerText)
-		//-- name --
-		document.getElementById("mx2003556451").value = player
-			//-- hcp --
-		document.getElementById("mx1532454185").value = hcp
-			//-- course --
-		document.getElementById("mx428875568").value = course
-			//-- hole1 --
-		document.getElementById("mx1306174258").value = parseInt(document.getElementById("aaac1").innerText)
-			//-- hole2 --
-		document.getElementById("mx1024942641").value = parseInt(document.getElementById("aaac2").innerText)
-			//-- hole3 --
-		document.getElementById("mx568424031").value = parseInt(document.getElementById("aaac3").innerText)
-			//-- hole4 --
-		document.getElementById("mx282366893").value = parseInt(document.getElementById("aaac4").innerText)
-			//-- hole5 --
-		document.getElementById("mx1389150313").value = parseInt(document.getElementById("aaac5").innerText)
-			//-- hole6 --
-		document.getElementById("mx1775556170").value = parseInt(document.getElementById("aaac6").innerText)
-			//-- hole7 --
-		document.getElementById("mx349500276").value = parseInt(document.getElementById("aaac7").innerText)
-			//-- hole8 --
-		document.getElementById("mx643274554").value = parseInt(document.getElementById("aaac8").innerText)
-			//-- hole9 --
-		document.getElementById("mx775193141").value = parseInt(document.getElementById("aaac9").innerText)
-			//-- hole10 --
-		document.getElementById("mx139361628").value = parseInt(document.getElementById("aaac10").innerText)
-			//-- hole11 --
-		document.getElementById("mx117381068").value = parseInt(document.getElementById("aaac11").innerText)
-			//-- hole12 --
-		document.getElementById("mx215681049").value = parseInt(document.getElementById("aaac12").innerText)
-			//-- hole13 --
-		document.getElementById("mx879551333").value = parseInt(document.getElementById("aaac13").innerText)
-			//-- hole14 --
-		document.getElementById("mx692811717").value = parseInt(document.getElementById("aaac14").innerText)
-			//-- hole15 --
-		document.getElementById("mx2028451995").value = parseInt(document.getElementById("aaac15").innerText)
-			//-- hole16 --
-		document.getElementById("mx1271313293").value = parseInt(document.getElementById("aaac16").innerText)
-			//-- hole17 --
-		document.getElementById("mx112006379").value = parseInt(document.getElementById("aaac17").innerText)
-			//-- hole18 --
-		document.getElementById("mx1439728916").value = parseInt(document.getElementById("aaac18").innerText)
-			//-- points1 --
-		document.getElementById("mx1349672152").value = parseInt(document.getElementById("aaap1").value)
-			//-- points2 --
-		document.getElementById("mx1987316709").value = parseInt(document.getElementById("aaap2").value)
-			//-- points3 --
-		document.getElementById("mx330630509").value = parseInt(document.getElementById("aaap3").value)
-			//-- points4 --
-		document.getElementById("mx508495395").value = parseInt(document.getElementById("aaap4").value)
-			//-- points5 --
-		document.getElementById("mx1157412790").value = parseInt(document.getElementById("aaap5").value)
-			//-- points6 --
-		document.getElementById("mx1214646986").value = parseInt(document.getElementById("aaap6").value)
-			//-- points7 --
-		document.getElementById("mx576264834").value = parseInt(document.getElementById("aaap7").value)
-			//-- points8 --
-		document.getElementById("mx518074596").value = parseInt(document.getElementById("aaap8").value)
-			//-- points9 --
-		document.getElementById("mx509590122").value = parseInt(document.getElementById("aaap9").value)
-			//-- points10 --
-		document.getElementById("mx1720114013").value = parseInt(document.getElementById("aaap10").value)
-			//-- points11 --
-		document.getElementById("mx1743453161").value = parseInt(document.getElementById("aaap11").value)
-			//-- points12 --
-		document.getElementById("mx288611329").value = parseInt(document.getElementById("aaap12").value)
-			//-- points13 --
-		document.getElementById("mx47669545").value = parseInt(document.getElementById("aaap13").value)
-			//-- points14 --
-		document.getElementById("mx33173073").value = parseInt(document.getElementById("aaap14").value)
-			//-- points15 --
-		document.getElementById("mx1280921007").value = parseInt(document.getElementById("aaap15").value)
-			//-- points16 --
-		document.getElementById("mx1548940919").value = parseInt(document.getElementById("aaap16").value)
-			//-- points17 --
-		document.getElementById("mx135100134").value = parseInt(document.getElementById("aaap17").value)
-			//-- points18 --
-		document.getElementById("mx1074696692").value = parseInt(document.getElementById("aaap18").value)
-			// check data is complete 
-		var checkBeforeSubmit = 0
-		var checkBeforeSubmitID = ""
-			//-- player --
-		if(document.getElementById("mx2003556451").value == "none") {
-			checkBeforeSubmit++
-			checkBeforeSubmitID = checkBeforeSubmitID + "player" + "\n"
-		}
-		//-- hcp --
-		if(document.getElementById("mx1532454185").value == "") {
-			checkBeforeSubmit++
-			checkBeforeSubmitID = checkBeforeSubmitID + "hcp" + "\n"
-		}
-		//-- course --
-		if(document.getElementById("mx428875568").value == "course") {
-			checkBeforeSubmit++
-			checkBeforeSubmitID = checkBeforeSubmitID + "course" + "\n"
-		}
-		checkBeforeSubmit = 0
+		
+		
+		
+document.getElementById('mx474474348').value = player;
+document.getElementById('mx2131369517').value = comp;
+document.getElementById('mx477101370').value = hcp;
+document.getElementById('mx1980297491').value = document.getElementById("h1").innerText;
+document.getElementById('mx463832232').value = document.getElementById("h2").innerText;
+document.getElementById('mx205704642').value = document.getElementById("h3").innerText;
+document.getElementById('mx278278589').value = document.getElementById("h4").innerText;
+document.getElementById('mx949547387').value = document.getElementById("h5").innerText;
+document.getElementById('mx703011397').value = document.getElementById("h6").innerText;
+document.getElementById('mx1460583253').value = document.getElementById("h7").innerText;
+document.getElementById('mx462940045').value = document.getElementById("h8").innerText;
+document.getElementById('mx477691508').value = document.getElementById("h9").innerText;
+document.getElementById('mx413249407').value = document.getElementById("h10").innerText;
+document.getElementById('mx108900453').value = document.getElementById("h11").innerText;
+document.getElementById('mx1841236411').value = document.getElementById("h12").innerText;
+document.getElementById('mx1864644918').value = document.getElementById("h13").innerText;
+document.getElementById('mx1538428689').value = document.getElementById("h14").innerText;
+document.getElementById('mx1449918213').value = document.getElementById("h15").innerText;
+document.getElementById('mx38761817').value = document.getElementById("h16").innerText;
+document.getElementById('mx247392471').value = document.getElementById("h17").innerText;
+document.getElementById('mx741809181').value = document.getElementById("h18").innerText;
+document.getElementById('mx1362729237').value = document.getElementById("p1").innerText;
+document.getElementById('mx1372983908').value = document.getElementById("p2").innerText;
+document.getElementById('mx2002196917').value = document.getElementById("p3").innerText;
+document.getElementById('mx640802794').value = document.getElementById("p4").innerText;
+document.getElementById('mx2076656246').value = document.getElementById("p5").innerText;
+document.getElementById('mx486346919').value = document.getElementById("p6").innerText;
+document.getElementById('mx1918313229').value = document.getElementById("p7").innerText;
+document.getElementById('mx638821').value = document.getElementById("p8").innerText;
+document.getElementById('mx737099688').value = document.getElementById("p9").innerText;
+document.getElementById('mx488827232').value = document.getElementById("p10").innerText;
+document.getElementById('mx1203421487').value = document.getElementById("p11").innerText;
+document.getElementById('mx979421831').value = document.getElementById("p12").innerText;
+document.getElementById('mx929858153').value = document.getElementById("p13").innerText;
+document.getElementById('mx1330487443').value = document.getElementById("p14").innerText;
+document.getElementById('mx940496448').value = document.getElementById("p15").innerText;
+document.getElementById('mx1127168348').value = document.getElementById("p16").innerText;
+document.getElementById('mx638332104').value = document.getElementById("p17").innerText;
+document.getElementById('mx1626319908').value = document.getElementById("p18").innerText;
+document.getElementById('mx362674948').value = document.getElementById("pfront").innerText;
+document.getElementById('mx544180710').value = document.getElementById("pback").innerText;
+document.getElementById('mx893562950').value = document.getElementById("ptotal").innerText;
+
+
+
+
+//document.getElementById('mx335596501').value = document.getElementById("cback9");
+document.getElementById('mx335596501').value = document.getElementById("pback").innerText;
+
+tempcb6 = 0;
+tempcb6 += parseInt(document.getElementById("p18").innerText);
+tempcb6 += parseInt(document.getElementById("p17").innerText);
+tempcb6 += parseInt(document.getElementById("p16").innerText);
+tempcb6 += parseInt(document.getElementById("p15").innerText);
+tempcb6 += parseInt(document.getElementById("p14").innerText);
+tempcb6 += parseInt(document.getElementById("p13").innerText);
+
+tempcb3 = 0;
+tempcb3 += parseInt(document.getElementById("p18").innerText);
+tempcb3 += parseInt(document.getElementById("p17").innerText);
+tempcb3 += parseInt(document.getElementById("p16").innerText);
+
+
+document.getElementById('mx1453506389').value = tempcb6;
+document.getElementById('mx1045870519').value = tempcb3;
+document.getElementById('mx683300283').value = document.getElementById("p18").innerText;
+
+//temp2 = 0;
+twoscount = 0;
+		// check data is complete 
+//		var checkBeforeSubmit = 0;
+//		var checkBeforeSubmitID = "";
+alert("here 1");
+for(ii = 1; ii <= 18; ii++) {
+	alert(document.getElementById("h" + ii).innerText );
+				if (document.getElementById("h" + ii).innerText == "2") {
+				    twoscount++;
+								alert(twoscount);
+				}
+				if ("12345678910".indexOf(document.getElementById("h" + ii).innerText) == -1) {
+				    checkBeforeSubmit++;
+								checkBeforeSubmitID += "h" + ii + "\n";
+				}
+}
+				
+document.getElementById('mx967906330').value = twoscount.toString();
+document.getElementById('mx789190149').value = comp+player;
+		
+
+	
 			// submit if all OK
-		if(checkBeforeSubmit === 0) {
+	//	if(checkBeforeSubmit === 0) {
 			//===== submit data
-			document.forms[0].submit()
-				// keep a record of completed entries
-			completedEntries = completedEntries + z + " " + player + "<br>"
-			document.getElementById("completed").innerHTML = completedEntries
-				//increment array when player added
-			playerDone.push(player)
-				//increment array for later sorting
-			playerComplete.push(z + " - " + player)
-			var array3 = playerList.filter(function(obj) {
-				return playerDone.indexOf(obj) == -1;
-			});
-			var not = "not yet recorded (" + +array3.length + ")<br>"
-			for(i = 0; i < array3.length; i++) {
-				not = not + "<br>" + array3[i]
-			}
-			document.getElementById("not").innerHTML = not
-			var dn = ""
-			playerComplete.sort()
-			playerComplete.reverse()
-			for(j = 0; j < playerComplete.length; j++) {
-				dn = dn + "<br>" + playerComplete[j]
-			}
-			document.getElementById("completed").innerHTML = dn
-				// save onscreen info
-			recoverTempData("save")
-				// allow a method to clear local storage
-			if(z == "99") {
-				alert("local storage cleared")
-				localStorage.clear()
-			}
-		} else {
-			alert("not valid so not submitted")
-		}
+			document.forms[0].submit();
+		//} else {
+		//	alert("not valid so not submitted");
+//		}
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	function incrementHcp(id) {
 		incScore = document.getElementById(id).innerText;
-		if(incScore.indexOf("hcp") > -1) {
+		if(incScore.indexOf("hcp search") > -1) {
 			document.getElementById(id).style.fontSize = "50px";
 			document.getElementById(id).style.paddingTop = 0;
-			incScore = 0
+			incScore = 0;
 		}
 		document.getElementById(id).innerText = ++incScore;
-		hcp = incScore
-		recalcScores()
+		hcp = incScore;
+		recalcScores();
 	}
 
 	function incrementScore(id) {
@@ -1447,22 +1382,22 @@
 		if(incScore.indexOf("hole") > -1) {
 			document.getElementById(id).style.fontSize = "50px";
 			document.getElementById(id).style.paddingTop = 0;
-			incScore = 0
+			incScore = 0;
 		}
 		document.getElementById(id).innerText = ++incScore;
 		document.getElementById(id.replace("numscore", "h")).innerText = incScore;
 		if(course == "Lakes") {
-			par = arrLakes[id.replace("numscore", "")][1]
-			si = arrLakes[id.replace("numscore", "")][2]
+			par = arrLakes[id.replace("numscore", "")][1];
+			si = arrLakes[id.replace("numscore", "")][2];
 		} else {
-			par = arrDawson[id.replace("numscore", "")][1]
-			si = arrDawson[id.replace("numscore", "")][2]
+			par = arrDawson[id.replace("numscore", "")][1];
+			si = arrDawson[id.replace("numscore", "")][2];
 		}
 		document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
-		totalScore()
+		totalScore();
 			// countBack()
 			// update local storage
-		localStorage.setItem("hole" + id.replace("numscore", ""), incScore)
+		localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
 	}
 
 	function decrementHcp(id) {
@@ -1471,21 +1406,21 @@
 		if(incScore == 0) {
 			document.getElementById(id).style.fontSize = "15px";
 			document.getElementById(id).style.paddingTop = "20px";
-			holenum = id.replace("numscore", "")
-			document.getElementById(id).innerText = "hcp "
+			holenum = id.replace("numscore", "");
+			document.getElementById(id).innerText = "hcp search";
 		} else {
 			if(incScore.indexOf("hcp") > -1) {
 				document.getElementById(id).style.fontSize = "50px";
 				document.getElementById(id).style.paddingTop = 0;
-				incScore = 0
+				incScore = 0;
 			}
 			if(incScore > 0) {
 				--incScore;
 			}
 			document.getElementById(id).innerText = incScore;
 		}
-		hcp = incScore
-		recalcScores()
+		hcp = incScore;
+		recalcScores();
 	}
 
 	function decrementScore(id) {
@@ -1494,13 +1429,13 @@
 		if(incScore == 0) {
 			document.getElementById(id).style.fontSize = "15px";
 			document.getElementById(id).style.paddingTop = "20px";
-			holenum = id.replace("numscore", "")
-			document.getElementById(id).innerText = "hole " + holenum
+			holenum = id.replace("numscore", "");
+			document.getElementById(id).innerText = "hole " + holenum;
 		} else {
 			if(incScore.indexOf("hole") > -1) {
 				document.getElementById(id).style.fontSize = "50px";
 				document.getElementById(id).style.paddingTop = 0;
-				incScore = 0
+				incScore = 0;
 			}
 			if(incScore > 0) {
 				--incScore;
@@ -1508,30 +1443,30 @@
 			document.getElementById(id).innerText = incScore;
 			document.getElementById(id.replace("numscore", "h")).innerText = incScore;
 			if(course == "Lakes") {
-				par = arrLakes[id.replace("numscore", "")][1]
-				si = arrLakes[id.replace("numscore", "")][2]
+				par = arrLakes[id.replace("numscore", "")][1];
+				si = arrLakes[id.replace("numscore", "")][2];
 			} else {
-				par = arrDawson[id.replace("numscore", "")][1]
-				si = arrDawson[id.replace("numscore", "")][2]
+				par = arrDawson[id.replace("numscore", "")][1];
+				si = arrDawson[id.replace("numscore", "")][2];
 			}
 			document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
 		}
-		totalScore()
+		totalScore();
 		//  countBack()
 		// update local storage
-		localStorage.setItem("hole" + id.replace("numscore", ""), incScore)
+		localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
 	}
 
 	function totalScore() {
 		//alert("totalscore")
-		var ih = 0
-		var ip = 0
+		var ih = 0;
+		var ip = 0;
 		var c6 = 0;
 		var c3 = 0;
 		var c1 = 0;
 		var cb = 0;
-		var jh = 0
-		var jp = 0
+		var jh = 0;
+		var jp = 0;
 		for(i = 1; i <= 9; i++) {
 			ih += parseInt(document.getElementById("h" + i).innerText);
 			ip += parseInt(document.getElementById("p" + i).innerText);
@@ -1555,68 +1490,34 @@
 		document.getElementById("pback").innerText = jp;
 		document.getElementById("htotal").innerText = ih + jh;
 		document.getElementById("ptotal").innerText = ip + jp;
-		cb = "9=" + jp + ", 6=" + c6 + ", 3=" + c3 + ", 1=" + c1
+		cb = "9=" + jp + ", 6=" + c6 + ", 3=" + c3 + ", 1=" + c1;
 		document.getElementById("cback").innerText = cb;
 	}
 
 	function pointsCalc(hcp, par, si, score) {
-		allowance = 0
+		allowance = 0;
 			//    alert("hcp = " + hcp + " par = " + par + " si = " + si + " score = " + score)
 		if(score == 0) {
-			return 0
+			return 0;
 		} else {
 			// allowance   
 			if(hcp >= si) {
-				allowance = 1
+				allowance = 1;
 			}
 			if(hcp >= (18 + si)) {
-				allowance = 2
+				allowance = 2;
 			}
 			if(hcp >= (36 + si)) {
-				allowance = 3
+				allowance = 3;
 			}
 			// points
-			var points = (par + allowance + 2) - score
+			var points = (par + allowance + 2) - score;
 				// remove negative numbers
 			if(points < 0) {
-				points = 0
+				points = 0;
 			}
-			return points
+			return points;
 		}
-	}
-
-	function test() {
-		// sort array by frequency of selection
-		// ------------------------------------
-		// check for a saved array
-		// ?????
-		alert("test started")
-		var arr = ["Graham Airey", "Dale Aitkenhead", "Paul Burt", "Craig Caesar", "Trevor Charlton", "Neil Coxon", "Paul Durance", "Richard Hedley", "Clive Herbert", "Eddie Hicks", "Peter Holleran", "Jim Little", "Bryan Maddison", "Bob Nicholas", "Trevor Ord", "Brian Simpson"];
-		var savedArr = ["Graham Airey", "Dale Aitkenhead", "Paul Burt", "Craig Caesar", "Trevor Charlton", "Neil Coxon", "Paul Durance", "Richard Hedley", "Clive Herbert", "Eddie Hicks", "Peter Holleran", "Jim Little", "Bryan Maddison", "Bob Nicholas", "Trevor Ord", ];
-		alert(arr.length)
-			// add any new names
-			// ?????
-		if(arr.length > savedArr.length) {
-			let difference = arr.filter(x => !savedArr.includes(x));
-			alert("difference = " + difference)
-		}
-		// create a counter object on array
-		let counter = arr.reduce(
-			(counter, key) => {
-				counter[key] = 1 + counter[key] || 1;
-				return counter
-			}, {});
-		alert("counter = " + counter[0]);
-		// {"apples": 1, "oranges": 4, "bananas": 2}
-		// sort counter by values (compare position 1 entries)
-		// the result is an array
-		let sorted_counter = Object.entries(counter).sort((a, b) => b[1] - a[1]);
-		alert("sorted_counter = " + sorted_counter);
-		// [["oranges", 4], ["bananas", 2], ["apples", 1]]
-		// show only keys of the sorted array
-		alert(sorted_counter.map(x => x[0]));
-		// ["oranges", "bananas", "apples"]
-		// save this as the array for next time
 	}
 
 	function getHCP(results) {
@@ -1634,21 +1535,26 @@
 			}
 		}
 		//   document.getElementById("playernamelookup").innerText = strng1 + " it looks like your hcp is "+ strng2;
-		document.getElementById("numhcp").innerHTML = ""
+		document.getElementById("numhcp").innerHTML = "";
 		document.getElementById("numhcp").style.fontSize = "50px";
 		document.getElementById("numhcp").style.paddingTop = 0;
 		document.getElementById("numhcp").innerText = Math.trunc(strng2);
 	}
 
 	function doGetHCP() {
+		
+	 if (document.getElementById("numhcp").innerText == "hcp search"){
+		
 	 document.getElementById("numhcp").style.paddingTop = "20px";
-		document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">'
+		document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
 		var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
 		Papa.parse(public_hcp_url, {
 			download: true,
 			header: true,
 			complete: getHCP,
 		});
+		
+		}
 	}
 
 	function recalcScores() {
@@ -1664,16 +1570,15 @@
 				temppar = arrDawson[i][1]
 				tempsi = arrDawson[i][2]
 			}
-			//  alert("recalcscores - hcp = " + hcp + " par = " + temppar + " si = " + tempsi + " score = " + tempscore)
+
 			temppoints = pointsCalc(hcp, temppar, tempsi, tempscore)
-				// alert("score = " + tempscore + " points = " + temppoints)
+
 			document.getElementById("h" + i).innerText = tempscore;
 			document.getElementById("p" + i).innerText = temppoints;
 		}
 		totalScore()
 	}
- 
- 
+  
  function togglecontrast() {
   // toggle between normal and high contrast
 if (document.getElementById("plusscore1").style.color == "yellow") {
@@ -1762,19 +1667,6 @@ document.getElementById("setup").style.backgroundColor = "black";
  }
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 	/*
 	 
 	hcp list       
@@ -1801,32 +1693,7 @@ document.getElementById("setup").style.backgroundColor = "black";
 	   
 	       
 	 */
-	/*               
-         
-	function detectDoubleTapClosure() {
-	let lastTap = 0;
-	let timeout;
-	return function detectDoubleTap(event) {
-	const curTime = new Date().getTime();
-	const tapLen = curTime - lastTap;
-	if (tapLen < 500 && tapLen > 0) {
-	console.log('Double tapped!');
-	event.preventDefault();
-	} else {
-	timeout = setTimeout(() => {
-	clearTimeout(timeout);
-	}, 500);
-	}
-	lastTap = curTime;
-	};
-	}
-         
-	// Regex test to determine if user is on mobile
-	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-	document.body.addEventListener('touchend', detectDoubleTapClosure(), { passive: false });
-	}      
-	       
-	*/
+	
 	</script>
 </body>
 
