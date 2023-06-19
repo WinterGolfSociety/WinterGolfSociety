@@ -779,7 +779,7 @@ var change = 0;
 if (image.style.right == "10px"){
     x = setInterval(function(){
     image.style.right = (change/3)+"px";
-    image.style.top = change+"px"
+    image.style.top = (change/2)+"px"
     change+=5;
     if(change>500){
        clearInterval(x);
@@ -792,7 +792,7 @@ if (image.style.right == "10px"){
     change = 500;
     x = setInterval(function(){  
     image.style.right = (change/3)+"px";
-    image.style.top = change+"px"
+    image.style.top = (change/2)+"px"
     change-=5;
     if(change<10){
        clearInterval(x);
