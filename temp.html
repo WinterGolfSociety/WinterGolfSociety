@@ -778,10 +778,10 @@ var change = 0;
 
 if (image.style.right == "10px"){
     x = setInterval(function(){
-    image.style.right = (change/2)+"px";
+    image.style.right = (change/3)+"px";
     image.style.top = change+"px"
     change+=5;
-    if(change>400){
+    if(change>500){
        clearInterval(x);
        image.classList.toggle("half");
     }
@@ -789,9 +789,9 @@ if (image.style.right == "10px"){
 
 } else {
     image.classList.toggle("half");
-    change = 400;
+    change = 500;
     x = setInterval(function(){  
-    image.style.right = (change/2)+"px";
+    image.style.right = (change/3)+"px";
     image.style.top = change+"px"
     change-=5;
     if(change<10){
