@@ -778,10 +778,10 @@ var change = 0;
 
 if (image.style.right == "10px"){
     x = setInterval(function(){
-    image.style.right = (change/3)+"px";
-    image.style.top = (change/2)+"px"
+    image.style.right = change+"px";
+    image.style.top = change+"px";
     change+=5;
-    if(change>500){
+    if(change>200){
        clearInterval(x);
        image.classList.toggle("half");
     }
@@ -789,10 +789,10 @@ if (image.style.right == "10px"){
 
 } else {
     image.classList.toggle("half");
-    change = 500;
+    change = 200;
     x = setInterval(function(){  
-    image.style.right = (change/3)+"px";
-    image.style.top = (change/2)+"px"
+    image.style.right = change+"px";
+    image.style.top = change+"px";
     change-=5;
     if(change<10){
        clearInterval(x);
