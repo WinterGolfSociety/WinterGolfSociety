@@ -333,7 +333,9 @@ h2 {
 }
 
  
- 
+ #qrcode {
+    visibility: hidden;
+ }
  
  
  
@@ -407,7 +409,7 @@ h2 {
   
   
   
-  <div class="xfadein" id="qrcode">
+  <div class="qrcode" id="qrcode">
    <img id="img" onclick="enlarge(this.id);" style="position: absolute; top: 10px; right: 10px; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> 
   </div>
    
@@ -534,7 +536,15 @@ var isTop = true;
     menuIsOpen = true;
     // hide pressbutton
     // $('#pressbutton').animate({ opacity: '0' }, 700);
-    $( "#pressbutton" ).html("");  
+    $( "#pressbutton" ).html("");
+    // show qrcode now that press button hint is gone
+    
+    
+    
+    showQRCode();
+    
+    
+    
   }
 
   function hideBubbles() {
@@ -809,7 +819,12 @@ if (image.style.right == "10px"){
 
 
 
+function showQRCode() {
+ 
+ 
+ document.getElementById("qrcode").style.visibility = visible;
 
+}
 
 
 
