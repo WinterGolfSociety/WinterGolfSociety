@@ -795,6 +795,8 @@ if (image.style.right == "10px"){
     image.style.top = change+"px";
     change-=5;
     if(change<10){
+       image.style.right = "10px";
+    image.style.top = "10px";
        clearInterval(x);
        //image.classList.toggle("half");
     }
