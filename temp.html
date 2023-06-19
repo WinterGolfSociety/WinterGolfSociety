@@ -408,7 +408,7 @@ h2 {
   
   
   <div class="xfadein" id="qrcode">
-   <img id="img" onclick="enlarge();" style="position: absolute; top: 50px; right: 50px; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> 
+   <img id="img" onclick="enlarge(this.id);" style="position: absolute; top: 10px; right: 10px; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> 
   </div>
    
   
@@ -735,9 +735,81 @@ function getNextComps() {
 
 
 // function for enlarge image
-document.getElementById("img").addEventListener("click", function(){
-  this.classList.toggle("half");
-});
+//document.getElementById("img").addEventListener("click", function(){
+//function xenlarge(e) { 
+ 
+//var image = document.getElementById('img');
+//var change = 0;
+
+
+//setInterval(function(){
+//image.style.right = change+"px";
+//change+=5;
+
+//if(change>20){
+//clearInterval();
+
+// image.classList.toggle("half");
+
+//}
+//},50);
+
+//}
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+function enlarge() {
+
+var image = document.getElementById('img');
+var change = 0;
+
+if (image.style.right == "10px"){
+    x = setInterval(function(){
+    image.style.right = change+"px";
+    image.style.top = change+"px"
+    change+=5;
+    if(change>500){
+       clearInterval(x);
+       image.classList.toggle("half");
+    }
+    },20);
+
+} else {
+    image.classList.toggle("half");
+    change = 500;
+    x = setInterval(function(){  
+    image.style.right = change+"px";
+    image.style.top = change+"px"
+    change-=5;
+    if(change<10){
+       clearInterval(x);
+       //image.classList.toggle("half");
+    }
+    },20);
+}
+
+
+}
+
+
+
+
+
+
+
 
  
 </script>
