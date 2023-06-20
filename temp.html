@@ -384,7 +384,27 @@ h2 {
   <br><br>
   <a class="dates" id="xdcomp1"></a>
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </div>
+  
+  
+  
+  
+  
+  <div class="qrcode" id="qrcode">
+   <img id="img" onclick="enlarge(this.id);" style="float: right; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> 
+  </div>
+   
+  
   
   
   
@@ -407,13 +427,13 @@ h2 {
   </div>
   
   
-  
+  <!--
   
   <div class="qrcode" id="qrcode">
    <img id="img" onclick="enlarge(this.id);" style="position: absolute; bottom: 110px; right: 10px; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> 
   </div>
    
-  
+  -->
   
   
   
@@ -785,7 +805,7 @@ function enlarge() {
 
 var image = document.getElementById('img');
 var change = 0;
-
+/*
 if (image.style.right == "10px"){
     x = setInterval(function(){
     image.style.right = change+"px";
@@ -812,7 +832,9 @@ if (image.style.right == "10px"){
     }
     },10);
 }
+*/
 
+image.classList.toggle("half");
 
 }
 
