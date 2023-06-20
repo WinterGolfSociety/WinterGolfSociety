@@ -410,7 +410,7 @@ h2 {
   
   
   <div class="qrcode" id="qrcode">
-   <img id="img" onclick="enlarge(this.id);" style="position: absolute; bottom: 10px; right: 10px; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> 
+   <img id="img" onclick="enlarge(this.id);" style="position: absolute; bottom: 50px; right: 50px; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> 
   </div>
    
   
@@ -805,8 +805,8 @@ if (image.style.right == "10px"){
     image.style.bottom = change+"px";
     change-=5;
     if(change<10){
-       image.style.right = "50px";
-    image.style.bottom = "50px";
+       image.style.right = "10px";
+    image.style.bottom = "10px";
        clearInterval(x);
        //image.classList.toggle("half");
     }
