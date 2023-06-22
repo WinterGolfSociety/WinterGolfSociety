@@ -1012,7 +1012,7 @@
 		m = "August";
 	}
 	for(i = 0; i < arrComps.length; i++) {
-		// if in list then compday = "yes"
+		// if today - eg. "22 June" in arrComps list then compday = "yes"
 		if(arrComps[i].indexOf(d1 + " " + m) > -1) {
 			compday = "yes";
 			comp = arrComps[i];
@@ -1024,24 +1024,21 @@
 				// global course
 				course = "Dawson";
 			}
+			
+			// message to show which comp is being used
+			document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\n\n";
+			document.getElementById("id_confrmdiv").style.display = "block";
+			setTimeout(function() {
+			   document.getElementById("id_confrmdiv").innerText = "";
+			   document.getElementById("id_confrmdiv").style.display = "none";
+		 }, 3000);
+					
+			
 		} else {
 			if("comp" in localStorage) {
 				if(localStorage.comp.indexOf(d1 + " " + m) > -1) {
 					comp = localStorage.comp;
 					course = localStorage.course;
-					
-					
-					
-					// message to show which comp is being used
-					   document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\n\n";
-								document.getElementById("id_confrmdiv").style.display = "block";
-					   setTimeout(function() {
-			        document.getElementById("id_confrmdiv").innerText = "";
-								   document.getElementById("id_confrmdiv").style.display = "none";
-		      }, 3000);
-					
-					
-					
 				}
 			} else {
 				course = "course";
