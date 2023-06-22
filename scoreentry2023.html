@@ -1025,6 +1025,11 @@
 				course = "Dawson";
 			}
 			
+			// update localStorage with comp and course
+			localStorage.course = course;
+			localStorage.comp = course + " " + arrComps[i]; 
+			
+			
 			// message to show which comp is being used
 			document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\n\n";
 			document.getElementById("id_confrmdiv").style.display = "block";
