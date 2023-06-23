@@ -1237,7 +1237,7 @@
 		// get the relevant info into a form
 		// dont allow submit for an incorrect day
 		if(compday == "no") {
-			alert("Not a comp day so submit is disabled");
+			showNoSubmitMessage();
 		} else {
 			document.getElementById('mx474474348').value = player;
 			document.getElementById('mx2131369517').value = comp;
@@ -1710,6 +1710,17 @@
 			   document.getElementById("id_confrmdiv").style.display = "none";
 		 }, 3000);
 	}
+	
+	function showNoSubmitMessage() {
+			   document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\n(no competition) is disabled.\n\n";
+			   document.getElementById("id_confrmdiv").style.display = "block";
+						setTimeout(function() {
+			   document.getElementById("id_confrmdiv").innerText = "";
+			   document.getElementById("id_confrmdiv").style.display = "none";
+		 }, 5000);
+	}
+	
+	
 	
 	function showCourseChoice() {
 					
