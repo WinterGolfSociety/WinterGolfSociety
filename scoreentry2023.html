@@ -788,7 +788,7 @@
 	// array of competition dates
 	// these need to be the same as the setup page on google sheets
 	// if they are to be recorded properly in the results
-	arrComps = ["Dawson 23 June 2023",
+	arrComps = ["Lakes 24 June 2023",
 													"Lakes 03 July 2023",
 													"Dawson 07 July 2023",
 													"Lakes 10 July 2023",
@@ -977,7 +977,7 @@
 			}
 		}
 	};
-	// eg Dawson 26 June 2023
+	// get todays date eg 26 June
 	dd = new Date();
 	// date number
 	d1 = dd.getDate();
@@ -1010,6 +1010,26 @@
 	if(d2 == 7) {
 		m = "August";
 	}
+	
+	dateToday = d1 + " " + m;
+	
+	// tidy localStorage if out of date to allow new setup
+	if ("comp" in localStorage) {
+		if (localStorage.comp.indexOf(dateToday) == -1) {
+			// tidy
+			clearCache();
+		}
+	}
+	
+	// recover data if dates match
+	if ("comp" in localStorage) {
+		if (localStorage.comp.indexOf(dateToday) > -1) {
+			// recover
+			recoverFromLocalStorage();
+		}
+	}
+	
+	// see if it is a compday and if so find comp and course
 	for(i = 0; i < arrComps.length; i++) {
 		// if today - eg. "22 June" in arrComps list then compday = "yes"
 		if(arrComps[i].indexOf(d1 + " " + m) > -1) {
@@ -1023,82 +1043,33 @@
 				// global course
 				course = "Dawson";
 			}
-			
-			// update localStorage with comp and course
-			localStorage.course = course;
-			localStorage.comp = course + " " + arrComps[i]; 
-			
-			
-			// message to show which comp is being used
-			document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\n\n";
-			document.getElementById("id_confrmdiv").style.display = "block";
-			setTimeout(function() {
-			   document.getElementById("id_confrmdiv").innerText = "";
-			   document.getElementById("id_confrmdiv").style.display = "none";
-		 }, 3000);
+		}
+	}	
+		
+	if (compday == "yes") {
+		localStorage.comp = comp;
+	}
+	
+	// if not a compday find out what course is played and create a comp
+	if (compday == "no") {
+	  	if (!("comp" in localStorage)) {
+		 				showCourseChoice(); 
+				}
+	}		
+	
+	// recover	
+	if (comp == localStorage.comp) {
+	   recoverFromLocalStorage();
+ }
+	
+	// show comp info message for 3 seconds
+	if ("comp" in localStorage) {
+	   showCompMessage();
+	}
+	
+	
+	
 					
-			
-		} else {
-			if("comp" in localStorage) {
-				if(localStorage.comp.indexOf(d1 + " " + m) > -1) {
-					comp = localStorage.comp;
-					course = localStorage.course;
-				}
-			} else {
-				course = "course";
-				comp = "course" + " " + d1 + " " + m;
-				compday = "no";
-			}
-		}
-	}
-	if(comp == localStorage.comp) {
-		recoverFromLocalStorage();
-		//  recoverData();
-	} else {
-		// if localstorage does not match today		
-		if(compday == "yes") {
-			// start a new comp
-			localStorage.removeItem("player");
-			localStorage.removeItem("hcp");
-			localStorage.removeItem("comp");
-			localStorage.removeItem("course");
-			for(var i = 1; i <= 18; i++) {
-				localStorage.removeItem("hole" + i);
-			}
-		} else {
-			// start again but ask which course
-			if(compday == "no") {
-				localStorage.removeItem("player");
-				localStorage.removeItem("hcp");
-				localStorage.removeItem("comp");
-				localStorage.removeItem("course");
-				for(var i = 1; i <= 18; i++) {
-					localStorage.removeItem("hole" + i);
-				}
-				document.getElementById("id_confrmdiv").style.display = "block";
-				document.getElementById("id_lakesbtn").onclick = function() {
-					course = "Lakes";
-					comp = course + " " + d1 + " " + m;
-					//=====LocalStorage.comp=======
-					localStorage.comp = course + " " + d1 + " " + m;
-					//=====LocalStorage.course=====
-					localStorage.course = course;
-					//=============================
-				 document.getElementById("id_confrmdiv").style.display = "none";
-				};
-				document.getElementById("id_dawsonbtn").onclick = function() {
-					course = "Dawson";
-					comp = course + " " + d1 + " " + m;
-					//=====LocalStorage.comp=======
-					localStorage.comp = course + " " + d1 + " " + m;
-					//=====LocalStorage.course=====
-					localStorage.course = course;
-					//=============================
-					document.getElementById("id_confrmdiv").style.display = "none";
-				};
-			}
-		}
-	}
 	//=============================================================
 	// functions
 	//=============================================================     
@@ -1707,6 +1678,53 @@
 				recoverFromLocalStorage();
 				location.reload();
 	}
+	
+	function doSomethingLakes() {
+	course = "Lakes";
+	comp = course + " " + dateToday;		
+ document.getElementById("id_confrmdiv").style.display = "none";
+	
+	localStorage.course = course;
+	localStorage.comp = comp;
+	}
+	
+	function doSomethingDawson() {
+	course = "Dawson";
+	comp = course + " " + dateToday;		
+ document.getElementById("id_confrmdiv").style.display = "none";
+	
+	localStorage.course = course;
+	localStorage.comp = comp;
+	}
+	
+	function showCompMessage() {
+		    if (compday == "yes") {
+	    	   document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\ncompetition\n\n";
+		    }
+						else {
+							  document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\n(no competition)\n\n";
+						}
+			   document.getElementById("id_confrmdiv").style.display = "block";
+						setTimeout(function() {
+			   document.getElementById("id_confrmdiv").innerText = "";
+			   document.getElementById("id_confrmdiv").style.display = "none";
+		 }, 3000);
+	}
+	
+	function showCourseChoice() {
+					
+						tempt = '<br /> No competition today. Select which course to use.';
+				  tempt += '<br /><br />';
+				  tempt += '<button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>';
+				  tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
+						
+						document.getElementById("id_confrmdiv").innerHTML = tempt; 
+						console.log(document.getElementById("id_confrmdiv").innerHTML);
+					 document.getElementById("id_confrmdiv").style.display = "block";
+						
+	}
+	
+	
 	</script>
 </body>
 
