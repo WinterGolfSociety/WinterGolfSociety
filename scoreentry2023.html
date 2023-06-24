@@ -1110,6 +1110,21 @@
 	}
 
 	function dropSelected(playerName) {
+		
+		
+		// clear entries
+			localStorage.removeItem("player");
+				localStorage.removeItem("hcp");
+				localStorage.removeItem("comp");
+				localStorage.removeItem("course");
+				for(var i = 1; i <= 18; i++) {
+					localStorage.removeItem("hole" + i);
+				}
+			
+		
+		
+		
+		
 		if(playerName == "reset list") {
 			resetNames();
 			// clearStorage();
@@ -1140,6 +1155,15 @@
 			element = document.getElementById("dropbtn");
 			element.innerText = player;
 			// update player choice
+			
+				
+				// reset "hcp" marker
+				document.getElementById("numhcp").innerText = "hcp"
+		
+
+			
+			
+			
 			//=====LocalStorage.player=====
 			localStorage.player = player;
 			//=============================
@@ -1324,7 +1348,8 @@
 
 	function incrementHcp(id) {
 		incScore = document.getElementById(id).innerText;
-		if(incScore.indexOf("hcp") > -1) {
+	//	if(incScore.indexOf("hcp") > -1) {
+	if (incScore == "hcp" || incScore == "") {
 			document.getElementById(id).style.fontSize = "50px";
 			document.getElementById(id).style.paddingTop = 0;
 			incScore = 0;
