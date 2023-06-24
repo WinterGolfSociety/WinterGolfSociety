@@ -1112,15 +1112,7 @@
 	function dropSelected(playerName) {
 		
 		
-		// clear entries
-			localStorage.removeItem("player");
-				localStorage.removeItem("hcp");
-				localStorage.removeItem("comp");
-				localStorage.removeItem("course");
-				for(var i = 1; i <= 18; i++) {
-					localStorage.removeItem("hole" + i);
-				}
-			
+
 		
 		
 		
@@ -1157,12 +1149,11 @@
 			// update player choice
 			
 				
-				// reset "hcp" marker
-				document.getElementById("numhcp").innerText = "hcp"
+//				document.getElementById("numhcp").innerText = "hcp";
+				// reset hole scores
+				
 		
-
-			
-			
+	
 			
 			//=====LocalStorage.player=====
 			localStorage.player = player;
