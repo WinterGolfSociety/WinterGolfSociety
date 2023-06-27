@@ -1319,19 +1319,40 @@
 			}
 			document.getElementById('mx967906330').value = twoscount.toString();
 			document.getElementById('mx789190149').value = comp + player;
+			
+			var err = "no";
+			for(i = 1; i <= 18; i++) {
+				   if (document.getElementById("numscore" + i).innerText.indexOf("hole") > -1) {
+								   err = "yes";				
+							}
+			}
+				
+			if (player == "select player" || hcp == "hcp" || err == "yes") {
+			 
+				// error message
+				showIncompleteSubmitData();
+				
+			} else {
+						
 			//===== submit data
 			document.forms[0].submit();
-			document.getElementById('submitwrapper').style.borderColor = "white";
-			document.getElementById('submitwrapper').style.background = "blue";
+			
+			document.getElementById('submitwrapper').style.borderColor = "mediumSpringGreen";
+			document.getElementById('submitwrapper').style.background = "dodgerBlue";
 			document.getElementById('submittxt').innerText = "submitting data";
 			// allow some time for submit then give a completion message
 			setTimeout(function() {
-				document.getElementById('submitwrapper').style.borderColor = "cyan";
-				document.getElementById('submittxt').style.color = "cyan";
+				document.getElementById('submitwrapper').style.borderColor = "white";
+					document.getElementById('submitwrapper').style.background = "mediumSpringGreen";
+				document.getElementById('submittxt').style.color = "darkSlateGray";
 				document.getElementById('submittxt').style.fontWeight = "400";
 				document.getElementById('submittxt').innerText = "submitted - OK";
 			}, 5000);
+			
 		}
+		
+	}
+		
 	}
 
 	function incrementHcp(id) {
@@ -1720,6 +1741,15 @@
 	
 	function showNoSubmitMessage() {
 			   document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\n(no competition) is disabled.\n\n";
+			   document.getElementById("id_confrmdiv").style.display = "block";
+						setTimeout(function() {
+			   document.getElementById("id_confrmdiv").innerText = "";
+			   document.getElementById("id_confrmdiv").style.display = "none";
+		 }, 5000);
+	}
+	
+	function showIncompleteSubmitData() {
+			   document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n\n";
 			   document.getElementById("id_confrmdiv").style.display = "block";
 						setTimeout(function() {
 			   document.getElementById("id_confrmdiv").innerText = "";
