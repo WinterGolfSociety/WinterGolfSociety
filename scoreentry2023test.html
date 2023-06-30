@@ -1553,7 +1553,7 @@ var master = [
 	      document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
 	      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
 	
-	      console.log("try 1")
+	      //console.log("try 1")
 	      // try for 5 seconds then try again
 	      Papa.parse(public_hcp_url, {
 			download: true,
@@ -1566,8 +1566,10 @@ var master = [
 	      // if hcp number found don't bother retrying
 	      str = document.getElementById("numhcp").innerText; 
 	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
-	            console.log("try 2")
-		   
+	            //console.log("try 2")
+	            
+		    showMessageRetryHCP()
+		    
 		    Papa.parse(public_hcp_url, {
 		              download: true,
 			      header: true,
@@ -1575,6 +1577,20 @@ var master = [
 		   });	 
 	      }	    
 	      }, 5000);	
+	      
+	       // if not successful, reset after 11 seconds		
+	      setTimeout(function() {
+	      // if hcp number found don't bother doing anything
+	      str = document.getElementById("numhcp").innerText; 
+	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
+	            //console.log("try 3")
+	            
+		    showMessageRetryHCPFailed()
+		    
+		    document.getElementById("dropbtn").innerText = "select player";
+		    document.getElementById("numhcp").innerText = "hcp"; 	 
+	      }	    
+	      }, 11000);	    
 		 	
           }
         }
@@ -1782,6 +1798,35 @@ var master = [
 			   document.getElementById("id_confrmdiv").style.display = "none";
 		 }, 5000);
 	}
+
+	
+	function showMessageRetryHCP() {
+			   document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed - retrying ...\n\n";
+			   document.getElementById("id_confrmdiv").style.display = "block";
+						setTimeout(function() {
+			   document.getElementById("id_confrmdiv").innerText = "";
+			   document.getElementById("id_confrmdiv").style.display = "none";
+		 }, 2000);
+	}
+	
+	
+	function showMessageRetryHCPFailed() {
+			   document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" +
+			   "check the network and try again.\n" +
+			   "or\n" +
+			   "lookup your HCP and enter manually\n\n";
+			   
+			   
+			   
+			   document.getElementById("id_confrmdiv").style.display = "block";
+						setTimeout(function() {
+			   document.getElementById("id_confrmdiv").innerText = "";
+			   document.getElementById("id_confrmdiv").style.display = "none";
+		 }, 7000);
+	}
+	
+	
+	
 	
 	function showCourseChoice() {
 						tempt = '<br /> No competition today. Select which course to use.';
@@ -1794,7 +1839,7 @@ var master = [
 					 document.getElementById("id_confrmdiv").style.display = "block";
 	}
 	
-	</script>
+</script>
 </body>
 
 </html>
