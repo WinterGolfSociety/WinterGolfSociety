@@ -1573,7 +1573,7 @@ var master = [
 	      document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
 	      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
 	
-	      ////console.log("try 1")
+	      // console.log("try 1")
 	      // try for 5 seconds then try again
 	      Papa.parse(public_hcp_url, {
 			download: true,
@@ -1586,7 +1586,7 @@ var master = [
 	      // if hcp number found don't bother retrying
 	      str = document.getElementById("numhcp").innerText; 
 	      if ( !isNaN(str) && !isNaN(parseFloat(str))) {
-	            ////console.log("try 2")
+	            // console.log("try 2")
 	            
 		    showMessageRetryHCP()
 		    
@@ -1603,12 +1603,14 @@ var master = [
 	      // if hcp number found don't bother doing anything
 	      str = document.getElementById("numhcp").innerText; 
 	      if (!isNaN(str) && !isNaN(parseFloat(str))) {
-	            ////console.log("try 3")
+	            // console.log("try 3")
 	            
 		    showMessageRetryHCPFailed()
 		    
-		    document.getElementById("dropbtn").innerText = "select player";
-		    document.getElementById("numhcp").innerText = "hcp"; 	 
+		    document.getElementById("numhcp").innerText = "hcp";
+		    document.getElementById("numhcp").style.fontSize = "15px";
+		    document.getElementById("numhcp").style.paddingTop = "20px";
+		    document.getElementById("dropbtn").innerText = "select player"; 	 
 	      }	    
 	      }, 11000);	    
 		 	
