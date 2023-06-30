@@ -1585,7 +1585,7 @@ var master = [
 	      setTimeout(function() {
 	      // if hcp number found don't bother retrying
 	      str = document.getElementById("numhcp").innerText; 
-	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
+	      if ( !isNaN(str) && !isNaN(parseFloat(str))) {
 	            ////console.log("try 2")
 	            
 		    showMessageRetryHCP()
@@ -1602,7 +1602,7 @@ var master = [
 	      setTimeout(function() {
 	      // if hcp number found don't bother doing anything
 	      str = document.getElementById("numhcp").innerText; 
-	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
+	      if (!isNaN(str) && !isNaN(parseFloat(str))) {
 	            ////console.log("try 3")
 	            
 		    showMessageRetryHCPFailed()
