@@ -1046,17 +1046,26 @@ var master = [
 		if(arrComps[i].indexOf(d1 + " " + m) > -1) {
 			compday = "yes";
 			comp = arrComps[i];
+			//console.log("comp = " + comp)
+			//console.log("course Lakes = " + arrComps[i].indexOf("Lakes"))
+			//console.log("course Dawson = " + arrComps[i].indexOf("Dawson"))
+			
+			
 			if(arrComps[i].indexOf("Lakes") > -1) {
 				// global course
 				course = "Lakes";
+				// localStorage course
+				localStorage.course = "Lakes";
 			}
 			if(arrComps[i].indexOf("Dawson") > -1) {
 				// global course
 				course = "Dawson";
+				// localStorage course
+				localStorage.course = "Dawson";
 			}
 		}
 	}	
-		
+	//console.log("course = " + course)	
 	if (compday == "yes") {
 		localStorage.comp = comp;
 	}
@@ -1387,6 +1396,11 @@ var master = [
 		}
 		document.getElementById(id).innerText = ++incScore;
 		document.getElementById(id.replace("numscore", "h")).innerText = incScore;
+		
+		//console.log("course from increment = " + course)
+		//console.log("course from localstorage = " + localStorage.course)
+		
+		
 		if(course == "Lakes") {
 			par = arrLakes[id.replace("numscore", "")][1];
 			si = arrLakes[id.replace("numscore", "")][2];
@@ -1520,6 +1534,12 @@ var master = [
 			if(points < 0) {
 				points = 0;
 			}
+			//console.log("score = " + score)
+			//console.log("si = " + si)
+			//console.log("par = " + par)
+			//console.log("hcp = " + hcp)
+			
+			
 			return points;
 		}
 	}
@@ -1553,7 +1573,7 @@ var master = [
 	      document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
 	      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
 	
-	      //console.log("try 1")
+	      ////console.log("try 1")
 	      // try for 5 seconds then try again
 	      Papa.parse(public_hcp_url, {
 			download: true,
@@ -1566,7 +1586,7 @@ var master = [
 	      // if hcp number found don't bother retrying
 	      str = document.getElementById("numhcp").innerText; 
 	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
-	            //console.log("try 2")
+	            ////console.log("try 2")
 	            
 		    showMessageRetryHCP()
 		    
@@ -1583,7 +1603,7 @@ var master = [
 	      // if hcp number found don't bother doing anything
 	      str = document.getElementById("numhcp").innerText; 
 	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
-	            //console.log("try 3")
+	            ////console.log("try 3")
 	            
 		    showMessageRetryHCPFailed()
 		    
@@ -1835,7 +1855,7 @@ var master = [
 				  tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
 						
 						document.getElementById("id_confrmdiv").innerHTML = tempt; 
-						console.log(document.getElementById("id_confrmdiv").innerHTML);
+						//console.log(document.getElementById("id_confrmdiv").innerHTML);
 					 document.getElementById("id_confrmdiv").style.display = "block";
 	}
 	
