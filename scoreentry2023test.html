@@ -1548,51 +1548,36 @@ var master = [
 	}
 
 	function doGetHCP() {
-		if(document.getElementById("numhcp").innerText == "hcp") {
-			document.getElementById("numhcp").style.paddingTop = "20px";
-			document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
-			var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
+	   if(document.getElementById("numhcp").innerText == "hcp") {
+	      document.getElementById("numhcp").style.paddingTop = "20px";
+	      document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
+	      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
 	
+	      console.log("try 1")
+	      // try for 5 seconds then try again
+	      Papa.parse(public_hcp_url, {
+			download: true,
+			header: true,
+			complete: getHCP,
+	      });
 	
-	console.log("try 1")
-	// try for 5 seconds then try again
-	Papa.parse(public_hcp_url, {
-				download: true,
-				header: true,
-				complete: getHCP,
-			});
-	
-			
-	setTimeout(function() {
-	    
-	    str = document.getElementById("numhcp").innerText; 
-	    
-	    if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
-
-			
-        	setTimeout(function() {
-	        console.log("try 2")
-		Papa.parse(public_hcp_url, {
-				download: true,
-				header: true,
-				complete: getHCP,
-			});	  
-		 }, 5000);		
-			
-			
-			
-			
-		}  // if
-	} // timeout
-	)
-	
-	
-	
-	
-	
-	
-	}
-	}
+	      // retry after 5 seconds		
+	      setTimeout(function() {
+	      // if hcp number found don't bother retrying
+	      str = document.getElementById("numhcp").innerText; 
+	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
+	            console.log("try 2")
+		   
+		    Papa.parse(public_hcp_url, {
+		              download: true,
+			      header: true,
+			      complete: getHCP,
+		   });	 
+	      }	    
+	      }, 5000);	
+		 	
+          }
+        }
 
 	function recalcScores() {
 		for(i = 1; i <= 18; i++) {
