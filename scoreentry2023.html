@@ -1046,17 +1046,26 @@ var master = [
 		if(arrComps[i].indexOf(d1 + " " + m) > -1) {
 			compday = "yes";
 			comp = arrComps[i];
+			//console.log("comp = " + comp)
+			//console.log("course Lakes = " + arrComps[i].indexOf("Lakes"))
+			//console.log("course Dawson = " + arrComps[i].indexOf("Dawson"))
+			
+			
 			if(arrComps[i].indexOf("Lakes") > -1) {
 				// global course
 				course = "Lakes";
+				// localStorage course
+				localStorage.course = "Lakes";
 			}
 			if(arrComps[i].indexOf("Dawson") > -1) {
 				// global course
 				course = "Dawson";
+				// localStorage course
+				localStorage.course = "Dawson";
 			}
 		}
 	}	
-		
+	//console.log("course = " + course)	
 	if (compday == "yes") {
 		localStorage.comp = comp;
 	}
@@ -1387,6 +1396,11 @@ var master = [
 		}
 		document.getElementById(id).innerText = ++incScore;
 		document.getElementById(id.replace("numscore", "h")).innerText = incScore;
+		
+		//console.log("course from increment = " + course)
+		//console.log("course from localstorage = " + localStorage.course)
+		
+		
 		if(course == "Lakes") {
 			par = arrLakes[id.replace("numscore", "")][1];
 			si = arrLakes[id.replace("numscore", "")][2];
@@ -1520,6 +1534,12 @@ var master = [
 			if(points < 0) {
 				points = 0;
 			}
+			//console.log("score = " + score)
+			//console.log("si = " + si)
+			//console.log("par = " + par)
+			//console.log("hcp = " + hcp)
+			
+			
 			return points;
 		}
 	}
@@ -1548,17 +1568,52 @@ var master = [
 	}
 
 	function doGetHCP() {
-		if(document.getElementById("numhcp").innerText == "hcp") {
-			document.getElementById("numhcp").style.paddingTop = "20px";
-			document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
-			var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
-			Papa.parse(public_hcp_url, {
-				download: true,
-				header: true,
-				complete: getHCP,
-			});
-		}
-	}
+	   if(document.getElementById("numhcp").innerText == "hcp") {
+	      document.getElementById("numhcp").style.paddingTop = "20px";
+	      document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
+	      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
+	
+	      ////console.log("try 1")
+	      // try for 5 seconds then try again
+	      Papa.parse(public_hcp_url, {
+			download: true,
+			header: true,
+			complete: getHCP,
+	      });
+	
+	      // retry after 5 seconds		
+	      setTimeout(function() {
+	      // if hcp number found don't bother retrying
+	      str = document.getElementById("numhcp").innerText; 
+	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
+	            ////console.log("try 2")
+	            
+		    showMessageRetryHCP()
+		    
+		    Papa.parse(public_hcp_url, {
+		              download: true,
+			      header: true,
+			      complete: getHCP,
+		   });	 
+	      }	    
+	      }, 5000);	
+	      
+	       // if not successful, reset after 11 seconds		
+	      setTimeout(function() {
+	      // if hcp number found don't bother doing anything
+	      str = document.getElementById("numhcp").innerText; 
+	      if ( (str == "") || (!isNaN(str) && !isNaN(parseFloat(str))) ) {
+	            ////console.log("try 3")
+	            
+		    showMessageRetryHCPFailed()
+		    
+		    document.getElementById("dropbtn").innerText = "select player";
+		    document.getElementById("numhcp").innerText = "hcp"; 	 
+	      }	    
+	      }, 11000);	    
+		 	
+          }
+        }
 
 	function recalcScores() {
 		for(i = 1; i <= 18; i++) {
@@ -1661,12 +1716,16 @@ var master = [
 			document.getElementById("numhcp").style.paddingTop = "20px";
 		}
 		hcp = document.getElementById("numhcp").innerText;
-		//=====LocalStorage.comp============
-		comp = localStorage.getItem("comp");
-		//==================================
-		//=====LocalStorage.course==============
-		course = localStorage.getItem("course");
-		//======================================
+		if ("comp" in localStorage) {
+		   //=====LocalStorage.comp============
+		   comp = localStorage.getItem("comp");
+		   //==================================
+		}
+		if ("course" im localStorage) {   
+		   //=====LocalStorage.course==============
+		   course = localStorage.getItem("course");
+		   //======================================
+		}
 		//	recalc points etc.
 		for(var i = 1; i <= 18; i++) {
 			// put values for holes back
@@ -1763,6 +1822,35 @@ var master = [
 			   document.getElementById("id_confrmdiv").style.display = "none";
 		 }, 5000);
 	}
+
+	
+	function showMessageRetryHCP() {
+			   document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed - retrying ...\n\n";
+			   document.getElementById("id_confrmdiv").style.display = "block";
+						setTimeout(function() {
+			   document.getElementById("id_confrmdiv").innerText = "";
+			   document.getElementById("id_confrmdiv").style.display = "none";
+		 }, 2000);
+	}
+	
+	
+	function showMessageRetryHCPFailed() {
+			   document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" +
+			   "check the network and try again.\n" +
+			   "or\n" +
+			   "lookup your HCP and enter manually\n\n";
+			   
+			   
+			   
+			   document.getElementById("id_confrmdiv").style.display = "block";
+						setTimeout(function() {
+			   document.getElementById("id_confrmdiv").innerText = "";
+			   document.getElementById("id_confrmdiv").style.display = "none";
+		 }, 7000);
+	}
+	
+	
+	
 	
 	function showCourseChoice() {
 						tempt = '<br /> No competition today. Select which course to use.';
@@ -1771,11 +1859,11 @@ var master = [
 				  tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
 						
 						document.getElementById("id_confrmdiv").innerHTML = tempt; 
-						console.log(document.getElementById("id_confrmdiv").innerHTML);
+						//console.log(document.getElementById("id_confrmdiv").innerHTML);
 					 document.getElementById("id_confrmdiv").style.display = "block";
 	}
 	
-	</script>
+</script>
 </body>
 
 </html>
