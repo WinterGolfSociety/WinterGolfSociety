@@ -1549,8 +1549,14 @@ var master = [
 		var strng1 = "not found";
 		var strng2 = "not found";
 		var datax = results.data;
+		var errorsx = results.errors;
 		// search google sheets for info
 		for(i = 0; i < datax.length; i++) {
+		
+		
+		console.log("errors " + i + " = " + errorsx[i])
+		
+		
 			if(player == datax[i].player) {
 				strng1 = datax[i].player;
 				strng2 = datax[i].hcp;
