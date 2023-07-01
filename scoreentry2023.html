@@ -1544,84 +1544,54 @@ var master = [
 		}
 	}
 
-	function getHCP(results) {
-		// Data is usable here
-		var strng1 = "not found";
-		var strng2 = "not found";
-		var datax = results.data;
-		var errorsx = results.errors;
-		// search google sheets for info
-		for(i = 0; i < datax.length; i++) {
-		
-		
-		console.log("errors " + i + " = " + errorsx[i])
-		alert("errors " + i + " = " + errorsx[i])
-		
-			if(player == datax[i].player) {
-				strng1 = datax[i].player;
-				strng2 = datax[i].hcp;
-			}
-		}
-		document.getElementById("numhcp").innerHTML = "";
-		document.getElementById("numhcp").style.fontSize = "50px";
-		document.getElementById("numhcp").style.paddingTop = 0;
-		document.getElementById("numhcp").innerText = Math.trunc(strng2);
-		// update global hcp
-		hcp = Math.trunc(strng2);
-		//=====LocalStorage.hcp=====
-		localStorage.hcp = hcp;
-		//==========================
-	}
 
 	function doGetHCP() {
 	   if(document.getElementById("numhcp").innerText == "hcp") {
-	      document.getElementById("numhcp").style.paddingTop = "20px";
-	      document.getElementById("numhcp").innerHTML = '<img id="spin" src="spin.png" height="30" width="30">';
-	      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
-	
-	      // console.log("try 1")
-	      // try for 5 seconds then try again
+	        var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
+		strng2 = "hcp";
+		try {
+			// if it fails after 5 seconds, put up error message
+			setTimeout(function() {
+				if (!(Math.trunc(strng2) > 0)) {
+					showMessageRetryHCPFailed();
+				} 
+			},5000);
+
 	      Papa.parse(public_hcp_url, {
 			download: true,
 			header: true,
-			complete: getHCP,
-	      });
-	
-	      // retry after 5 seconds		
-	      setTimeout(function() {
-	      // if hcp number found don't bother retrying
-	      str = document.getElementById("numhcp").innerText; 
-	      if ( !isNaN(str) && !isNaN(parseFloat(str))) {
-	            // console.log("try 2")
-	            
-		    showMessageRetryHCP()
-		    
-		    Papa.parse(public_hcp_url, {
-		              download: true,
-			      header: true,
-			      complete: getHCP,
-		   });	 
-	      }	    
-	      }, 5000);	
-	      
-	       // if not successful, reset after 11 seconds		
-	      setTimeout(function() {
-	      // if hcp number found don't bother doing anything
-	      str = document.getElementById("numhcp").innerText; 
-	      if (!isNaN(str) && !isNaN(parseFloat(str))) {
-	            // console.log("try 3")
-	            
-		    showMessageRetryHCPFailed()
-		    
-		    document.getElementById("numhcp").innerText = "hcp";
-		    document.getElementById("numhcp").style.fontSize = "15px";
-		    document.getElementById("numhcp").style.paddingTop = "20px";
-		    document.getElementById("dropbtn").innerText = "select player"; 	 
-	      }	    
-	      }, 11000);	    
-		 	
-          }
-        }
+			step: function(results, parser) {
+				if (results.data.player.indexOf(player) > -1) {
+					strng2 = results.data.hcp;
+					console.log("Row data:", results.data.player);
+					console.log("Row data:", results.data.hcp);
+					parser.abort;		
+				}
+			},
+			complete: function(){
+				console.log("completed");
+				if (Math.trunc(strng2) > 0) {
+					document.getElementById("numhcp").innerHTML = "";
+					document.getElementById("numhcp").style.fontSize = "50px";
+					document.getElementById("numhcp").style.paddingTop = 0;
+					document.getElementById("numhcp").innerText = Math.trunc(strng2);
+					// update global hcp
+					hcp = Math.trunc(strng2);
+					//=====LocalStorage.hcp=====
+					localStorage.hcp = hcp;
+					//==========================
+				}		
+			}		
+	      });	
+} // end try
+
+catch(err) {
+	console.log(err.message);
+	console.log("bryan error");
+}
+} // if ended
+}
+        
 
 	function recalcScores() {
 		for(i = 1; i <= 18; i++) {
