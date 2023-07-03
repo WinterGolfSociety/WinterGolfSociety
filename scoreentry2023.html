@@ -252,7 +252,7 @@
 	}
 	
 	.wrapper {
-		width: 100vw;		
+		width: 100vw;
 	}
 	
 	.submitwrapper {
@@ -265,20 +265,12 @@
 		padding-top: 2vh;
 		border-radius: 5px;
 		border: 5px solid white;
-
 	}
-	
 	
 	#submitwrapper {
-	
-		
-	//	  filter: blur(5px);
-	visibility: hidden;
-		
+		//	  filter: blur(5px);
+		visibility: hidden;
 	}
-	
-	
-	
 	
 	.xsubmitwrapper {
 		width: 95vw;
@@ -366,22 +358,10 @@
 		background-color: #ddd;
 	}
 	
-	
-	
-	
-	
 	#hcpwrapper {
-	//  filter: blur(5px);
-	visibility: hidden;
+		//  filter: blur(5px);
+		visibility: hidden;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	</style>
 	<meta content="score input" name="description">
 	<meta content="Bryan M" name="author">
@@ -565,8 +545,7 @@
 									<tr>
 										<td colspan="6">
 											<div class="xsubmitwrapper">
-											<div>	<img src="dbwhite.png" alt="contrast" onclick="clearCache()" style="float: left; height: 40px; width: 40px;">
-		         <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;"> </div>
+												<div> <img src="resetwhite.png" alt="contrast" onclick="clearCache()" style="float: left; height: 40px; width: 40px;"> <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;"> </div>
 											</div>
 										</td>
 									</tr>
@@ -793,7 +772,6 @@
 		[17, 4, 2],
 		[18, 5, 8]
 	];
-
 	// array ["hole num",par,si]
 	arrDawson = [
 		[0, 0, 0],
@@ -816,146 +794,145 @@
 		[17, 4, 10],
 		[18, 4, 8]
 	];
-
 	// array of competition dates
 	// these need to be the same as the setup page on google sheets
 	// if they are to be recorded properly in the results
-	arrComps = ["Lakes 16 June 2023",
-        "Dawson 19 June 2023",
-        "Lakes 23 June 2023",
-        "Dawson 26 June 2023",
-        "Lakes 30 June 2023",
-	"Lakes 03 July 2023",
-	"Dawson 07 July 2023",
-	"Lakes 10 July 2023",
-	"Dawson 14 July 2023",
-	"Lakes 17 July 2023",
-	"Dawson 21 July 2023",
-	"Lakes 24 July 2023",
-	"Dawson 28 July 2023",
-	"Lakes 31 July 2023",
-	"Lakes 04 August 2023",
-	"Dawson 07 August 2023",
-	"Lakes 11 August 2023",
-	"Dawson 14 August 2023",
-	"Lakes 18 August 2023",
-	"Dawson 21 August 2023",
-	"Lakes 25 August 2023",
-	"Dawson 28 August 2023",
-	"Dawson 03 November 2023",
-	"Lakes 06 November 2023",
-	"Dawson 10 November 2023",
-	"Lakes 13 November 2023",
-	"Dawson 17 November 2023",
-	"Lakes 20 November 2023",
-	"Dawson 24 November 2023",
-	"Lakes 27 November 2023",
-	"Dawson 01 December 2023",
-	"Lakes 04 December 2023",
-	"Dawson 08 December 2023",
-	"Lakes 11 December 2023",
-	"Dawson 15 December 2023",
-	"Lakes 18 December 2023",
-	"Dawson 22 December 2023",
-	"Lakes 25 December 2023",
-	"Dawson 29 December 2023",
-	"Lakes 01 January 2024",
-	"Dawson 05 January 2024",
-	"Lakes 08 January 2024",
-	"Dawson 12 January 2024",
-	"Lakes 15 January 2024",
-	"Dawson 19 January 2024",
-	"Lakes 22 January 2024",
-	"Dawson 26 January 2024",
-	"Lakes 29 January 2024",
-	"Lakes 02 February 2024",
-	"Dawson 05 February 2024",
-	"Lakes 09 February 2024",
-	"Dawson 12 February 2024",
-	"Lakes 16 February 2024",
-	"Dawson 19 February 2024",
-	"Lakes 23 February 2024",
-	"Dawson 26 February 2024",
-	"Dawson 01 March 2024",
-	"Lakes 04 March 2024",
-	"Dawson 08 March 2024",
-	"Lakes 11 March 2024",
-	"Dawson 15 March 2024",
-	"Lakes 18 March 2024",
-	"Dawson 22 March 2024",
-	"Lakes 25 March 2024",
+	arrComps = [
+	"Lakes 16 June 2023", 
+	"Dawson 19 June 2023", 
+	"Lakes 23 June 2023", 
+	"Dawson 26 June 2023", 
+	"Lakes 30 June 2023", 
+	"Lakes 03 July 2023", 
+	"Dawson 07 July 2023", 
+	"Lakes 10 July 2023", 
+	"Dawson 14 July 2023", 
+	"Lakes 17 July 2023", 
+	"Dawson 21 July 2023", 
+	"Lakes 24 July 2023", 
+	"Dawson 28 July 2023", 
+	"Lakes 31 July 2023", 
+	"Lakes 04 August 2023", 
+	"Dawson 07 August 2023", 
+	"Lakes 11 August 2023", 
+	"Dawson 14 August 2023", 
+	"Lakes 18 August 2023", 
+	"Dawson 21 August 2023", 
+	"Lakes 25 August 2023", 
+	"Dawson 28 August 2023", 
+	"Dawson 03 November 2023", 
+	"Lakes 06 November 2023", 
+	"Dawson 10 November 2023", 
+	"Lakes 13 November 2023", 
+	"Dawson 17 November 2023", 
+	"Lakes 20 November 2023", 
+	"Dawson 24 November 2023", 
+	"Lakes 27 November 2023", 
+	"Dawson 01 December 2023", 
+	"Lakes 04 December 2023", 
+	"Dawson 08 December 2023", 
+	"Lakes 11 December 2023", 
+	"Dawson 15 December 2023", 
+	"Lakes 18 December 2023", 
+	"Dawson 22 December 2023", 
+	"Lakes 25 December 2023", 
+	"Dawson 29 December 2023", 
+	"Lakes 01 January 2024", 
+	"Dawson 05 January 2024", 
+	"Lakes 08 January 2024", 
+	"Dawson 12 January 2024", 
+	"Lakes 15 January 2024", 
+	"Dawson 19 January 2024", 
+	"Lakes 22 January 2024", 
+	"Dawson 26 January 2024", 
+	"Lakes 29 January 2024", 
+	"Lakes 02 February 2024", 
+	"Dawson 05 February 2024", 
+	"Lakes 09 February 2024", 
+	"Dawson 12 February 2024", 
+	"Lakes 16 February 2024", 
+	"Dawson 19 February 2024", 
+	"Lakes 23 February 2024", 
+	"Dawson 26 February 2024", 
+	"Dawson 01 March 2024", 
+	"Lakes 04 March 2024", 
+	"Dawson 08 March 2024", 
+	"Lakes 11 March 2024", 
+	"Dawson 15 March 2024", 
+	"Lakes 18 March 2024", 
+	"Dawson 22 March 2024", 
+	"Lakes 25 March 2024", 
 	"Dawson 29 March 2024"];
-
-// master array of members
-var master = [
-['Graham Airey',0],
-['Dale Aitkenhead',0],
-['Stephen Alldridge',0],
-['Keith Belshaw',0],
-['Malcolm Broom',0],
-['Neil Brotherton',0],
-['Craig Caesar',0],
-['Clive Caisley',0],
-['Chris Chelson',0],
-['Ken Clark',0],
-['Ian Collier',0],
-['Rob Connelly',0],
-['Jed Cornhill',0],
-['Alex Coupland',0],
-['Neil Coxon',0],
-['Bryan Craggs',0],
-['Andy Davison',0],
-['John Dean',0],
-['Martin Edwards',0],
-['Joe Fletcher',0],
-['Norman Ford',0],
-['Bill French',0],
-['Norman Gilholm',0],
-['David Gilroy',0],
-['Graeme Gow',0],
-['Vince Graham',0],
-['Chris Green',0],
-['Rob Green',0],
-['Richard Hedley',0],
-['Barry Henderson',0],
-['Clive Herbert',0],
-['David Hersey',0],
-['Ken Heslop',0],
-['Barry Hill',0],
-['Colin Hills',0],
-['Pete Holleran',0],
-['Roger Ireland',0],
-['David Jackson',0],
-['John Jackson',0],
-['Tom Lemin',0],
-['Martin Leonard',0],
-['Jim Little',0],
-['Bryan Maddison',0],
-['James Main',0],
-['Tony Main',0],
-['John Matthews',0],
-['Tom McNally',0],
-['Steff Murray',0],
-['Darren Nelson',0],
-['Trevor Ord',0],
-['Tim Pinkney',0],
-['Mike Riddell',0],
-['Eric Saddler',0],
-['David Scurfield',0],
-['Brian Simpson',0],
-['John Smith',0],
-['Tony Smith',0],
-['Ray Straker',0],
-['Tom Straker',0],
-['Neil Tait',0],
-['Roly Thompson',0],
-['Bob Toward',0],
-['Trevor Towns',0],
-['Joe Waddle',0],
-['Marcus Wilkinson',0],
-['Gordon Willis',0],
-['Ron Woodcock',0],
-['reset list', 0]
+	// master array of members
+	var master = [
+		['Graham Airey', 0],
+		['Dale Aitkenhead', 0],
+		['Stephen Alldridge', 0],
+		['Keith Belshaw', 0],
+		['Malcolm Broom', 0],
+		['Neil Brotherton', 0],
+		['Craig Caesar', 0],
+		['Clive Caisley', 0],
+		['Chris Chelson', 0],
+		['Ken Clark', 0],
+		['Ian Collier', 0],
+		['Rob Connelly', 0],
+		['Jed Cornhill', 0],
+		['Alex Coupland', 0],
+		['Neil Coxon', 0],
+		['Bryan Craggs', 0],
+		['Andy Davison', 0],
+		['John Dean', 0],
+		['Martin Edwards', 0],
+		['Joe Fletcher', 0],
+		['Norman Ford', 0],
+		['Bill French', 0],
+		['Norman Gilholm', 0],
+		['David Gilroy', 0],
+		['Graeme Gow', 0],
+		['Vince Graham', 0],
+		['Chris Green', 0],
+		['Rob Green', 0],
+		['Richard Hedley', 0],
+		['Barry Henderson', 0],
+		['Clive Herbert', 0],
+		['David Hersey', 0],
+		['Ken Heslop', 0],
+		['Barry Hill', 0],
+		['Colin Hills', 0],
+		['Pete Holleran', 0],
+		['Roger Ireland', 0],
+		['David Jackson', 0],
+		['John Jackson', 0],
+		['Tom Lemin', 0],
+		['Martin Leonard', 0],
+		['Jim Little', 0],
+		['Bryan Maddison', 0],
+		['James Main', 0],
+		['Tony Main', 0],
+		['John Matthews', 0],
+		['Tom McNally', 0],
+		['Steff Murray', 0],
+		['Darren Nelson', 0],
+		['Trevor Ord', 0],
+		['Tim Pinkney', 0],
+		['Mike Riddell', 0],
+		['Eric Saddler', 0],
+		['David Scurfield', 0],
+		['Brian Simpson', 0],
+		['John Smith', 0],
+		['Tony Smith', 0],
+		['Ray Straker', 0],
+		['Tom Straker', 0],
+		['Neil Tait', 0],
+		['Roly Thompson', 0],
+		['Bob Toward', 0],
+		['Trevor Towns', 0],
+		['Joe Waddle', 0],
+		['Marcus Wilkinson', 0],
+		['Gordon Willis', 0],
+		['Ron Woodcock', 0],
+		['reset list', 0]
 	];
 	// check for any new members etc.
 	// setup local dropdown if not there
@@ -1051,25 +1028,21 @@ var master = [
 	if(d2 == 7) {
 		m = "August";
 	}
-	
 	dateToday = d1 + " " + m;
-	
 	// tidy localStorage if out of date to allow new setup
-	if ("comp" in localStorage) {
-		if (localStorage.comp.indexOf(dateToday) == -1) {
+	if("comp" in localStorage) {
+		if(localStorage.comp.indexOf(dateToday) == -1) {
 			// tidy
 			clearCache();
 		}
 	}
-	
 	// recover data if dates match
-	if ("comp" in localStorage) {
-		if (localStorage.comp.indexOf(dateToday) > -1) {
+	if("comp" in localStorage) {
+		if(localStorage.comp.indexOf(dateToday) > -1) {
 			// recover
 			recoverFromLocalStorage();
 		}
 	}
-	
 	// see if it is a compday and if so find comp and course
 	for(i = 0; i < arrComps.length; i++) {
 		// if today - eg. "22 June" in arrComps list then compday = "yes"
@@ -1079,8 +1052,6 @@ var master = [
 			//console.log("comp = " + comp)
 			//console.log("course Lakes = " + arrComps[i].indexOf("Lakes"))
 			//console.log("course Dawson = " + arrComps[i].indexOf("Dawson"))
-			
-			
 			if(arrComps[i].indexOf("Lakes") > -1) {
 				// global course
 				course = "Lakes";
@@ -1094,32 +1065,25 @@ var master = [
 				localStorage.course = "Dawson";
 			}
 		}
-	}	
+	}
 	//console.log("course = " + course)	
-	if (compday == "yes") {
+	if(compday == "yes") {
 		localStorage.comp = comp;
 	}
-	
 	// if not a compday find out what course is played and create a comp
-	if (compday == "no") {
-	  	if (!("comp" in localStorage)) {
-		 				showCourseChoice(); 
-				}
-	}		
-	
-	// recover	
-	if (comp == localStorage.comp) {
-	   recoverFromLocalStorage();
- }
-	
-	// show comp info message for 3 seconds
-	if ("comp" in localStorage) {
-	   showCompMessage();
+	if(compday == "no") {
+		if(!("comp" in localStorage)) {
+			showCourseChoice();
+		}
 	}
-	
-	
-	
-					
+	// recover	
+	if(comp == localStorage.comp) {
+		recoverFromLocalStorage();
+	}
+	// show comp info message for 3 seconds
+	if("comp" in localStorage) {
+		showCompMessage();
+	}
 	//=============================================================
 	// functions
 	//=============================================================     
@@ -1148,8 +1112,6 @@ var master = [
 			select.appendChild(el);
 		}
 	}
-
-
 	// sort function
 	function compareSecondColumn(a, b) {
 		if(a[1] === b[1]) {
@@ -1162,7 +1124,6 @@ var master = [
 	function dropSelected(playerName) {
 		if(playerName == "reset list") {
 			resetNames();
-			// clearStorage();
 		} else {
 			for(var k = 0; k < options.length; k++) {
 				if(options[k][0] == playerName) {
@@ -1189,15 +1150,8 @@ var master = [
 			// replace button name
 			element = document.getElementById("dropbtn");
 			element.innerText = player;
-			// update player choice
-			
-				
-//				document.getElementById("numhcp").innerText = "hcp";
-				// reset hole scores
-				
-		
-	
-			
+			// update player choices
+			// reset hole scores
 			//=====LocalStorage.player=====
 			localStorage.player = player;
 			//=============================
@@ -1229,13 +1183,8 @@ var master = [
 			document.getElementById("swiperight").innerHTML = "";
 			// unblur submit button
 			// document.getElementById("submitwrapper").style.filter = "none";
-			
 			document.getElementById("submitwrapper").style.visibility = "visible";
-			
-			
-			
-		}	
-			
+		}
 	}
 	document.addEventListener('touchstart', e => {
 		touchstartX = e.changedTouches[0].screenX;
@@ -1296,7 +1245,6 @@ var master = [
 		entry.967906330=twos&
 		entry.789190149=compplayer
 		*/
-
 	function submitForm() {
 		// get the relevant info into a form
 		// dont allow submit for an incorrect day
@@ -1375,46 +1323,37 @@ var master = [
 			}
 			document.getElementById('mx967906330').value = twoscount.toString();
 			document.getElementById('mx789190149').value = comp + player;
-			
 			var err = "no";
 			for(i = 1; i <= 18; i++) {
-				   if (document.getElementById("numscore" + i).innerText.indexOf("hole") > -1) {
-								   err = "yes";				
-							}
+				if(document.getElementById("numscore" + i).innerText.indexOf("hole") > -1) {
+					err = "yes";
+				}
 			}
-				
-			if (player == "select player" || hcp == "hcp" || err == "yes") {
-			 
+			if(player == "select player" || hcp == "hcp" || err == "yes") {
 				// error message
 				showIncompleteSubmitData();
-				
 			} else {
-						
-			//===== submit data
-			document.forms[0].submit();
-			
-			document.getElementById('submitwrapper').style.borderColor = "mediumSpringGreen";
-			document.getElementById('submitwrapper').style.background = "dodgerBlue";
-			document.getElementById('submittxt').innerText = "submitting data";
-			// allow some time for submit then give a completion message
-			setTimeout(function() {
-				document.getElementById('submitwrapper').style.borderColor = "white";
+				//===== submit data
+				document.forms[0].submit();
+				document.getElementById('submitwrapper').style.borderColor = "mediumSpringGreen";
+				document.getElementById('submitwrapper').style.background = "dodgerBlue";
+				document.getElementById('submittxt').innerText = "submitting data";
+				// allow some time for submit then give a completion message
+				setTimeout(function() {
+					document.getElementById('submitwrapper').style.borderColor = "white";
 					document.getElementById('submitwrapper').style.background = "mediumSpringGreen";
-				document.getElementById('submittxt').style.color = "darkSlateGray";
-				document.getElementById('submittxt').style.fontWeight = "400";
-				document.getElementById('submittxt').innerText = "submitted - OK";
-			}, 5000);
-			
+					document.getElementById('submittxt').style.color = "darkSlateGray";
+					document.getElementById('submittxt').style.fontWeight = "400";
+					document.getElementById('submittxt').innerText = "submitted - OK";
+				}, 5000);
+			}
 		}
-		
-	}
-		
 	}
 
 	function incrementHcp(id) {
 		incScore = document.getElementById(id).innerText;
-	//	if(incScore.indexOf("hcp") > -1) {
-	if (incScore == "hcp" || incScore == "") {
+		//	if(incScore.indexOf("hcp") > -1) {
+		if(incScore == "hcp" || incScore == "") {
 			document.getElementById(id).style.fontSize = "50px";
 			document.getElementById(id).style.paddingTop = 0;
 			incScore = 0;
@@ -1436,11 +1375,8 @@ var master = [
 		}
 		document.getElementById(id).innerText = ++incScore;
 		document.getElementById(id.replace("numscore", "h")).innerText = incScore;
-		
 		//console.log("course from increment = " + course)
 		//console.log("course from localstorage = " + localStorage.course)
-		
-		
 		if(course == "Lakes") {
 			par = arrLakes[id.replace("numscore", "")][1];
 			si = arrLakes[id.replace("numscore", "")][2];
@@ -1578,101 +1514,60 @@ var master = [
 			//console.log("si = " + si)
 			//console.log("par = " + par)
 			//console.log("hcp = " + hcp)
-			
-			
 			return points;
 		}
 	}
 
-
 	function doGetHCP() {
-	
-	// show hcp and controls on screen
-	document.getElementById("hcpwrapper").style.visibility = "visible";
-	
-	
-	
-	   if(document.getElementById("numhcp").innerText == "hcp") {
-	   
-	   
-	   
-	   
-	   document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=40 height=40>'
-	   document.getElementById("numhcp").style.paddingTop = "10px";
-	   
-	   
-	   
-	   
-	   
-	        var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
-		strng2 = "hcp";
-		try {
-			// if it fails after 5 seconds, put up error message
-			setTimeout(function() {
-				if (!(Math.trunc(strng2) > 0)) {
-					showMessageRetryHCPFailed();
-				} 
-			},5000);
-
-	      Papa.parse(public_hcp_url, {
-			download: true,
-			header: true,
-			step: function(results, parser) {
-				if (results.data.player.indexOf(player) > -1) {
-					strng2 = results.data.hcp;
-					console.log("Row data:", results.data.player);
-					console.log("Row data:", results.data.hcp);
-					parser.abort;		
-				}
-			},
-			complete: function(){
-				console.log("completed");
-				if (Math.trunc(strng2) > 0) {
-					document.getElementById("numhcp").innerHTML = "";
-					document.getElementById("numhcp").style.fontSize = "50px";
-					document.getElementById("numhcp").style.paddingTop = 0;
-					document.getElementById("numhcp").innerText = Math.trunc(strng2);
-					// update global hcp
-					hcp = Math.trunc(strng2);
-					//=====LocalStorage.hcp=====
-					localStorage.hcp = hcp;
-					//==========================
-				}		
-			}		
-	      });	
-} // end try
-
-catch(err) {
-	console.log(err.message);
-	console.log("bryan error");
-}
-} // if ended
-
-
-
-
-
-
-
-// change to swipe icon
-// unblur hcp button etc.
-
-
-document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
-
-// document.getElementById("hcpwrapper").style.filter = "none";
-
-
-
-
-
-
-
-
-
-
-}
-        
+		// show hcp and controls on screen
+		document.getElementById("hcpwrapper").style.visibility = "visible";
+		if(document.getElementById("numhcp").innerText == "hcp") {
+			document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=40 height=40>'
+			document.getElementById("numhcp").style.paddingTop = "10px";
+			var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
+			strng2 = "hcp";
+			try {
+				// if it fails after 5 seconds, put up error message
+				setTimeout(function() {
+					if(!(Math.trunc(strng2) > 0)) {
+						showMessageRetryHCPFailed();
+					}
+				}, 5000);
+				Papa.parse(public_hcp_url, {
+					download: true,
+					header: true,
+					step: function(results, parser) {
+						if(results.data.player.indexOf(player) > -1) {
+							strng2 = results.data.hcp;
+							console.log("Row data:", results.data.player);
+							console.log("Row data:", results.data.hcp);
+							parser.abort;
+						}
+					},
+					complete: function() {
+						console.log("completed");
+						if(Math.trunc(strng2) > 0) {
+							document.getElementById("numhcp").innerHTML = "";
+							document.getElementById("numhcp").style.fontSize = "50px";
+							document.getElementById("numhcp").style.paddingTop = 0;
+							document.getElementById("numhcp").innerText = Math.trunc(strng2);
+							// update global hcp
+							hcp = Math.trunc(strng2);
+							//=====LocalStorage.hcp=====
+							localStorage.hcp = hcp;
+							//==========================
+						}
+					}
+				});
+			} // end try
+			catch(err) {
+				console.log(err.message);
+				console.log("bryan error");
+			}
+		} // if ended
+		// change to swipe icon
+		document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
+	}
 
 	function recalcScores() {
 		for(i = 1; i <= 18; i++) {
@@ -1769,49 +1664,40 @@ document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png
 			document.getElementById("numhcp").innerText = localStorage.getItem("hcp");
 			document.getElementById("numhcp").style.fontSize = "50px";
 			document.getElementById("numhcp").style.paddingTop = 0;
-			
-			
-			
-			
-		// make hcp visible
-		document.getElementById("hcpwrapper").style.visibility = "visible";
-		// make submit visible
-		document.getElementById("submitwrapper").style.visibility = "visible";
-		
-			
-			
-			
+			// make hcp visible
+			document.getElementById("hcpwrapper").style.visibility = "visible";
+			// make submit visible
+			document.getElementById("submitwrapper").style.visibility = "visible";
 		} else {
 			document.getElementById("numhcp").innerText = "hcp";
 			document.getElementById("numhcp").style.fontSize = "15px";
 			document.getElementById("numhcp").style.paddingTop = "20px";
 		}
 		hcp = document.getElementById("numhcp").innerText;
-		if ("comp" in localStorage) {
-		   //=====LocalStorage.comp============
-		   comp = localStorage.getItem("comp");
-		   //==================================
+		if("comp" in localStorage) {
+			//=====LocalStorage.comp============
+			comp = localStorage.getItem("comp");
+			//==================================
 		}
-		if ("course" in localStorage) {   
-		   //=====LocalStorage.course==============
-		   course = localStorage.getItem("course");
-		   //======================================
+		if("course" in localStorage) {
+			//=====LocalStorage.course==============
+			course = localStorage.getItem("course");
+			//======================================
 		}
 		//	recalc points etc.
 		for(var i = 1; i <= 18; i++) {
 			// put values for holes back
 			if(("hole" + i) in localStorage) {
-    				document.getElementById("numscore" + i).innerText = localStorage.getItem("hole" + i);
-			     document.getElementById("numscore" + i).style.fontSize = "50px";
-			     document.getElementById("numscore" + i).style.paddingTop = 0;
-    				document.getElementById("h" + i).innerText = localStorage.getItem("hole" + i);
+				document.getElementById("numscore" + i).innerText = localStorage.getItem("hole" + i);
+				document.getElementById("numscore" + i).style.fontSize = "50px";
+				document.getElementById("numscore" + i).style.paddingTop = 0;
+				document.getElementById("h" + i).innerText = localStorage.getItem("hole" + i);
 			} else {
-				    // change to hole1 etc and change font size
-	   				document.getElementById("h" + i).innerText = "0";
-						
-				  		document.getElementById("numscore" + i).innerText = "hole " + i;
-			     document.getElementById("numscore" + i).style.fontSize = "15px";
-			     document.getElementById("numscore" + i).style.paddingTop = "20px";
+				// change to hole1 etc and change font size
+				document.getElementById("h" + i).innerText = "0";
+				document.getElementById("numscore" + i).innerText = "hole " + i;
+				document.getElementById("numscore" + i).style.fontSize = "15px";
+				document.getElementById("numscore" + i).style.paddingTop = "20px";
 			}
 		}
 		for(var i = 1; i <= 18; i++) {
@@ -1830,131 +1716,106 @@ document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png
 			}
 		}
 		totalScore();
-		
-		
-		
 	}
 
 	function clearCache() {
-				localStorage.removeItem("player");
-				localStorage.removeItem("hcp");
-				localStorage.removeItem("comp");
-				localStorage.removeItem("course");
-				for(var i = 1; i <= 18; i++) {
-					localStorage.removeItem("hole" + i);
-				}
-				recoverFromLocalStorage();
-				location.reload();
-	}
-	
-	function doSomethingLakes() {
-	course = "Lakes";
-	comp = course + " " + dateToday;		
- document.getElementById("id_confrmdiv").style.display = "none";
-	
-	localStorage.course = course;
-	localStorage.comp = comp;
-	}
-	
-	function doSomethingDawson() {
-	course = "Dawson";
-	comp = course + " " + dateToday;		
- document.getElementById("id_confrmdiv").style.display = "none";
-	
-	localStorage.course = course;
-	localStorage.comp = comp;
-	}
-	
-	function showCompMessage() {
-		    if (compday == "yes") {
-	    	   document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\ncompetition\n\n";
-		    }
-						else {
-							  document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\n(no competition)\n\n";
-						}
-			   document.getElementById("id_confrmdiv").style.display = "block";
-						setTimeout(function() {
-			   document.getElementById("id_confrmdiv").innerText = "";
-			   document.getElementById("id_confrmdiv").style.display = "none";
-		 }, 3000);
-	}
-	
-	function showNoSubmitMessage() {
-			   document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\n(no competition) is disabled.\n\n";
-			   document.getElementById("id_confrmdiv").style.display = "block";
-						setTimeout(function() {
-			   document.getElementById("id_confrmdiv").innerText = "";
-			   document.getElementById("id_confrmdiv").style.display = "none";
-		 }, 5000);
-	}
-	
-	function showIncompleteSubmitData() {
-			   document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n\n";
-			   document.getElementById("id_confrmdiv").style.display = "block";
-						setTimeout(function() {
-			   document.getElementById("id_confrmdiv").innerText = "";
-			   document.getElementById("id_confrmdiv").style.display = "none";
-		 }, 5000);
+		localStorage.removeItem("player");
+		localStorage.removeItem("hcp");
+		localStorage.removeItem("comp");
+		localStorage.removeItem("course");
+		for(var i = 1; i <= 18; i++) {
+			localStorage.removeItem("hole" + i);
+		}
+		recoverFromLocalStorage();
+		location.reload();
 	}
 
-	
+	function doSomethingLakes() {
+		course = "Lakes";
+		comp = course + " " + dateToday;
+		document.getElementById("id_confrmdiv").style.display = "none";
+		localStorage.course = course;
+		localStorage.comp = comp;
+	}
+
+	function doSomethingDawson() {
+		course = "Dawson";
+		comp = course + " " + dateToday;
+		document.getElementById("id_confrmdiv").style.display = "none";
+		localStorage.course = course;
+		localStorage.comp = comp;
+	}
+
+	function showCompMessage() {
+		if(compday == "yes") {
+			document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\ncompetition\n\n";
+		} else {
+			document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\n(no competition)\n\n";
+		}
+		document.getElementById("id_confrmdiv").style.display = "block";
+		setTimeout(function() {
+			document.getElementById("id_confrmdiv").innerText = "";
+			document.getElementById("id_confrmdiv").style.display = "none";
+		}, 3000);
+	}
+
+	function showNoSubmitMessage() {
+		document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\n(no competition) is disabled.\n\n";
+		document.getElementById("id_confrmdiv").style.display = "block";
+		setTimeout(function() {
+			document.getElementById("id_confrmdiv").innerText = "";
+			document.getElementById("id_confrmdiv").style.display = "none";
+		}, 5000);
+	}
+
+	function showIncompleteSubmitData() {
+		document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n\n";
+		document.getElementById("id_confrmdiv").style.display = "block";
+		setTimeout(function() {
+			document.getElementById("id_confrmdiv").innerText = "";
+			document.getElementById("id_confrmdiv").style.display = "none";
+		}, 5000);
+	}
+
 	function showMessageRetryHCP() {
-			   document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed - retrying ...\n\n";
-			   document.getElementById("id_confrmdiv").style.display = "block";
-						setTimeout(function() {
-			   document.getElementById("id_confrmdiv").innerText = "";
-			   document.getElementById("id_confrmdiv").style.display = "none";
-			   
-			   // put back hcp
-			   document.getElementById("numhcp").innerHTML = "";
-			   document.getElementById("numhcp").innerText = "hcp";
-			   document.getElementById("numhcp").style.fontSize = "15px";
-			   document.getElementById("numhcp").style.paddingTop = "20px";
-			   
-			   
-			   
-		 }, 2000);
+		document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed - retrying ...\n\n";
+		document.getElementById("id_confrmdiv").style.display = "block";
+		setTimeout(function() {
+			document.getElementById("id_confrmdiv").innerText = "";
+			document.getElementById("id_confrmdiv").style.display = "none";
+			// put back hcp
+			document.getElementById("numhcp").innerHTML = "";
+			document.getElementById("numhcp").innerText = "hcp";
+			document.getElementById("numhcp").style.fontSize = "15px";
+			document.getElementById("numhcp").style.paddingTop = "20px";
+		}, 2000);
 	}
-	
-	
+
 	function showMessageRetryHCPFailed() {
-			   document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" +
-			   "check the network and try again.\n" +
-			   "or\n" +
-			   "lookup your HCP and enter manually\n\n";
-			   
-			   
-			   
-			   document.getElementById("id_confrmdiv").style.display = "block";
-						setTimeout(function() {
-			   document.getElementById("id_confrmdiv").innerText = "";
-			   document.getElementById("id_confrmdiv").style.display = "none";
-			   
-			   // put back hcp
-			   document.getElementById("numhcp").innerHTML = "";
-			   document.getElementById("numhcp").innerText = "hcp";
-			   document.getElementById("numhcp").style.fontSize = "15px";
-			   document.getElementById("numhcp").style.paddingTop = "20px";
-			   
-			   
-		 }, 7000);
+		document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" + "check the network and try again.\n" + "or\n" + "lookup your HCP and enter manually\n\n";
+		document.getElementById("id_confrmdiv").style.display = "block";
+		setTimeout(function() {
+			document.getElementById("id_confrmdiv").innerText = "";
+			document.getElementById("id_confrmdiv").style.display = "none";
+			// put back hcp
+			document.getElementById("numhcp").innerHTML = "";
+			document.getElementById("numhcp").innerText = "hcp";
+			document.getElementById("numhcp").style.fontSize = "15px";
+			document.getElementById("numhcp").style.paddingTop = "20px";
+		}, 7000);
 	}
-	
-	
-	
-	
+
 	function showCourseChoice() {
-						tempt = '<br /> No competition today. Select which course to use.';
-				  tempt += '<br /><br />';
-				  tempt += '<button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>';
-				  tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
-						
-						document.getElementById("id_confrmdiv").innerHTML = tempt; 
-						//console.log(document.getElementById("id_confrmdiv").innerHTML);
-					 document.getElementById("id_confrmdiv").style.display = "block";
+		tempt = '<br /> No competition today. Select which course to use.';
+		tempt += '<br /><br />';
+		tempt += '<button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>';
+		tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
+		document.getElementById("id_confrmdiv").innerHTML = tempt;
+		//console.log(document.getElementById("id_confrmdiv").innerHTML);
+		document.getElementById("id_confrmdiv").style.display = "block";
 	}
-	
-</script>
+	</script>
 </body>
 
 </html>
+
