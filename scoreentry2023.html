@@ -1223,12 +1223,12 @@ var master = [
 	var touchendX = 0;
 
 	function checkDirection() {
-		if(touchendX < touchstartX)
+		if(touchendX < touchstartX) {
 			// clear swipe icon
 			document.getElementById("swiperight").innerHTML = "";
 			// unblur submit button
-		//	document.getElementById("submitwrapper").style.filter = "none";
-			
+			document.getElementById("submitwrapper").style.filter = "none";
+		}	
 			
 	}
 	document.addEventListener('touchstart', e => {
