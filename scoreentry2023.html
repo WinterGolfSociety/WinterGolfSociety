@@ -1769,6 +1769,18 @@ document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png
 			document.getElementById("numhcp").innerText = localStorage.getItem("hcp");
 			document.getElementById("numhcp").style.fontSize = "50px";
 			document.getElementById("numhcp").style.paddingTop = 0;
+			
+			
+			
+			
+		// make hcp visible
+		document.getElementById("hcpwrapper").style.visibility = "visible";
+		// make submit visible
+		document.getElementById("submitwrapper").style.visibility = "visible";
+		
+			
+			
+			
 		} else {
 			document.getElementById("numhcp").innerText = "hcp";
 			document.getElementById("numhcp").style.fontSize = "15px";
@@ -1819,11 +1831,6 @@ document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png
 		}
 		totalScore();
 		
-		
-		// make hcp visible
-		document.getElementById("hcpwrapper").style.visibility = "visible";
-		// make submit visible
-		document.getElementById("submitwrapper").style.visibility = "visible";
 		
 		
 	}
