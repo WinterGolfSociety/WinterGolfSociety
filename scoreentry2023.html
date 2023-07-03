@@ -252,7 +252,7 @@
 	}
 	
 	.wrapper {
-		width: 100vw;
+		width: 100vw;		
 	}
 	
 	.submitwrapper {
@@ -265,7 +265,20 @@
 		padding-top: 2vh;
 		border-radius: 5px;
 		border: 5px solid white;
+
 	}
+	
+	
+	#submitwrapper {
+	
+		
+		  filter: blur(5px);
+
+		
+	}
+	
+	
+	
 	
 	.xsubmitwrapper {
 		width: 95vw;
@@ -352,6 +365,22 @@
 	#id_confrmdiv .button:hover {
 		background-color: #ddd;
 	}
+	
+	
+	
+	
+	
+	#hcpwrapper {
+	  filter: blur(5px);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	</style>
 	<meta content="score input" name="description">
 	<meta content="Bryan M" name="author">
@@ -382,7 +411,7 @@
 					<tr>
 						<td>
 							<div>
-								<div class="ccontainer" id="swiperight"> <img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;"> </div>
+								<div class="ccontainer" id="swiperight"> <img src="pressbuttonflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;"> </div>
 							</div>
 						</td>
 					</tr>
@@ -509,7 +538,7 @@
 									</tr>
 									<tr class="tr1" id="trhcp">
 										<td class="xxxxtdright" colspan="6">
-											<div class="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
+											<div class="hcpwrapper" id="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
 										</td>
 									</tr>
 									<tr>
@@ -1195,7 +1224,12 @@ var master = [
 
 	function checkDirection() {
 		if(touchendX < touchstartX)
+			// clear swipe icon
 			document.getElementById("swiperight").innerHTML = "";
+			// unblur submit button
+			document.getElementById("submitwrapper").style.filter = "none";
+			
+			
 	}
 	document.addEventListener('touchstart', e => {
 		touchstartX = e.changedTouches[0].screenX;
@@ -1601,6 +1635,30 @@ catch(err) {
 	console.log("bryan error");
 }
 } // if ended
+
+
+
+
+
+
+
+// change to swipe icon
+// unblur hcp button etc.
+
+
+document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
+
+document.getElementById("hcpwrapper").style.filter = "none";
+
+
+
+
+
+
+
+
+
+
 }
         
 
