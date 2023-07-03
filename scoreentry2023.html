@@ -272,8 +272,8 @@
 	#submitwrapper {
 	
 		
-		  filter: blur(5px);
-
+	//	  filter: blur(5px);
+	visibility: hidden;
 		
 	}
 	
@@ -371,7 +371,8 @@
 	
 	
 	#hcpwrapper {
-	  filter: blur(5px);
+	//  filter: blur(5px);
+	visibility: hidden;
 	}
 	
 	
@@ -1227,7 +1228,12 @@ var master = [
 			// clear swipe icon
 			document.getElementById("swiperight").innerHTML = "";
 			// unblur submit button
-			document.getElementById("submitwrapper").style.filter = "none";
+			// document.getElementById("submitwrapper").style.filter = "none";
+			
+			document.getElementById("submitwrapper").style.visibility = "visible";
+			
+			
+			
 		}	
 			
 	}
@@ -1580,6 +1586,12 @@ var master = [
 
 
 	function doGetHCP() {
+	
+	// show hcp and controls on screen
+	document.getElementById("hcpwrapper").style.visibility = "visible";
+	
+	
+	
 	   if(document.getElementById("numhcp").innerText == "hcp") {
 	   
 	   
@@ -1648,7 +1660,7 @@ catch(err) {
 
 document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
 
-document.getElementById("hcpwrapper").style.filter = "none";
+// document.getElementById("hcpwrapper").style.filter = "none";
 
 
 
