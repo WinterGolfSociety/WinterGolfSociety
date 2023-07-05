@@ -1189,20 +1189,14 @@
 
 	function checkDirection() {
 		if(touchendX < touchstartX) {
-			// only continue if player and hcp set
-			if ("player" in localStorage && "hcp" in localStorage) {
-				// clear swipe icon
-				document.getElementById("swiperight").innerHTML = "";
-				// unblur submit button
-				// document.getElementById("submitwrapper").style.filter = "none";
-				document.getElementById("submitwrapper").style.visibility = "visible";
-				document.getElementById("front").style.visibility = "visible";
-				document.getElementById("back").style.visibility = "visible";
-			} else {
-				document.getElementById("front").style.visibility = "hidden";
-				document.getElementById("back").style.visibility = "hidden";
-			
-			}
+			// clear swipe icon
+			document.getElementById("swiperight").innerHTML = "";
+			// unblur submit button
+			// document.getElementById("submitwrapper").style.filter = "none";
+			document.getElementById("submitwrapper").style.visibility = "visible";
+			if !("player" in localStorage && "hcp" in localStorage) {
+				showSetPlayerMessage();
+			} 
 		}
 	}
 	document.addEventListener('touchstart', e => {
@@ -1859,6 +1853,15 @@
 	}
 	
 	
+	
+	function showSetPlayerMessage() {
+		document.getElementById("id_confrmdiv").innerText = "\nPlayer and HCP have not been set.\n\n";
+		document.getElementById("id_confrmdiv").style.display = "block";
+		setTimeout(function() {
+			document.getElementById("id_confrmdiv").innerText = "";
+			document.getElementById("id_confrmdiv").style.display = "none";
+		}, 3000);
+	}
 	
 	
 	
