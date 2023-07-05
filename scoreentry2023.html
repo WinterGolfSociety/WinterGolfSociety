@@ -1194,7 +1194,8 @@
 			// unblur submit button
 			// document.getElementById("submitwrapper").style.filter = "none";
 			document.getElementById("submitwrapper").style.visibility = "visible";
-			if !("player" in localStorage && "hcp" in localStorage) {
+			
+			if (localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
 				showSetPlayerMessage();
 			} 
 		}
