@@ -252,7 +252,7 @@
 	}
 	
 	.wrapper {
-		width: 100vw;
+		width: 100vw;	
 	}
 	
 	.submitwrapper {
@@ -369,17 +369,7 @@
 	}
 	
 	
-	
-.note {
-width: 50px;
-font-size: 15px;
-color: cyan;
-padding-top: 24px;
-//padding-left: 50px;
-text-align: right;
-background: blue;
-}
-	
+
 	
 	</style>
 	<meta content="score input" name="description">
@@ -594,50 +584,48 @@ background: blue;
 					</thead>
 					<tbody>
 						<tr class="tr1" id="tr1">
-							<td>
-								<div class="wrapper"> 
-						
-								<span class="minus" id="minusscore1" onclick='decrementScore("numscore1")'>-<span class="note">hole 1</span></span> <span class="num" id="numscore1">hole 1</span> <span class="plus" id="plusscore1" onclick='incrementScore("numscore1");'>+</span> </div>
+							<td class="xtdright">
+								<div class="wrapper"> <span class="minus" id="minusscore1" onclick='decrementScore("numscore1")'>-</span> <span class="num" id="numscore1" onclick="showHole(this.id)">hole 1</span> <span class="plus" id="plusscore1" onclick='incrementScore("numscore1");'>+</span> </div>
 							</td>	
 						</tr>
 						<tr class="tr1" id="tr2">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore2" onclick='decrementScore("numscore2")'>-</span> <span class="num" id="numscore2">hole 2</span> <span class="plus" id="plusscore2" onclick='incrementScore("numscore2");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore2" onclick='decrementScore("numscore2")'>-</span> <span class="num" id="numscore2" onclick="showHole(this.id)">hole 2</span> <span class="plus" id="plusscore2" onclick='incrementScore("numscore2");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr3">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore3" onclick='decrementScore("numscore3")'>-</span> <span class="num" id="numscore3">hole 3</span> <span class="plus" id="plusscore3" onclick='incrementScore("numscore3");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore3" onclick='decrementScore("numscore3")'>-</span> <span class="num" id="numscore3" onclick="showHole(this.id)">hole 3</span> <span class="plus" id="plusscore3" onclick='incrementScore("numscore3");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr4">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore4" onclick='decrementScore("numscore4")'>-</span> <span class="num" id="numscore4">hole 4</span> <span class="plus" id="plusscore4" onclick='incrementScore("numscore4");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore4" onclick='decrementScore("numscore4")'>-</span> <span class="num" id="numscore4" onclick="showHole(this.id)">hole 4</span> <span class="plus" id="plusscore4" onclick='incrementScore("numscore4");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr5">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore5" onclick='decrementScore("numscore5")'>-</span> <span class="num" id="numscore5">hole 5</span> <span class="plus" id="plusscore5" onclick='incrementScore("numscore5");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore5" onclick='decrementScore("numscore5")'>-</span> <span class="num" id="numscore5" onclick="showHole(this.id)">hole 5</span> <span class="plus" id="plusscore5" onclick='incrementScore("numscore5");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr6">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore6" onclick='decrementScore("numscore6")'>-</span> <span class="num" id="numscore6">hole 6</span> <span class="plus" id="plusscore6" onclick='incrementScore("numscore6");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore6" onclick='decrementScore("numscore6")'>-</span> <span class="num" id="numscore6" onclick="showHole(this.id)">hole 6</span> <span class="plus" id="plusscore6" onclick='incrementScore("numscore6");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr7">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore7" onclick='decrementScore("numscore7")'>-</span> <span class="num" id="numscore7">hole 7</span> <span class="plus" id="plusscore7" onclick='incrementScore("numscore7");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore7" onclick='decrementScore("numscore7")'>-</span> <span class="num" id="numscore7" onclick="showHole(this.id)">hole 7</span> <span class="plus" id="plusscore7" onclick='incrementScore("numscore7");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr8">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore8" onclick='decrementScore("numscore8")'>-</span> <span class="num" id="numscore8">hole 8</span> <span class="plus" id="plusscore8" onclick='incrementScore("numscore8");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore8" onclick='decrementScore("numscore8")'>-</span> <span class="num" id="numscore8" onclick="showHole(this.id)">hole 8</span> <span class="plus" id="plusscore8" onclick='incrementScore("numscore8");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr9">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore9" onclick='decrementScore("numscore9")'>-</span> <span class="num" id="numscore9">hole 9</span> <span class="plus" id="plusscore9" onclick='incrementScore("numscore9");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore9" onclick='decrementScore("numscore9")'>-</span> <span class="num" id="numscore9" onclick="showHole(this.id)">hole 9</span> <span class="plus" id="plusscore9" onclick='incrementScore("numscore9");'>+</span> </div>
 							</td>
 						</tr>
 					</tbody>
@@ -656,47 +644,47 @@ background: blue;
 					<tbody>
 						<tr class="tr1" id="tr10">
 							<td>
-								<div class="wrapper"> <span class="minus" id="minusscore10" onclick='decrementScore("numscore10")'>-</span> <span class="num" id="numscore10">hole 10</span> <span class="plus" id="plusscore10" onclick='incrementScore("numscore10");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore10" onclick='decrementScore("numscore10")'>-</span> <span class="num" id="numscore10" onclick="showHole(this.id)">hole 10</span> <span class="plus" id="plusscore10" onclick='incrementScore("numscore10");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr11">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore11" onclick='decrementScore("numscore11")'>-</span> <span class="num" id="numscore11">hole 11</span> <span class="plus" id="plusscore11" onclick='incrementScore("numscore11");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore11" onclick='decrementScore("numscore11")'>-</span> <span class="num" id="numscore11" onclick="showHole(this.id)">hole 11</span> <span class="plus" id="plusscore11" onclick='incrementScore("numscore11");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr12">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore12" onclick='decrementScore("numscore12")'>-</span> <span class="num" id="numscore12">hole 12</span> <span class="plus" id="plusscore12" onclick='incrementScore("numscore12");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore12" onclick='decrementScore("numscore12")'>-</span> <span class="num" id="numscore12" onclick="showHole(this.id)">hole 12</span> <span class="plus" id="plusscore12" onclick='incrementScore("numscore12");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr13">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore13" onclick='decrementScore("numscore13")'>-</span> <span class="num" id="numscore13">hole 13</span> <span class="plus" id="plusscore13" onclick='incrementScore("numscore13");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore13" onclick='decrementScore("numscore13")'>-</span> <span class="num" id="numscore13" onclick="showHole(this.id)">hole 13</span> <span class="plus" id="plusscore13" onclick='incrementScore("numscore13");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr14">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore14" onclick='decrementScore("numscore14")'>-</span> <span class="num" id="numscore14">hole 14</span> <span class="plus" id="plusscore14" onclick='incrementScore("numscore14");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore14" onclick='decrementScore("numscore14")'>-</span> <span class="num" id="numscore14" onclick="showHole(this.id)">hole 14</span> <span class="plus" id="plusscore14" onclick='incrementScore("numscore14");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr15">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore15" onclick='decrementScore("numscore15")'>-</span> <span class="num" id="numscore15">hole 15</span> <span class="plus" id="plusscore15" onclick='incrementScore("numscore15");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore15" onclick='decrementScore("numscore15")'>-</span> <span class="num" id="numscore15" onclick="showHole(this.id)">hole 15</span> <span class="plus" id="plusscore15" onclick='incrementScore("numscore15");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr16">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore16" onclick='decrementScore("numscore16")'>-</span> <span class="num" id="numscore16">hole 16</span> <span class="plus" id="plusscore16" onclick='incrementScore("numscore16");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore16" onclick='decrementScore("numscore16")'>-</span> <span class="num" id="numscore16" onclick="showHole(this.id)">hole 16</span> <span class="plus" id="plusscore16" onclick='incrementScore("numscore16");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr17">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore17" onclick='decrementScore("numscore17")'>-</span> <span class="num" id="numscore17">hole 17</span> <span class="plus" id="plusscore17" onclick='incrementScore("numscore17");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore17" onclick='decrementScore("numscore17")'>-</span> <span class="num" id="numscore17" onclick="showHole(this.id)">hole 17</span> <span class="plus" id="plusscore17" onclick='incrementScore("numscore17");'>+</span> </div>
 							</td>
 						</tr>
 						<tr class="tr1" id="tr18">
 							<td class="xtdright">
-								<div class="wrapper"> <span class="minus" id="minusscore18" onclick='decrementScore("numscore18")'>-</span> <span class="num" id="numscore18">hole 18</span> <span class="plus" id="plusscore18" onclick='incrementScore("numscore18");'>+</span> </div>
+								<div class="wrapper"> <span class="minus" id="minusscore18" onclick='decrementScore("numscore18")'>-</span> <span class="num" id="numscore18" onclick="showHole(this.id)">hole 18</span> <span class="plus" id="plusscore18" onclick='incrementScore("numscore18");'>+</span> </div>
 							</td>
 						</tr>
 					</tbody>
@@ -1835,6 +1823,33 @@ background: blue;
 		//console.log(document.getElementById("id_confrmdiv").innerHTML);
 		document.getElementById("id_confrmdiv").style.display = "block";
 	}
+	
+	function showHole(id) {
+		tempe = document.getElementById(id);	
+		tempsaved = tempe.innerText;
+		
+		// change to hole1 etc and change font size
+		tempe.innerText = id.replace("numscore","hole ");
+		tempe.style.fontSize = "15px";
+		tempe.style.paddingTop = "20px";
+		tempe.style.fontWeight = "bold";
+		tempe.style.color = "lime";
+				
+		// put info back
+		setTimeout(function() {
+			tempe.style.fontSize = "50px";
+			tempe.style.paddingTop = 0;
+			tempe.style.fontWeight = "normal";
+			tempe.style.color = "white";
+			tempe.innerText = tempsaved;	
+		}, 3000);
+		
+	}
+	
+	
+	
+	
+	
 	</script>
 </body>
 
