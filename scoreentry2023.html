@@ -1827,22 +1827,24 @@
 	function showHole(id) {
 		tempe = document.getElementById(id);	
 		tempsaved = tempe.innerText;
-		
-		// change to hole1 etc and change font size
-		tempe.innerText = id.replace("numscore","hole ");
-		tempe.style.fontSize = "15px";
-		tempe.style.paddingTop = "20px";
-		tempe.style.fontWeight = "bold";
-		tempe.style.color = "lime";
+		// only do it if number is obscuring hole number
+		if (tempsaved.indexOf("hole") = -1) {
+			// change to hole1 etc and change font size
+			tempe.innerText = id.replace("numscore","hole ");
+			tempe.style.fontSize = "15px";
+			tempe.style.paddingTop = "20px";
+			tempe.style.fontWeight = "bold";
+			tempe.style.color = "lime";
 				
-		// put info back
-		setTimeout(function() {
-			tempe.style.fontSize = "50px";
-			tempe.style.paddingTop = 0;
-			tempe.style.fontWeight = "normal";
-			tempe.style.color = "white";
-			tempe.innerText = tempsaved;	
-		}, 3000);
+			// put info back
+			setTimeout(function() {
+				tempe.style.fontSize = "50px";
+				tempe.style.paddingTop = 0;
+				tempe.style.fontWeight = "normal";
+				tempe.style.color = "white";
+				tempe.innerText = tempsaved;	
+			}, 3000);
+		}
 		
 	}
 	
