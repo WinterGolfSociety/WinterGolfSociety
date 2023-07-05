@@ -363,10 +363,24 @@
 		visibility: hidden;
 	}
 	.indicator {
-	font-size: 8px;
+	font-size: 18px;
 	text-align: left;
-	color: gray;
+	color: yellow;
 	}
+	
+	
+	
+.note {
+width: 50px;
+font-size: 15px;
+color: cyan;
+padding-top: 24px;
+//padding-left: 50px;
+text-align: right;
+background: blue;
+}
+	
+	
 	</style>
 	<meta content="score input" name="description">
 	<meta content="Bryan M" name="author">
@@ -582,15 +596,9 @@
 						<tr class="tr1" id="tr1">
 							<td>
 								<div class="wrapper"> 
-								
-								
-	<span class="indicator">hole 1</span>							
-								
-								
-								
-								
-								<span class="minus" id="minusscore1" onclick='decrementScore("numscore1")'>-</span> <span class="num" id="numscore1">hole 1</span> <span class="plus" id="plusscore1" onclick='incrementScore("numscore1");'>+</span> </div>
-							</td>
+						
+								<span class="minus" id="minusscore1" onclick='decrementScore("numscore1")'>-<span class="note">hole 1</span></span> <span class="num" id="numscore1">hole 1</span> <span class="plus" id="plusscore1" onclick='incrementScore("numscore1");'>+</span> </div>
+							</td>	
 						</tr>
 						<tr class="tr1" id="tr2">
 							<td class="xtdright">
