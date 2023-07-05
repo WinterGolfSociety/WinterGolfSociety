@@ -1174,6 +1174,7 @@
 					openDropdown.classList.remove('show');
 				}
 			}
+			
 			doGetHCP();
 		}
 	}
@@ -1188,11 +1189,20 @@
 
 	function checkDirection() {
 		if(touchendX < touchstartX) {
-			// clear swipe icon
-			document.getElementById("swiperight").innerHTML = "";
-			// unblur submit button
-			// document.getElementById("submitwrapper").style.filter = "none";
-			document.getElementById("submitwrapper").style.visibility = "visible";
+			// only continue if player and hcp set
+			if ("player" in localStorage && "hcp" in localStorage) {
+				// clear swipe icon
+				document.getElementById("swiperight").innerHTML = "";
+				// unblur submit button
+				// document.getElementById("submitwrapper").style.filter = "none";
+				document.getElementById("submitwrapper").style.visibility = "visible";
+				document.getElementById("front").style.visibility = "visible";
+				document.getElementById("back").style.visibility = "visible";
+			} else {
+				document.getElementById("front").style.visibility = "hidden";
+				document.getElementById("back").style.visibility = "hidden";
+			
+			}
 		}
 	}
 	document.addEventListener('touchstart', e => {
