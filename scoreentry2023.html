@@ -1472,9 +1472,9 @@
 		}
 		totalScore();
 		// update local storage
-		// if incScore = 0, remove key from localStorage
-		if (incScore == 0) {
-			localStorage.removeItem("hole" + id.replace("numscore"));
+		// if incScore = "hole 1" etc., remove key from localStorage
+		if (document.getElementById(id).innerText.indexOf("hole") > -1) {
+			localStorage.removeItem("hole" + id.replace("numscore",""));
 		} else {	
 			//=====LocalStorage.holes===========================================
 			localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
