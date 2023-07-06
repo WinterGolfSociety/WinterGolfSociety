@@ -812,7 +812,7 @@
 	"Lakes 23 June 2023", 
 	"Dawson 26 June 2023", 
 	"Lakes 30 June 2023", 
-	"Lakes 03 July 2023", 
+	"Lakes 06 July 2023", 
 	"Dawson 07 July 2023", 
 	"Lakes 10 July 2023", 
 	"Dawson 14 July 2023", 
@@ -1326,23 +1326,29 @@
 			//temp2 = 0;
 			twoscount = 0;
 			// check data is complete 
+			checkBeforeSubmitID = "";
+			err = "no";
 			for(ii = 1; ii <= 18; ii++) {
 				if(document.getElementById("h" + ii).innerText == "2") {
 					twoscount++;
 				}
-				if("12345678910".indexOf(document.getElementById("h" + ii).innerText) == -1) {
-					checkBeforeSubmit++;
-					checkBeforeSubmitID += "h" + ii + "\n";
+				//if("12345678910".indexOf(document.getElementById("h" + ii).innerText) == -1) {
+				//	checkBeforeSubmit++;
+				//	checkBeforeSubmitID += "hole " + ii + "\n";
+				//}
+				// check for no score entered
+				if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
+					err = "yes";
 				}
 			}
 			document.getElementById('mx967906330').value = twoscount.toString();
 			document.getElementById('mx789190149').value = comp + player;
-			var err = "no";
-			for(i = 1; i <= 18; i++) {
-				if(document.getElementById("numscore" + i).innerText.indexOf("hole") > -1) {
-					err = "yes";
-				}
-			}
+			// var err = "no";
+			// for(i = 1; i <= 18; i++) {
+			//	if(document.getElementById("numscore" + i).innerText.indexOf("hole") > -1) {
+			//		err = "yes";
+			//	}
+			// }
 			if(player == "select player" || hcp == "hcp" || err == "yes") {
 				// error message
 				showIncompleteSubmitData();
@@ -1860,7 +1866,7 @@
 	
 	
 	function showSetPlayerMessage() {
-		document.getElementById("id_confrmdiv").innerText = "\nPlayer and HCP have not been set, do this before score entry.\n\n";
+		document.getElementById("id_confrmdiv").innerText = "\nPlayer and HCP have not been set, do this before entering scores.\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
 		
 		// hide submit button
