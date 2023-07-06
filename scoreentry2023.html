@@ -753,6 +753,9 @@
 	<br>
 	<br>
 	<script>
+	//===========================
+	// this code runs at startup
+	//===========================
 	// declare global variables
 	var hcp = "hcp";
 	var player = "select player";
@@ -945,7 +948,7 @@
 		['Joe Waddle', 0],
 		['Marcus Wilkinson', 0],
 		['Gordon Willis', 0],
-		
+		['Ron Woodcock', 0],
 		['reset list', 0]
 	];
 	// check for any new members etc.
@@ -960,7 +963,7 @@
 		var options = JSON.parse(localStorage.dropdown);
 		var ol = options.length;
 		var ml = master.length;
-		// update to add anything new - if required
+		// update to add anything new - if required. Works on differing number of members in list
 		if(ol !== ml) {
 			// option is original, master is new
 			// update new with numbers from original
@@ -981,9 +984,9 @@
 	options.sort(compareSecondColumn);
 	// create player dropdown
 	var select = document.getElementById("myDropdown");
-	/* 
-	<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-	*/
+	// this is what is created
+	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+	//
 	for(var i = 0; i < options.length; i++) {
 		var el = document.createElement("a");
 		el.id = "myLink" + (i + 1);
@@ -1011,12 +1014,12 @@
 	};
 	// get todays date eg 26 June
 	dd = new Date();
-	// date number
+	// get date number and format it
 	d1 = dd.getDate();
 	if(d1 < 10) {
 		d1 = "0" + d1;
 	}
-	// month
+	// get month and format it
 	d2 = dd.getMonth();
 	if(d2 == 10) {
 		m = "November";
@@ -1043,7 +1046,7 @@
 		m = "August";
 	}
 	dateToday = d1 + " " + m;
-	// tidy localStorage if out of date to allow new setup
+	// tidy localStorage if out of date to allow new "blank" setup
 	if("comp" in localStorage) {
 		if(localStorage.comp.indexOf(dateToday) == -1) {
 			// tidy
@@ -1051,13 +1054,14 @@
 		}
 	}
 	// recover data if dates match
+	// this allows data to be kept over refreshes
 	if("comp" in localStorage) {
 		if(localStorage.comp.indexOf(dateToday) > -1) {
 			// recover
 			recoverFromLocalStorage();
 		}
 	}
-	// see if it is a compday and if so find comp and course
+	// see if it is a compday and if so find comp and course from array list
 	for(i = 0; i < arrComps.length; i++) {
 		// if today - eg. "22 June" in arrComps list then compday = "yes"
 		if(arrComps[i].indexOf(d1 + " " + m) > -1) {
@@ -1099,10 +1103,11 @@
 		showCompMessage();
 	}
 	//=============================================================
-	// functions
+	// functions - run when called
 	//=============================================================     
 	function resetNames() {
 		// create/recreate options favourites
+		// run from menu item at bottom of list
 		options = JSON.parse(JSON.stringify(master));
 		// update local storage
 		//=====LocalStorage.dropdown====================
@@ -1114,9 +1119,9 @@
 		var select = document.getElementById("myDropdown");
 		// empty names
 		select.innerHTML = "";
-		/* 
-		<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-		*/
+		// redo list for menu
+		// <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+		//
 		for(var i = 0; i < options.length; i++) {
 			var el = document.createElement("a");
 			el.id = "myLink" + (i + 1);
@@ -1126,7 +1131,7 @@
 			select.appendChild(el);
 		}
 	}
-	// sort function
+	// sort function to sort by second array item in 2D array
 	function compareSecondColumn(a, b) {
 		if(a[1] === b[1]) {
 			return 0;
@@ -1134,7 +1139,7 @@
 			return(a[1] > b[1]) ? -1 : 1;
 		}
 	}
-
+	// name selected, do stuff
 	function dropSelected(playerName) {
 		if(playerName == "reset list") {
 			resetNames();
@@ -1184,14 +1189,16 @@
 		}
 	}
 
+	// show menu of names
 	function myFunction() {
 		// When the user clicks on the button, toggle between hiding and showing the dropdown content
 		document.getElementById("myDropdown").classList.toggle("show");
 	}
+	// look after swipes etc.
 	// global keep track of swipes
 	var touchstartX = 0;
 	var touchendX = 0;
-
+	// do stuff when swiped
 	function checkDirection() {
 		if(touchendX < touchstartX) {
 			// clear swipe icon
@@ -1213,7 +1220,7 @@
 		checkDirection();
 	});
 	/*
-	 prefilled form
+	 prefilled form from google forms to allow inputs
 	 https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?usp=pp_url&
 		entry.474474348=player&
 		entry.2131369517=comp&
@@ -1264,6 +1271,7 @@
 		entry.967906330=twos&
 		entry.789190149=compplayer
 		*/
+	// send info from HTML form to google form	
 	function submitForm() {
 		// get the relevant info into a form
 		// dont allow submit for an incorrect day
@@ -1382,7 +1390,7 @@
 			}
 		}
 	}
-
+	// + button for HCP
 	function incrementHcp(id) {
 		incScore = document.getElementById(id).innerText;
 		//	if(incScore.indexOf("hcp") > -1) {
@@ -1398,7 +1406,7 @@
 		//==========================
 		recalcScores();
 	}
-
+	// + button for hole scores
 	function incrementScore(id) {
 		incScore = document.getElementById(id).innerText;
 		if(incScore.indexOf("hole") > -1) {
@@ -1424,7 +1432,7 @@
 		localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
 		//==================================================================
 	}
-
+	// - button for HCP
 	function decrementHcp(id) {
 		incScore = document.getElementById(id).innerText;
 		// if already at 0 say what it is
@@ -1450,7 +1458,7 @@
 		//==========================
 		recalcScores();
 	}
-
+	// - button for scores
 	function decrementScore(id) {
 		incScore = document.getElementById(id).innerText;
 		// if already at 0 say what hole it is
@@ -1490,7 +1498,7 @@
 			//==================================================================
 		}
 	}
-
+	// cakculated additional totals, countback etc.
 	function totalScore() {
 		var ih = 0;
 		var ip = 0;
@@ -1526,7 +1534,7 @@
 		cb = "9=" + jp + ", 6=" + c6 + ", 3=" + c3 + ", 1=" + c1;
 		document.getElementById("cback").innerText = cb;
 	}
-
+	// conbert scores to stableford points
 	function pointsCalc(hcp, par, si, score) {
 		allowance = 0;
 		if(score == 0) {
@@ -1555,7 +1563,7 @@
 			return points;
 		}
 	}
-
+	// papaparse uses HTML5's filereader API to get csv file
 	function doGetHCP() {
 		// show hcp and controls on screen
 		document.getElementById("hcpwrapper").style.visibility = "visible";
@@ -1610,7 +1618,7 @@
 		// change to swipe icon
 		document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
 	}
-
+	// redo score/points calculations for 18 holes
 	function recalcScores() {
 		for(i = 1; i <= 18; i++) {
 			tempscore = document.getElementById("numscore" + i).innerText;
@@ -1630,7 +1638,7 @@
 		}
 		totalScore();
 	}
-
+	// switches to and from a high contrast mode
 	function togglecontrast() {
 		// toggle between normal and high contrast
 		if(document.getElementById("plusscore1").style.color == "yellow") {
@@ -1691,7 +1699,7 @@
 			document.getElementById("setup").style.backgroundColor = "black";
 		}
 	}
-
+	// retrieves locally saved temp data to allow integrity over refreshes
 	function recoverFromLocalStorage() {
 		// put other values back
 		// player
@@ -1759,7 +1767,7 @@
 		}
 		totalScore();
 	}
-
+	// wipe local storage
 	function clearCache() {
 		localStorage.removeItem("player");
 		localStorage.removeItem("hcp");
@@ -1771,7 +1779,7 @@
 		recoverFromLocalStorage();
 		location.reload();
 	}
-
+	// set up Lakes as non competition day course
 	function doSomethingLakes() {
 		course = "Lakes";
 		comp = course + " " + dateToday;
@@ -1779,7 +1787,7 @@
 		localStorage.course = course;
 		localStorage.comp = comp;
 	}
-
+	// set up Dawson as non competition day course
 	function doSomethingDawson() {
 		course = "Dawson";
 		comp = course + " " + dateToday;
@@ -1787,7 +1795,7 @@
 		localStorage.course = course;
 		localStorage.comp = comp;
 	}
-
+	// message saying what competition is being processed
 	function showCompMessage() {
 		if(compday == "yes") {
 			document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\ncompetition\n\n";
@@ -1800,7 +1808,7 @@
 			document.getElementById("id_confrmdiv").style.display = "none";
 		}, 3000);
 	}
-
+	// message for non competition day denying submit
 	function showNoSubmitMessage() {
 		document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\n(no competition) is disabled.\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
@@ -1809,7 +1817,7 @@
 			document.getElementById("id_confrmdiv").style.display = "none";
 		}, 5000);
 	}
-
+	// nessage not allowing submit because data is incomplete
 	function showIncompleteSubmitData(msg) {
 		document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n" + msg + "\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
@@ -1818,7 +1826,7 @@
 			document.getElementById("id_confrmdiv").style.display = "none";
 		}, 5000);
 	}
-
+	// message saying HCP lookup failed
 	function showMessageRetryHCP() {
 		document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed - retrying ...\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
@@ -1832,7 +1840,7 @@
 			document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 2000);
 	}
-
+	// message saying HCP lookup failed
 	function showMessageRetryHCPFailed() {
 		document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" + "check the network and try again.\n" + "or\n" + "lookup your HCP and enter manually\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
@@ -1846,7 +1854,7 @@
 			document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 7000);
 	}
-
+	// choose course dialog for non competition day
 	function showCourseChoice() {
 		tempt = '<br /> No competition today. Select which course to use.';
 		tempt += '<br /><br />';
@@ -1856,7 +1864,7 @@
 		//console.log(document.getElementById("id_confrmdiv").innerHTML);
 		document.getElementById("id_confrmdiv").style.display = "block";
 	}
-	
+	// show hole number when hole score pressed
 	function showHole(id) {
 		tempe = document.getElementById(id);	
 		tempsaved = tempe.innerText;
@@ -1880,9 +1888,7 @@
 		}
 		
 	}
-	
-	
-	
+	// show message when no player has been set
 	function showSetPlayerMessage() {
 		document.getElementById("id_confrmdiv").innerText = "\nPlayer and HCP have not been set, do this before entering scores.\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
