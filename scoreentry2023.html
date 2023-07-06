@@ -759,7 +759,9 @@
 	var course;
 	var comp;
 	var compday = "no";
+	// set up courses with details for calculations etc.
 	// array ["hole num",par,si]
+	// Lakes
 	arrLakes = [
 		[0, 0, 0],
 		[1, 4, 15],
@@ -782,6 +784,7 @@
 		[18, 5, 8]
 	];
 	// array ["hole num",par,si]
+	// Dawson
 	arrDawson = [
 		[0, 0, 0],
 		[1, 5, 13],
@@ -873,6 +876,8 @@
 	"Lakes 25 March 2024", 
 	"Dawson 29 March 2024"];
 	// master array of members
+	// this is the centralised list of members, the 0 is used to allow a "sorted" menu
+	// by keeping track of the number of "hits" per name
 	var master = [
 		['Graham Airey', 0],
 		['Dale Aitkenhead', 0],
@@ -885,7 +890,7 @@
 		['Chris Chelson', 0],
 		['Ken Clark', 0],
 		['Ian Collier', 0],
-		['Rob Connelly', 0],
+		['Bob Connelly', 0],
 		['Jed Cornhill', 0],
 		['Alex Coupland', 0],
 		['Neil Coxon', 0],
@@ -940,7 +945,7 @@
 		['Joe Waddle', 0],
 		['Marcus Wilkinson', 0],
 		['Gordon Willis', 0],
-		['Ron Woodcock', 0],
+		
 		['reset list', 0]
 	];
 	// check for any new members etc.
