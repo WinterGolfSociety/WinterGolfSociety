@@ -1579,6 +1579,8 @@
 				console.log("bryan error");
 			}
 		} // if ended
+		// recalc scores to cope with new lookup
+		recalcScores();
 		// change to swipe icon
 		document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
 	}
@@ -1861,7 +1863,7 @@
 		setTimeout(function() {
 			document.getElementById("id_confrmdiv").innerText = "";
 			document.getElementById("id_confrmdiv").style.display = "none";
-		}, 7000);
+		}, 5000);
 	}
 	
 	
