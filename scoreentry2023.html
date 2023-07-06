@@ -1346,13 +1346,17 @@
 			}
 			document.getElementById('mx967906330').value = twoscount.toString();
 			document.getElementById('mx789190149').value = comp + player;
-			// var err = "no";
-			// for(i = 1; i <= 18; i++) {
-			//	if(document.getElementById("numscore" + i).innerText.indexOf("hole") > -1) {
-			//		err = "yes";
-			//	}
-			// }
-			if(player == "select player" || hcp == "hcp" || err == "yes") {
+			
+			if (player == "select player") {
+				checkBeforeSubmitID += "player not set\n" 
+				err = "yes";
+			}
+			if (hcp == "hcp") {
+				checkBeforeSubmitID += "hcp not set\n"
+				err = "yes"; 
+			}
+			
+			if (err == "yes") {
 				// error message
 				checkBeforeSubmitID = checkBeforeSubmitID + "\n... etc.\n";
 				showIncompleteSubmitData(checkBeforeSubmitID);
