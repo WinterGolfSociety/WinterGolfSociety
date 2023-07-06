@@ -1338,8 +1338,10 @@
 				//}
 				// check for no score entered
 				if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-					checkBeforeSubmitID += "hole " + ii + " not scored\n";
-					err = "yes";
+					if (checkBeforeSubmitID.length < 50) {
+						checkBeforeSubmitID += "hole " + ii + " not scored\n";
+						err = "yes";
+					}
 				}
 			}
 			document.getElementById('mx967906330').value = twoscount.toString();
@@ -1352,9 +1354,7 @@
 			// }
 			if(player == "select player" || hcp == "hcp" || err == "yes") {
 				// error message
-				if (checkBeforeSubmitID.length > 50) {
-					checkBeforeSubmitID = checkBeforeSubmitID.substring(0,50) + "... etc.\n";
-				}	
+				checkBeforeSubmitID = checkBeforeSubmitID + "\n... etc.\n";
 				showIncompleteSubmitData(checkBeforeSubmitID);
 			} else {
 				//===== submit data
