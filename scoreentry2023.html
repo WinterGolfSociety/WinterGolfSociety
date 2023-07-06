@@ -1862,6 +1862,10 @@
 	function showSetPlayerMessage() {
 		document.getElementById("id_confrmdiv").innerText = "\nPlayer and HCP have not been set, do this before score entry.\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
+		
+		// hide submit button
+		document.getElementById("submitwrapper").style.visibility = "hidden";
+		
 		setTimeout(function() {
 			document.getElementById("id_confrmdiv").innerText = "";
 			document.getElementById("id_confrmdiv").style.display = "none";
