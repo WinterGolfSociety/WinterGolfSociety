@@ -1472,9 +1472,14 @@
 		}
 		totalScore();
 		// update local storage
-		//=====LocalStorage.holes===========================================
-		localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
-		//==================================================================
+		// if incScore = 0, remove key from localStorage
+		if (incScore == 0) {
+			localStorage.removeItem("hole" + id.replace("numscore"));
+		} else {	
+			//=====LocalStorage.holes===========================================
+			localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
+			//==================================================================
+		}
 	}
 
 	function totalScore() {
