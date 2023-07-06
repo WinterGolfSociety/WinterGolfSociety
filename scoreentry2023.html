@@ -1792,8 +1792,8 @@
 		}, 5000);
 	}
 
-	function showIncompleteSubmitData() {
-		document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n\n";
+	function showIncompleteSubmitData(msg) {
+		document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n" + msg + "\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
 		setTimeout(function() {
 			document.getElementById("id_confrmdiv").innerText = "";
