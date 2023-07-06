@@ -1326,7 +1326,7 @@
 			//temp2 = 0;
 			twoscount = 0;
 			// check data is complete 
-			checkBeforeSubmitID = "empty";
+			checkBeforeSubmitID = "\n";
 			err = "no";
 			for(ii = 1; ii <= 18; ii++) {
 				if(document.getElementById("h" + ii).innerText == "2") {
@@ -1338,7 +1338,7 @@
 				//}
 				// check for no score entered
 				if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-					checkBeforeSubmitID += "\nhole " + ii + " not scored\n";
+					checkBeforeSubmitID += "hole " + ii + " not scored\n";
 					err = "yes";
 				}
 			}
@@ -1353,7 +1353,7 @@
 			if(player == "select player" || hcp == "hcp" || err == "yes") {
 				// error message
 				if (checkBeforeSubmitID.length > 50) {
-					checkBeforeSubmitID = checkBeforeSubmitID.substring(0,50) + " ...\n";
+					checkBeforeSubmitID = checkBeforeSubmitID.substring(0,50) + "  ... etc.\n";
 				}	
 				showIncompleteSubmitData(checkBeforeSubmitID);
 			} else {
