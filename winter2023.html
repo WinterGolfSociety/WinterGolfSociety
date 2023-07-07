@@ -619,6 +619,19 @@
 			if(d4 == 6) {
 				d = "Saturday";
 			}
+			//alert(darr.toString().substring(0,15) + "   " + dd.toString().substring(0,15))
+			
+			if(darr.toString().substring(0,15) == dd.toString().substring(0,15) && dlistcount < 3) {
+				//alert(darr.toString().substring(0,15) + "   " + dd.toString().substring(0,15));
+				if (arrComps[i].indexOf("Lakes") > -1) {
+					tempd = '<p style="color:cyan;">Lakes - competition today</p>';
+				}
+				if (arrComps[i].indexOf("Dawson") > -1) {
+					tempd = '<p style="color:cyan;">Dawson - competition today</p>';
+				}	
+				dlist = dlist + tempd;
+				dlistcount++;
+			}
 
 			if(darr > dd && dlistcount < 3) {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
