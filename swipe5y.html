@@ -16,7 +16,7 @@
             }
             body {
                 color: white;
-                background-color: gainsboro;
+                   //  background-color: gainsboro;
                 font-family: Arial, Helvetica, sans-serif;
                 overscroll-behavior: none;
             }
@@ -37,6 +37,12 @@
                 background-color: darkSlateGray;
                 scroll-snap-align: start;
                 scroll-snap-stop: always;
+                
+                
+                border-color: rgba(255, 255, 255, 255.5);
+                border: solid;
+                
+                
             }
 
             .leftnum {
@@ -186,23 +192,19 @@
                 padding-bottom: 10px;
             }
 
-            .xl {
-                border-right-style: none;
-                border-spacing: 0px;
-                width: 1%;
-            }
+        
 
             #buttoncontainer {
                 position: relative;
             }
 
-            #roundhcp {
+            #roundhcp, #startscoring {
                 color: white;
                 font-size: 30px;
                 text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
                 width: 100%;
                 background: dodgerBlue;
-                box-shadow: 10px 10px 25px black;
+        //        box-shadow: 10px 10px 25px black;
                 border: none;
             }
 
@@ -212,7 +214,7 @@
                 text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
                 width: 100%;
                 background: dodgerBlue;
-                box-shadow: 10px 10px 25px black;
+          //      box-shadow: 10px 10px 25px black;
                 border: none;
             }
 
@@ -234,7 +236,7 @@
             #hole16,
             #hole17,
             #hole18 {
-                background-image: linear-gradient(to right, rgba(124, 252, 0, 0.5), rgba(124, 252, 0, 0.1));
+  //              background-image: linear-gradient(to right, rgba(124, 252, 0, 0.5), rgba(124, 252, 0, 0.1));
             }
 
             .stdtable {
@@ -329,7 +331,7 @@
             .dropdown-content3,
             .dropdown-content4 {
                 display: none;
-                border-style: solid;
+              //  border-style: solid;
                 position: absolute;
                 min-width: 35vw;
                 max-height: 40vh;
@@ -522,7 +524,7 @@
                 <table class="stdtable">
                     <tbody>
                         <tr class="tdtop">
-                            <td colspan="3" class="tdtop1"><a class="small1">Longhirst sweep
+                            <td colspan="2" class="tdtop1"><a class="small1">setup 4-ball
                             
                             
                             <a href="#lastpage" id="arrow" ><img src="ra.png" width="40px" height="20px"/></a>
@@ -532,7 +534,7 @@
                         </tr>
 
                         <tr class="btn1container">
-                            <td class="tdleft" colspan="2">
+                            <td class="tdleft">
                                 <div class="wrapperleft" id="dawson" onclick="dawson()">
                                     Dawson
                                 </div>
@@ -543,10 +545,13 @@
                                 </div>
                             </td>
                         </tr>
-
+			<tr class="tdtop1">
+				<td class="small1">player</td>
+				<td class="small1">hcp</td>
+			</tr>
                         <tr class="stdtr">
-                            <td class="xl"><div id="vt1">(team 1)</div></td>
-                            <td class="tdleft" onclick="hideorshowplayerdropdown1()">
+                            
+                            <td onclick="hideorshowplayerdropdown1()">
                                 <div class="wrapperleft" id="dropbtn1">
                                     <div id="setupp1">no player</div>
                                 </div>
@@ -561,7 +566,7 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
-                            <td class="xl"><div id="vt2">(team 1)</div></td>
+                 
                             <td class="tdleft" onclick="hideorshowplayerdropdown2()">
                                 <div class="wrapperleft" id="dropbtn2">
                                     <div id="setupp2">no player</div>
@@ -577,7 +582,7 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
-                            <td class="xl"><div id="vt3">(team 2)</div></td>
+                   
                             <td class="tdleft" onclick="hideorshowplayerdropdown3()">
                                 <div class="wrapperleft" id="dropbtn3">
                                     <div id="setupp3">no player</div>
@@ -593,7 +598,7 @@
                             </td>
                         </tr>
                         <tr class="stdtr">
-                            <td class="xl"><div id="vt4">(team 2)</div></td>
+                     
                             <td class="tdleft" onclick="hideorshowplayerdropdown4()">
                                 <div class="wrapperleft" id="dropbtn4">
                                     <div id="setupp4">no player</div>
@@ -608,20 +613,34 @@
                                 </div>
                             </td>
                         </tr>
+                        
+                        
+                        <tr class="tdtop1">
+				<td class="small1" colspan="2">search for handicaps</td>
+			</tr>
+                        
+                        
+                        
                         <tr>
-                            <td colspan="3"><button id="roundhcp" onclick="doGetHCP()">search for HCPs</button></td>
+                            <td colspan="2"><button id="roundhcp" onclick="doGetHCP()">search for HCPs</button></td>
                         </tr>
-                        <tr class="spacer" colspan="3">
+                        
+                           <tr class="tdtop1">
+				<td class="small1" colspan="2">start scoring</td>
+			</tr>
+                        
+                        
+                        
+                        <tr>
+                            <td colspan="2"><button id="startscoring" onclick="doStartScoring()">start scoring</button></td>
+                        </tr>
+                        
+                        
+                        
+                        <tr class="spacer" colspan="2">
                             <td></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td id="calcs1"></td>
-                            <td id="calcs2"></td>
-                        </tr>
-                        <tr class="spacer" colspan="3">
-							
-                        </tr>
+                       
                     </tbody>
                 </table>
                 
@@ -642,7 +661,7 @@
                         <tr class="tdtop">
                             <td colspan="2" class="tdtop2" id="hole-1">hole 1, course not set</td>
                         </tr>
-                        <tr class="btn1container">
+                        <tr class="btn1container" id="h1p1x">
                             <td class="tdleft">
                                 <button class="btn1" id="h1p1">no player</button>
                             </td>
@@ -654,7 +673,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="btn1container">
+                        <tr class="btn1container" id="h1p2x">
                             <td class="tdleft">
                                 <button class="btn2" id="h1p2">no player</button>
                                 <div></div>
@@ -667,7 +686,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="btn1container">
+                        <tr class="btn1container" id="h1p3x">
                             <td class="tdleft">
                                 <button class="btn3" id="h1p3">no player</button>
                                 <div></div>
@@ -680,7 +699,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="btn1container">
+                        <tr class="btn1container" id="h1p4x">
                             <td class="tdleft">
                                 <button class="btn4" id="h1p4">no player</button>
                                 <div></div>
@@ -693,43 +712,33 @@
                                 </div>
                             </td>
                         </tr>
+                       
                         <tr class="spacer" colspan="3">
                             <td></td>
                         </tr>
-                        <tr>
-                            <td class="tdtestR">stableford</td>
-                            <td class="tdtestR">matchplay</td>
-                        </tr>
+                       
+                       
+                         <tr id="p1h1points" >
+                            <td>player 1</td>
+                            <td>0 (total: 0 points)</td>
+                         </tr>
+                       <tr id="p2h1points" >
+                            <td>player 2</td>
+                            <td>0</td>
+                         </tr>
+                         <tr id="p3h1points" >
+                            <td>player 3</td>
+                            <td>0</td>
+                         </tr>
+                         <tr id="p4h1points" >
+                            <td>player 4</td>
+                            <td>0</td>
+                         </tr>
+                       
                         <tr class="spacer" colspan="3">
                             <td></td>
                         </tr>
-                        <tr>
-                            <td class="tdtestR" id="h1p1result1"></td>
-                            <td class="tdtestR" id="h1p1result2"></td>
-                        </tr>
-                        <tr>
-                            <td class="tdtestR" id="h1p2result1"></td>
-                            <td class="tdtestR" id="h1p2result2"></td>
-                        </tr>
-                        <tr>
-                            <td class="tdtestR" id="h1p3result1"></td>
-                            <td class="tdtestR" id="h1p3result2"></td>
-                        </tr>
-                        <tr>
-                            <td class="tdtestR" id="h1p4result1"></td>
-                            <td class="tdtestR" id="h1p4result2"></td>
-                        </tr>
-                        <tr class="spacer" colspan="3">
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td class="tdtest"></td>
-                            <td class="tdtestR" id="h1matchplayresult"></td>
-                        </tr>
-                        <tr>
-                            <td class="tdtest"></td>
-                            <td class="tdtestR" id="h1matchplayleader"></td>
-                        </tr>
+                       
                         <tr class="spacer">
                             <td colspan="2"></td>
                         </tr>
@@ -3150,12 +3159,9 @@
                 var temphole = id.substring(0, 3).replaceAll("h", "");
                 // player is 1,2,3 or 4
                 var tempplayer = id.substring(id.length - 1);
-                // for save determination, if its 1, save
-                if (incScore == "1") {
-                    savedata();
-                }
+              
                 var temptxt = "temptxt - ";
-                // update info at bottom of page
+                // update info on totals page
                 if (courseInPlay == "Lakes") {
                     temppar = arrLakes[temphole - 1][1];
                     tempsi = arrLakes[temphole - 1][2];
@@ -3466,7 +3472,7 @@
                 courseInPlay = "Dawson";
                 // setup Dawson
                 for (var i = 1; i <= 18; i++) {
-                    document.getElementById("hole-" + i).innerText = "hole " + arrDawson[i - 1][0] + " (par " + arrDawson[i - 1][1] + ", si " + arrDawson[i - 1][2] + ")";
+                    document.getElementById("hole-" + i).innerText = "Dawson, hole " + arrDawson[i - 1][0] + " (par " + arrDawson[i - 1][1] + ", si " + arrDawson[i - 1][2] + ")";
                 }
             }
 
@@ -3478,7 +3484,7 @@
                 courseInPlay = "Lakes";
                 // setup Lakes
                 for (var i = 1; i <= 18; i++) {
-                    document.getElementById("hole-" + i).innerText = "hole " + arrLakes[i - 1][0] + " ( par " + arrLakes[i - 1][1] + ", si " + arrLakes[i - 1][2] + ")";
+                    document.getElementById("hole-" + i).innerText = "Lakes, hole " + arrLakes[i - 1][0] + " ( par " + arrLakes[i - 1][1] + ", si " + arrLakes[i - 1][2] + ")";
                 }
             }
 
@@ -4879,7 +4885,43 @@
             
  // checkVisible("hole1")           
             
-            
+     function doStartScoring() {
+     
+     i=1;
+     	if (document.getElementById("setupp1").innerText.indexOf("player") > -1) {
+     	console.log(document.getElementById("setupp1").innerText)
+     		// hide for each hole
+     //		for (i = 1; i <= 18; i++) {
+     			document.getElementById("h" + i +"p1x").style.display = "none";
+     			document.getElementById("p1h" + i + "points").style.display = "none";
+     	//	}
+     	
+     	}
+     	if (document.getElementById("setupp2").innerText.indexOf("player") > -1) {
+     	
+     	  //		for (i = 1; i <= 18; i++) {
+     			document.getElementById("h" + i +"p2x").style.display = "none";
+     			document.getElementById("p2h" + i + "points").style.display = "none";
+     	//	}
+     	}
+     	if (document.getElementById("setupp3").innerText.indexOf("player") > -1) {
+     	
+     	  //		for (i = 1; i <= 18; i++) {
+     			document.getElementById("h" + i +"p3x").style.display = "none";
+     			document.getElementById("p3h" + i + "points").style.display = "none";
+     	//	}
+     	}
+     	if (document.getElementById("setupp4").innerText.indexOf("player") > -1) {
+     	  //		for (i = 1; i <= 18; i++) {
+     			document.getElementById("h" + i +"p4x").style.display = "none";
+     			document.getElementById("p4h" + i + "points").style.display = "none";
+     	//	}
+     	}
+     	
+     	
+     
+     	
+     }      
             
             
             
