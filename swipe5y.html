@@ -648,7 +648,7 @@
             <!-- ========== hole 1 ==============================
          =====================================================
          -->
-            <div class="card" id="hole1" onclick="checkVisible(this.id)">
+            <div class="card" id="hole1">
                 <div class="modal">
                     <!-- modal calculations -->
                     <div class="showcoursemsg" id="showcoursemsg" onclick="coursemsgclose()"></div>
@@ -718,20 +718,20 @@
                         </tr>
                        
                        
-                         <tr id="p1h1points" >
-                            <td>player 1</td>
+                         <tr>
+                            <td id="p1h1points" >player 1</td>
                             <td>0 (total: 0 points)</td>
                          </tr>
-                       <tr id="p2h1points" >
-                            <td>player 2</td>
+                       <tr>
+                            <td id="p2h1points" >player 2</td>
                             <td>0</td>
                          </tr>
-                         <tr id="p3h1points" >
-                            <td>player 3</td>
+                         <tr>
+                            <td id="p3h1points" >player 3</td>
                             <td>0</td>
                          </tr>
-                         <tr id="p4h1points" >
-                            <td>player 4</td>
+                         <tr>
+                            <td id="p4h1points" >player 4</td>
                             <td>0</td>
                          </tr>
                        
@@ -2974,25 +2974,7 @@
             player3hcp = "";
             player4hcp = "";
 
-            player1hcp90percent = "";
-            player2hcp90percent = "";
-            player3hcp90percent = "";
-            player4hcp90percent = "";
-
-            player1matchplayshotsrecorded = "";
-            player2matchplayshotsrecorded = "";
-            player3matchplayshotsrecorded = "";
-            player4matchplayshotsrecorded = "";
-
-            player1matchplayshotsdifference = "";
-            player2matchplayshotsdifference = "";
-            player3matchplayshotsdifference = "";
-            player4matchplayshotsdifference = "";
-
-            player1exacthcp = "";
-            player2exacthcp = "";
-            player3exacthcp = "";
-            player4exacthcp = "";
+         
 
             // arrays of each hole
             var player1shotsrecorded = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -3005,11 +2987,7 @@
             var player3holepointsrecorded = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             var player4holepointsrecorded = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-            var player1holematchplaypointsrecorded = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            var player2holematchplaypointsrecorded = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            var player3holematchplaypointsrecorded = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            var player4holematchplaypointsrecorded = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-            
+          
             var tempfront9p1 = 0;
             var tempfront9p2 = 0;
             var tempfront9p3 = 0;
@@ -3161,7 +3139,7 @@
                 var tempplayer = id.substring(id.length - 1);
               
                 var temptxt = "temptxt - ";
-                // update info on totals page
+                // update info on this page and totals page
                 if (courseInPlay == "Lakes") {
                     temppar = arrLakes[temphole - 1][1];
                     tempsi = arrLakes[temphole - 1][2];
@@ -3176,16 +3154,13 @@
                     // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc1").innerText;
                     var temppoints = pointsCalc(player1hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername + " " + temppoints + " points";
+               //     document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
                     player1shotsrecorded[temphole] = tempscore;
                     player1holepointsrecorded[temphole] = temppoints;
 
-                    // do a matchplay version
-                    var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p1result2").innerHTML = tempplayername + " " + temppoints + " points";
-                }
+                 } 
 
                 // get player2 name
                 tempplayername = document.getElementById("h" + temphole + "p2").innerText;
@@ -3193,16 +3168,13 @@
                     // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc2").innerText;
                     var temppoints = pointsCalc(player2hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername + " " + temppoints + " points";
+                 //   document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
                     player2shotsrecorded[temphole] = tempscore;
                     player2holepointsrecorded[temphole] = temppoints;
-
-                    // do a matchplay version
-                    var temppoints = pointsCalc(player2matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p2result2").innerHTML = tempplayername + " " + temppoints + " points";
-                }
+ 
+               }
 
                 // get player3 name
                 tempplayername = document.getElementById("h" + temphole + "p3").innerText;
@@ -3210,34 +3182,54 @@
                     // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc3").innerText;
                     var temppoints = pointsCalc(player3hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername + " " + temppoints + " points";
+                 //   document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
                     player3shotsrecorded[temphole] = tempscore;
                     player3holepointsrecorded[temphole] = temppoints;
-
-                    // do a matchplay version
-                    var temppoints = pointsCalc(player3matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " points";
                 }
-
+            
                 // get player4 name
                 tempplayername = document.getElementById("h" + temphole + "p4").innerText;
                 if (tempplayername !== "no player") {
                     // player points - pointsCalc(hcp,par,si,score)
                     var tempscore = document.getElementById("h" + temphole + "hhc4").innerText;
                     var temppoints = pointsCalc(player4hcp, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername + " " + temppoints + " points";
+               //     document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername + " " + temppoints + " points";
 
                     // update globals
                     player4shotsrecorded[temphole] = tempscore;
                     player4holepointsrecorded[temphole] = temppoints;
 
-                    // do a matchplay version
-                    var temppoints = pointsCalc(player4matchplayshotsdifference, temppar, tempsi, tempscore);
-                    document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " points";
-                }
-
+                }             
+             i=1 
+           //   for (var i = 1; i <= 9; i++) {
+           
+           
+           
+           console.log("player1name = " + player1name);
+             console.log(player2name);
+             console.log(player3name);
+             console.log(player4name);
+           
+               // update local scores
+               if (player1name !== "no player") {
+               	document.getElementById("p1h" + i + "points").innerText = player1name + ", " + player1holepointsrecorded[i] + " points"
+               }
+               
+               if (player2name !== "no player") {
+               	document.getElementById("p2h" + i + "points").innerText = player2name + ", " + player2holepointsrecorded[i] + " points"
+               }
+               
+               if (player3name !== "no player") {
+               	document.getElementById("p3h" + i + "points").innerText = player3name + ", " + player3holepointsrecorded[i] + " points"
+               }
+               if (player4name !== "no player") {
+               	document.getElementById("p4h" + i + "points").innerText = player4name + ", " + player4holepointsrecorded[i] + " points"
+               }
+               
+          //    }
+/*
                 // update totals
                 // front 9
                 tempfront9p1 = 0;
@@ -3295,6 +3287,11 @@
                 document.getElementById("total18p4").innerText = player4name + " " + (tempfront9p4 + tempback9p4) + " points";
 
                 doMatchplayCalcs(temphole);
+                
+                
+   */             
+                
+                
             }
 
             function decrementScore(id) {
@@ -3675,7 +3672,7 @@
                     document.getElementById("h" + i + "p1").innerText = player;
                 }
 
-                doCalcs();
+    //            doCalcs();
             }
 
             function playerdropdownselected2(playerName) {
@@ -3696,7 +3693,7 @@
                     document.getElementById("h" + i + "p2").innerText = player;
                 }
 
-                doCalcs();
+      //          doCalcs();
             }
 
             function playerdropdownselected3(playerName) {
@@ -3717,7 +3714,7 @@
                     document.getElementById("h" + i + "p3").innerText = player;
                 }
 
-                doCalcs();
+    //            doCalcs();
             }
 
             function playerdropdownselected4(playerName) {
@@ -3738,10 +3735,10 @@
                     document.getElementById("h" + i + "p4").innerText = player;
                 }
 
-                doCalcs();
+     //           doCalcs();
             }
 
-            var options = ["Barry", "Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen", "Temp1", "Temp2"];
+            var options = ["Barry", "Bob", "Bryan", "Dale", "Dean", "Graham", "Joe", "John", "Pete", "Simon", "Stephen A", "Temp1", "Temp2"];
 
             // create player dropdown
             var select1 = document.getElementById("playerdropdown1");
@@ -4887,9 +4884,22 @@
             
      function doStartScoring() {
      
+       player1name = document.getElementById("setupp1").innerText;
+       player2name = document.getElementById("setupp2").innerText;
+       player3name = document.getElementById("setupp3").innerText;
+       player4name = document.getElementById("setupp4").innerText;
+     
+     
      i=1;
+     console.log(document.getElementById("setupp1").innerText)
+     	console.log(document.getElementById("setupp2").innerText)
+     	console.log(document.getElementById("setupp3").innerText)
+     	console.log(document.getElementById("setupp4").innerText)
+     	
+     	// hide players when not in use
      	if (document.getElementById("setupp1").innerText.indexOf("player") > -1) {
-     	console.log(document.getElementById("setupp1").innerText)
+     	
+     	
      		// hide for each hole
      //		for (i = 1; i <= 18; i++) {
      			document.getElementById("h" + i +"p1x").style.display = "none";
