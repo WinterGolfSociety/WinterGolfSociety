@@ -3857,25 +3857,25 @@
 
             function getHCP(results) {
                 //Data is usable here
-
+console.log("getHCP")
                 var datax = results.data;
                 //search google sheets for info
                 for (i = 0; i < datax.length; i++) {
                     if (datax[i].player == player1name) {
-                        player1hcp = datax[i].hcp;
-                        player1exacthcp = datax[i].exacthcp;
+                        console.log("player1hcp = " + datax[i].hcp);
+                       player1hcp = Math.trunc(datax[i].hcp);
                     }
                     if (datax[i].player == player2name) {
-                        player2hcp = datax[i].hcp;
-                        player2exacthcp = datax[i].exacthcp;
+                       console.log("player2hcp = " + datax[i].hcp);
+                        player2hcp = Math.trunc(datax[i].hcp);
                     }
                     if (datax[i].player == player3name) {
-                        player3hcp = datax[i].hcp;
-                        player3exacthcp = datax[i].exacthcp;
+                         console.log("player3hcp = " + datax[i].hcp);
+                        player3hcp = Math.trunc(datax[i].hcp);
                     }
                     if (datax[i].player == player4name) {
-                        player4hcp = datax[i].hcp;
-                        player4exacthcp = datax[i].exacthcp;
+                         console.log("player4hcp = " + datax[i].hcp);
+                        player4hcp = Math.trunc(datax[i].hcp);
                     }
                 }
 
@@ -3884,19 +3884,21 @@
                 document.getElementById("numsetupplayer3").innerText = player3hcp;
                 document.getElementById("numsetupplayer4").innerText = player4hcp;
 
-                document.getElementById("roundhcp").innerHTML = "search for HCPs";
+       //         document.getElementById("roundhcp").innerHTML = "search for HCPs";
 
-                doCalcs();
+   //             doCalcs();
+  
+  
             }
 
             function doGetHCP() {
-                btninfo = document.getElementById("roundhcp");
-                originalinfo = btninfo.innerHTML;
-                btninfo.innerHTML = 'searching &nbsp;&nbsp;<img src="loading.jpg" alt="" width="20" height="20">';
+          //      btninfo = document.getElementById("roundhcp");
+          //      originalinfo = btninfo.innerHTML;
+          //      btninfo.innerHTML = 'searching &nbsp;&nbsp;<img src="loading.jpg" alt="" width="20" height="20">';
+console.log("doGetHCP")
+             var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
 
-                var public_spreadsheet_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTo5-fBAmpaFDKB8T_BJdrzbPyNsMU2jRo1_d0O7oXzPmUYbXW-PhMinaesVsH6vcoNqv56oq2xZ9CT/pub?gid=1661582897&single=true&output=csv";
-
-                Papa.parse(public_spreadsheet_url, {
+                Papa.parse(public_hcp_url, {
                     download: true,
                     header: true,
                     complete: getHCP,
@@ -4000,11 +4002,66 @@
      	}
      	
      	
-     
+     // close setup screen and start
+     document.getElementById("setup").style.display = "none";
      	
      }      
             
-            
+       // papaparse uses HTML5's filereader API to get csv file
+	function xxxxxdoGetHCP() {
+		// show hcp and controls on screen
+		document.getElementById("hcpwrapper").style.visibility = "visible";
+		if(document.getElementById("numhcp").innerText == "hcp") {
+			document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=40 height=40>'
+			document.getElementById("numhcp").style.paddingTop = "10px";
+			var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
+			strng2 = "hcp";
+			try {
+				// if it fails after 10 seconds, put up error message
+				setTimeout(function() {
+					if(!(Math.trunc(strng2) > 0)) {
+						showMessageRetryHCPFailed();
+					}
+				}, 10000);
+				Papa.parse(public_hcp_url, {
+					download: true,
+					header: true,
+					step: function(results, parser) {
+						if(results.data.player.indexOf(player) > -1) {
+							strng2 = results.data.hcp;
+							console.log("Row data:", results.data.player);
+							console.log("Row data:", results.data.hcp);
+							parser.abort;
+						}
+					},
+					complete: function() {
+						console.log("completed");
+						if(Math.trunc(strng2) > 0) {
+							document.getElementById("numhcp").innerHTML = "";
+							document.getElementById("numhcp").style.fontSize = "50px";
+							document.getElementById("numhcp").style.paddingTop = 0;
+							document.getElementById("numhcp").innerText = Math.trunc(strng2);
+							// update global hcp
+							hcp = Math.trunc(strng2);
+							//=====LocalStorage.hcp=====
+							localStorage.hcp = hcp;
+							//==========================
+							// recalc scores to cope with any new lookup
+		        				recalcScores();
+						}
+					}
+				});
+			} // end try
+			catch(err) {
+				console.log(err.message);
+				console.log("bryan error");
+			}
+			
+		} // if ended
+		
+		// change to swipe icon
+		document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
+	}     
             
         </script>
     </body>
