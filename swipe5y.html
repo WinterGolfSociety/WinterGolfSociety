@@ -3059,72 +3059,7 @@
           
           document.getElementById("frontmidpoint").innerText = tempz;
           
-          
-          
-/*
-                // update totals
-                // front 9
-                tempfront9p1 = 0;
-                tempfront9p2 = 0;
-                tempfront9p3 = 0;
-                tempfront9p4 = 0;
-
-                for (var i = 1; i <= 9; i++) {
-                    tempfront9p1 += player1holepointsrecorded[i];
-                }
-                for (var i = 1; i <= 9; i++) {
-                    tempfront9p2 += player2holepointsrecorded[i];
-                }
-                for (var i = 1; i <= 9; i++) {
-                    tempfront9p3 += player3holepointsrecorded[i];
-                }
-                for (var i = 1; i <= 9; i++) {
-                    tempfront9p4 += player4holepointsrecorded[i];
-                }
-
-                // back 9
-                tempback9p1 = 0;
-                tempback9p2 = 0;
-                tempback9p3 = 0;
-                tempback9p4 = 0;
-                for (var i = 10; i <= 18; i++) {
-                    tempback9p1 += player1holepointsrecorded[i];
-                }
-                for (var i = 10; i <= 18; i++) {
-                    tempback9p2 += player2holepointsrecorded[i];
-                }
-                for (var i = 10; i <= 18; i++) {
-                    tempback9p3 += player3holepointsrecorded[i];
-                }
-                for (var i = 10; i <= 18; i++) {
-                    tempback9p4 += player4holepointsrecorded[i];
-                }
-
-                // front 9
-                document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points";
-                document.getElementById("front9p2").innerText = player2name + " " + tempfront9p2 + " points";
-                document.getElementById("front9p3").innerText = player3name + " " + tempfront9p3 + " points";
-                document.getElementById("front9p4").innerText = player4name + " " + tempfront9p4 + " points";
-
-                // back 9
-                document.getElementById("back9p1").innerText = player1name + " " + tempback9p1 + " points";
-                document.getElementById("back9p2").innerText = player2name + " " + tempback9p2 + " points";
-                document.getElementById("back9p3").innerText = player3name + " " + tempback9p3 + " points";
-                document.getElementById("back9p4").innerText = player4name + " " + tempback9p4 + " points";
-
-                // total
-                document.getElementById("total18p1").innerText = player1name + " " + (tempfront9p1 + tempback9p1) + " points";
-                document.getElementById("total18p2").innerText = player2name + " " + (tempfront9p2 + tempback9p2) + " points";
-                document.getElementById("total18p3").innerText = player3name + " " + (tempfront9p3 + tempback9p3) + " points";
-                document.getElementById("total18p4").innerText = player4name + " " + (tempfront9p4 + tempback9p4) + " points";
-
-                doMatchplayCalcs(temphole);
-                
-                
-   */             
-                
-                
-            }
+  }
 
             function decrementScore(id) {
                 var incScore = document.getElementById(id).innerText;
@@ -3487,12 +3422,15 @@
 
             function playerdropdownselected1(playerName) {
                 player1name = playerName;
-                //console.log("player1name = " + player1name)
-                
+                               
                 // replace button name
-                element = document.getElementById("setupp1");
-                element.innerText = player1name;
-
+                x = player1name.split(' ').map(x => x[0]);
+                initial = x[1];
+                y = player1name.split(' ')
+                shortplayer = y[0];
+                     
+                document.getElementById("setupp1").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
+                
                 var dropdowns = document.getElementsByClassName("playerdropdown1");
 
                 for (var i = 0; i < dropdowns.length; i++) {
@@ -3503,10 +3441,10 @@
                 }
                 // fill in all 18 holes - do for all
                 for (var i = 1; i <= 18; i++) {
-                    x = player1name.split(' ').map(x => x[0]);
-                    initial = x[1];
-                    y = player1name.split(' ')
-                    shortplayer = y[0];
+                    //x = player1name.split(' ').map(x => x[0]);
+                    //initial = x[1];
+                    //y = player1name.split(' ')
+                    //shortplayer = y[0];
                      
                     document.getElementById("h" + i + "p1").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
                     
@@ -3518,8 +3456,13 @@
             function playerdropdownselected2(playerName) {
                 player2name = playerName;
                 // replace button name
-                element = document.getElementById("setupp2");
-                element.innerText = player2name;
+                x = player2name.split(' ').map(x => x[0]);
+                initial = x[1];
+                y = player2name.split(' ')
+                shortplayer = y[0];
+                     
+                document.getElementById("setupp2").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
+                
                 var dropdowns = document.getElementsByClassName("playerdropdown2");
 
                 for (var i = 0; i < dropdowns.length; i++) {
@@ -3530,10 +3473,10 @@
                 }
                 // fill in all 18 holes - do for all
                  for (var i = 1; i <= 18; i++) {
-                    x = player2name.split(' ').map(x => x[0]);
-                    initial = x[1];
-                    y = player2name.split(' ')
-                    shortplayer = y[0];
+                    //x = player2name.split(' ').map(x => x[0]);
+                    //initial = x[1];
+                    //y = player2name.split(' ')
+                    //shortplayer = y[0];
                      
                     document.getElementById("h" + i + "p2").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
                     
@@ -3544,8 +3487,13 @@
             function playerdropdownselected3(playerName) {
                 player3name = playerName;
                 // replace button name
-                element = document.getElementById("setupp3");
-                element.innerText = player3name;
+                x = player3name.split(' ').map(x => x[0]);
+                initial = x[1];
+                y = player3name.split(' ')
+                shortplayer = y[0];
+                     
+                document.getElementById("setupp3").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
+                
                 var dropdowns = document.getElementsByClassName("playerdropdown3");
 
                 for (var i = 0; i < dropdowns.length; i++) {
@@ -3556,10 +3504,10 @@
                 }
                 // fill in all 18 holes - do for all
                  for (var i = 1; i <= 18; i++) {
-                    x = player3name.split(' ').map(x => x[0]);
-                    initial = x[1];
-                    y = player3name.split(' ')
-                    shortplayer = y[0];
+                    //x = player3name.split(' ').map(x => x[0]);
+                    //initial = x[1];
+                    //y = player3name.split(' ')
+                    //shortplayer = y[0];
                      
                     document.getElementById("h" + i + "p3").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
                     
@@ -3570,9 +3518,14 @@
 
             function playerdropdownselected4(playerName) {
                 player4name = playerName;
-                // replace button name
-                element = document.getElementById("setupp4");
-                element.innerText = player4name;
+              // replace button name
+                x = player4name.split(' ').map(x => x[0]);
+                initial = x[1];
+                y = player4name.split(' ')
+                shortplayer = y[0];
+                     
+                document.getElementById("setupp4").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
+                
                 var dropdowns = document.getElementsByClassName("playerdropdown4");
 
                 for (var i = 0; i < dropdowns.length; i++) {
@@ -3583,10 +3536,10 @@
                 }
                 // fill in all 18 holes - do for all
                  for (var i = 1; i <= 18; i++) {
-                    x = player4name.split(' ').map(x => x[0]);
-                    initial = x[1];
-                    y = player4name.split(' ')
-                    shortplayer = y[0];
+                    //x = player4name.split(' ').map(x => x[0]);
+                    //initial = x[1];
+                    //y = player4name.split(' ')
+                    //shortplayer = y[0];
                      
                     document.getElementById("h" + i + "p4").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
                     
