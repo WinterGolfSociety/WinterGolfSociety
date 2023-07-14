@@ -490,49 +490,50 @@
 	
 	.border {
 		border: 1px solid gray;
-		 border-spacing: 0px;
-		 border-collapse: collapse;
+		border-spacing: 0px;
+		border-collapse: collapse;
 		//width: 60px;
 		//padding: 1px; //5px;
 		font-size: 10px;
 		text-align: center;
 	}
 	
-
-	
-	#bordertbody, #bordertbodyx {
+	#bordertbody,
+	#bordertbodyx {
 		height: 40vh;
 		width: 95vw; //98%;
 	}
 	
-	#hideplayer1name, #hideplayer1namex {
+	#hideplayer1name,
+	#hideplayer1namex {
 		color: cyan;
 	}
 	
-	#hideplayer2name, #hideplayer2namex {
+	#hideplayer2name,
+	#hideplayer2namex {
 		color: yellow;
 	}
 	
-	#hideplayer3name, #hideplayer3namex {
+	#hideplayer3name,
+	#hideplayer3namex {
 		color: greenYellow;
 	}
 	
-	#hideplayer4name, #hideplayer4namex {
+	#hideplayer4name,
+	#hideplayer4namex {
 		color: springGreen;
 	}
 	
-	#hideplayer1, #hideplayer2, #hideplayer3, #hideplayer4, #hideplayer1x, #hideplayer2x, #hideplayer3x, #hideplayer4x {
+	#hideplayer1,
+	#hideplayer2,
+	#hideplayer3,
+	#hideplayer4,
+	#hideplayer1x,
+	#hideplayer2x,
+	#hideplayer3x,
+	#hideplayer4x {
 		font-size: 10px;
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	</style>
 </head>
 <!-- to make progress bar easier -->
@@ -556,72 +557,102 @@
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
-						<td colspan="2" class="tdtop1"><a class="small1">setup 4-ball
-                            
-                            
-                            <a href="#lastpage" id="arrow" ><img src="ra.png" width="40px" height="20px"/></a> </a>
+						<td colspan="2" class="tdtop1">
+						<a class="small1">setup 4-ball
+                                                   <a href="#lastpage" id="arrow" >
+                                                      <img src="ra.png" width="40px" height="20px"/>
+                                                   </a>
+                                                </a>
 						</td>
 					</tr>
 					<tr class="btn1container">
 						<td class="tdleft">
-							<div class="wrapperleft" id="dawson" onclick="dawson()"> Dawson </div>
+						   <div class="wrapperleft" id="dawson" onclick="dawson()"> Dawson 
+						   </div>
 						</td>
 						<td class="tdright">
-							<div class="wrapperleft" id="lakes" onclick="lakes()"> Lakes </div>
+						   <div class="wrapperleft" id="lakes" onclick="lakes()"> Lakes 
+						   </div>
 						</td>
 					</tr>
 					<tr class="stdtr">
 						<td onclick="hideorshowplayerdropdown1()">
-							<div class="wrapperleft" id="dropbtn1">
-								<div id="setupp1">no player</div>
-							</div>
-							<div id="playerdropdown1" class="dropdown-content1"></div>
+						   <div class="wrapperleft" id="dropbtn1">
+						      <div id="setupp1">no player
+						      </div>
+						   </div>
+						   <div id="playerdropdown1" class="dropdown-content1">
+						   </div>
 						</td>
 						<td class="tdright">
-							<div class="wrapper"> <span class="minus" id="minussetupplayer1" onclick='decrementhcp("numsetupplayer1")'>-</span> <span class="num" id="numsetupplayer1">10</span> <span class="plus" id="plussetupplayer1" onclick='incrementhcp("numsetupplayer1")'>+</span> </div>
+						   <div class="wrapper"> 
+						   <span class="minus" id="minussetupplayer1" onclick='decrementhcp("numsetupplayer1")'>-</span>
+						   <span class="num" id="numsetupplayer1">10</span>
+						   <span class="plus" id="plussetupplayer1" onclick='incrementhcp("numsetupplayer1")'>+</span> 
+						   </div>
 						</td>
 					</tr>
 					<tr class="stdtr">
 						<td class="tdleft" onclick="hideorshowplayerdropdown2()">
-							<div class="wrapperleft" id="dropbtn2">
-								<div id="setupp2">no player</div>
-							</div>
-							<div id="playerdropdown2" class="dropdown-content2"></div>
+						   <div class="wrapperleft" id="dropbtn2">
+						      <div id="setupp2">no player
+						      </div>
+						   </div>
+						   <div id="playerdropdown2" class="dropdown-content2">
+						   </div>
 						</td>
 						<td class="tdright">
-							<div class="wrapper"> <span class="minus" id="minussetupplayer2" onclick='decrementhcp("numsetupplayer2")'>-</span> <span class="num" id="numsetupplayer2">10</span> <span class="plus" id="plussetupplayer2" onclick='incrementhcp("numsetupplayer2")'>+</span> </div>
+						   <div class="wrapper"> 
+						      <span class="minus" id="minussetupplayer2" onclick='decrementhcp("numsetupplayer2")'>-</span>
+						      <span class="num" id="numsetupplayer2">10</span>
+						      <span class="plus" id="plussetupplayer2" onclick='incrementhcp("numsetupplayer2")'>+</span> 
+						   </div>
 						</td>
 					</tr>
 					<tr class="stdtr">
 						<td class="tdleft" onclick="hideorshowplayerdropdown3()">
-							<div class="wrapperleft" id="dropbtn3">
-								<div id="setupp3">no player</div>
-							</div>
-							<div id="playerdropdown3" class="dropdown-content3"></div>
+						   <div class="wrapperleft" id="dropbtn3">
+						      <div id="setupp3">no player
+						      </div>
+						   </div>
+						   <div id="playerdropdown3" class="dropdown-content3">
+						   </div>
 						</td>
 						<td class="tdright">
-							<div class="wrapper"> <span class="minus" id="minussetupplayer3" onclick='decrementhcp("numsetupplayer3")'>-</span> <span class="num" id="numsetupplayer3">10</span> <span class="plus" id="plussetupplayer3" onclick='incrementhcp("numsetupplayer3")'>+</span> </div>
+						   <div class="wrapper"> 
+						   <span class="minus" id="minussetupplayer3" onclick='decrementhcp("numsetupplayer3")'>-</span> 
+						   <span class="num" id="numsetupplayer3">10</span>
+						   <span class="plus" id="plussetupplayer3" onclick='incrementhcp("numsetupplayer3")'>+</span>
+						   </div>
 						</td>
 					</tr>
 					<tr class="stdtr">
 						<td class="tdleft" onclick="hideorshowplayerdropdown4()">
-							<div class="wrapperleft" id="dropbtn4">
-								<div id="setupp4">no player</div>
-							</div>
-							<div id="playerdropdown4" class="dropdown-content4"></div>
+						   <div class="wrapperleft" id="dropbtn4">
+						      <div id="setupp4">no player
+						      </div>
+						   </div>
+						   <div id="playerdropdown4" class="dropdown-content4">
+						   </div>
 						</td>
 						<td class="tdright">
-							<div class="wrapper"> <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span> <span class="num" id="numsetupplayer4">10</span> <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span> </div>
+						   <div class="wrapper"> 
+						   <span class="minus" id="minussetupplayer4" onclick='decrementhcp("numsetupplayer4")'>-</span> 
+						   <span class="num" id="numsetupplayer4">10</span> 
+						   <span class="plus" id="plussetupplayer4" onclick='incrementhcp("numsetupplayer4")'>+</span> 
+						   </div>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
-							<button id="roundhcp" onclick="doGetHCP()">search for HCPs</button>
+						   <button id="roundhcp" onclick="doGetHCP()">search for HCPs
+						   </button>
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
-							<button id="startscoring" onclick="doStartScoring()">start scoring</button>
+						   <button id="startscoring" onclick="doStartScoring()">start scoring
+						   </button>
 						</td>
 					</tr>
 					<tr class="spacer" colspan="2">
@@ -641,66 +672,95 @@
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
-						<td colspan="2" class="tdtop1"><a class="small1">Winter 2023</a></td>
+						<td colspan="2" class="tdtop1">
+						<a class="small1">Winter 2023</a>
+						</td>
 					</tr>
 					<tr class="tdtop">
-						<td colspan="2" class="tdtop2" id="hole-1">hole 1, course not set</td>
+						<td colspan="2" class="tdtop2" id="hole-1">hole 1, course not set
+						</td>
 					</tr>
 					<tr class="btn1container" id="h1p1x">
 						<td class="tdleft">
 							<button class="btn1" id="h1p1">no player</button>
 						</td>
 						<td class="tdright">
-							<div class="wrapper"> <a class="leftnum" id="h1hhl1" onclick="decrementScore('h1hhc1')">-</a> <a class="midnum" id="h1hhc1">0</a> <a class="rightnum" id="h1hhr1" onclick="incrementScore('h1hhc1')">+</a> </div>
+							<div class="wrapper">
+							<a class="leftnum" id="h1hhl1" onclick="decrementScore('h1hhc1')">-</a>
+							<a class="midnum" id="h1hhc1">0</a>
+							<a class="rightnum" id="h1hhr1" onclick="incrementScore('h1hhc1')">+</a> 
+							</div>
 						</td>
 					</tr>
 					<tr class="btn1container" id="h1p2x">
 						<td class="tdleft">
-							<button class="btn2" id="h1p2">no player</button>
+							<button class="btn2" id="h1p2">no player
+							</button>
 							<div></div>
 						</td>
 						<td class="tdright">
-							<div class="wrapper"> <a class="leftnum" id="h1hhl2" onclick="decrementScore('h1hhc2')">-</a> <a class="midnum" id="h1hhc2">0</a> <a class="rightnum" id="h1hhr2" onclick="incrementScore('h1hhc2')">+</a> </div>
+							<div class="wrapper">
+							<a class="leftnum" id="h1hhl2" onclick="decrementScore('h1hhc2')">-</a>
+							<a class="midnum" id="h1hhc2">0</a>
+							<a class="rightnum" id="h1hhr2" onclick="incrementScore('h1hhc2')">+</a> 
+							</div>
 						</td>
 					</tr>
 					<tr class="btn1container" id="h1p3x">
 						<td class="tdleft">
-							<button class="btn3" id="h1p3">no player</button>
+							<button class="btn3" id="h1p3">no player
+							</button>
 							<div></div>
 						</td>
 						<td class="tdright">
-							<div class="wrapper"> <a class="leftnum" id="h1hhl3" onclick="decrementScore('h1hhc3')">-</a> <a class="midnum" id="h1hhc3">0</a> <a class="rightnum" id="h1hhr3" onclick="incrementScore('h1hhc3')">+</a> </div>
+							<div class="wrapper">
+							<a class="leftnum" id="h1hhl3" onclick="decrementScore('h1hhc3')">-</a> 
+							<a class="midnum" id="h1hhc3">0</a>
+							<a class="rightnum" id="h1hhr3" onclick="incrementScore('h1hhc3')">+</a>
+							</div>
 						</td>
 					</tr>
 					<tr class="btn1container" id="h1p4x">
 						<td class="tdleft">
-							<button class="btn4" id="h1p4">no player</button>
+							<button class="btn4" id="h1p4">no player
+							</button>
 							<div></div>
 						</td>
 						<td class="tdright">
-							<div class="wrapper"> <a class="leftnum" id="h1hhl4" onclick="decrementScore('h1hhc4')">-</a> <a class="midnum" id="h1hhc4">0</a> <a class="rightnum" id="h1hhr4" onclick="incrementScore('h1hhc4')">+</a> </div>
+							<div class="wrapper">
+							<a class="leftnum" id="h1hhl4" onclick="decrementScore('h1hhc4')">-</a>
+							<a class="midnum" id="h1hhc4">0</a>
+							<a class="rightnum" id="h1hhr4" onclick="incrementScore('h1hhc4')">+</a> 
+							</div>
 						</td>
 					</tr>
 					<tr class="spacer">
-						<td colspan="2"></td>
+						<td colspan="2">
+						</td>
 					</tr>
 					<tr>
-						<td id="p1h1points" colspan="2"></td>
+						<td id="p1h1points" colspan="2">
+						</td>
 					</tr>
 					<tr>
-						<td id="p2h1points" colspan="2"></td>
+						<td id="p2h1points" colspan="2">
+						</td>
 					</tr>
 					<tr>
-						<td id="p3h1points" colspan="2"></td>
+						<td id="p3h1points" colspan="2">
+						</td>
 					</tr>
 					<tr>
-						<td id="p4h1points" colspan="2"></td>
+						<td id="p4h1points" colspan="2">
+						</td>
 					</tr>
 					<tr class="spacer">
-						<td colspan="2"></td>
+						<td colspan="2">
+						</td>
 					</tr>
 					<tr class="spacer">
-						<td colspan="2"></td>
+						<td colspan="2">
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -709,74 +769,91 @@
          =====================================================
          -->
 		<div class="card" id="hole2">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
-						<td colspan="2" class="tdtop1"><a class="small1">Winter 2023</a></td>
+					   <td colspan="2" class="tdtop1">
+					   <a class="small1">Winter 2023</a>
+					   </td>
 					</tr>
 					<tr class="tdtop">
-						<td colspan="2" class="tdtop2" id="hole-2">hole 2, course not set</td>
+					   <td colspan="2" class="tdtop2" id="hole-2">hole 2, course not set
+					   </td>
 					</tr>
 					<tr class="btn1container" id="h2p1x">
-						<td class="tdleft">
-							<button class="btn1" id="h2p1">no player</button>
-						</td>
-						<td class="tdright">
-							<div class="wrapper"> <a class="leftnum" id="h2hhl1" onclick="decrementScore('h2hhc1')">-</a> <a class="midnum" id="h2hhc1">0</a> <a class="rightnum" id="h2hhr1" onclick="incrementScore('h2hhc1')">+</a> </div>
-						</td>
+					   <td class="tdleft">
+					      <button class="btn1" id="h2p1">no player
+					      </button>
+					   </td>
+					   <td class="tdright">
+					      <div class="wrapper"> 
+					      <a class="leftnum" id="h2hhl1" onclick="decrementScore('h2hhc1')">-</a> 
+					      <a class="midnum" id="h2hhc1">0</a> 
+					      <a class="rightnum" id="h2hhr1" onclick="incrementScore('h2hhc1')">+</a> 
+					      </div>
+					   </td>
 					</tr>
 					<tr class="btn1container" id="h2p2x">
-						<td class="tdleft">
-							<button class="btn2" id="h2p2">no player</button>
-							<div></div>
-						</td>
-						<td class="tdright">
-							<div class="wrapper"> <a class="leftnum" id="h2hhl2" onclick="decrementScore('h2hhc2')">-</a> <a class="midnum" id="h2hhc2">0</a> <a class="rightnum" id="h2hhr2" onclick="incrementScore('h2hhc2')">+</a> </div>
-						</td>
+					   <td class="tdleft">
+					      <button class="btn2" id="h2p2">no player
+					      </button>
+					      <div></div>
+					   </td>
+					   <td class="tdright">
+					      <div class="wrapper"> 
+					      <a class="leftnum" id="h2hhl2" onclick="decrementScore('h2hhc2')">-</a> 
+					      <a class="midnum" id="h2hhc2">0</a>
+					      <a class="rightnum" id="h2hhr2" onclick="incrementScore('h2hhc2')">+</a> 
+					      </div>
+					   </td>
 					</tr>
 					<tr class="btn1container" id="h2p3x">
-						<td class="tdleft">
-							<button class="btn3" id="h2p3">no player</button>
-							<div></div>
-						</td>
-						<td class="tdright">
-							<div class="wrapper"> <a class="leftnum" id="h2hhl3" onclick="decrementScore('h2hhc3')">-</a> <a class="midnum" id="h2hhc3">0</a> <a class="rightnum" id="h2hhr3" onclick="incrementScore('h2hhc3')">+</a> </div>
-						</td>
+					   <td class="tdleft">
+					   <button class="btn3" id="h2p3">no player
+					   </button>
+					   <div></div>
+					   </td>
+					   <td class="tdright">
+					   <div class="wrapper"> 
+					   <a class="leftnum" id="h2hhl3" onclick="decrementScore('h2hhc3')">-</a> 
+					   <a class="midnum" id="h2hhc3">0</a> 
+					   <a class="rightnum" id="h2hhr3" onclick="incrementScore('h2hhc3')">+</a> 
+					   </div>
+					   </td>
 					</tr>
 					<tr class="btn1container" id="h2p4x">
-						<td class="tdleft">
-							<button class="btn4" id="h2p4">no player</button>
-							<div></div>
-						</td>
-						<td class="tdright">
-							<div class="wrapper"> <a class="leftnum" id="h2hhl4" onclick="decrementScore('h2hhc4')">-</a> <a class="midnum" id="h2hhc4">0</a> <a class="rightnum" id="h2hhr4" onclick="incrementScore('h2hhc4')">+</a> </div>
-						</td>
+					   <td class="tdleft">
+					   <button class="btn4" id="h2p4">no player</button>
+					   <div></div>
+					   </td>
+					   <td class="tdright">
+					   <div class="wrapper"> <a class="leftnum" id="h2hhl4" onclick="decrementScore('h2hhc4')">-</a> 
+					   <a class="midnum" id="h2hhc4">0</a> 
+					   <a class="rightnum" id="h2hhr4" onclick="incrementScore('h2hhc4')">+</a> 
+					   </div>
+					   </td>
 					</tr>
 					<tr class="spacer">
-						<td colspan="2"></td>
+					   <td colspan="2">
+					   </td>
 					</tr>
 					<tr>
-						<td id="p1h2points"></td>
-						<td></td>
+					   <td id="p1h2points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h2points"></td>
-						<td></td>
+					   <td id="p2h2points"> colspan="2"</td>
 					</tr>
 					<tr>
-						<td id="p3h2points"></td>
-						<td></td>
+					   <td id="p3h2points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h2points"></td>
-						<td></td>
+					   <td id="p4h2points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
-						<td colspan="2"></td>
+					   <td colspan="2"></td>
 					</tr>
 					<tr class="spacer">
-						<td colspan="2"></td>
+					   <td colspan="2"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -785,7 +862,6 @@
          =====================================================
          -->
 		<div class="card" id="hole3">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -833,20 +909,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h3points"></td>
-						<td></td>
+						<td id="p1h3points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h3points"></td>
-						<td></td>
+						<td id="p2h3points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h3points"></td>
-						<td></td>
+						<td id="p3h3points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h3points"></td>
-						<td></td>
+						<td id="p4h3points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -861,7 +933,6 @@
          =====================================================
          -->
 		<div class="card" id="hole4">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -909,20 +980,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h4points"></td>
-						<td></td>
+						<td id="p1h4points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h4points"></td>
-						<td></td>
+						<td id="p2h4points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h4points"></td>
-						<td></td>
+						<td id="p3h4points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h4points"></td>
-						<td></td>
+						<td id="p4h4points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -937,7 +1004,6 @@
          =====================================================
          -->
 		<div class="card" id="hole5">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -985,20 +1051,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h5points"></td>
-						<td></td>
+						<td id="p1h5points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h5points"></td>
-						<td></td>
+						<td id="p2h5points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h5points"></td>
-						<td></td>
+						<td id="p3h5points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h5points"></td>
-						<td></td>
+						<td id="p4h5points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1013,7 +1075,6 @@
          =====================================================
          -->
 		<div class="card" id="hole6">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1061,22 +1122,18 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h6points"></td>
-						<td></td>
+						<td id="p1h6points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h6points"></td>
-						<td></td>
+						<td id="p2h6points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h6points"></td>
-						<td></td>
+						<td id="p3h6points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h6points"></td>
-						<td></td>
+						<td id="p4h6points" colspan="2"></td>
 					</tr>
-				<tr class="spacer">
+					<tr class="spacer">
 						<td colspan="2"></td>
 					</tr>
 					<tr class="spacer">
@@ -1089,7 +1146,6 @@
          =====================================================
          -->
 		<div class="card" id="hole7">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1137,20 +1193,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h7points"></td>
-						<td></td>
+						<td id="p1h7points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h7points"></td>
-						<td></td>
+						<td id="p2h7points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h7points"></td>
-						<td></td>
+						<td id="p3h7points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h7points"></td>
-						<td></td>
+						<td id="p4h7points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1165,7 +1217,6 @@
          =====================================================
          -->
 		<div class="card" id="hole8">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1209,24 +1260,20 @@
 							<div class="wrapper"> <a class="leftnum" id="h8hhl4" onclick="decrementScore('h8hhc4')">-</a> <a class="midnum" id="h8hhc4">0</a> <a class="rightnum" id="h8hhr4" onclick="incrementScore('h8hhc4')">+</a> </div>
 						</td>
 					</tr>
-				<tr class="spacer">
+					<tr class="spacer">
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h8points"></td>
-						<td></td>
+						<td id="p1h8points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h8points"></td>
-						<td></td>
+						<td id="p2h8points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h8points"></td>
-						<td></td>
+						<td id="p3h8points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h8points"></td>
-						<td></td>
+						<td id="p4h8points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1241,7 +1288,6 @@
          =====================================================
          -->
 		<div class="card" id="hole9">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1289,20 +1335,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h9points"></td>
-						<td></td>
+						<td id="p1h9points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h9points"></td>
-						<td></td>
+						<td id="p2h9points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h9points"></td>
-						<td></td>
+						<td id="p3h9points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h9points"></td>
-						<td></td>
+						<td id="p4h9points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1531,7 +1573,6 @@
          =====================================================
          -->
 		<div class="card" id="hole10">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1579,20 +1620,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h10points"></td>
-						<td></td>
+						<td id="p1h10points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h10points"></td>
-						<td></td>
+						<td id="p2h10points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h10points"></td>
-						<td></td>
+						<td id="p3h10points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h10points"></td>
-						<td></td>
+						<td id="p4h10points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1607,7 +1644,6 @@
          =====================================================
          -->
 		<div class="card" id="hole11">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1655,20 +1691,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h11points"></td>
-						<td></td>
+						<td id="p1h11points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h11points"></td>
-						<td></td>
+						<td id="p2h11points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h11points"></td>
-						<td></td>
+						<td id="p3h11points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h11points"></td>
-						<td></td>
+						<td id="p4h11points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1683,7 +1715,6 @@
          =====================================================
          -->
 		<div class="card" id="hole12">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1731,20 +1762,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h12points"></td>
-						<td></td>
+						<td id="p1h12points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h12points"></td>
-						<td></td>
+						<td id="p2h12points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h12points"></td>
-						<td></td>
+						<td id="p3h12points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h12points"></td>
-						<td></td>
+						<td id="p4h12points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1759,7 +1786,6 @@
          =====================================================
          -->
 		<div class="card" id="hole13">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1807,20 +1833,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h13points"></td>
-						<td></td>
+						<td id="p1h13points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h13points"></td>
-						<td></td>
+						<td id="p2h13points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h13points"></td>
-						<td></td>
+						<td id="p3h13points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h13points"></td>
-						<td></td>
+						<td id="p4h13points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1836,7 +1858,6 @@
   =====================================================
   -->
 		<div class="card" id="hole14">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1884,20 +1905,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h14points"></td>
-						<td></td>
+						<td id="p1h14points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h14points"></td>
-						<td></td>
+						<td id="p2h14points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h14points"></td>
-						<td></td>
+						<td id="p3h14points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h14points"></td>
-						<td></td>
+						<td id="p4h14points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1912,7 +1929,6 @@
          =====================================================
          -->
 		<div class="card" id="hole15">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -1960,20 +1976,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h15points"></td>
-						<td></td>
+						<td id="p1h15points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h15points"></td>
-						<td></td>
+						<td id="p2h15points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h15points"></td>
-						<td></td>
+						<td id="p3h15points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h15points"></td>
-						<td></td>
+						<td id="p4h15points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -1988,7 +2000,6 @@
          =====================================================
          -->
 		<div class="card" id="hole16">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -2036,20 +2047,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h16points"></td>
-						<td></td>
+						<td id="p1h16points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h16points"></td>
-						<td></td>
+						<td id="p2h16points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h16points"></td>
-						<td></td>
+						<td id="p3h16points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h16points"></td>
-						<td></td>
+						<td id="p4h16points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -2064,7 +2071,6 @@
          =====================================================
          -->
 		<div class="card" id="hole17">
-		
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -2112,20 +2118,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h17points"></td>
-						<td></td>
+						<td id="p1h17points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h17points"></td>
-						<td></td>
+						<td id="p2h17points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h17points"></td>
-						<td></td>
+						<td id="p3h17points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h17points"></td>
-						<td></td>
+						<td id="p4h17points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -2140,7 +2142,6 @@
          =====================================================
          -->
 		<div class="card" id="hole18">
-			
 			<table class="stdtable">
 				<tbody>
 					<tr class="tdtop">
@@ -2191,20 +2192,16 @@
 						<td colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p1h18points"></td>
-						<td></td>
+						<td id="p1h18points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p2h18points"></td>
-						<td></td>
+						<td id="p2h18points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p3h18points"></td>
-						<td></td>
+						<td id="p3h18points" colspan="2"></td>
 					</tr>
 					<tr>
-						<td id="p4h18points"></td>
-						<td></td>
+						<td id="p4h18points" colspan="2"></td>
 					</tr>
 					<tr class="spacer">
 						<td colspan="2"></td>
@@ -2220,75 +2217,16 @@
          ======================================== -->
 		<div class="card" id="penultimatepage">
 			<br />
-		
-				<table id="bordertbodyx">
-					<caption class="cap"> Winter 2023 </caption>
-					<thead></thead>
-					<tbody>
-						<div id="hideplayer1x">
-							<tr class="bordertr"> </tr>
-							<tr>
-								<td id="hideplayer1namex" colspan="11"> player1 </td>
-							</tr>
-							<tr>
-								<td class="border"> hole </td>
-								<td class="border"> 10 </td>
-								<td class="border"> 11 </td>
-								<td class="border"> 12 </td>
-								<td class="border"> 13 </td>
-								<td class="border"> 14 </td>
-								<td class="border"> 15 </td>
-								<td class="border"> 16 </td>
-								<td class="border"> 17 </td>
-								<td class="border"> 18 </td>
-								<td class="border"> total </td>
-							</tr>
-							<tr class="bordertr">
-								<!--
-                            <td class="xtdleft">
-                                <br />
-                                <a class="cyan">front 9</a>
-                                <div id="frontmidpoint"></div>
-                            </td>
-                            -->
-								<td class="border"> score </td>
-								<td class="border" id="a1h10"> 0 </td>
-								<td class="border" id="a1h11"> 0 </td>
-								<td class="border" id="a1h12"> 0 </td>
-								<td class="border" id="a1h13"> 0 </td>
-								<td class="border" id="a1h14"> 0 </td>
-								<td class="border" id="a1h15"> 0 </td>
-								<td class="border" id="a1h16"> 0 </td>
-								<td class="border" id="a1h17"> 0 </td>
-								<td class="border" id="a1h18"> 0 </td>
-								<td class="border" id="a1hback9"> 0 </td>
-							</tr>
-							<tr class="bordertr">
-								<!--
-                            <td class="xtdleft">
-                                <br />
-                                <a class="cyan">front 9</a>
-                                <div id="frontmidpoint"></div>
-                            </td>
-                            -->
-								<td class="border"> points </td>
-								<td class="border" id="a1p10"> 0 </td>
-								<td class="border" id="a1p11"> 0 </td>
-								<td class="border" id="a1p12"> 0 </td>
-								<td class="border" id="a1p13"> 0 </td>
-								<td class="border" id="a1p14"> 0 </td>
-								<td class="border" id="a1p15"> 0 </td>
-								<td class="border" id="a1p16"> 0 </td>
-								<td class="border" id="a1p17"> 0 </td>
-								<td class="border" id="a1p18"> 0 </td>
-								<td class="border" id="a1ptotalx"> 0 </td>
-							</tr>
-						</div>
-						<div id="hideplayer2x">
-							<tr class="bordertr"> </tr>
-							<tr>
-								<td id="hideplayer2namex" colspan="11"> player2 </td>
-							</tr>
+			<table id="bordertbodyx">
+				<caption class="cap"> Winter 2023 </caption>
+				<thead></thead>
+				<tbody>
+					<div id="hideplayer1x">
+						<tr class="bordertr"> </tr>
+						<tr>
+							<td id="hideplayer1namex" colspan="11"> player1 </td>
+						</tr>
+						<tr>
 							<td class="border"> hole </td>
 							<td class="border"> 10 </td>
 							<td class="border"> 11 </td>
@@ -2300,165 +2238,223 @@
 							<td class="border"> 17 </td>
 							<td class="border"> 18 </td>
 							<td class="border"> total </td>
-							</tr>
-							<tr class="bordertr">
-								<!--
+						</tr>
+						<tr class="bordertr">
+							<!--
                             <td class="xtdleft">
                                 <br />
                                 <a class="cyan">front 9</a>
                                 <div id="frontmidpoint"></div>
                             </td>
                             -->
-								<td class="border"> score </td>
-								<td class="border" id="a2h10"> 0 </td>
-								<td class="border" id="a2h11"> 0 </td>
-								<td class="border" id="a2h12"> 0 </td>
-								<td class="border" id="a2h13"> 0 </td>
-								<td class="border" id="a2h14"> 0 </td>
-								<td class="border" id="a2h15"> 0 </td>
-								<td class="border" id="a2h16"> 0 </td>
-								<td class="border" id="a2h17"> 0 </td>
-								<td class="border" id="a2h18"> 0 </td>
-								<td class="border" id="a2hback9"> 0 </td>
-							</tr>
-							<tr class="bordertr">
-								<!--
+							<td class="border"> score </td>
+							<td class="border" id="a1h10"> 0 </td>
+							<td class="border" id="a1h11"> 0 </td>
+							<td class="border" id="a1h12"> 0 </td>
+							<td class="border" id="a1h13"> 0 </td>
+							<td class="border" id="a1h14"> 0 </td>
+							<td class="border" id="a1h15"> 0 </td>
+							<td class="border" id="a1h16"> 0 </td>
+							<td class="border" id="a1h17"> 0 </td>
+							<td class="border" id="a1h18"> 0 </td>
+							<td class="border" id="a1hback9"> 0 </td>
+						</tr>
+						<tr class="bordertr">
+							<!--
                             <td class="xtdleft">
                                 <br />
                                 <a class="cyan">front 9</a>
                                 <div id="frontmidpoint"></div>
                             </td>
                             -->
-								<td class="border"> points </td>
-								<td class="border" id="a2p10"> 0 </td>
-								<td class="border" id="a2p11"> 0 </td>
-								<td class="border" id="a2p12"> 0 </td>
-								<td class="border" id="a2p13"> 0 </td>
-								<td class="border" id="a2p14"> 0 </td>
-								<td class="border" id="a2p15"> 0 </td>
-								<td class="border" id="a2p16"> 0 </td>
-								<td class="border" id="a2p17"> 0 </td>
-								<td class="border" id="a2p18"> 0 </td>
-								<td class="border" id="a2ptotalx"> 0 </td>
-							</tr>
-						</div>
-						<div id="hideplayer3x">
-							<tr class="bordertr"> </tr>
-							<tr>
-								<td id="hideplayer3namex" colspan="11"> player3 </td>
-							</tr>
-							<td class="border"> hole </td>
-							<td class="border"> 10 </td>
-							<td class="border"> 11 </td>
-							<td class="border"> 12 </td>
-							<td class="border"> 13 </td>
-							<td class="border"> 14 </td>
-							<td class="border"> 15 </td>
-							<td class="border"> 16 </td>
-							<td class="border"> 17 </td>
-							<td class="border"> 18 </td>
-							<td class="border"> total </td>
-							</tr>
-							<tr class="bordertr">
-								<!--
+							<td class="border"> points </td>
+							<td class="border" id="a1p10"> 0 </td>
+							<td class="border" id="a1p11"> 0 </td>
+							<td class="border" id="a1p12"> 0 </td>
+							<td class="border" id="a1p13"> 0 </td>
+							<td class="border" id="a1p14"> 0 </td>
+							<td class="border" id="a1p15"> 0 </td>
+							<td class="border" id="a1p16"> 0 </td>
+							<td class="border" id="a1p17"> 0 </td>
+							<td class="border" id="a1p18"> 0 </td>
+							<td class="border" id="a1ptotalx"> 0 </td>
+						</tr>
+					</div>
+					<div id="hideplayer2x">
+						<tr class="bordertr"> </tr>
+						<tr>
+							<td id="hideplayer2namex" colspan="11"> player2 </td>
+						</tr>
+						<td class="border"> hole </td>
+						<td class="border"> 10 </td>
+						<td class="border"> 11 </td>
+						<td class="border"> 12 </td>
+						<td class="border"> 13 </td>
+						<td class="border"> 14 </td>
+						<td class="border"> 15 </td>
+						<td class="border"> 16 </td>
+						<td class="border"> 17 </td>
+						<td class="border"> 18 </td>
+						<td class="border"> total </td>
+						</tr>
+						<tr class="bordertr">
+							<!--
                             <td class="xtdleft">
                                 <br />
                                 <a class="cyan">front 9</a>
                                 <div id="frontmidpoint"></div>
                             </td>
                             -->
-								<td class="border"> score </td>
-								<td class="border" id="a3h10"> 0 </td>
-								<td class="border" id="a3h11"> 0 </td>
-								<td class="border" id="a3h12"> 0 </td>
-								<td class="border" id="a3h13"> 0 </td>
-								<td class="border" id="a3h14"> 0 </td>
-								<td class="border" id="a3h15"> 0 </td>
-								<td class="border" id="a3h16"> 0 </td>
-								<td class="border" id="a3h17"> 0 </td>
-								<td class="border" id="a3h18"> 0 </td>
-								<td class="border" id="a3hback9"> 0 </td>
-							</tr>
-							<tr class="bordertr">
-								<!--
+							<td class="border"> score </td>
+							<td class="border" id="a2h10"> 0 </td>
+							<td class="border" id="a2h11"> 0 </td>
+							<td class="border" id="a2h12"> 0 </td>
+							<td class="border" id="a2h13"> 0 </td>
+							<td class="border" id="a2h14"> 0 </td>
+							<td class="border" id="a2h15"> 0 </td>
+							<td class="border" id="a2h16"> 0 </td>
+							<td class="border" id="a2h17"> 0 </td>
+							<td class="border" id="a2h18"> 0 </td>
+							<td class="border" id="a2hback9"> 0 </td>
+						</tr>
+						<tr class="bordertr">
+							<!--
                             <td class="xtdleft">
                                 <br />
                                 <a class="cyan">front 9</a>
                                 <div id="frontmidpoint"></div>
                             </td>
                             -->
-								<td class="border"> points </td>
-								<td class="border" id="a3p10"> 0 </td>
-								<td class="border" id="a3p11"> 0 </td>
-								<td class="border" id="a3p12"> 0 </td>
-								<td class="border" id="a3p13"> 0 </td>
-								<td class="border" id="a3p14"> 0 </td>
-								<td class="border" id="a3p15"> 0 </td>
-								<td class="border" id="a3p16"> 0 </td>
-								<td class="border" id="a3p17"> 0 </td>
-								<td class="border" id="a3p18"> 0 </td>
-								<td class="border" id="a3ptotalx"> 0 </td>
-							</tr>
-						</div>
-						<div id="hideplayer4x">
-							<tr class="bordertr"> </tr>
-							<tr>
-								<td id="hideplayer4namex" colspan="11"> player4 </td>
-							</tr>
-							<td class="border"> hole </td>
-							<td class="border"> 10 </td>
-							<td class="border"> 11 </td>
-							<td class="border"> 12 </td>
-							<td class="border"> 13 </td>
-							<td class="border"> 14 </td>
-							<td class="border"> 15 </td>
-							<td class="border"> 16 </td>
-							<td class="border"> 17 </td>
-							<td class="border"> 18 </td>
-							<td class="border"> total </td>
-							</tr>
-							<tr class="bordertr">
-								<!--
+							<td class="border"> points </td>
+							<td class="border" id="a2p10"> 0 </td>
+							<td class="border" id="a2p11"> 0 </td>
+							<td class="border" id="a2p12"> 0 </td>
+							<td class="border" id="a2p13"> 0 </td>
+							<td class="border" id="a2p14"> 0 </td>
+							<td class="border" id="a2p15"> 0 </td>
+							<td class="border" id="a2p16"> 0 </td>
+							<td class="border" id="a2p17"> 0 </td>
+							<td class="border" id="a2p18"> 0 </td>
+							<td class="border" id="a2ptotalx"> 0 </td>
+						</tr>
+					</div>
+					<div id="hideplayer3x">
+						<tr class="bordertr"> </tr>
+						<tr>
+							<td id="hideplayer3namex" colspan="11"> player3 </td>
+						</tr>
+						<td class="border"> hole </td>
+						<td class="border"> 10 </td>
+						<td class="border"> 11 </td>
+						<td class="border"> 12 </td>
+						<td class="border"> 13 </td>
+						<td class="border"> 14 </td>
+						<td class="border"> 15 </td>
+						<td class="border"> 16 </td>
+						<td class="border"> 17 </td>
+						<td class="border"> 18 </td>
+						<td class="border"> total </td>
+						</tr>
+						<tr class="bordertr">
+							<!--
                             <td class="xtdleft">
                                 <br />
                                 <a class="cyan">front 9</a>
                                 <div id="frontmidpoint"></div>
                             </td>
                             -->
-								<td class="border"> score </td>
-								<td class="border" id="a4h10"> 0 </td>
-								<td class="border" id="a4h11"> 0 </td>
-								<td class="border" id="a4h12"> 0 </td>
-								<td class="border" id="a4h13"> 0 </td>
-								<td class="border" id="a4h14"> 0 </td>
-								<td class="border" id="a4h15"> 0 </td>
-								<td class="border" id="a4h16"> 0 </td>
-								<td class="border" id="a4h17"> 0 </td>
-								<td class="border" id="a4h18"> 0 </td>
-								<td class="border" id="a4hback9"> 0 </td>
-							</tr>
-							<tr class="bordertr">
-								<!--
+							<td class="border"> score </td>
+							<td class="border" id="a3h10"> 0 </td>
+							<td class="border" id="a3h11"> 0 </td>
+							<td class="border" id="a3h12"> 0 </td>
+							<td class="border" id="a3h13"> 0 </td>
+							<td class="border" id="a3h14"> 0 </td>
+							<td class="border" id="a3h15"> 0 </td>
+							<td class="border" id="a3h16"> 0 </td>
+							<td class="border" id="a3h17"> 0 </td>
+							<td class="border" id="a3h18"> 0 </td>
+							<td class="border" id="a3hback9"> 0 </td>
+						</tr>
+						<tr class="bordertr">
+							<!--
                             <td class="xtdleft">
                                 <br />
                                 <a class="cyan">front 9</a>
                                 <div id="frontmidpoint"></div>
                             </td>
                             -->
-								<td class="border"> points </td>
-								<td class="border" id="a4p10"> 0 </td>
-								<td class="border" id="a4p11"> 0 </td>
-								<td class="border" id="a4p12"> 0 </td>
-								<td class="border" id="a4p13"> 0 </td>
-								<td class="border" id="a4p14"> 0 </td>
-								<td class="border" id="a4p15"> 0 </td>
-								<td class="border" id="a4p16"> 0 </td>
-								<td class="border" id="a4p17"> 0 </td>
-								<td class="border" id="a4p18"> 0 </td>
-								<td class="border" id="a4ptotalx"> 0 </td>
-							</tr>
-						</div>
-						<!--
+							<td class="border"> points </td>
+							<td class="border" id="a3p10"> 0 </td>
+							<td class="border" id="a3p11"> 0 </td>
+							<td class="border" id="a3p12"> 0 </td>
+							<td class="border" id="a3p13"> 0 </td>
+							<td class="border" id="a3p14"> 0 </td>
+							<td class="border" id="a3p15"> 0 </td>
+							<td class="border" id="a3p16"> 0 </td>
+							<td class="border" id="a3p17"> 0 </td>
+							<td class="border" id="a3p18"> 0 </td>
+							<td class="border" id="a3ptotalx"> 0 </td>
+						</tr>
+					</div>
+					<div id="hideplayer4x">
+						<tr class="bordertr"> </tr>
+						<tr>
+							<td id="hideplayer4namex" colspan="11"> player4 </td>
+						</tr>
+						<td class="border"> hole </td>
+						<td class="border"> 10 </td>
+						<td class="border"> 11 </td>
+						<td class="border"> 12 </td>
+						<td class="border"> 13 </td>
+						<td class="border"> 14 </td>
+						<td class="border"> 15 </td>
+						<td class="border"> 16 </td>
+						<td class="border"> 17 </td>
+						<td class="border"> 18 </td>
+						<td class="border"> total </td>
+						</tr>
+						<tr class="bordertr">
+							<!--
+                            <td class="xtdleft">
+                                <br />
+                                <a class="cyan">front 9</a>
+                                <div id="frontmidpoint"></div>
+                            </td>
+                            -->
+							<td class="border"> score </td>
+							<td class="border" id="a4h10"> 0 </td>
+							<td class="border" id="a4h11"> 0 </td>
+							<td class="border" id="a4h12"> 0 </td>
+							<td class="border" id="a4h13"> 0 </td>
+							<td class="border" id="a4h14"> 0 </td>
+							<td class="border" id="a4h15"> 0 </td>
+							<td class="border" id="a4h16"> 0 </td>
+							<td class="border" id="a4h17"> 0 </td>
+							<td class="border" id="a4h18"> 0 </td>
+							<td class="border" id="a4hback9"> 0 </td>
+						</tr>
+						<tr class="bordertr">
+							<!--
+                            <td class="xtdleft">
+                                <br />
+                                <a class="cyan">front 9</a>
+                                <div id="frontmidpoint"></div>
+                            </td>
+                            -->
+							<td class="border"> points </td>
+							<td class="border" id="a4p10"> 0 </td>
+							<td class="border" id="a4p11"> 0 </td>
+							<td class="border" id="a4p12"> 0 </td>
+							<td class="border" id="a4p13"> 0 </td>
+							<td class="border" id="a4p14"> 0 </td>
+							<td class="border" id="a4p15"> 0 </td>
+							<td class="border" id="a4p16"> 0 </td>
+							<td class="border" id="a4p17"> 0 </td>
+							<td class="border" id="a4p18"> 0 </td>
+							<td class="border" id="a4ptotalx"> 0 </td>
+						</tr>
+					</div>
+					<!--
                         
                         <tr class="stdtr">
                             <td class="xtdleft">
@@ -2483,8 +2479,8 @@
                         </tr>
                         
                         -->
-					</tbody>
-				</table>
+				</tbody>
+			</table>
 		</div>
 		<!-- ===================================
          final page before last - soon to be last page
@@ -2574,13 +2570,7 @@
 					<tr class="stdtr">
 						<td class="tdleft">
 							<br />
-							
-							
 							<button onclick="submitForm()">Submit goes here</button>
-							
-							
-							
-							
 							<br /> </td>
 					</tr>
 				</tbody>
@@ -2655,60 +2645,60 @@
 			</table>
 			<br />
 			<br />
-	<!-- form to construct data prior to submit -->
-	<form height="200" width="600" action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
-		<!-- name, hcp, course -->
-		<input id='mx474474348' name='entry.474474348' type='text' value='default'>
-		<input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
-		<input id='mx477101370' name='entry.477101370' type='text' value='default'>
-		<input id='mx1980297491' name='entry.1980297491' type='text' value='default'>
-		<input id='mx463832232' name='entry.463832232' type='text' value='default'>
-		<input id='mx205704642' name='entry.205704642' type='text' value='default'>
-		<input id='mx278278589' name='entry.278278589' type='text' value='default'>
-		<input id='mx949547387' name='entry.949547387' type='text' value='default'>
-		<input id='mx703011397' name='entry.703011397' type='text' value='default'>
-		<input id='mx1460583253' name='entry.1460583253' type='text' value='default'>
-		<input id='mx462940045' name='entry.462940045' type='text' value='default'>
-		<input id='mx477691508' name='entry.477691508' type='text' value='default'>
-		<input id='mx413249407' name='entry.413249407' type='text' value='default'>
-		<input id='mx108900453' name='entry.108900453' type='text' value='default'>
-		<input id='mx1841236411' name='entry.1841236411' type='text' value='default'>
-		<input id='mx1864644918' name='entry.1864644918' type='text' value='default'>
-		<input id='mx1538428689' name='entry.1538428689' type='text' value='default'>
-		<input id='mx1449918213' name='entry.1449918213' type='text' value='default'>
-		<input id='mx38761817' name='entry.38761817' type='text' value='default'>
-		<input id='mx247392471' name='entry.247392471' type='text' value='default'>
-		<input id='mx741809181' name='entry.741809181' type='text' value='default'>
-		<input id='mx1362729237' name='entry.1362729237' type='text' value='default'>
-		<input id='mx1372983908' name='entry.1372983908' type='text' value='default'>
-		<input id='mx2002196917' name='entry.2002196917' type='text' value='default'>
-		<input id='mx640802794' name='entry.640802794' type='text' value='default'>
-		<input id='mx2076656246' name='entry.2076656246' type='text' value='default'>
-		<input id='mx486346919' name='entry.486346919' type='text' value='default'>
-		<input id='mx1918313229' name='entry.1918313229' type='text' value='default'>
-		<input id='mx638821' name='entry.638821' type='text' value='default'>
-		<input id='mx737099688' name='entry.737099688' type='text' value='default'>
-		<input id='mx488827232' name='entry.488827232' type='text' value='default'>
-		<input id='mx1203421487' name='entry.1203421487' type='text' value='default'>
-		<input id='mx979421831' name='entry.979421831' type='text' value='default'>
-		<input id='mx929858153' name='entry.929858153' type='text' value='default'>
-		<input id='mx1330487443' name='entry.1330487443' type='text' value='default'>
-		<input id='mx940496448' name='entry.940496448' type='text' value='default'>
-		<input id='mx1127168348' name='entry.1127168348' type='text' value='default'>
-		<input id='mx638332104' name='entry.638332104' type='text' value='default'>
-		<input id='mx1626319908' name='entry.1626319908' type='text' value='default'>
-		<input id='mx362674948' name='entry.362674948' type='text' value='default'>
-		<input id='mx544180710' name='entry.544180710' type='text' value='default'>
-		<input id='mx893562950' name='entry.893562950' type='text' value='default'>
-		<input id='mx335596501' name='entry.335596501' type='text' value='default'>
-		<input id='mx1453506389' name='entry.1453506389' type='text' value='default'>
-		<input id='mx1045870519' name='entry.1045870519' type='text' value='default'>
-		<input id='mx683300283' name='entry.683300283' type='text' value='default'>
-		<input id='mx967906330' name='entry.967906330' type='text' value='default'>
-		<input id='mx789190149' name='entry.789190149' type='text' value='default'>
-		<input type="submit"> </form>
-	<!-- google iframe inserted here - invisible -->
-	<iframe height="200" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="600"></iframe>
+			<!-- form to construct data prior to submit -->
+			<form height="200" width="600" action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+				<!-- name, hcp, course -->
+				<input id='mx474474348' name='entry.474474348' type='text' value='default'>
+				<input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
+				<input id='mx477101370' name='entry.477101370' type='text' value='default'>
+				<input id='mx1980297491' name='entry.1980297491' type='text' value='default'>
+				<input id='mx463832232' name='entry.463832232' type='text' value='default'>
+				<input id='mx205704642' name='entry.205704642' type='text' value='default'>
+				<input id='mx278278589' name='entry.278278589' type='text' value='default'>
+				<input id='mx949547387' name='entry.949547387' type='text' value='default'>
+				<input id='mx703011397' name='entry.703011397' type='text' value='default'>
+				<input id='mx1460583253' name='entry.1460583253' type='text' value='default'>
+				<input id='mx462940045' name='entry.462940045' type='text' value='default'>
+				<input id='mx477691508' name='entry.477691508' type='text' value='default'>
+				<input id='mx413249407' name='entry.413249407' type='text' value='default'>
+				<input id='mx108900453' name='entry.108900453' type='text' value='default'>
+				<input id='mx1841236411' name='entry.1841236411' type='text' value='default'>
+				<input id='mx1864644918' name='entry.1864644918' type='text' value='default'>
+				<input id='mx1538428689' name='entry.1538428689' type='text' value='default'>
+				<input id='mx1449918213' name='entry.1449918213' type='text' value='default'>
+				<input id='mx38761817' name='entry.38761817' type='text' value='default'>
+				<input id='mx247392471' name='entry.247392471' type='text' value='default'>
+				<input id='mx741809181' name='entry.741809181' type='text' value='default'>
+				<input id='mx1362729237' name='entry.1362729237' type='text' value='default'>
+				<input id='mx1372983908' name='entry.1372983908' type='text' value='default'>
+				<input id='mx2002196917' name='entry.2002196917' type='text' value='default'>
+				<input id='mx640802794' name='entry.640802794' type='text' value='default'>
+				<input id='mx2076656246' name='entry.2076656246' type='text' value='default'>
+				<input id='mx486346919' name='entry.486346919' type='text' value='default'>
+				<input id='mx1918313229' name='entry.1918313229' type='text' value='default'>
+				<input id='mx638821' name='entry.638821' type='text' value='default'>
+				<input id='mx737099688' name='entry.737099688' type='text' value='default'>
+				<input id='mx488827232' name='entry.488827232' type='text' value='default'>
+				<input id='mx1203421487' name='entry.1203421487' type='text' value='default'>
+				<input id='mx979421831' name='entry.979421831' type='text' value='default'>
+				<input id='mx929858153' name='entry.929858153' type='text' value='default'>
+				<input id='mx1330487443' name='entry.1330487443' type='text' value='default'>
+				<input id='mx940496448' name='entry.940496448' type='text' value='default'>
+				<input id='mx1127168348' name='entry.1127168348' type='text' value='default'>
+				<input id='mx638332104' name='entry.638332104' type='text' value='default'>
+				<input id='mx1626319908' name='entry.1626319908' type='text' value='default'>
+				<input id='mx362674948' name='entry.362674948' type='text' value='default'>
+				<input id='mx544180710' name='entry.544180710' type='text' value='default'>
+				<input id='mx893562950' name='entry.893562950' type='text' value='default'>
+				<input id='mx335596501' name='entry.335596501' type='text' value='default'>
+				<input id='mx1453506389' name='entry.1453506389' type='text' value='default'>
+				<input id='mx1045870519' name='entry.1045870519' type='text' value='default'>
+				<input id='mx683300283' name='entry.683300283' type='text' value='default'>
+				<input id='mx967906330' name='entry.967906330' type='text' value='default'>
+				<input id='mx789190149' name='entry.789190149' type='text' value='default'>
+				<input type="submit"> </form>
+			<!-- google iframe inserted here - invisible -->
+			<iframe height="200" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="600"></iframe>
 		</div>
 	</div>
 	<script>
@@ -3574,49 +3564,15 @@
 		document.getElementById("showcoursemsg").innerHTML = 'Winter 2023<br><br>Course has not been selected<br><br>Select the course from the buttons on the previous screen<br><br><br><p style="text-align: center;font-size: 15px;">- tap to close -</p>';
 		document.getElementById("showcoursemsg").style.visibility = "visible";
 	}
-
 	// send info from HTML form to google form	
 	function submitForm() {
 		// get the relevant info into a form
 		// dont allow submit for an incorrect day
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-compday="yes";
-comp="comp";
-hcp="hcp";
-
-
-
-
-
-
-
-
-
-
-
-
-
+		compday = "yes";
+		comp = "comp";
+		hcp = "hcp";
 		if(compday == "no") {
-	alert("showNoSubmitMessage()");
+			alert("showNoSubmitMessage()");
 		} else {
 			// do player1 submit
 			document.getElementById('mx474474348').value = player;
@@ -3658,11 +3614,10 @@ hcp="hcp";
 			document.getElementById('mx1127168348').value = document.getElementById("a1p16").innerText;
 			document.getElementById('mx638332104').value = document.getElementById("a1p17").innerText;
 			document.getElementById('mx1626319908').value = document.getElementById("a1p18").innerText;
-		//	document.getElementById('mx362674948').value = document.getElementById("pfront").innerText;
-		//	document.getElementById('mx544180710').value = document.getElementById("pback").innerText;
-		//	document.getElementById('mx893562950').value = document.getElementById("ptotal").innerText;
-			
-		//	document.getElementById('mx335596501').value = document.getElementById("pback").innerText;
+			//	document.getElementById('mx362674948').value = document.getElementById("pfront").innerText;
+			//	document.getElementById('mx544180710').value = document.getElementById("pback").innerText;
+			//	document.getElementById('mx893562950').value = document.getElementById("ptotal").innerText;
+			//	document.getElementById('mx335596501').value = document.getElementById("pback").innerText;
 			tempcb6 = 0;
 			tempcb6 += parseInt(document.getElementById("a1p18").innerText);
 			tempcb6 += parseInt(document.getElementById("a1p17").innerText);
@@ -3692,7 +3647,7 @@ hcp="hcp";
 				//}
 				// check for no score entered
 				if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-					if (checkBeforeSubmitID.length < 50) {
+					if(checkBeforeSubmitID.length < 50) {
 						checkBeforeSubmitID += "hole " + ii + " not scored\n";
 						err = "yes";
 					}
@@ -3700,17 +3655,15 @@ hcp="hcp";
 			}
 			document.getElementById('mx967906330').value = twoscount.toString();
 			document.getElementById('mx789190149').value = comp + player;
-			
-			if (player == "select player") {
-				checkBeforeSubmitID += "player not set\n" 
+			if(player == "select player") {
+				checkBeforeSubmitID += "player not set\n"
 				err = "yes";
 			}
-			if (hcp == "hcp") {
+			if(hcp == "hcp") {
 				checkBeforeSubmitID += "hcp not set\n"
-				err = "yes"; 
+				err = "yes";
 			}
-			
-			if (err == "yes") {
+			if(err == "yes") {
 				// error message
 				checkBeforeSubmitID = checkBeforeSubmitID + "\n... etc.\n";
 				showIncompleteSubmitData(checkBeforeSubmitID);
