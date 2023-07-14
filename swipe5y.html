@@ -502,19 +502,19 @@
 		width: 98%;
 	}
 	
-	#hideplayer1name {
+	#hideplayer1name, #hideplayer1name {
 		color: cyan;
 	}
 	
-	#hideplayer2name {
+	#hideplayer2name, #hideplayer2namex {
 		color: yellow;
 	}
 	
-	#hideplayer3name {
+	#hideplayer3name, #hideplayer3namex {
 		color: greenYellow;
 	}
 	
-	#hideplayer4name {
+	#hideplayer4name, #hideplayer4namex {
 		color: springGreen;
 	}
 	</style>
@@ -2256,14 +2256,14 @@
 		<div class="card" id="penultimatepage">
 			<br />
 			<table>
-				<table id="bordertbody">
+				<table id="bordertbodyx">
 					<caption class="cap"> Winter 2023 </caption>
 					<thead></thead>
 					<tbody>
-						<div id="hideplayer1">
+						<div id="hideplayer1x">
 							<tr class="bordertr"> </tr>
 							<tr>
-								<td id="hideplayer1name" colspan="11"> player1 </td>
+								<td id="hideplayer1namex" colspan="11"> player1 </td>
 							</tr>
 							<tr>
 								<td class="border"> hole </td>
@@ -2319,10 +2319,10 @@
 								<td class="border" id="a1ptotalx"> 0 </td>
 							</tr>
 						</div>
-						<div id="hideplayer2">
+						<div id="hideplayer2x">
 							<tr class="bordertr"> </tr>
 							<tr>
-								<td id="hideplayer2name" colspan="11"> player2 </td>
+								<td id="hideplayer2namex" colspan="11"> player2 </td>
 							</tr>
 							<td class="border"> hole </td>
 							<td class="border"> 10 </td>
@@ -2377,10 +2377,10 @@
 								<td class="border" id="a2ptotalx"> 0 </td>
 							</tr>
 						</div>
-						<div id="hideplayer3">
+						<div id="hideplayer3x">
 							<tr class="bordertr"> </tr>
 							<tr>
-								<td id="hideplayer3name" colspan="11"> player3 </td>
+								<td id="hideplayer3namex" colspan="11"> player3 </td>
 							</tr>
 							<td class="border"> hole </td>
 							<td class="border"> 10 </td>
@@ -2435,10 +2435,10 @@
 								<td class="border" id="a3ptotalx"> 0 </td>
 							</tr>
 						</div>
-						<div id="hideplayer4">
+						<div id="hideplayer4x">
 							<tr class="bordertr"> </tr>
 							<tr>
-								<td id="hideplayer4name" colspan="11"> player4 </td>
+								<td id="hideplayer4namex" colspan="11"> player4 </td>
 							</tr>
 							<td class="border"> hole </td>
 							<td class="border"> 10 </td>
@@ -3349,6 +3349,7 @@
 			document.getElementById("h" + i + "p1").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
 		}
 		document.getElementById("hideplayer1name").innerText = player1name;
+		document.getElementById("hideplayer1namex").innerText = player1name;
 		//            doCalcs();
 	}
 
@@ -3376,6 +3377,7 @@
 			document.getElementById("h" + i + "p2").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
 		}
 		document.getElementById("hideplayer2name").innerText = player2name;
+		document.getElementById("hideplayer2namex").innerText = player2name;
 		//          doCalcs();
 	}
 
@@ -3403,6 +3405,7 @@
 			document.getElementById("h" + i + "p3").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
 		}
 		document.getElementById("hideplayer3name").innerText = player3name;
+		document.getElementById("hideplayer3namex").innerText = player3name;
 		//            doCalcs();
 	}
 
@@ -3430,6 +3433,7 @@
 			document.getElementById("h" + i + "p4").innerHTML = shortplayer + " " + "<a style='opacity:0.5'>" + initial + "</a>"
 		}
 		document.getElementById("hideplayer4name").innerText = player4name;
+		document.getElementById("hideplayer4namex").innerText = player4name;
 		//           doCalcs();
 	}
 	var options = ["Norman Gilholm", "Bob Connelly", "Bryan Maddison", "John Dean", "Graham Airey", "Richard Hedley", "Stephen Alldridge", "Temp1", "Temp2"];
