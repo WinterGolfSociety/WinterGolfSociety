@@ -491,11 +491,15 @@
 	
 	.border {
 		border: 1px solid gray;
-		border-collapse: collapse;
+		
+		 border-spacing: 0px;
+		 border-collapse: collapse;
 		//width: 60px;
-		padding: 2px; //5px;
+		padding: 1px; //5px;
 		text-align: center;
 	}
+	
+
 	
 	#bordertbody, #bordertbodyx {
 		height: 40vh;
@@ -504,7 +508,6 @@
 	
 	#hideplayer1name, #hideplayer1namex {
 		color: cyan;
-		padding: 1px;
 	}
 	
 	#hideplayer2name, #hideplayer2namex {
@@ -523,6 +526,14 @@
 		font-size: 10px;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	</style>
 </head>
 <!-- to make progress bar easier -->
@@ -1338,10 +1349,10 @@
 				<tbody>
 					<div id="hideplayer1">
 						<tr class="bordertr"> </tr>
-						<tr>
+						<tr class="bordertr">
 							<td id="hideplayer1name" colspan="11"> player1 </td>
 						</tr>
-						<tr>
+						<tr class="bordertr">
 							<td class="border"> hole </td>
 							<td class="border"> 1 </td>
 							<td class="border"> 2 </td>
