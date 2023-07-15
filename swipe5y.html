@@ -2831,6 +2831,29 @@
 		p2frontmidpoint = 0;
 		p3frontmidpoint = 0;
 		p4frontmidpoint = 0;
+		
+			p1front9score = 0;
+			p1front9points = 0;
+			p1back9score = 0;
+			p1back9points = 0;
+			
+			p2front9score = 0;
+			p2front9points = 0;
+			p2back9score = 0;
+			p2back9points = 0;
+			
+			p3front9score = 0;
+			p3front9points = 0;
+			p3back9score = 0;
+			p3back9points = 0;
+			
+			p4front9score = 0;
+			p4front9points = 0;
+			p4back9score = 0;
+			p4back9points = 0;
+		
+		
+		
 		for(var i = 1; i <= 18; i++) {
 			// update local scores
 			if(player1name !== "no player") {
@@ -2858,6 +2881,36 @@
 			document.getElementById("a2p" + i).innerText = player2pointsrecorded[i];
 			document.getElementById("a3p" + i).innerText = player3pointsrecorded[i];
 			document.getElementById("a4p" + i).innerText = player4pointsrecorded[i];
+			
+			// update totals for scores and points
+		
+			
+			if (i <= 9) {
+				p1front9score += parseInt(player1shotsrecorded[i]);
+				p1front9points += parseInt(player1pointsrecorded[i]);
+				
+				p2front9score += parseInt(player2shotsrecorded[i]);
+				p2front9points += parseInt(player2pointsrecorded[i]);
+				
+				p3front9score += parseInt(player3shotsrecorded[i]);
+				p3front9points += parseInt(player3pointsrecorded[i]);
+				
+				p4front9score += parseInt(player4shotsrecorded[i]);
+				p4front9points += parseInt(player4pointsrecorded[i]);
+			}
+			if (i > 9) {
+				p1back9score += parseInt(player1shotsrecorded[i]);
+				p1back9points += parseInt(player1pointsrecorded[i]);
+				
+				p2back9score += parseInt(player2shotsrecorded[i]);
+				p2back9points += parseInt(player2pointsrecorded[i]);
+				
+				p3back9score += parseInt(player3shotsrecorded[i]);
+				p3back9points += parseInt(player3pointsrecorded[i]);
+				
+				p4back9score += parseInt(player4shotsrecorded[i]);
+				p4back9points += parseInt(player4pointsrecorded[i]);
+			}
 		}
 		tempz = "";
 		if(player1name !== "no player") {
@@ -2873,6 +2926,30 @@
 			tempz += "\n" + player4name + " " + p4frontmidpoint + " points"
 		}
 		//     document.getElementById("frontmidpoint").innerText = tempz;
+		
+		
+		// do totals for scores and points
+		document.getElementById("a1hfront9").innerText = p1front9score;
+		document.getElementById("a1ptotal").innerText = p1front9points;
+		document.getElementById("a1hback9").innerText = p1back9score;
+		document.getElementById("a1ptotalx").innerText = p1back9points;
+		
+		document.getElementById("a2hfront9").innerText = p2front9score;
+		document.getElementById("a2ptotal").innerText = p2front9points;
+		document.getElementById("a2hback9").innerText = p2back9score;
+		document.getElementById("a2ptotalx").innerText = p2back9points;
+		
+		document.getElementById("a3hfront9").innerText = p3front9score;
+		document.getElementById("a3ptotal").innerText = p3front9points;
+		document.getElementById("a3hback9").innerText = p3back9score;
+		document.getElementById("a3ptotalx").innerText = p3back9points;
+		
+		document.getElementById("a4hfront9").innerText = p4front9score;
+		document.getElementById("a4ptotal").innerText = p4front9points;
+		document.getElementById("a4hback9").innerText = p4back9score;
+		document.getElementById("a4ptotalx").innerText = p4back9points;
+		
+		
 	}
 
 	function decrementScore(id) {
@@ -2896,114 +2973,172 @@
 			tempsi = arrDawson[temphole - 1][2];
 		}
 		// get player1 name
-		tempplayername = document.getElementById("h" + temphole + "p1").innerText;
+		tempplayername = player1name;
 		if(tempplayername !== "no player") {
 			// player points - pointsCalc(hcp,par,si,score)
 			var tempscore = document.getElementById("h" + temphole + "hhc1").innerText;
 			var temppoints = pointsCalc(player1hcp, temppar, tempsi, tempscore);
-			document.getElementById("h" + temphole + "p1result1").innerHTML = tempplayername + " " + temppoints + " points";
 			// update globals
 			player1shotsrecorded[temphole] = tempscore;
 			player1pointsrecorded[temphole] = temppoints;
-			//temptotal18p1 = tempfront9p1 + tempback9p1
-			// do a matchplay version
-			var temppoints = pointsCalc(player1matchplayshotsdifference, temppar, tempsi, tempscore);
-			document.getElementById("h" + temphole + "p1result2").innerHTML = tempplayername + " " + temppoints + " points";
+			// update local storage
+			localStorage.setItem("p1hole" + temphole + "score", tempscore);
+			localStorage.setItem("p1hole" + temphole + "points", temppoints);
 		}
 		// get player2 name
-		tempplayername = document.getElementById("h" + temphole + "p2").innerText;
+		tempplayername = player2name;
 		if(tempplayername !== "no player") {
 			// player points - pointsCalc(hcp,par,si,score)
 			var tempscore = document.getElementById("h" + temphole + "hhc2").innerText;
 			var temppoints = pointsCalc(player2hcp, temppar, tempsi, tempscore);
-			document.getElementById("h" + temphole + "p2result1").innerHTML = tempplayername + " " + temppoints + " points";
 			// update globals
 			player2shotsrecorded[temphole] = tempscore;
 			player2pointsrecorded[temphole] = temppoints;
-			// do a matchplay version
-			var temppoints = pointsCalc(player2matchplayshotsdifference, temppar, tempsi, tempscore);
-			document.getElementById("h" + temphole + "p2result2").innerHTML = tempplayername + " " + temppoints + " points";
 		}
 		// get player3 name
-		tempplayername = document.getElementById("h" + temphole + "p3").innerText;
+		tempplayername = player3name;
 		if(tempplayername !== "no player") {
 			// player points - pointsCalc(hcp,par,si,score)
 			var tempscore = document.getElementById("h" + temphole + "hhc3").innerText;
 			var temppoints = pointsCalc(player3hcp, temppar, tempsi, tempscore);
-			document.getElementById("h" + temphole + "p3result1").innerHTML = tempplayername + " " + temppoints + " points";
 			// update globals
 			player3shotsrecorded[temphole] = tempscore;
 			player3pointsrecorded[temphole] = temppoints;
-			//temptotal18p3 = tempfront9p3 + tempback9p3
-			// do a matchplay version
-			var temppoints = pointsCalc(player3matchplayshotsdifference, temppar, tempsi, tempscore);
-			document.getElementById("h" + temphole + "p3result2").innerHTML = tempplayername + " " + temppoints + " points";
 		}
 		// get player4 name
-		tempplayername = document.getElementById("h" + temphole + "p4").innerText;
+		tempplayername = player4name;
 		if(tempplayername !== "no player") {
 			// player points - pointsCalc(hcp,par,si,score)
 			var tempscore = document.getElementById("h" + temphole + "hhc4").innerText;
 			var temppoints = pointsCalc(player4hcp, temppar, tempsi, tempscore);
-			document.getElementById("h" + temphole + "p4result1").innerHTML = tempplayername + " " + temppoints + " points";
 			// update globals
 			player4shotsrecorded[temphole] = tempscore;
 			player4pointsrecorded[temphole] = temppoints;
-			// do a matchplay version
-			var temppoints = pointsCalc(player4matchplayshotsdifference, temppar, tempsi, tempscore);
-			document.getElementById("h" + temphole + "p4result2").innerHTML = tempplayername + " " + temppoints + " points";
 		}
-		// update totals
-		// front 9
-		tempfront9p1 = 0;
-		tempfront9p2 = 0;
-		tempfront9p3 = 0;
-		tempfront9p4 = 0;
-		for(var i = 1; i <= 9; i++) {
-			tempfront9p1 += player1pointsrecorded[i];
+		p1frontmidpoint = 0;
+		p2frontmidpoint = 0;
+		p3frontmidpoint = 0;
+		p4frontmidpoint = 0;
+		
+		
+			p1front9score = 0;
+			p1front9points = 0;
+			p1back9score = 0;
+			p1back9points = 0;
+			
+			p2front9score = 0;
+			p2front9points = 0;
+			p2back9score = 0;
+			p2back9points = 0;
+			
+			p3front9score = 0;
+			p3front9points = 0;
+			p3back9score = 0;
+			p3back9points = 0;
+			
+			p4front9score = 0;
+			p4front9points = 0;
+			p4back9score = 0;
+			p4back9points = 0;
+		
+		
+		
+		for(var i = 1; i <= 18; i++) {
+			// update local scores
+			if(player1name !== "no player") {
+				document.getElementById("p1h" + i + "points").innerText = player1name + ", " + player1pointsrecorded[i] + " points"
+				p1frontmidpoint += player1pointsrecorded[i]
+			}
+			if(player2name !== "no player") {
+				document.getElementById("p2h" + i + "points").innerText = player2name + ", " + player2pointsrecorded[i] + " points"
+				p2frontmidpoint += player2pointsrecorded[i]
+			}
+			if(player3name !== "no player") {
+				document.getElementById("p3h" + i + "points").innerText = player3name + ", " + player3pointsrecorded[i] + " points"
+				p3frontmidpoint += player3pointsrecorded[i]
+			}
+			if(player4name !== "no player") {
+				document.getElementById("p4h" + i + "points").innerText = player4name + ", " + player4pointsrecorded[i] + " points"
+				p4frontmidpoint += player4pointsrecorded[i]
+			}
+			// update front 9 and back 9 tables
+			document.getElementById("a1h" + i).innerText = player1shotsrecorded[i];
+			document.getElementById("a2h" + i).innerText = player2shotsrecorded[i];
+			document.getElementById("a3h" + i).innerText = player3shotsrecorded[i];
+			document.getElementById("a4h" + i).innerText = player4shotsrecorded[i];
+			document.getElementById("a1p" + i).innerText = player1pointsrecorded[i];
+			document.getElementById("a2p" + i).innerText = player2pointsrecorded[i];
+			document.getElementById("a3p" + i).innerText = player3pointsrecorded[i];
+			document.getElementById("a4p" + i).innerText = player4pointsrecorded[i];
+			
+			// update totals for scores and points
+		
+			
+			if (i <= 9) {
+				p1front9score += parseInt(player1shotsrecorded[i]);
+				p1front9points += parseInt(player1pointsrecorded[i]);
+				
+				p2front9score += parseInt(player2shotsrecorded[i]);
+				p2front9points += parseInt(player2pointsrecorded[i]);
+				
+				p3front9score += parseInt(player3shotsrecorded[i]);
+				p3front9points += parseInt(player3pointsrecorded[i]);
+				
+				p4front9score += parseInt(player4shotsrecorded[i]);
+				p4front9points += parseInt(player4pointsrecorded[i]);
+			}
+			if (i > 9) {
+				p1back9score += parseInt(player1shotsrecorded[i]);
+				p1back9points += parseInt(player1pointsrecorded[i]);
+				
+				p2back9score += parseInt(player2shotsrecorded[i]);
+				p2back9points += parseInt(player2pointsrecorded[i]);
+				
+				p3back9score += parseInt(player3shotsrecorded[i]);
+				p3back9points += parseInt(player3pointsrecorded[i]);
+				
+				p4back9score += parseInt(player4shotsrecorded[i]);
+				p4back9points += parseInt(player4pointsrecorded[i]);
+			}
+			
 		}
-		for(var i = 1; i <= 9; i++) {
-			tempfront9p2 += player2pointsrecorded[i];
+		tempz = "";
+		if(player1name !== "no player") {
+			tempz += "\n" + player1name + " " + p1frontmidpoint + " points"
 		}
-		for(var i = 1; i <= 9; i++) {
-			tempfront9p3 += player3pointsrecorded[i];
+		if(player2name !== "no player") {
+			tempz += "\n" + player2name + " " + p2frontmidpoint + " points"
 		}
-		for(var i = 1; i <= 9; i++) {
-			tempfront9p4 += player4pointsrecorded[i];
+		if(player3name !== "no player") {
+			tempz += "\n" + player3name + " " + p3frontmidpoint + " points"
 		}
-		// back 9
-		tempback9p1 = 0;
-		tempback9p2 = 0;
-		tempback9p3 = 0;
-		tempback9p4 = 0;
-		for(var i = 10; i <= 18; i++) {
-			tempback9p1 += player1pointsrecorded[i];
+		if(player4name !== "no player") {
+			tempz += "\n" + player4name + " " + p4frontmidpoint + " points"
 		}
-		for(var i = 10; i <= 18; i++) {
-			tempback9p2 += player2pointsrecorded[i];
-		}
-		for(var i = 10; i <= 18; i++) {
-			tempback9p3 += player3pointsrecorded[i];
-		}
-		for(var i = 10; i <= 18; i++) {
-			tempback9p4 += player4pointsrecorded[i];
-		}
-		// front 9
-		document.getElementById("front9p1").innerText = player1name + " " + tempfront9p1 + " points";
-		document.getElementById("front9p2").innerText = player2name + " " + tempfront9p2 + " points";
-		document.getElementById("front9p3").innerText = player3name + " " + tempfront9p3 + " points";
-		document.getElementById("front9p4").innerText = player4name + " " + tempfront9p4 + " points";
-		// back 9
-		document.getElementById("back9p1").innerText = player1name + " " + tempback9p1 + " points";
-		document.getElementById("back9p2").innerText = player2name + " " + tempback9p2 + " points";
-		document.getElementById("back9p3").innerText = player3name + " " + tempback9p3 + " points";
-		document.getElementById("back9p4").innerText = player4name + " " + tempback9p4 + " points";
-		// total
-		document.getElementById("total18p1").innerText = player1name + " " + (tempfront9p1 + tempback9p1) + " points";
-		document.getElementById("total18p2").innerText = player2name + " " + (tempfront9p2 + tempback9p2) + " points";
-		document.getElementById("total18p3").innerText = player3name + " " + (tempfront9p3 + tempback9p3) + " points";
-		document.getElementById("total18p4").innerText = player4name + " " + (tempfront9p4 + tempback9p4) + " points";
-		doMatchplayCalcs(temphole);
+		//     document.getElementById("frontmidpoint").innerText = tempz;
+		
+		
+		// do totals for scores and points
+		document.getElementById("a1hfront9").innerText = p1front9score;
+		document.getElementById("a1ptotal").innerText = p1front9points;
+		document.getElementById("a1hback9").innerText = p1back9score;
+		document.getElementById("a1ptotalx").innerText = p1back9points;
+		
+		document.getElementById("a2hfront9").innerText = p2front9score;
+		document.getElementById("a2ptotal").innerText = p2front9points;
+		document.getElementById("a2hback9").innerText = p2back9score;
+		document.getElementById("a2ptotalx").innerText = p2back9points;
+		
+		document.getElementById("a3hfront9").innerText = p3front9score;
+		document.getElementById("a3ptotal").innerText = p3front9points;
+		document.getElementById("a3hback9").innerText = p3back9score;
+		document.getElementById("a3ptotalx").innerText = p3back9points;
+		
+		document.getElementById("a4hfront9").innerText = p4front9score;
+		document.getElementById("a4ptotal").innerText = p4front9points;
+		document.getElementById("a4hback9").innerText = p4back9score;
+		document.getElementById("a4ptotalx").innerText = p4back9points;
+		
 	}
 
 	function dawson() {
@@ -3671,12 +3806,7 @@
 			//myElement.innerText = "backup"
 		}
 	}
-	/*	
-		alert("i = " + i + " " + localStorage.getItem("hole" + j + "player1score") + "<br>" +
-		localStorage.getItem("hole" + j + "player2score") + "<br>" +
-		localStorage.getItem("hole" + j + "player3score") + "<br>" +
-		localStorage.getItem("hole" + j + "player4score") + "<br>" )
-	*/
+	
 	function getHCP(results) {
 		//Data is usable here
 		console.log("getHCP")
