@@ -43,8 +43,7 @@
 		scroll-snap-stop: always;
 		border-width: 0px 1px 0px 1px;
 		border-style: solid;
-		//border: solid;
-		border-color: rgba(112, 128, 144, 0.5); //slateGray
+		border-color: darkSlateGray;
 	}
 	
 	.leftnum {
@@ -531,9 +530,6 @@
 					<tr class="tdtop">
 						<td colspan="2" class="tdtop1">
 						<a class="small1">setup 4-ball
-                                                   <a href="#lastpage" id="arrow" >
-                                                      <img src="ra.png" width="40px" height="20px"/>
-                                                   </a>
                                                 </a>
 						</td>
 					</tr>
@@ -3914,31 +3910,7 @@
 		
 		// enable submit page to keep page count correct
 		document.getElementById("beforefinalpage").style.display = "block";
-		
-		// put a set of values in for hole 1 to set page height
-		if(player1name !== "no player") {
-			document.getElementById("p1h1points").innerText = player1name + ", 0 points"
-		}
-		
-		if(player2name !== "no player") {
-			document.getElementById("p2h1points").innerText = player2name + ", 0 points"
-		}
-		
-		if(player3name !== "no player") {
-			document.getElementById("p3h1points").innerText = player3name + ", 0 points"
-		}
-		
-		if(player4name !== "no player") {
-			document.getElementById("p4h1points").innerText = player4name + ", 0 points"
-		}
-		
-		
 			
-		
-		
-		
-		
-		
 		
 	}
 	// papaparse uses HTML5's filereader API to get csv file
