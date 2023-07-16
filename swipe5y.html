@@ -25,7 +25,7 @@
 	
 	.container {
 		display: grid;
-		grid-template-columns: repeat(24, 100%);
+		grid-template-columns: repeat(22, 100%);
 		will-change: transform;
 		align-content: center;
 		overflow-x: auto;
@@ -69,8 +69,7 @@
 		font-size: 28px;
 	}
 	
-	#finalpage,
-	#beforefinalpage {
+	#finalpage {
 		color: blue;
 		background: steelBlue;
 		padding-left: 20px;
@@ -2387,162 +2386,59 @@
 				<caption class="cap"> Winter 2023 </caption>
 				<thead></thead>
 				<tbody>
-					<tr class="stdtr">
+					<tr class="bordertr1">
 						<td class="xtdleft">
 							<br />
-							<p class="cyan">playing group</p>
-							<div id="resultspage"></div>
+							<p id="resultsp1name" class="cyan">player 1</p>
+							<p id="resultsp1" class="cyan"></p>
 						</td>
 					</tr>
-					<!--      front 9    -->
-					<tr class="stdtr">
+					<tr class="bordertr2">
 						<td class="xtdleft">
 							<br />
-							<p class="cyan">front 9 points</p>
-							<div id="front9p1"></div>
+							<p id="resultsp2name" class="cyan">player 2</p>
+							<p id="resultsp2" class="cyan"></p>
 						</td>
 					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div id="front9p2"></div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div id="front9p3"></div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div id="front9p4"></div>
-						</td>
-					</tr>
-					<!--  back 9     -->
-					<tr class="stdtr">
+					<tr class="bordertr3">
 						<td class="xtdleft">
 							<br />
-							<p class="cyan">back 9 points</p>
-							<div id="back9p1"></div>
+							<p id="resultsp3name" class="cyan">player 3</p>
+							<p id="resultsp3" class="cyan"></p>
 						</td>
 					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div id="back9p2"></div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div id="back9p3"></div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div id="back9p4"></div>
-						</td>
-					</tr>
-					<!--  total 18     -->
-					<tr class="stdtr">
-						<td class="xtdleft">
+					<tr class="bordertr4">
+							<td class="xtdleft">
 							<br />
-							<p class="cyan">total points</p>
-							<div id="total18p1"></div>
+							<p id="resultsp4name" class="cyan">player 4</p>
+							<p id="resultsp4" class="cyan"></p>
 						</td>
 					</tr>
 					<tr class="stdtr">
 						<td class="xtdleft">
-							<div id="total18p2"></div>
+							<div class="menu" id="menu4" onclick="submitForm()"> Submit </div>
 						</td>
 					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div id="total18p3"></div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div id="total18p4"></div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="tdleft">
-							<br />
-							<button onclick="submitForm()">Submit goes here</button>
-							<br /> </td>
-					</tr>
+					
+					
+					
+					
+					
+					
+					
 				</tbody>
 			</table>
-		</div>
-		<!-- ===================================
-         final page when finished work - menu buttons
-         ======================================== -->
-		<div class="card" id="soontobefinalpage">
-			<br />
-			<table>
-				<caption class="cap"> Winter 2023 </caption>
-				<thead></thead>
-				<tbody>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div class="menu" id="menu1" onclick="showResults()"> Results </div>
-						</td>
-					</tr>
-					<!--      twos    -->
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div class="menu" id="menu2" onclick="showTwos()"> Twos money </div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft" id="menutable">
-							<div class="menu" id="menu3" onclick="showHandicaps()"> Handicaps </div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft" id="menutable">
-							<div class="menu" id="menu3" onclick="showSpreadsheet()"> Spreadsheet </div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div class="menu" id="menu4" onclick="submitData()"> Submit </div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="bar" id="thebar">
-							<div class="w3-blue">
-								<div id="myBar" class="w3-container w3-green w3-center" style="height: 100%; width: 1%;" ; min-height: 10vh;></div>
-							</div>
-						</td>
-					</tr>
-					<tr class="stdtr">
-						<td class="xtdleft">
-							<div>&nbsp;</div>
-							<div>&nbsp;</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<a name="lastpage"></a>
-		</div>
-		<!-- ===================================
-         final page 
-         ======================================== -->
-		<div class="card" id="finalpage">
-			<br />
-			<table>
-				<caption class="cap"> Winter 2023 </caption>
-				<thead></thead>
-				<tbody>
-					<tr class="spacer" colspan="3"></tr>
-					<tr class="xstdtr">
-						<td>Page left blank at the moment</td>
-					</tr>
-				</tbody>
-			</table>
-			<br />
+			
+			
+				</div>
+			
+					
+					
+							
+						<br />
 			<br />
 			<!-- form to construct data prior to submit -->
-			<form height="200" width="600" action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+			<form height="2" width="2" action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
 				<!-- name, hcp, course -->
 				<input id='mx474474348' name='entry.474474348' type='text' value='default'>
 				<input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
@@ -2594,8 +2490,26 @@
 				<input id='mx789190149' name='entry.789190149' type='text' value='default'>
 				<input type="submit"> </form>
 			<!-- google iframe inserted here - invisible -->
-			<iframe height="200" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="600"></iframe>
-		</div>
+			<iframe height="2" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="2"></iframe>
+			
+			
+			
+			
+			
+			
+					
+					
+					
+					
+					
+				
+					
+					
+	
+			
+			
+	
+
 	</div>
 	<script>
 	const card = document.querySelector(".card");
@@ -2948,6 +2862,45 @@
 		document.getElementById("a4ptotal").innerText = p4front9points;
 		document.getElementById("a4hback9").innerText = p4back9score;
 		document.getElementById("a4ptotalx").innerText = p4back9points;
+		
+		// update final page
+		// player 1
+		p1temptxt = "Recorded " + (parseInt(p1front9score) + parseInt(p1back9score)) + " strokes (" +
+		p1front9score + " front + " + p1back9score + " back), scoring " + 
+		(parseInt(p1front9points) + parseInt(p1back9points)) + " points (" +
+		p1front9points + " front + " + p1back9points + " back)"
+		
+		document.getElementById("resultsp1name").innerText = player1name;
+		document.getElementById("resultsp1").innerText = p1temptxt;
+		
+		// player 2
+		p2temptxt = "Recorded " + (parseInt(p2front9score) + parseInt(p2back9score)) + " strokes (" +
+		p2front9score + " front + " + p2back9score + " back), scoring " + 
+		(parseInt(p2front9points) + parseInt(p2back9points)) + " points (" +
+		p2front9points + " front + " + p2back9points + " back)"
+		
+		document.getElementById("resultsp2name").innerText = player2name;
+		document.getElementById("resultsp2").innerText = p2temptxt;
+		
+		// player 3
+		p3temptxt = "Recorded " + (parseInt(p3front9score) + parseInt(p3back9score)) + " strokes (" +
+		p3front9score + " front + " + p3back9score + " back), scoring " + 
+		(parseInt(p3front9points) + parseInt(p3back9points)) + " points (" +
+		p3front9points + " front + " + p3back9points + " back)"
+		
+		document.getElementById("resultsp3name").innerText = player3name;
+		document.getElementById("resultsp3").innerText = p3temptxt;
+		
+		// player 4
+		p4temptxt = "Recorded " + (parseInt(p4front9score) + parseInt(p4back9score)) + " strokes (" +
+		p4front9score + " front + " + p4back9score + " back), scoring " + 
+		(parseInt(p4front9points) + parseInt(p4back9points)) + " points (" +
+		p4front9points + " front + " + p4back9points + " back)"
+		
+		document.getElementById("resultsp4name").innerText = player4name;
+		document.getElementById("resultsp4").innerText = p4temptxt;
+		
+		
 		
 		
 	}
