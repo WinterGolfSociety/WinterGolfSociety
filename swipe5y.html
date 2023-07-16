@@ -10,6 +10,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 	<style>
+	
+	
+	:root {
+  		--main-bg-color: dodgerBlue;
+	}
+
+	
+	
+	
+	
+	
 	* {
 		margin: 0;
 		padding: 0;
@@ -68,24 +79,13 @@
 		border-color: darkSlateGray;
 	}
 	
-	.cardx {
-		width: 100vw;
-		//height: 100vh; //100%; //100vh;
-		display: flex;
-		//box-shadow: 3px 3px 20px slateGray;
-		background-color: background: rgb(47, 79, 179);;
-		scroll-snap-align: start;
-		scroll-snap-stop: always;
-		border-width: 0px 1px 0px 1px;
-		border-style: solid;
-		border-color: background: rgb(47, 79, 179);
-	}
+	
 	
 	.leftnum {
 		padding-left: 15px;
 		padding-right: 20px;
 		float: left;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		font-size: 30px;
 	}
 	
@@ -93,7 +93,7 @@
 		padding-left: 0px;
 		padding-right: 0px;
 		float: center;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		font-size: 28px;
 	}
 	
@@ -101,7 +101,7 @@
 		padding-left: 20px;
 		padding-right: 15px;
 		float: right;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		font-size: 28px;
 	}
 	
@@ -118,7 +118,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		font-family: Arial, Helvetica, sans-serif;
 		max-height: 16vh;
 	}
@@ -143,7 +143,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 28px;
 		max-height: 16vh;
@@ -165,7 +165,7 @@
 		width: 80vw;
 		height: 50vh;
 		overflow: auto;
-		background-color: dodgerBlue;
+		background-color:  var(--main-bg-color);
 		background-color: rgba(0, 0, 0, 0.7);
 		box-shadow: 10px 10px 25px black;
 		font-family: Arial, Helvetica, sans-serif;
@@ -187,7 +187,7 @@
 		width: 80vw;
 		height: 50vh;
 		overflow: auto;
-		background-color: dodgerBlue;
+		background-color:  var(--main-bg-color);
 		background-color: rgba(0, 0, 0, 0.7);
 		box-shadow: 10px 10px 25px black;
 		font-family: Arial, Helvetica, sans-serif;
@@ -224,7 +224,7 @@
 		font-size: 30px;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 		width: 100%;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		//        box-shadow: 10px 10px 25px black;
 		border: none;
 	}
@@ -234,7 +234,7 @@
 		font-size: 28px;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 		width: 100%;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		//      box-shadow: 10px 10px 25px black;
 		border: none;
 	}
@@ -275,7 +275,7 @@
 	
 	.tdtop2 {
 		color: white;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		border: none;
 		width: 100%;
 		height: 100%;
@@ -303,7 +303,7 @@
 		font-size: 28px;
 		text-align: center;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		border: none;
 	}
 	
@@ -348,7 +348,7 @@
 		text-decoration: none;
 		display: block;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background-color: dodgerBlue;
+		background-color:  var(--main-bg-color);
 	}
 	
 	.dropdown-content1 a:hover,
@@ -465,7 +465,7 @@
 		width: 90vw;
 		margin-left: 5vw;
 		height: 15vh;
-		background: dodgerBlue;
+		background:  var(--main-bg-color);
 		text-align: center;
 		font-size: 30px;
 		padding-top: 17px;
@@ -557,12 +557,12 @@
 		//height: 100vh; //100%; //100vh;
 		display: flex;
 		//box-shadow: 3px 3px 20px slateGray;
-		background: rgb(47, 79, 179);
+		background: darkSlateGrayray;
 		scroll-snap-align: start;
 		scroll-snap-stop: always;
-		border-width: 0px 1px 0px 1px;
+		border-width: 1px 1px 1px 1px;
 		border-style: solid;
-		border-color: rgb(47, 79, 179);
+		border-color: dodgerBlue; //slateGray;
 	}
 	
 	#hole2,
@@ -582,12 +582,12 @@
 		//height: 100vh; //100%; //100vh;
 		display: flex;
 		//box-shadow: 3px 3px 20px slateGray;
-		background: rgb(47, 79, 129);
+		background: darkSlateGray;
 		scroll-snap-align: start;
 		scroll-snap-stop: always;
-		border-width: 0px 1px 0px 1px;
+		border-width: 1px 1px 1px 1px;
 		border-style: solid;
-		border-color: rgb(47, 79, 129);
+		border-color: slateGray;
 	}
 	</style>
 </head>
