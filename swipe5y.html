@@ -31,11 +31,33 @@
 		overflow-x: auto;
 		scroll-snap-type: x mandatory;
 		-webkit-overflow-scrolling: touch;
+		
+		
+		
+		
+		
+		
+		
+		
+		height: 100vh;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	.card {
 		width: 100vw;
-		height: 100%; //100vh;
+		//height: 100vh; //100%; //100vh;
 		display: flex;
 		//box-shadow: 3px 3px 20px slateGray;
 		background-color: darkSlateGray;
@@ -44,6 +66,19 @@
 		border-width: 0px 1px 0px 1px;
 		border-style: solid;
 		border-color: darkSlateGray;
+	}
+	
+	.cardx {
+		width: 100vw;
+		//height: 100vh; //100%; //100vh;
+		display: flex;
+		//box-shadow: 3px 3px 20px slateGray;
+		background-color: background: rgb(47, 79, 179);;
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+		border-width: 0px 1px 0px 1px;
+		border-style: solid;
+		border-color: background: rgb(47, 79, 179);
 	}
 	
 	.leftnum {
@@ -505,13 +540,29 @@
 	#hideplayer4x {
 		font-size: 10px;
 	}
+	
+	#hole1,
+	#hole3,
+	#hole5,
+	#hole7,
+	#hole9,
+	#hole10,
+	#hole12,
+	#hole14,
+	#hole16,
+	#hole18 {
+		//height: 100vh;
+		//background: rgb(47, 79, 179);
+	}
+	
+	
 	</style>
 </head>
 <!-- to make progress bar easier -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
 <body>
-	<div class="container">
+	<div class="container" class="cardx">
 		<div class="card" id="setup">
 			<div class="modal">
 				<!-- modal-->
