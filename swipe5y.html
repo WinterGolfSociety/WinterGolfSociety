@@ -3021,7 +3021,6 @@
 				p4back9score += parseInt(player4shotsrecorded[i]);
 				p4back9points += parseInt(player4pointsrecorded[i]);
 			}
-			
 		}
 		tempz = "";
 		if(player1name !== "no player") {
@@ -3059,6 +3058,48 @@
 		document.getElementById("a4ptotal").innerText = p4front9points;
 		document.getElementById("a4hback9").innerText = p4back9score;
 		document.getElementById("a4ptotalx").innerText = p4back9points;
+		
+		// update final page
+		// player 1
+		p1temptxt = "Recorded " + (parseInt(p1front9score) + parseInt(p1back9score)) + " strokes (" +
+		p1front9score + " front + " + p1back9score + " back), scoring " + 
+		(parseInt(p1front9points) + parseInt(p1back9points)) + " points (" +
+		p1front9points + " front + " + p1back9points + " back)"
+		
+		document.getElementById("resultsp1name").innerText = player1name;
+		document.getElementById("resultsp1").innerText = p1temptxt;
+		
+		// player 2
+		p2temptxt = "Recorded " + (parseInt(p2front9score) + parseInt(p2back9score)) + " strokes (" +
+		p2front9score + " front + " + p2back9score + " back), scoring " + 
+		(parseInt(p2front9points) + parseInt(p2back9points)) + " points (" +
+		p2front9points + " front + " + p2back9points + " back)"
+		
+		document.getElementById("resultsp2name").innerText = player2name;
+		document.getElementById("resultsp2").innerText = p2temptxt;
+		
+		// player 3
+		p3temptxt = "Recorded " + (parseInt(p3front9score) + parseInt(p3back9score)) + " strokes (" +
+		p3front9score + " front + " + p3back9score + " back), scoring " + 
+		(parseInt(p3front9points) + parseInt(p3back9points)) + " points (" +
+		p3front9points + " front + " + p3back9points + " back)"
+		
+		document.getElementById("resultsp3name").innerText = player3name;
+		document.getElementById("resultsp3").innerText = p3temptxt;
+		
+		// player 4
+		p4temptxt = "Recorded " + (parseInt(p4front9score) + parseInt(p4back9score)) + " strokes (" +
+		p4front9score + " front + " + p4back9score + " back), scoring " + 
+		(parseInt(p4front9points) + parseInt(p4back9points)) + " points (" +
+		p4front9points + " front + " + p4back9points + " back)"
+		
+		document.getElementById("resultsp4name").innerText = player4name;
+		document.getElementById("resultsp4").innerText = p4temptxt;
+		
+		
+		
+		
+		
 		
 	}
 
@@ -3871,6 +3912,27 @@
 		
 		// enable submit page to keep page count correct
 		document.getElementById("beforefinalpage").style.display = "block";
+		
+		// put a set of values in for hole 1 to set page height
+		if(player1name !== "no player") {
+			document.getElementById("p1h1points").innerText = player1name + ", 0 points"
+		}
+		
+		if(player2name !== "no player") {
+			document.getElementById("p2h1points").innerText = player2name + ", 0 points"
+		}
+		
+		if(player3name !== "no player") {
+			document.getElementById("p3h1points").innerText = player3name + ", 0 points"
+		}
+		
+		if(player4name !== "no player") {
+			document.getElementById("p4h1points").innerText = player4name + ", 0 points"
+		}
+		
+		
+			
+		
 		
 		
 		
