@@ -25,7 +25,7 @@
 	
 	.container {
 		display: grid;
-		grid-template-columns: repeat(22, 100%);
+		grid-template-columns: repeat(21, 100%);
 		will-change: transform;
 		align-content: center;
 		overflow-x: auto;
@@ -352,6 +352,10 @@
 		height: 0.5vh;
 	}
 	
+	.spacer2 {
+		height: 5vh;
+	}
+	
 	#playerdropdown1,
 	#playerdropdown2,
 	#playerdropdown3,
@@ -454,7 +458,8 @@
 	}
 	
 	#my-response-iframe,
-	#my-form {
+	#my-form,
+	#beforefinalpage {
 		display: none;
 	}
 	
@@ -2414,31 +2419,25 @@
 							<p id="resultsp4" class="cyan"></p>
 						</td>
 					</tr>
+					<tr>
+					<td class="spacer2">
+					</td>
+					<td class="spacer2">
+					</td>
+					</tr>
 					<tr class="stdtr">
 						<td class="xtdleft">
 							<div class="menu" id="menu4" onclick="submitForm()"> Submit </div>
 						</td>
-					</tr>
-					
-					
-					
-					
-					
-					
-					
+					</tr>	
 				</tbody>
 			</table>
-			
-			
-				</div>
-			
-					
-					
-							
-						<br />
-			<br />
-			<!-- form to construct data prior to submit -->
-			<form height="2" width="2" action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+		</div>
+	
+	<br />
+	<br />
+	<!-- form to construct data prior to submit -->
+	<form height="2" width="2" action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
 				<!-- name, hcp, course -->
 				<input id='mx474474348' name='entry.474474348' type='text' value='default'>
 				<input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
@@ -2489,28 +2488,17 @@
 				<input id='mx967906330' name='entry.967906330' type='text' value='default'>
 				<input id='mx789190149' name='entry.789190149' type='text' value='default'>
 				<input type="submit"> </form>
-			<!-- google iframe inserted here - invisible -->
-			<iframe height="2" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="2"></iframe>
-			
-			
-			
-			
-			
-			
-					
-					
-					
-					
-					
+	<!-- google iframe inserted here - invisible -->
+	<iframe height="2" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="2"></iframe>
+	
+	
+	
+</div>	
+	
+	
+	
+	
 				
-					
-					
-	
-			
-			
-	
-
-	</div>
 	<script>
 	const card = document.querySelector(".card");
 	//const MOVE_THRESHOLD = 50;
@@ -3900,6 +3888,14 @@
 		}
 		// close setup screen and start
 		document.getElementById("setup").style.display = "none";
+		
+		// enable submit page to keep page count correct
+		document.getElementById("beforefinalpage").style.display = "block";
+		
+		
+		
+		
+		
 	}
 	// papaparse uses HTML5's filereader API to get csv file
 	function xxxxxdoGetHCP() {
