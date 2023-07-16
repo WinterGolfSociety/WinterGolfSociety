@@ -265,7 +265,7 @@
 	
 	.tdtop1 {
 		color: white;
-		background: darkSlateGray;
+	//	background: darkSlateGray;
 		border: none;
 		width: 100%;
 		height: 100%;
@@ -310,7 +310,7 @@
 	.small1, .cap {
 		font-size: 20px;
 		color: cyan;
-		background: darkSlateGray;
+		//background: darkSlateGray;
 	}
 	
 	.dropdown1,
@@ -553,16 +553,49 @@
 	#hole18 {
 		//height: 100vh;
 		//background: rgb(47, 79, 179);
+		width: 100vw;
+		//height: 100vh; //100%; //100vh;
+		display: flex;
+		//box-shadow: 3px 3px 20px slateGray;
+		background: rgb(47, 79, 179);
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+		border-width: 0px 1px 0px 1px;
+		border-style: solid;
+		border-color: rgb(47, 79, 179);
 	}
 	
-	
+	#hole2,
+	#hole4,
+	#hole6,
+	#hole8,
+	#hole11,
+	#hole13,
+	#hole15,
+	#hole17,
+	#setup,
+	#midpoint,
+	#penultimatepage  {
+		//height: 100vh;
+		//background: rgb(47, 79, 179);
+		width: 100vw;
+		//height: 100vh; //100%; //100vh;
+		display: flex;
+		//box-shadow: 3px 3px 20px slateGray;
+		background: rgb(47, 79, 129);
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+		border-width: 0px 1px 0px 1px;
+		border-style: solid;
+		border-color: rgb(47, 79, 129);
+	}
 	</style>
 </head>
 <!-- to make progress bar easier -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
 <body>
-	<div class="container" class="cardx">
+	<div class="container">
 		<div class="card" id="setup">
 			<div class="modal">
 				<!-- modal-->
