@@ -13,7 +13,7 @@
 	
 	
 	:root {
-  		--main-bg-color: dodgerBlue;
+  		--main-bg-color: rgb(0, 51, 102); //darkSlateBlue; //midnightBlue; //dimGray; //dodgerBlue;
 	}
 
 	
@@ -365,7 +365,7 @@
 	
 	#dawson,
 	#lakes {
-		box-shadow: 10px 10px 25px black;
+	//	box-shadow: 10px 10px 25px black;
 	}
 	
 	.spacer {
@@ -3690,71 +3690,104 @@
 		if(compday == "no") {
 			alert("showNoSubmitMessage()");
 		} else {
-			// do player1 submit
-			document.getElementById('mx474474348').value = player;
-			document.getElementById('mx2131369517').value = comp;
-			document.getElementById('mx477101370').value = hcp;
-			document.getElementById('mx1980297491').value = document.getElementById("a1h1").innerText;
-			document.getElementById('mx463832232').value = document.getElementById("a1h2").innerText;
-			document.getElementById('mx205704642').value = document.getElementById("a1h3").innerText;
-			document.getElementById('mx278278589').value = document.getElementById("a1h4").innerText;
-			document.getElementById('mx949547387').value = document.getElementById("a1h5").innerText;
-			document.getElementById('mx703011397').value = document.getElementById("a1h6").innerText;
-			document.getElementById('mx1460583253').value = document.getElementById("a1h7").innerText;
-			document.getElementById('mx462940045').value = document.getElementById("a1h8").innerText;
-			document.getElementById('mx477691508').value = document.getElementById("a1h9").innerText;
-			document.getElementById('mx413249407').value = document.getElementById("a1h10").innerText;
-			document.getElementById('mx108900453').value = document.getElementById("a1h11").innerText;
-			document.getElementById('mx1841236411').value = document.getElementById("a1h12").innerText;
-			document.getElementById('mx1864644918').value = document.getElementById("a1h13").innerText;
-			document.getElementById('mx1538428689').value = document.getElementById("a1h14").innerText;
-			document.getElementById('mx1449918213').value = document.getElementById("a1h15").innerText;
-			document.getElementById('mx38761817').value = document.getElementById("a1h16").innerText;
-			document.getElementById('mx247392471').value = document.getElementById("a1h17").innerText;
-			document.getElementById('mx741809181').value = document.getElementById("a1h18").innerText;
-			document.getElementById('mx1362729237').value = document.getElementById("a1p1").innerText;
-			document.getElementById('mx1372983908').value = document.getElementById("a1p2").innerText;
-			document.getElementById('mx2002196917').value = document.getElementById("a1p3").innerText;
-			document.getElementById('mx640802794').value = document.getElementById("a1p4").innerText;
-			document.getElementById('mx2076656246').value = document.getElementById("a1p5").innerText;
-			document.getElementById('mx486346919').value = document.getElementById("a1p6").innerText;
-			document.getElementById('mx1918313229').value = document.getElementById("a1p7").innerText;
-			document.getElementById('mx638821').value = document.getElementById("a1p8").innerText;
-			document.getElementById('mx737099688').value = document.getElementById("a1p9").innerText;
-			document.getElementById('mx488827232').value = document.getElementById("a1p10").innerText;
-			document.getElementById('mx1203421487').value = document.getElementById("a1p11").innerText;
-			document.getElementById('mx979421831').value = document.getElementById("a1p12").innerText;
-			document.getElementById('mx929858153').value = document.getElementById("a1p13").innerText;
-			document.getElementById('mx1330487443').value = document.getElementById("a1p14").innerText;
-			document.getElementById('mx940496448').value = document.getElementById("a1p15").innerText;
-			document.getElementById('mx1127168348').value = document.getElementById("a1p16").innerText;
-			document.getElementById('mx638332104').value = document.getElementById("a1p17").innerText;
-			document.getElementById('mx1626319908').value = document.getElementById("a1p18").innerText;
+			for(var j = 1; j <= 4; j++) {
+				if (j == 1) {
+					// do player1 submit
+					document.getElementById('mx474474348').value = player1name;
+					document.getElementById('mx2131369517').value = comp;
+					document.getElementById('mx477101370').value = player1hcp;
+				}
+				if (j == 2) {
+					// do player2 submit
+					document.getElementById('mx474474348').value = player2name;
+					document.getElementById('mx2131369517').value = comp;
+					document.getElementById('mx477101370').value = player2hcp;
+				}
+				if (j == 3) {
+					// do player3 submit
+					document.getElementById('mx474474348').value = player3name;
+					document.getElementById('mx2131369517').value = comp;
+					document.getElementById('mx477101370').value = player3hcp;
+				}
+				if (j == 4) {
+					// do player4 submit
+					document.getElementById('mx474474348').value = player4name;
+					document.getElementById('mx2131369517').value = comp;
+					document.getElementById('mx477101370').value = player4hcp;
+				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				document.getElementById('mx1980297491').value = document.getElementById("a" + j + "h1").innerText;
+				document.getElementById('mx463832232').value = document.getElementById("a" + j + "h2").innerText;
+				document.getElementById('mx205704642').value = document.getElementById("a" + j + "h3").innerText;
+				document.getElementById('mx278278589').value = document.getElementById("a" + j + "h4").innerText;
+				document.getElementById('mx949547387').value = document.getElementById("a" + j + "h5").innerText;
+				document.getElementById('mx703011397').value = document.getElementById("a" + j + "h6").innerText;
+				document.getElementById('mx1460583253').value = document.getElementById("a" + j + "h7").innerText;
+				document.getElementById('mx462940045').value = document.getElementById("a" + j + "h8").innerText;
+				document.getElementById('mx477691508').value = document.getElementById("a" + j + "h9").innerText;
+				document.getElementById('mx413249407').value = document.getElementById("a" + j + "h10").innerText;
+				document.getElementById('mx108900453').value = document.getElementById("a" + j + "h11").innerText;
+				document.getElementById('mx1841236411').value = document.getElementById("a" + j + "h12").innerText;
+				document.getElementById('mx1864644918').value = document.getElementById("a" + j + "h13").innerText;
+				document.getElementById('mx1538428689').value = document.getElementById("a" + j + "h14").innerText;
+				document.getElementById('mx1449918213').value = document.getElementById("a" + j + "h15").innerText;
+				document.getElementById('mx38761817').value = document.getElementById("a" + j + "h16").innerText;
+				document.getElementById('mx247392471').value = document.getElementById("a" + j + "h17").innerText;
+				document.getElementById('mx741809181').value = document.getElementById("a" + j + "h18").innerText;
+				document.getElementById('mx1362729237').value = document.getElementById("a" + j + "p1").innerText;
+				document.getElementById('mx1372983908').value = document.getElementById("a" + j + "p2").innerText;
+				document.getElementById('mx2002196917').value = document.getElementById("a" + j + "p3").innerText;
+				document.getElementById('mx640802794').value = document.getElementById("a" + j + "p4").innerText;
+				document.getElementById('mx2076656246').value = document.getElementById("a" + j + "p5").innerText;
+				document.getElementById('mx486346919').value = document.getElementById("a" + j + "p6").innerText;
+				document.getElementById('mx1918313229').value = document.getElementById("a" + j + "p7").innerText;
+				document.getElementById('mx638821').value = document.getElementById("a" + j + "p8").innerText;
+				document.getElementById('mx737099688').value = document.getElementById("a" + j + "p9").innerText;
+				document.getElementById('mx488827232').value = document.getElementById("a" + j + "p10").innerText;
+				document.getElementById('mx1203421487').value = document.getElementById("a" + j + "p11").innerText;
+				document.getElementById('mx979421831').value = document.getElementById("a" + j + "p12").innerText;
+				document.getElementById('mx929858153').value = document.getElementById("a" + j + "p13").innerText;
+				document.getElementById('mx1330487443').value = document.getElementById("a" + j + "p14").innerText;
+				document.getElementById('mx940496448').value = document.getElementById("a" + j + "p15").innerText;
+				document.getElementById('mx1127168348').value = document.getElementById("a" + j + "p16").innerText;
+				document.getElementById('mx638332104').value = document.getElementById("a" + j + "p17").innerText;
+				document.getElementById('mx1626319908').value = document.getElementById("a" + j + "p18").innerText;
 			//	document.getElementById('mx362674948').value = document.getElementById("pfront").innerText;
 			//	document.getElementById('mx544180710').value = document.getElementById("pback").innerText;
 			//	document.getElementById('mx893562950').value = document.getElementById("ptotal").innerText;
 			//	document.getElementById('mx335596501').value = document.getElementById("pback").innerText;
 			tempcb6 = 0;
-			tempcb6 += parseInt(document.getElementById("a1p18").innerText);
-			tempcb6 += parseInt(document.getElementById("a1p17").innerText);
-			tempcb6 += parseInt(document.getElementById("a1p16").innerText);
-			tempcb6 += parseInt(document.getElementById("a1p15").innerText);
-			tempcb6 += parseInt(document.getElementById("a1p14").innerText);
-			tempcb6 += parseInt(document.getElementById("a1p13").innerText);
+			tempcb6 += parseInt(document.getElementById("a" + j + "p18").innerText);
+			tempcb6 += parseInt(document.getElementById("a" + j + "p17").innerText);
+			tempcb6 += parseInt(document.getElementById("a" + j + "p16").innerText);
+			tempcb6 += parseInt(document.getElementById("a" + j + "p15").innerText);
+			tempcb6 += parseInt(document.getElementById("a" + j + "p14").innerText);
+			tempcb6 += parseInt(document.getElementById("a" + j + "p13").innerText);
 			tempcb3 = 0;
-			tempcb3 += parseInt(document.getElementById("a1p18").innerText);
-			tempcb3 += parseInt(document.getElementById("a1p17").innerText);
-			tempcb3 += parseInt(document.getElementById("a1p16").innerText);
+			tempcb3 += parseInt(document.getElementById("a" + j + "p18").innerText);
+			tempcb3 += parseInt(document.getElementById("a" + j + "p17").innerText);
+			tempcb3 += parseInt(document.getElementById("a" + j + "p16").innerText);
 			document.getElementById('mx1453506389').value = tempcb6;
 			document.getElementById('mx1045870519').value = tempcb3;
-			document.getElementById('mx683300283').value = document.getElementById("a1p18").innerText;
+			document.getElementById('mx683300283').value = document.getElementById("a" + j + "p18").innerText;
 			//temp2 = 0;
 			twoscount = 0;
 			// check data is complete 
 			checkBeforeSubmitID = "\n";
 			err = "no";
 			for(ii = 1; ii <= 18; ii++) {
-				if(document.getElementById("a1h" + ii).innerText == "2") {
+				if(document.getElementById("a" + j + "h" + ii).innerText == "2") {
 					twoscount++;
 				}
 				//if("12345678910".indexOf(document.getElementById("h" + ii).innerText) == -1) {
@@ -3798,6 +3831,7 @@
 					document.getElementById('submittxt').innerText = "submitted - OK";
 				}, 5000);
 			}
+		} // for loop
 		}
 	}
 
