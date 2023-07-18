@@ -317,7 +317,7 @@ h2 {
 
 #onetxt, #twotxt, #threetxt, #fourtxt {
     line-height: 80px;
-    font-size: 23px;
+    font-size: 33px;
     color: blue;
      font-family: 'Kalam';
     // padding-bottom: 20px;
@@ -380,6 +380,45 @@ color: white;
 
 
 
+.dates {
+		font-family: 'Kalam';
+		color: darkGray;
+		font-size: 13px;
+		
+		
+		float: left;
+		padding-left: 20vw;
+		
+	}
+	
+	#upcoming {
+		float: left;
+	}
+	
+
+#img {
+		transition-duration: 0.4s;
+	}
+	
+	#img.half {
+		transform: scale(5);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 
 </head>
@@ -397,22 +436,22 @@ color: white;
   </div>
   
   <div class="bubble" id="one"> 
-  <a id="onetxt" onclick="doOne()">Diary</a>  
+  <a id="onetxt" onclick="doOne()">Mon</a>  
   <h3>Diary</h3>
   </div>
   
   <div class="bubble" id="two">
-    <a id="twotxt">HCPs</a>  
+    <a id="twotxt">Tue</a>  
   <h3>Handicaps</h3>
   </div>
   
   <div class="bubble" id="three">
-    <a id="threetxt">Twos</a>  
+    <a id="threetxt">Wed</a>  
   <h3>Twos</h3>
   </div>
   
   <div class="bubble" id="four">
-    <a id="fourtxt" onclick="doFour()">Results</a>  
+    <a id="fourtxt" onclick="doFour()">Thu</a>  
   <h3>Results</h3>
   </div>
 </nav>
@@ -422,64 +461,29 @@ color: white;
 
 <section class="start">
   <div class="content">
-  <h2 class="title">Winter<br>2023-2024</h2>
-  </div>
-  
-  <div class="ccontainer">
-    <!--
-    <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="swipe-right.png" alt="swipe right">
-    -->
-    <img src="swipe-right-white.png" alt="swipe" style="position: absolute; top: 10vh; right: 3vw; height: 85px; width: 85px;">
-    <div class="centered">score entry</div>
-  </div>
+  <h2 class="title">Spain<br>2023</h2>
   
   
+ 
+ 
+				<div class="datescontent"> <a class="dates" id="upcoming">events ...</a>
+					<br>
+					<br>
+					<a class="dates" id="xdcomp1">
+					Monday, La Cala - Europa<br>
+					Tuesday, Alhaurin<br>
+					Wednesday, La Cala - Asia<br>
+					Thursday, La Cala - America
+					</a>
+				</div>
+    <br>
+				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> </div>
+			</div>
+  
   
 </section>
 
 
-
-
-<!--
-
-
-<section class="first">
-  <div class="content">
-    <h2>About</h2>
-    <p>
-        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-    </p>
-  </div>
-</section>
-
-<section class="second">
-  <div class="content">
-    <h2>Handicaps</h2>
-    <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-    </p>
-  </div>
-</section>
-
-<section class="third">
-  <div class="content">
-    <h2>Twos</h2>
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. At vero eos et accusam et justo duo dolores et ea rebum.<br>Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-    </p>
-  </div>
-</section>
-
-<section class="fourth">
-  <div class="content">
-    <h2>Results</h2>
-    <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-    Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-    </p>
-  </div>
-</section>
-
--->
 
 <script>
 	
@@ -594,19 +598,23 @@ function doOne() {
     
 }
 
-	function doFour() {
+function doFour() {
   // put menu back then move to results page
     setTimeout(function() {
       window.open("results2023.html","_blank");
       }, 1000);
 }
 
-	
-	
-	
+
 function xdoFour() {
 window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6uC1a56s8y7f8cNG5JTctOdxFz8g0QyLqO3E8ha6LqCsipS2IRTmVcT-oJfkDsXhyeE0PVRgCjyh8/pubhtml?gid=1210420478&single=true","_blank")
 }
+
+
+
+function enlarge() {
+		document.getElementById('img').classList.toggle("half");
+	}
 
 </script>
 </body>
