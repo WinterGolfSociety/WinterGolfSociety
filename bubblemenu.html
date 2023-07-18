@@ -379,7 +379,7 @@ h2 {
   </div>
   
   <div class="bubble" id="two">
-    <a id="twotxt onclick="doTwo()"">Tue</a>  
+    <a id="twotxt onclick="doTwo()">Tue</a>  
   <h3>Handicaps</h3>
   </div>
   
@@ -526,12 +526,14 @@ h2 {
   }
   
   
-
 function doOne() {
-    
-     window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vR07SK594NXgQvSYWEPWnvRK5_ZDwbYGyUE2Iqm3WcwpxRB9HFfnssMzC3s01TJXEbAlp9QBIA1BRM5/pubhtml?gid=1625899627&single=true","_blank")
-    
+	// put menu back then move to hcp page
+	setTimeout(function() {
+	window.location.assign("mondayspain2023.html");
+		}, 1000);
 }
+
+
 
 function doTwo() {
     
