@@ -961,10 +961,12 @@
 	if("dropdown" in localStorage) {
 		// retrieve dropdown info
 		var options = JSON.parse(localStorage.dropdown);
-		var ol = options.length;
-		var ml = master.length;
+		//var ol = options.length;
+		//var ml = master.length;
 		// update to add anything new - if required. Works on differing number of members in list
-		if(ol !== ml) {
+	//	alert(ol + " - " + ml)
+	//	if(ol !== ml) {
+		if (JSON.stringify(options) !== JSON.stringify(master)) {
 			// option is original, master is new
 			// update new with numbers from original
 			for(var i = 0; i < options.length; i++) {
@@ -1775,7 +1777,7 @@
 		}
 		totalScore();
 	}
-	// wipe local storage
+	// wipe local storage but not menu items
 	function clearCache() {
 		localStorage.removeItem("player");
 		localStorage.removeItem("hcp");
