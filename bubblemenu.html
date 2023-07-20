@@ -115,8 +115,8 @@ body {
 }
 nav {
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 75px; //100px;
+    left: 75px; //100px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     width: 75px;
@@ -481,7 +481,11 @@ h2 {
     menuIcon.removeClass('is-active');
 
     setTimeout(function() {
-      $('#nav').animate({ top: '100px', left: '100px' }, 400);
+   //   $('#nav').animate({ top: '100px', left: '100px' }, 400);
+   
+    $('#nav').animate({ top: '75px', left: '75px' }, 400);
+   
+   
       $('.content').animate({ opacity: '1' }, 900);
     }, 500);
     four.animate({ top: '-65px' }, 400);
@@ -501,7 +505,12 @@ h2 {
     menuIcon.removeClass('is-active');
     hideBubbles();
     setTimeout(function() {
-      $('#nav').animate({ top: '100px', left: '100px' }, 400);
+     // $('#nav').animate({ top: '100px', left: '100px' }, 400);
+      
+      
+      $('#nav').animate({ top: '75px', left: '75px' }, 400);
+      
+      
     }, 500);
     isTop = true;
   });
