@@ -165,7 +165,7 @@
 		padding-bottom: 10px;
 		left: 110vw;
 		top: 20vh;
-		width: 80vw;
+		width: 100px; //80vw;
 		height: 50vh;
 		overflow: auto;
 		background-color:  var(--main-bg-color);
@@ -584,6 +584,15 @@ padding-top: 2px;
 padding-right: 5px;
 }
 
+.roundels {
+background: cyan;
+border-style: solid;
+border-radius: 50%;
+font-size: 12px;
+width: 50px;
+height: 50px;
+margin: 10px;
+}
     </style>
 </head>
 <!-- to make progress bar easier -->
@@ -3824,12 +3833,19 @@ padding-right: 5px;
 	showstartmsg();
 
 	function coursemsgclose() {
-		document.getElementById("showcoursemsg").style.visibility = "hidden";
+		document.getElementById("showcoursemsg").style.display = "none";
 	}
 
 	function showcoursemsg() {
-		document.getElementById("showcoursemsg").innerHTML = 'Winter 2023<br><br>Course has not been selected<br><br>Select the course from the buttons on the previous screen<br><br><br><p style="text-align: center;font-size: 15px;">- tap to close -</p>';
-		document.getElementById("showcoursemsg").style.visibility = "visible";
+	var setofholes = "";
+		for(var i = 1; i <= 18; i++) {
+		setofholes += '<button class="roundels">hole ' + i + '</button>'
+			if (i==6 || i==12) {
+				setofholes += "<br><br>";
+			}
+		}
+		document.getElementById("showcoursemsg").innerHTML = setofholes;
+		document.getElementById("showcoursemsg").style.display = "inline";
 	}
 	// send info from HTML form to google form	
 	function submitForm() {
@@ -4277,6 +4293,10 @@ padding-right: 5px;
 		document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
 	}
 
+function lrwhite() {
+alert("lrwhite")
+showcoursemsg();
+}
 </script>
 </body>
 
