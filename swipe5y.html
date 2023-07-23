@@ -3839,14 +3839,17 @@ margin: 10px;
 	function showcoursemsg() {
 	var setofholes = "";
 		for(var i = 1; i <= 18; i++) {
-		setofholes += '<button class="roundels">hole ' + i + '</button>'
-			if (i==6 || i==12) {
-				setofholes += "<br><br>";
-			}
+			setofholes += '<button class="roundels" ><a href="#hole' + i + '">hole ' + i + '</a></button>'
 		}
 		document.getElementById("showcoursemsg").innerHTML = setofholes;
 		document.getElementById("showcoursemsg").style.display = "inline";
 	}
+
+	function hole1roundel() {
+//<a href="#INSERT_YOUR_OBJECT_NAME_HERE">
+	}
+
+	
 	// send info from HTML form to google form	
 	function submitForm() {
 		// get the relevant info into a form
