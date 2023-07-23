@@ -3894,11 +3894,27 @@ margin: 10px;
 	function xtest(h) {
     // move
     var hh = h.replace("r","hole") 
-    location.hash = "#" + hh;
+    // front 9
+		if (hh == "holex1") {
+			location.hash = "#" + "midpoint"
+		}
+		// back 9
+		if (hh == "holex2") {
+			location.hash = "#" + "penultimatepage"
+		}
+		// submit
+		if (hh == "holex3") {
+			location.hash = "#" + "beforefinalpage"
+		}
+		// do normal holes
+		if (hh !== "holex1" && hh !== "holex2" && hh !== "holex3") {
+		    location.hash = "#" + hh;
+		}
     // close navigation panel
     for (var i = 1; i <= 18; i++) {
         document.getElementById("showcoursemsg" + i).style.display = "none";
     }
+    
     // tidy url hash
 		var pathname = window.location.pathname;
     if (window.history.replaceState) {
@@ -3911,11 +3927,11 @@ margin: 10px;
 		for(var i = 1; i <= 18; i++) {
 			setofholes += '<button class="roundels" id="r' + i + '" onclick="xtest(this.id)">hole ' + i + '</button>'
 			if (i == 9) {
-				setofholes += '<button class="roundels" onclick="coursemsgclose()"><a href="#midpoint">front 9</a></button>'			
+				setofholes += '<button class="roundels" id="rx1" onclick="xtest(this.id)">front 9</button>'			
 			}
 			if (i == 18) {
-				setofholes += '<button class="roundels" onclick="coursemsgclose()"><a href="#penultimatepage">back 9</a></button>'
-				setofholes += '<button class="roundels" onclick="coursemsgclose()"><a href="#beforefinalpage">submit</a></button>'
+				setofholes += '<button class="roundels" id="rx2" onclick="xtest(this.id)">back 9</button>'
+				setofholes += '<button class="roundels" id="rx3" onclick="xtest(this.id)">submit</button>'
 			}
 		}
 		document.getElementById(id).innerHTML = setofholes;
