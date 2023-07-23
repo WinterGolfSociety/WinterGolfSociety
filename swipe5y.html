@@ -3907,17 +3907,9 @@ margin: 10px;
 	}
 
 	function showcoursemsg(id) {
-	alert("xxx = " + id);
-	var setofholes = "";
+		var setofholes = "";
 		for(var i = 1; i <= 18; i++) {
-			//setofholes += '<button class="roundels" ><a href="#hole' + i + '">hole ' + i + '</a></button>'
-			
-			
 			setofholes += '<button class="roundels" id="r' + i + '" onclick="xtest(this.id)">hole ' + i + '</button>'
-			
-	
-			
-			
 			if (i == 9) {
 				setofholes += '<button class="roundels" onclick="coursemsgclose()"><a href="#midpoint">front 9</a></button>'			
 			}
@@ -3926,10 +3918,8 @@ margin: 10px;
 				setofholes += '<button class="roundels" onclick="coursemsgclose()"><a href="#beforefinalpage">submit</a></button>'
 			}
 		}
-		
 		document.getElementById(id).innerHTML = setofholes;
 		document.getElementById(id).style.display = "inline";
-		alert("xxx after = " + id);
 	}
 
 	function hole1roundel() {
@@ -4384,7 +4374,7 @@ margin: 10px;
 	}
 
 function lrwhite(id) {
-alert("show" + id)
+//alert("show" + id)
 showcoursemsg("show" + id);
 }
 </script>
