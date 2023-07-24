@@ -958,30 +958,43 @@
 		localStorage.dropdown = JSON.stringify(master);
 		//=============================================
 	}
+	// default notsame to false
+	var notsame = false;
 	if("dropdown" in localStorage) {
 		// retrieve dropdown info
 		var options = JSON.parse(localStorage.dropdown);
-		//var ol = options.length;
-		//var ml = master.length;
-		// update to add anything new - if required. Works on differing number of members in list
-	//	alert(ol + " - " + ml)
-	//	if(ol !== ml) {
-		if (JSON.stringify(options) !== JSON.stringify(master)) {
-			// option is original, master is new
-			// update new with numbers from original
-			for(var i = 0; i < options.length; i++) {
-				for(var j = 0; j < master.length; j++) {
-					if(options[i][0] == master[j][0]) {
-						master[j][1] = options[i][1];
-					}
+			// see if different number of items
+	  	if (options.length !== master.length) {
+  			notsame = true;
+  		} else {
+    			// Comparing each element of your array
+    			for (var i = 0; i < options.length; i++) {
+							// see if items are different
+      				if (options[i][0] !== master[i][0]) {
+        				notsame = true;
+    		  		}
+    			}
+  		}
+	};
+	
+	
+	// if different
+	if (notsame) {
+		// option is original, master is new
+		// update new with numbers from original
+		for(var i = 0; i < options.length; i++) {
+			for(var j = 0; j < master.length; j++) {
+				if(options[i][0] == master[j][0]) {
+					master[j][1] = options[i][1];
 				}
 			}
-			options = JSON.parse(JSON.stringify(master));
-			//=====LocalStorage.dropdown====================
-			localStorage.dropdown = JSON.stringify(options);
-			//==============================================
 		}
+		options = JSON.parse(JSON.stringify(master));
+		//=====LocalStorage.dropdown====================
+		localStorage.dropdown = JSON.stringify(options);
+		//==============================================
 	}
+	
 	// bring most commonly selected to the top
 	options.sort(compareSecondColumn);
 	// create player dropdown
