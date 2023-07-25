@@ -1412,20 +1412,14 @@
 				// keep user interested by changing colors ???
 				setTimeout(function() {
 					document.getElementById('submitwrapper').style.borderColor = "white";
-					document.getElementById('submitwrapper').style.background = "mediumPurple";
+					document.getElementById('submitwrapper').style.background = "mediumSpringGreen";
 					document.getElementById('submittxt').style.color = "darkSlateGray";
 					document.getElementById('submittxt').style.fontWeight = "400";
 					document.getElementById('submittxt').innerText = "transferring ...";
 				}, 2000);
+			
 				//
-				setTimeout(function() {
-					document.getElementById('submitwrapper').style.borderColor = "white";
-					document.getElementById('submitwrapper').style.background = "cyan";
-					document.getElementById('submittxt').style.color = "darkSlateGray";
-					document.getElementById('submittxt').style.fontWeight = "400";
-					document.getElementById('submittxt').innerText = "transfer completed";
-				}, 4000);
-				//
+				/*
 				setTimeout(function() {
 					document.getElementById('submitwrapper').style.borderColor = "white";
 					document.getElementById('submitwrapper').style.background = "mediumSpringGreen";
@@ -1433,6 +1427,13 @@
 					document.getElementById('submittxt').style.fontWeight = "400";
 					document.getElementById('submittxt').innerText = "submitted - OK";
 				}, 5500);
+				*/
+
+				setTimeout(function() {
+					document.getElementById('submittxt').innerHTML = 
+					'<img src="greentick.png" width="150" height="150">'
+					
+				}, 4000);
 				// return to main menu
 				setTimeout(function() {
 					 window.location.assign("winter2023.html");
