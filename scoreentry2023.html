@@ -1303,7 +1303,7 @@
 	function submitForm() {
 		// get the relevant info into a form
 		// dont allow submit for an incorrect day
-		if(compday == "xxxxxxno") {
+		if(compday == "no") {
 			showNoSubmitMessage();
 		} else {
 			document.getElementById('mx474474348').value = player;
@@ -1397,13 +1397,13 @@
 				err = "yes"; 
 			}
 			
-			if (err == "xxxxxyes") {
+			if (err == "yes") {
 				// error message
 				checkBeforeSubmitID = checkBeforeSubmitID + "\n... etc.\n";
 				showIncompleteSubmitData(checkBeforeSubmitID);
 			} else {
 				//===== submit data
-	//			document.forms[0].submit();
+				document.forms[0].submit();
 				document.getElementById('submitwrapper').style.borderColor = "mediumSpringGreen";
 				document.getElementById('submitwrapper').style.background = "dodgerBlue";
 				document.getElementById('submittxt').innerText = "submitting data";
