@@ -1419,10 +1419,16 @@
 				}, 2000);
 				// show tick
 				setTimeout(function() {
+				if (document.getElementById("setup").style.backgroundColor == "black") {
+					document.getElementById('submitwrapper').style.borderColor = "black";
+					document.getElementById('submitwrapper').style.background = "black";
+				} else {
 					document.getElementById('submitwrapper').style.borderColor = "darkSlateGray";
 					document.getElementById('submitwrapper').style.background = "darkSlateGray";
-					document.getElementById('submittxt').innerHTML = 
-					'<img src="tickmark.png" style="height: 100px; width: 120px;">'
+				}	
+				
+				document.getElementById('submittxt').innerHTML = 
+				'<img src="tickmark.png" style="height: 100px; width: 120px;">'
 					
 				}, 4000);
 				// return to main menu
