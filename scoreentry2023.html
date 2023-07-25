@@ -362,6 +362,11 @@
 		//  filter: blur(5px);
 		visibility: hidden;
 	}
+
+	#numhcp {
+		visibility: visible;
+	}
+	
 	.indicator {
 	font-size: 18px;
 	text-align: left;
@@ -1298,7 +1303,7 @@
 	function submitForm() {
 		// get the relevant info into a form
 		// dont allow submit for an incorrect day
-		if(compday == "no") {
+		if(compday == "xxxxxxno") {
 			showNoSubmitMessage();
 		} else {
 			document.getElementById('mx474474348').value = player;
@@ -1392,17 +1397,35 @@
 				err = "yes"; 
 			}
 			
-			if (err == "yes") {
+			if (err == "xxxxxyes") {
 				// error message
 				checkBeforeSubmitID = checkBeforeSubmitID + "\n... etc.\n";
 				showIncompleteSubmitData(checkBeforeSubmitID);
 			} else {
 				//===== submit data
-				document.forms[0].submit();
+	//			document.forms[0].submit();
 				document.getElementById('submitwrapper').style.borderColor = "mediumSpringGreen";
 				document.getElementById('submitwrapper').style.background = "dodgerBlue";
 				document.getElementById('submittxt').innerText = "submitting data";
+			
 				// allow some time for submit then give a completion message
+				// keep user interested by changing colors ???
+				setTimeout(function() {
+					document.getElementById('submitwrapper').style.borderColor = "white";
+					document.getElementById('submitwrapper').style.background = "mediumPurple";
+					document.getElementById('submittxt').style.color = "darkSlateGray";
+					document.getElementById('submittxt').style.fontWeight = "400";
+					document.getElementById('submittxt').innerText = "transferring ...";
+				}, 2000);
+				//
+				setTimeout(function() {
+					document.getElementById('submitwrapper').style.borderColor = "white";
+					document.getElementById('submitwrapper').style.background = "cyan";
+					document.getElementById('submittxt').style.color = "darkSlateGray";
+					document.getElementById('submittxt').style.fontWeight = "400";
+					document.getElementById('submittxt').innerText = "transfer completed";
+				}, 4000);
+				//
 				setTimeout(function() {
 					document.getElementById('submitwrapper').style.borderColor = "white";
 					document.getElementById('submitwrapper').style.background = "mediumSpringGreen";
@@ -1410,6 +1433,10 @@
 					document.getElementById('submittxt').style.fontWeight = "400";
 					document.getElementById('submittxt').innerText = "submitted - OK";
 				}, 5000);
+				// return to main menu
+				setTimeout(function() {
+					 window.location.assign("winter2023.html");
+				}, 6000);
 			}
 		}
 	}
@@ -1877,6 +1904,59 @@
 			document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 3000);
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// message for non competition day denying submit
+	function showTick() {
+		document.getElementById("id_confrmdiv").innerHTML = "Submit for " + comp + 
+		'<img src="greentick.png" width=40 height=40>'
+	
+		document.getElementById("id_confrmdiv").style.display = "block";
+		setTimeout(function() {
+			document.getElementById("id_confrmdiv").innerText = "";
+			document.getElementById("id_confrmdiv").style.display = "none";
+		}, 3000);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	// choose course dialog for non competition day
 	function showCourseChoice() {
 		tempt = '<br /> No competition today. Select which course to use.';
