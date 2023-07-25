@@ -1417,18 +1417,7 @@
 					document.getElementById('submittxt').style.fontWeight = "400";
 					document.getElementById('submittxt').innerText = "transferring ...";
 				}, 2000);
-			
-				//
-				/*
-				setTimeout(function() {
-					document.getElementById('submitwrapper').style.borderColor = "white";
-					document.getElementById('submitwrapper').style.background = "mediumSpringGreen";
-					document.getElementById('submittxt').style.color = "darkSlateGray";
-					document.getElementById('submittxt').style.fontWeight = "400";
-					document.getElementById('submittxt').innerText = "submitted - OK";
-				}, 5500);
-				*/
-
+				// show tick
 				setTimeout(function() {
 					document.getElementById('submittxt').innerHTML = 
 					'<img src="bluetick.png" style="height: 100px; width: 100px;">'
@@ -1437,7 +1426,7 @@
 				// return to main menu
 				setTimeout(function() {
 					 window.location.assign("winter2023.html");
-				}, 7000);
+				}, 6000);
 			}
 		}
 	}
