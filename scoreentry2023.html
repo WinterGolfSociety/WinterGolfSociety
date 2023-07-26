@@ -1923,13 +1923,13 @@
 			// put back hcp
 			document.getElementById("numhcp").innerHTML = "";
 			document.getElementById("numhcp").innerText = "?";
-			document.getElementById("numhcp").style.fontSize = "15px";
-			document.getElementById("numhcp").style.paddingTop = "20px";
+	//		document.getElementById("numhcp").style.fontSize = "15px";
+	//		document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 3000);
 	}
 	// message saying HCP lookup failed
 	function showMessageRetryHCPFailed() {
-		document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" + "check the network and try again.\n" + "or\n" + "lookup your HCP and enter manually\n\n";
+		document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" + "check the network and try again.\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
 		setTimeout(function() {
 			document.getElementById("id_confrmdiv").innerText = "";
@@ -1937,63 +1937,10 @@
 			// put back hcp
 			document.getElementById("numhcp").innerHTML = "";
 			document.getElementById("numhcp").innerText = "?";
-			document.getElementById("numhcp").style.fontSize = "15px";
-			document.getElementById("numhcp").style.paddingTop = "20px";
+			//document.getElementById("numhcp").style.fontSize = "15px";
+			//document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 3000);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// message for non competition day denying submit
-	function showTick() {
-		document.getElementById("id_confrmdiv").innerHTML = "Submit for " + comp + 
-		'<img src="greentick.png" width=40 height=40>'
-	
-		document.getElementById("id_confrmdiv").style.display = "block";
-		setTimeout(function() {
-			document.getElementById("id_confrmdiv").innerText = "";
-			document.getElementById("id_confrmdiv").style.display = "none";
-		}, 3000);
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 	// choose course dialog for non competition day
 	function showCourseChoice() {
 		tempt = '<br /> No competition today. Select which course to use.';
