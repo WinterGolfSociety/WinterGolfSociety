@@ -573,7 +573,7 @@
 										<!--
 											<div class="hcpwrapper" id="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
 									  -->
-								<div class="hcpwrapper" id="hcpwrapper"><span class="minusx" id="minushcpx">playing</span><span class="numx" id="numhcp">hcp</span> <span class="plusx" id="plushcpx">handicap</span></div>
+								<div class="hcpwrapper" id="hcpwrapper"><span class="minusx" id="minushcpx">playing</span><span class="numx" id="numhcp">?</span> <span class="plusx" id="plushcpx">handicap</span></div>
 										</td>
 									</tr>
 									<tr>
@@ -1655,11 +1655,11 @@
 	function doGetHCP() {
 		// show hcp and controls on screen
 		document.getElementById("hcpwrapper").style.visibility = "visible";
-		if(document.getElementById("numhcp").innerText == "hcp") {
+		if(document.getElementById("numhcp").innerText == "?") {
 			document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=50 height=50>'
 			document.getElementById("numhcp").style.paddingTop = "10px";
 			var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
-			strng2 = "hcp";
+			strng2 = "?";
 			try {
 				// if it fails after 10 seconds, put up error message
 				setTimeout(function() {
@@ -1807,7 +1807,7 @@
 			// make submit visible
 			document.getElementById("submitwrapper").style.visibility = "visible";
 		} else {
-			document.getElementById("numhcp").innerText = "hcp";
+			document.getElementById("numhcp").innerText = "?";
 			//document.getElementById("numhcp").style.fontSize = "15px";
 			//document.getElementById("numhcp").style.paddingTop = "20px";
 		}
@@ -1923,7 +1923,7 @@
 			document.getElementById("id_confrmdiv").style.display = "none";
 			// put back hcp
 			document.getElementById("numhcp").innerHTML = "";
-			document.getElementById("numhcp").innerText = "hcp";
+			document.getElementById("numhcp").innerText = "?";
 			document.getElementById("numhcp").style.fontSize = "15px";
 			document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 3000);
@@ -1937,7 +1937,7 @@
 			document.getElementById("id_confrmdiv").style.display = "none";
 			// put back hcp
 			document.getElementById("numhcp").innerHTML = "";
-			document.getElementById("numhcp").innerText = "hcp";
+			document.getElementById("numhcp").innerText = "?";
 			document.getElementById("numhcp").style.fontSize = "15px";
 			document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 3000);
