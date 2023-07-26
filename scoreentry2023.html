@@ -1410,14 +1410,8 @@
 			
 				// allow some time for submit then give a completion message
 				// keep user interested by changing colors ???
-				setTimeout(function() {
-					document.getElementById('submitwrapper').style.borderColor = "white";
-					document.getElementById('submitwrapper').style.background = "mediumSpringGreen";
-					document.getElementById('submittxt').style.color = "darkSlateGray";
-					document.getElementById('submittxt').style.fontWeight = "400";
-					document.getElementById('submittxt').innerText = "transferring ...";
-				}, 2000);
-				// show tick
+				
+				// show sending icon
 				setTimeout(function() {
 				if (document.getElementById("setup").style.backgroundColor == "black") {
 					document.getElementById('submitwrapper').style.borderColor = "black";
@@ -1428,13 +1422,17 @@
 				}	
 				
 				document.getElementById('submittxt').innerHTML = 
-				'<img src="tickmark.png" style="height: 100px; width: 120px;">'
+				'<img src="update.png" style="height: 100px; width: 100px;">sending'
 					
-				}, 4000);
+				}, 2000);
+
+				setTimeout(function() {
+					 	'<img src="bluetick.png" style="height: 100px; width: 100px;">done'
+				}, 6000);
 				// return to main menu
 				setTimeout(function() {
 					 window.location.assign("winter2023.html");
-				}, 6000);
+				}, 8000);
 			}
 		}
 	}
