@@ -1463,13 +1463,14 @@
 				}	
 				
 				document.getElementById('submittxt').innerHTML = 
-				'<img src="uploada.png" style="height: 100px; width: 100px;">'
-					
+					'<img src="uploada.png" style="height: 100px; width: 100px;">'
 				}, 2000);
 
 				setTimeout(function() {
+					document.getElementById('submittxt').innerHTML = 
 					 	'<img src="tick1.png" style="height: 100px; width: 100px;">'
 				}, 6000);
+				
 				// return to main menu
 				setTimeout(function() {
 					 window.location.assign("winter2023.html");
