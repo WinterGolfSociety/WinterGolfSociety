@@ -86,13 +86,13 @@
 	}
 	
 	.plus {
-		font-size: 50px;
+		font-size: 20px;
 		color: white;
 		width: 38vw;
-		padding-right: 2vw;
-		padding-left: 20vw;
+		padding-left: 7vw;
+		padding-top: 20px;
 		display: flex;
-		justify-content: center;
+		justify-content: left;
 		float: right;
 	}
 	
@@ -118,13 +118,13 @@
 	}
 	
 	.minus {
-		font-size: 50px;
+	  font-size: 20px;
 		color: white;
 		width: 38vw;
-		padding-left: 2vw;
-		padding-right: 20vw;
+		padding-right: 7vw;
+		padding-top: 20px;
 		display: flex;
-		justify-content: center;
+		justify-content: right;
 		float: left;
 	}
 	
@@ -150,13 +150,14 @@
 	}
 	
 	.num {
-		font-size: 15px;
-		padding-top: 20px;
+		font-size: 50px;
+		padding-top: 0;
 		color: white;
 		width: 20vw;
 		float: left;
 		display: flex;
 		justify-content: center;
+		text-align: center;
 	}
 	
 	#numscore1,
@@ -365,6 +366,8 @@
 
 	#numhcp {
 		visibility: visible;
+		font-size: 50px;
+		padding-top: 0;
 	}
 	
 	.indicator {
@@ -533,7 +536,10 @@
 									</tr>
 									<tr class="tr1" id="trhcp">
 										<td class="xxxxtdright" colspan="6">
+										<!--
 											<div class="hcpwrapper" id="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
+									  -->
+								<div class="hcpwrapper" id="hcpwrapper"><span class="minus" id="minushcp">playing</span><span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp">handicap</span></div>
 										</td>
 									</tr>
 									<tr>
@@ -830,6 +836,7 @@
 	"Lakes 17 July 2023", 
 	"Dawson 21 July 2023", 
 	"Lakes 24 July 2023", 
+	"Lakes 26 July 2023", 
 	"Dawson 28 July 2023", 
 	"Lakes 31 July 2023", 
 	"Lakes 04 August 2023", 
@@ -1422,12 +1429,12 @@
 				}	
 				
 				document.getElementById('submittxt').innerHTML = 
-				'<img src="update.png" style="height: 100px; width: 100px;">sending'
+				'<img src="updatea.png" style="height: 100px; width: 100px;">'
 					
 				}, 2000);
 
 				setTimeout(function() {
-					 	'<img src="bluetick.png" style="height: 100px; width: 100px;">done'
+					 	'<img src="tick1.png" style="height: 100px; width: 100px;">'
 				}, 6000);
 				// return to main menu
 				setTimeout(function() {
@@ -1614,7 +1621,7 @@
 		// show hcp and controls on screen
 		document.getElementById("hcpwrapper").style.visibility = "visible";
 		if(document.getElementById("numhcp").innerText == "hcp") {
-			document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=40 height=40>'
+			document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=50 height=50>'
 			document.getElementById("numhcp").style.paddingTop = "10px";
 			var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
 			strng2 = "hcp";
@@ -1766,8 +1773,8 @@
 			document.getElementById("submitwrapper").style.visibility = "visible";
 		} else {
 			document.getElementById("numhcp").innerText = "hcp";
-			document.getElementById("numhcp").style.fontSize = "15px";
-			document.getElementById("numhcp").style.paddingTop = "20px";
+			//document.getElementById("numhcp").style.fontSize = "15px";
+			//document.getElementById("numhcp").style.paddingTop = "20px";
 		}
 		hcp = document.getElementById("numhcp").innerText;
 		if("comp" in localStorage) {
