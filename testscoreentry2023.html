@@ -1402,6 +1402,24 @@
 				checkBeforeSubmitID = checkBeforeSubmitID + "\n... etc.\n";
 				showIncompleteSubmitData(checkBeforeSubmitID);
 			} else {
+
+
+	alert("sss");
+				if (document.getElementById("setup").style.backgroundColor == "black") {
+					document.getElementById('submitwrapper').style.borderColor = "black";
+					document.getElementById('submitwrapper').style.background = "black";
+				} else {
+					document.getElementById('submitwrapper').style.borderColor = "darkSlateGray";
+					document.getElementById('submitwrapper').style.background = "darkSlateGray";
+				}	
+						//	document.getElementById('submitwrapper').style.borderColor = "yellow";
+		
+				document.getElementById('submittxt').innerHTML = 
+				'<img src="uploada.png" style="height: 100px; width: 100px;">sending data ...'
+					
+/*				
+
+			
 				//===== submit data
 				//document.forms[0].submit();
 				document.getElementById('submitwrapper').style.borderColor = "mediumSpringGreen";
@@ -1417,6 +1435,9 @@
 					document.getElementById('submittxt').style.fontWeight = "400";
 					document.getElementById('submittxt').innerText = "transferring ...";
 				}, 2000);
+
+*/
+				
 				// show tick
 				setTimeout(function() {
 				if (document.getElementById("setup").style.backgroundColor == "black") {
@@ -1428,13 +1449,13 @@
 				}	
 				
 				document.getElementById('submittxt').innerHTML = 
-				'<img src="tickmark.png" style="height: 100px; width: 120px;">'
+				'<img src="tick1.png" style="height: 100px; width: 100px;">done ...'
 					
-				}, 4000);
+				}, 6000);
 				// return to main menu
 				setTimeout(function() {
 					 window.location.assign("winter2023.html");
-				}, 6000);
+				}, 8000);
 			}
 		}
 	}
