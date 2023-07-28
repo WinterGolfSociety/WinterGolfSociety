@@ -86,10 +86,20 @@
 	}
 	
 	.plus {
+		font-size: 50px;
+		color: white;
+		width: 38vw;
+		padding-right: 2vw;
+		padding-left: 20vw;
+		display: flex;
+		justify-content: center;
+		float: right;
+	}
+
+	.plusx {
 		font-size: 20px;
 		color: white;
 		width: 38vw;
-		//padding-right: 10vw;
 		padding-left: 7vw;
 		padding-top: 20px;
 		display: flex;
@@ -119,32 +129,25 @@
 	}
 	
 	.minus {
-		font-size: 20px;
+		font-size: 50px;
 		color: white;
 		width: 38vw;
-		//padding-left: 10vw;
+		padding-left: 2vw;
+		padding-right: 20vw;
+		display: flex;
+		justify-content: center;
+		float: left;
+	}
+
+	.minusx {
+	  font-size: 20px;
+		color: white;
+		width: 38vw;
 		padding-right: 7vw;
 		padding-top: 20px;
 		display: flex;
 		justify-content: right;
 		float: left;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	#minusscore1,
@@ -176,11 +179,17 @@
 		float: left;
 		display: flex;
 		justify-content: center;
-		
-		
+	}
+
+	.numx {
+		font-size: 50px;
+		padding-top: 0;
+		color: white;
+		width: 20vw;
+		float: left;
+		display: flex;
+		justify-content: center;
 		text-align: center;
-		
-		
 	}
 	
 	#numscore1,
@@ -389,7 +398,11 @@
 
 	#numhcp {
 		visibility: visible;
+		font-size: 50px;
+		padding-top: 0;
 	}
+
+	
 	
 	.indicator {
 	font-size: 18px;
@@ -397,6 +410,15 @@
 	color: yellow;
 	}
 	
+	
+	#submitwrapper {
+ 	 	opacity: 1;
+  		transition: opacity 1s; 
+	}
+
+	#submitwrapper.fade {
+  		opacity: 0;
+	}
 	
 
 	
@@ -557,15 +579,10 @@
 									</tr>
 									<tr class="tr1" id="trhcp">
 										<td class="xxxxtdright" colspan="6">
-<!--										
+										<!--
 											<div class="hcpwrapper" id="hcpwrapper"> <span class="minus" id="minushcp" onclick='decrementHcp("numhcp")'>-</span> <span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp" onclick='incrementHcp("numhcp");'>+</span> </div>
--->
-<div class="hcpwrapper" id="hcpwrapper"><span class="minus" id="minushcp">playing</span><span class="num" id="numhcp">hcp</span> <span class="plus" id="plushcp">hcp</span></div>
-
-
-
-
-	
+									  -->
+								<div class="hcpwrapper" id="hcpwrapper"><span class="minusx" id="minushcpx">playing</span><span class="numx" id="numhcp">?</span> <span class="plusx" id="plushcpx">handicap</span></div>
 										</td>
 									</tr>
 									<tr>
@@ -1335,7 +1352,7 @@
 	function submitForm() {
 		// get the relevant info into a form
 		// dont allow submit for an incorrect day
-		if(compday == "xxxno") {
+		if(compday == "no") {
 			showNoSubmitMessage();
 		} else {
 			document.getElementById('mx474474348').value = player;
@@ -1429,61 +1446,48 @@
 				err = "yes"; 
 			}
 			
-			if (err == "xxxyes") {
+			if (err == "yes") {
 				// error message
 				checkBeforeSubmitID = checkBeforeSubmitID + "\n... etc.\n";
 				showIncompleteSubmitData(checkBeforeSubmitID);
 			} else {
-
-
-	
-				if (document.getElementById("setup").style.backgroundColor == "black") {
-					document.getElementById('submitwrapper').style.borderColor = "black";
-					document.getElementById('submitwrapper').style.background = "black";
-				} else {
-					document.getElementById('submitwrapper').style.borderColor = "darkSlateGray";
-					document.getElementById('submitwrapper').style.background = "darkSlateGray";
-				}	
-						//	document.getElementById('submitwrapper').style.borderColor = "yellow";
-		
-				document.getElementById('submittxt').innerHTML = 
-				'<img src="uploada.png" style="height: 100px; width: 100px;">'
-					
-/*				
-
-			
 				//===== submit data
+				
+				
+				
+				
+				
 				//document.forms[0].submit();
-				document.getElementById('submitwrapper').style.borderColor = "mediumSpringGreen";
-				document.getElementById('submitwrapper').style.background = "dodgerBlue";
-				document.getElementById('submittxt').innerText = "submitting data";
-			
+				
+				var slideSource = document.getElementById('submitwrapper');
+				slideSource.classList.toggle('fade');
+	
 				// allow some time for submit then give a completion message
 				// keep user interested by changing colors ???
-				setTimeout(function() {
-					document.getElementById('submitwrapper').style.borderColor = "white";
-					document.getElementById('submitwrapper').style.background = "mediumSpringGreen";
-					document.getElementById('submittxt').style.color = "darkSlateGray";
-					document.getElementById('submittxt').style.fontWeight = "400";
-					document.getElementById('submittxt').innerText = "transferring ...";
-				}, 2000);
-
-*/
 				
-				// show tick
+				// show sending icon
 				setTimeout(function() {
+
 				if (document.getElementById("setup").style.backgroundColor == "black") {
 					document.getElementById('submitwrapper').style.borderColor = "black";
 					document.getElementById('submitwrapper').style.background = "black";
 				} else {
 					document.getElementById('submitwrapper').style.borderColor = "darkSlateGray";
 					document.getElementById('submitwrapper').style.background = "darkSlateGray";
-				}	
-				
+				}
+				document.getElementById('submittxt').innerText = "";
+
+				slideSource.classList.toggle('fade');	
+
 				document.getElementById('submittxt').innerHTML = 
-				'<img src="tick1.png" style="height: 100px; width: 100px;">'
-					
-				}, 6000);
+					'<img src="uploada.png" style="height: 100px; width: 100px;">'
+				}, 1000);
+
+				setTimeout(function() {
+					document.getElementById('submittxt').innerHTML = 
+					 	'<img src="tick1.png" style="height: 100px; width: 100px;">'
+				}, 6500);
+				
 				// return to main menu
 				setTimeout(function() {
 					 window.location.assign("winter2023.html");
@@ -1668,18 +1672,19 @@
 	function doGetHCP() {
 		// show hcp and controls on screen
 		document.getElementById("hcpwrapper").style.visibility = "visible";
-		if(document.getElementById("numhcp").innerText == "hcp") {
-			document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=40 height=40>'
-			document.getElementById("numhcp").style.paddingTop = "10px";
+		if(document.getElementById("numhcp").innerText == "?") {
+			document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=50 height=50>'
+			document.getElementById("numhcp").style.paddingTop = "5px";
+			document.getElementById("numhcp").style.paddingBottom = "5px";
 			var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
-			strng2 = "hcp";
+			strng2 = "?";
 			try {
 				// if it fails after 10 seconds, put up error message
 				setTimeout(function() {
 					if(!(Math.trunc(strng2) > 0)) {
 						showMessageRetryHCPFailed();
 					}
-				}, 10000);
+				}, 15000);
 				Papa.parse(public_hcp_url, {
 					download: true,
 					header: true,
@@ -1697,6 +1702,7 @@
 							document.getElementById("numhcp").innerHTML = "";
 							document.getElementById("numhcp").style.fontSize = "50px";
 							document.getElementById("numhcp").style.paddingTop = 0;
+							document.getElementById("numhcp").style.paddingBottom = 0;
 							document.getElementById("numhcp").innerText = Math.trunc(strng2);
 							// update global hcp
 							hcp = Math.trunc(strng2);
@@ -1762,12 +1768,12 @@
 			document.getElementById("numhcp").style.background = "dodgerBlue";
 			document.getElementById("numhcp").style.color = "white";
 			document.getElementById("numhcp").style.fontWeight = "400";
-			document.getElementById("plushcp").style.background = "dodgerBlue";
-			document.getElementById("plushcp").style.color = "white";
-			document.getElementById("plushcp").style.fontWeight = "400";
-			document.getElementById("minushcp").style.background = "dodgerBlue";
-			document.getElementById("minushcp").style.color = "white";
-			document.getElementById("minushcp").style.fontWeight = "400";
+			document.getElementById("plushcpx").style.background = "dodgerBlue";
+			document.getElementById("plushcpx").style.color = "white";
+			document.getElementById("plushcpx").style.fontWeight = "400";
+			document.getElementById("minushcpx").style.background = "dodgerBlue";
+			document.getElementById("minushcpx").style.color = "white";
+			document.getElementById("minushcpx").style.fontWeight = "400";
 			document.getElementById("trhcp").style.background = "dodgerBlue";
 			document.getElementById("setup").style.backgroundColor = "darkSlateGray";
 		} else {
@@ -1790,12 +1796,12 @@
 			document.getElementById("numhcp").style.background = "midnightBlue";
 			document.getElementById("numhcp").style.color = "yellow";
 			document.getElementById("numhcp").style.fontWeight = "700";
-			document.getElementById("plushcp").style.background = "midnightBlue";
-			document.getElementById("plushcp").style.color = "yellow";
-			document.getElementById("plushcp").style.fontWeight = "700";
-			document.getElementById("minushcp").style.background = "midnightBlue";
-			document.getElementById("minushcp").style.color = "yellow";
-			document.getElementById("minushcp").style.fontWeight = "700";
+			document.getElementById("plushcpx").style.background = "midnightBlue";
+			document.getElementById("plushcpx").style.color = "yellow";
+			document.getElementById("plushcpx").style.fontWeight = "700";
+			document.getElementById("minushcpx").style.background = "midnightBlue";
+			document.getElementById("minushcpx").style.color = "yellow";
+			document.getElementById("minushcpx").style.fontWeight = "700";
 			document.getElementById("trhcp").style.background = "midnightBlue";
 			document.getElementById("setup").style.backgroundColor = "black";
 		}
@@ -1820,9 +1826,9 @@
 			// make submit visible
 			document.getElementById("submitwrapper").style.visibility = "visible";
 		} else {
-			document.getElementById("numhcp").innerText = "hcp";
-			document.getElementById("numhcp").style.fontSize = "15px";
-			document.getElementById("numhcp").style.paddingTop = "20px";
+			document.getElementById("numhcp").innerText = "?";
+			//document.getElementById("numhcp").style.fontSize = "15px";
+			//document.getElementById("numhcp").style.paddingTop = "20px";
 		}
 		hcp = document.getElementById("numhcp").innerText;
 		if("comp" in localStorage) {
@@ -1936,78 +1942,25 @@
 			document.getElementById("id_confrmdiv").style.display = "none";
 			// put back hcp
 			document.getElementById("numhcp").innerHTML = "";
-			document.getElementById("numhcp").innerText = "hcp";
-			document.getElementById("numhcp").style.fontSize = "15px";
-			document.getElementById("numhcp").style.paddingTop = "20px";
+			document.getElementById("numhcp").innerText = "?";
+	//		document.getElementById("numhcp").style.fontSize = "15px";
+	//		document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 3000);
 	}
 	// message saying HCP lookup failed
 	function showMessageRetryHCPFailed() {
-		document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" + "check the network and try again.\n" + "or\n" + "lookup your HCP and enter manually\n\n";
+		document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" + "check the network and try again.\n\n";
 		document.getElementById("id_confrmdiv").style.display = "block";
 		setTimeout(function() {
 			document.getElementById("id_confrmdiv").innerText = "";
 			document.getElementById("id_confrmdiv").style.display = "none";
 			// put back hcp
 			document.getElementById("numhcp").innerHTML = "";
-			document.getElementById("numhcp").innerText = "hcp";
-			document.getElementById("numhcp").style.fontSize = "15px";
-			document.getElementById("numhcp").style.paddingTop = "20px";
+			document.getElementById("numhcp").innerText = "?";
+			//document.getElementById("numhcp").style.fontSize = "15px";
+			//document.getElementById("numhcp").style.paddingTop = "20px";
 		}, 3000);
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// message for non competition day denying submit
-	function showTick() {
-		document.getElementById("id_confrmdiv").innerHTML = "Submit for " + comp + 
-		'<img src="greentick.png" width=40 height=40>'
-	
-		document.getElementById("id_confrmdiv").style.display = "block";
-		setTimeout(function() {
-			document.getElementById("id_confrmdiv").innerText = "";
-			document.getElementById("id_confrmdiv").style.display = "none";
-		}, 3000);
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 	// choose course dialog for non competition day
 	function showCourseChoice() {
 		tempt = '<br /> No competition today. Select which course to use.';
