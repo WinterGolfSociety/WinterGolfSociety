@@ -807,6 +807,56 @@
 	<br>
 	<br>
 	<script>
+
+
+
+
+
+
+
+
+
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    deferredPrompt = e;
+});
+
+const installApp = document.getElementById('installApp');
+
+installApp.addEventListener('click', async () => {
+    if (deferredPrompt !== null) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            deferredPrompt = null;
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//===========================
 	// this code runs at startup
 	//===========================
@@ -1975,6 +2025,7 @@
 	function showHole(id) {
 		tempe = document.getElementById(id);	
 		tempsaved = tempe.innerText;
+	
 		// only do it if number is obscuring hole number
 		if (tempsaved.indexOf("hole") == -1) {
 			// change to hole1 etc and change font size
@@ -1983,15 +2034,23 @@
 			tempe.style.paddingTop = "20px";
 			tempe.style.fontWeight = "bold";
 			tempe.style.color = "lime";
-				
+			// disable click
+			for(var i = 1; i <= 18; i++) {   
+				document.getElementById("numscore" + i).style.pointerEvents = 'none';
+			}
+
 			// put info back
 			setTimeout(function() {
+			// re-enable click
+			for(var i = 1; i <= 18; i++) {   
+				document.getElementById("numscore" + i).style.pointerEvents = '';
+			}
 				tempe.style.fontSize = "50px";
 				tempe.style.paddingTop = 0;
 				tempe.style.fontWeight = "normal";
 				tempe.style.color = "white";
 				tempe.innerText = tempsaved;	
-			}, 3000);
+			}, 500);
 		}
 		
 	}
