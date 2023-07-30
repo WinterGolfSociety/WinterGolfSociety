@@ -62,10 +62,16 @@ display: none;
    font-size: 12px;
    color: lightGray;
 }
- 
+
+#ID {
+  display: none;
+}
 </style>
 </head>
 <body>
+ 
+<a id="ID"></a> 
+ 
 <font size=12; color="#ccc";>Matchplay pairs 2023</font>
 <br><br>
 This is the score entry for the Matchplay Pairs. Each match is "labelled" (eg. "match 19" etc.) to identify it.
@@ -155,7 +161,7 @@ var arr = ["dummy",
 "N Tait/J Jackson",
 "J E Smith/W French",
 "E Saddler/M Edwards",
-"R Green/G Gow",
+"R Green/----------",
 "T Smith/J Matthews",
 "S Alldridge/D Aitkenhead",
 "J Fletcher/J Dean",
@@ -238,6 +244,19 @@ e2.innerText = strUser1 + " selected"
 
 
 function buttonSubmit() {
+ 
+ 
+  
+
+var password = window.prompt("Enter password to allow submitting","");
+document.getElementById("ID").innerHTML = password;
+
+
+
+
+
+if( document.getElementById("ID").innerHTML == "KB" || document.getElementById("ID").innerHTML == "kb" || document.getElementById("ID").innerHTML == "Kb") { 
+  
   if (document.getElementById("submitButton").innerText == "Submit") {
     // do submit stuff here
     var ok = "yes";
@@ -271,7 +290,18 @@ function buttonSubmit() {
     
     
     
+  } 
+  
+  
+  
+} else {
+   alert("submit failed - incorrect password")
   }
+  
+  
+  
+  
+  
 }
 
 
@@ -307,6 +337,12 @@ if (s1.length > 0) {
 }       
 }
 }
+   
+  
+   
+   
+   
+   
    
 </script>
 <br><br>
