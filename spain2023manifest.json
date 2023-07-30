@@ -2,7 +2,7 @@
 
 	"name": "Spain 2023 golf",
 	"short_name": "spain2023",
-	"start_url": "spain2023loader.html",
+	"start_url": "spain2023.html",
 	"background_color": "#2F4F4F",
  	"theme_color": "#2F4F4F",
 	"display": "standalone",
