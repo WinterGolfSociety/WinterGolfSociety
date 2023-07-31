@@ -1455,7 +1455,7 @@
 				//===== submit data
 
 				document.forms[0].submit();
-				
+				// hide button
 				var slideSource = document.getElementById('submitwrapper');
 				slideSource.classList.toggle('fade');
 	
@@ -1463,7 +1463,7 @@
 				// keep user interested by changing colors ???
 				
 				// show sending icon
-				setTimeout(function() {
+				//setTimeout(function() {
 
 				if (document.getElementById("setup").style.backgroundColor == "black") {
 					document.getElementById('submitwrapper').style.borderColor = "black";
@@ -1473,12 +1473,12 @@
 					document.getElementById('submitwrapper').style.background = "darkSlateGray";
 				}
 				document.getElementById('submittxt').innerText = "";
-
+				// show empty text which is placeholder for image
 				slideSource.classList.toggle('fade');	
 
 				document.getElementById('submittxt').innerHTML = 
 					'<img src="uploada.png" style="height: 100px; width: 100px;">'
-				}, 500);
+				//}, 500);
 
 				setTimeout(function() {
 					document.getElementById('submittxt').innerHTML = 
