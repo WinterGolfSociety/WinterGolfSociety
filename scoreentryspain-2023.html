@@ -14,7 +14,7 @@
       margin: 0;
       font: normal 20px Arial, sans-serif;
       color: blue;
-      background: dodgerBlue;
+      background: darkSlateGray;
       
     }
       
@@ -29,7 +29,7 @@
       
       
     .card1 th {
-	  height: 80px;
+	  height: 10px;
 	  width: 100vw; //520px;
 	  
     }
@@ -42,7 +42,7 @@
     }
      
     .card2 th {
-	  height: 80px;
+	  height: 10px;
 	  width: 100vw; //520px;
 	  
     } 
@@ -54,7 +54,7 @@
     } 
      
     .card3 th {
-	  height: 80px;
+	  height: 10px;
 	  width: 100vw; //520px;
 	  
     }
@@ -84,9 +84,10 @@
       height:100%;
       font-size: 40px;
       background: dodgerBlue;
-      border-radius: 10px;
-      border: none;
-      box-shadow: 10px 10px 25px black;
+      border-radius: 5px;
+      //border-style: 1px;
+border: none;
+      //box-shadow: 10px 10px 25px black;
     }
     
     .scorebuttonNC {
@@ -95,9 +96,10 @@
       height:100%;
       font-size: 40px;
       background: dodgerBlue;
-      border-radius: 10px;
-      border: none;
-      box-shadow: 10px 10px 25px black;
+      border-radius: 5px;
+      //border-style: 1px;
+border: none;
+      //box-shadow: 10px 10px 25px black;
     }
 
     @keyframes animate-color {
@@ -113,10 +115,10 @@
       height:100%;
       font-size: 20px;
       background: dodgerBlue;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black;
-      border: none;  
-      
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;
+      //border-style: 1px;  
+      border: none;
     }
     .dropbtnNC {
       color: cyan;
@@ -125,9 +127,10 @@
       height:100%;
       font-size: 20px;
       background: dodgerBlue;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black;
-      border: none;  
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;
+      //border-style: 1px;  
+border: none;
     }
 
     .dropdown {
@@ -145,8 +148,8 @@
       overflow: auto;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black;
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;
     }
 
     .dropdown-content a {
@@ -165,9 +168,9 @@
       height:100%;
       font-size: 50px;
       background: dodgerBlue;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black; 
-      border: none;
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black; 
+      border-style: 1px;
       padding-left: 50px;
       padding-right: 50px;
     }
@@ -183,9 +186,10 @@
       height:100%;
       font-size: 20px;
       background: dodgerBlue;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black;  
-      border: none;
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;  
+      //border-style: 1px;
+border: none;
     }
 
 	#submit:hover {
@@ -219,7 +223,7 @@
       height:100%;
       font-size: 40px;
       background: dodgerBlue;
-      border-radius: 10px 0px 0px 10px; 
+      border-radius: 5px 0px 0px 5px; 
       text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       padding: 14px 0; 
       float:left;
@@ -254,8 +258,8 @@
       height:100%;
       font-size: 20px;
       background: dodgerBlue;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black;    
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;    
 	 }
      
      #aaal,#aaar,#aaac,#aaalscore,#aaarscore,#scoreaaa {	 
@@ -269,8 +273,8 @@
       height:100%;
       font-size: 20px;
       background: dodgerBlue;
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black;
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;
       border: none; 
     }
     
@@ -317,7 +321,7 @@
         <tbody>
 
         <tr>
-            <td>
+            <td colspan="2">
                 <button onclick="myFunction()" class="dropbtn" id="dropbtn">select player name</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
@@ -340,9 +344,7 @@
             </td>
         </tr>
 
-        <tr>
-            <td></td>
-        </tr>
+   <tr></tr>
 
         <tr>
             <td colspan="2" class="xxxxdropdown">
@@ -350,10 +352,8 @@
             </td>
         </tr>
 
-        <tr>
-            <td colspan="2"></td>
-        </tr>
-
+       
+<tr></tr>
 		<tr> 
             <td class="aa" colspan="2">
 			<button type="button"  class="scorebutton">
@@ -510,7 +510,11 @@
                 </button>
             </td>
         </tr>
-
+    	 <tr>
+            <td colspan="2" id="sfb">
+                <button id="submit" onClick="submitForm()">submit</button>
+            </td>
+        </tr>
         <tr>
 			<td colspan="2">
 				<div id="completed" class="cyan"></div>
@@ -522,46 +526,11 @@
 		</tr>
 
 
-        <tr>
-            <td colspan="2" id="sfb">
-                <button id="submit" onClick="submitForm()">submit</button>
-            </td>
-        </tr>
+   
 
 
 
 
-
-		<tr>
-            <td>
-                <button id="showtoday" onClick="showToday()">show today</button>
-            </td>
-            <td>
-                <button id="hidetoday" onClick="hideToday()">hide today</button>
-            </td>
-        </tr>
-
-
-
-		<tr>
-            <td>
-                <button id="showfinal" onClick="showFinal()">show final</button>
-            </td>
-            <td>
-                <button id="hidefinal" onClick="hideFinal()">hide final</button>
-            </td>
-        </tr>
-
-
-
-		<tr>
-            <td>
-                <button id="clearstorage" onClick="clearStorage()">clear storage</button>
-            </td>
-            <td>
-                <button id="xxxyyy">ccc</button>
-            </td>
-        </tr>
 
         </tbody>
     </table>
