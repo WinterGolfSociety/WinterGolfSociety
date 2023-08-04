@@ -1669,7 +1669,8 @@
 	function doGetHCP() {
 		// show hcp and controls on screen
 		document.getElementById("hcpwrapper").style.visibility = "visible";
-		if(document.getElementById("numhcp").innerText == "?") {
+// changed to change hcp on any player change
+//		if(document.getElementById("numhcp").innerText == "?") {
 			document.getElementById("numhcp").innerHTML = '<img src="eyewhitegrayflash.png" width=50 height=50>'
 			document.getElementById("numhcp").style.paddingTop = "5px";
 			document.getElementById("numhcp").style.paddingBottom = "5px";
@@ -1717,7 +1718,7 @@
 				console.log("bryan error");
 			}
 			
-		} // if ended
+//		} // if ended
 		
 		// change to swipe icon
 		document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
