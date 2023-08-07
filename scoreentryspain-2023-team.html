@@ -591,7 +591,7 @@ var playerList = [
 "Trevor Charlton",
 "Neil Coxon",
 "John Dean",
-"Paul Durrance",
+"Paul Durance",
 "Richard Hedley",
 "Clive Herbert",
 "Eddie Hicks",
@@ -618,7 +618,7 @@ for (j = 10; j <19; j++) {
 
 
 function recoverTempData(what) {
-// allows the current state of prorress to be carried across restarts	
+// allows the current state of progress to be carried across restarts	
 // save and restore progress by updating the global variables	
 // globals - as defined
 	
@@ -983,6 +983,12 @@ function incrementScore(id) {
 	incPoints = document.getElementById(id).innerText;
     document.getElementById(id).innerText = ++incPoints;
     //calcCbs() 
+
+	// clear storage if 99
+	if (incPoints >= 98) {
+		localStorage.clear()
+	}
+
 } 
   
   
