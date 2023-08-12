@@ -164,6 +164,7 @@
      {
     padding-left: 20px;
     padding-bottom: 10px;
+        padding-top: 10px;
     float: left;
   }
   #plusicon1,
@@ -173,6 +174,7 @@
      {
     padding-right: 20px;
     padding-bottom: 10px;
+        padding-top: 10px;
     float: right;
   }
      
@@ -304,9 +306,9 @@
             <td class="td1pad10" id="test" colspan="5">
               <div class="slidecontainer" id="slidecontainer1">
                 <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange1">
-               <p><span id="demo1x"></span></p> 
-                <div class="minusiconcontainer" id="minusicon1"> <img src="minusgreen.png" alt="minus" onclick="minus(1)" style="height: 60px; width: 60px;"> </div>
-                <div class="plusiconcontainer" id="plusicon1"> <img src="plusgreen.png" alt="plus" onclick="plus(1)" style="height: 60px; width: 60px;"> </div>
+           <p><span id="demo1"></span></p>
+                <div class="minusiconcontainer" id="minusicon1"> <img src="minusgreen.png" alt="minus" onclick="minus(1)" style="height: 85px; width: 85px;"> </div>
+                <div class="plusiconcontainer" id="plusicon1"> <img src="plusgreen.png" alt="plus" onclick="plus(1)" style="height: 85px; width: 85px;"> </div>
               </div>
             </td>
           </tr>
@@ -334,8 +336,8 @@
               <div class="slidecontainer" id="slidecontainer2">
                 <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange2">
                 <p>hcp: <span id="demo2"></span></p>
-                <div class="minusiconcontainer" id="minusicon2"> <img src="minusgreen.png" alt="minus" onclick="minus(2)" style="height: 60px; width: 60px;"> </div>
-                <div class="plusiconcontainer" id="plusicon2"> <img src="plusgreen.png" alt="plus" onclick="plus(2)" style="height: 60px; width: 60px;"> </div>
+                <div class="minusiconcontainer" id="minusicon2"> <img src="minusgreen.png" alt="minus" onclick="minus(2)" style="height: 85px; width: 85px;"> </div>
+                <div class="plusiconcontainer" id="plusicon2"> <img src="plusgreen.png" alt="plus" onclick="plus(2)" style="height: 85px; width: 85px;"> </div>
               </div>
             </td>
           </tr>
@@ -359,8 +361,8 @@
               <div class="slidecontainer" id="slidecontainer3">
                 <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange3">
                 <p>hcp: <span id="demo3"></span></p>
-                <div class="minusiconcontainer" id="minusicon3"> <img src="minusgreen.png" alt="minus" onclick="minus(3)" style="height: 60px; width: 60px;"> </div>
-                <div class="plusiconcontainer" id="plusicon3"> <img src="plusgreen.png" alt="plus" onclick="plus(3)" style="height: 60px; width: 60px;"> </div>
+                <div class="minusiconcontainer" id="minusicon3"> <img src="minusgreen.png" alt="minus" onclick="minus(3)" style="height: 85px; width: 85px;"> </div>
+                <div class="plusiconcontainer" id="plusicon3"> <img src="plusgreen.png" alt="plus" onclick="plus(3)" style="height: 85px; width: 85px;"> </div>
               </div>
             </td>
           </tr>
@@ -386,8 +388,8 @@
               <div class="slidecontainer" id="slidecontainer4">
                 <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange4">
                 <p>hcp: <span id="demo4"></span></p>
-                <div class="minusiconcontainer" id="minusicon4"> <img src="minusgreen.png" alt="minus" onclick="minus(4)" style="height: 60px; width: 60px;"> </div>
-                <div class="plusiconcontainer" id="plusicon4"> <img src="plusgreen.png" alt="plus" onclick="plus(4)" style="height: 60px; width: 60px;"> </div>
+                <div class="minusiconcontainer" id="minusicon4"> <img src="minusgreen.png" alt="minus" onclick="minus(4)" style="height: 85px; width: 85px;"> </div>
+                <div class="plusiconcontainer" id="plusicon4"> <img src="plusgreen.png" alt="plus" onclick="plus(4)" style="height: 85px; width: 85px;"> </div>
               </div>
             </td>
           </tr>
@@ -549,8 +551,8 @@
       //===== player 1 ===========================================================
 
       var slider1 = document.getElementById("myRange1");
-      var output1 = document.getElementById("demo1");
-      output1.innerHTML = slider1.value; // Display the default slider value
+      //var output1 = document.getElementById("demo1");
+      //output1.innerHTML = slider1.value; // Display the default slider value
 
       document.getElementById("p1hcp").innerText = slider1.value; // Display the default slider value
 
@@ -563,8 +565,8 @@
       //===== player 2 ===========================================================
 
       var slider2 = document.getElementById("myRange2");
-      var output2 = document.getElementById("demo2");
-      output1.innerHTML = slider2.value; // Display the default slider value
+      //var output2 = document.getElementById("demo2");
+      //output1.innerHTML = slider2.value; // Display the default slider value
 
       document.getElementById("p2hcp").innerText = slider2.value; // Display the default slider value
 
@@ -577,8 +579,8 @@
       //===== player 3 ===========================================================
 
       var slider3 = document.getElementById("myRange3");
-      var output3 = document.getElementById("demo3");
-      output3.innerHTML = slider3.value; // Display the default slider value
+      //var output3 = document.getElementById("demo3");
+      //output3.innerHTML = slider3.value; // Display the default slider value
 
       document.getElementById("p3hcp").innerText = slider3.value; // Display the default slider value
 
@@ -591,8 +593,8 @@
       //===== player 4 ===========================================================
 
       var slider4 = document.getElementById("myRange4");
-      var output4 = document.getElementById("demo4");
-      output4.innerHTML = slider4.value; // Display the default slider value
+      //var output4 = document.getElementById("demo4");
+      //output4.innerHTML = slider4.value; // Display the default slider value
 
       document.getElementById("p4hcp").innerText = slider4.value; // Display the default slider value
 
