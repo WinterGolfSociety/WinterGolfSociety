@@ -2,938 +2,869 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta content="Bryan M" name="author">
-        <title>hcp calc</title>
-        <link href="favicon.ico" rel="icon" type="image/x-icon">
-	<script src="jquery-3.6.0.min.js" type="text/javascript">
-	</script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta content="Bryan M" name="author">
+  <title>hcp calc</title>
+  <link href="favicon.ico" rel="icon" type="image/x-icon">
+  <script src="jquery-3.6.0.min.js" type="text/javascript">
 
-	<style>
-	body {
-      
-      margin:0px;
-      padding:0px;
-      width:100%;
-      margin-left:1vw;
-      margin-right:1vw;
+
+  </script>
+
+  <style>
+  body {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      margin-left: 1vw;
+      margin-right: 1vw;
       height: 100%;
-		background-color: Gray;
-		background-attachment: fixed;
-		font-family: 'arial';
-		color: white;
-	}
-	
-      #page {
-         width: 98%;
-      }   
-      
-	.stxt {
-		text-align: center;
-		font-size: 30px;
-//		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1); 
-	}
-		
-	h2 {
-		text-align: center;
+      background-color: Gray;
+      background-attachment: fixed;
+      font-family: 'arial';
+      color: white;
+    }
+    
+    #page {
+      width: 98%;
+    }
+    
+    .stxt {
+      text-align: center;
+      font-size: 30px;
+      //		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1); 
+    }
+    
+    h2 {
+      text-align: center;
       padding-top: 1%;
       padding-bottom: 1%;
-      		color: white;
-      		font-size: 33px;
-//		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      
+      color: white;
+      font-size: 33px;
+      //		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
       //border-radius: 10px;
       border: 3px solid rgba(255, 255, 255, 0.2);
-	//	box-shadow: 10px 10px 25px black;
+      //	box-shadow: 10px 10px 25px black;
       background-clip: padding-box;
       //background-color: rgba(255, 255, 255, 0.2);
-      background-color: rgba(0, 0, 0, 0.2);  
-	}
-
-      
-      
-/*      
-      
-      
-	#nslope,
-	#nhcpallowance,
-   	#nhcp1,
-   	#nhcp2,
-   	#nhcp3,
-   	#nhcp4 {
-		font-size: 40px;
-		color: white;
-	   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      background-color: dodgerBlue;
-		text-align: center;
-		border-radius: 10px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 10px 10px 25px black;
-      background-clip: padding-box;
-	}
-	
-   .score {
-   	font-size: 30px;
-		color: white;
-      background-color: dodgerBlue;
-		text-align: center;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-		border-radius: 10px;
-		box-shadow: 10px 10px 25px black;
-      background-clip: padding-box;
-   }
-	
-   #splayinghcpcalc,
-   #txt {
-		font-size: 20px;
-		color: white;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-	}
-   
-   #showcalcs, #showhcpcalcs {
-      visibility: hidden;
-      font-size: 15px;
-      text-align: left;
-      position: fixed;
-      z-index: 1;
-      padding-top: 10px;
-      padding-left: 10px;
-      padding-bottom: 10px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 150%;
-      overflow: auto;
-      background-color: dodgerBlue;
-      background-color: rgba(0, 0, 0, 0.7);
-   }
-   
-   #buttonshowcalcs {
-     	font-size: 30px;
-      color: white;
-      padding: 10px;
-      background-color: dodgerBlue;
-      text-align: center;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black; 
-      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1); 
-      background-clip: padding-box;
-   }
-   
-   #footnote {
-    color: white;
-    font-size: 15px;  
-    font-style: italic;
-    padding-left: 10px;
-   }
-   #xclose  {
-      color:lightgray;
-      text-align: center;
-      font-size: 15px;
-      font-style: italic;
-   }
-   
-
-
-
-*/
-.td1 {
-border-style: solid;
-border-color: greenYellow;
-text-align: center;
-font-size: 20px;
-width: calc(88vw/5);
-}
-      
-.td1pad10 {
-text-align: center;
-font-size: 20px;
-width: 100%; //98vw;
-padding-top: 20px;
-}
+      background-color: rgba(0, 0, 0, 0.2);
+    }
      
-      
-.tr1 {
-text-align: center;
-font-size: 20px;
-width: 100%; //98vw;
-}
+    .td1 {
+      border-style: solid;
+      border-color: greenYellow;
+      text-align: center;
+      font-size: 20px;
+      width: calc(88vw/5);
+    }
+    
+    .td1pad10 {
+      text-align: center;
+      font-size: 20px;
+      width: 100%; //98vw;
+      padding-top: 20px;
+    }
+    
+    .tr1 {
+      text-align: center;
+      font-size: 20px;
+      width: 100%; //98vw;
+    }
+    
+    .tr1left {
+      text-align: center;
+    }
+    
+    .td0 {
+      padding-top: 100px;
+    }
 
-.tr1left {
-text-align: center;
-}
-      
-      .td0 {
-      padding-top: 100px;   
-      
-      }    
-      
-      
-/*      
-
-
-
-.mainselection {
-    overflow:hidden;
-color: cyan;
-    width:350px;
-    margin-left:35px;
-padding-top: 0;
- //   background: url("images/dropdown_arrow.png") no-repeat #fff 319px 2px;
-    /* dropdown_arrow.png is a 31x28 image */
-}
-select {
-    border:0;
+  select {
+    border: 0;
     background: gray;
-    //height:50px; //100%; //32px;
-    //border:1px solid #d8d8d8;
     width: 100%; //100vw;
     -webkit-appearance: none;
-}
-
-option {
-padding-left: 5px;
-}
-
-.drop {
-background: gray;
-border: none;
-//padding-left: 30px;
-}
-
-
-.sideways {
-writing-mode: vertical-rl;
-text-orientation: mixed;
-padding-top: 10px;
-padding-bottom:10px;
-text-align: right;
-vertical-align: middle;
-}
-
-
-#slidecontainer1,
-#slidecontainer2,
-#slidecontainer3,
-#slidecontainer4 {
-display: none;
-}
-
-#myRange1 {
-width: 90%;      
-  padding-top: 15px;
-      }      
-      
-#inputcourse {
+  }
+  option {
+    padding-left: 5px;
+  }
+  .drop {
+    background: gray;
+    border: none;
+  }
+  .sideways {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+    vertical-align: middle;
+  }
+  #slidecontainer1,
+  #slidecontainer2,
+  #slidecontainer3,
+  #slidecontainer4 {
+    display: none;
+  }
+  #myRange1,
+  #myRange2,
+  #myRange3,
+  #myRange4
+     {
+    width: 90%;
+    padding-top: 15px;
+  }
+  #inputcourse1,
+  #inputcourse2,
+  #inputcourse3,
+  #inputcourse4 {
     width: 100%;
     font-size: 20px;
     background: gray;
     color: greenYellow;
-}
+  }
+  .yellow {
+    color: greenYellow;
+  }
+  .slider {
+    -webkit-appearance: none;
+    width: 50%;
+    height: 5px; //15px;
+    background: dimgray; //#000;
+    outline: none;
+    border: 5px solid greenYellow;
+    border-radius: 8px;
+  }
+  /* for chrome/safari */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 60px;
+    background: dimgray; //#000;
+    cursor: pointer;
+    border: 5px solid greenYellow;
+    border-radius: 4px;
+  }
+  /* for firefox */
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 60px;
+    background: dimgray; //#000;
+    cursor: pointer;
+    border: 5px solid greenYellow;
+    border-radius: 4px;
+  }
+  #minusicon1,
+      #minusicon2,
+      #minusicon3,
+      #minusicon4
+     {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    float: left;
+  }
+  #plusicon1,
+   #plusicon2,
+       #plusicon3,
+       #plusicon4
+     {
+    padding-right: 20px;
+    padding-bottom: 20px;
+    float: right;
+  }
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+   #dropbtn {
+		color: greenYellow;
+		cursor: pointer;
+		width: 100vw;
+		height: 10vh;
+		font-size: 20px;
+		background: gray;
+		border-radius: 3px;
+		border: none;
+	}  
+     
+  .dropdown {
+		position: relative;
+		display: inline-block;
+	}   
+     
+     .dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		overflow: auto;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+		border-radius: 3px;
+		box-shadow: 10px 10px 25px black;
+		max-height: 70vh;
+	}
+	
+	.dropdown-content a {
+      text-align: left;
+		color: gray;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
+     
+   .dropdown-content a:hover {
+		color: greenYellow;
+      background: gray;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}  
+	
+	.show {
+		display: block;
+	}
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
 
-      .yellow {
-         color: greenYellow;
-      }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-   
-.slider {
-  -webkit-appearance: none;
-  width: 50%;
-  height: 5px; //15px;
-  background: dimgray; //#000;
-  outline: none;
-  border: 5px solid greenYellow;
-  border-radius: 8px;
-}
-
-
-/* for chrome/safari */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 60px;
-  background: dimgray; //#000;
-  cursor: pointer;
-  border: 5px solid greenYellow;
-  border-radius: 4px;
-}
-
-/* for firefox */
-.slider::-moz-range-thumb {
-  width: 20px;
-  height: 60px;
-  background: dimgray; //#000;
-  cursor: pointer;
-  border: 5px solid greenYellow;
-  border-radius: 4px;
-}   
-      
-      
-      
-   #minusicon {
-         padding-left: 50px;
-         padding-bottom: 50px;
-         float: left;
-      }     
-      
-      #plusicon {
-         padding-right: 50px;
-         float: right;
-      }   
-      
-      
-      
-      
-      
-      
-      
-      
-      
-	</style>
+  </style>
 </head>
 
 <body>
 
 
 
-<div class="page" id="page">
-      <table class="table">
-	<caption></caption>
-	<thead>
-	  <th></th>
-	</thead>
-	<tbody>
-
-
- <!-- modal hcp adjustment -->   
-         <div class="showhcpcalcs" id="showhcpcalcs" onclick="hcpcalcclose()">
-
-
-
-
-
-
-
-<tr class="tr1">
-	    
-	    <td class="td1" colspan="5">
-
-		<div class="mainselection">
-		<select name="Course" id="inputcourse">
-    		<option>select course</option>
-<option value="Longhirst Lakes - yellow tees">Longhirst Lakes - yellow tees</option>
-<option value="Longhirst Lakes - yellow tees">Longhirst Lakes - yellow tees</option>
-<option value="Bellingham - yellow tees">Bellingham - yellow tees<option>                              
-		</select>
-		</div>
-
-	    </td>
-	  </tr>
-	  <tr></tr>
-	  <tr class="tr1">
-	    <td class="td1 sideways">player</td>
-	    <td class="td1 sideways">hcp</td>
-	    <td class="td1 sideways">slope</td>
-	    <td class="td1 sideways">course index</td>
-	    <td class="td1 sideways">difference</td>
-	  </tr>
-	  <tr></tr>
-<!-- player 1 --> 
-	  <tr></tr>
-	  <tr class="tr1">
-	    <td class="td1">1</td>
-	    <td class="td1 yellow" id="p1hcp" onclick="p1hcpadjust()">24.5</td>
-	    <td class="td1" id="p1slope">116</td>
-	    <td class="td1" id="p1ci">67.6</td>
-	    <td class="td1" id="p1calchcp">17</td>
-	  </tr>
-
-	  <tr class="tr1">
-	    <td class="td1pad10" id="test" colspan="5">
-            <div class="slidecontainer" id="slidecontainer1">
-              <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange1">
-            
-            <p>hcp: <span id="demo1"></span></p>
-               
-               
-               <div class="minusiconcontainer" id="minusicon"> <img src="minusgreen.png" alt="minus" onclick="minus(1)" style="height: 85px; width: 85px;"> </div>
-               
-           
-                 <div class="plusiconcontainer" id="plusicon"> <img src="plusgreen.png" alt="plus" onclick="plus(1)" style="height: 85px; width: 85px;"> </div>
-               
-               
-               
-               
-               
-            
-            
+  <div class="page" id="page">
+    <table class="table">
+      <caption></caption>
+      <thead>
+        <th></th>
+      </thead>
+      <tbody>
+          <tr class="tr1">
+            <td class="td1" colspan="5">
+              <div class="mainselection">
+                 
+<div class="wrapper">
+<button onclick="myFunction();" class="dropbtn" id="dropbtn">select course</button>
+<div id="myDropdown" class="dropdown-content"> 
+                 
+              <a id="inputcourse1" href="#" onclick='dropSelected(this.innerText);return false;'>Bellingham - yellow tees</a>             
+              <a id="inputcourse2" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Dawson - yellow tees</a>           
+              <a id="inputcourse3" href="#" onclick='dropSelected(this.innerText);return false;'>Longhitst Lakes - yellow tees</a>      
+  </div>
 </div>
+                 
+                 
+                 
+
+              </div>
+
+            </td>
+          </tr>
+          <tr></tr>
+          <tr class="tr1">
+            <td class="td1 sideways">player</td>
+            <td class="td1 sideways">hcp</td>
+            <td class="td1 sideways">slope</td>
+            <td class="td1 sideways">course<br>index</td>
+            <td class="td1 sideways">strokes</td>
+          </tr>
+          <tr></tr>
+          <!-- player 1 -->
+          <tr></tr>
+          <tr class="tr1">
+            <td class="td1">1</td>
+            <td class="td1 yellow" id="p1hcp" onclick="p1hcpadjust()">24.5</td>
+            <td class="td1" id="p1slope">116</td>
+            <td class="td1" id="p1ci">67.6</td>
+            <td class="td1" id="p1calchcp">17</td>
+          </tr>
 
-</td>
-         </tr>
+          <tr class="tr1">
+            <td class="td1pad10" id="test" colspan="5">
+              <div class="slidecontainer" id="slidecontainer1">
+                <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange1">
+                <p>hcp: <span id="demo1"></span></p>
+                <div class="minusiconcontainer" id="minusicon1"> <img src="minusgreen.png" alt="minus" onclick="minus(1)" style="height: 85px; width: 85px;"> </div>
+                <div class="plusiconcontainer" id="plusicon1"> <img src="plusgreen.png" alt="plus" onclick="plus(1)" style="height: 85px; width: 85px;"> </div>
+              </div>
+            </td>
+          </tr>
+
+
+
+
+
+          <!-- player 2 -->
+          <tr></tr>
+          <tr class="tr1">
+            <td class="td1">2</td>
+            <td class="td1 yellow" id="p2hcp" onclick="p2hcpadjust()">24.5</td>
+            <td class="td1" id="p2slope">116</td>
+            <td class="td1" id="p2ci">67.6</td>
+            <td class="td1" id="p2calchcp">17</td>
+          </tr>
 
 
 
 
 
-<!-- player 2 -->
-	  <tr></tr>
-	   <tr class="tr1">
- <td class="td1">2</td>
-	   <td class="td1 yellow" id="p2hcp" onclick="p2hcpadjust()">24.5</td>
-	    <td class="td1" id="p2slope">116</td>
-	    <td class="td1" id="p2ci">67.6</td>
-	    <td class="td1" id="p2calchcp">17</td>
-	  </tr>
+          <tr class="tr1">
+            <td class="td1pad10" id="test" colspan="5">
+              <div class="slidecontainer" id="slidecontainer2">
+                <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange2">
+                <p>hcp: <span id="demo2"></span></p>
+                <div class="minusiconcontainer" id="minusicon2"> <img src="minusgreen.png" alt="minus" onclick="minus(2)" style="height: 85px; width: 85px;"> </div>
+                <div class="plusiconcontainer" id="plusicon2"> <img src="plusgreen.png" alt="plus" onclick="plus(2)" style="height: 85px; width: 85px;"> </div>
+              </div>
+            </td>
+          </tr>
+
+
+
+
+          <tr></tr>
+          <tr class="tr1">
+            <td class="td1">3</td>
+            <td class="td1 yellow" id="p3hcp" onclick="p3hcpadjust()">24.5</td>
+            <td class="td1" id="p3slope">116</td>
+            <td class="td1" id="p3ci">67.6</td>
+            <td class="td1" id="p3calchcp">17</td>
+          </tr>
+
+
+
+          <tr class="tr1">
+            <td class="td1pad10" id="test" colspan="5">
+              <div class="slidecontainer" id="slidecontainer3">
+                <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange3">
+                <p>hcp: <span id="demo3"></span></p>
+                <div class="minusiconcontainer" id="minusicon3"> <img src="minusgreen.png" alt="minus" onclick="minus(3)" style="height: 85px; width: 85px;"> </div>
+                <div class="plusiconcontainer" id="plusicon3"> <img src="plusgreen.png" alt="plus" onclick="plus(3)" style="height: 85px; width: 85px;"> </div>
+              </div>
+            </td>
+          </tr>
+
+
+
+
+
+          <tr></tr>
+          <tr class="tr1">
+            <td class="td1">4</td>
+            <td class="td1 yellow" id="p4hcp" onclick="p4hcpadjust()">24.5</td>
+            <td class="td1" id="p4slope">116</td>
+            <td class="td1" id="p4ci">67.6</td>
+            <td class="td1" id="p4calchcp">17</td>
+          </tr>
+
+
+
+
+         <tr class="tr1">
+            <td class="td1pad10" id="test" colspan="5">
+              <div class="slidecontainer" id="slidecontainer4">
+                <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange4">
+                <p>hcp: <span id="demo4"></span></p>
+                <div class="minusiconcontainer" id="minusicon4"> <img src="minusgreen.png" alt="minus" onclick="minus(4)" style="height: 85px; width: 85px;"> </div>
+                <div class="plusiconcontainer" id="plusicon4"> <img src="plusgreen.png" alt="plus" onclick="plus(4)" style="height: 85px; width: 85px;"> </div>
+              </div>
+            </td>
+          </tr>
+
+
+
+
+          <tr></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-md-12  text-center">
+        <h2>Stroke calculations for Pairs Matchplay</h2>
+        <div class="container">
+          <div class="stxt">slope</div>
+          <div class="demo">
+            <input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
+          </div>
+          <br>
+          <br>
+          <div class="stxt">player 1 WHS handicap index</div>
+          <div class="demo">
+            <input type="number" id="nhcp1" name="nhcp1" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
+
+
+
+
+            <input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
+
+
+
+          </div>
+          <br>
+          <br>
+          <div class="stxt">player 2 WHS handicap index</div>
+          <div class="demo">
+            <input type="number" id="nhcp2" name="nhcp2" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
+          </div>
+          <br>
+          <br>
+          <div class="stxt">player 3 WHS handicap index</div>
+          <div class="demo">
+            <input type="number" id="nhcp3" name="nhcp3" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
+          </div>
+          <br>
+          <br>
+          <div class="stxt">player 4 WHS handicap index</div>
+          <div class="demo">
+            <input type="number" id="nhcp4" name="nhcp4" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
+          </div>
+        </div>
+        <br>
+        <div class="demo">
+          <!-- modal calculations -->
+          <div class="showcalcs" id="showcalcs" onclick="calcclose()">
+          </div>
+        </div>
+        <br>
+        <div id="txt">
+          <br>
+          <br>
+          <div id="splayinghcp1" class="score">player 1
+            <br>course hcp
+            <br>playing hcp
+            <br>strokes</div>
+          <br>
+          <div id="splayinghcp2" class="score">player 2
+            <br>course hcp
+            <br>playing hcp
+            <br>strokes</div>
+          <br>
+          <div id="splayinghcp3" class="score">player 3
+            <br>course hcp
+            <br>playing hcp
+            <br>strokes</div>
+          <br>
+          <div id="splayinghcp4" class="score">player 4
+            <br>course hcp
+            <br>playing hcp
+            <br>strokes</div>
+          <br>
+        </div>
+        <br>
+        <br>
+        <button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="footnote">Calculation method from:</p>
+    <p id="footnote">R&A Rules of Handicapping</p>
+    <p id="footnote">APPENDIX C Interpretations:</p>
+    <p id="footnote">C/2 - Examples of how to allocate strokes in handicap competitions when handicap allowances apply.</p>
+    <p id="footnote">extract from appendix C:</p>
+    <p id="footnote">In general, after handicap allowances have been applied in match play formats, the player with the lowest Playing Handicap plays off zero strokes relative to the other player(s). The other player(s) receive(s) the difference between their own Playing Handicap and that of the player with the lowest Playing Handicap.</p>
+    <br>
+    <br>
+    <script>
+      function p1hcpadjust() {
+        if (document.getElementById("slidecontainer1").style.display == "none") {
+          document.getElementById("slidecontainer1").style.display = "inline";
+        } else {
+          document.getElementById("slidecontainer1").style.display = "none";
+        }
+
+        document.getElementById("slidecontainer2").style.display = "none";
+        document.getElementById("slidecontainer3").style.display = "none";
+        document.getElementById("slidecontainer4").style.display = "none";
 
 
 
 
-
-
-	  <tr class="tr1">
-	    <td class="td1" colspan="5">
-            <div class="slidecontainer" id="slidecontainer2">
-              <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange2">
-            
-            <p>Value: <span id="demo2"></span></p>
-            <div id="minus2" onclick="minus(2)">-</div>====================<div id="plus2" onclick="plus(2)">+</div>
-</div>            
-</td>
-         </tr>
-
-
-
-
-	  <tr></tr>
-	   <tr class="tr1">
- <td class="td1">3</td>
-	 <td class="td1 yellow" id="p3hcp" onclick="p3hcpadjust()">24.5</td>
-	    <td class="td1" id="p3slope">116</td>
-	    <td class="td1" id="p3ci">67.6</td>
-	    <td class="td1" id="p3calchcp">17</td>
-	  </tr>
-
-
-
-	  <tr class="tr1">
-	    <td class="td1" colspan="5">
-            <div class="slidecontainer"  id="slidecontainer3">
-              <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange3">
-            
-            <p>Value: <span id="demo3"></span></p>
-            <div id="minus3" onclick="minus(3)">-</div>====================<div id="plus3" onclick="plus(3)">+</div>
-</div>            
-</td>
-         </tr>
-
-
-
-
-
-	  <tr></tr>
-	   <tr class="tr1">
- <td class="td1">4</td>
-	 <td class="td1 yellow" id="p4hcp" onclick="p4hcpadjust()">24.5</td>
-	    <td class="td1" id="p4slope">116</td>
-	    <td class="td1" id="p4ci">67.6</td>
-	    <td class="td1" id="p4calchcp">17</td>
-	  </tr>
-
-
-
-
-	  <tr class="tr1">
-	    <td class="td1" colspan="5">
-            <div class="slidecontainer"  id="slidecontainer4">
-              <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange4">
-            
-            <p>Value: <span id="demo4"></span></p>
-            <div id="minus4" onclick="minus(4)">-</div>====================<div id="plus4" onclick="plus(4)">+</div>
-</div>            
-</td>
-         </tr>
-
-
-
-
-	  <tr></tr>
-	</tbody>
-      </table>
-</div>
-
-	<br>
-	<div class="row">
-		<div class="col-md-12  text-center">	
-			<h2>Stroke calculations for Pairs Matchplay</h2>
-			<div class="container">
-				<div class="stxt">slope</div>
-				<div class="demo">
-					<input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
-            </div>
-				<br>
-				<br>
-            <div class="stxt">player 1 WHS handicap index</div>
-				<div class="demo">
-					<input type="number" id="nhcp1" name="nhcp1" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-
-
-
-
-<input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
-
-
-
-            </div>
-            <br>
-				<br>
-            <div class="stxt">player 2 WHS handicap index</div>
-            <div class="demo">
-					<input type="number" id="nhcp2" name="nhcp2" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-            </div>
-            <br>
-				<br>
-            <div class="stxt">player 3 WHS handicap index</div>
-            <div class="demo">
-					<input type="number" id="nhcp3" name="nhcp3" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-            </div>
-            <br>
-				<br>
-            <div class="stxt">player 4 WHS handicap index</div>
-            <div class="demo">
-					<input type="number" id="nhcp4" name="nhcp4" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-            </div>  
-	      </div>			
-			<br> 
-         <div class="demo">
-         <!-- modal calculations -->   
-         <div class="showcalcs" id="showcalcs" onclick="calcclose()">
-         </div>
-         </div>      
-         <br>
-         <div id="txt">
-            <br><br>
-            <div id="splayinghcp1" class="score">player 1<br>course hcp<br>playing hcp<br>strokes</div>
-            <br>
-            <div id="splayinghcp2" class="score">player 2<br>course hcp<br>playing hcp<br>strokes</div>
-            <br>
-            <div id="splayinghcp3" class="score">player 3<br>course hcp<br>playing hcp<br>strokes</div>
-            <br>
-            <div id="splayinghcp4" class="score">player 4<br>course hcp<br>playing hcp<br>strokes</div>
-            <br>
-         </div>
-         <br>
-         <br>
-         <button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
-		</div>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-   <p id="footnote">Calculation method from:</p>
-   <p id="footnote">R&A Rules of Handicapping</p>
-   <p id="footnote">APPENDIX C Interpretations:</p>
-   <p id="footnote">C/2 - Examples of how to allocate strokes in handicap competitions when handicap allowances apply.</p>
-   <p id="footnote">extract from appendix C:</p>
-   <p id="footnote">In general, after handicap allowances have been applied in match play formats, the player with the lowest Playing Handicap plays off zero strokes relative to the other player(s).  The other player(s) receive(s) the difference between their own Playing Handicap and that of the player with the lowest Playing Handicap.</p>
-	<br>
-	<br>
-	<script>
-
-function p1hcpadjust() {
-if (document.getElementById("slidecontainer1").style.display == "none") {
-	document.getElementById("slidecontainer1").style.display = "inline";
-} else {
-	document.getElementById("slidecontainer1").style.display = "none";
-}
-
-document.getElementById("slidecontainer2").style.display = "none";
-document.getElementById("slidecontainer3").style.display = "none";
-document.getElementById("slidecontainer4").style.display = "none";
-   
-   
-  
-   
-   
-}
-
-function p2hcpadjust() {
-if (document.getElementById("slidecontainer2").style.display == "none") {
-	document.getElementById("slidecontainer2").style.display = "inline";
-} else {
-	document.getElementById("slidecontainer2").style.display = "none";
-}
-
-document.getElementById("slidecontainer1").style.display = "none";
-document.getElementById("slidecontainer3").style.display = "none";
-document.getElementById("slidecontainer4").style.display = "none";
-}
-
-function p3hcpadjust() {
-if (document.getElementById("slidecontainer3").style.display == "none") {
-	document.getElementById("slidecontainer3").style.display = "inline";
-} else {
-	document.getElementById("slidecontainer3").style.display = "none";
-}
-
-document.getElementById("slidecontainer1").style.display = "none";
-document.getElementById("slidecontainer2").style.display = "none";
-document.getElementById("slidecontainer4").style.display = "none";
-}
-
-function p4hcpadjust() {
-if (document.getElementById("slidecontainer4").style.display == "none") {
-	document.getElementById("slidecontainer4").style.display = "inline";
-} else {
-	document.getElementById("slidecontainer4").style.display = "none";
-}
-
-document.getElementById("slidecontainer1").style.display = "none";
-document.getElementById("slidecontainer2").style.display = "none";
-document.getElementById("slidecontainer3").style.display = "none";
-}
-
-
-
-
-
-
-//===== player 1 ===========================================================
-
-var slider1 = document.getElementById("myRange1");
-var output1 = document.getElementById("demo1");
-output1.innerHTML = slider1.value; // Display the default slider value
-
-document.getElementById("p1hcp").innerText = slider1.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider1.oninput = function() {
-  output1.innerHTML = Number(slider1.value).toFixed(1);
-  document.getElementById("p1hcp").innerText = Number(slider1.value).toFixed(1);
-}
-
-//===== player 2 ===========================================================
-
-var slider2 = document.getElementById("myRange2");
-var output2 = document.getElementById("demo2");
-output1.innerHTML = slider2.value; // Display the default slider value
-
-document.getElementById("p2hcp").innerText = slider2.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider2.oninput = function() {
-  output2.innerHTML = Number(slider2.value).toFixed(1);
-  document.getElementById("p2hcp").innerText = Number(slider2.value).toFixed(1);
-}
-
-//===== player 3 ===========================================================
-
-var slider3 = document.getElementById("myRange3");
-var output3 = document.getElementById("demo3");
-output3.innerHTML = slider3.value; // Display the default slider value
-
-document.getElementById("p3hcp").innerText = slider3.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider3.oninput = function() {
-  output3.innerHTML = Number(slider3.value).toFixed(1);
-  document.getElementById("p3hcp").innerText = Number(slider3.value).toFixed(1);
-}
-
-//===== player 4 ===========================================================
-
-var slider4 = document.getElementById("myRange4");
-var output4 = document.getElementById("demo4");
-output4.innerHTML = slider4.value; // Display the default slider value
-
-document.getElementById("p4hcp").innerText = slider4.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider4.oninput = function() {
-  output4.innerHTML = Number(slider4.value).toFixed(1);
-  document.getElementById("p4hcp").innerText = Number(slider4.value).toFixed(1);
-}
-
-
-
-
-
-
-
-
-function plus(p) {
-var slider = document.getElementById("myRange" + p)
-var output = document.getElementById("demo" + p);
-slider.value = parseFloat(slider.value) + 0.1
-output.innerHTML = Number(slider.value).toFixed(1);
-
-document.getElementById("p" + p + "hcp").innerText = Number(slider.value).toFixed(1);
-
-
-}
-
-function minus(p) {
-var slider = document.getElementById("myRange" + p)
-var output = document.getElementById("demo" + p);
-slider.value = parseFloat(slider.value) - 0.1
-output.innerHTML = Number(slider.value).toFixed(1);
-
-document.getElementById("p" + p + "hcp").innerText = Number(slider.value).toFixed(1);
-}
-
-
-  function showhcpcalcs() {
-     
-     
-      document.getElementById("showhcpcalcs").style.visibility = "visible";
-      
-   
- 
-   
-     
-   } 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-   function calcclose() {
-      document.getElementById("showcalcs").style.visibility = "hidden";
-   } 
-    
-   function showcalcs() {
-     
-      if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
-      
-      document.getElementById("showcalcs").style.visibility = "visible";
-      
-      let vhcp1 = document.getElementById("nhcp1").value
-      let vhcp2 = document.getElementById("nhcp2").value
-      let vhcp3 = document.getElementById("nhcp3").value
-      let vhcp4 = document.getElementById("nhcp4").value
-    
-      // get globals
-      let vhcpallowance = 90
-      let vslope = document.getElementById("nslope").value
-   
-      let vcoursehcp1 = vhcp1 * (vslope/113)
-      let vcoursehcp2 = vhcp2 * (vslope/113)
-      let vcoursehcp3 = vhcp3 * (vslope/113)
-      let vcoursehcp4 = vhcp4 * (vslope/113)
-     
-      let vcoursehcp10 = vcoursehcp1.toFixed(0);
-      let vcoursehcp20 = vcoursehcp2.toFixed(0);
-      let vcoursehcp30 = vcoursehcp3.toFixed(0);
-      let vcoursehcp40 = vcoursehcp4.toFixed(0);
-          
-      let var1t = (vhcpallowance/100)*vcoursehcp10
-      let var2t = (vhcpallowance/100)*vcoursehcp20
-      let var3t = (vhcpallowance/100)*vcoursehcp30
-      let var4t = (vhcpallowance/100)*vcoursehcp40
-      
-      var1 = var1t.toFixed(0)
-      var2 = var2t.toFixed(0)
-      var3 = var3t.toFixed(0)
-      var4 = var4t.toFixed(0)
-     
-     
-     let b = Math.min(var1, var2, var3, var4);
-     
-     // player 1
-     let p1a = vhcp1 + " x " + vslope + "/113 = " + vcoursehcp1.toFixed(2) + " = " + vcoursehcp10
-     let p1b = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t.toFixed(2) + " = " + var1
-     let p1c = " = " + var1 + " - " + b + " = " + (var1 - b )
-     
-     // player 2
-     let p2a = vhcp2 + " x " + vslope + "/113 = " + vcoursehcp2.toFixed(2) + " = " + vcoursehcp20
-     let p2b = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t.toFixed(2) + " = " + var2
-     let p2c = " = " + var2 + " - " + b + " = " + (var2 - b )
-     
-     // player 3
-     let p3a = vhcp3 + " x " + vslope + "/113 = " + vcoursehcp3.toFixed(2) + " = " + vcoursehcp30
-     let p3b = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t.toFixed(2) + " = " + var3
-     let p3c = " = " + var3 + " - " + b + " = " + (var3 - b )
-     
-     // player 4
-     let p4a = vhcp4 + " x " + vslope + "/113 = " + vcoursehcp4.toFixed(2) + " = " + vcoursehcp40
-     let p4b = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t.toFixed(2) + " = " + var4
-     let p4c = " = " + var4 + " - " + b + " = " + (var4 - b )
-     
-     let calctxt = "<br>player 1 course hcp<br>" + p1a + "<br>player 1 playing hcp<br>" + p1b + "<br>player 1 strokes" + p1c
-     
-     calctxt += "<br>"
-     
-     calctxt += "<br>player 2 course hcp<br>" + p2a + "<br>player 2 playing hcp<br>" + p2b + "<br>player 2 strokes" + p2c
-     
-     calctxt += "<br>"
-      
-     calctxt += "<br>player 3 course hcp<br>" + p3a + "<br>player 3 playing hcp<br>" + p3b + "<br>player 3 strokes" + p3c
-     
-     calctxt += "<br>"
-     
-     calctxt += "<br>player 4 course hcp<br>" + p4a + "<br>player 4 playing hcp<br>" + p4b + "<br>player 4 strokes" + p4c
-     
-     calctxt += "<br><br>" + '<p id="xclose">tap to close</p>'
-      
-      
-      
-      document.getElementById("showcalcs").innerHTML = calctxt  
-      
-   }
- 
-   
-     
-   } 
-   
-    
-   function updatehcp() {
-		// get 4 players hcp's
-      if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
-      
-      let vhcp1 = document.getElementById("nhcp1").value
-      let vhcp2 = document.getElementById("nhcp2").value
-      let vhcp3 = document.getElementById("nhcp3").value
-      let vhcp4 = document.getElementById("nhcp4").value
-    
-      // get globals
-      let vhcpallowance = 90
-      let vslope = document.getElementById("nslope").value
-   
-      let vcoursehcp1 = vhcp1 * (vslope/113)
-      let vcoursehcp2 = vhcp2 * (vslope/113)
-      let vcoursehcp3 = vhcp3 * (vslope/113)
-      let vcoursehcp4 = vhcp4 * (vslope/113)
-     
-      let vcoursehcp10 = vcoursehcp1.toFixed(0);
-      let vcoursehcp20 = vcoursehcp2.toFixed(0);
-      let vcoursehcp30 = vcoursehcp3.toFixed(0);
-      let vcoursehcp40 = vcoursehcp4.toFixed(0);
-          
-      let var1t = (vhcpallowance/100)*vcoursehcp10
-      let var2t = (vhcpallowance/100)*vcoursehcp20
-      let var3t = (vhcpallowance/100)*vcoursehcp30
-      let var4t = (vhcpallowance/100)*vcoursehcp40
-      
-      let var1 = var1t.toFixed(0)
-      let var2 = var2t.toFixed(0)
-      let var3 = var3t.toFixed(0)
-      let var4 = var4t.toFixed(0)
-     
-      //calc differences
-      let b = Math.min(var1, var2, var3, var4);
-      if ((var1 - b) == 1) {
-         var sss = "stroke"
-      } else { 
-         var sss = "strokes" 
       }
-      document.getElementById("splayinghcp1").innerHTML = "Player 1 (" + vhcp1 + ")<br>course hcp = " + vcoursehcp10 + "<br>playing hcp = " + var1 + "<br>gets " + (var1 - b) + " " + sss
-      if ((var2 - b) == 1) {
-         var sss = "stroke"
-      } else { 
-         var sss = "strokes" 
+
+      function p2hcpadjust() {
+        if (document.getElementById("slidecontainer2").style.display == "none") {
+          document.getElementById("slidecontainer2").style.display = "inline";
+        } else {
+          document.getElementById("slidecontainer2").style.display = "none";
+        }
+
+        document.getElementById("slidecontainer1").style.display = "none";
+        document.getElementById("slidecontainer3").style.display = "none";
+        document.getElementById("slidecontainer4").style.display = "none";
       }
-      document.getElementById("splayinghcp2").innerHTML = "Player 2 (" + vhcp2 + ")<br>course hcp = " + vcoursehcp20 + "<br>playing hcp = " + var2 + "<br>gets " + (var2 - b) + " " + sss
-      if ((var3 - b) == 1) {
-         var sss = "stroke"
-      } else { 
-         var sss = "strokes" 
+
+      function p3hcpadjust() {
+        if (document.getElementById("slidecontainer3").style.display == "none") {
+          document.getElementById("slidecontainer3").style.display = "inline";
+        } else {
+          document.getElementById("slidecontainer3").style.display = "none";
+        }
+
+        document.getElementById("slidecontainer1").style.display = "none";
+        document.getElementById("slidecontainer2").style.display = "none";
+        document.getElementById("slidecontainer4").style.display = "none";
       }
-      document.getElementById("splayinghcp3").innerHTML = "Player 3 (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>playing hcp = " + var3 + "<br>gets " + (var3 - b) + " " + sss
-      if ((var4 - b) == 1) {
-         var sss = "stroke"
-      } else { 
-         var sss = "strokes" 
+
+      function p4hcpadjust() {
+        if (document.getElementById("slidecontainer4").style.display == "none") {
+          document.getElementById("slidecontainer4").style.display = "inline";
+        } else {
+          document.getElementById("slidecontainer4").style.display = "none";
+        }
+
+        document.getElementById("slidecontainer1").style.display = "none";
+        document.getElementById("slidecontainer2").style.display = "none";
+        document.getElementById("slidecontainer3").style.display = "none";
       }
-      document.getElementById("splayinghcp4").innerHTML = "Player 4 (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>playing hcp = " + var4 + "<br>gets " + (var4 - b) + " " + sss
-   }
-   
-   }
-	</script>
+
+
+
+
+      //===== player 1 ===========================================================
+
+      var slider1 = document.getElementById("myRange1");
+      var output1 = document.getElementById("demo1");
+      output1.innerHTML = slider1.value; // Display the default slider value
+
+      document.getElementById("p1hcp").innerText = slider1.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider1.oninput = function() {
+        output1.innerHTML = Number(slider1.value).toFixed(1);
+        document.getElementById("p1hcp").innerText = Number(slider1.value).toFixed(1);
+      }
+
+      //===== player 2 ===========================================================
+
+      var slider2 = document.getElementById("myRange2");
+      var output2 = document.getElementById("demo2");
+      output1.innerHTML = slider2.value; // Display the default slider value
+
+      document.getElementById("p2hcp").innerText = slider2.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider2.oninput = function() {
+        output2.innerHTML = Number(slider2.value).toFixed(1);
+        document.getElementById("p2hcp").innerText = Number(slider2.value).toFixed(1);
+      }
+
+      //===== player 3 ===========================================================
+
+      var slider3 = document.getElementById("myRange3");
+      var output3 = document.getElementById("demo3");
+      output3.innerHTML = slider3.value; // Display the default slider value
+
+      document.getElementById("p3hcp").innerText = slider3.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider3.oninput = function() {
+        output3.innerHTML = Number(slider3.value).toFixed(1);
+        document.getElementById("p3hcp").innerText = Number(slider3.value).toFixed(1);
+      }
+
+      //===== player 4 ===========================================================
+
+      var slider4 = document.getElementById("myRange4");
+      var output4 = document.getElementById("demo4");
+      output4.innerHTML = slider4.value; // Display the default slider value
+
+      document.getElementById("p4hcp").innerText = slider4.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider4.oninput = function() {
+        output4.innerHTML = Number(slider4.value).toFixed(1);
+        document.getElementById("p4hcp").innerText = Number(slider4.value).toFixed(1);
+      }
+
+
+
+
+      function plus(p) {
+        var slider = document.getElementById("myRange" + p)
+        var output = document.getElementById("demo" + p);
+        slider.value = parseFloat(slider.value) + 0.1
+        output.innerHTML = Number(slider.value).toFixed(1);
+
+        document.getElementById("p" + p + "hcp").innerText = Number(slider.value).toFixed(1);
+
+
+      }
+
+      function minus(p) {
+        var slider = document.getElementById("myRange" + p)
+        var output = document.getElementById("demo" + p);
+        slider.value = parseFloat(slider.value) - 0.1
+        output.innerHTML = Number(slider.value).toFixed(1);
+
+        document.getElementById("p" + p + "hcp").innerText = Number(slider.value).toFixed(1);
+      }
+
+
+      function showhcpcalcs() {
+
+
+        document.getElementById("showhcpcalcs").style.visibility = "visible";
+
+
+
+
+      }
+
+
+
+
+      function calcclose() {
+        document.getElementById("showcalcs").style.visibility = "hidden";
+      }
+
+      function showcalcs() {
+
+        if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0) {
+
+          document.getElementById("showcalcs").style.visibility = "visible";
+
+          let vhcp1 = document.getElementById("nhcp1").value
+          let vhcp2 = document.getElementById("nhcp2").value
+          let vhcp3 = document.getElementById("nhcp3").value
+          let vhcp4 = document.getElementById("nhcp4").value
+
+          // get globals
+          let vhcpallowance = 90
+          let vslope = document.getElementById("nslope").value
+
+          let vcoursehcp1 = vhcp1 * (vslope / 113)
+          let vcoursehcp2 = vhcp2 * (vslope / 113)
+          let vcoursehcp3 = vhcp3 * (vslope / 113)
+          let vcoursehcp4 = vhcp4 * (vslope / 113)
+
+          let vcoursehcp10 = vcoursehcp1.toFixed(0);
+          let vcoursehcp20 = vcoursehcp2.toFixed(0);
+          let vcoursehcp30 = vcoursehcp3.toFixed(0);
+          let vcoursehcp40 = vcoursehcp4.toFixed(0);
+
+          let var1t = (vhcpallowance / 100) * vcoursehcp10
+          let var2t = (vhcpallowance / 100) * vcoursehcp20
+          let var3t = (vhcpallowance / 100) * vcoursehcp30
+          let var4t = (vhcpallowance / 100) * vcoursehcp40
+
+          var1 = var1t.toFixed(0)
+          var2 = var2t.toFixed(0)
+          var3 = var3t.toFixed(0)
+          var4 = var4t.toFixed(0)
+
+
+          let b = Math.min(var1, var2, var3, var4);
+
+          // player 1
+          let p1a = vhcp1 + " x " + vslope + "/113 = " + vcoursehcp1.toFixed(2) + " = " + vcoursehcp10
+          let p1b = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t.toFixed(2) + " = " + var1
+          let p1c = " = " + var1 + " - " + b + " = " + (var1 - b)
+
+          // player 2
+          let p2a = vhcp2 + " x " + vslope + "/113 = " + vcoursehcp2.toFixed(2) + " = " + vcoursehcp20
+          let p2b = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t.toFixed(2) + " = " + var2
+          let p2c = " = " + var2 + " - " + b + " = " + (var2 - b)
+
+          // player 3
+          let p3a = vhcp3 + " x " + vslope + "/113 = " + vcoursehcp3.toFixed(2) + " = " + vcoursehcp30
+          let p3b = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t.toFixed(2) + " = " + var3
+          let p3c = " = " + var3 + " - " + b + " = " + (var3 - b)
+
+          // player 4
+          let p4a = vhcp4 + " x " + vslope + "/113 = " + vcoursehcp4.toFixed(2) + " = " + vcoursehcp40
+          let p4b = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t.toFixed(2) + " = " + var4
+          let p4c = " = " + var4 + " - " + b + " = " + (var4 - b)
+
+          let calctxt = "<br>player 1 course hcp<br>" + p1a + "<br>player 1 playing hcp<br>" + p1b + "<br>player 1 strokes" + p1c
+
+          calctxt += "<br>"
+
+          calctxt += "<br>player 2 course hcp<br>" + p2a + "<br>player 2 playing hcp<br>" + p2b + "<br>player 2 strokes" + p2c
+
+          calctxt += "<br>"
+
+          calctxt += "<br>player 3 course hcp<br>" + p3a + "<br>player 3 playing hcp<br>" + p3b + "<br>player 3 strokes" + p3c
+
+          calctxt += "<br>"
+
+          calctxt += "<br>player 4 course hcp<br>" + p4a + "<br>player 4 playing hcp<br>" + p4b + "<br>player 4 strokes" + p4c
+
+          calctxt += "<br><br>" + '<p id="xclose">tap to close</p>'
+
+
+
+          document.getElementById("showcalcs").innerHTML = calctxt
+
+        }
+
+
+
+      }
+
+
+      function updatehcp() {
+        // get 4 players hcp's
+        if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0) {
+
+          let vhcp1 = document.getElementById("nhcp1").value
+          let vhcp2 = document.getElementById("nhcp2").value
+          let vhcp3 = document.getElementById("nhcp3").value
+          let vhcp4 = document.getElementById("nhcp4").value
+
+          // get globals
+          let vhcpallowance = 90
+          let vslope = document.getElementById("nslope").value
+
+          let vcoursehcp1 = vhcp1 * (vslope / 113)
+          let vcoursehcp2 = vhcp2 * (vslope / 113)
+          let vcoursehcp3 = vhcp3 * (vslope / 113)
+          let vcoursehcp4 = vhcp4 * (vslope / 113)
+
+          let vcoursehcp10 = vcoursehcp1.toFixed(0);
+          let vcoursehcp20 = vcoursehcp2.toFixed(0);
+          let vcoursehcp30 = vcoursehcp3.toFixed(0);
+          let vcoursehcp40 = vcoursehcp4.toFixed(0);
+
+          let var1t = (vhcpallowance / 100) * vcoursehcp10
+          let var2t = (vhcpallowance / 100) * vcoursehcp20
+          let var3t = (vhcpallowance / 100) * vcoursehcp30
+          let var4t = (vhcpallowance / 100) * vcoursehcp40
+
+          let var1 = var1t.toFixed(0)
+          let var2 = var2t.toFixed(0)
+          let var3 = var3t.toFixed(0)
+          let var4 = var4t.toFixed(0)
+
+          //calc differences
+          let b = Math.min(var1, var2, var3, var4);
+          if ((var1 - b) == 1) {
+            var sss = "stroke"
+          } else {
+            var sss = "strokes"
+          }
+          document.getElementById("splayinghcp1").innerHTML = "Player 1 (" + vhcp1 + ")<br>course hcp = " + vcoursehcp10 + "<br>playing hcp = " + var1 + "<br>gets " + (var1 - b) + " " + sss
+          if ((var2 - b) == 1) {
+            var sss = "stroke"
+          } else {
+            var sss = "strokes"
+          }
+          document.getElementById("splayinghcp2").innerHTML = "Player 2 (" + vhcp2 + ")<br>course hcp = " + vcoursehcp20 + "<br>playing hcp = " + var2 + "<br>gets " + (var2 - b) + " " + sss
+          if ((var3 - b) == 1) {
+            var sss = "stroke"
+          } else {
+            var sss = "strokes"
+          }
+          document.getElementById("splayinghcp3").innerHTML = "Player 3 (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>playing hcp = " + var3 + "<br>gets " + (var3 - b) + " " + sss
+          if ((var4 - b) == 1) {
+            var sss = "stroke"
+          } else {
+            var sss = "strokes"
+          }
+          document.getElementById("splayinghcp4").innerHTML = "Player 4 (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>playing hcp = " + var4 + "<br>gets " + (var4 - b) + " " + sss
+        }
+
+      }
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       // name selected, do stuff
+	function dropSelected(courseName) {
+	
+			
+			// update selection
+			document.getElementById("dropbtn").innerText = courseName;
+			var i;
+			for(i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if(openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+			
+			doGetHCP();
+		
+	}
+
+	// show menu of names
+	function myFunction() {
+		// When the user clicks on the button, toggle between hiding and showing the dropdown content
+		document.getElementById("myDropdown").classList.toggle("show");
+	}
+	
+       
+       
+       
+       
+       
+     // Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+		if(!event.target.matches('.dropbtn')) {
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for(i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if(openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	};  
+       
+       
+       
+       
+       
+       
+       
+       
+
+    </script>
 </body>
 
 </html>
