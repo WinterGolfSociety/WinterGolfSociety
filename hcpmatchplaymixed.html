@@ -609,9 +609,9 @@
 
       function plus(p) {
         var slider = document.getElementById("myRange" + p)
-        var output = document.getElementById("demo" + p);
+        //var output = document.getElementById("demo" + p);
         slider.value = parseFloat(slider.value) + 0.1
-        output.innerHTML = Number(slider.value).toFixed(1);
+        //output.innerHTML = Number(slider.value).toFixed(1);
 
         document.getElementById("p" + p + "hcp").innerText = Number(slider.value).toFixed(1);
 
@@ -620,9 +620,9 @@
 
       function minus(p) {
         var slider = document.getElementById("myRange" + p)
-        var output = document.getElementById("demo" + p);
+        //var output = document.getElementById("demo" + p);
         slider.value = parseFloat(slider.value) - 0.1
-        output.innerHTML = Number(slider.value).toFixed(1);
+        //output.innerHTML = Number(slider.value).toFixed(1);
 
         document.getElementById("p" + p + "hcp").innerText = Number(slider.value).toFixed(1);
       }
