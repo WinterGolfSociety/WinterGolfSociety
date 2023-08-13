@@ -161,25 +161,16 @@
     float: left;
   }
   #plusicon1,
-   #plusicon2,
-       #plusicon3,
-       #plusicon4
-     {
+  #plusicon2,
+  #plusicon3,
+  #plusicon4
+  {
     padding-right: 20px;
     padding-bottom: 10px;
    //     padding-top: 10px;
     float: right;
   }
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
+         
    #dropbtn {
 		color: greenYellow;
 		cursor: pointer;
@@ -210,7 +201,7 @@
 	}
 	
 	.dropdown-content a {
-      text-align: left;
+                text-align: left;
 		color: gray;
 		padding: 12px 16px;
 		text-decoration: none;
@@ -219,7 +210,7 @@
      
    .dropdown-content a:hover {
 		color: greenYellow;
-      background: gray;
+                background: gray;
 		padding: 12px 16px;
 		text-decoration: none;
 		display: block;
@@ -229,21 +220,11 @@
 		display: block;
 	}
      
-     
-     
-     
      #demo1, #demo2, #demo3, #demo4 {
 color: greenYellow;
-
+font-size:16px;
 }
      
-     
-     
-     
-     
-     
-     
-
   </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -408,92 +389,12 @@ color: greenYellow;
     <div class="row">
       <div>
         <h2>Stroke calculations for Pairs Matchplay</h2>
-        <div class="container">
-          <div class="stxt">slope</div>
-          <div class="demo">
-            <input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
-          </div>
-          <br>
-          <br>
-          <div class="stxt">player 1 WHS handicap index</div>
-          <div class="demo">
-            <input type="number" id="nhcp1" name="nhcp1" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-
-
-
-
-            <input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
-
-
-
-          </div>
-          <br>
-          <br>
-          <div class="stxt">player 2 WHS handicap index</div>
-          <div class="demo">
-            <input type="number" id="nhcp2" name="nhcp2" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-          </div>
-          <br>
-          <br>
-          <div class="stxt">player 3 WHS handicap index</div>
-          <div class="demo">
-            <input type="number" id="nhcp3" name="nhcp3" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-          </div>
-          <br>
-          <br>
-          <div class="stxt">player 4 WHS handicap index</div>
-          <div class="demo">
-            <input type="number" id="nhcp4" name="nhcp4" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-          </div>
-        </div>
-        <br>
-        <div class="demo">
-          <!-- modal calculations -->
-          <div class="showcalcs" id="showcalcs" onclick="calcclose()">
-          </div>
-        </div>
-        <br>
-        <div id="txt">
-          <br>
-          <br>
-          <div id="splayinghcp1" class="score">player 1
-            <br>course hcp
-            <br>playing hcp
-            <br>strokes</div>
-          <br>
-          <div id="splayinghcp2" class="score">player 2
-            <br>course hcp
-            <br>playing hcp
-            <br>strokes</div>
-          <br>
-          <div id="splayinghcp3" class="score">player 3
-            <br>course hcp
-            <br>playing hcp
-            <br>strokes</div>
-          <br>
-          <div id="splayinghcp4" class="score">player 4
-            <br>course hcp
-            <br>playing hcp
-            <br>strokes</div>
-          <br>
-        </div>
-        <br>
-        <br>
-        <button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
-      </div>
-    </div>
+     
+        
     <br>
     <br>
-    <br>
-    <br>
-    <p id="footnote">Calculation method from:</p>
-    <p id="footnote">R&A Rules of Handicapping</p>
-    <p id="footnote">APPENDIX C Interpretations:</p>
-    <p id="footnote">C/2 - Examples of how to allocate strokes in handicap competitions when handicap allowances apply.</p>
-    <p id="footnote">extract from appendix C:</p>
-    <p id="footnote">In general, after handicap allowances have been applied in match play formats, the player with the lowest Playing Handicap plays off zero strokes relative to the other player(s). The other player(s) receive(s) the difference between their own Playing Handicap and that of the player with the lowest Playing Handicap.</p>
-    <br>
-    <br>
+
+
     <script>
        var courses = [
            ["select course",,],
@@ -657,332 +558,116 @@ doGetStrokes()
 	doGetStrokes()
 
       }
-
-
-      function showhcpcalcs() {
-
-
-        document.getElementById("showhcpcalcs").style.visibility = "visible";
-
-
-
-
-      }
-
-
-
-
-      function calcclose() {
-        document.getElementById("showcalcs").style.visibility = "hidden";
-      }
-
-      function showcalcs() {
-
-        if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0) {
-
-          document.getElementById("showcalcs").style.visibility = "visible";
-
-          let vhcp1 = document.getElementById("nhcp1").value
-          let vhcp2 = document.getElementById("nhcp2").value
-          let vhcp3 = document.getElementById("nhcp3").value
-          let vhcp4 = document.getElementById("nhcp4").value
-
-          // get globals
-          let vhcpallowance = 90
-          let vslope = document.getElementById("nslope").value
-
-          let vcoursehcp1 = vhcp1 * (vslope / 113)
-          let vcoursehcp2 = vhcp2 * (vslope / 113)
-          let vcoursehcp3 = vhcp3 * (vslope / 113)
-          let vcoursehcp4 = vhcp4 * (vslope / 113)
-
-          let vcoursehcp10 = vcoursehcp1.toFixed(0);
-          let vcoursehcp20 = vcoursehcp2.toFixed(0);
-          let vcoursehcp30 = vcoursehcp3.toFixed(0);
-          let vcoursehcp40 = vcoursehcp4.toFixed(0);
-
-          let var1t = (vhcpallowance / 100) * vcoursehcp10
-          let var2t = (vhcpallowance / 100) * vcoursehcp20
-          let var3t = (vhcpallowance / 100) * vcoursehcp30
-          let var4t = (vhcpallowance / 100) * vcoursehcp40
-
-          var1 = var1t.toFixed(0)
-          var2 = var2t.toFixed(0)
-          var3 = var3t.toFixed(0)
-          var4 = var4t.toFixed(0)
-
-
-          let b = Math.min(var1, var2, var3, var4);
-
-          // player 1
-          let p1a = vhcp1 + " x " + vslope + "/113 = " + vcoursehcp1.toFixed(2) + " = " + vcoursehcp10
-          let p1b = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t.toFixed(2) + " = " + var1
-          let p1c = " = " + var1 + " - " + b + " = " + (var1 - b)
-
-          // player 2
-          let p2a = vhcp2 + " x " + vslope + "/113 = " + vcoursehcp2.toFixed(2) + " = " + vcoursehcp20
-          let p2b = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t.toFixed(2) + " = " + var2
-          let p2c = " = " + var2 + " - " + b + " = " + (var2 - b)
-
-          // player 3
-          let p3a = vhcp3 + " x " + vslope + "/113 = " + vcoursehcp3.toFixed(2) + " = " + vcoursehcp30
-          let p3b = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t.toFixed(2) + " = " + var3
-          let p3c = " = " + var3 + " - " + b + " = " + (var3 - b)
-
-          // player 4
-          let p4a = vhcp4 + " x " + vslope + "/113 = " + vcoursehcp4.toFixed(2) + " = " + vcoursehcp40
-          let p4b = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t.toFixed(2) + " = " + var4
-          let p4c = " = " + var4 + " - " + b + " = " + (var4 - b)
-
-          let calctxt = "<br>player 1 course hcp<br>" + p1a + "<br>player 1 playing hcp<br>" + p1b + "<br>player 1 strokes" + p1c
-
-          calctxt += "<br>"
-
-          calctxt += "<br>player 2 course hcp<br>" + p2a + "<br>player 2 playing hcp<br>" + p2b + "<br>player 2 strokes" + p2c
-
-          calctxt += "<br>"
-
-          calctxt += "<br>player 3 course hcp<br>" + p3a + "<br>player 3 playing hcp<br>" + p3b + "<br>player 3 strokes" + p3c
-
-          calctxt += "<br>"
-
-          calctxt += "<br>player 4 course hcp<br>" + p4a + "<br>player 4 playing hcp<br>" + p4b + "<br>player 4 strokes" + p4c
-
-          calctxt += "<br><br>" + '<p id="xclose">tap to close</p>'
-
-
-
-          document.getElementById("showcalcs").innerHTML = calctxt
-
-        }
-
-
-
-      }
-
-
-      function updatehcp() {
-        // get 4 players hcp's
-        if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0) {
-
-          let vhcp1 = document.getElementById("nhcp1").value
-          let vhcp2 = document.getElementById("nhcp2").value
-          let vhcp3 = document.getElementById("nhcp3").value
-          let vhcp4 = document.getElementById("nhcp4").value
-
-          // get globals
-          let vhcpallowance = 90
-          let vslope = document.getElementById("nslope").value
-
-          let vcoursehcp1 = vhcp1 * (vslope / 113)
-          let vcoursehcp2 = vhcp2 * (vslope / 113)
-          let vcoursehcp3 = vhcp3 * (vslope / 113)
-          let vcoursehcp4 = vhcp4 * (vslope / 113)
-
-          let vcoursehcp10 = vcoursehcp1.toFixed(0);
-          let vcoursehcp20 = vcoursehcp2.toFixed(0);
-          let vcoursehcp30 = vcoursehcp3.toFixed(0);
-          let vcoursehcp40 = vcoursehcp4.toFixed(0);
-
-          let var1t = (vhcpallowance / 100) * vcoursehcp10
-          let var2t = (vhcpallowance / 100) * vcoursehcp20
-          let var3t = (vhcpallowance / 100) * vcoursehcp30
-          let var4t = (vhcpallowance / 100) * vcoursehcp40
-
-          let var1 = var1t.toFixed(0)
-          let var2 = var2t.toFixed(0)
-          let var3 = var3t.toFixed(0)
-          let var4 = var4t.toFixed(0)
-
-          //calc differences
-          let b = Math.min(var1, var2, var3, var4);
-          if ((var1 - b) == 1) {
-            var sss = "stroke"
-          } else {
-            var sss = "strokes"
-          }
-          document.getElementById("splayinghcp1").innerHTML = "Player 1 (" + vhcp1 + ")<br>course hcp = " + vcoursehcp10 + "<br>playing hcp = " + var1 + "<br>gets " + (var1 - b) + " " + sss
-          if ((var2 - b) == 1) {
-            var sss = "stroke"
-          } else {
-            var sss = "strokes"
-          }
-          document.getElementById("splayinghcp2").innerHTML = "Player 2 (" + vhcp2 + ")<br>course hcp = " + vcoursehcp20 + "<br>playing hcp = " + var2 + "<br>gets " + (var2 - b) + " " + sss
-          if ((var3 - b) == 1) {
-            var sss = "stroke"
-          } else {
-            var sss = "strokes"
-          }
-          document.getElementById("splayinghcp3").innerHTML = "Player 3 (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>playing hcp = " + var3 + "<br>gets " + (var3 - b) + " " + sss
-          if ((var4 - b) == 1) {
-            var sss = "stroke"
-          } else {
-            var sss = "strokes"
-          }
-          document.getElementById("splayinghcp4").innerHTML = "Player 4 (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>playing hcp = " + var4 + "<br>gets " + (var4 - b) + " " + sss
-        }
-
-      }
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
        
        
        // name selected, do stuff
 	function dropSelected(courseName) {
-	
-			
-			// update selection
-
-var dropdowns = document.getElementsByClassName("dropdown-content");
-			var i;
+		// update selection
+                document.getElementById("dropbtn").innerText = courseName;
 
 
-
-			//document.getElementById("dropbtn").innerText = courseName;
-			//var i;
-			for(i = 0; i < dropdowns.length; i++) {
-				var openDropdown = dropdowns[i];
-				if(openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
-			}
-			// fill in the slope etc
-			doGetHcpInfo(courseName);
-		
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+                for(i = 0; i < dropdowns.length; i++) {
+		   var openDropdown = dropdowns[i];
+		   if(openDropdown.classList.contains('show')) {
+		      openDropdown.classList.remove('show');
+		   }
+		}
+		// fill in the slope etc
+		doGetHcpInfo(courseName);
 	}
 
 	// show menu of names
 	function myFunction() {
-		// When the user clicks on the button, toggle between hiding and showing the dropdown content
-		document.getElementById("myDropdown").classList.toggle("show");
+	   // When the user clicks on the button, toggle between hiding and showing the dropdown content
+	   document.getElementById("myDropdown").classList.toggle("show");
 	}
 	
-       
-       
-       
-       
-       
-     // Close the dropdown if the user clicks outside of it
+        // Close the dropdown if the user clicks outside of it
 	window.onclick = function(event) {
-		if(!event.target.matches('.dropbtn')) {
-			var dropdowns = document.getElementsByClassName("dropdown-content");
-			var i;
-			for(i = 0; i < dropdowns.length; i++) {
-				var openDropdown = dropdowns[i];
-				if(openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
-			}
-		}
+	   if(!event.target.matches('.dropbtn')) {
+	      var dropdowns = document.getElementsByClassName("dropdown-content");
+	      var i;
+	      for(i = 0; i < dropdowns.length; i++) {
+		 var openDropdown = dropdowns[i];
+		 if(openDropdown.classList.contains('show')) {
+		    openDropdown.classList.remove('show');
+		 }
+	      }
+	   }
 	};  
        
        
     function doGetHcpInfo(course) {
-
-
-
-
-       	for(i = 1; i < courses.length; i++) {
-
-
-
-
-
-            if (courses[i][0] == course) {
-       document.getElementById("p1slope").innerText = courses[i][1]
-       document.getElementById("p2slope").innerText = courses[i][1]
-       document.getElementById("p3slope").innerText = courses[i][1]
-       document.getElementById("p4slope").innerText = courses[i][1]
+    for(i = 1; i < courses.length; i++) {
+       if (courses[i][0] == course) {
+          document.getElementById("p1slope").innerText = courses[i][1]
+          document.getElementById("p2slope").innerText = courses[i][1]
+          document.getElementById("p3slope").innerText = courses[i][1]
+          document.getElementById("p4slope").innerText = courses[i][1]
        
-       document.getElementById("p1ci").innerText = courses[i][2]
-       document.getElementById("p2ci").innerText = courses[i][2]
-       document.getElementById("p3ci").innerText = courses[i][2]
-       document.getElementById("p4ci").innerText = courses[i][2]
+          document.getElementById("p1ci").innerText = courses[i][2]
+          document.getElementById("p2ci").innerText = courses[i][2]
+          document.getElementById("p3ci").innerText = courses[i][2]
+          document.getElementById("p4ci").innerText = courses[i][2]     
+      }
+    }   
        
-       
-               
-    }
- }   
-       
- }      
+    }      
        
      
 function doGetStrokes() {
 
-// calculate strokes
+       // calculate strokes
        temp1hcp = document.getElementById("p1hcp").innerText
        temp2hcp = document.getElementById("p2hcp").innerText
        temp3hcp = document.getElementById("p3hcp").innerText
        temp4hcp = document.getElementById("p4hcp").innerText
-alert("temp1hcp = " + temp1hcp)
+
        temp1slope = document.getElementById("p1slope").innerText
        temp2slope = document.getElementById("p2slope").innerText
        temp3slope = document.getElementById("p3slope").innerText
        temp4slope = document.getElementById("p4slope").innerText
 
         // find original course hcp     
-       tempstrokes1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
-       tempstrokes2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
-       tempstrokes3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
-       tempstrokes4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)      
-alert("tempstrokes1 = " + tempstrokes1)
+        tempstrokes1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
+        tempstrokes2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
+        tempstrokes3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
+        tempstrokes4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)      
+
 	// round to whole number
 	tempstrokes1 = tempstrokes1.toFixed(0);
 	tempstrokes2 = tempstrokes2.toFixed(0);
 	tempstrokes3 = tempstrokes3.toFixed(0);
 	tempstrokes4 = tempstrokes4.toFixed(0);
-alert("tempstrokes1 = " + tempstrokes1)
+
         // construct info
 	tempstrokes1full = "course hcp = " + tempstrokes1
         tempstrokes2full = "course hcp = " + tempstrokes2
         tempstrokes3full = "course hcp = " + tempstrokes3
         tempstrokes4full = "course hcp = " + tempstrokes4
 
-
 	// find playing hcp and round to whole number
 	tempstrokes1 = (tempstrokes1 * 0.9).toFixed(0);
 	tempstrokes2 = (tempstrokes2 * 0.9).toFixed(0);
 	tempstrokes3 = (tempstrokes3 * 0.9).toFixed(0);
 	tempstrokes4 = (tempstrokes4 * 0.9).toFixed(0);
-alert("tempstrokes1 = " + tempstrokes1)
-        tempstrokes1full += ", playing hcp = " + tempstrokes1
-        tempstrokes2full += ", playing hcp = " + tempstrokes2
-        tempstrokes3full += ", playing hcp = " + tempstrokes3
-        tempstrokes4full += ", playing hcp = " + tempstrokes4
 
-
-
+       tempstrokes1full += ", playing hcp = " + tempstrokes1
+       tempstrokes2full += ", playing hcp = " + tempstrokes2
+       tempstrokes3full += ", playing hcp = " + tempstrokes3
+       tempstrokes4full += ", playing hcp = " + tempstrokes4
 
        document.getElementById("demo1").innerText = tempstrokes1full 
        document.getElementById("demo2").innerText = tempstrokes2full
        document.getElementById("demo3").innerText = tempstrokes3full 
        document.getElementById("demo4").innerText = tempstrokes4full 
 
-
-
        // find lowest
-	var loweststrokes = Math.min(tempstrokes1, tempstrokes2, tempstrokes3, tempstrokes4)        
+       var loweststrokes = Math.min(tempstrokes1, tempstrokes2, tempstrokes3, tempstrokes4)        
      
-	// find difference to give strokes
+       // find difference to give strokes
        newstrokes1 = (tempstrokes1 - loweststrokes)        
        newstrokes2 = (tempstrokes2 - loweststrokes) 
        newstrokes3 = (tempstrokes3 - loweststrokes) 
@@ -993,16 +678,7 @@ alert("tempstrokes1 = " + tempstrokes1)
        document.getElementById("p3calchcp").innerText = newstrokes3
        document.getElementById("p4calchcp").innerText = newstrokes4
 
- 
-
-
-
 }
-
-
-
-  
-       
 
     </script>
 </body>
