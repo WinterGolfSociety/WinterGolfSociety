@@ -608,14 +608,43 @@
          document.getElementById("demo4").innerText = tempstrokes4full 
          
          // find lowest
-         var loweststrokes = Math.min(tempstrokes1, tempstrokes2, tempstrokes3, tempstrokes4)        
-         
+	 var tempstrokes1mod = tempstrokes1
+	 var tempstrokes2mod = tempstrokes2
+ 	 var tempstrokes3mod = tempstrokes3
+	 var tempstrokes4mod = tempstrokes4
+	if (tempstrokes1mod == "0") {
+		tempstrokes1mod = 99;
+	}
+	if (tempstrokes2mod == "0") {
+		tempstrokes2mod = 99;
+	}
+	if (tempstrokes3mod == "0") {
+		tempstrokes3mod = 99;
+	}
+	if (tempstrokes4mod == "0") {
+		tempstrokes4mod = 99;
+	}
+         var loweststrokes = Math.min(tempstrokes1mod, tempstrokes2mod, tempstrokes3mod, tempstrokes4mod)        
+   
          // find difference to give strokes
-         newstrokes1 = (tempstrokes1 - loweststrokes)        
-         newstrokes2 = (tempstrokes2 - loweststrokes) 
-         newstrokes3 = (tempstrokes3 - loweststrokes) 
-         newstrokes4 = (tempstrokes4 - loweststrokes) 
-         
+	newstrokes1 = 0        
+        newstrokes2 = 0 
+        newstrokes3 = 0 
+        newstrokes4 = 0
+ 
+	if (tempstrokes1mod !== 99) {
+		 newstrokes1 = (tempstrokes1 - loweststrokes)  
+	}
+	if (tempstrokes2mod !== 99) {
+		newstrokes2 = (tempstrokes2 - loweststrokes) 
+	}
+	if (tempstrokes3mod !== 99) {
+		 newstrokes3 = (tempstrokes3 - loweststrokes) 
+	}
+	if (tempstrokes4mod !== 99) {
+		newstrokes4 = (tempstrokes4 - loweststrokes) 
+	}
+
          document.getElementById("p1calchcp").innerText = newstrokes1 
          document.getElementById("p2calchcp").innerText = newstrokes2
          document.getElementById("p3calchcp").innerText = newstrokes3
