@@ -8,10 +8,7 @@
   <meta content="Bryan M" name="author">
   <title>hcp calc</title>
   <link href="favicon.ico" rel="icon" type="image/x-icon">
-  <script src="jquery-3.6.0.min.js" type="text/javascript">
-
-
-  </script>
+  
 
   <style>
   body {
@@ -160,7 +157,7 @@
      {
     padding-left: 20px;
     padding-bottom: 10px;
-        padding-top: 10px;
+  //      padding-top: 10px;
     float: left;
   }
   #plusicon1,
@@ -170,7 +167,7 @@
      {
     padding-right: 20px;
     padding-bottom: 10px;
-        padding-top: 10px;
+   //     padding-top: 10px;
     float: right;
   }
      
@@ -235,7 +232,10 @@
      
      
      
-     
+     #demo1, #demo2, #demo3, #demo4 {
+color: greenYellow;
+
+}
      
      
      
@@ -245,6 +245,10 @@
      
 
   </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 </head>
 
 <body>
@@ -293,9 +297,9 @@
           <tr class="tr1">
             <td class="td1">1</td>
             <td class="td1 yellow" id="p1hcp" onclick="p1hcpadjust()">0</td>
-            <td class="td1" id="p1slope">116</td>
-            <td class="td1" id="p1ci">67.6</td>
-            <td class="td1" id="p1calchcp">17</td>
+            <td class="td1" id="p1slope">0</td>
+            <td class="td1" id="p1ci">0</td>
+            <td class="td1" id="p1calchcp">0</td>
           </tr>
 
           <tr class="tr1">
@@ -318,9 +322,9 @@
           <tr class="tr1">
             <td class="td1">2</td>
             <td class="td1 yellow" id="p2hcp" onclick="p2hcpadjust()">0</td>
-            <td class="td1" id="p2slope">116</td>
-            <td class="td1" id="p2ci">67.6</td>
-            <td class="td1" id="p2calchcp">17</td>
+            <td class="td1" id="p2slope">0</td>
+            <td class="td1" id="p2ci">0</td>
+            <td class="td1" id="p2calchcp">0</td>
           </tr>
 
 
@@ -345,9 +349,9 @@
           <tr class="tr1">
             <td class="td1">3</td>
             <td class="td1 yellow" id="p3hcp" onclick="p3hcpadjust()">0</td>
-            <td class="td1" id="p3slope">116</td>
-            <td class="td1" id="p3ci">67.6</td>
-            <td class="td1" id="p3calchcp">17</td>
+            <td class="td1" id="p3slope">0</td>
+            <td class="td1" id="p3ci">0</td>
+            <td class="td1" id="p3calchcp">0</td>
           </tr>
 
 
@@ -356,8 +360,9 @@
             <td class="td1pad10" id="test" colspan="5">
               <div class="slidecontainer" id="slidecontainer3">
                 <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange3">
-                <p><span id="demo3"></span></p>
+                <p><span id="demo3">course hcp = 33, playing hcp = 32</span></p>
                 <div class="minusiconcontainer" id="minusicon3"> <img src="minusgreen.png" alt="minus" onclick="minus(3)" style="height: 85px; width: 85px;"> </div>
+
                 <div class="plusiconcontainer" id="plusicon3"> <img src="plusgreen.png" alt="plus" onclick="plus(3)" style="height: 85px; width: 85px;"> </div>
               </div>
             </td>
@@ -371,9 +376,9 @@
           <tr class="tr1">
             <td class="td1">4</td>
             <td class="td1 yellow" id="p4hcp" onclick="p4hcpadjust()">0</td>
-            <td class="td1" id="p4slope">116</td>
-            <td class="td1" id="p4ci">67.6</td>
-            <td class="td1" id="p4calchcp">17</td>
+            <td class="td1" id="p4slope">0</td>
+            <td class="td1" id="p4ci">0</td>
+            <td class="td1" id="p4calchcp">0</td>
           </tr>
 
 
@@ -383,7 +388,8 @@
             <td class="td1pad10" id="test" colspan="5">
               <div class="slidecontainer" id="slidecontainer4">
                 <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange4">
-                <p><span id="demo4"></span></p>
+             <p><span id="demo4">xxxxxxxxxx</span></p>
+
                 <div class="minusiconcontainer" id="minusicon4"> <img src="minusgreen.png" alt="minus" onclick="minus(4)" style="height: 85px; width: 85px;"> </div>
                 <div class="plusiconcontainer" id="plusicon4"> <img src="plusgreen.png" alt="plus" onclick="plus(4)" style="height: 85px; width: 85px;"> </div>
               </div>
@@ -489,6 +495,17 @@
     <br>
     <br>
     <script>
+       var courses = [
+           ["select course",,],
+	   ["Bellingham - yellow tees","111","11.1"],
+           ["Longhirst Dawson - yellow tees","120","71.1"],
+           ["Longhirst Lakes - yellow tees","116","67.6"]
+       ]
+       
+       
+       
+       
+       
       function p1hcpadjust() {
         if (document.getElementById("slidecontainer1").style.display == "none") {
           document.getElementById("slidecontainer1").style.display = "inline";
@@ -556,6 +573,9 @@
       slider1.oninput = function() {
         //output1.innerHTML = Number(slider1.value).toFixed(1);
         document.getElementById("p1hcp").innerText = Number(slider1.value).toFixed(1);
+
+doGetStrokes()
+
       }
 
       //===== player 2 ===========================================================
@@ -570,6 +590,9 @@
       slider2.oninput = function() {
         //output2.innerHTML = Number(slider2.value).toFixed(1);
         document.getElementById("p2hcp").innerText = Number(slider2.value).toFixed(1);
+
+doGetStrokes()
+
       }
 
       //===== player 3 ===========================================================
@@ -584,6 +607,9 @@
       slider3.oninput = function() {
         //output3.innerHTML = Number(slider3.value).toFixed(1);
         document.getElementById("p3hcp").innerText = Number(slider3.value).toFixed(1);
+
+doGetStrokes()
+
       }
 
       //===== player 4 ===========================================================
@@ -598,6 +624,11 @@
       slider4.oninput = function() {
         //output4.innerHTML = Number(slider4.value).toFixed(1);
         document.getElementById("p4hcp").innerText = Number(slider4.value).toFixed(1);
+
+	doGetStrokes()
+
+
+
       }
 
 
@@ -611,6 +642,7 @@
 
         document.getElementById("p" + p + "hcp").innerText = Number(slider.value).toFixed(1);
 
+	doGetStrokes()
 
       }
 
@@ -621,6 +653,9 @@
         //output.innerHTML = Number(slider.value).toFixed(1);
 
         document.getElementById("p" + p + "hcp").innerText = Number(slider.value).toFixed(1);
+
+	doGetStrokes()
+
       }
 
 
@@ -816,16 +851,22 @@
 	
 			
 			// update selection
-			document.getElementById("dropbtn").innerText = courseName;
+
+var dropdowns = document.getElementsByClassName("dropdown-content");
 			var i;
+
+
+
+			//document.getElementById("dropbtn").innerText = courseName;
+			//var i;
 			for(i = 0; i < dropdowns.length; i++) {
 				var openDropdown = dropdowns[i];
 				if(openDropdown.classList.contains('show')) {
 					openDropdown.classList.remove('show');
 				}
 			}
-			
-			doGetHCP();
+			// fill in the slope etc
+			doGetHcpInfo(courseName);
 		
 	}
 
@@ -855,11 +896,112 @@
 	};  
        
        
+    function doGetHcpInfo(course) {
+
+
+
+
+       	for(i = 1; i < courses.length; i++) {
+
+
+
+
+
+            if (courses[i][0] == course) {
+       document.getElementById("p1slope").innerText = courses[i][1]
+       document.getElementById("p2slope").innerText = courses[i][1]
+       document.getElementById("p3slope").innerText = courses[i][1]
+       document.getElementById("p4slope").innerText = courses[i][1]
+       
+       document.getElementById("p1ci").innerText = courses[i][2]
+       document.getElementById("p2ci").innerText = courses[i][2]
+       document.getElementById("p3ci").innerText = courses[i][2]
+       document.getElementById("p4ci").innerText = courses[i][2]
        
        
+               
+    }
+ }   
        
+ }      
        
-       
+     
+function doGetStrokes() {
+
+// calculate strokes
+       temp1hcp = document.getElementById("p1hcp").innerText
+       temp2hcp = document.getElementById("p2hcp").innerText
+       temp3hcp = document.getElementById("p3hcp").innerText
+       temp4hcp = document.getElementById("p4hcp").innerText
+alert("temp1hcp = " + temp1hcp)
+       temp1slope = document.getElementById("p1slope").innerText
+       temp2slope = document.getElementById("p2slope").innerText
+       temp3slope = document.getElementById("p3slope").innerText
+       temp4slope = document.getElementById("p4slope").innerText
+
+        // find original course hcp     
+       tempstrokes1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
+       tempstrokes2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
+       tempstrokes3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
+       tempstrokes4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)      
+alert("tempstrokes1 = " + tempstrokes1)
+	// round to whole number
+	tempstrokes1 = tempstrokes1.toFixed(0);
+	tempstrokes2 = tempstrokes2.toFixed(0);
+	tempstrokes3 = tempstrokes3.toFixed(0);
+	tempstrokes4 = tempstrokes4.toFixed(0);
+alert("tempstrokes1 = " + tempstrokes1)
+        // construct info
+	tempstrokes1full = "course hcp = " + tempstrokes1
+        tempstrokes2full = "course hcp = " + tempstrokes2
+        tempstrokes3full = "course hcp = " + tempstrokes3
+        tempstrokes4full = "course hcp = " + tempstrokes4
+
+
+	// find playing hcp and round to whole number
+	tempstrokes1 = (tempstrokes1 * 0.9).toFixed(0);
+	tempstrokes2 = (tempstrokes2 * 0.9).toFixed(0);
+	tempstrokes3 = (tempstrokes3 * 0.9).toFixed(0);
+	tempstrokes4 = (tempstrokes4 * 0.9).toFixed(0);
+alert("tempstrokes1 = " + tempstrokes1)
+        tempstrokes1full += ", playing hcp = " + tempstrokes1
+        tempstrokes2full += ", playing hcp = " + tempstrokes2
+        tempstrokes3full += ", playing hcp = " + tempstrokes3
+        tempstrokes4full += ", playing hcp = " + tempstrokes4
+
+
+
+
+       document.getElementById("demo1").innerText = tempstrokes1full 
+       document.getElementById("demo2").innerText = tempstrokes2full
+       document.getElementById("demo3").innerText = tempstrokes3full 
+       document.getElementById("demo4").innerText = tempstrokes4full 
+
+
+
+       // find lowest
+	var loweststrokes = Math.min(tempstrokes1, tempstrokes2, tempstrokes3, tempstrokes4)        
+     
+	// find difference to give strokes
+       newstrokes1 = (tempstrokes1 - loweststrokes)        
+       newstrokes2 = (tempstrokes2 - loweststrokes) 
+       newstrokes3 = (tempstrokes3 - loweststrokes) 
+       newstrokes4 = (tempstrokes4 - loweststrokes) 
+      
+       document.getElementById("p1calchcp").innerText = newstrokes1 
+       document.getElementById("p2calchcp").innerText = newstrokes2
+       document.getElementById("p3calchcp").innerText = newstrokes3
+       document.getElementById("p4calchcp").innerText = newstrokes4
+
+ 
+
+
+
+}
+
+
+
+  
        
 
     </script>
