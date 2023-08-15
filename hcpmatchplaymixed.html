@@ -100,7 +100,12 @@
          #inputcourse1,
          #inputcourse2,
          #inputcourse3,
-         #inputcourse4 {
+         #inputcourse4,
+	 #inputcourse12,
+         #inputcourse22,
+         #inputcourse32,
+         #inputcourse42 
+ {
          width: 100%;
          font-size: 20px;
          background: gray;
@@ -158,7 +163,7 @@
          //     padding-top: 10px;
          float: right;
          }
-         #dropbtn {
+         #dropbtn, #dropbtn2 {
          color: greenYellow;
          cursor: pointer;
          //width: 100%;
@@ -168,11 +173,11 @@
          border-radius: 3px;
          border: none;
          }  
-         .dropdown {
+         .dropdown, .dropdown2 {
          position: relative;
          display: inline-block;
          }   
-         .dropdown-content {
+         .dropdown-content, .dropdown-content2 {
          display: none;
          position: absolute;
          background-color: #f1f1f1;
@@ -184,14 +189,14 @@
          box-shadow: 10px 10px 25px black;
          max-height: 70vh;
          }
-         .dropdown-content a {
+         .dropdown-content a, .dropdown-content2 a {
          text-align: left;
          color: gray;
          padding: 12px 16px;
          text-decoration: none;
          display: block;
          }
-         .dropdown-content a:hover {
+         .dropdown-content a:hover, .dropdown-content2 a:hover {
          color: greenYellow;
          background: gray;
          padding: 12px 16px;
@@ -246,8 +251,33 @@
                <tr>
                   <td colspan="5"></td>
                </tr>
+<tr>
+  <div id="teecolors1">
+<label class="container">white
+  <input type="radio" checked="checked" name="radio">
+  <span class="checkmark"></span>
+</label>
+<label class="container">yellow
+  <input type="radio" name="radio">
+  <span class="checkmark"></span>
+</label>
+<label class="container">red
+  <input type="radio" name="radio">
+  <span class="checkmark"></span>
+</label>
+
+
+
+
+
+
+white
+yellow
+red
+</div>
+</tr>
                <tr class="tr1">
-                  <td class="td1">1</td>
+                  <td class="td1" onclick="getteecolor()">1</td>
                   <td class="td1 yellow" id="p1hcp" onclick="p1hcpadjust()">0</td>
                   <td class="td1" id="p1slope">0</td>
                   <td class="td1" id="p1ci">0</td>
@@ -287,6 +317,20 @@
                <tr>
                   <td colspan="5"></td>
                </tr>
+		<tr>
+		 <td class="td1" colspan="5">
+                     <div class="mainselection">
+                        <div class="wrapper">
+                           <button onclick="myFunction2();" class="dropbtn2" id="dropbtn2">select course</button>
+                           <div id="myDropdown2" class="dropdown-content2"> 
+                              <a id="inputcourse12" href="#" onclick='dropSelected2(this.innerText);return false;'>Bellingham - yellow tees</a>             
+                              <a id="inputcourse22" href="#" onclick='dropSelected2(this.innerText);return false;'>Longhirst Dawson - yellow tees</a>           
+                              <a id="inputcourse32" href="#" onclick='dropSelected2(this.innerText);return false;'>Longhirst Lakes - yellow tees</a>      
+                           </div>
+                        </div>
+                     </div>
+                  </td>
+		</tr>
                <tr class="tr1">
                   <td class="td1">3</td>
                   <td class="td1 yellow" id="p3hcp" onclick="p3hcpadjust()">0</td>
@@ -502,8 +546,13 @@
          
          }
          
+
+
+
+
+
          
-         // name selected, do stuff
+         // course selected, do stuff
          function dropSelected(courseName) {
          // update selection
                   document.getElementById("dropbtn").innerText = courseName;
@@ -521,12 +570,45 @@
          doGetHcpInfo(courseName);
          }
          
-         // show menu of names
+
+	 // course selected, do stuff
+         function dropSelected2(courseName) {
+         // update selection
+                  document.getElementById("dropbtn2").innerText = courseName;
+         
+         
+                  var dropdowns = document.getElementsByClassName("dropdown-content2");
+         var i;
+                  for(i = 0; i < dropdowns.length; i++) {
+         var openDropdown = dropdowns[i];
+console.log("here 22")
+         if(openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+         }
+         }
+         // fill in the slope etc
+         doGetHcpInfo(courseName);
+         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         // show menu of courses
          function myFunction() {
          // When the user clicks on the button, toggle between hiding and showing the dropdown content
          document.getElementById("myDropdown").classList.toggle("show");
          }
-         
+      console.log("here1")  
           // Close the dropdown if the user clicks outside of it
          window.onclick = function(event) {
          if(!event.target.matches('.dropbtn')) {
@@ -542,6 +624,31 @@
          };  
          
          
+
+ // show menu of courses
+         function myFunction2() {
+         // When the user clicks on the button, toggle between hiding and showing the dropdown content
+         document.getElementById("myDropdown2").classList.toggle("show");
+         }
+          console.log("here2")   
+          // Close the dropdown if the user clicks outside of it
+         window.onclick = function(event) {
+         if(!event.target.matches('.dropbtn2')) {
+         var dropdowns = document.getElementsByClassName("dropdown-content2");
+         var i;
+         for(i = 0; i < dropdowns.length; i++) {
+         var openDropdown = dropdowns[i];
+         if(openDropdown.classList.contains('show')) {
+         openDropdown.classList.remove('show');
+         }
+         }
+         }
+         }; 
+
+
+
+
+
          function doGetHcpInfo(course) {
          for(i = 1; i < courses.length; i++) {
          if (courses[i][0] == course) {
@@ -560,6 +667,12 @@
          }      
          
          
+
+
+
+
+
+
          function doGetStrokes() {
          
          // calculate strokes
@@ -652,6 +765,18 @@
          
          }
          
+
+	function getteecolor() {
+	if (document.getElementById("teecolors").style.display == "none") {
+            document.getElementById("teecolors").style.display = "inline";
+          } else {
+            document.getElementById("teecolors").style.display = "none";
+          }
+
+	}
+
+
+
       </script>
    </body>
 </html>
