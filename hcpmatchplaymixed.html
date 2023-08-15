@@ -238,7 +238,7 @@
                   <td colspan="5"></td>
                </tr>
                <tr class="tr1">
-                  <td class="td1 sideways">player</td>
+                  <td class="td1 sideways">tee</td>
                   <td class="td1 sideways">hcp</td>
                   <td class="td1 sideways">slope</td>
                   <td class="td1 sideways">course<br>index</td>
@@ -251,31 +251,63 @@
                <tr>
                   <td colspan="5"></td>
                </tr>
-<tr>
-<td>
-  <div id="teecolors1">
-<label class="container">white
-  <input type="radio" checked="checked" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label class="container">yellow
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</label>
-<label class="container">red
-  <input type="radio" name="radio">
-  <span class="checkmark"></span>
-</label>
-</td>
-</div>
-</tr>
+
                <tr class="tr1">
-                  <td class="td1" onclick="getteecolor()">1</td>
-                  <td class="td1 yellow" id="p1hcp" onclick="p1hcpadjust()">0</td>
+                  <td class="td1" id="tee1" onclick='getteecolor("tee1")'>1</td>
+                  <td class="td1" id="p1hcp" onclick="p1hcpadjust()">0</td>
                   <td class="td1" id="p1slope">0</td>
                   <td class="td1" id="p1ci">0</td>
                   <td class="td1" id="p1calchcp">0</td>
                </tr>
+
+
+
+
+
+
+
+
+<tr>
+<td>
+
+
+
+
+<div data-role="fieldcontain" id="teecolors">
+   <fieldset data-role="controlgroup" data-type="horizontal" data-role="fieldcontain">
+
+         	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="white" />
+         	<label for="radio-choice-1">white&nbsp;&nbsp;</label>
+
+         	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="yellow"  checked="checked" />
+         	<label for="radio-choice-2">yellow</label>
+
+         	<input type="radio" name="radio-choice-1" id="radio-choice-3" value="red"  />
+         	<label for="radio-choice-3">red</label>
+
+    </fieldset>
+</div>
+
+</td>
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                <tr class="tr1">
                   <td class="td1pad10" colspan="5">
                      <div class="slidecontainer" id="slidecontainer1">
@@ -310,20 +342,7 @@
                <tr>
                   <td colspan="5"></td>
                </tr>
-		<tr>
-		 <td class="td1" colspan="5">
-                     <div class="mainselection">
-                        <div class="wrapper">
-                           <button onclick="myFunction2();" class="dropbtn2" id="dropbtn2">select course</button>
-                           <div id="myDropdown2" class="dropdown-content2"> 
-                              <a id="inputcourse12" href="#" onclick='dropSelected2(this.innerText);return false;'>Bellingham - yellow tees</a>             
-                              <a id="inputcourse22" href="#" onclick='dropSelected2(this.innerText);return false;'>Longhirst Dawson - yellow tees</a>           
-                              <a id="inputcourse32" href="#" onclick='dropSelected2(this.innerText);return false;'>Longhirst Lakes - yellow tees</a>      
-                           </div>
-                        </div>
-                     </div>
-                  </td>
-		</tr>
+
                <tr class="tr1">
                   <td class="td1">3</td>
                   <td class="td1 yellow" id="p3hcp" onclick="p3hcpadjust()">0</td>
@@ -370,17 +389,17 @@
       <br>
       <div class="row">
          <div>
-            <h2>Stroke calculations for Pairs Matchplay</h2>
+            <h2>Stroke calculations for (mixed) Pairs Matchplay</h2>
          </div>
       </div>
       <br>
       <br>
       <script>
+	// array: course, white slope, white index, yellow slope, yellow index, red slope, red index
          var courses = [
-             ["select course",,],
-         ["Bellingham - yellow tees","111","11.1"],
-             ["Longhirst Dawson - yellow tees","120","71.1"],
-             ["Longhirst Lakes - yellow tees","116","67.6"]
+             ["select course",,,,,,],
+             ["Longhirst Dawson","120","72.3","120","71.1","121","72.5"],
+             ["Longhirst Lakes","121","69.7","116","67.6","117","69.1"]
          ]
          
          
@@ -759,13 +778,21 @@ console.log("here 22")
          }
          
 
-	function getteecolor() {
+	function getteecolor(id) {
 	if (document.getElementById("teecolors").style.display == "none") {
             document.getElementById("teecolors").style.display = "inline";
           } else {
             document.getElementById("teecolors").style.display = "none";
           }
 
+	var colortee = document.querySelectorAll('input[type=radio]:checked')
+	if (colortee[0].value == "red") {
+		document.getElementById(id).style.background = "red";
+		document.getElementById(id).style.color = "white";
+
+		document.getElementById("p1slope").innerText =  courses[1][3];
+		document.getElementById("p1ci").innerText =  courses[1][4];
+	}
 	}
 
 
