@@ -274,9 +274,9 @@ text-align: center;
                         <div class="wrapper">
                            <button onclick="myFunction();" class="dropbtn" id="dropbtn">select course</button>
                            <div id="myDropdown" class="dropdown-content"> 
-                              <a id="inputcourse1" href="#" onclick='dropSelected(this.innerText);return false;'>Bellingham</a>             
-                              <a id="inputcourse2" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Dawson</a>           
-                              <a id="inputcourse3" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Lakes</a>      
+                              <a id="inputcourse1" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Dawson</a>             
+                              <a id="inputcourse2" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Lakes</a>           
+                                
                            </div>
                         </div>
                      </div>
@@ -302,7 +302,7 @@ text-align: center;
 
                <tr class="tr1">
                   <td class="td1" id="tee1" onclick='getteecolor(this.id)'>1</td>
-                  <td class="td1" id="p1hcp" onclick="p1hcpadjust()">0</td>
+                  <td class="td1 yellow" id="p1hcp" onclick="p1hcpadjust()">0</td>
                   <td class="td1" id="p1slope">0</td>
                   <td class="td1" id="p1ci">0</td>
                   <td class="td1" id="p1calchcp">0</td>
@@ -420,12 +420,26 @@ text-align: center;
       <br>
       <div class="row">
          <div>
-            <h2>Stroke calculations for (mixed) Pairs Matchplay</h2>
+            <h2>Stroke calculations for (mixed tees) Pairs Matchplay</h2>
          </div>
       </div>
       <br>
       <br>
       <script>
+
+	//=== globals =====================
+	var globalcourse	
+	var globalwhiteslope
+	var globalwhiteci
+	var globalyellowslope
+	var globalyellowci
+	var globalredslope
+	var globalredci
+	var globalplayer1teecolor
+	var globalplayer2teecolor
+	var globalplayer3teecolor
+	var globalplayer4teecolor
+
 	// array: course, white slope, white index, yellow slope, yellow index, red slope, red index
          var courses = [
              ["select course",,,,,,],
@@ -433,12 +447,44 @@ text-align: center;
              ["Longhirst Lakes","121","69.7","116","67.6","117","69.1"]
          ]
          
+	// default to Dawson yellow tees
+	// player 1
+	document.getElementById("p1slope").innerText =  courses[1][3];
+	document.getElementById("p1ci").innerText =  courses[1][4];	
+		
+	document.getElementById("tee1").style.background = "yellow";
+	document.getElementById("tee1").style.color = "blue";
+        // player 2 
+	document.getElementById("p2slope").innerText =  courses[1][3];
+	document.getElementById("p2ci").innerText =  courses[1][4];	
+		
+	document.getElementById("tee2").style.background = "yellow";
+	document.getElementById("tee2").style.color = "blue";
+	// player 3
+	document.getElementById("p3slope").innerText =  courses[1][3];
+	document.getElementById("p3ci").innerText =  courses[1][4];	
+		
+	document.getElementById("tee3").style.background = "yellow";
+	document.getElementById("tee3").style.color = "blue";
+        // player 2 
+	document.getElementById("p4slope").innerText =  courses[1][3];
+	document.getElementById("p4ci").innerText =  courses[1][4];	
+		
+	document.getElementById("tee4").style.background = "yellow";
+	document.getElementById("tee4").style.color = "blue";
+
+	document.getElementById("dropbtn").innerText = "Longhirst Dawson";
          
-         
-         
+
+
+
+
+
+
+        // === functions ========================     
          
          function p1hcpadjust() {
-          if (document.getElementById("slidecontainer1").style.display == "none") {
+          if (document.getElementById("slidecontainer1").style.display !== "inline") {
             document.getElementById("slidecontainer1").style.display = "inline";
           } else {
             document.getElementById("slidecontainer1").style.display = "none";
@@ -454,7 +500,7 @@ text-align: center;
          }
          
          function p2hcpadjust() {
-          if (document.getElementById("slidecontainer2").style.display == "none") {
+          if (document.getElementById("slidecontainer2").style.display !== "inline") {
             document.getElementById("slidecontainer2").style.display = "inline";
           } else {
             document.getElementById("slidecontainer2").style.display = "none";
@@ -466,7 +512,7 @@ text-align: center;
          }
          
          function p3hcpadjust() {
-          if (document.getElementById("slidecontainer3").style.display == "none") {
+          if (document.getElementById("slidecontainer3").style.display !== "inline") {
             document.getElementById("slidecontainer3").style.display = "inline";
           } else {
             document.getElementById("slidecontainer3").style.display = "none";
@@ -478,7 +524,7 @@ text-align: center;
          }
          
          function p4hcpadjust() {
-          if (document.getElementById("slidecontainer4").style.display == "none") {
+          if (document.getElementById("slidecontainer4").style.display !== "inline") {
             document.getElementById("slidecontainer4").style.display = "inline";
           } else {
             document.getElementById("slidecontainer4").style.display = "none";
@@ -598,126 +644,115 @@ text-align: center;
          // course selected, do stuff
          function dropSelected(courseName) {
          // update selection
-                  document.getElementById("dropbtn").innerText = courseName;
+                document.getElementById("dropbtn").innerText = courseName;
+              
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+         	var i;
+                for(i = 0; i < dropdowns.length; i++) {
+         		var openDropdown = dropdowns[i];
+         		if(openDropdown.classList.contains('show')) {
+         		  openDropdown.classList.remove('show');
+         		}
+         	}
+         	// fill in the slope etc
+         	doGetHcpInfo(courseName);
+         }
          
-         
-                  var dropdowns = document.getElementsByClassName("dropdown-content");
-         var i;
-                  for(i = 0; i < dropdowns.length; i++) {
-         var openDropdown = dropdowns[i];
-         if(openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-         }
-         }
-         // fill in the slope etc
-         doGetHcpInfo(courseName);
-         }
-         
 
-	 // course selected, do stuff
-         function dropSelected2(courseName) {
-         // update selection
-                  document.getElementById("dropbtn2").innerText = courseName;
-         
-         
-                  var dropdowns = document.getElementsByClassName("dropdown-content2");
-         var i;
-                  for(i = 0; i < dropdowns.length; i++) {
-         var openDropdown = dropdowns[i];
-console.log("here 22")
-         if(openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-         }
-         }
-         // fill in the slope etc
-         doGetHcpInfo(courseName);
-         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         // show menu of courses
+	 // show menu of courses
          function myFunction() {
          // When the user clicks on the button, toggle between hiding and showing the dropdown content
          document.getElementById("myDropdown").classList.toggle("show");
          }
-      console.log("here1")  
+
           // Close the dropdown if the user clicks outside of it
          window.onclick = function(event) {
          if(!event.target.matches('.dropbtn')) {
-         var dropdowns = document.getElementsByClassName("dropdown-content");
-         var i;
-         for(i = 0; i < dropdowns.length; i++) {
-         var openDropdown = dropdowns[i];
-         if(openDropdown.classList.contains('show')) {
-         openDropdown.classList.remove('show');
-         }
-         }
+         	var dropdowns = document.getElementsByClassName("dropdown-content");
+         	var i;
+         	for(i = 0; i < dropdowns.length; i++) {
+         		var openDropdown = dropdowns[i];
+         		if(openDropdown.classList.contains('show')) {
+        		 openDropdown.classList.remove('show');
+         		}
+         	}
          }
          };  
          
          
-
- // show menu of courses
-         function myFunction2() {
-         // When the user clicks on the button, toggle between hiding and showing the dropdown content
-         document.getElementById("myDropdown2").classList.toggle("show");
-         }
-          console.log("here2")   
-          // Close the dropdown if the user clicks outside of it
-         window.onclick = function(event) {
-         if(!event.target.matches('.dropbtn2')) {
-         var dropdowns = document.getElementsByClassName("dropdown-content2");
-         var i;
-         for(i = 0; i < dropdowns.length; i++) {
-         var openDropdown = dropdowns[i];
-         if(openDropdown.classList.contains('show')) {
-         openDropdown.classList.remove('show');
-         }
-         }
-         }
-         }; 
-
-
-
-
-
          function doGetHcpInfo(course) {
          for(i = 1; i < courses.length; i++) {
-         if (courses[i][0] == course) {
-            document.getElementById("p1slope").innerText = courses[i][1]
-            document.getElementById("p2slope").innerText = courses[i][1]
-            document.getElementById("p3slope").innerText = courses[i][1]
-            document.getElementById("p4slope").innerText = courses[i][1]
+        	if (courses[i][0] == course) {
+			var globalcourse = courses[i][0];	
+			var globalwhiteslope = courses[i][1];
+			var globalwhiteci = courses[i][2];
+			var globalyellowslope = courses[i][3];
+			var globalyellowci = courses[i][4];
+			var globalredslope = courses[i][5];
+			var globalredci = courses[i][6];
+		}
+	  }
+
+	// do slope and course index for each tee color
+	// === player 1 ===================================================
+	if (globalplayer1teecolor == "white") {
+		document.getElementById("p1slope").innerText = globalwhiteslope;
+   		document.getElementById("p1ci").innerText = globalwhiteci;
+	}
+	if (globalplayer1teecolor == "yellow") {
+		document.getElementById("p1slope").innerText = globalyellowslope;
+   		document.getElementById("p1ci").innerText = globalyellowci;
+	}
+	if (globalplayer1teecolor == "red") {
+		document.getElementById("p1slope").innerText = globalredslope;
+   		document.getElementById("p1ci").innerText = globalredci;
+	}
+	// === player 2 ==================================================
+	if (globalplayer2teecolor == "white") {
+		document.getElementById("p2slope").innerText = globalwhiteslope;
+   		document.getElementById("p2ci").innerText = globalwhiteci;
+	}
+	if (globalplayer2teecolor == "yellow") {
+		document.getElementById("p2slope").innerText = globalyellowslope;
+   		document.getElementById("p2ci").innerText = globalyellowci;
+	}
+	if (globalplayer2teecolor == "red") {
+		document.getElementById("p2slope").innerText = globalredslope;
+   		document.getElementById("p2ci").innerText = globalredci;
+	}
+	// === player 3 ==================================================
+	if (globalplayer3teecolor == "white") {
+		document.getElementById("p3slope").innerText = globalwhiteslope;
+   		document.getElementById("p3ci").innerText = globalwhiteci;
+	}
+	if (globalplayer3teecolor == "yellow") {
+		document.getElementById("p3slope").innerText = globalyellowslope;
+   		document.getElementById("p3ci").innerText = globalyellowci;
+	}
+	if (globalplayer3teecolor == "red") {
+		document.getElementById("p3slope").innerText = globalredslope;
+   		document.getElementById("p3ci").innerText = globalredci;
+	}
+	// === player 4 ==================================================
+	if (globalplayer4teecolor == "white") {
+		document.getElementById("p4slope").innerText = globalwhiteslope;
+   		document.getElementById("p4ci").innerText = globalwhiteci;
+	}
+	if (globalplayer4teecolor == "yellow") {
+		document.getElementById("p4slope").innerText = globalyellowslope;
+   		document.getElementById("p4ci").innerText = globalyellowci;
+	}
+	if (globalplayer4teecolor == "red") {
+		document.getElementById("p4slope").innerText = globalredslope;
+   		document.getElementById("p4ci").innerText = globalredci;
+	}       
          
-            document.getElementById("p1ci").innerText = courses[i][2]
-            document.getElementById("p2ci").innerText = courses[i][2]
-            document.getElementById("p3ci").innerText = courses[i][2]
-            document.getElementById("p4ci").innerText = courses[i][2]     
-         }
-         }   
-         
-         }      
+     }      
          
          
-
-
-
-
-
 
          function doGetStrokes() {
-         
+         // use 1 decimal place
          // calculate strokes
          temp1hcp = document.getElementById("p1hcp").innerText
          temp2hcp = document.getElementById("p2hcp").innerText
@@ -730,23 +765,65 @@ console.log("here 22")
          temp4slope = document.getElementById("p4slope").innerText
          
           // find original course hcp     
-          tempstrokes1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
-          tempstrokes2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
-          tempstrokes3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
-          tempstrokes4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)      
+          xtempstrokes1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
+          xtempstrokes2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
+          xtempstrokes3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
+          xtempstrokes4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)      
          
+	  // add mixed tee variation to decimal course hcp (no rounding yet)
+	  temp1ci = document.getElementById("p1ci").innerText;
+	  temp2ci = document.getElementById("p2ci").innerText;
+	  temp3ci = document.getElementById("p3ci").innerText;
+	  temp4ci = document.getElementById("p4ci").innerText;
+	  var lowestcr = Math.min(temp1ci, temp2ci, temp3ci, temp4ci);
+
+	  // add tee adjustment
+          tempstrokes1 = xtempstrokes1 + (temp1ci - lowestcr);
+	  tempstrokes2 = xtempstrokes2 + (temp2ci - lowestcr);
+	  tempstrokes3 = xtempstrokes3 + (temp3ci - lowestcr);
+	  tempstrokes4 = xtempstrokes4 + (temp4ci - lowestcr);
+	  
+
+console.log("player 1 - " + temp1hcp + " " + xtempstrokes1 + " " + tempstrokes1 + " " + (temp1ci -lowestcr))
+console.log("player 2 - " + temp2hcp + " " + xtempstrokes2 + " " + tempstrokes2 + " " + (temp2ci -lowestcr))
+console.log("player 3 - " + temp3hcp + " " + xtempstrokes3 + " " + tempstrokes3 + " " + (temp3ci -lowestcr))
+console.log("player 4 - " + temp4hcp + " " + xtempstrokes4 + " " + tempstrokes4 + " " + (temp4ci -lowestcr))
+
+
+
+
+
          // round to whole number
-         tempstrokes1 = tempstrokes1.toFixed(0);
-         tempstrokes2 = tempstrokes2.toFixed(0);
-         tempstrokes3 = tempstrokes3.toFixed(0);
-         tempstrokes4 = tempstrokes4.toFixed(0);
+         //tempstrokes1 = tempstrokes1.toFixed(0);
+         //tempstrokes2 = tempstrokes2.toFixed(0);
+         //tempstrokes3 = tempstrokes3.toFixed(0);
+         //tempstrokes4 = tempstrokes4.toFixed(0);
          
           // construct info
-         tempstrokes1full = "course hcp = " + tempstrokes1
-          tempstrokes2full = "course hcp = " + tempstrokes2
-          tempstrokes3full = "course hcp = " + tempstrokes3
-          tempstrokes4full = "course hcp = " + tempstrokes4
+          tempstrokes1full = "course hcp = " + tempstrokes1.toFixed(0);
+          tempstrokes2full = "course hcp = " + tempstrokes2.toFixed(0);
+          tempstrokes3full = "course hcp = " + tempstrokes3.toFixed(0);
+          tempstrokes4full = "course hcp = " + tempstrokes4.toFixed(0);
          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          // find playing hcp and round to whole number
          tempstrokes1 = (tempstrokes1 * 0.9).toFixed(0);
          tempstrokes2 = (tempstrokes2 * 0.9).toFixed(0);
@@ -812,7 +889,7 @@ console.log("here 22")
 	function getteecolor(id) {
 	var temptee = id.replace("tee","xteecolors");
 
-	if (document.getElementById(temptee).style.display == "none") {
+	if (document.getElementById(temptee).style.display !== "table-row") {
             document.getElementById(temptee).style.display = "table-row";
           } else {
             document.getElementById(temptee).style.display = "none";
@@ -847,6 +924,74 @@ console.log("here 22")
 			document.getElementById("tee" + hole).style.color = "blue";
 		}
 	}
+
+/* 
+======================================================================
+Playing Handicap Calculations
+The following sets out the calculation steps, for the fourball matchplay, as an example:
+There are 4 steps to calculating the matchplay handicaps.
+
+Step 1: Course Handicaps
+For each player, convert their Handicap Index into a Course Handicap.
+
+Step 2: Handicap allowances
+For individual matchplay, the allowance is 100%. For pairs, it is 90%.
+If you are playing pairs matchplay, adjust each handicap to 90% of the Course Handicap.
+
+NB if mixed tees are being used, do not round until after step 3..
+
+Step 3: Course Rating adjustment
+The players who are on the tees with a higher Course Rating get an adjustment, based on the Course Rating difference, which is applied as an exact, non-rounded value.
+
+The resulting handicaps values should now be rounded, to give the Playing Handicap for each player.
+
+Step 4: Handicap difference
+Adjust each Playing Handicap so the lowest handicap plays off zero.
+
+Example:
+
+White Tee: Slope Rating: 133, Course Rating: 72.3
+Red Tee: Slope Rating: 125, Course Rating: 73.7
+
+Player 1: White Tee, Handicap Index 6.8
+Player 2: White Tee, Handicap Index 15.4
+Player 3: Red Tee, Handicap Index 16.7
+Player 4: Red Tee, Handicap Index 22.6
+
+Step 1: Course Handicaps
+
+Player 1: 6.8 x 133 / 113 = 8.00, rounded = 8
+Player 2: 15.4 x 133 / 113 = 18.13, rounded = 18
+Player 3: 16.7 x 125 / 113 = 18.47, rounded =  18
+Player 4: 22.6 x 125 / 113 = 25.00, rounded = 25
+
+Step 2: 90% Allowance
+
+Player 1: 8 x 90% = 7.2
+Player 2: 18 x 90% = 16.2
+Player 3: 18 x 90% = 16.2
+Player 4: 25 x 90% = 22.5
+
+Step 3: Course Rating adjustment
+
+The Red tee has a higher Course Rating. The difference is 1.4, so this is added on to players using the Red tees.
+Player 1: 7.2, rounded to 7
+Player 2: 16.2, rounded to 16
+Player 3: 16.2 + 1.4 = 17.6, rounded = 18
+Player 4: 22.5 + 1.4 = 23.9, rounded = 24
+
+Step 4: Adjusted for lowest handicap
+
+Player 1: 7 – 7 = 0
+Player 2: 16 – 7 = 9
+Player 3: 18 – 7 = 11
+Player 4: 24 – 7 = 17
+
+
+==============================================================
+*/
+
+
 
       </script>
    </body>
