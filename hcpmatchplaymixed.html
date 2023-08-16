@@ -211,11 +211,11 @@
          font-size:16px;
          }
 
-#xteecolors1 {
+#xteecolors1, #xteecolors2, #xteecolors3, #xteecolors4 {
 display: none;
 }
 
-#white1 {
+#white1, #white2, #white3, #white4 {
 font-size: 20px;
 color: blue;
 padding-top: 20px;
@@ -228,7 +228,7 @@ background: white;
 //float: left;
 text-align: center;
 }
-#yellow1 {
+#yellow1, #yellow2, #yellow3, #yellow4 {
 font-size: 20px;
 color: blue;
 padding-top: 20px;
@@ -241,7 +241,7 @@ background: yellow;
 //float: left;
 text-align: center;
 }
-#red1 {
+#red1, #red2, #red3, #red4 {
 font-size: 20px;
 color: blue;
 padding-top: 20px;
@@ -300,7 +300,7 @@ text-align: center;
                </tr>
 
                <tr class="tr1">
-                  <td class="td1" id="tee1" onclick='getteecolor("tee1")'>1</td>
+                  <td class="td1" id="tee1" onclick='getteecolor(this.id)'>1</td>
                   <td class="td1" id="p1hcp" onclick="p1hcpadjust()">0</td>
                   <td class="td1" id="p1slope">0</td>
                   <td class="td1" id="p1ci">0</td>
@@ -329,12 +329,20 @@ text-align: center;
                   <td colspan="5"></td>
                </tr>
                <tr class="tr1">
-                  <td class="td1">2</td>
+                  <td class="td1" id="tee2" onclick='getteecolor(this.id)'>2</td>
                   <td class="td1 yellow" id="p2hcp" onclick="p2hcpadjust()">0</td>
                   <td class="td1" id="p2slope">0</td>
                   <td class="td1" id="p2ci">0</td>
                   <td class="td1" id="p2calchcp">0</td>
                </tr>
+<!-- tee colors -->
+	       <tr  class="tr1" id="xteecolors2">
+		<td id="white2" onclick="teecolor(this.id)">white</td>
+		<td id="yellow2" onclick="teecolor(this.id)">yellow</td>
+		<td id="red2" onclick="teecolor(this.id)">red</td>
+		<td colspan="2"></td>
+              </tr>
+<!-- hcp adjustment -->
                <tr class="tr1">
                   <td class="td1pad10" colspan="5">
                      <div class="slidecontainer" id="slidecontainer2">
@@ -350,12 +358,20 @@ text-align: center;
                </tr>
 
                <tr class="tr1">
-                  <td class="td1">3</td>
+                  <td class="td1" id="tee3" onclick='getteecolor(this.id)'>3</td>
                   <td class="td1 yellow" id="p3hcp" onclick="p3hcpadjust()">0</td>
                   <td class="td1" id="p3slope">0</td>
                   <td class="td1" id="p3ci">0</td>
                   <td class="td1" id="p3calchcp">0</td>
                </tr>
+<!-- tee colors -->
+	       <tr  class="tr1" id="xteecolors3">
+		<td id="white3" onclick="teecolor(this.id)">white</td>
+		<td id="yellow3" onclick="teecolor(this.id)">yellow</td>
+		<td id="red3" onclick="teecolor(this.id)">red</td>
+		<td colspan="2"></td>
+              </tr>
+<!-- hcp adjustment -->
                <tr class="tr1">
                   <td class="td1pad10" colspan="5">
                      <div class="slidecontainer" id="slidecontainer3">
@@ -370,12 +386,20 @@ text-align: center;
                   <td colspan="5"></td>
                </tr>
                <tr class="tr1">
-                  <td class="td1">4</td>
+                  <td class="td1" id="tee4" onclick='getteecolor(this.id)'>4</td>
                   <td class="td1 yellow" id="p4hcp" onclick="p4hcpadjust()">0</td>
                   <td class="td1" id="p4slope">0</td>
                   <td class="td1" id="p4ci">0</td>
                   <td class="td1" id="p4calchcp">0</td>
                </tr>
+<!-- tee colors -->
+	       <tr  class="tr1" id="xteecolors4">
+		<td id="white4" onclick="teecolor(this.id)">white</td>
+		<td id="yellow4" onclick="teecolor(this.id)">yellow</td>
+		<td id="red4" onclick="teecolor(this.id)">red</td>
+		<td colspan="2"></td>
+              </tr>
+<!-- hcp adjustment -->
                <tr class="tr1">
                   <td class="td1pad10" colspan="5">
                      <div class="slidecontainer" id="slidecontainer4">
