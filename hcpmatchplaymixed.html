@@ -890,10 +890,10 @@ text-align: center;
             newstrokes4 = (tempph4 - loweststrokes) 
          }
 
-         document.getElementById("p1calchcp").innerText = newstrokes1 
-         document.getElementById("p2calchcp").innerText = newstrokes2
-         document.getElementById("p3calchcp").innerText = newstrokes3
-         document.getElementById("p4calchcp").innerText = newstrokes4
+         document.getElementById("p1calchcp").innerText = newstrokes1.toFixed(0); 
+         document.getElementById("p2calchcp").innerText = newstrokes2.toFixed(0);
+         document.getElementById("p3calchcp").innerText = newstrokes3.toFixed(0);
+         document.getElementById("p4calchcp").innerText = newstrokes4.toFixed(0);
 
          // show calcs at bottom of screen
 
@@ -946,10 +946,10 @@ text-align: center;
             txt44 = "Player 4: " + tempchbefore4fixed + " no adjustment, rounded = " + tempchadjusted4fixed;
          }
 
-         var txt15 = "Player 1: " + tempchadjusted1fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes1;
-         var txt25 = "Player 2: " + tempchadjusted2fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes2;
-         var txt35 = "Player 3: " + tempchadjusted3fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes3;
-         var txt45 = "Player 4: " + tempchadjusted4fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes4;
+         var txt15 = "Player 1: " + tempchadjusted1fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes1.toFixed(0);
+         var txt25 = "Player 2: " + tempchadjusted2fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes2.toFixed(0);
+         var txt35 = "Player 3: " + tempchadjusted3fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes3.toFixed(0);
+         var txt45 = "Player 4: " + tempchadjusted4fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes4.toFixed(0);
 
          var htxt1 = "Step 1: Original handicaps and tees"
          var htxt2 = "Step 2: Adjust to Course Handicaps"
