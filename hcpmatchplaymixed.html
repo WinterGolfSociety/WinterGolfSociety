@@ -26,7 +26,7 @@
          .stxt {
          text-align: center;
          font-size: 30px;
-         //		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1); 
+         //      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1); 
          }
          h2 {
          text-align: center;
@@ -102,7 +102,7 @@
          #inputcourse2,
          #inputcourse3,
          #inputcourse4,
-	 #inputcourse12,
+    #inputcourse12,
          #inputcourse22,
          #inputcourse32,
          #inputcourse42 
@@ -256,8 +256,21 @@ background: red;
 text-align: center;
 }
 
-
-
+#calcs1 {
+   color: salmon;
+}
+#calcs2 {
+   color: mediumSpringGreen;
+}
+#calcs3 {
+   color: cyan;
+}
+#calcs4 {
+   color: yellow;
+}
+#calcs5 {
+   color: darkOrchid;
+}
       </style>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    </head>
@@ -289,7 +302,7 @@ text-align: center;
                   <td class="td1 sideways">tee</td>
                   <td class="td1 sideways">hcp</td>
                   <td class="td1 sideways">slope</td>
-                  <td class="td1 sideways">course<br>index</td>
+                  <td class="td1 sideways">course<br>rating</td>
                   <td class="td1 sideways">strokes</td>
                </tr>
                <tr>
@@ -308,11 +321,11 @@ text-align: center;
                   <td class="td1" id="p1calchcp">0</td>
                </tr>
 <!-- tee colors -->
-	       <tr  class="tr1" id="xteecolors1">
-		<td id="white1" onclick="teecolor(this.id)">white</td>
-		<td id="yellow1" onclick="teecolor(this.id)">yellow</td>
-		<td id="red1" onclick="teecolor(this.id)">red</td>
-		<td colspan="2"></td>
+          <tr  class="tr1" id="xteecolors1">
+      <td id="white1" onclick="teecolor(this.id)">white</td>
+      <td id="yellow1" onclick="teecolor(this.id)">yellow</td>
+      <td id="red1" onclick="teecolor(this.id)">red</td>
+      <td colspan="2"></td>
               </tr>
 <!-- hcp adjustment -->
                <tr class="tr1">
@@ -337,11 +350,11 @@ text-align: center;
                   <td class="td1" id="p2calchcp">0</td>
                </tr>
 <!-- tee colors -->
-	       <tr  class="tr1" id="xteecolors2">
-		<td id="white2" onclick="teecolor(this.id)">white</td>
-		<td id="yellow2" onclick="teecolor(this.id)">yellow</td>
-		<td id="red2" onclick="teecolor(this.id)">red</td>
-		<td colspan="2"></td>
+          <tr  class="tr1" id="xteecolors2">
+      <td id="white2" onclick="teecolor(this.id)">white</td>
+      <td id="yellow2" onclick="teecolor(this.id)">yellow</td>
+      <td id="red2" onclick="teecolor(this.id)">red</td>
+      <td colspan="2"></td>
               </tr>
 <!-- hcp adjustment -->
                <tr class="tr1">
@@ -366,11 +379,11 @@ text-align: center;
                   <td class="td1" id="p3calchcp">0</td>
                </tr>
 <!-- tee colors -->
-	       <tr  class="tr1" id="xteecolors3">
-		<td id="white3" onclick="teecolor(this.id)">white</td>
-		<td id="yellow3" onclick="teecolor(this.id)">yellow</td>
-		<td id="red3" onclick="teecolor(this.id)">red</td>
-		<td colspan="2"></td>
+          <tr  class="tr1" id="xteecolors3">
+      <td id="white3" onclick="teecolor(this.id)">white</td>
+      <td id="yellow3" onclick="teecolor(this.id)">yellow</td>
+      <td id="red3" onclick="teecolor(this.id)">red</td>
+      <td colspan="2"></td>
               </tr>
 <!-- hcp adjustment -->
                <tr class="tr1">
@@ -394,11 +407,11 @@ text-align: center;
                   <td class="td1" id="p4calchcp">0</td>
                </tr>
 <!-- tee colors -->
-	       <tr  class="tr1" id="xteecolors4">
-		<td id="white4" onclick="teecolor(this.id)">white</td>
-		<td id="yellow4" onclick="teecolor(this.id)">yellow</td>
-		<td id="red4" onclick="teecolor(this.id)">red</td>
-		<td colspan="2"></td>
+          <tr  class="tr1" id="xteecolors4">
+      <td id="white4" onclick="teecolor(this.id)">white</td>
+      <td id="yellow4" onclick="teecolor(this.id)">yellow</td>
+      <td id="red4" onclick="teecolor(this.id)">red</td>
+      <td colspan="2"></td>
               </tr>
 <!-- hcp adjustment -->
                <tr class="tr1">
@@ -424,60 +437,66 @@ text-align: center;
          </div>
       </div>
       <br>
+<div id = "calcs1"></div>
+<div id = "calcs2"></div>
+<div id = "calcs3"></div>
+<div id = "calcs4"></div>
+<div id = "calcs5"></div>
       <br>
       <script>
 
-	//=== globals =====================
-	var globalcourse	
-	var globalwhiteslope
-	var globalwhiteci
-	var globalyellowslope
-	var globalyellowci
-	var globalredslope
-	var globalredci
-	var globalplayer1teecolor
-	var globalplayer2teecolor
-	var globalplayer3teecolor
-	var globalplayer4teecolor
+   //=== globals =====================
+   var globalcourse;
+   var globalwhiteslope;
+   var globalwhiteci;
+   var globalyellowslope;
+   var globalyellowci;
+   var globalredslope;
+   var globalredci;
+   var globalplayer1teecolor;
+   var globalplayer2teecolor;
+   var globalplayer3teecolor;
+   var globalplayer4teecolor;
 
-	// array: course, white slope, white index, yellow slope, yellow index, red slope, red index
+   // array: course, white slope, white index, yellow slope, yellow index, red slope, red index
          var courses = [
-             ["select course",,,,,,],
+             ["select course","","","","","",""],
              ["Longhirst Dawson","120","72.3","120","71.1","121","72.5"],
              ["Longhirst Lakes","121","69.7","116","67.6","117","69.1"]
-         ]
+         ];
          
-	// default to Dawson yellow tees
-	// player 1
-	document.getElementById("p1slope").innerText =  courses[1][3];
-	document.getElementById("p1ci").innerText =  courses[1][4];	
-		
-	document.getElementById("tee1").style.background = "yellow";
-	document.getElementById("tee1").style.color = "blue";
+   // default to Dawson yellow tees
+   // player 1
+   document.getElementById("p1slope").innerText =  courses[1][3];
+   document.getElementById("p1ci").innerText =  courses[1][4];   
+      
+   document.getElementById("tee1").style.background = "yellow";
+   document.getElementById("tee1").style.color = "blue";
         // player 2 
-	document.getElementById("p2slope").innerText =  courses[1][3];
-	document.getElementById("p2ci").innerText =  courses[1][4];	
-		
-	document.getElementById("tee2").style.background = "yellow";
-	document.getElementById("tee2").style.color = "blue";
-	// player 3
-	document.getElementById("p3slope").innerText =  courses[1][3];
-	document.getElementById("p3ci").innerText =  courses[1][4];	
-		
-	document.getElementById("tee3").style.background = "yellow";
-	document.getElementById("tee3").style.color = "blue";
+   document.getElementById("p2slope").innerText =  courses[1][3];
+   document.getElementById("p2ci").innerText =  courses[1][4];   
+      
+   document.getElementById("tee2").style.background = "yellow";
+   document.getElementById("tee2").style.color = "blue";
+   // player 3
+   document.getElementById("p3slope").innerText =  courses[1][3];
+   document.getElementById("p3ci").innerText =  courses[1][4];   
+      
+   document.getElementById("tee3").style.background = "yellow";
+   document.getElementById("tee3").style.color = "blue";
         // player 2 
-	document.getElementById("p4slope").innerText =  courses[1][3];
-	document.getElementById("p4ci").innerText =  courses[1][4];	
-		
-	document.getElementById("tee4").style.background = "yellow";
-	document.getElementById("tee4").style.color = "blue";
+   document.getElementById("p4slope").innerText =  courses[1][3];
+   document.getElementById("p4ci").innerText =  courses[1][4];   
+      
+   document.getElementById("tee4").style.background = "yellow";
+   document.getElementById("tee4").style.color = "blue";
 
-	document.getElementById("dropbtn").innerText = "Longhirst Dawson";
-         
-
-
-
+   document.getElementById("dropbtn").innerText = "Longhirst Dawson";
+    
+   globalplayer1teecolor = "yellow"     
+   globalplayer2teecolor = "yellow" 
+   globalplayer3teecolor = "yellow" 
+   globalplayer4teecolor = "yellow" 
 
 
 
@@ -647,19 +666,19 @@ text-align: center;
                 document.getElementById("dropbtn").innerText = courseName;
               
                 var dropdowns = document.getElementsByClassName("dropdown-content");
-         	var i;
+            var i;
                 for(i = 0; i < dropdowns.length; i++) {
-         		var openDropdown = dropdowns[i];
-         		if(openDropdown.classList.contains('show')) {
-         		  openDropdown.classList.remove('show');
-         		}
-         	}
-         	// fill in the slope etc
-         	doGetHcpInfo(courseName);
+               var openDropdown = dropdowns[i];
+               if(openDropdown.classList.contains('show')) {
+                 openDropdown.classList.remove('show');
+               }
+            }
+            // fill in the slope etc
+            doGetHcpInfo(courseName);
          }
          
 
-	 // show menu of courses
+    // show menu of courses
          function myFunction() {
          // When the user clicks on the button, toggle between hiding and showing the dropdown content
          document.getElementById("myDropdown").classList.toggle("show");
@@ -668,84 +687,84 @@ text-align: center;
           // Close the dropdown if the user clicks outside of it
          window.onclick = function(event) {
          if(!event.target.matches('.dropbtn')) {
-         	var dropdowns = document.getElementsByClassName("dropdown-content");
-         	var i;
-         	for(i = 0; i < dropdowns.length; i++) {
-         		var openDropdown = dropdowns[i];
-         		if(openDropdown.classList.contains('show')) {
-        		 openDropdown.classList.remove('show');
-         		}
-         	}
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for(i = 0; i < dropdowns.length; i++) {
+               var openDropdown = dropdowns[i];
+               if(openDropdown.classList.contains('show')) {
+               openDropdown.classList.remove('show');
+               }
+            }
          }
          };  
          
          
          function doGetHcpInfo(course) {
          for(i = 1; i < courses.length; i++) {
-        	if (courses[i][0] == course) {
-			var globalcourse = courses[i][0];	
-			var globalwhiteslope = courses[i][1];
-			var globalwhiteci = courses[i][2];
-			var globalyellowslope = courses[i][3];
-			var globalyellowci = courses[i][4];
-			var globalredslope = courses[i][5];
-			var globalredci = courses[i][6];
-		}
-	  }
+           if (courses[i][0] == course) {
+         var globalcourse = courses[i][0];   
+         var globalwhiteslope = courses[i][1];
+         var globalwhiteci = courses[i][2];
+         var globalyellowslope = courses[i][3];
+         var globalyellowci = courses[i][4];
+         var globalredslope = courses[i][5];
+         var globalredci = courses[i][6];
+      }
+     }
 
-	// do slope and course index for each tee color
-	// === player 1 ===================================================
-	if (globalplayer1teecolor == "white") {
-		document.getElementById("p1slope").innerText = globalwhiteslope;
-   		document.getElementById("p1ci").innerText = globalwhiteci;
-	}
-	if (globalplayer1teecolor == "yellow") {
-		document.getElementById("p1slope").innerText = globalyellowslope;
-   		document.getElementById("p1ci").innerText = globalyellowci;
-	}
-	if (globalplayer1teecolor == "red") {
-		document.getElementById("p1slope").innerText = globalredslope;
-   		document.getElementById("p1ci").innerText = globalredci;
-	}
-	// === player 2 ==================================================
-	if (globalplayer2teecolor == "white") {
-		document.getElementById("p2slope").innerText = globalwhiteslope;
-   		document.getElementById("p2ci").innerText = globalwhiteci;
-	}
-	if (globalplayer2teecolor == "yellow") {
-		document.getElementById("p2slope").innerText = globalyellowslope;
-   		document.getElementById("p2ci").innerText = globalyellowci;
-	}
-	if (globalplayer2teecolor == "red") {
-		document.getElementById("p2slope").innerText = globalredslope;
-   		document.getElementById("p2ci").innerText = globalredci;
-	}
-	// === player 3 ==================================================
-	if (globalplayer3teecolor == "white") {
-		document.getElementById("p3slope").innerText = globalwhiteslope;
-   		document.getElementById("p3ci").innerText = globalwhiteci;
-	}
-	if (globalplayer3teecolor == "yellow") {
-		document.getElementById("p3slope").innerText = globalyellowslope;
-   		document.getElementById("p3ci").innerText = globalyellowci;
-	}
-	if (globalplayer3teecolor == "red") {
-		document.getElementById("p3slope").innerText = globalredslope;
-   		document.getElementById("p3ci").innerText = globalredci;
-	}
-	// === player 4 ==================================================
-	if (globalplayer4teecolor == "white") {
-		document.getElementById("p4slope").innerText = globalwhiteslope;
-   		document.getElementById("p4ci").innerText = globalwhiteci;
-	}
-	if (globalplayer4teecolor == "yellow") {
-		document.getElementById("p4slope").innerText = globalyellowslope;
-   		document.getElementById("p4ci").innerText = globalyellowci;
-	}
-	if (globalplayer4teecolor == "red") {
-		document.getElementById("p4slope").innerText = globalredslope;
-   		document.getElementById("p4ci").innerText = globalredci;
-	}       
+   // do slope and course index for each tee color
+   // === player 1 ===================================================
+   if (globalplayer1teecolor == "white") {
+      document.getElementById("p1slope").innerText = globalwhiteslope;
+         document.getElementById("p1ci").innerText = globalwhiteci;
+   }
+   if (globalplayer1teecolor == "yellow") {
+      document.getElementById("p1slope").innerText = globalyellowslope;
+         document.getElementById("p1ci").innerText = globalyellowci;
+   }
+   if (globalplayer1teecolor == "red") {
+      document.getElementById("p1slope").innerText = globalredslope;
+         document.getElementById("p1ci").innerText = globalredci;
+   }
+   // === player 2 ==================================================
+   if (globalplayer2teecolor == "white") {
+      document.getElementById("p2slope").innerText = globalwhiteslope;
+         document.getElementById("p2ci").innerText = globalwhiteci;
+   }
+   if (globalplayer2teecolor == "yellow") {
+      document.getElementById("p2slope").innerText = globalyellowslope;
+         document.getElementById("p2ci").innerText = globalyellowci;
+   }
+   if (globalplayer2teecolor == "red") {
+      document.getElementById("p2slope").innerText = globalredslope;
+         document.getElementById("p2ci").innerText = globalredci;
+   }
+   // === player 3 ==================================================
+   if (globalplayer3teecolor == "white") {
+      document.getElementById("p3slope").innerText = globalwhiteslope;
+         document.getElementById("p3ci").innerText = globalwhiteci;
+   }
+   if (globalplayer3teecolor == "yellow") {
+      document.getElementById("p3slope").innerText = globalyellowslope;
+         document.getElementById("p3ci").innerText = globalyellowci;
+   }
+   if (globalplayer3teecolor == "red") {
+      document.getElementById("p3slope").innerText = globalredslope;
+         document.getElementById("p3ci").innerText = globalredci;
+   }
+   // === player 4 ==================================================
+   if (globalplayer4teecolor == "white") {
+      document.getElementById("p4slope").innerText = globalwhiteslope;
+         document.getElementById("p4ci").innerText = globalwhiteci;
+   }
+   if (globalplayer4teecolor == "yellow") {
+      document.getElementById("p4slope").innerText = globalyellowslope;
+         document.getElementById("p4ci").innerText = globalyellowci;
+   }
+   if (globalplayer4teecolor == "red") {
+      document.getElementById("p4slope").innerText = globalredslope;
+         document.getElementById("p4ci").innerText = globalredci;
+   }       
          
      }      
          
@@ -765,75 +784,35 @@ text-align: center;
          temp4slope = document.getElementById("p4slope").innerText
          
           // find original course hcp     
-          xtempstrokes1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
-          xtempstrokes2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
-          xtempstrokes3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
-          xtempstrokes4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)      
+          tempchbefore1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
+          tempchbefore2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
+          tempchbefore3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
+          tempchbefore4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)      
          
-	  // add mixed tee variation to decimal course hcp (no rounding yet)
-	  temp1ci = document.getElementById("p1ci").innerText;
-	  temp2ci = document.getElementById("p2ci").innerText;
-	  temp3ci = document.getElementById("p3ci").innerText;
-	  temp4ci = document.getElementById("p4ci").innerText;
-	  var lowestcr = Math.min(temp1ci, temp2ci, temp3ci, temp4ci);
+     // add mixed tee variation to decimal course hcp (no rounding yet)
+     temp1ci = document.getElementById("p1ci").innerText;
+     temp2ci = document.getElementById("p2ci").innerText;
+     temp3ci = document.getElementById("p3ci").innerText;
+     temp4ci = document.getElementById("p4ci").innerText;
+     var lowestcr = Math.min(temp1ci, temp2ci, temp3ci, temp4ci);
 
-	  // add tee adjustment
-          tempstrokes1 = xtempstrokes1 + (temp1ci - lowestcr);
-	  tempstrokes2 = xtempstrokes2 + (temp2ci - lowestcr);
-	  tempstrokes3 = xtempstrokes3 + (temp3ci - lowestcr);
-	  tempstrokes4 = xtempstrokes4 + (temp4ci - lowestcr);
-	  
-
-console.log("player 1 - " + temp1hcp + " " + xtempstrokes1 + " " + tempstrokes1 + " " + (temp1ci -lowestcr))
-console.log("player 2 - " + temp2hcp + " " + xtempstrokes2 + " " + tempstrokes2 + " " + (temp2ci -lowestcr))
-console.log("player 3 - " + temp3hcp + " " + xtempstrokes3 + " " + tempstrokes3 + " " + (temp3ci -lowestcr))
-console.log("player 4 - " + temp4hcp + " " + xtempstrokes4 + " " + tempstrokes4 + " " + (temp4ci -lowestcr))
-
-
-
-
-
-         // round to whole number
-         //tempstrokes1 = tempstrokes1.toFixed(0);
-         //tempstrokes2 = tempstrokes2.toFixed(0);
-         //tempstrokes3 = tempstrokes3.toFixed(0);
-         //tempstrokes4 = tempstrokes4.toFixed(0);
-         
-          // construct info
-          tempstrokes1full = "course hcp = " + tempstrokes1.toFixed(0);
-          tempstrokes2full = "course hcp = " + tempstrokes2.toFixed(0);
-          tempstrokes3full = "course hcp = " + tempstrokes3.toFixed(0);
-          tempstrokes4full = "course hcp = " + tempstrokes4.toFixed(0);
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         // find playing hcp and round to whole number
-         tempstrokes1 = (tempstrokes1 * 0.9).toFixed(0);
-         tempstrokes2 = (tempstrokes2 * 0.9).toFixed(0);
-         tempstrokes3 = (tempstrokes3 * 0.9).toFixed(0);
-         tempstrokes4 = (tempstrokes4 * 0.9).toFixed(0);
-         
-         tempstrokes1full += ", playing hcp = " + tempstrokes1
-         tempstrokes2full += ", playing hcp = " + tempstrokes2
-         tempstrokes3full += ", playing hcp = " + tempstrokes3
-         tempstrokes4full += ", playing hcp = " + tempstrokes4
+     // add cr adjustment
+     tempchadjusted1 = tempchbefore1 + (temp1ci - lowestcr);
+     tempchadjusted2 = tempchbefore2 + (temp2ci - lowestcr);
+     tempchadjusted3 = tempchbefore3 + (temp3ci - lowestcr);
+     tempchadjusted4 = tempchbefore4 + (temp4ci - lowestcr);
+     
+     // find playing hcp
+     tempph1 = (tempchadjusted1 * 0.9);
+     tempph2 = (tempchadjusted2 * 0.9);
+     tempph3 = (tempchadjusted3 * 0.9);
+     tempph4 = (tempchadjusted4 + 0.9);
+    
+     // provide updated text to show in slider
+     tempstrokes1full = "adj course hcp = " + tempchadjusted1 + ", playing hcp = " + tempph1.toFixed(0);
+     tempstrokes2full = "adj course hcp = " + tempchadjusted2 + ", playing hcp = " + tempph2.toFixed(0);
+     tempstrokes3full = "adj course hcp = " + tempchadjusted3 + ", playing hcp = " + tempph3.toFixed(0);
+     tempstrokes4full = "adj course hcp = " + tempchadjusted4 + ", playing hcp = " + tempph4.toFixed(0);
          
          document.getElementById("demo1").innerText = tempstrokes1full 
          document.getElementById("demo2").innerText = tempstrokes2full
@@ -841,89 +820,149 @@ console.log("player 4 - " + temp4hcp + " " + xtempstrokes4 + " " + tempstrokes4 
          document.getElementById("demo4").innerText = tempstrokes4full 
          
          // find lowest
-	 var tempstrokes1mod = tempstrokes1
-	 var tempstrokes2mod = tempstrokes2
- 	 var tempstrokes3mod = tempstrokes3
-	 var tempstrokes4mod = tempstrokes4
-	if (tempstrokes1mod == "0") {
-		tempstrokes1mod = 99;
-	}
-	if (tempstrokes2mod == "0") {
-		tempstrokes2mod = 99;
-	}
-	if (tempstrokes3mod == "0") {
-		tempstrokes3mod = 99;
-	}
-	if (tempstrokes4mod == "0") {
-		tempstrokes4mod = 99;
-	}
+         var tempstrokes1mod = tempph1
+         var tempstrokes2mod = tempph2
+         var tempstrokes3mod = tempph3
+         var tempstrokes4mod = tempph4
+         if (tempstrokes1mod == "0") {
+            tempstrokes1mod = 99;
+         }
+         if (tempstrokes2mod == "0") {
+            tempstrokes2mod = 99;
+         }
+         if (tempstrokes3mod == "0") {
+            tempstrokes3mod = 99;
+         }
+         if (tempstrokes4mod == "0") {
+            tempstrokes4mod = 99;
+         }
          var loweststrokes = Math.min(tempstrokes1mod, tempstrokes2mod, tempstrokes3mod, tempstrokes4mod)        
-   
+  
          // find difference to give strokes
-	newstrokes1 = 0        
-        newstrokes2 = 0 
-        newstrokes3 = 0 
-        newstrokes4 = 0
+         var newstrokes1 = 0        
+         var newstrokes2 = 0 
+         var newstrokes3 = 0 
+         var newstrokes4 = 0
  
-	if (tempstrokes1mod !== 99) {
-		 newstrokes1 = (tempstrokes1 - loweststrokes)  
-	}
-	if (tempstrokes2mod !== 99) {
-		newstrokes2 = (tempstrokes2 - loweststrokes) 
-	}
-	if (tempstrokes3mod !== 99) {
-		 newstrokes3 = (tempstrokes3 - loweststrokes) 
-	}
-	if (tempstrokes4mod !== 99) {
-		newstrokes4 = (tempstrokes4 - loweststrokes) 
-	}
+         if (tempstrokes1mod !== 99) {
+            newstrokes1 = (tempph1 - loweststrokes)  
+         }
+         if (tempstrokes2mod !== 99) {
+            newstrokes2 = (tempph2 - loweststrokes) 
+         }
+         if (tempstrokes3mod !== 99) {
+            newstrokes3 = (tempph3 - loweststrokes) 
+         }
+         if (tempstrokes4mod !== 99) {
+            newstrokes4 = (tempph4 - loweststrokes) 
+         }
 
          document.getElementById("p1calchcp").innerText = newstrokes1 
          document.getElementById("p2calchcp").innerText = newstrokes2
          document.getElementById("p3calchcp").innerText = newstrokes3
          document.getElementById("p4calchcp").innerText = newstrokes4
-         
+
+         // show calcs at bottom of screen
+
+         var txt11 = "Player 1: " + globalplayer1teecolor + " tees, handicap index = " + temp1hcp
+         var txt21 = "Player 2: " + globalplayer2teecolor + " tees, handicap index = " + temp2hcp
+         var txt31 = "Player 3: " + globalplayer3teecolor + " tees, handicap index = " + temp3hcp
+         var txt41 = "Player 4: " + globalplayer4teecolor + " tees, handicap index = " + temp4hcp
+
+         var txt12 = "Player 1: " + temp1hcp + " x " + document.getElementById("p1slope").innerText + " / 113 = " + tempchbefore1 + ", rounded = " + tempchbefore1.toFixed(0);
+         var txt22 = "Player 2: " + temp2hcp + " x " + document.getElementById("p2slope").innerText + " / 113 = " + tempchbefore2 + ", rounded = " + tempchbefore2.toFixed(0);
+         var txt32 = "Player 3: " + temp3hcp + " x " + document.getElementById("p3slope").innerText + " / 113 = " + tempchbefore3 + ", rounded = " + tempchbefore3.toFixed(0);
+         var txt42 = "Player 4: " + temp4hcp + " x " + document.getElementById("p4slope").innerText + " / 113 = " + tempchbefore4 + ", rounded = " + tempchbefore4.toFixed(0);
+
+         var txt13 = "Player 1: " + tempchbefore1.toFixed(0) + " x 90% = " + tempph1;
+         var txt23 = "Player 2: " + tempchbefore2.toFixed(0) + " x 90% = " + tempph2;
+         var txt33 = "Player 3: " + tempchbefore3.toFixed(0) + " x 90% = " + tempph3;
+         var txt43 = "Player 4: " + tempchbefore4.toFixed(0) + " x 90% = " + tempph4;
+
+         var txt14 = "Player 1: " + tempchbefore1 + " + " + (temp1ci - lowestcr) + " = " + tempchadjusted1 + ", rounded = " + tempchadjusted1.toFixed(0);
+         var txt24 = "Player 2: " + tempchbefore2 + " + " + (temp2ci - lowestcr) + " = " + tempchadjusted2 + ", rounded = " + tempchadjusted2.toFixed(0);
+         var txt34 = "Player 3: " + tempchbefore3 + " + " + (temp3ci - lowestcr) + " = " + tempchadjusted3 + ", rounded = " + tempchadjusted3.toFixed(0);
+         var txt44 = "Player 4: " + tempchbefore4 + " + " + (temp4ci - lowestcr) + " = " + tempchadjusted4 + ", rounded = " + tempchadjusted4.toFixed(0);
+
+
+
+         var txt15 = "Player 1: " + tempchadjusted1.toFixed(0) + " - " + loweststrokes + " = " + newstrokes1;
+         var txt25 = "Player 2: " + tempchadjusted2.toFixed(0) + " - " + loweststrokes + " = " + newstrokes2;
+         var txt35 = "Player 3: " + tempchadjusted3.toFixed(0) + " - " + loweststrokes + " = " + newstrokes3;
+         var txt45 = "Player 4: " + tempchadjusted4.toFixed(0) + " - " + loweststrokes + " = " + newstrokes4;
+
+htxt1 = "Step 1: Original handicaps and tees"
+htxt2 = "Step 2: Adjust to Course Handicaps"
+htxt3 = "Step 3: Adjust for Allowance (90%)"
+htxt4 = "Step 4: Adjust for Course Rating"
+htxt5 = "Step 5: Adjust for lowest handicap"
+
+document.getElementById("calcs1").innerHTML = htxt1 + "<br>" + txt11 + "<br>" + txt21 + "<br>" + txt31 + "<br>" + txt41 + "<br>";
+document.getElementById("calcs2").innerHTML = htxt2 + "<br>" + txt12 + "<br>" + txt22 + "<br>" + txt32 + "<br>" + txt42 + "<br>";
+document.getElementById("calcs3").innerHTML = htxt3 + "<br>" + txt13 + "<br>" + txt23 + "<br>" + txt33 + "<br>" + txt43 + "<br>";
+document.getElementById("calcs4").innerHTML = htxt4 + "<br>" + txt14 + "<br>" + txt24 + "<br>" + txt34 + "<br>" + txt44 + "<br>";
+document.getElementById("calcs5").innerHTML = htxt5 + "<br>" + txt15 + "<br>" + txt25 + "<br>" + txt35 + "<br>" + txt45 + "<br>";
+
+
          }
          
 
-	function getteecolor(id) {
-	var temptee = id.replace("tee","xteecolors");
+   function getteecolor(id) {
+   var temptee = id.replace("tee","xteecolors");
 
-	if (document.getElementById(temptee).style.display !== "table-row") {
+   if (document.getElementById(temptee).style.display !== "table-row") {
             document.getElementById(temptee).style.display = "table-row";
           } else {
             document.getElementById(temptee).style.display = "none";
           }
 
-	}
+   }
 
-	function teecolor(id) {
+   function teecolor(id) {
 
-		color = id.substring(0,id.length - 1);
-		hole = id.substring(id.length - 1);
+      color = id.substring(0,id.length - 1);
+      hole = id.substring(id.length - 1);
 
-		if (color == "white") {
-			document.getElementById("p" + hole + "slope").innerText =  courses[1][1];
-			document.getElementById("p" + hole + "ci").innerText =  courses[1][2];	
+      if (color == "white") {
+         document.getElementById("p" + hole + "slope").innerText =  courses[1][1];
+         document.getElementById("p" + hole + "ci").innerText =  courses[1][2];   
 
-			document.getElementById("tee" + hole).style.background = "white";
-			document.getElementById("tee" + hole).style.color = "blue";
-		}
-		if (color == "yellow") {
-			document.getElementById("p" + hole + "slope").innerText =  courses[1][3];
-			document.getElementById("p" + hole + "ci").innerText =  courses[1][4];	
-		
-			document.getElementById("tee" + hole).style.background = "yellow";
-			document.getElementById("tee" + hole).style.color = "blue";
-		}
-		if (color == "red") {
-			document.getElementById("p" + hole + "slope").innerText =  courses[1][5];
-			document.getElementById("p" + hole + "ci").innerText =  courses[1][6];
+         document.getElementById("tee" + hole).style.background = "white";
+         document.getElementById("tee" + hole).style.color = "blue";
 
-			document.getElementById("tee" + hole).style.background = "red";	
-			document.getElementById("tee" + hole).style.color = "blue";
-		}
-	}
+      }
+      if (color == "yellow") {
+         document.getElementById("p" + hole + "slope").innerText =  courses[1][3];
+         document.getElementById("p" + hole + "ci").innerText =  courses[1][4];   
+      
+         document.getElementById("tee" + hole).style.background = "yellow";
+         document.getElementById("tee" + hole).style.color = "blue";
+      }
+      if (color == "red") {
+         document.getElementById("p" + hole + "slope").innerText =  courses[1][5];
+         document.getElementById("p" + hole + "ci").innerText =  courses[1][6];
+
+         document.getElementById("tee" + hole).style.background = "red";   
+         document.getElementById("tee" + hole).style.color = "blue";
+      }
+
+      if (hole == "1") {
+         	globalplayer1teecolor = color;
+      }	
+      if (hole == "2") {
+         	globalplayer2teecolor = color;
+      }
+      if (hole == "3") {
+         	globalplayer3teecolor = color;
+      }
+      if (hole == "4") {
+         	globalplayer4teecolor = color;
+      }
+
+      // close colors
+      document.getElementById("xteecolors" + hole).style.display = "none";
+
+   }
 
 /* 
 ======================================================================
