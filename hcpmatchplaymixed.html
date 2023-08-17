@@ -437,7 +437,7 @@ text-align: center;
          </div>
       </div>
       <br>
-<div id = "calcs1"></div>
+<div id = "calcs1">111111111</div>
 <div id = "calcs2"></div>
 <div id = "calcs3"></div>
 <div id = "calcs4"></div>
@@ -787,7 +787,17 @@ text-align: center;
           tempchbefore1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
           tempchbefore2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
           tempchbefore3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
-          tempchbefore4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)      
+          tempchbefore4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)  
+
+          tempchbefore1fixed = tempchbefore1.toFixed(1);
+          tempchbefore2fixed = tempchbefore2.toFixed(1);
+          tempchbefore3fixed = tempchbefore3.toFixed(1);      
+          tempchbefore4fixed = tempchbefore4.toFixed(1);
+
+          tempchbefore1fixed0 = tempchbefore1.toFixed(0);
+          tempchbefore2fixed0 = tempchbefore2.toFixed(0);
+          tempchbefore3fixed0 = tempchbefore3.toFixed(0);      
+          tempchbefore4fixed0 = tempchbefore4.toFixed(0);
          
      // add mixed tee variation to decimal course hcp (no rounding yet)
      temp1ci = document.getElementById("p1ci").innerText;
@@ -802,18 +812,41 @@ text-align: center;
      tempchadjusted3 = tempchbefore3 + (temp3ci - lowestcr);
      tempchadjusted4 = tempchbefore4 + (temp4ci - lowestcr);
      
+
+
+
+     tempchadjusted1fixed = tempchadjusted1.toFixed(1);
+     tempchadjusted2fixed = tempchadjusted2.toFixed(1);
+     tempchadjusted3fixed = tempchadjusted3.toFixed(1);
+     tempchadjusted4fixed = tempchadjusted4.toFixed(1);
+
+
+
+
+
+
+
      // find playing hcp
      tempph1 = (tempchadjusted1 * 0.9);
      tempph2 = (tempchadjusted2 * 0.9);
      tempph3 = (tempchadjusted3 * 0.9);
-     tempph4 = (tempchadjusted4 + 0.9);
-    
+     tempph4 = (tempchadjusted4 * 0.9);
+
+     tempph1fixed = tempph1.toFixed(1);
+     tempph2fixed = tempph2.toFixed(1);
+     tempph3fixed = tempph3.toFixed(1);
+     tempph4fixed = tempph4.toFixed(1);
+
+
+
+
      // provide updated text to show in slider
-     tempstrokes1full = "adj course hcp = " + tempchadjusted1 + ", playing hcp = " + tempph1.toFixed(0);
-     tempstrokes2full = "adj course hcp = " + tempchadjusted2 + ", playing hcp = " + tempph2.toFixed(0);
-     tempstrokes3full = "adj course hcp = " + tempchadjusted3 + ", playing hcp = " + tempph3.toFixed(0);
-     tempstrokes4full = "adj course hcp = " + tempchadjusted4 + ", playing hcp = " + tempph4.toFixed(0);
-         
+     tempstrokes1full = "adj course hcp = " + tempchadjusted1fixed + ", playing hcp = " + tempph1fixed;
+     tempstrokes2full = "adj course hcp = " + tempchadjusted2fixed + ", playing hcp = " + tempph2fixed;
+     tempstrokes3full = "adj course hcp = " + tempchadjusted3fixed + ", playing hcp = " + tempph3fixed;
+     tempstrokes4full = "adj course hcp = " + tempchadjusted4fixed + ", playing hcp = " + tempph4fixed;
+ 
+      
          document.getElementById("demo1").innerText = tempstrokes1full 
          document.getElementById("demo2").innerText = tempstrokes2full
          document.getElementById("demo3").innerText = tempstrokes3full 
@@ -837,7 +870,7 @@ text-align: center;
             tempstrokes4mod = 99;
          }
          var loweststrokes = Math.min(tempstrokes1mod, tempstrokes2mod, tempstrokes3mod, tempstrokes4mod)        
-  
+
          // find difference to give strokes
          var newstrokes1 = 0        
          var newstrokes2 = 0 
@@ -869,42 +902,68 @@ text-align: center;
          var txt31 = "Player 3: " + globalplayer3teecolor + " tees, handicap index = " + temp3hcp
          var txt41 = "Player 4: " + globalplayer4teecolor + " tees, handicap index = " + temp4hcp
 
-         var txt12 = "Player 1: " + temp1hcp + " x " + document.getElementById("p1slope").innerText + " / 113 = " + tempchbefore1 + ", rounded = " + tempchbefore1.toFixed(0);
-         var txt22 = "Player 2: " + temp2hcp + " x " + document.getElementById("p2slope").innerText + " / 113 = " + tempchbefore2 + ", rounded = " + tempchbefore2.toFixed(0);
-         var txt32 = "Player 3: " + temp3hcp + " x " + document.getElementById("p3slope").innerText + " / 113 = " + tempchbefore3 + ", rounded = " + tempchbefore3.toFixed(0);
-         var txt42 = "Player 4: " + temp4hcp + " x " + document.getElementById("p4slope").innerText + " / 113 = " + tempchbefore4 + ", rounded = " + tempchbefore4.toFixed(0);
+         var txt12 = "Player 1: " + temp1hcp + " x " + document.getElementById("p1slope").innerText + " / 113 = " + tempchbefore1fixed + ", rounded = " + tempchbefore1fixed0;
+         var txt22 = "Player 2: " + temp2hcp + " x " + document.getElementById("p2slope").innerText + " / 113 = " + tempchbefore2fixed + ", rounded = " + tempchbefore2fixed0;
+         var txt32 = "Player 3: " + temp3hcp + " x " + document.getElementById("p3slope").innerText + " / 113 = " + tempchbefore3fixed + ", rounded = " + tempchbefore3fixed0;
+         var txt42 = "Player 4: " + temp4hcp + " x " + document.getElementById("p4slope").innerText + " / 113 = " + tempchbefore4fixed + ", rounded = " + tempchbefore4fixed0;
 
-         var txt13 = "Player 1: " + tempchbefore1.toFixed(0) + " x 90% = " + tempph1;
-         var txt23 = "Player 2: " + tempchbefore2.toFixed(0) + " x 90% = " + tempph2;
-         var txt33 = "Player 3: " + tempchbefore3.toFixed(0) + " x 90% = " + tempph3;
-         var txt43 = "Player 4: " + tempchbefore4.toFixed(0) + " x 90% = " + tempph4;
+         var txt13 = "Player 1: " + tempchbefore1fixed + " x 90% = " + tempph1fixed;
+         var txt23 = "Player 2: " + tempchbefore2fixed + " x 90% = " + tempph2fixed;
+         var txt33 = "Player 3: " + tempchbefore3fixed + " x 90% = " + tempph3fixed;
+         var txt43 = "Player 4: " + tempchbefore4fixed + " x 90% = " + tempph4fixed;
 
-         var txt14 = "Player 1: " + tempchbefore1 + " + " + (temp1ci - lowestcr) + " = " + tempchadjusted1 + ", rounded = " + tempchadjusted1.toFixed(0);
-         var txt24 = "Player 2: " + tempchbefore2 + " + " + (temp2ci - lowestcr) + " = " + tempchadjusted2 + ", rounded = " + tempchadjusted2.toFixed(0);
-         var txt34 = "Player 3: " + tempchbefore3 + " + " + (temp3ci - lowestcr) + " = " + tempchadjusted3 + ", rounded = " + tempchadjusted3.toFixed(0);
-         var txt44 = "Player 4: " + tempchbefore4 + " + " + (temp4ci - lowestcr) + " = " + tempchadjusted4 + ", rounded = " + tempchadjusted4.toFixed(0);
+         var cradj1 = (temp1ci - lowestcr).toFixed(1);
+         var cradj2 = (temp2ci - lowestcr).toFixed(1);
+         var cradj3 = (temp3ci - lowestcr).toFixed(1);
+         var cradj4 = (temp4ci - lowestcr).toFixed(1);
 
+         var txt14 = "empty"
+         var txt24 = "empty"
+         var txt34 = "empty"
+         var txt44 = "empty"
 
-
-         var txt15 = "Player 1: " + tempchadjusted1.toFixed(0) + " - " + loweststrokes + " = " + newstrokes1;
-         var txt25 = "Player 2: " + tempchadjusted2.toFixed(0) + " - " + loweststrokes + " = " + newstrokes2;
-         var txt35 = "Player 3: " + tempchadjusted3.toFixed(0) + " - " + loweststrokes + " = " + newstrokes3;
-         var txt45 = "Player 4: " + tempchadjusted4.toFixed(0) + " - " + loweststrokes + " = " + newstrokes4;
-
-htxt1 = "Step 1: Original handicaps and tees"
-htxt2 = "Step 2: Adjust to Course Handicaps"
-htxt3 = "Step 3: Adjust for Allowance (90%)"
-htxt4 = "Step 4: Adjust for Course Rating"
-htxt5 = "Step 5: Adjust for lowest handicap"
-
-document.getElementById("calcs1").innerHTML = htxt1 + "<br>" + txt11 + "<br>" + txt21 + "<br>" + txt31 + "<br>" + txt41 + "<br>";
-document.getElementById("calcs2").innerHTML = htxt2 + "<br>" + txt12 + "<br>" + txt22 + "<br>" + txt32 + "<br>" + txt42 + "<br>";
-document.getElementById("calcs3").innerHTML = htxt3 + "<br>" + txt13 + "<br>" + txt23 + "<br>" + txt33 + "<br>" + txt43 + "<br>";
-document.getElementById("calcs4").innerHTML = htxt4 + "<br>" + txt14 + "<br>" + txt24 + "<br>" + txt34 + "<br>" + txt44 + "<br>";
-document.getElementById("calcs5").innerHTML = htxt5 + "<br>" + txt15 + "<br>" + txt25 + "<br>" + txt35 + "<br>" + txt45 + "<br>";
-
-
+         if (cradj1 !== "0.0") {
+            txt14 = "Player 1: " + tempchbefore1fixed + " + " + cradj1 + " = " + tempchadjusted1fixed + ", rounded = " + tempchadjusted1fixed;
+         } else {
+            txt14 = "Player 1: " + tempchbefore1fixed + " no adjustment, rounded = " + tempchadjusted1fixed;
          }
+
+         if (cradj2 !== "0.0") {
+            txt24 = "Player 2: " + tempchbefore2fixed + " + " + cradj2 + " = " + tempchadjusted2fixed + ", rounded = " + tempchadjusted2fixed;
+         } else {
+            txt24 = "Player 2: " + tempchbefore2fixed + " no adjustment, rounded = " + tempchadjusted2fixed;
+         }
+
+         if (cradj3 !== "0.0") {
+            txt34 = "Player 3: " + tempchbefore3fixed + " + " + cradj3 + " = " + tempchadjusted3fixed + ", rounded = " + tempchadjusted3fixed;
+         } else {
+            txt34 = "Player 3: " + tempchbefore3fixed + " no adjustment, rounded = " + tempchadjusted3fixed;
+         }
+
+         if (cradj4 !== "0.0") {
+            txt44 = "Player 4: " + tempchbefore4fixed + " + " + cradj4 + " = " + tempchadjusted4fixed + ", rounded = " + tempchadjusted4fixed;
+         } else {
+            txt44 = "Player 4: " + tempchbefore4fixed + " no adjustment, rounded = " + tempchadjusted4fixed;
+         }
+
+         var txt15 = "Player 1: " + tempchadjusted1fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes1;
+         var txt25 = "Player 2: " + tempchadjusted2fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes2;
+         var txt35 = "Player 3: " + tempchadjusted3fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes3;
+         var txt45 = "Player 4: " + tempchadjusted4fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes4;
+
+         var htxt1 = "Step 1: Original handicaps and tees"
+         var htxt2 = "Step 2: Adjust to Course Handicaps"
+         var htxt3 = "Step 3: Adjust for Allowance (90%)"
+         var htxt4 = "Step 4: Adjust for Course Rating"
+         var htxt5 = "Step 5: Adjust for lowest handicap"
+
+         document.getElementById("calcs1").innerHTML = "<br>" + htxt1 + "<br>" + txt11 + "<br>" + txt21 + "<br>" + txt31 + "<br>" + txt41 + "<br>";
+         document.getElementById("calcs2").innerHTML = "<br>" + htxt2 + "<br>" + txt12 + "<br>" + txt22 + "<br>" + txt32 + "<br>" + txt42 + "<br>";
+         document.getElementById("calcs3").innerHTML = "<br>" + htxt3 + "<br>" + txt13 + "<br>" + txt23 + "<br>" + txt33 + "<br>" + txt43 + "<br>";
+         document.getElementById("calcs4").innerHTML = "<br>" + htxt4 + "<br>" + txt14 + "<br>" + txt24 + "<br>" + txt34 + "<br>" + txt44 + "<br>";
+         document.getElementById("calcs5").innerHTML = "<br>" + htxt5 + "<br>" + txt15 + "<br>" + txt25 + "<br>" + txt35 + "<br>" + txt45 + "<br>";
+
+ }
          
 
    function getteecolor(id) {
