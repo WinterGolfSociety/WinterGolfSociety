@@ -164,6 +164,16 @@
          //     padding-top: 10px;
          float: right;
          }
+         #closeicon1,
+         #closeicon2,
+         #closeicon3,
+         #closeicon4
+         {
+         //padding-right: 20px;
+        //padding-bottom: 5px; //10px;
+              padding-top: 10px;
+         //float: right;
+         }
          #dropbtn, #dropbtn2 {
          color: greenYellow;
          cursor: pointer;
@@ -258,18 +268,23 @@ text-align: center;
 
 #calcs1 {
    color: white;
+   padding-left: 2px;
 }
 #calcs2 {
    color: mediumSpringGreen;
+   padding-left: 2px;
 }
 #calcs3 {
    color: cyan;
+   padding-left: 2px;
 }
 #calcs4 {
    color: yellow;
+   padding-left: 2px;
 }
 #calcs5 {
    color: paleGreen;
+   padding-left: 2px;
 }
       </style>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -321,11 +336,11 @@ text-align: center;
                   <td class="td1" id="p1calchcp">0</td>
                </tr>
 <!-- tee colors -->
-          <tr  class="tr1" id="xteecolors1">
-      <td id="white1" onclick="teecolor(this.id)">white</td>
-      <td id="yellow1" onclick="teecolor(this.id)">yellow</td>
-      <td id="red1" onclick="teecolor(this.id)">red</td>
-      <td colspan="2"></td>
+               <tr class="tr1" id="xteecolors1">
+                  <td id="white1" onclick="teecolor(this.id)">white</td>
+                  <td id="yellow1" onclick="teecolor(this.id)">yellow</td>
+                  <td id="red1" onclick="teecolor(this.id)">red</td>
+                  <td colspan="2"></td>
               </tr>
 <!-- hcp adjustment -->
                <tr class="tr1">
@@ -333,11 +348,17 @@ text-align: center;
                      <div class="slidecontainer" id="slidecontainer1">
                         <input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange1">
                         <p><span id="demo1"></span></p>
-                        <div class="minusiconcontainer" id="minusicon1"> <img src="minusgreen.png" alt="minus" onclick="minus(1)" style="height: 60px; width: 60px;"> </div>
-                        <div class="plusiconcontainer" id="plusicon1"> <img src="plusgreen.png" alt="plus" onclick="plus(1)" style="height: 60px; width: 60px;"> </div>
+                        <div class="minusiconcontainer" id="minusicon1"> <img src="minusgreen.png" alt="minus" onclick="minus(1)" style="height: 60px; width: 60px;">
+                        </div>
+                        <div class="plusiconcontainer" id="plusicon1"> <img src="plusgreen.png" alt="plus" onclick="plus(1)" style="height: 60px; width: 60px;">
+                        </div>
+
+                        <div class="closeiconcontainer" id="closeicon1"> <img src="close.png" alt="close" onclick='closeslider("slidecontainer1")' style="height: 30px; width: 30px;"> </div>
+
                      </div>
-                  </td>
-               </tr>
+                     
+               </td>
+            </tr>
                <!-- player 2 -->
                <tr>
                   <td colspan="5"></td>
@@ -364,8 +385,12 @@ text-align: center;
                         <p><span id="demo2"></span></p>
                         <div class="minusiconcontainer" id="minusicon2"> <img src="minusgreen.png" alt="minus" onclick="minus(2)" style="height: 85px; width: 85px;"> </div>
                         <div class="plusiconcontainer" id="plusicon2"> <img src="plusgreen.png" alt="plus" onclick="plus(2)" style="height: 85px; width: 85px;"> </div>
+                     
+                        <div class="closeiconcontainer" id="closeicon2"> <img src="close.png" alt="close" onclick='closeslider("slidecontainer2")' style="height: 30px; width: 30px;"> </div>
+
                      </div>
-                  </td>
+                     
+               </td>
                </tr>
                <tr>
                   <td colspan="5"></td>
@@ -393,8 +418,12 @@ text-align: center;
                         <p><span id="demo3">course hcp = 33, playing hcp = 32</span></p>
                         <div class="minusiconcontainer" id="minusicon3"> <img src="minusgreen.png" alt="minus" onclick="minus(3)" style="height: 85px; width: 85px;"> </div>
                         <div class="plusiconcontainer" id="plusicon3"> <img src="plusgreen.png" alt="plus" onclick="plus(3)" style="height: 85px; width: 85px;"> </div>
+                     
+                        <div class="closeiconcontainer" id="closeicon3"> <img src="close.png" alt="close" onclick='closeslider("slidecontainer3")' style="height: 30px; width: 30px;"> </div>
+
                      </div>
-                  </td>
+                     
+               </td>
                </tr>
                <tr>
                   <td colspan="5"></td>
@@ -421,8 +450,12 @@ text-align: center;
                         <p><span id="demo4">xxxxxxxxxx</span></p>
                         <div class="minusiconcontainer" id="minusicon4"> <img src="minusgreen.png" alt="minus" onclick="minus(4)" style="height: 85px; width: 85px;"> </div>
                         <div class="plusiconcontainer" id="plusicon4"> <img src="plusgreen.png" alt="plus" onclick="plus(4)" style="height: 85px; width: 85px;"> </div>
+                     
+                        <div class="closeiconcontainer" id="closeicon4"> <img src="close.png" alt="close" onclick='closeslider("slidecontainer4")' style="height: 30px; width: 30px;"> </div>
+
                      </div>
-                  </td>
+                     
+               </td>
                </tr>
                <tr>
                   <td colspan="5"></td>
@@ -437,11 +470,13 @@ text-align: center;
          </div>
       </div>
       <br>
-<div id = "calcs1"></div>
-<div id = "calcs2"></div>
-<div id = "calcs3"></div>
-<div id = "calcs4"></div>
-<div id = "calcs5"></div>
+      <div id = "calcs1"></div>
+      <div id = "calcs2"></div>
+      <div id = "calcs3"></div>
+      <div id = "calcs4"></div>
+      <div id = "calcs5"></div>
+      <br>
+      <br>
       <br>
       <script>
 
@@ -501,7 +536,18 @@ text-align: center;
 
 
         // === functions ========================     
-         
+        
+       //===================================================
+       // special function for use in calculations
+       // rounds a number to 2 decimal and returns a number
+       function roundToTwo(num) {
+          return +(Math.round(num + "e+2")  + "e-2");
+       }
+       //===================================================
+
+
+
+
          function p1hcpadjust() {
           if (document.getElementById("slidecontainer1").style.display !== "inline") {
             document.getElementById("slidecontainer1").style.display = "inline";
@@ -770,8 +816,39 @@ text-align: center;
          
          
 
+
+
+/*
+Player 1: White Tee, Handicap Index 6.8
+
+Step 1: Course Handicaps
+Player 1: 6.8 x 133 / 113 = 8.00, rounded = 8
+
+Step 2: 90% Allowance
+Player 1: 8 x 90% = 7.2
+
+Step 3: Course Rating adjustment
+Player 1: 7.2, rounded to 7
+
+Step 4: Adjusted for lowest handicap
+Player 1: 7 – 7 = 0
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          function doGetStrokes() {
-         // use 1 decimal place
+         
          // calculate strokes
          temp1hcp = document.getElementById("p1hcp").innerText
          temp2hcp = document.getElementById("p2hcp").innerText
@@ -782,51 +859,33 @@ text-align: center;
          temp2slope = document.getElementById("p2slope").innerText
          temp3slope = document.getElementById("p3slope").innerText
          temp4slope = document.getElementById("p4slope").innerText
-         
-          // find original course hcp     
-          tempchbefore1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
-          tempchbefore2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
-          tempchbefore3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
-          tempchbefore4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)  
+  
+   
+          // Step 1: Course Handicaps
+          // Player 1: 6.8 x 133 / 113 = 8.00, rounded = 8 
+	  // temp1hcp x temp1slope / 113 = tempchadjusted1, rounded = tempchadjusted1fixed0  
+          
+// calc course hcp
+          tempchadjusted1 = (parseInt(temp1slope)/113) * parseFloat(temp1hcp)
+          tempchadjusted2 = (parseInt(temp2slope)/113) * parseFloat(temp2hcp)
+          tempchadjusted3 = (parseInt(temp3slope)/113) * parseFloat(temp3hcp)       
+          tempchadjusted4 = (parseInt(temp4slope)/113) * parseFloat(temp4hcp)  
 
-          tempchbefore1fixed = tempchbefore1.toFixed(1);
-          tempchbefore2fixed = tempchbefore2.toFixed(1);
-          tempchbefore3fixed = tempchbefore3.toFixed(1);      
-          tempchbefore4fixed = tempchbefore4.toFixed(1);
+          tempchadjusted1fixed = tempchadjusted1.toFixed(2);
+          tempchadjusted2fixed = tempchadjusted2.toFixed(2);
+          tempchadjusted3fixed = tempchadjusted3.toFixed(2);      
+          tempchadjusted4fixed = tempchadjusted4.toFixed(2);
 
-          tempchbefore1fixed0 = tempchbefore1.toFixed(0);
-          tempchbefore2fixed0 = tempchbefore2.toFixed(0);
-          tempchbefore3fixed0 = tempchbefore3.toFixed(0);      
-          tempchbefore4fixed0 = tempchbefore4.toFixed(0);
-         
-     // add mixed tee variation to decimal course hcp (no rounding yet)
-     temp1ci = document.getElementById("p1ci").innerText;
-     temp2ci = document.getElementById("p2ci").innerText;
-     temp3ci = document.getElementById("p3ci").innerText;
-     temp4ci = document.getElementById("p4ci").innerText;
-     var lowestcr = Math.min(temp1ci, temp2ci, temp3ci, temp4ci);
+          tempchadjusted1fixed0 = tempchadjusted1.toFixed(0);
+          tempchadjusted2fixed0 = tempchadjusted2.toFixed(0);
+          tempchadjusted3fixed0 = tempchadjusted3.toFixed(0);      
+          tempchadjusted4fixed0 = tempchadjusted4.toFixed(0);
 
-     // add cr adjustment
-     tempchadjusted1 = tempchbefore1 + (temp1ci - lowestcr);
-     tempchadjusted2 = tempchbefore2 + (temp2ci - lowestcr);
-     tempchadjusted3 = tempchbefore3 + (temp3ci - lowestcr);
-     tempchadjusted4 = tempchbefore4 + (temp4ci - lowestcr);
-     
+     // Step 2: 90% Allowance
+     // Player 1: 8 x 90% = 7.2
+     // tempchbefore1fixed0  x 90% =  tempph1fixed
 
-
-
-     tempchadjusted1fixed = tempchadjusted1.toFixed(1);
-     tempchadjusted2fixed = tempchadjusted2.toFixed(1);
-     tempchadjusted3fixed = tempchadjusted3.toFixed(1);
-     tempchadjusted4fixed = tempchadjusted4.toFixed(1);
-
-
-
-
-
-
-
-     // find playing hcp
+// calc 90% adjusted
      tempph1 = (tempchadjusted1 * 0.9);
      tempph2 = (tempchadjusted2 * 0.9);
      tempph3 = (tempchadjusted3 * 0.9);
@@ -837,26 +896,68 @@ text-align: center;
      tempph3fixed = tempph3.toFixed(1);
      tempph4fixed = tempph4.toFixed(1);
 
+     tempph1fixed0 = tempph1.toFixed(0);
+     tempph2fixed0 = tempph2.toFixed(0);
+     tempph3fixed0 = tempph3.toFixed(0);
+     tempph4fixed0 = tempph4.toFixed(0);
 
 
 
-     // provide updated text to show in slider
-     tempstrokes1full = "adj course hcp = " + tempchadjusted1fixed + ", playing hcp = " + tempph1fixed;
-     tempstrokes2full = "adj course hcp = " + tempchadjusted2fixed + ", playing hcp = " + tempph2fixed;
-     tempstrokes3full = "adj course hcp = " + tempchadjusted3fixed + ", playing hcp = " + tempph3fixed;
-     tempstrokes4full = "adj course hcp = " + tempchadjusted4fixed + ", playing hcp = " + tempph4fixed;
+
+   // provide updated text to show in slider
+   tempstrokes1full = "adj course hcp = " + tempchadjusted1fixed0 + ", playing hcp = " + tempph1fixed0;
+   tempstrokes2full = "adj course hcp = " + tempchadjusted2fixed0 + ", playing hcp = " + tempph2fixed0;
+   tempstrokes3full = "adj course hcp = " + tempchadjusted3fixed0 + ", playing hcp = " + tempph3fixed0;
+   tempstrokes4full = "adj course hcp = " + tempchadjusted4fixed0 + ", playing hcp = " + tempph4fixed0;
  
-      
+// show in slider window      
          document.getElementById("demo1").innerText = tempstrokes1full 
          document.getElementById("demo2").innerText = tempstrokes2full
          document.getElementById("demo3").innerText = tempstrokes3full 
          document.getElementById("demo4").innerText = tempstrokes4full 
          
-         // find lowest
-         var tempstrokes1mod = tempph1
-         var tempstrokes2mod = tempph2
-         var tempstrokes3mod = tempph3
-         var tempstrokes4mod = tempph4
+
+       
+     // add mixed tee variation to decimal course hcp (no rounding yet)
+     // Step 3: Course Rating adjustment
+         // Player 1: 7.2, rounded to 7
+         // Player 3: 16.2 + 1.4 = 17.6, rounded = 18
+         // tempph1fixed rounded to tempph1fixed0
+         // tempph1fixed + cradj1 = tempchadjusted1, rounded = tempchadjusted4fixed0  
+
+
+// get course rating
+     temp1ci = document.getElementById("p1ci").innerText;
+     temp2ci = document.getElementById("p2ci").innerText;
+     temp3ci = document.getElementById("p3ci").innerText;
+     temp4ci = document.getElementById("p4ci").innerText;
+     var lowestcr = Math.min(temp1ci, temp2ci, temp3ci, temp4ci);
+
+     // add cr adjustment
+     tempphadjusted1 = tempph1 + (temp1ci - lowestcr);
+     tempphadjusted2 = tempph2 + (temp2ci - lowestcr);
+     tempphadjusted3 = tempph3 + (temp3ci - lowestcr);
+     tempphadjusted4 = tempph4 + (temp4ci - lowestcr);
+     
+     tempphadjusted1fixed = tempphadjusted1.toFixed(1);
+     tempphadjusted2fixed = tempphadjusted2.toFixed(1);
+     tempphadjusted3fixed = tempphadjusted3.toFixed(1);
+     tempphadjusted4fixed = tempphadjusted4.toFixed(1);
+
+     tempphadjusted1fixed0 = tempphadjusted1.toFixed(0);
+     tempphadjusted2fixed0 = tempphadjusted2.toFixed(0);
+     tempphadjusted3fixed0 = tempphadjusted3.toFixed(0);
+     tempphadjusted4fixed0 = tempphadjusted4.toFixed(0);
+
+
+// work out lowest after cr has just been applied 
+         var tempstrokes1mod = tempphadjusted1
+         var tempstrokes2mod = tempphadjusted2
+         var tempstrokes3mod = tempphadjusted3
+         var tempstrokes4mod = tempphadjusted4
+
+
+
          if (tempstrokes1mod == "0") {
             tempstrokes1mod = 99;
          }
@@ -869,25 +970,30 @@ text-align: center;
          if (tempstrokes4mod == "0") {
             tempstrokes4mod = 99;
          }
-         var loweststrokes = Math.min(tempstrokes1mod, tempstrokes2mod, tempstrokes3mod, tempstrokes4mod)        
 
-         // find difference to give strokes
+
+       var loweststrokes = Math.min(tempstrokes1mod, tempstrokes2mod, tempstrokes3mod, tempstrokes4mod)        
+
+         // Step 4: Adjusted for lowest handicap
+         // Player 1: 7 – 7 = 0
+
+// work out new stroke differences
          var newstrokes1 = 0        
          var newstrokes2 = 0 
          var newstrokes3 = 0 
          var newstrokes4 = 0
  
          if (tempstrokes1mod !== 99) {
-            newstrokes1 = (tempph1 - loweststrokes)  
+            newstrokes1 = (tempphadjusted1 - loweststrokes)  
          }
          if (tempstrokes2mod !== 99) {
-            newstrokes2 = (tempph2 - loweststrokes) 
+            newstrokes2 = (tempphadjusted2 - loweststrokes) 
          }
          if (tempstrokes3mod !== 99) {
-            newstrokes3 = (tempph3 - loweststrokes) 
+            newstrokes3 = (tempphadjusted3 - loweststrokes) 
          }
          if (tempstrokes4mod !== 99) {
-            newstrokes4 = (tempph4 - loweststrokes) 
+            newstrokes4 = (tempphadjusted4 - loweststrokes) 
          }
 
          document.getElementById("p1calchcp").innerText = newstrokes1.toFixed(0); 
@@ -897,64 +1003,74 @@ text-align: center;
 
          // show calcs at bottom of screen
 
+
+
+
+
          var txt11 = "Player 1: " + globalplayer1teecolor + " tees, handicap index = " + temp1hcp
          var txt21 = "Player 2: " + globalplayer2teecolor + " tees, handicap index = " + temp2hcp
          var txt31 = "Player 3: " + globalplayer3teecolor + " tees, handicap index = " + temp3hcp
          var txt41 = "Player 4: " + globalplayer4teecolor + " tees, handicap index = " + temp4hcp
 
-         var txt12 = "Player 1: " + temp1hcp + " x " + document.getElementById("p1slope").innerText + " / 113 = " + tempchbefore1fixed + " = " + tempchbefore1fixed0;
-         var txt22 = "Player 2: " + temp2hcp + " x " + document.getElementById("p2slope").innerText + " / 113 = " + tempchbefore2fixed + " = " + tempchbefore2fixed0;
-         var txt32 = "Player 3: " + temp3hcp + " x " + document.getElementById("p3slope").innerText + " / 113 = " + tempchbefore3fixed + " = " + tempchbefore3fixed0;
-         var txt42 = "Player 4: " + temp4hcp + " x " + document.getElementById("p4slope").innerText + " / 113 = " + tempchbefore4fixed + " = " + tempchbefore4fixed0;
-         var txt13 = "Player 1: " + tempchbefore1fixed + " x 90% = " + tempph1fixed;
-         var txt23 = "Player 2: " + tempchbefore2fixed + " x 90% = " + tempph2fixed;
-         var txt33 = "Player 3: " + tempchbefore3fixed + " x 90% = " + tempph3fixed;
-         var txt43 = "Player 4: " + tempchbefore4fixed + " x 90% = " + tempph4fixed;
+         var txt12 = "Player 1: " + temp1hcp + " x " + document.getElementById("p1slope").innerText + " / 113 = " + tempchadjusted1fixed + " = " + tempchadjusted1fixed0;
+         var txt22 = "Player 2: " + temp2hcp + " x " + document.getElementById("p2slope").innerText + " / 113 = " + tempchadjusted2fixed + " = " + tempchadjusted2fixed0;
+         var txt32 = "Player 3: " + temp3hcp + " x " + document.getElementById("p3slope").innerText + " / 113 = " + tempchadjusted3fixed + " = " + tempchadjusted3fixed0;
+         var txt42 = "Player 4: " + temp4hcp + " x " + document.getElementById("p4slope").innerText + " / 113 = " + tempchadjusted4fixed + " = " + tempchadjusted4fixed0;
+         var txt13 = "Player 1: " + tempchadjusted1fixed0 + " x 90% = " + tempph1fixed;
+         var txt23 = "Player 2: " + tempchadjusted2fixed0 + " x 90% = " + tempph2fixed;
+         var txt33 = "Player 3: " + tempchadjusted3fixed0 + " x 90% = " + tempph3fixed;
+         var txt43 = "Player 4: " + tempchadjusted4fixed0 + " x 90% = " + tempph4fixed;
 
          var cradj1 = (temp1ci - lowestcr).toFixed(1);
          var cradj2 = (temp2ci - lowestcr).toFixed(1);
          var cradj3 = (temp3ci - lowestcr).toFixed(1);
          var cradj4 = (temp4ci - lowestcr).toFixed(1);
 
+ 
          var txt14 = "empty"
          var txt24 = "empty"
          var txt34 = "empty"
          var txt44 = "empty"
 
+
          if (cradj1 !== "0.0") {
-            txt14 = "Player 1: " + tempchbefore1fixed + " + " + cradj1 + " = " + tempchadjusted1fixed + " = " + tempchadjusted1fixed;
+            txt14 = "Player 1: " + tempph1fixed + " + " + cradj1 + " = " + temppchadjusted1fixed + " = " + tempphadjusted1fixed0;
          } else {
-            txt14 = "Player 1: " + tempchbefore1fixed + " no adjustment = " + tempchadjusted1fixed;
+            txt14 = "Player 1: " + tempph1fixed + " no adjustment = " + tempphadjusted1fixed0;
          }
 
          if (cradj2 !== "0.0") {
-            txt24 = "Player 2: " + tempchbefore2fixed + " + " + cradj2 + " = " + tempchadjusted2fixed + " = " + tempchadjusted2fixed;
+            txt24 = "Player 2: " + tempph2fixed + " + " + cradj2 + " = " + tempphadjusted2fixed + " = " + tempphadjusted2fixed0;
          } else {
-            txt24 = "Player 2: " + tempchbefore2fixed + " no adjustment = " + tempchadjusted2fixed;
+            txt24 = "Player 2: " + tempph2fixed + " no adjustment = " + tempphadjusted2fixed0;
          }
 
          if (cradj3 !== "0.0") {
-            txt34 = "Player 3: " + tempchbefore3fixed + " + " + cradj3 + " = " + tempchadjusted3fixed + " = " + tempchadjusted3fixed;
+            txt34 = "Player 3: " + tempph3fixed + " + " + cradj3 + " = " + tempphadjusted3fixed + " = " + tempphadjusted3fixed0;
          } else {
-            txt34 = "Player 3: " + tempchbefore3fixed + " no adjustment = " + tempchadjusted3fixed;
+            txt34 = "Player 3: " + tempph3fixed + " no adjustment = " + tempphadjusted3fixed0;
          }
 
          if (cradj4 !== "0.0") {
-            txt44 = "Player 4: " + tempchbefore4fixed + " + " + cradj4 + " = " + tempchadjusted4fixed + " = " + tempchadjusted4fixed;
+            txt44 = "Player 4: " + tempph4fixed + " + " + cradj4 + " = " + tempphadjusted4fixed + " = " + tempphadjusted4fixed0;
          } else {
-            txt44 = "Player 4: " + tempchbefore4fixed + " no adjustment = " + tempchadjusted4fixed;
+            txt44 = "Player 4: " + tempph4fixed + " no adjustment = " + tempphadjusted4fixed0;
          }
 
-         var txt15 = "Player 1: " + tempchadjusted1fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes1.toFixed(0);
-         var txt25 = "Player 2: " + tempchadjusted2fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes2.toFixed(0);
-         var txt35 = "Player 3: " + tempchadjusted3fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes3.toFixed(0);
-         var txt45 = "Player 4: " + tempchadjusted4fixed + " - " + loweststrokes.toFixed(0) + " = " + newstrokes4.toFixed(0);
+
+
+         var txt15 = "Player 1: " + tempphadjusted1fixed0 + " - " + loweststrokes.toFixed(0) + " = " +  (roundToTwo(tempphadjusted1) - roundToTwo(loweststrokes)).toFixed(0);
+         var txt25 = "Player 2: " + tempphadjusted2fixed0 + " - " + loweststrokes.toFixed(0) + " = " +  (roundToTwo(tempphadjusted2) - roundToTwo(loweststrokes)).toFixed(0);
+         var txt35 = "Player 3: " + tempphadjusted3fixed0 + " - " + loweststrokes.toFixed(0) + " = " +  (roundToTwo(tempphadjusted3) - roundToTwo(loweststrokes)).toFixed(0);
+         var txt45 = "Player 4: " + tempphadjusted4fixed0 + " - " + loweststrokes.toFixed(0) + " = " +  (roundToTwo(tempphadjusted4) - roundToTwo(loweststrokes)).toFixed(0);
 
          var htxt1 = "Step 1: Original handicaps and tees"
          var htxt2 = "Step 2: Adjust to Course Handicaps"
          var htxt3 = "Step 3: Adjust for Allowance (90%)"
          var htxt4 = "Step 4: Adjust for Course Rating"
          var htxt5 = "Step 5: Adjust for lowest handicap"
+
+
 
          document.getElementById("calcs1").innerHTML = "<br>" + htxt1 + "<br>" + txt11 + "<br>" + txt21 + "<br>" + txt31 + "<br>" + txt41 + "<br>";
          document.getElementById("calcs2").innerHTML = "<br>" + htxt2 + "<br>" + txt12 + "<br>" + txt22 + "<br>" + txt32 + "<br>" + txt42 + "<br>";
@@ -1021,6 +1137,12 @@ text-align: center;
       document.getElementById("xteecolors" + hole).style.display = "none";
 
    }
+
+function closeslider(id) {
+   // close slider
+  document.getElementById(id).style.display = "none";
+}	
+
 
 /* 
 ======================================================================
