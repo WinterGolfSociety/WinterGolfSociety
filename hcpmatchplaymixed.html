@@ -101,9 +101,9 @@
          font-size: 20px;
          background: gray;
          color: greenYellow;
- border-style: solid;
-border-color: #707070; //#909090;
- border-width: thin;
+         border-style: solid;
+         border-color: #707070;
+         border-width: thin;
          }
          .yellow {
          color: greenYellow;
@@ -306,7 +306,7 @@ border-color: #707070; //#909090;
                   <td class="td1" id="tee1" onclick='getteecolor(this.id)'>1</td>
                   <td class="td1 yellow" id="p1hcp" onclick="p1hcpadjust()">0</td>
                   <td class="td1" id="p1slope">0</td>
-                  <td class="td1" id="p1ci">0</td>
+                  <td class="td1" id="p1cr">0</td>
                   <td class="td1" id="p1calchcp">0</td>
                </tr>
 <!-- tee colors -->
@@ -341,7 +341,7 @@ border-color: #707070; //#909090;
                   <td class="td1" id="tee2" onclick='getteecolor(this.id)'>2</td>
                   <td class="td1 yellow" id="p2hcp" onclick="p2hcpadjust()">0</td>
                   <td class="td1" id="p2slope">0</td>
-                  <td class="td1" id="p2ci">0</td>
+                  <td class="td1" id="p2cr">0</td>
                   <td class="td1" id="p2calchcp">0</td>
                </tr>
 <!-- tee colors -->
@@ -374,7 +374,7 @@ border-color: #707070; //#909090;
                   <td class="td1" id="tee3" onclick='getteecolor(this.id)'>3</td>
                   <td class="td1 yellow" id="p3hcp" onclick="p3hcpadjust()">0</td>
                   <td class="td1" id="p3slope">0</td>
-                  <td class="td1" id="p3ci">0</td>
+                  <td class="td1" id="p3cr">0</td>
                   <td class="td1" id="p3calchcp">0</td>
                </tr>
 <!-- tee colors -->
@@ -406,7 +406,7 @@ border-color: #707070; //#909090;
                   <td class="td1" id="tee4" onclick='getteecolor(this.id)'>4</td>
                   <td class="td1 yellow" id="p4hcp" onclick="p4hcpadjust()">0</td>
                   <td class="td1" id="p4slope">0</td>
-                  <td class="td1" id="p4ci">0</td>
+                  <td class="td1" id="p4cr">0</td>
                   <td class="td1" id="p4calchcp">0</td>
                </tr>
 <!-- tee colors -->
@@ -456,11 +456,11 @@ border-color: #707070; //#909090;
    //=== globals =====================
    var globalcourse;
    var globalwhiteslope;
-   var globalwhiteci;
+   var globalwhitecr;
    var globalyellowslope;
-   var globalyellowci;
+   var globalyellowcr;
    var globalredslope;
-   var globalredci;
+   var globalredcr;
    var globalplayer1teecolor;
    var globalplayer2teecolor;
    var globalplayer3teecolor;
@@ -468,12 +468,12 @@ border-color: #707070; //#909090;
 
    // array: course, white slope, white index, yellow slope, yellow index, red slope, red index
          var courses = [
-             ["select course","","","","","",""],
+             ["select course",   ""   ,""    ,""   ,""    ,""   ,""    ],
              ["Longhirst Dawson","120","72.3","120","71.1","121","72.5"],
-             ["Longhirst Lakes","121","69.7","116","67.6","117","69.1"],
-             ["Bellingham","131","70.3","127","69.2","124","71.8"],
-             ["Blyth","132","69.3","128","68.1","122","69.6"],
-             ["Ponteland","133","72.2","128","70.9","133","74.4"]
+             ["Longhirst Lakes", "121","69.7","116","67.6","117","69.1"],
+             ["Bellingham",      "131","70.3","127","69.2","124","71.8"],
+             ["Blyth",           "132","69.3","128","68.1","122","69.6"],
+             ["Ponteland",       "133","72.2","128","70.9","133","74.4"]
          ];
          
    // default to Dawson yellow tees
@@ -481,25 +481,25 @@ border-color: #707070; //#909090;
  
 
   document.getElementById("p1slope").innerText =  courses[1][3];
-   document.getElementById("p1ci").innerText =  courses[1][4];   
+   document.getElementById("p1cr").innerText =  courses[1][4];   
       
    document.getElementById("tee1").style.background = "yellow";
    document.getElementById("tee1").style.color = "blue";
         // player 2 
    document.getElementById("p2slope").innerText =  courses[1][3];
-   document.getElementById("p2ci").innerText =  courses[1][4];   
+   document.getElementById("p2cr").innerText =  courses[1][4];   
       
    document.getElementById("tee2").style.background = "yellow";
    document.getElementById("tee2").style.color = "blue";
    // player 3
    document.getElementById("p3slope").innerText =  courses[1][3];
-   document.getElementById("p3ci").innerText =  courses[1][4];   
+   document.getElementById("p3cr").innerText =  courses[1][4];   
       
    document.getElementById("tee3").style.background = "yellow";
    document.getElementById("tee3").style.color = "blue";
         // player 2 
    document.getElementById("p4slope").innerText =  courses[1][3];
-   document.getElementById("p4ci").innerText =  courses[1][4];   
+   document.getElementById("p4cr").innerText =  courses[1][4];   
       
    document.getElementById("tee4").style.background = "yellow";
    document.getElementById("tee4").style.color = "blue";
@@ -737,11 +737,11 @@ border-color: #707070; //#909090;
            if (courses[i][0] == course) {
               globalcourse = courses[i][0];   
               globalwhiteslope = courses[i][1];
-              globalwhiteci = courses[i][2];
+              globalwhitecr = courses[i][2];
               globalyellowslope = courses[i][3];
-              globalyellowci = courses[i][4];
+              globalyellowcr = courses[i][4];
               globalredslope = courses[i][5];
-              globalredci = courses[i][6];
+              globalredcr = courses[i][6];
            }
         }
 
@@ -749,54 +749,54 @@ border-color: #707070; //#909090;
    // === player 1 ===================================================
    if (globalplayer1teecolor == "white") {
       document.getElementById("p1slope").innerText = globalwhiteslope;
-         document.getElementById("p1ci").innerText = globalwhiteci;
+         document.getElementById("p1cr").innerText = globalwhitecr;
    }
    if (globalplayer1teecolor == "yellow") {
       document.getElementById("p1slope").innerText = globalyellowslope;
-         document.getElementById("p1ci").innerText = globalyellowci;
+         document.getElementById("p1cr").innerText = globalyellowcr;
    }
    if (globalplayer1teecolor == "red") {
       document.getElementById("p1slope").innerText = globalredslope;
-         document.getElementById("p1ci").innerText = globalredci;
+         document.getElementById("p1cr").innerText = globalredcr;
    }
    // === player 2 ==================================================
    if (globalplayer2teecolor == "white") {
       document.getElementById("p2slope").innerText = globalwhiteslope;
-         document.getElementById("p2ci").innerText = globalwhiteci;
+         document.getElementById("p2cr").innerText = globalwhitecr;
    }
    if (globalplayer2teecolor == "yellow") {
       document.getElementById("p2slope").innerText = globalyellowslope;
-         document.getElementById("p2ci").innerText = globalyellowci;
+         document.getElementById("p2cr").innerText = globalyellowcr;
    }
    if (globalplayer2teecolor == "red") {
       document.getElementById("p2slope").innerText = globalredslope;
-         document.getElementById("p2ci").innerText = globalredci;
+         document.getElementById("p2cr").innerText = globalredcr;
    }
    // === player 3 ==================================================
    if (globalplayer3teecolor == "white") {
       document.getElementById("p3slope").innerText = globalwhiteslope;
-         document.getElementById("p3ci").innerText = globalwhiteci;
+         document.getElementById("p3cr").innerText = globalwhitecr;
    }
    if (globalplayer3teecolor == "yellow") {
       document.getElementById("p3slope").innerText = globalyellowslope;
-         document.getElementById("p3ci").innerText = globalyellowci;
+         document.getElementById("p3cr").innerText = globalyellowcr;
    }
    if (globalplayer3teecolor == "red") {
       document.getElementById("p3slope").innerText = globalredslope;
-         document.getElementById("p3ci").innerText = globalredci;
+         document.getElementById("p3cr").innerText = globalredcr;
    }
    // === player 4 ==================================================
    if (globalplayer4teecolor == "white") {
       document.getElementById("p4slope").innerText = globalwhiteslope;
-         document.getElementById("p4ci").innerText = globalwhiteci;
+         document.getElementById("p4cr").innerText = globalwhitecr;
    }
    if (globalplayer4teecolor == "yellow") {
       document.getElementById("p4slope").innerText = globalyellowslope;
-         document.getElementById("p4ci").innerText = globalyellowci;
+         document.getElementById("p4cr").innerText = globalyellowcr;
    }
    if (globalplayer4teecolor == "red") {
       document.getElementById("p4slope").innerText = globalredslope;
-         document.getElementById("p4ci").innerText = globalredci;
+         document.getElementById("p4cr").innerText = globalredcr;
    }       
          
  }      
@@ -853,10 +853,10 @@ border-color: #707070; //#909090;
         
 
          // get course rating
-         temp1cr = document.getElementById("p1ci").innerText;
-         temp2cr = document.getElementById("p2ci").innerText;
-         temp3cr = document.getElementById("p3ci").innerText;
-         temp4cr = document.getElementById("p4ci").innerText;
+         temp1cr = document.getElementById("p1cr").innerText;
+         temp2cr = document.getElementById("p2cr").innerText;
+         temp3cr = document.getElementById("p3cr").innerText;
+         temp4cr = document.getElementById("p4cr").innerText;
 
          // find lowest course rating
          var lowestcr = Math.min(temp1cr, temp2cr, temp3cr, temp4cr);
@@ -955,11 +955,9 @@ border-color: #707070; //#909090;
              document.getElementById("p4calchcp").innerText = strokes4;
          }
 
-
-
-
-
-
+//=================================================================
+// create text for calculations explanations
+//=================================================================  
          txt1 += "playing hcp = " + adjhcp1 + " + " + cr1 +
                  " = " + hcp1cr + " = " + roundToZero(hcp1cr) + "\n"
          txt2 += "playing hcp = " + adjhcp2 + " + " + cr2 +
@@ -969,8 +967,6 @@ border-color: #707070; //#909090;
          txt4 += "playing hcp = " + adjhcp4 + " + " + cr4 +
                  " = " + hcp4cr + " = " + roundToZero(hcp4cr) + "\n"
 
-         
-         //if (strokes1 < 0) {
          if (temp1hcp == 0) {
              txt1 += "strokes not yet available" + "\n\n"
          } else {
@@ -978,7 +974,6 @@ border-color: #707070; //#909090;
              strokes1 + "\n\n"
          }
          
-         //if (strokes2 < 0) {
          if (temp2hcp == 0) {
              txt2 += "strokes not yet available" + "\n\n"
          } else {
@@ -986,7 +981,6 @@ border-color: #707070; //#909090;
              strokes2 + "\n\n"
          }         
  
-         //if (strokes3 < 0) {
          if (temp3hcp == 0) {
              txt3 += "strokes not yet available" + "\n\n"
          } else {
@@ -994,7 +988,6 @@ border-color: #707070; //#909090;
              strokes3 + "\n\n"
          }
       
-         //if (strokes4 == 0) {
          if (temp4hcp == 0) {
              txt4 += "strokes not yet available" + "\n\n"
          } else {
@@ -1045,10 +1038,9 @@ border-color: #707070; //#909090;
       color = id.substring(0,id.length - 1);
       hole = id.substring(id.length - 1);
 
-
       if (color == "white") {
          document.getElementById("p" + hole + "slope").innerText =  globalwhiteslope;
-         document.getElementById("p" + hole + "ci").innerText =  globalwhiteci;   
+         document.getElementById("p" + hole + "cr").innerText =  globalwhitecr;   
 
          document.getElementById("tee" + hole).style.background = "white";
          document.getElementById("tee" + hole).style.color = "blue";
@@ -1056,14 +1048,14 @@ border-color: #707070; //#909090;
       }
       if (color == "yellow") {
          document.getElementById("p" + hole + "slope").innerText =  globalyellowslope;
-         document.getElementById("p" + hole + "ci").innerText =  globalyellowci;   
+         document.getElementById("p" + hole + "cr").innerText =  globalyellowcr;   
       
          document.getElementById("tee" + hole).style.background = "yellow";
          document.getElementById("tee" + hole).style.color = "blue";
       }
       if (color == "red") {
          document.getElementById("p" + hole + "slope").innerText =  globalredslope;
-         document.getElementById("p" + hole + "ci").innerText =  globalredci;
+         document.getElementById("p" + hole + "cr").innerText =  globalredcr;
 
          document.getElementById("tee" + hole).style.background = "red";   
          document.getElementById("tee" + hole).style.color = "blue";
