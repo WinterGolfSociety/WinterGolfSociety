@@ -16,22 +16,37 @@
 body {
 margin: 0px;
 padding: 0px;
-   overflow: hidden;
-   height: 90vh;
-   width: 98vw;
+
 }
 div {
     margin: 0px;
-    height: 90vh; //100%; //100vh;
+   
  overflow: hidden;
 )
 .frame {
-position:absolute;
-top:0;
-left: 0;
+//position:absolute;
+//top:0;
+//left: 0;
 
 }
+.frame {
+  background-color: #eee;
+  width: 200px;
+  height: 100px;
+  border: 1px dotted black;
+  overflow-y: scroll; /* Add the ability to scroll */
+}
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.frame::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.frame {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 
 </style>
 
