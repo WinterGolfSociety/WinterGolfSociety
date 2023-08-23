@@ -1281,7 +1281,10 @@
 			document.getElementById("submitwrapper").style.visibility = "visible";
 			
 			if (localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
+			    // prevent some false messages
+			    if ((touchstartX - touchendX) > 150) {
 				showSetPlayerMessage();
+			    }
 			} 
 		}
 	}
