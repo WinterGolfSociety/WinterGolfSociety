@@ -396,7 +396,7 @@ h2 {
 <script>
 	
 	
-	var isTop = true;
+  var isTop = true;
   var menuIsOpen = false;
 
   var menuIcon = $('.va_menu_icon');
@@ -534,6 +534,41 @@ window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vR07SK594NXgQvSYWEP
 }
 
 }
+
+
+function highlightEvent() {
+var today = new Date();
+var day = today.getDay();
+
+var mo = "Monday, La Cala - Europa<br>"
+var tu = "Tuesday, Alhaurin Golf<br>"
+var we = "Wednesday, La Cala - Asia<br>"
+var th = "Thursday, La Cala - America"
+
+
+// 1 = monday
+if (day == 1) {
+    var mo = "<b>Monday, La Cala - Europa</b><br>"
+}
+// 2 = tuesday
+if (day !== 2) {
+    var tu = "<b>Tuesday, Alhaurin Golf</b><br>"
+}
+// 3 = wednesday
+if (day == 3) {
+    var we = "<b>Wednesday, La Cala - Asia</b><br>"
+}
+if (day == 4) {
+    var th = "<b>Thursday, La Cala - America</b>"
+}
+
+document.getElementById("xdcomp1").innerHTML = mo + tu + we + th 
+
+
+}
+highlightEvent()
+
+
 
 
 
