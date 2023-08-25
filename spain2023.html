@@ -314,6 +314,10 @@ h2 {
 		color: darkGray;
 		font-size: 13px;	
 	}
+#highlight {
+                color: white;
+                font-weight: bold;
+}	
 	
 #upcoming {
 		float: left;
@@ -532,8 +536,8 @@ if (msecnow > msecfrom) {
 window.open("https://docs.google.com/spreadsheets/d/e/2PACX-1vR07SK594NXgQvSYWEPWnvRK5_ZDwbYGyUE2Iqm3WcwpxRB9HFfnssMzC3s01TJXEbAlp9QBIA1BRM5/pubhtml?gid=1308043241&single=true","_blank")
 
 }
-
 }
+
 
 
 function highlightEvent() {
@@ -548,22 +552,21 @@ var th = "Thursday, La Cala - America"
 
 // 1 = monday
 if (day == 1) {
-    var mo = "<b>Monday, La Cala - Europa</b><br>"
+    var mo = "<a>Monday, La Cala - Europa</a><br>"
 }
 // 2 = tuesday
 if (day !== 2) {
-    var tu = "<b>Tuesday, Alhaurin Golf</b><br>"
+    var tu = '<a id="highlight">Tuesday, Alhaurin Golf</a><br>'
 }
 // 3 = wednesday
 if (day == 3) {
-    var we = "<b>Wednesday, La Cala - Asia</b><br>"
+    var we = "<a>Wednesday, La Cala - Asia</a><br>"
 }
 if (day == 4) {
-    var th = "<b>Thursday, La Cala - America</b>"
+    var th = "<a>Thursday, La Cala - America</a>"
 }
 
 document.getElementById("xdcomp1").innerHTML = mo + tu + we + th 
-
 
 }
 highlightEvent()
