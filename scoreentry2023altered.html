@@ -2109,13 +2109,12 @@
     function showcoursecard() {
 
 
-      document.getElementById("showcoursecard").style.visibility = "visible";
 
       cctxt = ""
 
       hcp = 7;
       if (course == "Lakes") {
-        cctxt = "Lakes course, strokes for " + hcp + " hcp"
+        cctxt = "Lakes course, strokes for " + player + ", " + hcp + " hcp"
         for (var i = 1; i <= 18; i++) {
           if (hcp >= arrLakes[i][2]) {
             cctxt += "<br>hole - " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
@@ -2124,9 +2123,9 @@
             cctxt += "<br>hole - " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si  " +
               '<span class="nocircle1">' + arrLakes[i][2] + "</span>"
           }
-          if (i == 9) {
-            cctxt += "<br>"
-          }
+          //if (i == 9) {
+          //  cctxt += "<br>"
+          //}
 
         }
       }
@@ -2139,9 +2138,10 @@
       cctxt += "<br><br>" + '<p id="xclose">tap to close</p>'
 
 
-
-      document.getElementById("showcoursecard").innerHTML = cctxt
-
+      if (player.length > 5 && hcp > 0) {
+          document.getElementById("showcoursecard").innerHTML = cctxt
+          document.getElementById("showcoursecard").style.visibility = "visible";
+      }
     }
 
   </script>
