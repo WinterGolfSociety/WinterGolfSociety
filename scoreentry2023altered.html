@@ -674,26 +674,28 @@
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="6">
-                      <div class="xsubmitwrapper">
-                        <div> <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="float: left; height: 40px; width: 40px;">
+                    <td colspan="2">
+                   
+                        
+                         <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="float: left; height: 40px; width: 40px;">
 
+</td>
 
-
-
+<td colspan="2">
                           <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">
 
+</td>
+
+
+<td colspan="2">
+                          <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;">
+                          
 
 
 
 
-                          <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;"> </div>
 
-
-
-
-
-                        <div id="xxx" onclick="showcoursecard()">click here</div>
+                        <div id="xxx" onclick="showcoursecard()"></div>
                         <div class="demo">
                           <!-- modal calculations -->
                           <div class="showcoursecard" id="showcoursecard" onclick="ccclose()">
@@ -704,7 +706,7 @@
 
 
 
-                      </div>
+                  
                     </td>
                   </tr>
                 </tbody>
@@ -2133,14 +2135,14 @@
         cctxt = player + ", Lakes, " + hcp + " hcp"
         for (var i = 1; i <= 18; i++) {
              if (hcp >= (arrLakes[i][2] + 18)) {
-                 cctxt += "<br>hole - " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
+                 cctxt += "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
                  '<span class="circle2">' + arrLakes[i][2] + "</span>"
              } else {
                  if (hcp >= arrLakes[i][2]) {
-                     cctxt += "<br>hole - " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
+                     cctxt += "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
                      '<span class="circle1">' + arrLakes[i][2] + "</span>"
                  } else {
-                     cctxt += "<br>hole - " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si  " +
+                     cctxt += "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si  " +
                      '<span class="nocircle1">' + arrLakes[i][2] + "</span>"
                  }
             } 
@@ -2152,7 +2154,7 @@
       if (course == "Dawson") {
         cctxt += arrDawson[1][0] + " " + arrDawson[1][1] + " " + arrDawson[1][2]
       }
-      cctxt += "<br><br>" + '<p id="xclose">tap to close</p>'
+      cctxt += "<br>" + '<p id="xclose"> ... tap to close</p>'
 
 
       if (player.length > 5 && hcp > 0) {
