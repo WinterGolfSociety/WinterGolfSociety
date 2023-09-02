@@ -2133,8 +2133,8 @@ padding-left: 15px;
         cctxt = player + ", Lakes, " + hcp + " hcp ..."
         for (var i = 1; i <= 18; i++) {
              if (hcp >= (arrLakes[i][2] + 18)) {
-                 cctxt += '<span class="circle2">' + "<b><br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
-                          arrLakes[i][2] + "</span></b>"
+                 cctxt += "<b><br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
+                          '<span class="circle2">' + arrLakes[i][2] + "</span></b>"
              } else {
                  if (hcp >= arrLakes[i][2]) {
                      cctxt += "<b><br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
