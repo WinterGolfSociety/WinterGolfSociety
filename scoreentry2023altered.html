@@ -441,6 +441,13 @@
       background-color: rgba(0, 0, 0, 0.7);
     }
     
+    coursecardheader {
+       text-align: left;
+    }
+    
+    coursecardfooter {
+       padding-left: 30vw;
+    }
     #xxx {
       font-family: 'Kalam';
       font-size: 16px;
@@ -450,9 +457,6 @@
     .circle1 {
       font-family: 'Kalam';
       border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      //padding: 2px;
       padding-left: 10px;
       padding-right: 10px;
       background: black;
@@ -465,9 +469,6 @@
  .circle2 {
       font-family: 'Kalam';
       border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      //padding: 2px;
       padding-left: 10px;
       padding-right: 10px;
       background: black;
@@ -480,15 +481,9 @@
     
     .nocircle1 {
       font-family: 'Kalam';
-      //border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      //padding: 2px;
       padding-left: 10px;
       padding-right: 10px;
-      //background: black;
-      //border: 3px solid white;
-      color: white;
+      color: slateGray; //silver; //lightGray; //Gainsboro; //white;
       text-align: center;
       font-size: 16px;
     }
@@ -505,7 +500,7 @@ padding-right: 15px;
 
 #mimg {
 padding-left: 15px;
-font-size: 9px;
+//font-size: 9px;
 
 }
 
@@ -691,37 +686,25 @@ font-size: 9px;
                   </tr>
                   <tr>
                     <td id="limg" colspan="2">
-                   
-                        
                          <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="float: left; height: 40px; width: 40px;">
+                    </td>
 
-</td>
+                    <td id="mimg" colspan="2">
+                          <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">
+                    </td>
 
-<td id="mimg" colspan="2">
-                          <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px; vertical-align:middle;"> strokes
-
-</td>
-
-
-<td id="rimg" colspan="2">
+                    <td id="rimg" colspan="2">
                           <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;">
                           
-
-
-
-
-
-                        <div id="xxx" onclick="showcoursecard()"></div>
-                        <div class="demo">
-                          <!-- modal calculations -->
-                          <div class="showcoursecard" id="showcoursecard" onclick="ccclose()">
+                          <div id="xxx" onclick="showcoursecard()"></div>
+                          <div class="demo">
+                             <!-- modal coursecard strokes -->
+                           
+                             <div class="showcoursecard" id="showcoursecard" onclick="ccclose()">
+                              
+                             </div>
+                             
                           </div>
-                        </div>
-
-
-
-
-
                   
                     </td>
                   </tr>
@@ -1798,7 +1781,7 @@ font-size: 9px;
           if (!(Math.trunc(strng2) > 0)) {
             showMessageRetryHCPFailed();
           }
-        }, 15000);
+        }, 20000);
         Papa.parse(public_hcp_url, {
           download: true,
           header: true,
@@ -2141,42 +2124,49 @@ font-size: 9px;
     }
 
     function showcoursecard() {
+    
+    
 
-
-
+    
       cctxt = ""
-
- 
       if (course == "Lakes") {
-        cctxt = player + ", Lakes, " + hcp + " hcp"
+        cctxt = player + ", Lakes, " + hcp + " hcp ..."
         for (var i = 1; i <= 18; i++) {
              if (hcp >= (arrLakes[i][2] + 18)) {
-                 cctxt += "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
-                 '<span class="circle2">' + arrLakes[i][2] + "</span>"
+                 cctxt += "<b><br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
+                          '<span class="circle2">' + arrLakes[i][2] + "</span></b>"
              } else {
                  if (hcp >= arrLakes[i][2]) {
-                     cctxt += "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
-                     '<span class="circle1">' + arrLakes[i][2] + "</span>"
+                     cctxt += "<b><br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " +
+                              '<span class="circle1">' + arrLakes[i][2] + "</span></b>"
                  } else {
-                     cctxt += "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si  " +
-                     '<span class="nocircle1">' + arrLakes[i][2] + "</span>"
+                     cctxt += '<span class="nocircle1">' + "<br>hole " + arrLakes[i][0] + ", par " + 
+                              arrLakes[i][1] + ", si  " + arrLakes[i][2] + "</span>"
+                 }
+            } 
+        }
+      }  
+      
+      if (course == "Dawson") {
+        cctxt = player + ", Dawson, " + hcp + " hcp ..."
+        for (var i = 1; i <= 18; i++) {
+             if (hcp >= (arrDawson[i][2] + 18)) {
+                 cctxt += "<b><br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " +
+                          '<span class="circle2">' + arrDawson[i][2] + "</span></b>"
+             } else {
+                 if (hcp >= arrDawson[i][2]) {
+                     cctxt += "<b><br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " +
+                              '<span class="circle1">' + arrDawson[i][2] + "</span></b>"
+                 } else {
+                     cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawson[i][0] + ", par " + 
+                              arrDawson[i][1] + ", si  " + arrDawson[i][2] + "</span>"
                  }
             } 
         }
       }
-
-
-
-      if (course == "Dawson") {
-        cctxt += arrDawson[1][0] + " " + arrDawson[1][1] + " " + arrDawson[1][2]
-      }
-      cctxt += "<br>" + '<p id="xclose"> ... tap to close</p>'
-
-
-      if (player.length > 5 && hcp > 0) {
-          document.getElementById("showcoursecard").innerHTML = cctxt
-          document.getElementById("showcoursecard").style.visibility = "visible";
-      }
+      
+      document.getElementById("showcoursecard").innerHTML = cctxt;
+      document.getElementById("showcoursecard").style.visibility = "visible";
     }
 
   </script>
