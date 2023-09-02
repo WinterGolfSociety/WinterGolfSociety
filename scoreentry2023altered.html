@@ -2121,9 +2121,36 @@ padding-left: 15px;
     }
 
     function showcoursecard() {
-    
-    
+    // show msg if not available
+    abort = "no";
+    aborttxt = "\nStrokes unavailable\nbecause:\n\n";
 
+    if (!(hcp > 0)) {
+       abort = "yes";
+       aborttxt += "\nhcp not found\n"
+    }
+    if (player == "select player") {
+       abort = "yes"
+       aborttxt += "\nplayer not found\n"
+    }
+    if (!(course == "Lakes" || course == "Dawson")) {
+       abort = "yes"
+       aborttxt += "\ncourse not found\n"
+    }
+    
+    
+    if (abort == "yes") {
+    
+      document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\n";
+      document.getElementById("id_confrmdiv").style.display = "block";
+
+      setTimeout(function() {
+        document.getElementById("id_confrmdiv").innerText = "";
+        document.getElementById("id_confrmdiv").style.display = "none";
+      }, 3000);
+    
+    
+    } else {
     
       cctxt = ""
       if (course == "Lakes") {
@@ -2160,6 +2187,10 @@ padding-left: 15px;
                  }
             } 
         }
+        }
+        
+        
+        
       }
       
       
