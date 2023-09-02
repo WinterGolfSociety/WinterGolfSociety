@@ -2155,8 +2155,8 @@ padding-left: 15px;
         cctxt = player + ", Dawson, " + hcp + " hcp ..."
         for (var i = 1; i <= 18; i++) {
              if (hcp >= (arrDawson[i][2] + 18)) {
-                 cctxt += "<b><br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " +
-                          '<span class="circle2">' + arrDawson[i][2] + "</span></b>"
+                 cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawson[i][0] + ", par " + arrDawson[i][1] +
+                 ", si " + '<span class="circle2">' + arrDawson[i][2] + "</span></b></span>"
              } else {
                  if (hcp >= arrDawson[i][2]) {
                      cctxt += "<b><br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " +
