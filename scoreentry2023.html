@@ -1547,6 +1547,10 @@
           //===== submit data
 
           document.forms[0].submit();
+          
+           // hide icon to allow tick etc.
+          document.getElementById('mimg').style.visibility = "hidden";
+          
           // hide button
           var slideSource = document.getElementById('submitwrapper');
           slideSource.classList.toggle('fade');
