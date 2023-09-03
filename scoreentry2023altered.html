@@ -482,24 +482,20 @@
     }
     
     .cyanhole {
-    color: cyan;
+       color: cyan;
     }
 
-#limg {
-padding-left: 15px;
+    #limg {
+       padding-left: 15px;
+    }
 
-}
+    #rimg {
+       padding-right: 15px;
+    }
 
-#rimg {
-padding-right: 15px;
-
-}
-
-#mimg {
-padding-left: 11vw; //15px;
-//font-size: 9px;
-
-}
+    #mimg {
+       padding-left: 11vw; //15px;
+    }
 
   </style>
   <meta content="score input" name="description">
@@ -969,6 +965,8 @@ padding-left: 11vw; //15px;
     // these need to be the same as the setup page on google sheets
     // if they are to be recorded properly in the results
     arrComps = [
+     "Dawson 03 September 2023",
+    
       "Dawson 03 November 2023",
       "Lakes 06 November 2023",
       "Dawson 10 November 2023",
@@ -2113,9 +2111,6 @@ padding-left: 11vw; //15px;
       }, 3000);
     }
 
-
-
-
     function ccclose() {
       document.getElementById("showcoursecard").style.visibility = "hidden";
     }
@@ -2138,7 +2133,6 @@ padding-left: 11vw; //15px;
        aborttxt += "\ncourse not found\n"
     }
     
-    
     if (abort == "yes") {
     
       document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\n";
@@ -2148,7 +2142,6 @@ padding-left: 11vw; //15px;
         document.getElementById("id_confrmdiv").innerText = "";
         document.getElementById("id_confrmdiv").style.display = "none";
       }, 3500);
-    
     
     } else {
     
@@ -2187,16 +2180,11 @@ padding-left: 11vw; //15px;
                  }
             } 
         }
-        }
-        
-        
-        
       }
+        
+     }
       
-      
-      
-      
-      cctxt += "<br> ... tap to close."
+      cctxt += "<br> . . . tap to close."
       document.getElementById("showcoursecard").innerHTML = cctxt;
       document.getElementById("showcoursecard").style.visibility = "visible";
     }
