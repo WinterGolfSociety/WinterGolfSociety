@@ -494,15 +494,15 @@
     }
 
     #mimgl {
- padding-right: 15px;     
-text-align: center;
+       padding-right: 15px;     
+       text-align: center;
     }
 
     #mimgr {
-     padding-left: 15px;
-text-align: center;
-    
+       padding-left: 15px;
+       text-align: center;  
     }
+
   </style>
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
@@ -2218,6 +2218,55 @@ text-align: center;
       document.getElementById("showcoursecard").innerHTML = cctxt;
       document.getElementById("showcoursecard").style.visibility = "visible";
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ function showrules() {
+   
+var rulestxt = '<span class="cyanhole"><b><br>winter 2023 golf rules<br></b></span>' 
+
+rulestxt += "1. Mats and bounce boards may be used throughout the winter season on Fairways and1st cut (semi rough). A ball lying in the rough can be picked up cleaned and placedback where it lies. Drivers are not to be used on mats after your tee shot, however may be used from the grass. Teeing up will not be allowed on fairways. The use of mats and bounce boards is not compulsory."
+rulestxt += "<br>"
+rulestxt += "2. The Par 5; 3rd and 18th on the Lakes Course and 9th on the Dawson Course will stay"
+rulestxt += "<br>"
+rulestxt+='3. Bunkers will be “pick rake and place” throughout the winter season. The Committeemay make the decision to make bunkers G.U.R due to freezing or flooding. Players will be notified of changes at sign on via whiteboard.'
+rulestxt += "<br>"
+rulestxt += "4. Winter Handicapping. Each member will start with their official E.G Handicap Index.1st, 2nd and 3rd on each sweep will be deducted 2,1 and 0.5 strokes respectivelyfrom their handicap. Scores of 42-44 points will have and extra stroke deducted and 45 upwards will have an extra 2 strokes deducted. For each competition played without a top three placing 0.2 will be added to your handicap. This means after 5 competitions your winter handicap will increase by 1 stroke. This addition will only be added if you actually play the competition."
+rulestxt += "<br>"
+
+      
+    rulestxt += '<span class="cyanhole"><b><br>rules arbitrated by the committee</b></span>' 
+ rulestxt += "<br>"    
+    rulestxt += "<br> . . . tap to close."
+    document.getElementById("showcoursecard").innerHTML = rulestxt;
+    document.getElementById("showcoursecard").style.visibility = "visible";
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </script>
 </body>
