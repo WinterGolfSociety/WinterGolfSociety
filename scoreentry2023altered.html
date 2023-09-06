@@ -493,10 +493,16 @@
        padding-right: 15px;
     }
 
-    #mimg {
-       padding-left: 11vw; //15px;
+    #mimgl {
+      
+text-align: center;
     }
 
+    #mimgr {
+
+text-align: center;
+    
+    }
   </style>
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
@@ -682,9 +688,24 @@
                          <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="float: left; height: 40px; width: 40px;">
                     </td>
 
-                    <td id="mimg" colspan="2">
+                    <td id="mimgl">
                           <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">
                     </td>
+
+
+
+
+                 <td id="mimgr">
+                          <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 40px; width: 40px;">
+                 </td>
+
+
+
+
+
+
+
+
 
                     <td id="rimg" colspan="2">
                           <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;">
@@ -1549,23 +1570,9 @@
           //===== submit data
 
           document.forms[0].submit();
-          
-          
-          
-          
-          
+
           // hide icon to allow tick etc.
           document.getElementById('mimg').style.visibility = "hidden";
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           
           // hide button
           var slideSource = document.getElementById('submitwrapper');
