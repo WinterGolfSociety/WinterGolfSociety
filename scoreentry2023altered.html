@@ -451,7 +451,8 @@
       position: fixed;
       z-index: 1;
       padding-top: 10px;
-      padding-left: 5vw;
+      padding-left: 10px;
+      padding-right: 5px;
       padding-bottom: 10px;
       left: 0;
       top: 0;
@@ -731,18 +732,12 @@
                     <td id="rimg" colspan="2">
                           <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;">
                           
-                          <div id="xxx" onclick="showcoursecard()"></div>
+                          <div id="xxx"></div>
+                          
                           <div class="demo">
-                             <!-- modal coursecard strokes -->
-                           
-                             <div class="showcoursecard" id="showcoursecard" onclick="ccclose()">
-                              
-
-                             <div class="showrules" id="showrules" onclick="rclose()">
-
-
-                             </div>
-                             
+                             <!-- coursecard strokes and rules -->
+                             <div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
+                             <div class="showrules" id="showrules" onclick="rclose()"></div>                     
                           </div>
                   
                     </td>
@@ -2260,7 +2255,6 @@
 
 
  function showrules() {
-   
 var rulestxt = '<span class="cyanhole"><b>winter 2023 golf rules<br><br></b></span>' 
 
 rulestxt += "Mats and bounce boards may be used throughout the winter season on Fairways and 1st cut (semi rough)." 
@@ -2296,19 +2290,6 @@ rulestxt += "<br><br><br><br>"
     document.getElementById("showrules").style.visibility = "visible";
  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   </script>
