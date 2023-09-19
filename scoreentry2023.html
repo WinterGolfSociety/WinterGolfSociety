@@ -421,7 +421,28 @@
       opacity: 0;
     }
     
-    #showcoursecard {
+#showrules {
+      visibility: hidden;
+      font-family: 'Kalam';
+      font-size: 14px;
+      color: white;
+      text-align: left;
+      position: fixed;
+      z-index: 1;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 5px;
+      padding-bottom: 10px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: dodgerBlue;
+      background-color: rgba(0, 0, 0, 0.7);
+    }    
+
+#showcoursecard {
       visibility: hidden;
       font-family: 'Kalam';
       font-size: 16px;
@@ -430,7 +451,8 @@
       position: fixed;
       z-index: 1;
       padding-top: 10px;
-      padding-left: 15vw;
+      padding-left: 10px;
+      padding-right: 5px;
       padding-bottom: 10px;
       left: 0;
       top: 0;
@@ -493,8 +515,14 @@
        padding-right: 15px;
     }
 
-    #mimg {
-       padding-left: 11vw; //15px;
+    #mimgl {
+       padding-right: 15px;     
+       text-align: center;
+    }
+
+    #mimgr {
+       padding-left: 15px;
+       text-align: center;  
     }
 
   </style>
@@ -682,21 +710,34 @@
                          <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="float: left; height: 40px; width: 40px;">
                     </td>
 
-                    <td id="mimg" colspan="2">
+                    <td id="mimgl">
                           <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">
                     </td>
+
+
+
+
+                 <td id="mimgr">
+                          <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 40px; width: 40px;">
+                 </td>
+
+
+
+
+
+
+
+
 
                     <td id="rimg" colspan="2">
                           <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;">
                           
-                          <div id="xxx" onclick="showcoursecard()"></div>
+                          <div id="xxx"></div>
+                          
                           <div class="demo">
-                             <!-- modal coursecard strokes -->
-                           
-                             <div class="showcoursecard" id="showcoursecard" onclick="ccclose()">
-                              
-                             </div>
-                             
+                             <!-- coursecard strokes and rules -->
+                             <div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
+                             <div class="showrules" id="showrules" onclick="rclose()"></div>                     
                           </div>
                   
                     </td>
@@ -965,6 +1006,15 @@
     // these need to be the same as the setup page on google sheets
     // if they are to be recorded properly in the results
     arrComps = [
+      "Dawson 02 October 2023",
+      "Lakes 06 October 2023",
+      "Dawson 09 October 2023",
+      "Lakes 13 October 2023",
+      "Dawson 16 October 2023",
+      "Lakes 20 October 2023",
+      "Dawson 23 October 2023",
+      "Lakes 27 October 2023",
+      "Dawson 30 October 2023",
       "Dawson 03 November 2023",
       "Lakes 06 November 2023",
       "Dawson 10 November 2023",
@@ -1547,8 +1597,8 @@
           //===== submit data
 
           document.forms[0].submit();
-          
-           // hide icon to allow tick etc.
+
+          // hide icon to allow tick etc.
           document.getElementById('mimg').style.visibility = "hidden";
           
           // hide button
@@ -1568,6 +1618,11 @@
             document.getElementById('submitwrapper').style.borderColor = "darkSlateGray";
             document.getElementById('submitwrapper').style.background = "darkSlateGray";
           }
+          
+          
+          
+          
+          
           document.getElementById('submittxt').innerText = "";
           // show empty text which is placeholder for image
           slideSource.classList.toggle('fade');
@@ -2186,10 +2241,76 @@
         
      }
       
+      cctxt += "<br>"    
       cctxt += "<br> . . . tap to close."
+      cctxt += "<br><br><br><br>"
+      
       document.getElementById("showcoursecard").innerHTML = cctxt;
       document.getElementById("showcoursecard").style.visibility = "visible";
     }
+
+
+
+
+
+
+
+
+
+
+ function rclose() {
+      document.getElementById("showrules").style.visibility = "hidden";
+    }
+
+
+
+ function showrules() {
+ 
+ const d = new Date();
+ var month = d.getMonth();
+ //if October say normal rules
+ if (month == 9) {
+    var rulestxt = '<span class="cyanhole"><b>October is normal R&A golf rules. The senior winter rules will come into place from 2nd November 2023. but only for the seniors winter competitions which end 29th March 2024.</b><br></b></span>' 
+    rulestxt += "... additional rules such as 'preferred lies' will be at the discretion of the committee."
+    rulestxt += "<br><br>" 
+ } else {
+ var rulestxt = '<span class="cyanhole"><b>winter 2023 golf rules<br><br></b></span>' 
+rulestxt += "... only in use for the deniors winter competitions from the beginning of November 2023 to the end of March 2024."
+rulestxt += "<br><br>" 
+rulestxt += "Mats and bounce boards may be used throughout the winter season on Fairways and 1st cut (semi rough)." 
+rulestxt += "<br><br>"
+rulestxt += "A ball lying in the rough can be picked up cleaned and placed back where it lies."
+rulestxt += "<br><br>"
+rulestxt += "Drivers are not to be used on mats after your tee shot, however may be used from the grass."
+rulestxt += "<br><br>"
+rulestxt += "Teeing up will not be allowed on fairways. The use of mats and bounce boards is not compulsory."
+rulestxt += "<br><br>"
+rulestxt += "The Par 5; 3rd and 18th on the Lakes Course and 9th on the Dawson Course will stay"
+rulestxt += "<br><br>"
+rulestxt+='Bunkers will be “pick, rake and place” throughout the winter season. The Committee may make the decision to make bunkers G.U.R due to freezing or flooding. Players will be notified of changes at sign-on via whiteboard.'
+rulestxt += "<br><br>"
+
+rulestxt += '<span class="cyanhole"><b>Winter Handicapping<br><br></b></span>' 
+rulestxt += "Each member will start with their official WHS Handicap Index."
+rulestxt += "<br><br>"
+rulestxt += " - 1st, 2nd and 3rd on each sweep will be deducted 2, 1 and 0.5 strokes respectively from their handicap."
+rulestxt += "<br><br>"
+rulestxt += " - Scores of 42-44 points will have an extra stroke deducted and 45 upwards will have an extra 2 strokes deducted."
+rulestxt += "<br><br>"
+rulestxt += " - For each competition played without a top three placing, 0.2 will be added to your handicap. This means after 5 competitions your winter handicap will increase by 1 stroke. This addition will only be added if you actually play the competition."
+rulestxt += '<span class="cyanhole"><b><br><br>rules will be arbitrated by the committee</b></span>'   
+}     
+// for both circumstances     
+
+rulestxt += "<br>"    
+rulestxt += "<br> . . . tap to close."
+rulestxt += "<br><br><br><br>"
+    
+    document.getElementById("showrules").innerHTML = rulestxt;
+    document.getElementById("showrules").style.visibility = "visible";
+ 
+}
+
 
   </script>
 </body>
