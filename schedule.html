@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>testtxt</title>
+    <style>
+    body {
+        margin: 0;
+        font: normal 15px Arial, sans-serif;
+        color: blue;
+        background: dodgerBlue;
+        padding-left: 10px;
+        padding-right: 10px;
+      }	
+.grid-container {
+      display: grid;
+  grid-template-columns: auto auto auto;
+ // background-color: gray;
+ // padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+ // border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 2px; //20px;
+  font-size: 15px
+  text-align: left;
+}
+
+.gray {
+background-color: lightgray;
+}
+
+      
+    </style>
+    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
+    <meta content="scedule" name="description">
+    <meta content="Bryan M" name="author">
+    <title>scheduley</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+ 
+<h1>Seniors 2023</h1>
+
+<p></p>
+
+<br><br>
+
+<div class="grid-container" id="eventlist">
+  <div class="grid-item gray">date</div>
+  <div class="grid-item gray">venue</div>
+  <div class="grid-item gray">notes</div>
+  
+  
+  <div class="grid-item">xxxMonday 2nd October 2023</div>
+  <div class="grid-item">Dawson</div>
+  <div class="grid-item">individual stableford</div>  
+  
+  <div class="grid-item gray">xxxFriday 6th October 2023</div>
+  <div class="grid-item gray">Lakes</div>
+  <div class="grid-item gray">Individual stableford</div>  
+  
+</div>
+
+    
+     <script>
+     
+     
+     
+     
+      
+      
+/*      
+      
+      3rd Apr Cpts Drive In Stbfd Dawson
+11th Apr Team Game 4BBB Dawson
+12th Apr Friendly Warkworth (H) Dawson
+17th Apr LT1 Stkpl Dawson 3 Balls
+24th Apr Individual Stbfd Dawson
+27th Apr Friendly Morpeth (H) Lakes
+2nd May Individual Stbfd Lakes
+9th May Individual Stbfd Lakes
+11th May Friendly South Shields Away
+15th May LT2 Stkpl Lakes 3 Balls
+15th May Friendly Morpeth Morpeth
+22nd May Friendly Rothbury Rothbury
+25th May Individual Spring Cup (Stbfd) TBD
+30th May Team Game Traffic Lights Lakes 3 balls
+5th Jun Individual Stbfd Dawson
+7th Jun Friendly Warkworth Warkworth
+12th Jun LT 3 Stkpl Dawson
+15th Jun Friendly Foxton (H) Lakes
+19th Jun Individual Stbfd Dawson
+26th Jun Individual Stbfd Dawson
+29th Jun Friendly Rothbury (H) Dawson
+3rd Jul Individual Stbfd Lakes
+6th Jul Friendly High Gosforth Park Away
+10th Jul Team Game 2 Best from 4 Lakes
+13th Jul Individual Summer Cup TBD
+17th Jul Individual Stbfd Lakes
+19th Jul Friendly South Shields Lakes
+24th Jul Individual Stbfd Lakes
+27th Jul Friendly High Gosforth Park Dawson
+31st Jul CC1 (LT4) Stkpl Lakes 3 balls
+1st Aug Friendly Newbiggin Away
+7th Aug CC2 (LT5) Stkpl Dawson 3 balls
+14th Aug Team Game TBC Dawson
+15th Aug Friendly Newbiggin Dawson
+21st Aug Invitation Day 4BBB Dawson
+29th Aug Bogey M’Play Dawson
+31st Aug Friendly Bellingham Dawson
+4th Sep LT 6 Stbfd Lakes
+7th Sep Friendly Bellingham Away
+12th Sep Stenhouse Cup Ladies Dawson
+18th Sep Individual Stbfd Lakes
+20th Sep Friendly Blyth Away
+25th Sep Autumn Cup Stbfd TBD
+27th Sep Friendly Blyth Lakes
+
+
+*/
+
+     
+     
+     
+var arrInfo = [
+["Monday 2nd October 2023",
+ "Dawson",
+ "Individual stableford"
+],
+["Friday 6th October 2023",
+ "Lakes",
+ "Individual stableford"
+],
+["Monday 2nd October 2023",
+ "Dawson",
+ "Longhirst trophy 7 strokeplay"
+],
+["Monday 9th October 2023",
+ "Dawson", 
+ "Team game stableford"
+],
+["Monday 16th October 2023",
+ "Dawson",
+ "Individual stableford"
+],
+["Monday 23rd October 2023",
+ "Dawson",
+ "Captain vs Vice Captain"
+],
+["Monday 30th October 2023",
+ "Dawson",
+ "Individual stableford"
+]
+]
+
+     lineFull = '<div class="grid-item gray">date</div>'
+          lineFull += '<div class="grid-item gray">venue</div>'
+          lineFull += '<div class="grid-item gray">details</div>'
+          
+   for (i = 0; i < arrInfo.length; i++) {
+          if (i % 2 == 0) {
+           line = '<div class="grid-item">' + arrInfo[i][0] + '</div>'
+          line += '<div class="grid-item">' + arrInfo[i][1] + '</div>'
+          line += '<div class="grid-item">' + arrInfo[i][2] + '</div>'
+          
+          } else {
+          
+          
+          line = '<div class="grid-item gray">' + arrInfo[i][0] + '</div>'
+          line += '<div class="grid-item gray">' + arrInfo[i][1] + '</div>'
+          line += '<div class="grid-item gray">' + arrInfo[i][2] + '</div>'
+          }
+         lineFull += line
+
+        }
+      document.getElementById("eventlist").innerHTML = lineFull
+        
+    </script>
+  </body>
+</html>
