@@ -7,7 +7,7 @@
     <link href="eventsicon.png" rel="icon" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="eventsicon.png"/>
     <title>schedule</title>
-    <style>
+<style>
     body {
         margin: 0;
         font: normal 12px Arial, sans-serif;
@@ -18,36 +18,31 @@
       }	
 .grid-container {
       display: grid;
-  grid-template-columns: auto auto auto;
- // background-color: gray;
- // padding: 11px;
+      grid-template-columns: auto auto auto;
 }
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
- // border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 2px; //20px;
-  font-size: 12px
-  text-align: left;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2px; //20px;
+      font-size: 12px
+      text-align: left;
 }
 
 .gray {
-//background-color: lightgray;
-  background-color: rgba(255, 255, 255, 0.75);
+      background-color: rgba(255, 255, 255, 0.75);
 }
 
 .bluemonth {
-background-color: dodgerBlue;
-color: rgba(255, 255, 255, 0.8);
-
+      background-color: dodgerBlue;
+      color: rgba(255, 255, 255, 0.8);
 }
 
 .older {
-text-decoration: line-through;
-color: dodgerBlue;
+      text-decoration: line-through;
+      color: dodgerBlue;
 }
 
       
-    </style>
+</style>
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
     <meta content="schedule" name="description">
     <meta content="Bryan M" name="author">
@@ -58,25 +53,20 @@ color: dodgerBlue;
  
 <h1>Seniors 2023</h1>
 
-
-
 <br>
 
 <div class="grid-container" id="eventlist">
-  <div class="grid-item gray">date</div>
-  <div class="grid-item gray">venue</div>
-  <div class="grid-item gray">notes</div>
-  
+  <div class="grid-item gray">Date</div>
+  <div class="grid-item gray">Venue</div>
+  <div class="grid-item gray">Details</div>
   
   <div class="grid-item">no entries</div>
   <div class="grid-item"></div>
   <div class="grid-item"></div>  
    
-  
 </div>
-
     
-     <script>
+<script>
      
      
  /*      
@@ -130,6 +120,21 @@ color: dodgerBlue;
 */
 var currentMonth = ""
 var arrInfo = [
+                ["April"    , ""      , ""                             ],
+		["Mon 28th" , "Lakes" , "Individual stableford"        ],
+		["May"      , ""      , ""                             ],
+		["Mon 11th" , "Dawson", "Individual stableford"        ],
+		["Mon 24th" , "Lakes ", "Individual stableford"        ],
+		["June"     , ""      , ""                             ],
+		["Mon 2nd"  , "Dawson", "Individual stableford"        ],
+		["Fri 6th"  , "Lakes" , "Individual stableford"        ],
+		["Mon 2nd"  , "Dawson", "Longhirst trophy 7 strokeplay"],
+		["Mon 9th"  , "Dawson", "Team game stableford"         ],
+		["Mon 16th" , "Dawson", "Individual stableford"        ],
+		["Mon 23rd" , "Dawson", "Captain vs Vice Captain"      ],
+		["Mon 30th" , "Dawson", "Individual stableford"        ],
+		["July"     , ""      , ""                             ],
+		["Mon 3rd"  , "Dawson", "Winter stableford starts"     ],
 		["August"   , ""      , ""                             ],
 		["Mon 28th" , "Lakes" , "Individual stableford"        ],
 		["September", ""      , ""                             ],
@@ -146,10 +151,10 @@ var arrInfo = [
 		["November" , ""      , ""                             ],
 		["Mon 3rd"  , "Dawson", "Winter stableford starts"     ]
 	     ]
-	// set up title bar
-lineFull = '<div class="grid-item gray">date</div>'
-lineFull += '<div class="grid-item gray">venue</div>'
-lineFull += '<div class="grid-item gray">details</div>'
+// set up title bar
+lineFull = '<div class="grid-item gray">Date</div>'
+lineFull += '<div class="grid-item gray">Venue</div>'
+lineFull += '<div class="grid-item gray">Details</div>'
 const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var dname = new Date();
 var tempmonth = month[dname.getMonth()];
