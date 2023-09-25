@@ -2268,42 +2268,30 @@
  
  const d = new Date();
  var month = d.getMonth();
- //if October say normal rules with preferred lies
- if (month < 9) {
-    var rulestxt = '<span class="cyanhole"><b>October is normal R&A golf rules. The senior winter rules will come into place from 2nd November 2023. but only for the seniors winter competitions which end 29th March 2024.</b><br></b></span>' 
-   rulestxt += "<br><br>"    
-   rulestxt += "Due to poor weather and soft course conditions, preferred lies will be in place from 1st October."
-   rulestxt += "<br><br>"
-   rulestxt += "This will be pick, clean and place within 6 inches on 1st cut and fringes around the greens, pick clean and drop within 6 inches in semi rough and play as it lies in the rough." 
-   rulestxt += "<br><br><br>This screen will be replaced by the winter rules after October.<br>" 
- } else {
-   var rulestxt = '<span class="cyanhole"><b>winter 2023 golf rules<br><br></b></span>' 
-   rulestxt += "... only in use for the deniors winter competitions from the beginning of November 2023 to the end of March 2024."
-   rulestxt += "<br><br>" 
-   rulestxt += "Mats and bounce boards may be used throughout the winter season on Fairways and 1st cut (semi rough)." 
-   rulestxt += "<br><br>"
-   rulestxt += "A ball lying in the rough can be picked up cleaned and placed back where it lies."
-   rulestxt += "<br><br>"
-   rulestxt += "Drivers are not to be used on mats after your tee shot, however may be used from the grass."
-   rulestxt += "<br><br>"
-   rulestxt += "Teeing up will not be allowed on fairways. The use of mats and bounce boards is not compulsory."
-   rulestxt += "<br><br>"
-   rulestxt += "The Par 5; 3rd and 18th on the Lakes Course and 9th on the Dawson Course will stay"
-   rulestxt += "<br><br>"
-   rulestxt+='Bunkers will be “pick, rake and place” throughout the winter season. The Committee may make the decision to make bunkers G.U.R due to freezing or flooding. Players will be notified of changes at sign-on via whiteboard.'
-   rulestxt += "<br><br>"
-   rulestxt += '<span class="cyanhole"><b>Winter Handicapping<br><br></b></span>' 
-   rulestxt += "Each member will start with their official WHS Handicap Index."
-   rulestxt += "<br><br>"
-   rulestxt += " - 1st, 2nd and 3rd on each sweep will be deducted 2, 1 and 0.5 strokes respectively from their handicap."
-   rulestxt += "<br><br>"
-   rulestxt += " - Scores of 42-44 points will have an extra stroke deducted and 45 upwards will have an extra 2 strokes deducted."
-   rulestxt += "<br><br>"
-   rulestxt += " - For each competition played without a top three placing, 0.2 will be added to your handicap. This means after 5 competitions your winter handicap will increase by 1 stroke. This addition will only be added if you actually play the competition."
-   rulestxt += '<span class="cyanhole"><b><br><br>rules will be arbitrated by the committee</b></span>'   
-}  
+ //rules from email 25th September
+var rulestxt = '<span class="cyanhole"><b>From Oct 1st to Oct 31st inclusive</b><br></b></span>' 
+rulestxt += '<br><br>'
+rulestxt += '1. Preferred lies on Fairway and Fringes of Greens (Mark your ball, lift clean and place within 6 inches. No nearer the hole)<br><br>'
+rulestxt += '2. Semi Rough (Mark your ball, lift Clean and Drop within 6 inches, no nearer the hole)<br><br>'
+rulestxt += '3. Rough (Play the ball as it lies)<br><br>'
+rulestxt += '4. Casual Water (Nearest point of relief no nearer the hole) 1 club length from that point, drop the ball. If your ball is in the rough and in casual water, nearest point of relief no nearer the hole, one club length from that point, drop the ball. The ball may be cleaned if taking relief from casual water in the rough.<br><br>'
+
+rulestxt += '<span class="cyanhole"><b>November 1st to 31st March 2024</b><br></b></span>' 
+rulestxt += '<br><br>'
+
+rulestxt += 'As above with additions'
+rulestxt += '<br><br>'
+rulestxt += "1. The Seniors Section will be keeping all Par 5's as Par 5's."
+rulestxt += '<br><br>'
+rulestxt += "2. Bounce boards and Mats may be used on Fairways and Fringes of Greens. These are not to be used in 'Semi Rough' or 'Rough Areas'."
+rulestxt += '<br><br>'
+rulestxt += '3. Semi rough will be lift clean and drop. Rough will be (play as it lies)'
+rulestxt += '<br><br>'
+rulestxt += '4. Tees may not be used at any time other than playing your tee shot or marking your ball.'
+rulestxt += '<br><br>'
+rulestxt += "5. Bunkers will be 'pick rake and place' Unless otherwise stated on the whiteboard at registration."
    
-// for both circumstances     
+  
 rulestxt += "<br>"    
 rulestxt += "<br> . . . tap to close."
 rulestxt += "<br><br><br><br>"
