@@ -955,6 +955,13 @@
     var course;
     var comp;
     var compday = "no";
+    // hide hands after 1 score entry
+    if ("handsswiperight" in localStorage) {
+       // hide hands
+       document.getElementById("swiperight").style.visibility = "hidden"
+    } else {
+       localStorage.handsswiperight = "hidden" 
+    }   
     // set up courses with details for calculations etc.
     // array ["hole num",par,si]
     // Lakes

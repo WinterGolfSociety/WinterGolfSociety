@@ -342,6 +342,15 @@
 		</section>
 	</body>
 	<script>
+	
+	// hide hands after 1 menu use
+        if ("handspressbutton" in localStorage) {
+        // hide hands
+           document.getElementById("pressbutton").style.visibility = "hidden"
+        } else {
+           localStorage.handspressbutton = "hidden" 
+        }
+         
 	// array of competition dates
 		 arrComps = [
       "Dawson 02 October 2023",
