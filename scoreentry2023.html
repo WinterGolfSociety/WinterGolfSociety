@@ -714,20 +714,9 @@
                           <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">
                     </td>
 
-
-
-
-                 <td id="mimgr">
+                    <td id="mimgr">
                           <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 40px; width: 40px;">
-                 </td>
-
-
-
-
-
-
-
-
+                    </td>
 
                     <td id="rimg" colspan="2">
                           <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;">
@@ -753,10 +742,6 @@
 
 
   <span id="spinhcp"></span>
-
-
-
-
 
       <div id="id_confrmdiv">
         <br /> No competition today. Select which course to use.
@@ -1088,6 +1073,7 @@
       ['Bryan Craggs', 0],
       ['Andy Davison', 0],
       ['John Dean', 0],
+      ['Peter Dodds',0],
       ['Martin Edwards', 0],
       ['Joe Fletcher', 0],
       ['Norman Ford', 0],
@@ -1605,11 +1591,11 @@
 
           document.forms[0].submit();
 
-          // hide icon to allow tick etc.
+          // hide icons to allow tick etc.
           document.getElementById('limg').style.visibility = "hidden";
-            document.getElementById('rimg').style.visibility = "hidden";
-              document.getElementById('mimgl').style.visibility = "hidden";
-                document.getElementById('mimgr').style.visibility = "hidden";
+          document.getElementById('rimg').style.visibility = "hidden";
+          document.getElementById('mimgl').style.visibility = "hidden";
+          document.getElementById('mimgr').style.visibility = "hidden";
           // hide button
           var slideSource = document.getElementById('submitwrapper');
           slideSource.classList.toggle('fade');
