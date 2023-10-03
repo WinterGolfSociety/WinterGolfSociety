@@ -1835,13 +1835,13 @@
           step: function(results, parser) {
             if (results.data.player.indexOf(player) > -1) {
               strng2 = results.data.hcp;
-              console.log("Row data:", results.data.player);
-              console.log("Row data:", results.data.hcp);
+              //console.log("Row data:", results.data.player);
+              //console.log("Row data:", results.data.hcp);
               parser.abort;
             }
           },
           complete: function() {
-            console.log("completed");
+            //console.log("completed");
             if (Math.trunc(strng2) > 0) {
               document.getElementById("numhcp").innerHTML = "";
               document.getElementById("numhcp").style.fontSize = "50px";
@@ -1861,7 +1861,7 @@
       } // end try
       catch (err) {
         console.log(err.message);
-        console.log("bryan error");
+        //console.log("bryan error");
       }
 
       //		} // if ended
