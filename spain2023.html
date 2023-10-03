@@ -421,6 +421,15 @@ h2 {
   var four = $('#four');
 
   menuIcon.click(function() {
+  
+  
+ // sound effect 
+  new Audio('pop.wav').play()
+  
+  
+  
+  
+  
     if (isTop === true) {
       $('#nav').animate({ top: '50%', left: '50%' }, 400);
       $('.content').animate({ opacity: '0' }, 700);
