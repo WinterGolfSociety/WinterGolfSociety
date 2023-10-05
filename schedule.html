@@ -34,6 +34,8 @@
 .bluemonth {
       background-color: dodgerBlue;
       color: rgba(255, 255, 255, 0.8);
+  grid-column-start: 1;
+  grid-column-end: 4;
 }
 
 .older {
@@ -108,10 +110,12 @@ var arrInfo = [
 ["Wed 19th","Lakes","Friendly South Shields"],
 ["Mon 24th","Lakes","Individual stableford"],
 ["Thu 27th","Dawson","Friendly High Gosforth Park"],
-["Mon 31st","Lakes","CC1 (LT4) strokeplay 3 balls"],
+["Mon 31st","Lakes","LT4 strokeplay 3 balls"],
+["Mon 31st","Lakes","CC1 strokeplay 3 balls"],
 ["August","",""],
 ["Tue 1st","Newbiggin","Friendly Newbiggin"],
-["Mon 7th","Dawson","CC2 (LT5) strokeplay 3 balls"],
+["Mon 7th","Dawson","LT5 strokeplay 3 balls"],
+["Mon 7th","Dawson","CC2 strokeplay 3 balls"],
 ["Mon 14th","Dawson","Team Game tba"],
 ["Tue 15th","Dawson","Friendly Newbiggin"],
 ["Mon 21st","Dawson","Invitation Day 4bbb"],
@@ -195,8 +199,8 @@ for(i = 0; i < arrInfo.length; i++) {
 	}
 	if(arrInfo[i][1] == "" && arrInfo[i][2] == "") {
 		line = '<div class="grid-item bluemonth">' + arrInfo[i][0] + '</div>'
-		line += '<div class="grid-item bluemonth">' + arrInfo[i][1] + '</div>'
-		line += '<div class="grid-item bluemonth">' + arrInfo[i][2] + '</div>'
+		//line += '<div class="grid-item bluemonth">' + arrInfo[i][1] + '</div>'
+		//line += '<div class="grid-item bluemonth">' + arrInfo[i][2] + '</div>'
 		lineFull += line
 	} else {
 		if(older == "yes") {
