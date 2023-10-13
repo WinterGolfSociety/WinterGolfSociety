@@ -1009,7 +1009,7 @@
       "Dawson 30 October 2023",
       "Dawson 03 November 2023",
       "Lakes 06 November 2023",
-      "Dawson 11 November 2023",
+      "Dawson 10 November 2023",
       "Lakes 13 November 2023",
       "Dawson 17 November 2023",
       "Lakes 20 November 2023",
@@ -1073,8 +1073,8 @@
       ['Bryan Craggs', 0],
       ['Andy Davison', 0],
       ['John Dean', 0],
-      ['Peter Dodds',0],
-      ['Graham Doughty',0],
+      ['Peter Dodds', 0],
+      ['Graham Doughty', 0],
       ['Martin Edwards', 0],
       ['Joe Fletcher', 0],
       ['Norman Ford', 0],
@@ -1254,7 +1254,7 @@
       if (localStorage.comp.indexOf(dateToday) == -1) {
         // tidy
         clearCache();
-      }k
+      }
     }
     // recover data if dates match
     // this allows data to be kept over refreshes
@@ -1408,7 +1408,9 @@
     function checkDirection() {
       if (touchendX < touchstartX) {
         // clear swipe icon
+        console.log("here 1")
         document.getElementById("swiperight").innerHTML = "";
+        console.log("here 2")
         // unblur submit button
         // document.getElementById("submitwrapper").style.filter = "none";
         document.getElementById("submitwrapper").style.visibility = "visible";
@@ -1599,7 +1601,40 @@
           document.getElementById('mimgr').style.visibility = "hidden";
           // hide button
           var slideSource = document.getElementById('submitwrapper');
-          slideSource.classList.toggle('fade');
+         
+        
+        
+        
+        
+        
+        
+        
+        
+         
+         
+          document.getElementById("submitwrapper").style.visibility = "visible";
+        
+        
+        
+        
+        
+        
+        
+         
+         
+         
+         
+    //      slideSource.classList.toggle('fade');
+
+
+
+
+
+
+
+
+
+
 
           // allow some time for submit then give a completion message
           // keep user interested by changing colors ???
