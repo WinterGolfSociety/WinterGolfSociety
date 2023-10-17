@@ -139,14 +139,15 @@
 grid-column: 1 / 4; 
         background-color: rgba(255, 255, 255, 0.85);
       //padding: 2px; //20px;
-      font-size: 10vmin;
+           font-size: 10vmin;
       text-align: center;
       //margin-left: auto;
   //margin-right: auto;
       border: 1px solid lightGray;
       //display: none;
       
-      
+        border-radius: 5px;
+      border: 1px solid #aaa;
  // padding: 30vh 0;  
 
 }
@@ -180,7 +181,15 @@ grid-column: 1 / 4;
     font-size: 50px;
 }
 
-
+#submitbutton {
+height: 100%;
+width: 100%;
+border-radius: 10px;
+ font-family: Kalam; //Arial, Helvetica, sans-serif;
+ font-size: 20px;
+        font-weight: bold;
+        color: black;
+}
       
 </style>
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
@@ -196,7 +205,7 @@ grid-column: 1 / 4;
 <div class="grid-container" id="eventlist">
    
   <div class="grid-item1" id="hole1" onclick="test(this.id)"><img src="minus.png" style="width:15vmin; height:15vmin;" class="minus" onclick='minus("hole1a")'></img></div>
-  <div class="grid-item1" id="hole1a">10</div>
+  <div class="grid-item1" id="hole1a">0</div>
   <div class="grid-item1" id="hole1b"><img src="plus.png" style="width:15vmin; height:15vmin;" class="plus" onclick='plus("hole1a")'></img></div>  
   
   <div class="grid-item9" id="hole2" onclick="test(this.id)"></div>
@@ -276,7 +285,7 @@ grid-column: 1 / 4;
   <div class="grid-itembottom" id="bottom3" onclick="test(this.id)"><img src="plus.png" style="width:15vmin; height:15vmin;" class="plus" onclick='holeplus("bottom2")'></img></div>
   
   
-    <div class="grid-itemfooter" id="gridfooter">save hole score</div>
+    <div class="grid-itemfooter" id="gridfooter"><button id="submitbutton">save hole score</button></div>
    
 </div>
     
