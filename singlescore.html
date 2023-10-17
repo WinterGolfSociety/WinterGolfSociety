@@ -330,7 +330,10 @@ testid = testid.replace("a","")
 
 //testidnumber = (parseInt(testid) + 1)
 newnumber = (parseInt(currentnumber) - 1)
-
+// allow wrapping
+if (newnumber < 0) {
+    newnumber = 0
+}
 document.getElementById(id).innerText = newnumber;
 }
 
@@ -346,7 +349,10 @@ testid = testid.replace("a","")
 
 //testidnumber = (parseInt(testid) + 1)
 newnumber = (parseInt(currentnumber) + 1)
-
+// allow wrapping
+if (newnumber > 10) {
+    newnumber = 10
+}
 document.getElementById(id).innerText = newnumber;
 }
 
@@ -362,7 +368,7 @@ testid = currentnumber.replace("Hole ","")
 
 //testidnumber = (parseInt(testid) + 1)
 newnumber = (parseInt(testid) - 1)
-// allow weapping
+// allow wrapping
 if (newnumber < 1) {
     newnumber = 18
 }
@@ -381,7 +387,7 @@ testid = currentnumber.replace("Hole ","")
 
 //testidnumber = (parseInt(testid) + 1)
 newnumber = (parseInt(testid) + 1)
-// allow weapping
+// allow wrapping
 if (newnumber > 18) {
     newnumber = 1
 }
