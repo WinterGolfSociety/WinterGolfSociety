@@ -20,7 +20,7 @@
       }	
 .grid-container {
       display: grid;
-      grid-template-columns: auto 30vw auto;
+      grid-template-columns: auto 40vw auto;
       height: 25vh; //100vh;
 }
 .grid-item {
@@ -121,11 +121,17 @@
 
 
 .grid-itembottom {
-      background-color: rgba(255, 255, 255, 0.85);
-      padding: 2px; //20px;
-      font-size: 25px;
-      text-align: left;
+        background-color: rgba(255, 255, 255, 0.85);
+      //padding: 2px; //20px;
+      font-size: 20vmin;
+      text-align: center;
+      //margin-left: auto;
+  //margin-right: auto;
       border: 1px solid black;
+      //display: none;
+      
+      
+ // padding: 30vh 0;  
 
 }
 
@@ -151,11 +157,11 @@
       font-weight: bold;
 }     
 
-.plus {
+.plus, .holeplus {
     font-size: 50px;
 }
 
-.minus {
+.minus, .holeminus {
     font-size: 50px;
 }
 
@@ -246,9 +252,22 @@
   <div class="grid-item9" id="hole18a">no 18 entries</div>
   <div class="grid-item9" id="hole18b"></div>    
   
-   <div class="grid-itembottom" id="bottom1"></div>
-  <div class="grid-itembottom" id="bottom2">Score entry</div>
-  <div class="grid-itembottom" id="bottom3"></div>       
+   
+   
+   <div class="grid-itembottom" id="bottom1" onclick="test(this.id)"><img src="minus.png" style="width:15vmin; height:15vmin;" class="minus" onclick='holeminus("bottom2")'></img></div>
+   
+   
+   
+   
+  <div class="grid-itembottom" id="bottom2">Hole 1</div>
+  
+  
+  
+  <div class="grid-itembottom" id="bottom3" onclick="test(this.id)"><img src="plus.png" style="width:15vmin; height:15vmin;" class="plus" onclick='holeplus("bottom2")'></img></div>
+  
+  
+  
+   
 </div>
     
 
@@ -311,6 +330,50 @@ newnumber = (parseInt(currentnumber) + 1)
 
 document.getElementById(id).innerText = newnumber;
 }
+
+
+function holeminus(id) {
+
+//testid = id.replace("b","")
+
+// get old number
+currentnumber = document.getElementById(id).innerText;
+testid = currentnumber.replace("Hole ","")
+
+
+//testidnumber = (parseInt(testid) + 1)
+newnumber = (parseInt(testid) - 1)
+// allow weapping
+if (newnumber < 1) {
+    newnumber = 18
+}
+
+document.getElementById(id).innerText = "Hole " + newnumber;
+}
+
+
+function holeplus(id) {
+
+//testid = id.replace("b","")
+
+// get old number
+currentnumber = document.getElementById(id).innerText;
+testid = currentnumber.replace("Hole ","")
+
+//testidnumber = (parseInt(testid) + 1)
+newnumber = (parseInt(testid) + 1)
+// allow weapping
+if (newnumber > 18) {
+    newnumber = 1
+}
+
+document.getElementById(id).innerText = "Hole " + newnumber;
+}
+
+
+
+
+
 	
 //document.getElementById("eventlist").innerHTML = lineFull
     </script>
