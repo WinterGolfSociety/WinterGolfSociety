@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta name="theme-color" content=dodgerBlue>
+    <link href="eventsicon.png" rel="icon" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="eventsicon.png"/>
+    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+    <title>single score input</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Kalam; //Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: black;
+      //  background: dodgerBlue;
+        padding-left: 3px;
+        padding-right: 3px;
+      }	
+.grid-container {
+      display: grid;
+      grid-template-columns: auto 30vw auto;
+      height: 100vh;
+}
+.grid-item {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.grid-item1 {
+      background-color: rgba(255, 255, 255, 0.85);
+      //padding: 2px; //20px;
+      font-size: 35vh;
+      text-align: center;
+      //margin-left: auto;
+  //margin-right: auto;
+      border: 1px solid black;
+      //display: none;
+      
+      
+  padding: 30vh 0;   
+      
+}
+
+.grid-item2 {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.grid-item3 {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.grid-item4 {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.grid-item5 {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.grid-item6 {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.grid-item7 {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.grid-item8 {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.grid-item9 {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+      display: none;
+}
+
+.gray {
+      background-color: rgba(255, 255, 255, 0.9);
+}
+
+.bluemonth {
+      background-color: dodgerBlue;
+      color: rgba(255, 255, 255, 0.8);
+}
+
+.older {
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+      color: slategray;
+}
+#title {
+      font-size: 25px;
+      padding-left: 20px;
+      color: white;
+      font-weight: bold;
+}     
+
+.plus {
+    font-size: 50px;
+}
+
+.minus {
+    font-size: 50px;
+}
+
+
+      
+</style>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
+    <meta content="schedule" name="description">
+    <meta content="Bryan M" name="author">
+    <title>schedule</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+  <!--
+  <p id="title"><img src="cal.png" alt="cal" width="50" height="50" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors 2023</p>
+-->
+<div class="grid-container" id="eventlist">
+   
+  <div class="grid-item1" id="hole1" onclick="test(this.id)"><img src="minus.png" style="width=15vh; height=15vh;" class="minus" onclick='minus("hole1a")'></img></div>
+  <div class="grid-item1" id="hole1a">10</div>
+  <div class="grid-item1" id="hole1b"><img src="plus.png" style="width=15vh; height=15vh;" class="plus" onclick='plus("hole1a")'></img></div>  
+  
+  <div class="grid-item9" id="hole2" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole2a">no 2 entries</div>
+  <div class="grid-item9" id="hole2b"></div>  
+  
+  <div class="grid-item9" id="hole3" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole3a">no 3 entries</div>
+  <div class="grid-item9" id="hole3b"></div>  
+  
+  <div class="grid-item9" id="hole4" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole4a">no 4 entries</div>
+  <div class="grid-item9" id="hole4b"></div>  
+  
+  <div class="grid-item9" id="hole5" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole5a">no 5 entries</div>
+  <div class="grid-item9" id="hole5b"></div>  
+  
+  <div class="grid-item9" id="hole6" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole6a">no 6 entries</div>
+  <div class="grid-item9" id="hole6b"></div>  
+  
+  <div class="grid-item9" id="hole7" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole7a">no 7 entries</div>
+  <div class="grid-item9" id="hole7b"></div>  
+  
+  <div class="grid-item9" id="hole8" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole8a">no 8 entries</div>
+  <div class="grid-item9" id="hole8b"></div>  
+  
+  <div class="grid-item9" id="hole9" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole9a">no 9 entries</div>
+  <div class="grid-item9" id="hole9b"></div>
+    
+   <div class="grid-item" id="hole10" onclick="test(this.id)"></div>
+  <div class="grid-item" id="hole10a">no 10 entries</div>
+  <div class="grid-item" id="hole10b"></div>  
+  
+  <div class="grid-item9" id="hole11" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole11a">no 11 entries</div>
+  <div class="grid-item9" id="hole11b"></div>  
+  
+  <div class="grid-item9" id="hole12" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole12a">no 12 entries</div>
+  <div class="grid-item9" id="hole12b"></div>  
+  
+  <div class="grid-item9" id="hole13" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole13a">no 13 entries</div>
+  <div class="grid-item9" id="hole13b"></div>  
+  
+  <div class="grid-item9" id="hole14" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole14a">no 14 entries</div>
+  <div class="grid-item9" id="hole14b"></div>  
+  
+  <div class="grid-item9" id="hole15" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole15a">no 15 entries</div>
+  <div class="grid-item9" id="hole15b"></div>  
+  
+  <div class="grid-item9" id="hole16" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole16a">no 16 entries</div>
+  <div class="grid-item9" id="hole16b"></div>  
+  
+  <div class="grid-item9" id="hole17" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole17a">no 17 entries</div>
+  <div class="grid-item9" id="hole17b"></div>  
+  
+  <div class="grid-item9" id="hole18" onclick="test(this.id)"></div>
+  <div class="grid-item9" id="hole18a">no 18 entries</div>
+  <div class="grid-item9" id="hole18b"></div>    
+  
+     
+</div>
+    
+<script>
+     
+  function xxxtest(id) {
+ // alert(id)
+  testid = parseInt(id.replace("hole","")) + 1
+  //hide all
+  for(i = 1; i <= 18; i++) {
+      document.getElementById("hole" + i).style.display = "none";
+      document.getElementById("hole" + i + "a").style.display = "none";
+      document.getElementById("hole" + i + "b").style.display = "none";
+  }
+  // show next hole
+  nexttestid = testid ++
+  if (nexttestid == 19) {
+  document.getElementById("hole1").style.display = "block";
+  document.getElementById("hole1a").style.display = "block";
+  document.getElementById("hole1b").style.display = "block";
+  } else {
+  document.getElementById("hole" + nexttestid).style.display = "block";
+  document.getElementById("hole" + nexttestid + "a").style.display = "block";
+  document.getElementById("hole" + nexttestid + "b").style.display = "block";
+  }
+  }
+
+
+function minus(id) {
+
+//testid = id.replace("b","")
+
+// get old number
+currentnumber = document.getElementById(id).innerText;
+testid = id.replace("hole","")
+testid = testid.replace("a","")
+
+//testidnumber = (parseInt(testid) + 1)
+newnumber = (parseInt(currentnumber) - 1)
+
+document.getElementById(id).innerText = newnumber;
+}
+
+
+function plus(id) {
+
+//testid = id.replace("b","")
+
+// get old number
+currentnumber = document.getElementById(id).innerText;
+testid = id.replace("hole","")
+testid = testid.replace("a","")
+
+//testidnumber = (parseInt(testid) + 1)
+newnumber = (parseInt(currentnumber) + 1)
+
+document.getElementById(id).innerText = newnumber;
+}
+	
+//document.getElementById("eventlist").innerHTML = lineFull
+    </script>
+  </body>
+</html>
