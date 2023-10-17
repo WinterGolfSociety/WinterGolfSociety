@@ -15,13 +15,13 @@
         font-weight: bold;
         color: black;
       //  background: dodgerBlue;
-        padding-left: 3px;
-        padding-right: 3px;
+        padding-left: 0; //3px;
+        padding-right: 0; //3px;
       }	
 .grid-container {
       display: grid;
       grid-template-columns: auto 30vw auto;
-      height: 100vh;
+      height: 25vh; //100vh;
 }
 .grid-item {
       background-color: rgba(255, 255, 255, 0.85);
@@ -43,7 +43,7 @@
       //display: none;
       
       
-  padding: 30vh 0;   
+ // padding: 30vh 0;   
       
 }
 
@@ -118,6 +118,17 @@
       border: 1px solid black;
       display: none;
 }
+
+
+.grid-itembottom {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 2px; //20px;
+      font-size: 25px;
+      text-align: left;
+      border: 1px solid black;
+
+}
+
 
 .gray {
       background-color: rgba(255, 255, 255, 0.9);
@@ -235,12 +246,12 @@
   <div class="grid-item9" id="hole18a">no 18 entries</div>
   <div class="grid-item9" id="hole18b"></div>    
   
-     
+   <div class="grid-itembottom" id="bottom1"></div>
+  <div class="grid-itembottom" id="bottom2">Score entry</div>
+  <div class="grid-itembottom" id="bottom3"></div>       
 </div>
     
-    
-    <p id="title"><img src="cal.png" alt="cal" width="50vmin" height="50vmin" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Score entry</p> 
-    
+
     
     
     
