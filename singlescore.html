@@ -190,6 +190,79 @@ border-radius: 5px;
         font-weight: bold;
         color: black;
 }
+     
+     
+ 
+    #submit_confirmdiv {
+      display: none;
+      color: white;
+      background-color: #eee;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      position: fixed;
+      width: 90vw;
+      margin-left: 5vw;
+      margin-top: 20vh;
+      padding: 10px 10px 10px; // t lr b
+      box-sizing: border-box;
+      text-align: center;
+    }
+    
+    #id_confrmdiv {
+      display: none;
+      color: black;
+      background-color: #eee;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      position: fixed;
+      width: 300px;
+      left: 50%;
+      margin-left: -150px;
+      margin-top: 10vh;
+      padding: 6px 8px 8px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    
+    #id_confrmdiv button,
+    #submit_confirmdiv button {
+      background-color: #ccc;
+      display: inline-block;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+      padding: 2px;
+      text-align: center;
+      width: 100px;
+      height: 50px;
+      cursor: pointer;
+    }
+    
+    #id_confrmdiv .button:hover {
+      background-color: #ddd;
+    }     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
       
 </style>
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
@@ -202,6 +275,8 @@ border-radius: 5px;
   <!--
   <p id="title"><img src="cal.png" alt="cal" width="50" height="50" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors 2023</p>
 -->
+
+<div id="id_confrmdiv"></div>
 <div class="grid-container" id="eventlist">
    
   <div class="grid-item1" id="hole1" onclick="test(this.id)"><img src="minus.png" style="width:15vmin; height:15vmin;" class="minus" onclick='minus("hole1a")'></img></div>
@@ -295,6 +370,10 @@ border-radius: 5px;
     
     
 <script>
+     
+ showChoice()    
+     
+     
      
   function xxxtest(id) {
  // alert(id)
@@ -397,9 +476,35 @@ document.getElementById(id).innerText = "Hole " + newnumber;
 
 
 
+  // choose course dialog for non competition day
+    function showChoice() {
+      tempt = '<br /> Clear previous data ?';
+      tempt += '<br /><br />';
+      tempt += '<button id="id_Yesbtn" onclick="doYes()">Yes</button>';
+      tempt += '<button id="id_Nobtn" onclick="doNo()">No</button>';
+      document.getElementById("id_confrmdiv").innerHTML = tempt;
+      //console.log(document.getElementById("id_confrmdiv").innerHTML);
+      document.getElementById("id_confrmdiv").style.display = "block";
+    }
 
-
-	
+ // set up Lakes as non competition day course
+    function doYes() {
+      course = "Lakes";
+      alert(course)
+      //comp = course + " " + dateToday;
+      document.getElementById("id_confrmdiv").style.display = "none";
+      //localStorage.course = course;
+      //localStorage.comp = comp;
+    }
+    // set up Dawson as non competition day course
+    function doNo() {
+      course = "Dawson";
+      alert(course)
+      //comp = course + " " + dateToday;
+      document.getElementById("id_confrmdiv").style.display = "none";
+      //localStorage.course = course;
+      //localStorage.comp = comp;
+    }	
 //document.getElementById("eventlist").innerHTML = lineFull
     </script>
   </body>
