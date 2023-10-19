@@ -331,18 +331,34 @@
       
       
      // keep data so show it
-     var tt = "";
+    var tt1 = "";
+  var tt2 = "";
+  var tt3 = "";
+  var tt4 = "";
      for(i = 1; i <= 18; i++) {
-         tt += "<br>hole " + i + " - "; 
+     if (i < 10) {
+         tt1 += "hole " + i + "<br>"; 
          if (("Hole " + i) in localStorage) {
-             tt += localStorage.getItem("Hole " + i);
+             tt2 += localStorage.getItem("Hole " + i) + "<br>";
          } else {
-             tt += "0"
+             tt2 += "0<br>"
          }
+         
+     } else {    
+         
+        tt3 += "hole " + i + "<br>"; 
+         if (("Hole " + i) in localStorage) {
+             tt4 += localStorage.getItem("Hole " + i) + "<br>";
+         } else {
+             tt4 += "0<br>"
+         }  
+     }    
      }    
      
-     document.getElementById("xyy").innerHTML = tt;
-      
+     document.getElementById("col1").innerHTML = tt1;
+     document.getElementById("col2").innerHTML = tt2;
+     document.getElementById("col3").innerHTML = tt3;
+     document.getElementById("col4").innerHTML = tt4;
       
       
       
