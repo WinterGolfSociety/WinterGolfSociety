@@ -26,15 +26,29 @@
       height: 25vh; //100vh;
     }
 
+    .grid-containerscores {
+      display: grid;
+        grid-column: 1 / 4;
+      grid-template-columns: auto auto auto auto;
+      height: 5vh;
+    }
+    
     .grid-item {
       background-color: rgba(255, 255, 255, 0.85);
-      padding: 2px; //20px;
+      padding: 2px;
       font-size: 20vmin;
       text-align: center;
       border: 1px solid lightGray;
-     // display: none;
     }
 
+  .grid-itemscores {
+      background-color: grayl //rgba(255, 255, 255, 0.85);
+      padding: 2px;
+      font-size: 10vmin;
+      text-align: center;
+      border: 1px solid lightGray;
+     
+    }
     .grid-item1,
     .grid-item2,
     .grid-item3,
@@ -120,8 +134,6 @@
       color: black;
     }
 
-
-
     #submit_confirmdiv {
       display: none;
       color: white;
@@ -183,6 +195,8 @@
 -->
 
   <div id="id_confrmdiv"></div>
+
+
   <div class="grid-container" id="eventlist">
 
     <div class="grid-item" id="hole1" onclick="test(this.id)">
@@ -207,14 +221,27 @@
 
 
 
-<div class="grid-itemfooter" id="xyy"></div>
+
+
+
+
+<div class="grid-containerscores" id="eventlist">
+   <div class="grid-itemscores" id="col1">bbb</div>
+   <div class="grid-itemscores" id="col2">bbb</div>
+   <div class="grid-itemscores" id="col3">bbb</div>
+   <div class="grid-itemscores" id="col4">bbb</div>
+
+</div>
+
+
+
+</div>
 
 
 
 
 
 
-  </div>
 
   <script>
 
@@ -358,19 +385,34 @@
       
       
      localStorage.setItem(hole,score);
-  var tt = "";
+  var tt1 = "";
+  var tt2 = "";
+  var tt3 = "";
+  var tt4 = "";
      for(i = 1; i <= 18; i++) {
-         tt += "<br>hole " + i + " - "; 
+     if (i < 10) {
+         tt1 += "hole " + i + "<br>"; 
          if (("Hole " + i) in localStorage) {
-             tt += localStorage.getItem("Hole " + i);
+             tt2 += localStorage.getItem("Hole " + i) + "<br>";
          } else {
-             tt += "0"
+             tt2 += "0<br>"
          }
+         
+     } else {    
+         
+        tt3 += "hole " + i + "<br>"; 
+         if (("Hole " + i) in localStorage) {
+             tt4 += localStorage.getItem("Hole " + i) + "<br>";
+         } else {
+             tt4 += "0<br>"
+         }  
+     }    
      }    
      
-     document.getElementById("xyy").innerHTML = tt;
-     
-     
+     document.getElementById("col1").innerHTML = tt1;
+     document.getElementById("col2").innerHTML = tt2;
+     document.getElementById("col3").innerHTML = tt3;
+     document.getElementById("col4").innerHTML = tt4;
 }
       
       
