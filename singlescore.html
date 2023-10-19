@@ -390,15 +390,20 @@
       
       
      localStorage.setItem(hole,score);
-  var tt1 = "";
+    var tt1 = "";
   var tt2 = "";
   var tt3 = "";
   var tt4 = "";
+  var front9 = 0;
+  var back9 = 0;
+  
      for(i = 1; i <= 18; i++) {
      if (i < 10) {
          tt1 += "hole " + i + "<br>"; 
          if (("Hole " + i) in localStorage) {
-             tt2 += localStorage.getItem("Hole " + i) + "<br>";
+             tt2temp = localStorage.getItem("Hole " + i)
+             tt2 += tt2temp + "<br>";
+             front9 = front9 + (parseInt(tt2temp));
          } else {
              tt2 += "0<br>"
          }
@@ -407,17 +412,22 @@
          
         tt3 += "hole " + i + "<br>"; 
          if (("Hole " + i) in localStorage) {
-             tt4 += localStorage.getItem("Hole " + i) + "<br>";
+             tt4temp = localStorage.getItem("Hole " + i)
+             tt4 += tt4temp + "<br>";
+             back9 = back9 + (parseInt(tt4temp)); 
          } else {
              tt4 += "0<br>"
          }  
      }    
      }    
      
-     document.getElementById("col1").innerHTML = tt1;
-     document.getElementById("col2").innerHTML = tt2;
-     document.getElementById("col3").innerHTML = tt3;
-     document.getElementById("col4").innerHTML = tt4;
+     document.getElementById("col1").innerHTML = tt1 + "<br>out";
+     document.getElementById("col2").innerHTML = tt2 + "<br>" + front9;
+     document.getElementById("col3").innerHTML = tt3 + "<br>back";
+     document.getElementById("col4").innerHTML = tt4 + "<br>" + back9;
+      
+      
+      
 }
       
       
