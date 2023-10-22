@@ -34,6 +34,24 @@
   //    height: 5vh;
     }
     
+      .grid-containerdetails {
+      display: grid;
+        grid-column: 1 / 4;
+             font-size: 10vmin;
+      grid-template-columns: auto auto auto auto;
+  //    height: 5vh;
+    }
+    
+      .grid-itemsdetails {
+      background-color: lightCyan;
+      padding: 2px;
+      font-size: 5vmin;
+      text-align: center;
+      //border: 1px solid gray;
+     
+    }
+
+    
     .grid-item {
       background-color: lightCyan;
       padding: 2px;
@@ -163,6 +181,70 @@
     #id_confrmdiv .button:hover {
       background-color: #ddd;
     }
+    
+// -- menu
+    :root {
+  --arrow-bg: rgba(255, 255, 255, 0.3);
+  --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+  --option-bg: white;
+  --select-bg: rgba(255, 255, 255, 0.2);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  //display: grid;
+  //place-items: center;
+  //min-height: 100vh;
+  //background: linear-gradient(35deg, red, purple);
+}
+/* <select> styles */
+select {
+  /* Reset */
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  /* Personalize */
+  width: 100%; //20rem;
+  padding: 1rem 4rem 1rem 1rem;
+  text-align: center;
+  //background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+    linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+  //color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  /* Remove IE arrow */
+  &::-ms-expand {
+    display: none;
+  }
+  /* Remove focus outline */
+  &:focus {
+    outline: none;
+  }
+  /* <option> colors */
+  option {
+    color: inherit;
+    background-color: var(--option-bg);
+  }
+}
+
+  #hcp {
+   width: 100%; //20rem;
+  padding: 1rem 4rem 1rem 1rem;
+  text-align: center;
+  //background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+    linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+  //color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  //cursor: pointer;
+  background-color: paleTurquoise;
+  }  
+    
+    
+    
   </style>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
   <meta content="schedule" name="description">
@@ -177,6 +259,47 @@
 -->
 
   <div id="id_confrmdiv"></div>
+
+
+<!-- get player details firstm then find hcp -->
+<div class="grid-containersdetails" id="playerdetails">
+   <div class="grid-itemsdetails" id="ccol1">
+   
+   <select id="player1">
+  <option selected value="0">Select Player</option>
+  <option value="1">Bryan Maddison</option>
+  <option value="2">Dale Aitkenhead</option>
+  <option value="3">Stephen Alldridge</option>
+</select>
+
+   </div>
+   
+   
+   <!-- get course details -->
+   <div class="grid-itemsdetails" id="ccol2">
+   
+     <select id="course1">
+  <option selected value="X">Course</option>
+  <option value="A">Dawson</option>
+  <option value="B">Lakes</option>
+  <option value="C">Whitley Bay</option>
+</select>  
+  
+   </div>
+   
+   
+   <div class="grid-itemsdetails" id="ccol3">
+   <div id="hcp">hcp</div>
+   </div>
+   <div class="grid-itemsdetails" id="ccol4"></div>
+
+</div>
+<!-- END: get player details first -->
+
+
+
+
+
 
 
   <div class="grid-container" id="eventlist">
@@ -200,10 +323,6 @@
     <div class="grid-itemfooter" id="gridfooter">
       <button id="submitbutton" onclick="submitscore()">save hole score</button>
     </div>
-
-
-
-
 
 
 
@@ -232,6 +351,37 @@
     showChoice()
     // globals
     var currenthole = "Hole 1"
+
+
+
+// menu
+const p1 = document.querySelector('#player1');  
+const c1 = document.querySelector('#course1');  
+p1.onclick = (event) =>  
+{  
+event.preventDefault();  
+alert(p1.value);  
+};  
+
+c1.onclick = (event) =>  
+{  
+event.preventDefault();  
+alert(c1.value);  
+};  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function xxxtest(id) {
       // alert(id)
