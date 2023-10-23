@@ -3,6 +3,7 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
+      <meta http-equiv="refresh" content="60">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
       <title>winter 2023</title>
       <meta content="Bryan M" name="author" />
@@ -74,9 +75,11 @@ body {
   
   padding-left: 20px;
   //padding-right: 200px;
+
+  
     }
    
-      
+  
     .grid-item {
     //  background-color: lightCyan;
       padding: 2px;
@@ -87,56 +90,66 @@ body {
        //  height: 22vmin;
     }
    
+     .grid-item-top {
+        display: grid;
+        grid-column: 1 / 5;
+        
+        
+           padding: 2px;
+      font-family: arial;
+      font-size: 15px; //2vmin;
+      text-align: left;
+        
+        
+        
+        
+   }
    
    
    
    
+   #spinner {
+   display: none;
+   }
    
+   #leaderlist {
+   animation: fadein 4s linear forwards;
+  // animation: fadeout 4s linear forwards;
+   }
+   
+   
+   
+   @keyframes fadein{
+
+0% { opacity: 0.0; }
+
+100% { opacity: 1.0; }
+
+}
+
+ 
+
 </style>
 <body>
 
-
-<button id="test" onclick="getData()">xxx</button>
-
+<div id="spinner"><img src="throbber.gif" height="100px" width="100px"></img></div>
  <div class="grid-container" id="leaderlist">
+
+  <div class="grid-item-top" id="comp">competition</div>
 
     <div class="grid-item" id="pos"></div>
     <div class="grid-item" id="player"></div>
-    <div class="grid-item" id="points">
-    <div class="grid-item" id="twos">
+    <div class="grid-item" id="points"></div>
+    <div class="grid-item" id="twos"></div>
      
  </div>
 
 </body>
 <script>
 
-/*
+// page refreshes every 60 seconds
+getData()
 
-async function getData() {
-var dataStream = await fetch(
-  "https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard"
-)
- 
-
-
-  const movies = await dataStream.json();
-  console.log(movies);
-
-
-
- 
- 
-
-  
-  document.getElementById("test").innerText = movies 
-  
-  
-  
-}
-
-
-
-*/
 
 async function getData() {
 
@@ -144,25 +157,32 @@ var dataStream = await fetch(
   "https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard"
 )
 
-
-
-var displaypos = "" + "<br><br>";
-var displayplayer = "" + "<br><br>";
-var displaypoints = "" + "<br><br>";
-var displaytwos = "" + "<br><br>";
+var displaypos = " " + "<br><br>";
+var displayplayer = " " + "<br><br>";
+var displaypoints = " " + "<br><br>";
+var displaytwos = " " + "<br><br>";
 
 var resultsarray = await dataStream.json();
-for (var i = 0; i < resultsarray.length; i++) {
+
+for (var i = 0; i < resultsarray.length; i++) { 
   displaypos += resultsarray[i].pos + "<br>";
   displayplayer += resultsarray[i].player + "<br>";
   displaypoints += resultsarray[i].points + "<br>";
   displaytwos += resultsarray[i].twos + "<br>";
 }
+
+document.getElementById("comp").innerHTML = "Leaderboard for " + resultsarray[0].comp + "<br>"; 
+
 document.getElementById("pos").innerHTML = displaypos; 
 document.getElementById("player").innerHTML = displayplayer; 
 document.getElementById("points").innerHTML = displaypoints; 
 document.getElementById("twos").innerHTML = displaytwos; 
+
+
+
+  
 }
+
 
 
 </script>
