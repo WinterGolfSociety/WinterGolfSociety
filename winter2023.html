@@ -147,7 +147,8 @@
 	#one,
 	#two,
 	#three,
-	#four {
+	#four,
+	#five {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -181,6 +182,12 @@
 	
 	#four {
 		background-color: lightSteelBlue;
+		display: flex;
+		justify-content: center;
+	}
+	
+	#five {
+		background-color: cyan;
 		display: flex;
 		justify-content: center;
 	}
@@ -225,7 +232,8 @@
 	#onetxt,
 	#twotxt,
 	#threetxt,
-	#fourtxt {
+	#fourtxt,
+	#fivetxt {
 		margin: auto;
 		font-size: 23px;
 		color: blue;
@@ -260,6 +268,13 @@
 		font-family: 'Kalam';
 	}
 	
+	#fivetxt {
+		margin: auto;
+		font-size: 20px;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
 	#one:active {
 		border: 5px solid salmon;
 	}
@@ -274,6 +289,10 @@
 	
 	#four:active {
 		border: 5px solid lightSteelBlue;
+	}
+	
+	#five:active {
+		border: 5px solid cyan;
 	}
 	
 	nav:active {
@@ -320,6 +339,7 @@
 			<div class="bubble" id="two" onclick="doTwo();"> <a id="twotxt">Score entry</a> </div>
 			<div class="bubble" id="three" onclick="doThree();"> <a id="threetxt">Twos</a> </div>
 			<div class="bubble" id="four" onclick="doFour();"> <a id="fourtxt">Results</a> </div>
+			<div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a> </div>
 		</nav>
 		<section class="start">
 			<div class="content">
@@ -414,6 +434,7 @@
 	var two = $('#two');
 	var three = $('#three');
 	var four = $('#four');
+	var five = $('#five');
 	// menuIcon.click(function() {
 	bubblemenu.click(function() {
 		if(isTop === true) {
@@ -449,6 +470,9 @@
 		four.animate({
 			opacity: '1'
 		}, 10);
+		five.animate({
+			opacity: '1'
+		}, 10);
 		two.animate({
 			top: '140px'
 		}, 200);
@@ -470,6 +494,16 @@
 		four.animate({
 			top: '-55px'
 		}, 400);
+		five.animate({
+			left: '-55px'
+		}, 310);
+		five.animate({
+			top: '-55px'
+		}, 600);
+		
+	//	$("#fivetxt").html("Leader<br>board")
+		
+		
 		menuIsOpen = true;
 		// hide pressbutton
 		$("#pressbutton").html("");
@@ -516,6 +550,12 @@
 		one.animate({
 			left: '50%'
 		}, 110);
+		five.animate({
+			left: '50%'
+		}, 410);
+		five.animate({
+			top: '50%'
+		}, 410);
 		menuIsOpen = false;
 		isTop = true;
 	}
@@ -568,6 +608,15 @@
   window.location.assign("results2023.html");
 		}, 1000);
 	}
+
+	function doFive() {
+		// put menu back then move to results page
+		setTimeout(function() {
+		//	window.open("results2023.html", "_blank");
+  window.location.assign("leaderboardloader2023.html");
+		}, 1000);
+	}
+
 
 	function getNextComps() {
 		dd = new Date();
