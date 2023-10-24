@@ -169,10 +169,18 @@ var displaytwos = " " + "<br>";
 var resultsarray = await dataStream.json();
 
 for (var i = 0; i < resultsarray.length; i++) { 
+   // odd number 
+   if (i % 2 !== 0) {
+  displaypos += '<p style="background-color:#354F4F">' + resultsarray[i].pos + "</p>";
+  displayplayer += '<p style="background-color:#354F4F">' + resultsarray[i].player + "</p>";
+  displaypoints += '<p style="background-color:#354F4F">' + resultsarray[i].points + "</p>";
+  displaytwos += '<p style="background-color:#354F4F">' + resultsarray[i].twos + "</p>";
+} else {
   displaypos += resultsarray[i].pos + "<br>";
   displayplayer += resultsarray[i].player + "<br>";
   displaypoints += resultsarray[i].points + "<br>";
   displaytwos += resultsarray[i].twos + "<br>";
+}
 }
 
 document.getElementById("comp").innerHTML = "Leaderboard for " + resultsarray[0].comp + "<br>"; 
