@@ -171,10 +171,10 @@ var resultsarray = await dataStream.json();
 for (var i = 0; i < resultsarray.length; i++) { 
    // odd number 
    if (i % 2 !== 0) {
-  displaypos += '<p style="background-color:#354F4F">' + resultsarray[i].pos + "</p>";
-  displayplayer += '<p style="background-color:#354F4F">' + resultsarray[i].player + "</p>";
-  displaypoints += '<p style="background-color:#354F4F">' + resultsarray[i].points + "</p>";
-  displaytwos += '<p style="background-color:#354F4F">' + resultsarray[i].twos + "</p>";
+  displaypos += '<p style="color:#C3CCCC">' + resultsarray[i].pos + "</p>";
+  displayplayer += '<p style="color:#C3CCCC">' + resultsarray[i].player + "</p>";
+  displaypoints += '<p style="color:#C3CCCC">' + resultsarray[i].points + "</p>";
+  displaytwos += '<p style="color:#C3CCCC">' + resultsarray[i].twos + "</p>";
 } else {
   displaypos += resultsarray[i].pos + "<br>";
   displayplayer += resultsarray[i].player + "<br>";
