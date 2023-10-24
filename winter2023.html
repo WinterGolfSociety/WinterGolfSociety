@@ -470,15 +470,21 @@
 		four.animate({
 			opacity: '1'
 		}, 10);
-		five.animate({
-			opacity: '1'
-		}, 10);
+	   
+	   
+	   
+	        five.animate({
+			top: '140px'
+		}, 200);	
 		two.animate({
 			top: '140px'
 		}, 200);
 		one.animate({
 			left: '130px'
-		}, 100);
+		}, 100);	
+		five.animate({
+			left: '-55px'
+		}, 310);
 		three.animate({
 			left: '-65px'
 		}, 300);
@@ -487,7 +493,7 @@
 		}, 210);
 		four.animate({
 			top: '-65px'
-		}, 400);
+		}, 200);
 		three.animate({
 			left: '-55px'
 		}, 310);
@@ -495,11 +501,8 @@
 			top: '-55px'
 		}, 400);
 		five.animate({
-			left: '-55px'
-		}, 310);
-		five.animate({
 			top: '-55px'
-		}, 600);
+		}, 200);
 		
 	//	$("#fivetxt").html("Leader<br>board")
 		
@@ -508,6 +511,7 @@
 		// hide pressbutton
 		$("#pressbutton").html("");
 	}
+
 
 	function hideBubbles() {
 		// add 500ms delay to change X to hamburger
