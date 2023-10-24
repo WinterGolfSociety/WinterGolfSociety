@@ -62,7 +62,7 @@ body {
 
  <div class="grid-container" id="leaderlist">
 
-    <div class="grid-item-top" id="comp">competition</div>
+    <div class="grid-item-top" id="comp"></div>
 
     <div class="grid-item" id="pos">&nbsp;</div>
     <div class="grid-item" id="player">&nbsp;</div>
@@ -96,34 +96,48 @@ var displaytwos = " " + "<br>";
 
 var resultsarray = await dataStream.json();
 
-for (var i = 0; i < resultsarray.length; i++) { 
-   // odd number 
-   if (i % 2 !== 0) {
-  displaypos += '<p style="color:#C3CCCC">' + resultsarray[i].pos + "</p>";
-  displayplayer += '<p style="color:#C3CCCC">' + resultsarray[i].player + "</p>";
-  displaypoints += '<p style="color:#C3CCCC">' + resultsarray[i].points + "</p>";
-  displaytwos += '<p style="color:#C3CCCC">' + resultsarray[i].twos + "</p>";
+// if not a comp day show message and return to menu
+var dd = new Date();
+var dddate = dd.getDate();
+var ddmonth = dd.getMonth();
+
+arrMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
+    // comp day
+    for (var i = 0; i < resultsarray.length; i++) { 
+         // odd number 
+         if (i % 2 !== 0) {
+             displaypos += '<p style="color:#C3CCCC">' + resultsarray[i].pos + "</p>";
+             displayplayer += '<p style="color:#C3CCCC">' + resultsarray[i].player + "</p>";
+             displaypoints += '<p style="color:#C3CCCC">' + resultsarray[i].points + "</p>";
+             displaytwos += '<p style="color:#C3CCCC">' + resultsarray[i].twos + "</p>";
+         } else {
+             displaypos += resultsarray[i].pos + "<br>";
+             displayplayer += resultsarray[i].player + "<br>";
+             displaypoints += resultsarray[i].points + "<br>";
+             displaytwos += resultsarray[i].twos + "<br>";
+         }
+    }
+
+    document.getElementById("comp").innerHTML = "Leaderboard for " + resultsarray[0].comp + "<br>"; 
+    document.getElementById("pos").innerHTML = displaypos; 
+    document.getElementById("player").innerHTML = displayplayer; 
+    document.getElementById("points").innerHTML = displaypoints; 
+    document.getElementById("twos").innerHTML = displaytwos; 
+
 } else {
-  displaypos += resultsarray[i].pos + "<br>";
-  displayplayer += resultsarray[i].player + "<br>";
-  displaypoints += resultsarray[i].points + "<br>";
-  displaytwos += resultsarray[i].twos + "<br>";
-}
-}
-
-document.getElementById("comp").innerHTML = "Leaderboard for " + resultsarray[0].comp + "<br>"; 
-
-document.getElementById("pos").innerHTML = displaypos; 
-document.getElementById("player").innerHTML = displayplayer; 
-document.getElementById("points").innerHTML = displaypoints; 
-document.getElementById("twos").innerHTML = displaytwos; 
-
-
-
-  
+   // not a comp day or no results
+   //document.getElementById("player").innerHTML = "No results to display<br>returning to menu";
+   document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 5 seconds"
+   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 4 seconds" },1000)
+   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 3 seconds" },2000)
+   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 2 second" },3000)
+   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 1 second" },4000)
+   setTimeout(function(){ history.go(-2) },5000);  
 }
 
-
+}
 
 </script>
 </body>
