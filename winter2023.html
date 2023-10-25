@@ -470,48 +470,67 @@
 		four.animate({
 			opacity: '1'
 		}, 10);
-	   
-	   
-	   
 	        five.animate({
-			top: '140px'
-		}, 200);	
+			opacity: '1'
+		}, 10);
+
+		// middle right
+		// right
+		one.animate({
+			top: '37px'
+		}, 300);	
+		// middle right
+		// right
+		one.animate({
+			left: '140px'
+		}, 300);
+		
+		// bottom middle
+		// bottom	
 		two.animate({
 			top: '140px'
-		}, 200);
-		one.animate({
-			left: '130px'
-		}, 100);	
-		five.animate({
-			left: '-55px'
-		}, 310);
+		}, 300);
+		// bottom middle
+		// left	
+		two.animate({
+			left: '37px'
+		}, 300);
+		// middle left
+                // top
+		three.animate({
+			top: '37px'
+		}, 300);
+		// middle left
+                // left
 		three.animate({
 			left: '-65px'
 		}, 300);
-		two.animate({
-			top: '130px'
-		}, 210);
+		// top middle
+		// top
 		four.animate({
 			top: '-65px'
-		}, 200);
-		three.animate({
-			left: '-55px'
-		}, 310);
+		}, 300);
+		// top middle
+		// middle
 		four.animate({
-			top: '-55px'
-		}, 400);
+			left: '37px'
+		}, 300);
+		 // top left
+		// top
 		five.animate({
-			top: '-55px'
-		}, 200);
-		
-	//	$("#fivetxt").html("Leader<br>board")
+			top: '-65px'
+		}, 300);
+	        // top left
+		// left
+		five.animate({
+			left: '-65px'
+		}, 300);
 		
 		
 		menuIsOpen = true;
 		// hide pressbutton
 		$("#pressbutton").html("");
 	}
-
 
 	function hideBubbles() {
 		// add 500ms delay to change X to hamburger
@@ -530,36 +549,42 @@
 			}, 1500);
 		}, 400);
 		// move menu items
-		four.animate({
-			top: '-65px'
-		}, 400);
-		three.animate({
-			left: '-65px'
-		}, 300);
-		four.animate({
-			top: '50%'
-		}, 400);
-		two.animate({
-			top: '140px'
-		}, 200);
-		three.animate({
-			left: '50%'
-		}, 310);
+		
 		one.animate({
-			left: '140px'
-		}, 110);
-		two.animate({
 			top: '50%'
 		}, 200);
 		one.animate({
 			left: '50%'
-		}, 110);
-		five.animate({
+		}, 200);
+		
+		two.animate({
+			top: '50%'
+		}, 200);
+		two.animate({
 			left: '50%'
-		}, 410);
+		}, 200);
+		
+		three.animate({
+			top: '50%'
+		}, 200);
+		three.animate({
+			left: '50%'
+		}, 200);
+		
+		four.animate({
+			top: '50%'
+		}, 200);
+		four.animate({
+			left: '50%'
+		}, 200);
+		
 		five.animate({
 			top: '50%'
-		}, 410);
+		}, 200);
+		five.animate({
+			left: '50%'
+		}, 200);
+		
 		menuIsOpen = false;
 		isTop = true;
 	}
