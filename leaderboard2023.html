@@ -84,6 +84,7 @@ getData()
 
 
 async function getData() {
+document.getElementById("notyet").innerHTML = '<img id="spin" src="loading.gif" height="100" width="200">Requesting data from server ...</img>'
 
 var dataStream = await fetch(
   "https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard"
