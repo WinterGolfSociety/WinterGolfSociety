@@ -54,11 +54,11 @@ body {
       100% { opacity: 1.0; }
 }
 
- 
+
 
 </style>
 <body>
-
+<div id="notyet"></div>
 
  <div class="grid-container" id="leaderlist">
 
@@ -128,9 +128,8 @@ if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
 
 } else {
    // not a comp day or no results
-   // hide footer
-   document.getElementById("footer").innerHTML = '<img src="not-yet.png" height="100px" width="100px"></img>';
-     
+   document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="256px" width="247px"></img>';
+   document.getElementById("footer").innerHTML = '';  
    document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 8 seconds"
    setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 7 seconds" },1000)
    setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 6 seconds" },2000)
