@@ -2224,13 +2224,19 @@
     
     if (abort == "yes") {
     
-      document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\n";
+      document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
       document.getElementById("id_confrmdiv").style.display = "block";
 
-      setTimeout(function() {
-        document.getElementById("id_confrmdiv").innerText = "";
-        document.getElementById("id_confrmdiv").style.display = "none";
-      }, 3500);
+    
+     setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 4 seconds" },1000)    
+   setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 3 seconds" },2000)
+   setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 2 seconds" },3000)
+   setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 1 second" },4000) 
+ 
+   setTimeout(function() {    
+      document.getElementById("id_confrmdiv").innerText = ""
+      document.getElementById("id_confrmdiv").style.display = "none"
+   },5000);
     
     } else {
     
