@@ -69,10 +69,7 @@ body {
     <div class="grid-item" id="points">&nbsp;</div>
     <div class="grid-item" id="twos">&nbsp;</div>
      
-    <div class="grid-item-top" id="footer">
-    <br>These are the latest 'live' results as they come in, updated automatically every 35 seconds. Your submitted result should be available at next refresh. Only testing at the moment.
-    <br><br>
-    </div> 
+    <div class="grid-item-top" id="footer"></div> 
      
  </div>
 
@@ -126,6 +123,7 @@ if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
     document.getElementById("player").innerHTML = displayplayer; 
     document.getElementById("points").innerHTML = displaypoints; 
     document.getElementById("twos").innerHTML = displaytwos; 
+    document.getElementById("footer").innerHTML = "<br>These are the latest 'live' results as they come in, updated automatically every 35 seconds. Your submitted result should be available at next refresh. Only testing at the moment.<br><br>"
 
 } else {
    // not a comp day or no results
