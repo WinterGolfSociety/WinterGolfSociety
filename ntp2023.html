@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <meta name="theme-color" content="#2F4F4F">
+  <title>winter 2023</title>
+  <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      color: white;
+      background-color: darkSlateGray;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-y: hidden;
+    }
+    
+  
+    
+    #dropbtn {
+      color: white;
+      cursor: pointer;
+      width: 100vw;
+      height: 10vh;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 3px;
+      border: none;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 3px;
+      box-shadow: 10px 10px 25px black;
+      max-height: 70vh;
+    }
+    
+    .dropdown-content a {
+      color: gray;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .show {
+      display: block;
+    }
+    
+    #my-form,
+    #my-response-iframe {
+      display: none;
+      height: 20px;
+      width: 60px;
+    }
+    
+    .yellow {
+      font-size: 20px;
+      color: yellow;
+    }
+    
+    .cyan {
+      font-size: 20px;
+      color: cyan;
+    }
+    
+    .wrapper {
+      width: 100vw;
+    }
+    
+    .submitwrapper {
+      color: white;
+      background: dodgerBlue;
+      width: 100vw;
+      height: 9vh;
+      text-align: center;
+      font-size: 20px;
+      padding-top: 2vh;
+      border-radius: 5px;
+      border: 5px solid white;
+    }
+    
+    #submitwrapper {
+      //	  filter: blur(5px);
+      visibility: hidden;
+    }
+    
+ 
+ 
+    
+    #submitwrapper {
+      opacity: 1;
+      transition: opacity 0.7s;
+    }
+    
+     #submitbutton {
+      color: white;
+      cursor: pointer;
+      width: 100vw;
+      height: 10vh;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 3px;
+      border: none;
+      visibility: hidden;
+    }
+ 
+ #txtwrapper {
+    padding: 20px;
+ }
+ 
+ #ok {
+ text-align: center;
+ }
+ 
+  </style>
+  <meta content="ntp input" name="description">
+  <meta content="Bryan M" name="author">
+  <link href="wintericon.png" rel="icon" type="image/x-icon">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+</head>
+
+<body>
+      <div class="wrapper">
+      <button onclick="myFunction();" class="dropbtn" id="dropbtn">select player</button>
+      <div id="myDropdown" class="dropdown-content"> </div>
+      </div>
+   <br>
+   <br>
+   <br>   
+   <div id="txtwrapper">     
+      To register nearest the pin (NTP), select the player from the dropdown and Submit.
+      <br>
+      <br>
+      <div id="txt"></div>
+  </div>
+  <br>
+  <br>
+  <div id = "ok">
+  <button id="submitbutton" onclick="submitForm()">submit</button>
+  </div> 
+  <br>
+  <br>
+  <!-- form to construct data prior to submit -->
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSfPbrsbDfEH5sWbsJVeZJ_bJzqcgpvxI9wbFN2867mH1ByOPg/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+    <!-- name, course -->
+    <input id='mx748590492' name='entry.748590492' type='text' value='default'>
+    <input id='mx882727706' name='entry.882727706' type='text' value='default'>
+    <input type="submit"> </form>
+  <!-- google iframe inserted here - invisible -->
+  <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfPbrsbDfEH5sWbsJVeZJ_bJzqcgpvxI9wbFN2867mH1ByOPg/viewform?embedded=true" width="60"></iframe>
+  <br>
+  <br>
+  <br>
+  <br>
+  <script>
+    //===========================
+    // this code runs at startup
+    //===========================
+    // declare global variables
+         
+    player = "none"; 
+   comp = "none";
+    // array of competition dates
+    // these need to be the same as the setup page on google sheets
+    // if they are to be recorded properly in the results
+    arrComps = [
+      "Dawson 02 October 2023",
+      "Lakes 06 October 2023",
+      "Dawson 09 October 2023",
+      "Lakes 13 October 2023",
+      "Dawson 16 October 2023",
+      "Lakes 20 October 2023",
+      "Dawson 23 October 2023",  "Dawson 25 October 2023",
+      "Lakes 27 October 2023",
+      "Dawson 30 October 2023",
+      "Dawson 03 November 2023",
+      "Lakes 06 November 2023",
+      "Dawson 10 November 2023",
+      "Lakes 13 November 2023",
+      "Dawson 17 November 2023",
+      "Lakes 20 November 2023",
+      "Dawson 24 November 2023",
+      "Lakes 27 November 2023",
+      "Lakes 01 December 2023",
+      "Dawson 04 December 2023",
+      "Lakes 08 December 2023",
+      "Dawson 11 December 2023",
+      "Lakes 15 December 2023",
+      "Dawson 18 December 2023",
+      "Lakes 22 December 2023",
+      "Dawson 25 December 2023",
+      "Lakes 29 December 2023",
+      "Lakes 01 January 2024",
+      "Dawson 05 January 2024",
+      "Lakes 08 January 2024",
+      "Dawson 12 January 2024",
+      "Lakes 15 January 2024",
+      "Dawson 19 January 2024",
+      "Lakes 22 January 2024",
+      "Dawson 26 January 2024",
+      "Lakes 29 January 2024",
+      "Lakes 02 February 2024",
+      "Dawson 05 February 2024",
+      "Lakes 09 February 2024",
+      "Dawson 12 February 2024",
+      "Lakes 16 February 2024",
+      "Dawson 19 February 2024",
+      "Lakes 23 February 2024",
+      "Dawson 26 February 2024",
+      "Dawson 01 March 2024",
+      "Lakes 04 March 2024",
+      "Dawson 08 March 2024",
+      "Lakes 11 March 2024",
+      "Dawson 15 March 2024",
+      "Lakes 18 March 2024",
+      "Dawson 22 March 2024",
+      "Lakes 25 March 2024",
+      "Dawson 29 March 2024"
+    ];
+    // master array of members
+    // this is the centralised list of members, the 0 is used to allow a "sorted" menu
+    // by keeping track of the number of "hits" per name
+    var master = [
+      ['Graham Airey', 0],
+      ['Dale Aitkenhead', 0],
+      ['Stephen Alldridge', 0],
+      ['Keith Belshaw', 0],
+      ['Malcolm Broom', 0],
+      ['Neil Brotherton', 0],
+      ['Craig Caesar', 0],
+      ['Clive Caisley', 0],
+      ['Chris Chelton', 0],
+      ['Ken Clark', 0],
+      ['Ian Collier', 0],
+      ['Bob Connelly', 0],
+      ['Jed Cornhill', 0],
+      ['Alex Coupland', 0],
+      ['Neil Coxon', 0],
+      ['Bryan Craggs', 0],
+      ['Andy Davison', 0],
+      ['John Dean', 0],
+      ['Peter Dodds', 0],
+      ['Graham Doughty', 0],
+      ['Martin Edwards', 0],
+      ['Joe Fletcher', 0],
+      ['Norman Ford', 0],
+      ['Bill French', 0],
+      ['Norman Gilholm', 0],
+      ['David Gilroy', 0],
+      ['Graeme Gow', 0],
+      ['Vince Graham', 0],
+      ['Chris Green', 0],
+      ['Rob Green', 0],
+      ['Richard Hedley', 0],
+      ['Barry Henderson', 0],
+      ['Clive Herbert', 0],
+      ['David Hersey', 0],
+      ['Ken Heslop', 0],
+      ['Barry Hill', 0],
+      ['Colin Hills', 0],
+      ['Pete Holleran', 0],
+      ['Roger Ireland', 0],
+      ['David Jackson', 0],
+      ['John Jackson', 0],
+      ['Tom Lemin', 0],
+      ['Martin Leonard', 0],
+      ['Jim Little', 0],
+      ['Bryan Maddison', 0],
+      ['James Main', 0],
+      ['Tony Main', 0],
+      ['John Matthews', 0],
+      ['Tom McNally', 0],
+      ['Steff Murray', 0],
+      ['Darren Nelson', 0],
+      ['Trevor Ord', 0],
+      ['James Patterson', 0],
+      ['Tim Pinkney', 0],
+      ['Mike Riddell', 0],
+      ['Eric Saddler', 0],
+      ['David Scurfield', 0],
+      ['Brian Simpson', 0],
+      ['John Smith', 0],
+      ['Tony Smith', 0],
+      ['Ray Straker', 0],
+      ['Tom Straker', 0],
+      ['Neil Tait', 0],
+      ['Roly Thompson', 0],
+      ['Bob Toward', 0],
+      ['Trevor Towns', 0],
+      ['Joe Waddle', 0],
+      ['Marcus Wilkinson', 0],
+      ['Gordon Willis', 0],
+      ['Ron Woodcock', 0],
+      ['reset list', 0]
+    ];
+ 
+
+  
+    // create player dropdown
+    var select = document.getElementById("myDropdown");
+    // this is what is created
+    //<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+    //
+           
+    for (var i = 0; i < master.length; i++) {
+      var el = document.createElement("a");
+      el.id = "myLink" + (i + 1);
+      el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+      el.setAttribute("href", "#");
+      el.innerText = master[i][0];
+      select.appendChild(el);
+     
+    }
+    
+
+    
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+
+    
+    // get todays date eg 26 June
+    dd = new Date();
+    // get date number and format it
+    d1 = dd.getDate();
+    if (d1 < 10) {
+      d1 = "0" + d1;
+    }
+    // get month and format it
+    d2 = dd.getMonth();
+arrMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    // january
+    if (d2 == 0) {
+      m = arrMonths[0];
+    }
+    //feb
+    if (d2 == 1) {
+      m = arrMonths[1];
+    }
+    //mar
+    if (d2 == 2) {
+      m = arrMonths[2];
+    }
+    //apr
+    if (d2 == 3) {
+      m = arrMonths[3];
+    }
+    //may
+    if (d2 == 4) {
+      m = arrMonths[4];
+    }
+    //jun
+    if (d2 == 5) {
+      m = arrMonths[5];
+    }
+    //jul
+    if (d2 == 6) {
+      m = arrMonths[6];
+    }
+    //aug
+    if (d2 == 7) {
+      m = arrMonths[7];
+    }
+    //sep
+    if (d2 == 8) {
+      m = arrMonths[8];
+    }
+    //oct
+    if (d2 == 9) {
+      m = arrMonths[9];
+    }
+    //nov
+    if (d2 == 10) {
+      m = arrMonths[10];
+    }
+    //dec
+    if (d2 == 11) {
+      m = arrMonths[11];
+    }
+    
+    dateToday = d1 + " " + m;
+ // alert(dateToday)
+    // get yesterdays date eg 26 June
+    dda = new Date(new Date().setHours(-1))
+    
+    // get date number and format it
+    d1a = dda.getDate();
+    if (d1a < 10) {
+      d1a = "0" + d1a;
+    }
+    // get month and format it
+    d2a = dda.getMonth();
+    dateTodayless1 = d1a + " " + arrMonths[d2a] 
+   // get day before yesterdays date eg 26 June
+    ddb = new Date(new Date().setHours(-25))
+    // get date number and format it
+    d1b = ddb.getDate();
+    if (d1b < 10) {
+      d1b = "0" + d1b;
+    }
+    // get month and format it
+    d2b = ddb.getMonth();
+    dateTodayless2 = d1b + " " + arrMonths[d2b] 
+    // see if it is a compday and if so find comp and course from array list
+    for (i = 0; i < arrComps.length; i++) {
+      // if today - eg. "22 June" in arrComps list then compday = "yes"
+      if (arrComps[i].indexOf(dateToday) > -1) {
+        compday = "yes";
+        comp = arrComps[i];
+      }
+      // allow entry 1 day late
+      if (arrComps[i].indexOf(dateTodayless1) > -1) {
+        compday = "yes";
+        comp = arrComps[i];
+      }
+      // allow entry 2 days late
+      if (arrComps[i].indexOf(dateTodayless2) > -1) {
+        compday = "yes";
+        comp = arrComps[i];
+      }
+      
+    }
+ 
+ 
+    //=============================================================
+    // functions - run when called
+    //=============================================================     
+ 
+
+      // name selected, do stuff
+    function dropSelected(playerName) {
+   
+ 
+        // global player
+        player = playerName;
+        // replace player name and comp
+       // document.getElementById("h1").innerText = player;
+      //  document.getElementById("h2").innerText = comp;
+        document.getElementById("txt").innerText = "This will record " + player + " as nearest the pin (NTP) for " + comp; 
+       
+       
+       // show submit button
+          document.getElementById("submitbutton").style.visibility = "visible";
+       
+       
+       
+       
+        // close dropdown
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+       
+
+       
+      }
+    }
+
+    // show menu of names
+    function myFunction() {
+      // When the user clicks on the button, toggle between hiding and showing the dropdown content
+      document.getElementById("myDropdown").classList.toggle("show");
+
+    }
+
+
+
+    // send info from HTML form to google form	
+    function submitForm() {
+      // get the relevant info into a form  
+        document.getElementById('mx748590492').value = player;
+        document.getElementById('mx882727706').value = comp;
+        //===== submit data
+        document.forms[0].submit();
+  
+       document.getElementById('submitbutton').innerText = "updating ... 3";
+       setTimeout(function() {document.getElementById('submitbutton').innerText = "updating ... 2"},1000);
+       setTimeout(function() {document.getElementById('submitbutton').innerText = "updating ... 1"},2000);
+       setTimeout(function() {
+            document.getElementById('ok').innerHTML =
+              '<img src="tick1.png" style="height: 100px; width: 100px;">'
+          }, 3000);
+  
+      }
+    
+   
+
+  </script>
+</body>
+
+</html>
