@@ -189,7 +189,7 @@
       "Lakes 13 October 2023",
       "Dawson 16 October 2023",
       "Lakes 20 October 2023",
-      "Dawson 23 October 2023",  "Dawson 25 October 2023",
+      "Dawson 23 October 2023",
       "Lakes 27 October 2023",
       "Dawson 30 October 2023",
       "Dawson 03 November 2023",
@@ -309,8 +309,7 @@
       ['Joe Waddle', 0],
       ['Marcus Wilkinson', 0],
       ['Gordon Willis', 0],
-      ['Ron Woodcock', 0],
-      ['reset list', 0]
+      ['Ron Woodcock', 0]
     ];
  
 
@@ -451,7 +450,6 @@ arrMonths = ["January","February","March","April","May","June","July","August","
       
     }
  
- 
     //=============================================================
     // functions - run when called
     //=============================================================     
@@ -459,22 +457,24 @@ arrMonths = ["January","February","March","April","May","June","July","August","
 
       // name selected, do stuff
     function dropSelected(playerName) {
-   
  
         // global player
         player = playerName;
         // replace player name and comp
        // document.getElementById("h1").innerText = player;
       //  document.getElementById("h2").innerText = comp;
+      if (comp == "none") {
+        document.getElementById("txt").innerText = "No current competition found.";
+        document.getElementById('ok').innerHTML =
+              '<img src="quit.png" style="height: 100px; width: 100px;"><br><br>No competition found - not updated'
+
+      } else {   
         document.getElementById("txt").innerText = "This will record " + player + " as nearest the pin (NTP) for " + comp; 
-       
+      }  
        
        // show submit button
           document.getElementById("submitbutton").style.visibility = "visible";
-       
-       
-       
-       
+
         // close dropdown
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
@@ -482,10 +482,7 @@ arrMonths = ["January","February","March","April","May","June","July","August","
           var openDropdown = dropdowns[i];
           if (openDropdown.classList.contains('show')) {
             openDropdown.classList.remove('show');
-          }
-       
-
-       
+          }  
       }
     }
 
@@ -501,11 +498,12 @@ arrMonths = ["January","February","March","April","May","June","July","August","
     // send info from HTML form to google form	
     function submitForm() {
       // get the relevant info into a form  
-        document.getElementById('mx748590492').value = player;
+          
+        document.getElementById('mx748590492').value = player;      
         document.getElementById('mx882727706').value = comp;
         //===== submit data
-        document.forms[0].submit();
-  
+  //      document.forms[0].submit();
+  alert(player+comp)
        document.getElementById('submitbutton').innerText = "updating ... 3";
        setTimeout(function() {document.getElementById('submitbutton').innerText = "updating ... 2"},1000);
        setTimeout(function() {document.getElementById('submitbutton').innerText = "updating ... 1"},2000);
@@ -514,9 +512,9 @@ arrMonths = ["January","February","March","April","May","June","July","August","
               '<img src="tick1.png" style="height: 100px; width: 100px;">'
           }, 3000);
   
-      }
+      
     
-   
+   }
 
   </script>
 </body>
