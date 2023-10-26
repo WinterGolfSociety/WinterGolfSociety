@@ -129,11 +129,11 @@ if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
    // not a comp day or no results
    document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
    document.getElementById("footer").innerHTML = '';  
-   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>Results are only available during the competition and for the rest of the day. No results to display<br>returning to menu in 5 seconds"},200)
-     setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>Results are only available during the competition and for the rest of the day. No results to display<br>returning to menu in 4 seconds" },1200)
-   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>Results are only available during the competition and for the rest of the day. No results to display<br>returning to menu in 3 seconds" },2200)
-   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>Results are only available during the competition and for the rest of the day. No results to display<br>returning to menu in 2 seconds" },3200)
-   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>Results are only available during the competition and for the rest of the day. No results to display<br>returning to menu in 1 second" },4200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 5 seconds"},200)
+     setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 4 seconds" },1200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 3 seconds" },2200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 2 seconds" },3200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 1 second" },4200)
    setTimeout(function(){ history.go(-2) },5200);  
 }
 
