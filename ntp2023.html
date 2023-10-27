@@ -124,6 +124,12 @@
  
  #txtwrapper {
     padding: 20px;
+    color: lightGray;
+    font-style: italic;
+ }
+ 
+ #txt {
+    font-style: normal;
  }
  
  #ok {
@@ -254,8 +260,9 @@ getData()
         document.getElementById("txt").innerText = "This will record " + player + " as nearest the pin (NTP) for " + comp; 
       }  
        
-       // show submit button
-          document.getElementById("submitbutton").style.visibility = "visible";
+       // show submit button with player name
+        document.getElementById("submitbutton").innerText = player";
+        document.getElementById("submitbutton").style.visibility = "visible";
 
         // close dropdown
         var dropdowns = document.getElementsByClassName("dropdown-content");
