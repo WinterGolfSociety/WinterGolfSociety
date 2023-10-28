@@ -45,7 +45,7 @@ body {
         text-align: left;           
    }
    
-   #leaderlist, #footer {
+   .grid-item, #footer {
       animation: fadein 3s linear forwards;
    }
 
@@ -76,23 +76,24 @@ body {
 </body>
 <script>
 
-// page refreshes every 35 seconds
+document.getElementById("notyet").innerHTML = "Leaderboard refreshing ...<br>"; 
+
 getData()
 
 
 async function getData() {
-document.getElementById("notyet").innerHTML = 'Requesting data from server ...'
 
 var dataStream = await fetch(
   "https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard"
 )
 
+var resultsarray = await dataStream.json();
+
+
 var displaypos = " " + "<br>";
 var displayplayer = " " + "<br>";
 var displaypoints = " " + "<br>";
 var displaytwos = " " + "<br>";
-
-var resultsarray = await dataStream.json();
 
 // if not a comp day show message and return to menu
 var dd = new Date();
@@ -118,7 +119,7 @@ if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
          }
     }
 
-    document.getElementById("comp").innerHTML = "Leaderboard for " + resultsarray[0].comp + "<br>"; 
+    document.getElementById("notyet").innerHTML = "Leaderboard for " + resultsarray[0].comp + "<br>"; 
     document.getElementById("pos").innerHTML = displaypos; 
     document.getElementById("player").innerHTML = displayplayer; 
     document.getElementById("points").innerHTML = displaypoints; 
