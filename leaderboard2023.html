@@ -35,7 +35,14 @@ body {
       font-size: 15px; //2vmin;
       text-align: left;
     }
-   
+    
+   .grid-item-pos {
+      padding: 2px;
+      font-family: arial;
+      font-size: 15px; //2vmin;
+      text-align: center;
+    }
+    
      .grid-item-top {
         display: grid;
         grid-column: 1 / 5;
@@ -45,7 +52,7 @@ body {
         text-align: left;           
    }
    
-   .grid-item, #footer {
+   .grid-item, .grid-item-pos, #footer {
       animation: fadein 3s linear forwards;
    }
 
@@ -54,9 +61,7 @@ body {
       100% { opacity: 1.0; }
 }
 
-#pos {
-text-align: center;
-}
+
 
 </style>
 <body>
@@ -64,14 +69,7 @@ text-align: center;
 
  <div class="grid-container" id="leaderlist">
 
-    <div class="grid-item-top" id="comp"></div>
-
-    <div class="grid-item" id="pos">&nbsp;</div>
-    <div class="grid-item" id="player">&nbsp;</div>
-    <div class="grid-item" id="points">&nbsp;</div>
-    <div class="grid-item" id="twos">&nbsp;</div>
-     
-    <div class="grid-item-top" id="footer"></div> 
+ <!-- created by script --> 
      
  </div>
 
@@ -91,10 +89,11 @@ var dataStream = await fetch(
 
 var resultsarray = await dataStream.json();
 
-var displaypos    = " " + "<br>";
-var displayplayer = " " + "<br>";
-var displaypoints = " " + "<br>";
-var displaytwos   = " " + "<br>";
+var displaypos
+var displayplayer
+var displaypoints
+var displaytwos
+var comp
 
 // if not a comp day show message and return to menu
 var dd = new Date();
@@ -106,33 +105,59 @@ var ddseconds = dd.getSeconds();
 if (ddseconds < 10) {
     ddseconds = "0" + ddseconds
 }    
+var arrPos = []
+var arrPlayer = []
+var arrPoints = []
+var arrTwos = []
+
+// get rid of blanks in array by creating new arrays
+for (var i = 0; i < resultsarray.length; i++) {
+    if (resultsarray[i].player.length > 2) { 
+        arrPos.push(resultsarray[i].pos);
+        arrPlayer.push(resultsarray[i].player);
+        arrPoints.push(resultsarray[i].points);
+        arrTwos.push(resultsarray[i].twos);
+        comp = resultsarray[i].comp;
+    }
+}
 
 arrMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
-if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
+// create HTML
+createDisplay(arrPlayer.length)
+
+//if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
     // comp day
-    for (var i = 0; i < resultsarray.length; i++) { 
+    for (var i = 0; i < arrPlayer.length; i++) { 
          // odd number 
          if (i % 2 !== 0) {
-             displaypos    += '<p style="color:#C3CCCC">' + resultsarray[i].pos    + "</p>";
-             displayplayer += '<p style="color:#C3CCCC">' + resultsarray[i].player + "</p>";
-             displaypoints += '<p style="color:#C3CCCC">' + resultsarray[i].points + "</p>";
-             displaytwos   += '<p style="color:#C3CCCC">' + resultsarray[i].twos   + "</p>";
+             displaypos    = '<p style="color:#C3CCCC">' + arrPos[i]    + "</p>";
+             displayplayer = '<p style="color:#C3CCCC">' + arrPlayer[i] + "</p>";
+             displaypoints = '<p style="color:#C3CCCC">' + arrPoints[i] + "</p>";
+             displaytwos   = '<p style="color:#C3CCCC">' + arrTwos[i]   + "</p>";
+         
+             document.getElementById("pos" + i).innerHTML = displaypos
+             document.getElementById("player" + i).innerHTML = displayplayer
+             document.getElementById("points" + i).innerHTML = displaypoints
+             document.getElementById("twos" + i).innerHTML = displaytwos
+         
          } else {
-             displaypos    += resultsarray[i].pos    + "<br>";
-             displayplayer += resultsarray[i].player + "<br>";
-             displaypoints += resultsarray[i].points + "<br>";
-             displaytwos   += resultsarray[i].twos   + "<br>";
+             displaypos    = arrPos[i]    + "<br>";
+             displayplayer = arrPlayer[i] + "<br>";
+             displaypoints = arrPoints[i] + "<br>";
+             displaytwos   = arrTwos[i]   + "<br>";
+             
+             document.getElementById("pos" + i).innerHTML = displaypos
+             document.getElementById("player" + i).innerHTML = displayplayer
+             document.getElementById("points" + i).innerHTML = displaypoints
+             document.getElementById("twos" + i).innerHTML = displaytwos
          }
     }
     
-    document.getElementById("notyet").innerHTML = "Leaderboard for " + resultsarray[0].comp + " at " + ddhours + ":" + ddminutes + ":" + ddseconds + "<br>"; 
-    document.getElementById("pos").innerHTML    = displaypos; 
-    document.getElementById("player").innerHTML = displayplayer; 
-    document.getElementById("points").innerHTML = displaypoints; 
-    document.getElementById("twos").innerHTML   = displaytwos; 
+    document.getElementById("notyet").innerHTML = "Leaderboard for " + comp + " at " + ddhours + ":" + ddminutes + ":" + ddseconds + "<br><br>"; 
+     
     document.getElementById("footer").innerHTML = "<br>These are the latest 'live' results as they come in, updated automatically every 35 seconds. Your submitted result should be available at next refresh. Only testing at the moment.<br><br>"
-
+/*
 } else {
    // not a comp day or no results
    document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
@@ -149,8 +174,55 @@ if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
    "<br><br><br>No results to display<br>returning to menu in 1 second"  },4200)
    setTimeout(function(){ history.go(-2) },5200);  
 }
-
+*/
 }
+
+function createDisplay(num) {
+      // create HTML to hold results
+      var select = document.getElementById("leaderlist");
+      // empty names
+      select.innerHTML = "";
+      
+        // create comp holder
+        var el = document.createElement("div");
+        el.id = "comp";
+        el.setAttribute("class", "grid-item-top");
+        select.appendChild(el);
+      
+      // create the right number of holders
+      for (var i = 0; i < num; i++) {
+        var el = document.createElement("div");
+        el.id = "pos" + i;
+        el.setAttribute("class", "grid-item-pos");
+        select.appendChild(el);
+
+        var el = document.createElement("div");
+        el.id = "player" + i;
+        el.setAttribute("class", "grid-item");
+        select.appendChild(el);
+        
+        var el = document.createElement("div");
+        el.id = "points" + i;
+        el.setAttribute("class", "grid-item");
+        select.appendChild(el);
+
+        var el = document.createElement("div");
+        el.id = "twos" + i;
+        el.setAttribute("class", "grid-item");
+        select.appendChild(el);
+
+      }
+      
+        // create footer 
+        var el = document.createElement("div");
+        el.id = "footer";
+        el.setAttribute("class", "grid-item-top");
+        select.appendChild(el);
+      
+    }
+
+
+
 
 </script>
 </body>
