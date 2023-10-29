@@ -64,7 +64,7 @@ body {
 #secs {
        font-family: arial;
        font-size: 13px;
-       //color: cyan;
+       color: #C3CCCC;
 }
 
 </style>
@@ -131,7 +131,7 @@ arrMonths = ["January","February","March","April","May","June","July","August","
 // create HTML
 createDisplay(arrPlayer.length)
 
-//if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
+if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
     // comp day
     for (var i = 0; i < arrPlayer.length; i++) { 
          // odd number 
@@ -162,7 +162,7 @@ createDisplay(arrPlayer.length)
     document.getElementById("notyet").innerHTML = "Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>"; 
      
     document.getElementById("footer").innerHTML = "<br>These are the latest 'live' results as they come in, updated automatically every 35 seconds. Your submitted result should be available at next refresh. Only testing at the moment.<br><br>"
-/*
+
 } else {
    // not a comp day or no results
    document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
@@ -179,7 +179,7 @@ createDisplay(arrPlayer.length)
    "<br><br><br>No results to display<br>returning to menu in 1 second"  },4200)
    setTimeout(function(){ history.go(-2) },5200);  
 }
-*/
+
 }
 
 function createDisplay(num) {
