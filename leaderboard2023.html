@@ -91,55 +91,65 @@ var dataStream = await fetch(
 
 var resultsarray = await dataStream.json();
 
-
-var displaypos = " " + "<br>";
+var displaypos    = " " + "<br>";
 var displayplayer = " " + "<br>";
 var displaypoints = " " + "<br>";
-var displaytwos = " " + "<br>";
+var displaytwos   = " " + "<br>";
 
 // if not a comp day show message and return to menu
 var dd = new Date();
 var dddate = dd.getDate();
 var ddmonth = dd.getMonth();
+var ddhours = dd.getHours();
+var ddminutes = dd.getMinutes();
+var ddseconds = dd.getSeconds();
+if (ddseconds < 10) {
+    ddseconds = "0" + ddseconds
+}    
 
 arrMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 
-if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
+//if (resultsarray[1].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1 ) {
     // comp day
     for (var i = 0; i < resultsarray.length; i++) { 
          // odd number 
          if (i % 2 !== 0) {
-             displaypos += '<p style="color:#C3CCCC">' + resultsarray[i].pos + "</p>";
+             displaypos    += '<p style="color:#C3CCCC">' + resultsarray[i].pos    + "</p>";
              displayplayer += '<p style="color:#C3CCCC">' + resultsarray[i].player + "</p>";
              displaypoints += '<p style="color:#C3CCCC">' + resultsarray[i].points + "</p>";
-             displaytwos += '<p style="color:#C3CCCC">' + resultsarray[i].twos + "</p>";
+             displaytwos   += '<p style="color:#C3CCCC">' + resultsarray[i].twos   + "</p>";
          } else {
-             displaypos += resultsarray[i].pos + "<br>";
+             displaypos    += resultsarray[i].pos    + "<br>";
              displayplayer += resultsarray[i].player + "<br>";
              displaypoints += resultsarray[i].points + "<br>";
-             displaytwos += resultsarray[i].twos + "<br>";
+             displaytwos   += resultsarray[i].twos   + "<br>";
          }
     }
-
-    document.getElementById("notyet").innerHTML = "Leaderboard for " + resultsarray[0].comp + "<br>"; 
-    document.getElementById("pos").innerHTML = displaypos; 
+    
+    document.getElementById("notyet").innerHTML = "Leaderboard for " + resultsarray[0].comp + " at " + ddhours + ":" + ddminutes + ":" + ddseconds + "<br>"; 
+    document.getElementById("pos").innerHTML    = displaypos; 
     document.getElementById("player").innerHTML = displayplayer; 
     document.getElementById("points").innerHTML = displaypoints; 
-    document.getElementById("twos").innerHTML = displaytwos; 
+    document.getElementById("twos").innerHTML   = displaytwos; 
     document.getElementById("footer").innerHTML = "<br>These are the latest 'live' results as they come in, updated automatically every 35 seconds. Your submitted result should be available at next refresh. Only testing at the moment.<br><br>"
-
+/*
 } else {
    // not a comp day or no results
    document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
    document.getElementById("footer").innerHTML = '';  
-   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 5 seconds"},200)
-     setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 4 seconds" },1200)
-   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 3 seconds" },2200)
-   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 2 seconds" },3200)
-   setTimeout(function() {document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 1 second" },4200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 5 seconds" }, 200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 4 seconds" },1200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 3 seconds" },2200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 2 seconds" },3200)
+   setTimeout(function() {document.getElementById("comp").innerHTML = 
+   "<br><br><br>No results to display<br>returning to menu in 1 second"  },4200)
    setTimeout(function(){ history.go(-2) },5200);  
 }
-
+*/
 }
 
 </script>
