@@ -23,11 +23,6 @@
       background: Cyan;
       padding-left: 0;
       padding-right: 0;
-      
-     
-      
-      
-      
     }
     
  .three-page-container {
@@ -37,16 +32,12 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      
-  
-
-      
     }
 
 
 .wrapper {
     display: grid;
-    grid-gap: 10px;
+  //  grid-gap: 10px;
     //grid-template-columns: auto auto auto auto auto auto;
     
     grid-template-columns: repeat(6, [col] auto ) ;
@@ -60,13 +51,18 @@
  //            width: 100vw;
   height: 100vh;
      
-    align-items: center;
-   justify-items: center;    
+ //   align-items: center;
+ //  justify-items: center;    
        
  //      padding-top: 5px;
  //      padding-bottom: 5px;
        
-         
+     
+
+     align-items: center;
+  justify-items: center;    
+
+   
  
   }
 
@@ -79,11 +75,16 @@
     //border: 1px yellow solid;
  
     border: 1px yellowgreen solid;
+
+
+
+
   }
 
   .r1c1to6 {
     grid-column: 1 / 7;
   //  grid-row: 1;
+  place-items: center;
   }
   .r2c1 {
     grid-column: 1 ;
@@ -113,19 +114,36 @@
   
   
   .hole {
-  width: 100%;
-  hight: 100%;
+  //width: 100%;
+  width: 98vw;
+  height: 100%;
+
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+
   }
   
   .holesinfoout {
        color: yellowgreen;
+
   }
 
   .holesinfoback {
-       color: cyan
-  }
+       color: cyan;
+   
   }
   
+  .xdropbtn {
+width: 98vw;
+height: 7vh;
+  }
+  }
   </style>
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
@@ -139,8 +157,8 @@
   
   <div class="wrapper">
   <div class="box r1c1to6">
-    <button onclick="myFunction();" class="xdropbtn" id="xdropbtn">select player</button>
-    <div id="xmyDropdown" class="xdropdown-content"> </div>
+    <button onclick="xmyFunction();" class="xdropbtn" id="xdropbtn">select player</button>
+    <div id="myDropdown" class="xdropdown-content"> </div>
   </div>
   
   <div class="box r2c1 holesinfoout">hole</div>
@@ -238,13 +256,13 @@
      <div class="wrapper">
   <div class="box r1c1to6 hole">hole 1</div>
    <div class="box r1c1to6 hole">hole 2</div>
-    <div class="box r1c1to6">hole 3</div>
-     <div class="box r1c1to6">hole 4</div>
-      <div class="box r1c1to6">hole 5</div>
-       <div class="box r1c1to6">hole 6</div>
-        <div class="box r1c1to6">hole 7</div>
-         <div class="box r1c1to6">hole 8</div>
-          <div class="box r1c1to6">hole 9</div>
+    <div class="box r1c1to6 hole">hole 3</div>
+     <div class="box r1c1to6 hole">hole 4</div>
+      <div class="box r1c1to6 hole">hole 5</div>
+       <div class="box r1c1to6 hole">hole 6</div>
+        <div class="box r1c1to6 hole">hole 7</div>
+         <div class="box r1c1to6 hole">hole 8</div>
+          <div class="box r1c1to6 hole">hole 9</div>
           
         
   
@@ -280,7 +298,7 @@
  </div>   
       
       
- <!--     
+     
       
       <table class="table1">
 
@@ -676,7 +694,7 @@
   
   
   
-   -->  
+  
   
   
   
@@ -1057,6 +1075,62 @@
     if ("comp" in localStorage) {
       showCompMessage();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //=============================================================
     // functions - run when called
     //=============================================================     
@@ -2089,6 +2163,23 @@ document.getElementById("showrules").innerHTML = rulestxt;
 document.getElementById("showrules").style.visibility = "visible";
  
 }
+
+-->
+
+
+
+
+
+
+<script>
+
+
+ function xmyFunction() {
+  console.log("test")
+  }
+  
+
+
 
 
   </script>
