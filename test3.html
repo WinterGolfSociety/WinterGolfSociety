@@ -93,6 +93,10 @@
   grid-column: 4 / 6;
   place-items: center;
   }
+  .r1c5to6 {
+  grid-column: 5 / 7;
+  place-items: center;
+  }
 .hole {
   width: 98vw;
   height: 100%;
@@ -138,6 +142,8 @@
   .footer {
     padding-top: 1vh;
     padding-bottom: 1vh;
+    justify-content: center;
+    align-items: center;
   }
 
   </style>
@@ -256,11 +262,11 @@
   
    <div class="box r1c1to6 bar" id="submit">submit</div>
   
-   <div class="r1c1"></div>
+   
   
-   <div class="r1c2 footer">
+   <div class="r1c1to2 footer">
     <img src="resetwhite.png" alt="cache" onclick="clearCache()" 
-         style="float: left; height: 40px; width: 40px;">
+         style="height: 40px; width: 40px;">
    </div>
   
    <div class="r1c3 footer">
@@ -273,15 +279,15 @@
          style="height: 40px; width: 40px;">
    </div>
 
-   <div class="r1c5 footer">
+   <div class="r1c5to6 footer">
     <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" 
-        style="float: right; height: 40px; width: 40px;">
+        style="height: 40px; width: 40px;">
    </div>
   
-   <div class="r1c6 footer">
+
 
    </div>
-  </div>
+
   
      <div class="wrapper">
   <div class="box r1c1to6 hole">hole 1</div>
@@ -312,15 +318,8 @@
           
         
   
- </div>
-   
-   
-   
-   
-   
-   
-   
-  </div>
+ </div>  
+</div> 
  <!-- 
   
   
