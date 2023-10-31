@@ -125,11 +125,20 @@
   border: 1px white solid;
   }
 
-#dropbtn, #hcp, #submit {
+#dropbtn, #hcpwrapper, #submit {
   background: dodgerBlue;
   }
 
+  .numx {
 
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .footer {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+  }
 
   </style>
   <meta content="score input" name="description">
@@ -238,18 +247,40 @@
   
 
   
-   <div class="box r1c1to6 bar" id="hcp">HCP</div>
+   <div class="box r1c1to6 bar" id="hcpwrapper">
+      <span class="minusx" id="minushcpx">playing</span>
+      <span class="numx" id="numhcp">?</span>
+      <span class="plusx" id="plushcpx">handicap</span>
+   </div>
   
   
    <div class="box r1c1to6 bar" id="submit">submit</div>
   
+   <div class="r1c1"></div>
   
+   <div class="r1c2 footer">
+    <img src="resetwhite.png" alt="cache" onclick="clearCache()" 
+         style="float: left; height: 40px; width: 40px;">
+   </div>
   
-   <div class="box r1c1to6 bar">pictures</div>
+   <div class="r1c3 footer">
+    <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" 
+         style="height: 40px; width: 40px;">
+   </div>
+
+   <div class="r1c4 footer">
+    <img src="ruleswhite.png" alt="rules" onclick="showrules()" 
+         style="height: 40px; width: 40px;">
+   </div>
+
+   <div class="r1c5 footer">
+    <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" 
+        style="float: right; height: 40px; width: 40px;">
+   </div>
   
-  
-  
-  
+   <div class="r1c6 footer">
+
+   </div>
   </div>
   
      <div class="wrapper">
