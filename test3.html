@@ -382,13 +382,23 @@ opacity: 0.5;
 
   
      <div class="wrapperforscoring">
-      <div class="padminus" onclick="plustest()" >
+
+
+
+
+
+
+      <div class="padminus" onclick='decrementScore("numscore1")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
       </div>
-      <div class="padnumber">hole 1</div>
-      <div class="padplus" onclick="plustest()" >
+      <div class="padnumber" id="numscore1" onclick="showHole(this.id)"">hole 1</div>
+      <div class="padplus" onclick='incrementScore("numscore1")'>
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
+
+
+
+
 
         <div class="padminus" onclick="plustest()" >
           <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
@@ -486,228 +496,8 @@ opacity: 0.5;
   
  </div>  
 </div> 
- <!-- 
   
-                          <div id="xxx"></div>
-                          
-                          <div class="demo">
-   
-                             <div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
-                             <div class="showrules" id="showrules" onclick="rclose()"></div>                     
-                          </div>
-                  
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        
-        </tbody>
-      </table>
-
-
-
-  <span id="spinhcp"></span>
-
-      <div id="id_confrmdiv">
-        <br /> No competition today. Select which course to use.
-        <br />
-        <br />
-        <button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>
-        <button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>
-      </div>
-    </div>
-    
-    
-
-    
-    
-    <div class="pagecard" id="front">
-      <div class="left">
-        <table class="table2">
-          <caption></caption>
-          <thead>
-            <tr>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="tr1" id="tr1">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore1" onclick='decrementScore("numscore1")'>-</span> <span class="num" id="numscore1" onclick="showHole(this.id)">hole 1</span> <span class="plus" id="plusscore1" onclick='incrementScore("numscore1");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr2">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore2" onclick='decrementScore("numscore2")'>-</span> <span class="num" id="numscore2" onclick="showHole(this.id)">hole 2</span> <span class="plus" id="plusscore2" onclick='incrementScore("numscore2");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr3">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore3" onclick='decrementScore("numscore3")'>-</span> <span class="num" id="numscore3" onclick="showHole(this.id)">hole 3</span> <span class="plus" id="plusscore3" onclick='incrementScore("numscore3");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr4">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore4" onclick='decrementScore("numscore4")'>-</span> <span class="num" id="numscore4" onclick="showHole(this.id)">hole 4</span> <span class="plus" id="plusscore4" onclick='incrementScore("numscore4");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr5">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore5" onclick='decrementScore("numscore5")'>-</span> <span class="num" id="numscore5" onclick="showHole(this.id)">hole 5</span> <span class="plus" id="plusscore5" onclick='incrementScore("numscore5");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr6">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore6" onclick='decrementScore("numscore6")'>-</span> <span class="num" id="numscore6" onclick="showHole(this.id)">hole 6</span> <span class="plus" id="plusscore6" onclick='incrementScore("numscore6");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr7">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore7" onclick='decrementScore("numscore7")'>-</span> <span class="num" id="numscore7" onclick="showHole(this.id)">hole 7</span> <span class="plus" id="plusscore7" onclick='incrementScore("numscore7");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr8">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore8" onclick='decrementScore("numscore8")'>-</span> <span class="num" id="numscore8" onclick="showHole(this.id)">hole 8</span> <span class="plus" id="plusscore8" onclick='incrementScore("numscore8");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr9">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore9" onclick='decrementScore("numscore9")'>-</span> <span class="num" id="numscore9" onclick="showHole(this.id)">hole 9</span> <span class="plus" id="plusscore9" onclick='incrementScore("numscore9");'>+</span> </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="pagecard" id="back">
-      <div class="left">
-        <table class="table3">
-          <caption></caption>
-          <thead>
-            <tr>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="tr1" id="tr10">
-              <td>
-                <div class="wrapper"> <span class="minus" id="minusscore10" onclick='decrementScore("numscore10")'>-</span> <span class="num" id="numscore10" onclick="showHole(this.id)">hole 10</span> <span class="plus" id="plusscore10" onclick='incrementScore("numscore10");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr11">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore11" onclick='decrementScore("numscore11")'>-</span> <span class="num" id="numscore11" onclick="showHole(this.id)">hole 11</span> <span class="plus" id="plusscore11" onclick='incrementScore("numscore11");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr12">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore12" onclick='decrementScore("numscore12")'>-</span> <span class="num" id="numscore12" onclick="showHole(this.id)">hole 12</span> <span class="plus" id="plusscore12" onclick='incrementScore("numscore12");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr13">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore13" onclick='decrementScore("numscore13")'>-</span> <span class="num" id="numscore13" onclick="showHole(this.id)">hole 13</span> <span class="plus" id="plusscore13" onclick='incrementScore("numscore13");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr14">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore14" onclick='decrementScore("numscore14")'>-</span> <span class="num" id="numscore14" onclick="showHole(this.id)">hole 14</span> <span class="plus" id="plusscore14" onclick='incrementScore("numscore14");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr15">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore15" onclick='decrementScore("numscore15")'>-</span> <span class="num" id="numscore15" onclick="showHole(this.id)">hole 15</span> <span class="plus" id="plusscore15" onclick='incrementScore("numscore15");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr16">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore16" onclick='decrementScore("numscore16")'>-</span> <span class="num" id="numscore16" onclick="showHole(this.id)">hole 16</span> <span class="plus" id="plusscore16" onclick='incrementScore("numscore16");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr17">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore17" onclick='decrementScore("numscore17")'>-</span> <span class="num" id="numscore17" onclick="showHole(this.id)">hole 17</span> <span class="plus" id="plusscore17" onclick='incrementScore("numscore17");'>+</span> </div>
-              </td>
-            </tr>
-            <tr class="tr1" id="tr18">
-              <td class="xtdright">
-                <div class="wrapper"> <span class="minus" id="minusscore18" onclick='decrementScore("numscore18")'>-</span> <span class="num" id="numscore18" onclick="showHole(this.id)">hole 18</span> <span class="plus" id="plusscore18" onclick='incrementScore("numscore18");'>+</span> </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
  
- 
- 
- 
- 
- 
-  
-  <br>
-  <br>
-
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
-
-    <input id='mx474474348' name='entry.474474348' type='text' value='default'>
-    <input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
-    <input id='mx477101370' name='entry.477101370' type='text' value='default'>
-    <input id='mx1980297491' name='entry.1980297491' type='text' value='default'>
-    <input id='mx463832232' name='entry.463832232' type='text' value='default'>
-    <input id='mx205704642' name='entry.205704642' type='text' value='default'>
-    <input id='mx278278589' name='entry.278278589' type='text' value='default'>
-    <input id='mx949547387' name='entry.949547387' type='text' value='default'>
-    <input id='mx703011397' name='entry.703011397' type='text' value='default'>
-    <input id='mx1460583253' name='entry.1460583253' type='text' value='default'>
-    <input id='mx462940045' name='entry.462940045' type='text' value='default'>
-    <input id='mx477691508' name='entry.477691508' type='text' value='default'>
-    <input id='mx413249407' name='entry.413249407' type='text' value='default'>
-    <input id='mx108900453' name='entry.108900453' type='text' value='default'>
-    <input id='mx1841236411' name='entry.1841236411' type='text' value='default'>
-    <input id='mx1864644918' name='entry.1864644918' type='text' value='default'>
-    <input id='mx1538428689' name='entry.1538428689' type='text' value='default'>
-    <input id='mx1449918213' name='entry.1449918213' type='text' value='default'>
-    <input id='mx38761817' name='entry.38761817' type='text' value='default'>
-    <input id='mx247392471' name='entry.247392471' type='text' value='default'>
-    <input id='mx741809181' name='entry.741809181' type='text' value='default'>
-    <input id='mx1362729237' name='entry.1362729237' type='text' value='default'>
-    <input id='mx1372983908' name='entry.1372983908' type='text' value='default'>
-    <input id='mx2002196917' name='entry.2002196917' type='text' value='default'>
-    <input id='mx640802794' name='entry.640802794' type='text' value='default'>
-    <input id='mx2076656246' name='entry.2076656246' type='text' value='default'>
-    <input id='mx486346919' name='entry.486346919' type='text' value='default'>
-    <input id='mx1918313229' name='entry.1918313229' type='text' value='default'>
-    <input id='mx638821' name='entry.638821' type='text' value='default'>
-    <input id='mx737099688' name='entry.737099688' type='text' value='default'>
-    <input id='mx488827232' name='entry.488827232' type='text' value='default'>
-    <input id='mx1203421487' name='entry.1203421487' type='text' value='default'>
-    <input id='mx979421831' name='entry.979421831' type='text' value='default'>
-    <input id='mx929858153' name='entry.929858153' type='text' value='default'>
-    <input id='mx1330487443' name='entry.1330487443' type='text' value='default'>
-    <input id='mx940496448' name='entry.940496448' type='text' value='default'>
-    <input id='mx1127168348' name='entry.1127168348' type='text' value='default'>
-    <input id='mx638332104' name='entry.638332104' type='text' value='default'>
-    <input id='mx1626319908' name='entry.1626319908' type='text' value='default'>
-    <input id='mx362674948' name='entry.362674948' type='text' value='default'>
-    <input id='mx544180710' name='entry.544180710' type='text' value='default'>
-    <input id='mx893562950' name='entry.893562950' type='text' value='default'>
-    <input id='mx335596501' name='entry.335596501' type='text' value='default'>
-    <input id='mx1453506389' name='entry.1453506389' type='text' value='default'>
-    <input id='mx1045870519' name='entry.1045870519' type='text' value='default'>
-    <input id='mx683300283' name='entry.683300283' type='text' value='default'>
-    <input id='mx967906330' name='entry.967906330' type='text' value='default'>
-    <input id='mx789190149' name='entry.789190149' type='text' value='default'>
-    <input type="submit"> </form>
- 
-  <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="60"></iframe>
-  <br>
-  <br>
-  <br>
-  <br>
   
   
   
@@ -1522,7 +1312,7 @@ opacity: 0.5;
       incScore = document.getElementById(id).innerText;
       //	if(incScore.indexOf("hcp") > -1) {
       if (incScore == "hcp" || incScore == "") {
-        document.getElementById(id).style.fontSize = "50px";
+        document.getElementById(id).style.fontSize = "25px";
         document.getElementById(id).style.paddingTop = 0;
         incScore = 0;
       }
@@ -1537,7 +1327,7 @@ opacity: 0.5;
     function incrementScore(id) {
       incScore = document.getElementById(id).innerText;
       if (incScore.indexOf("hole") > -1) {
-        document.getElementById(id).style.fontSize = "50px";
+        document.getElementById(id).style.fontSize = "25px";
         document.getElementById(id).style.paddingTop = 0;
         incScore = 0;
       }
@@ -1570,7 +1360,7 @@ opacity: 0.5;
         document.getElementById(id).innerText = "hcp";
       } else {
         if (incScore.indexOf("hcp") > -1) {
-          document.getElementById(id).style.fontSize = "50px";
+          document.getElementById(id).style.fontSize = "25px";
           document.getElementById(id).style.paddingTop = 0;
           incScore = 0;
         }
@@ -1596,7 +1386,7 @@ opacity: 0.5;
         document.getElementById(id).innerText = "hole " + holenum;
       } else {
         if (incScore.indexOf("hole") > -1) {
-          document.getElementById(id).style.fontSize = "50px";
+          document.getElementById(id).style.fontSize = "25px";
           document.getElementById(id).style.paddingTop = 0;
           incScore = 0;
         }
@@ -2181,14 +1971,14 @@ document.getElementById("showrules").style.visibility = "visible";
  
 }
 
--->
 
 
 
 
 
 
-<script>
+
+
 
 
  function xmyFunction() {
