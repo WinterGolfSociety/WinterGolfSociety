@@ -235,6 +235,18 @@
       display: block;
     }
     /* end of dropdown */  
+
+    /* hide forms */
+    #my-form,
+    #my-response-iframe {
+      display: none;
+      height: 20px;
+      width: 60px;
+    }
+    
+
+
+
   </style>
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
@@ -347,30 +359,32 @@
       <span class="plusx" id="plushcpx">handicap</span>
    </div>
   
-   <div class="box r1c1to6 bar" id="submit">submit</div>
+   <div class="box r1c1to6 bar" id="submit" onclick="submitForm()">submit</div>
   
-   <div class="r1c1to2 footer">
+   <div class="r1c1to2 footer" id="limg">
     <img src="resetwhite.png" alt="cache" onclick="clearCache()" 
          style="height: 40px; width: 40px;">
    </div>
   
-   <div class="r1c3 footer">
+   <div class="r1c3 footer" id="mimgl">
     <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" 
          style="height: 40px; width: 40px;">
    </div>
 
-   <div class="r1c4 footer">
+   <div class="r1c4 footer" id="mimgr">
     <img src="ruleswhite.png" alt="rules" onclick="showrules()" 
          style="height: 40px; width: 40px;">
    </div>
 
-   <div class="r1c5to6 footer">
+   <div class="r1c5to6 footer" id="rimg">
     <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" 
         style="height: 40px; width: 40px;">
    </div>
 
    </div>
-  
+
+  <!-- score input pages -->
+
    <div class="wrapperforscoring">
 
       <div class="padminus" onclick='decrementScore("numscore1")'>
@@ -521,10 +535,85 @@
     <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
   </div>
 
+</div> 
+
 </div>
 
-</div> 
-  
+
+
+
+
+ <!-- form to construct data prior to submit -->
+ <form action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+  <!-- name, hcp, course -->
+  <input id='mx474474348' name='entry.474474348' type='text' value='default'>
+  <input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
+  <input id='mx477101370' name='entry.477101370' type='text' value='default'>
+  <input id='mx1980297491' name='entry.1980297491' type='text' value='default'>
+  <input id='mx463832232' name='entry.463832232' type='text' value='default'>
+  <input id='mx205704642' name='entry.205704642' type='text' value='default'>
+  <input id='mx278278589' name='entry.278278589' type='text' value='default'>
+  <input id='mx949547387' name='entry.949547387' type='text' value='default'>
+  <input id='mx703011397' name='entry.703011397' type='text' value='default'>
+  <input id='mx1460583253' name='entry.1460583253' type='text' value='default'>
+  <input id='mx462940045' name='entry.462940045' type='text' value='default'>
+  <input id='mx477691508' name='entry.477691508' type='text' value='default'>
+  <input id='mx413249407' name='entry.413249407' type='text' value='default'>
+  <input id='mx108900453' name='entry.108900453' type='text' value='default'>
+  <input id='mx1841236411' name='entry.1841236411' type='text' value='default'>
+  <input id='mx1864644918' name='entry.1864644918' type='text' value='default'>
+  <input id='mx1538428689' name='entry.1538428689' type='text' value='default'>
+  <input id='mx1449918213' name='entry.1449918213' type='text' value='default'>
+  <input id='mx38761817' name='entry.38761817' type='text' value='default'>
+  <input id='mx247392471' name='entry.247392471' type='text' value='default'>
+  <input id='mx741809181' name='entry.741809181' type='text' value='default'>
+  <input id='mx1362729237' name='entry.1362729237' type='text' value='default'>
+  <input id='mx1372983908' name='entry.1372983908' type='text' value='default'>
+  <input id='mx2002196917' name='entry.2002196917' type='text' value='default'>
+  <input id='mx640802794' name='entry.640802794' type='text' value='default'>
+  <input id='mx2076656246' name='entry.2076656246' type='text' value='default'>
+  <input id='mx486346919' name='entry.486346919' type='text' value='default'>
+  <input id='mx1918313229' name='entry.1918313229' type='text' value='default'>
+  <input id='mx638821' name='entry.638821' type='text' value='default'>
+  <input id='mx737099688' name='entry.737099688' type='text' value='default'>
+  <input id='mx488827232' name='entry.488827232' type='text' value='default'>
+  <input id='mx1203421487' name='entry.1203421487' type='text' value='default'>
+  <input id='mx979421831' name='entry.979421831' type='text' value='default'>
+  <input id='mx929858153' name='entry.929858153' type='text' value='default'>
+  <input id='mx1330487443' name='entry.1330487443' type='text' value='default'>
+  <input id='mx940496448' name='entry.940496448' type='text' value='default'>
+  <input id='mx1127168348' name='entry.1127168348' type='text' value='default'>
+  <input id='mx638332104' name='entry.638332104' type='text' value='default'>
+  <input id='mx1626319908' name='entry.1626319908' type='text' value='default'>
+  <input id='mx362674948' name='entry.362674948' type='text' value='default'>
+  <input id='mx544180710' name='entry.544180710' type='text' value='default'>
+  <input id='mx893562950' name='entry.893562950' type='text' value='default'>
+  <input id='mx335596501' name='entry.335596501' type='text' value='default'>
+  <input id='mx1453506389' name='entry.1453506389' type='text' value='default'>
+  <input id='mx1045870519' name='entry.1045870519' type='text' value='default'>
+  <input id='mx683300283' name='entry.683300283' type='text' value='default'>
+  <input id='mx967906330' name='entry.967906330' type='text' value='default'>
+  <input id='mx789190149' name='entry.789190149' type='text' value='default'>
+  <input type="submit"> </form>
+<!-- google iframe inserted here - invisible -->
+<iframe height="20" id="my-response-iframe" name="my-response-iframe" 
+src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="60"></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <script>
     //===========================
     // this code runs at startup
@@ -1202,6 +1291,7 @@
         document.getElementById('mx1453506389').value = tempcb6;
         document.getElementById('mx1045870519').value = tempcb3;
         document.getElementById('mx683300283').value = document.getElementById("p18").innerText;
+
         //temp2 = 0;
         twoscount = 0;
         // check data is complete 
@@ -1234,8 +1324,8 @@
           checkBeforeSubmitID += "hcp not set\n"
           err = "yes";
         }
-
-        if (err == "yes") {
+    
+        if (err == "xxxyes") {
           // error message
           checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
           showIncompleteSubmitData(checkBeforeSubmitID);
@@ -1262,7 +1352,7 @@
         
          
          
-          document.getElementById("submitwrapper").style.visibility = "visible";
+          document.getElementById("submit").style.visibility = "visible";
         
         
         
@@ -1291,29 +1381,29 @@
 
           // show sending icon
           //setTimeout(function() {
-
+/*
           if (document.getElementById("setup").style.backgroundColor == "black") {
-            document.getElementById('submitwrapper').style.borderColor = "black";
-            document.getElementById('submitwrapper').style.background = "black";
+            document.getElementById('submit').style.borderColor = "black";
+            document.getElementById('submit').style.background = "black";
           } else {
-            document.getElementById('submitwrapper').style.borderColor = "darkSlateGray";
-            document.getElementById('submitwrapper').style.background = "darkSlateGray";
+            document.getElementById('submit').style.borderColor = "darkSlateGray";
+            document.getElementById('submit').style.background = "darkSlateGray";
           }
+  */        
           
           
           
           
-          
-          document.getElementById('submittxt').innerText = "";
+          document.getElementById('submit').innerText = "";
           // show empty text which is placeholder for image
   //        slideSource.classList.toggle('fade');
 
-          document.getElementById('submittxt').innerHTML =
+          document.getElementById('submit').innerHTML =
             '<img src="uploada.png" style="height: 100px; width: 100px;">'
             //}, 500);
 
           setTimeout(function() {
-            document.getElementById('submittxt').innerHTML =
+            document.getElementById('submit').innerHTML =
               '<img src="tick1.png" style="height: 100px; width: 100px;">'
           }, 6500);
 
