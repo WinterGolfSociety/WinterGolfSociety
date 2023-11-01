@@ -14,6 +14,7 @@
     padding: 0;
     box-sizing: border-box;
     }
+
   body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -23,7 +24,7 @@
     padding-right: 0;
     }
     
- .three-page-container {
+  .three-page-container {
     display: grid;
     grid-template-columns: repeat(3, 100%);
     align-content: center;
@@ -32,211 +33,203 @@
     -webkit-overflow-scrolling: touch;
     }
 
+  .wrapper {
+    display: grid;
+    /* grid-template-columns: auto auto auto auto auto auto; */
+    grid-template-columns: repeat(6, [col] auto ) ;
+    /*grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))   */
+    background-color: rgb(0,0,20); // black;
+    color: white;
+    height: 100vh;
+    align-items: center;
+    justify-items: center;   
+    scroll-snap-align: start;
+    scroll-snap-stop: always; 
+    }
 
-.wrapper {
-  display: grid;
-  /* grid-template-columns: auto auto auto auto auto auto; */
-  grid-template-columns: repeat(6, [col] auto ) ;
-  /*grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))   */
-  background-color: rgb(0,0,20); // black;
-  color: white;
-  /*            width: 100vw;  */
-  height: 100vh;
-  /*
-  //   align-items: center;
-  //  justify-items: center;    
-  //      padding-top: 5px;
-  //      padding-bottom: 5px;
-  */    
-  align-items: center;
-  justify-items: center;   
-  scroll-snap-align: start;
-  scroll-snap-stop: always; 
-  }
+  .box {
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    }
 
-.box {
-  background-color: black;
-  color: white;
-  /* border-radius: 5px;
-  //   padding: 20px;
-  //border: 1px yellow solid;
-  */ 
-  font-size: 15px;
-  }
+  .r1c1left {
+    place-items: center;
+    }
 
-.r1c1left {
-  place-items: center;
-}  
-.r1c1to6 {
-  grid-column: 1 / 7;
-  place-items: center;
-  }
-.r1c1to2 {
-  grid-column: 1 / 3;
-  place-items: center;
-  }
-.r1c1to3 {
-  grid-column: 1 / 4;
-  place-items: center;
-  }  
-.r1c4to5 {
-  grid-column: 4 / 6;
-  place-items: center;
-  }
-.r1c5to6 {
-  grid-column: 5 / 7;
-  place-items: center;
-  }
-.r1c3to4 {
-  grid-column: 3 / 5;
-  place-items: center;
-  font-size: 26px;
-  }
+  .r1c1to6 {
+    grid-column: 1 / 7;
+    place-items: center;
+    }
+
+  .r1c1to2 {
+    grid-column: 1 / 3;
+    place-items: center;
+    }
+
+  .r1c1to3 {
+    grid-column: 1 / 4;
+    place-items: center;
+    }
+
+  .r1c4to5 {
+    grid-column: 4 / 6;
+    place-items: center;
+    }
+
+  .r1c5to6 {
+    grid-column: 5 / 7;
+    place-items: center;
+    }
+
+  .r1c3to4 {
+    grid-column: 3 / 5;
+    place-items: center;
+    font-size: 26px;
+    }
+
   /* holes grid */
   .r1c1to2l {
-  grid-column: 1 / 3;
-  place-items: left;
-  font-size: 26px;
-  }
+    grid-column: 1 / 3;
+    place-items: left;
+    font-size: 26px;
+    }
+
   .r1c5to6r {
-  grid-column: 5 / 7;
-  place-items: right;
-  font-size: 26px;
-  }
-.padnumber {
-//padding-left:40%;
-//padding-right:5%;
-background-color: dodgerBlue;
+    grid-column: 5 / 7;
+    place-items: right;
+    font-size: 26px;
+    }
 
-  display:grid;
-  place-items:center;
-border-style: none none solid none; /* t, r, b, l */
-border-color: rgb(30, 130, 255);
-}
+  .padnumber {
+    background-color: dodgerBlue;
+    display:grid;
+    place-items:center;
+    border-style: none none solid none; /* t, r, b, l */
+    border-color: rgb(30, 130, 255);
+    }
+
   .padplus {
+    background-color: dodgerBlue;
+    display: grid;
+    place-items: center;
+    border-style: none solid solid none; /* t, r, b, l */
+    border-color: rgb(30, 130, 255);
+    opacity: 0.5;
+    }
 
-  /*     */
-  //padding-left: 80%;
-//padding-right: 2%;
-//padding-top: 1%;
-//border: 1px solid white;
+  .padminus {
+    background-color: dodgerBlue;
+    display: grid;
+    place-items: center;
+    border-style: none none solid solid; /* t, r, b, l */
+    border-color: rgb(30, 130, 255);
+    opacity: 0.5;
+    }
 
-background-color: dodgerBlue;
-   display: grid;
-place-items: center;
-
-border-style: none solid solid none; /* t, r, b, l */
-border-color: rgb(30, 130, 255);
-opacity: 0.5;
-}
-
-.padminus {
-
-/*     */
-//padding-left: 5%;
-//padding-right: 50%;
-//padding-top: 1%;
-//border: 1px solid white;
-
-background-color: dodgerBlue;
-  //display:flex;
-  //align-items:center;
-  display: grid;
-place-items: center;
-border-style: none none solid solid; /* t, r, b, l */
-border-color: rgb(30, 130, 255);
-opacity: 0.5;
-}
-
-.hole {
-  width: 98vw;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px white solid;
-  background: dodgerBlue;
-  }
+  .hole {
+    width: 98vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px white solid;
+    background: dodgerBlue;
+    }
   
+  .holesinfoout {
+    color: lime;
+    }
+
+  .holesinfoback {
+    color: cyan;
+    }
   
-
-
-
-
-
-.holesinfoout {
-  color: lime;
-  }
-
-.holesinfoback {
-  color: cyan;
-  }
-  
-
-.holesinfo {
-  color: yellow;
-  }
+  .holesinfo {
+    color: yellow;
+    }
   
   .bar {
-  width: 98vw;
-  height: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px white solid;
-  }
+    width: 98vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px white solid;
+    }
 
   .border {
     border: 1px white solid;
-  }
+    }
 
-#dropbtn, #hcpwrapper, #submit {
-  background: dodgerBlue;
-  }
+  #dropbtn, #hcpwrapper, #submit {
+    background: dodgerBlue;
+    }
 
   .numx {
-
     padding-left: 10px;
     padding-right: 10px;
-  }
+    }
 
   .footer {
     padding-top: 2%;
     padding-bottom: 2%;
     justify-content: center;
     align-items: center;
-  }
-
-
-
+    }
 
   .wrapperforscoring {
-  display: grid;
-  /* grid-template-columns: auto auto auto auto auto auto; */
-  grid-template-columns: auto auto auto;
-  background-color: dodgerBlue;
-  color: white;
-  gap: 0px;
-  
-  /*            width: 100vw;  */
- // height: 100%;
- // width: 100%;
-  /*
-  //   align-items: center;
-  //  justify-items: center;    
-  //      padding-top: 5px;
-  //      padding-bottom: 5px;
-  */    
-  //align-items: center;
-  //justify-items: center;   
-  scroll-snap-align: start;
-  scroll-snap-stop: always; 
-  }
+    display: grid;
+    /* grid-template-columns: auto auto auto auto auto auto; */
+    grid-template-columns: auto auto auto;
+    background-color: dodgerBlue;
+    color: white;
+    gap: 0px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always; 
+    }
 
-
-
-
-
+  /* dropdown */
+  #dropbtn {
+      color: white;
+      cursor: pointer;
+      width: 100vw;
+      height: 10vh;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 3px;
+      border: none;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 3px;
+      box-shadow: 10px 10px 25px black;
+      max-height: 70vh;
+    }
+    
+    .dropdown-content a {
+      color: gray;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .show {
+      display: block;
+    }
+    /* end of dropdown */  
   </style>
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
@@ -250,8 +243,8 @@ opacity: 0.5;
   
   <div class="wrapper">
   <div class="box r1c1to6">
-    <div onclick="xmyFunction();" class="dropbtn bar" id="dropbtn">select player</div>
-    <div id="myDropdown" class="xdropdown-content"> </div>
+    <div onclick="myFunction();" class="dropbtn bar" id="dropbtn">select player</div>
+    <div id="myDropdown" class="dropdown-content"> </div>
   </div>
   
   <div class="box holesinfoout">hole</div>
@@ -343,18 +336,13 @@ opacity: 0.5;
   <div class="box holesinfo"></div>
   <div class="box holesinfo"></div>
   
-
-  
    <div class="box r1c1to6 bar" id="hcpwrapper">
       <span class="minusx" id="minushcpx">playing</span>
       <span class="numx" id="numhcp">?</span>
       <span class="plusx" id="plushcpx">handicap</span>
    </div>
   
-  
    <div class="box r1c1to6 bar" id="submit">submit</div>
-  
-   
   
    <div class="r1c1to2 footer">
     <img src="resetwhite.png" alt="cache" onclick="clearCache()" 
@@ -375,18 +363,10 @@ opacity: 0.5;
     <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" 
         style="height: 40px; width: 40px;">
    </div>
-  
-
 
    </div>
-
   
-     <div class="wrapperforscoring">
-
-
-
-
-
+   <div class="wrapperforscoring">
 
       <div class="padminus" onclick='decrementScore("numscore1")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
@@ -396,7 +376,6 @@ opacity: 0.5;
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
 
-
       <div class="padminus" onclick='decrementScore("numscore2")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
       </div>
@@ -404,7 +383,6 @@ opacity: 0.5;
       <div class="padplus" onclick='incrementScore("numscore2")'>
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
-
 
       <div class="padminus" onclick='decrementScore("numscore3")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
@@ -414,7 +392,6 @@ opacity: 0.5;
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
 
-
       <div class="padminus" onclick='decrementScore("numscore4")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
       </div>
@@ -422,7 +399,6 @@ opacity: 0.5;
       <div class="padplus" onclick='incrementScore("numscore4")'>
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
-
 
       <div class="padminus" onclick='decrementScore("numscore5")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
@@ -432,7 +408,6 @@ opacity: 0.5;
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
 
-
       <div class="padminus" onclick='decrementScore("numscore6")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
       </div>
@@ -440,7 +415,6 @@ opacity: 0.5;
       <div class="padplus" onclick='incrementScore("numscore6")'>
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
-
 
       <div class="padminus" onclick='decrementScore("numscore7")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
@@ -450,7 +424,6 @@ opacity: 0.5;
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
 
-
       <div class="padminus" onclick='decrementScore("numscore8")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
       </div>
@@ -459,7 +432,6 @@ opacity: 0.5;
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
 
-
       <div class="padminus" onclick='decrementScore("numscore9")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
       </div>
@@ -467,64 +439,86 @@ opacity: 0.5;
       <div class="padplus" onclick='incrementScore("numscore9")'>
         <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-   <div class="box r1c1to6 hole">hole 2</div>
-    <div class="box r1c1to6 hole">hole 3</div>
-     <div class="box r1c1to6 hole">hole 4</div>
-      <div class="box r1c1to6 hole">hole 5</div>
-       <div class="box r1c1to6 hole">hole 6</div>
-        <div class="box r1c1to6 hole">hole 7</div>
-         <div class="box r1c1to6 hole">hole 8</div>
-          <div class="box r1c1to6 hole">hole 9</div>
-          
--->    
   
- </div>
+</div>
    
-    
- <div class="wrapper">
-  <div class="box r1c1to6 hole">hole 10</div>
-   <div class="box r1c1to6 hole">hole 11</div>
-    <div class="box r1c1to6 hole">hole 12</div>
-     <div class="box r1c1to6 hole">hole 13</div>
-      <div class="box r1c1to6 hole">hole 14</div>
-       <div class="box r1c1to6 hole">hole 15</div>
-        <div class="box r1c1to6 hole">hole 16</div>
-         <div class="box r1c1to6 hole">hole 17</div>
-          <div class="box r1c1to6 hole">hole 18</div>
-          
-        
-  
- </div>  
+<div class="wrapperforscoring">
+
+  <div class="padminus" onclick='decrementScore("numscore10")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore10" onclick="showHole(this.id)"">hole 10</div>
+  <div class="padplus" onclick='incrementScore("numscore10")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+  <div class="padminus" onclick='decrementScore("numscore11")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore11" onclick="showHole(this.id)"">hole 11</div>
+  <div class="padplus" onclick='incrementScore("numscore11")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+  <div class="padminus" onclick='decrementScore("numscore12")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore12" onclick="showHole(this.id)"">hole 12</div>
+  <div class="padplus" onclick='incrementScore("numscore12")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+  <div class="padminus" onclick='decrementScore("numscore13")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore13" onclick="showHole(this.id)"">hole 13</div>
+  <div class="padplus" onclick='incrementScore("numscore13")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+  <div class="padminus" onclick='decrementScore("numscore14")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore14" onclick="showHole(this.id)"">hole 14</div>
+  <div class="padplus" onclick='incrementScore("numscore14")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+  <div class="padminus" onclick='decrementScore("numscore15")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore15" onclick="showHole(this.id)"">hole 15</div>
+  <div class="padplus" onclick='incrementScore("numscore15")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+  <div class="padminus" onclick='decrementScore("numscore16")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore16" onclick="showHole(this.id)"">hole 16</div>
+  <div class="padplus" onclick='incrementScore("numscore16")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+  <div class="padminus" onclick='decrementScore("numscore17")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore17" onclick="showHole(this.id)"">hole 17</div>
+  <div class="padplus" onclick='incrementScore("numscore17")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+  <div class="padminus" onclick='decrementScore("numscore18")'>
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+  </div>
+  <div class="padnumber" id="numscore18" onclick="showHole(this.id)"">hole 18</div>
+  <div class="padplus" onclick='incrementScore("numscore18")'>
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+  </div>
+
+</div>
+
 </div> 
-  
- 
-  
-  
-  
-  
-  
-  
-  
   
   <script>
     //===========================
@@ -533,16 +527,9 @@ opacity: 0.5;
     // declare global variables
     var hcp = "hcp";
     var player = "select player";
-    var course;
     var comp;
     var compday = "no";
-    // hide hands after 1 score entry
-    if ("handsswiperight" in localStorage) {
-       // hide hands
-       document.getElementById("swiperight").style.visibility = "hidden"
-    } else {
-       localStorage.handsswiperight = "hidden" 
-    }   
+     
     // set up courses with details for calculations etc.
     // array ["hole num",par,si]
     // Lakes
@@ -594,8 +581,9 @@ opacity: 0.5;
     // these need to be the same as the setup page on google sheets
     // if they are to be recorded properly in the results
     arrComps = [
-      "Dawson 02 October 2023",
-      "Lakes 06 October 2023",
+      "Dawson 02 November 2023",
+
+      "Lakes 01 November 2023",
       "Dawson 09 October 2023",
       "Lakes 13 October 2023",
       "Dawson 16 October 2023",
@@ -749,7 +737,6 @@ opacity: 0.5;
       }
     };
 
-
     // if different
     if (notsame) {
       // option is original, master is new
@@ -786,6 +773,7 @@ opacity: 0.5;
         document.getElementById("myLink" + (i + 1)).style.background = "lightBlue";
       }
     }
+   
     // Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
       if (!event.target.matches('.dropbtn')) {
@@ -846,6 +834,7 @@ opacity: 0.5;
       m = "December";
     }
     dateToday = d1 + " " + m;
+  
     // tidy localStorage if out of date to allow new "blank" setup
     if ("comp" in localStorage) {
       if (localStorage.comp.indexOf(dateToday) == -1) {
@@ -853,14 +842,17 @@ opacity: 0.5;
         clearCache();
       }
     }
+  
     // recover data if dates match
     // this allows data to be kept over refreshes
+    /*
     if ("comp" in localStorage) {
       if (localStorage.comp.indexOf(dateToday) > -1) {
         // recover
         recoverFromLocalStorage();
       }
     }
+    */
     // see if it is a compday and if so find comp and course from array list
     for (i = 0; i < arrComps.length; i++) {
       // if today - eg. "22 June" in arrComps list then compday = "yes"
@@ -1506,7 +1498,7 @@ opacity: 0.5;
       document.getElementById("hcpwrapper").style.visibility = "visible";
       // changed to change hcp on any player change
       //		if(document.getElementById("numhcp").innerText == "?") {
-      document.getElementById("numhcp").innerHTML = '<img src="search1.png" width=50 height=48>'
+      document.getElementById("numhcp").innerHTML = '<img src="throbber.gif" width=50 height=50>'
       document.getElementById("numhcp").style.paddingTop = "5px";
       document.getElementById("numhcp").style.paddingBottom = "5px";
       var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
@@ -1805,7 +1797,6 @@ opacity: 0.5;
       document.getElementById("id_confrmdiv").style.display = "block";
     }
     // show hole number when hole score pressed
-    // show hole number when hole score pressed
     function showHole(id) {
       tempe = document.getElementById(id);
       tempsaved = tempe.innerText;
@@ -1829,7 +1820,7 @@ opacity: 0.5;
           for (var i = 1; i <= 18; i++) {
             document.getElementById("numscore" + i).style.pointerEvents = '';
           }
-          tempe.style.fontSize = "50px";
+          tempe.style.fontSize = "25px";
           tempe.style.paddingTop = 0;
           tempe.style.fontWeight = "normal";
           tempe.style.color = "white";
@@ -1880,7 +1871,7 @@ opacity: 0.5;
       document.getElementById("id_confrmdiv").style.display = "block";
 
     
-     setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 4 seconds" },1000)    
+   setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 4 seconds" },1000)    
    setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 3 seconds" },2000)
    setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 2 seconds" },3000)
    setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 1 second" },4000) 
