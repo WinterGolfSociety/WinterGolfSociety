@@ -96,9 +96,20 @@
   place-items: right;
   font-size: 26px;
   }
-.r1c1 {
+.padplus {
 
+  /*     */
+  padding-left: 10vw;
+  padding-right: 2vw;
   border: 1px solid white;
+}
+
+.padminus {
+
+/*     */
+padding-left: 2vw;
+padding-right: 10vw;
+border: 1px solid white;
 }
 
 .hole {
@@ -139,6 +150,10 @@
   border: 1px white solid;
   }
 
+  .border {
+    border: 1px white solid;
+  }
+
 #dropbtn, #hcpwrapper, #submit {
   background: dodgerBlue;
   }
@@ -165,7 +180,7 @@
   grid-template-columns: auto auto auto ;
   background-color: dodgerBlue;
   color: white;
-  //gap: 5px;
+  gap: 5px;
   
   /*            width: 100vw;  */
   height: 100vh;
@@ -329,13 +344,12 @@
 
   
      <div class="wrapperforscoring">
-   
-      <div class="r1c1">
-        <img src="minusw.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">
+      <div class="padminus" onclick="plustest()" >
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
       </div>
       <div class="r1c1">hole 1</div>
-      <div class="r1c1">
-        <img src="plusw.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">  
+      <div class="padplus" onclick="plustest()" >
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
       </div>
 
       <div class="r1c1">-</div>
