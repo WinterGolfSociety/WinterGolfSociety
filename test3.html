@@ -191,14 +191,14 @@
 
   /* dropdown */
   #dropbtn {
-      color: white;
+    //  color: white;
       cursor: pointer;
-      width: 100vw;
-      height: 10vh;
-      font-size: 20px;
-      background: dodgerBlue;
-      border-radius: 3px;
-      border: none;
+    //  width: 100vw;
+    //  height: 10vh;
+    //  font-size: 20px;
+    //  background: dodgerBlue;
+    //  border-radius: 3px;
+    //  border: none;
     }
     
     .dropdown {
@@ -1499,8 +1499,8 @@
       // changed to change hcp on any player change
       //		if(document.getElementById("numhcp").innerText == "?") {
       document.getElementById("numhcp").innerHTML = '<img src="throbber.gif" width=50 height=50>'
-      document.getElementById("numhcp").style.paddingTop = "5px";
-      document.getElementById("numhcp").style.paddingBottom = "5px";
+      //document.getElementById("numhcp").style.paddingTop = "5px";
+      //document.getElementById("numhcp").style.paddingBottom = "5px";
       var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
       strng2 = "?";
       try {
@@ -1525,7 +1525,7 @@
             //console.log("completed");
             if (Math.trunc(strng2) > 0) {
               document.getElementById("numhcp").innerHTML = "";
-              document.getElementById("numhcp").style.fontSize = "50px";
+              document.getElementById("numhcp").style.fontSize = "25px";
               document.getElementById("numhcp").style.paddingTop = 0;
               document.getElementById("numhcp").style.paddingBottom = 0;
               document.getElementById("numhcp").innerText = Math.trunc(strng2);
