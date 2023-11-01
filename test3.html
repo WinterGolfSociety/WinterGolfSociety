@@ -37,6 +37,7 @@
   display: grid;
   /* grid-template-columns: auto auto auto auto auto auto; */
   grid-template-columns: repeat(6, [col] auto ) ;
+  /*grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))   */
   background-color: black;
   color: white;
   /*            width: 100vw;  */
@@ -67,36 +68,39 @@
   grid-column: 1 / 7;
   place-items: center;
   }
-.r2c1 {
-  grid-column: 1 ;
-  }
-.r2c2 {
-  grid-column: 2 ;
-  }
-.r2c3 {
-  grid-column: 3;
-  }
-.r2c4 {
-  grid-column: 4 ;
-  }
-.r2c5 {
-  grid-column: 5 ;
-  }
-.r2c6 {
-  grid-column: 6;
-  }
+
 .r1c1to2 {
   grid-column: 1 / 3;
   place-items: center;
   }
   .r1c4to6 {
-  grid-column: 4 / 6;
+  grid-column: 4 / 7;
   place-items: center;
   }
   .r1c5to6 {
   grid-column: 5 / 7;
   place-items: center;
   }
+  .r1c3to4 {
+  grid-column: 3 / 5;
+  place-items: center;
+  font-size: 26px;
+  }
+  .r1c1to2l {
+  grid-column: 1 / 3;
+  place-items: left;
+  font-size: 26px;
+  }
+  .r1c5to6r {
+  grid-column: 5 / 7;
+  place-items: right;
+  font-size: 26px;
+  }
+.r1c1 {
+
+  border: 1px solid white;
+}
+
 .hole {
   width: 98vw;
   height: 100%;
@@ -107,6 +111,12 @@
   background: dodgerBlue;
   }
   
+  
+
+
+
+
+
 .holesinfoout {
   color: lime;
   }
@@ -146,6 +156,35 @@
     align-items: center;
   }
 
+
+
+
+  .wrapperforscoring {
+  display: grid;
+  /* grid-template-columns: auto auto auto auto auto auto; */
+  grid-template-columns: auto auto auto ;
+  background-color: dodgerBlue;
+  color: white;
+  //gap: 5px;
+  
+  /*            width: 100vw;  */
+  height: 100vh;
+  /*
+  //   align-items: center;
+  //  justify-items: center;    
+  //      padding-top: 5px;
+  //      padding-bottom: 5px;
+  */    
+  align-items: center;
+  justify-items: center;   
+  scroll-snap-align: start;
+  scroll-snap-stop: always; 
+  }
+
+
+
+
+
   </style>
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
@@ -163,93 +202,93 @@
     <div id="myDropdown" class="xdropdown-content"> </div>
   </div>
   
-  <div class="box r2c1 holesinfoout">hole</div>
-  <div class="box r2c2 holesinfoout">score</div>
-  <div class="box r2c3 holesinfoout">points</div>
-  <div class="box r2c4 holesinfoback">hole</div>
-  <div class="box r2c5 holesinfoback">score</div>
-  <div class="box r2c6 holesinfoback">points</div>
+  <div class="box holesinfoout">hole</div>
+  <div class="box holesinfoout">score</div>
+  <div class="box holesinfoout">points</div>
+  <div class="box holesinfoback">hole</div>
+  <div class="box holesinfoback">score</div>
+  <div class="box holesinfoback">points</div>
   
-  <div class="box r2c1 holesinfoout">1</div>
-  <div class="box r2c2 holesinfoout" id="h1">0</div>
-  <div class="box r2c3 holesinfoout" id="p1">0</div>
-  <div class="box r2c4 holesinfoback">10</div>
-  <div class="box r2c5 holesinfoback" id="h10">0</div>
-  <div class="box r2c6 holesinfoback" id="p10">0</div>
+  <div class="box holesinfoout">1</div>
+  <div class="box holesinfoout" id="h1">0</div>
+  <div class="box holesinfoout" id="p1">0</div>
+  <div class="box holesinfoback">10</div>
+  <div class="box holesinfoback" id="h10">0</div>
+  <div class="box holesinfoback" id="p10">0</div>
 
-  <div class="box r2c1 holesinfoout">2</div>
-  <div class="box r2c2 holesinfoout" id="h2">0</div>
-  <div class="box r2c3 holesinfoout" id="p2">0</div>
-  <div class="box r2c4 holesinfoback">11</div>
-  <div class="box r2c5 holesinfoback" id="h11">0</div>
-  <div class="box r2c6 holesinfoback" id="p11">0</div>
+  <div class="box holesinfoout">2</div>
+  <div class="box holesinfoout" id="h2">0</div>
+  <div class="box holesinfoout" id="p2">0</div>
+  <div class="box holesinfoback">11</div>
+  <div class="box holesinfoback" id="h11">0</div>
+  <div class="box holesinfoback" id="p11">0</div>
      
-  <div class="box r2c1 holesinfoout">3</div>
-  <div class="box r2c2 holesinfoout" id="h3">0</div>
-  <div class="box r2c3 holesinfoout" id="p3`">0</div>
-  <div class="box r2c4 holesinfoback">12</div>
-  <div class="box r2c5 holesinfoback" id="h12">0</div>
-  <div class="box r2c6 holesinfoback" id="p12">0</div>
+  <div class="box holesinfoout">3</div>
+  <div class="box holesinfoout" id="h3">0</div>
+  <div class="box holesinfoout" id="p3`">0</div>
+  <div class="box holesinfoback">12</div>
+  <div class="box holesinfoback" id="h12">0</div>
+  <div class="box holesinfoback" id="p12">0</div>
     
-  <div class="box r2c1 holesinfoout">4</div>
-  <div class="box r2c2 holesinfoout" id="h4">0</div>
-  <div class="box r2c3 holesinfoout" id="p4">0</div>
-  <div class="box r2c4 holesinfoback">13</div>
-  <div class="box r2c5 holesinfoback" id="h13">0</div>
-  <div class="box r2c6 holesinfoback" id="p13">0</div>
+  <div class="box holesinfoout">4</div>
+  <div class="box holesinfoout" id="h4">0</div>
+  <div class="box holesinfoout" id="p4">0</div>
+  <div class="box holesinfoback">13</div>
+  <div class="box holesinfoback" id="h13">0</div>
+  <div class="box holesinfoback" id="p13">0</div>
   
-  <div class="box r2c1 holesinfoout">5</div>
-  <div class="box r2c2 holesinfoout" id="h5">0</div>
-  <div class="box r2c3 holesinfoout" id="p5">0</div>
-  <div class="box r2c4 holesinfoback">14</div>
-  <div class="box r2c5 holesinfoback" id="h14">0</div>
-  <div class="box r2c6 holesinfoback" id="p14">0</div>
+  <div class="box holesinfoout">5</div>
+  <div class="box holesinfoout" id="h5">0</div>
+  <div class="box holesinfoout" id="p5">0</div>
+  <div class="box holesinfoback">14</div>
+  <div class="box holesinfoback" id="h14">0</div>
+  <div class="box holesinfoback" id="p14">0</div>
   
-   <div class="box r2c1 holesinfoout">6</div>
-  <div class="box r2c2 holesinfoout" id="h6">0</div>
-  <div class="box r2c3 holesinfoout" id="p6">0</div>
-  <div class="box r2c4 holesinfoback">15</div>
-  <div class="box r2c5 holesinfoback" id="h15">0</div>
-  <div class="box r2c6 holesinfoback" id="p15">0</div>
+   <div class="box holesinfoout">6</div>
+  <div class="box holesinfoout" id="h6">0</div>
+  <div class="box holesinfoout" id="p6">0</div>
+  <div class="box holesinfoback">15</div>
+  <div class="box holesinfoback" id="h15">0</div>
+  <div class="box holesinfoback" id="p15">0</div>
 
-  <div class="box r2c1 holesinfoout">7</div>
-  <div class="box r2c2 holesinfoout" id="h7">0</div>
-  <div class="box r2c3 holesinfoout" id="p7">0</div>
-  <div class="box r2c4 holesinfoback">16</div>
-  <div class="box r2c5 holesinfoback" id="h16">0</div>
-  <div class="box r2c6 holesinfoback" id="p16">0</div>
+  <div class="box holesinfoout">7</div>
+  <div class="box holesinfoout" id="h7">0</div>
+  <div class="box holesinfoout" id="p7">0</div>
+  <div class="box holesinfoback">16</div>
+  <div class="box holesinfoback" id="h16">0</div>
+  <div class="box holesinfoback" id="p16">0</div>
      
-  <div class="box r2c1 holesinfoout">8</div>
-  <div class="box r2c2 holesinfoout" id="h8">0</div>
-  <div class="box r2c3 holesinfoout" id="p8">0</div>
-  <div class="box r2c4 holesinfoback">17</div>
-  <div class="box r2c5 holesinfoback" id="h17">0</div>
-  <div class="box r2c6 holesinfoback" id="p17">0</div>
+  <div class="box holesinfoout">8</div>
+  <div class="box holesinfoout" id="h8">0</div>
+  <div class="box holesinfoout" id="p8">0</div>
+  <div class="box holesinfoback">17</div>
+  <div class="box holesinfoback" id="h17">0</div>
+  <div class="box holesinfoback" id="p17">0</div>
     
-  <div class="box r2c1 holesinfoout">9</div>
-  <div class="box r2c2 holesinfoout" id="h9">0</div>
-  <div class="box r2c3 holesinfoout" id="p9">0</div>
-  <div class="box r2c4 holesinfoback">18</div>
-  <div class="box r2c5 holesinfoback" id="h18">0</div>
-  <div class="box r2c6 holesinfoback" id="p18">0</div>
+  <div class="box holesinfoout">9</div>
+  <div class="box holesinfoout" id="h9">0</div>
+  <div class="box holesinfoout" id="p9">0</div>
+  <div class="box holesinfoback">18</div>
+  <div class="box holesinfoback" id="h18">0</div>
+  <div class="box holesinfoback" id="p18">0</div>
   
-  <div class="box r2c1 holesinfo">front</div>
-  <div class="box r2c2 holesinfo" id="hfront">0</div>
-  <div class="box r2c3 holesinfo" id="pfront">0</div>
-  <div class="box r2c4 holesinfo">back</div>
-  <div class="box r2c5 holesinfo" id="hfront">0</div>
-  <div class="box r2c6 holesinfo" id="pfront">0</div>
+  <div class="box holesinfo">front</div>
+  <div class="box holesinfo" id="hfront">0</div>
+  <div class="box holesinfo" id="pfront">0</div>
+  <div class="box holesinfo">back</div>
+  <div class="box holesinfo" id="hfront">0</div>
+  <div class="box holesinfo" id="pfront">0</div>
   
   <div class="box r1c1to2 holesinfo">total score</div>
-  <div class="box r2c3 holesinfo" id="htotal">0</div>
+  <div class="box holesinfo" id="htotal">0</div>
   <div class="box r1c4to6 holesinfo">total points</div>
-  <div class="box r2c6 holesinfo" id="ptotal">0</div>
+  <div class="box holesinfo" id="ptotal">0</div>
   
   <div class="box r1c1to2 holesinfo">countback</div>
-  <div class="box r2c3 holesinfo" id="cback">0</div>
-  <div class="box r2c4 holesinfo"></div>
-  <div class="box r2c5 holesinfo"></div>
-  <div class="box r2c6 holesinfo"></div>
+  <div class="box holesinfo" id="cback">0</div>
+  <div class="box holesinfo"></div>
+  <div class="box holesinfo"></div>
+  <div class="box holesinfo"></div>
   
 
   
@@ -289,8 +328,45 @@
    </div>
 
   
-     <div class="wrapper">
-  <div class="box r1c1to6 hole">hole 1</div>
+     <div class="wrapperforscoring">
+   
+      <div class="r1c1">
+        <img src="minusw.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">
+      </div>
+      <div class="r1c1">hole 1</div>
+      <div class="r1c1">
+        <img src="plusw.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">  
+      </div>
+
+      <div class="r1c1">-</div>
+      <div class="r1c1">hole 1</div>
+      <div class="r1c1">+</div>
+
+      <div class="r1c1">-</div>
+      <div class="r1c1">hole 1</div>
+      <div class="r1c1">+</div>
+
+      <div class="r1c1">-</div>
+      <div class="r1c1">hole 1</div>
+      <div class="r1c1">+</div>
+
+      <div class="r1c1">-</div>
+      <div class="r1c1">hole 1</div>
+      <div class="r1c1">+</div>
+      <div class="r1c1">-</div>
+      <div class="r1c1">hole 1</div>
+      <div class="r1c1">+</div>
+      <div class="r1c1">-</div>
+      <div class="r1c1">hole 1</div>
+      <div class="r1c1">+</div>
+      <div class="r1c1">-</div>
+      <div class="r1c1">hole 1</div>
+      <div class="r1c1">+</div>
+      <div class="r1c1">-</div>
+      <div class="r1c1">hole 9</div>
+      <div class="r1c1">+</div>
+
+<!--
    <div class="box r1c1to6 hole">hole 2</div>
     <div class="box r1c1to6 hole">hole 3</div>
      <div class="box r1c1to6 hole">hole 4</div>
@@ -300,7 +376,7 @@
          <div class="box r1c1to6 hole">hole 8</div>
           <div class="box r1c1to6 hole">hole 9</div>
           
-        
+-->    
   
  </div>
    
@@ -322,199 +398,6 @@
 </div> 
  <!-- 
   
-  
-  
-    <div class="grid-container-across6" id="setup">
-      <div class="grid-item">
-        <button onclick="myFunction();" class="dropbtn" id="dropbtn">select player</button>
-        <div id="myDropdown" class="dropdown-content"> </div>
-      </div>
-      
-      <div class="grid-container" id="xxxsetup">
-        <div class="grid-item">hole</div>
-        <div class="grid-item">score</div>
-        <div class="grid-item">points</div>
-        <div class="grid-item">hole</div>
-        <div class="grid-item">score</div>
-        <div class="grid-item">points</div>
-      </div>
-   </div>    
- </div>   
-      
-      
-     
-      
-      <table class="table1">
-
-        <tbody>
-          <tr class="tr1">
-            <td>
-              <div class="wrapper">
-                <button onclick="myFunction();" class="xdropbtn" id="xdropbtn">select player</button>
-                <div id="xmyDropdown" class="xdropdown-content"> </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div>
-                <div class="ccontainer" id="swiperight"> <img src="pressbuttonflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;"> </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <table class="tableholes">
-                <caption></caption>
-               
-                <tbody>
-                  <tr>
-                    <td class="holesinfoout">1</td>
-                    <td class="holesinfoout" id="h1">0</td>
-                    <td class="holesinfoout" id="p1">0</td>
-                    <td class="holesinfo">10</td>
-                    <td class="holesinfo" id="h10">0</td>
-                    <td class="holesinfo" id="p10">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoout">2</td>
-                    <td class="holesinfoout" id="h2">0</td>
-                    <td class="holesinfoout" id="p2">0</td>
-                    <td class="holesinfo">11</td>
-                    <td class="holesinfo" id="h11">0</td>
-                    <td class="holesinfo" id="p11">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoout">3</td>
-                    <td class="holesinfoout" id="h3">0</td>
-                    <td class="holesinfoout" id="p3">0</td>
-                    <td class="holesinfo">12</td>
-                    <td class="holesinfo" id="h12">0</td>
-                    <td class="holesinfo" id="p12">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoout">4</td>
-                    <td class="holesinfoout" id="h4">0</td>
-                    <td class="holesinfoout" id="p4">0</td>
-                    <td class="holesinfo">13</td>
-                    <td class="holesinfo" id="h13">0</td>
-                    <td class="holesinfo" id="p13">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoout">5</td>
-                    <td class="holesinfoout" id="h5">0</td>
-                    <td class="holesinfoout" id="p5">0</td>
-                    <td class="holesinfo">14</td>
-                    <td class="holesinfo" id="h14">0</td>
-                    <td class="holesinfo" id="p14">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoout">6</td>
-                    <td class="holesinfoout" id="h6">0</td>
-                    <td class="holesinfoout" id="p6">0</td>
-                    <td class="holesinfo">15</td>
-                    <td class="holesinfo" id="h15">0</td>
-                    <td class="holesinfo" id="p15">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoout">7</td>
-                    <td class="holesinfoout" id="h7">0</td>
-                    <td class="holesinfoout" id="p7">0</td>
-                    <td class="holesinfo">16</td>
-                    <td class="holesinfo" id="h16">0</td>
-                    <td class="holesinfo" id="p16">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoout">8</td>
-                    <td class="holesinfoout" id="h8">0</td>
-                    <td class="holesinfoout" id="p8">0</td>
-                    <td class="holesinfo">17</td>
-                    <td class="holesinfo" id="h17">0</td>
-                    <td class="holesinfo" id="p17">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoout">9</td>
-                    <td class="holesinfoout" id="h9">0</td>
-                    <td class="holesinfoout" id="p9">0</td>
-                    <td class="holesinfo">18</td>
-                    <td class="holesinfo" id="h18">0</td>
-                    <td class="holesinfo" id="p18">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoy">front</td>
-                    <td class="holesinfoy" id="hfront">0</td>
-                    <td class="holesinfoy" id="pfront">0</td>
-                    <td class="holesinfoy">back</td>
-                    <td class="holesinfoy" id="hback">0</td>
-                    <td class="holesinfoy" id="pback">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoy">&nbsp;</td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoy" colspan="2">total score</td>
-                    <td class="holesinfoy" id="htotal">0</td>
-                    <td class="holesinfoy" colspan="2">total points</td>
-                    <td class="holesinfoy" id="ptotal">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoy" colspan="2">countback</td>
-                    <td class="holesinfoy" colspan="4" id="cback">0</td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoy">&nbsp;</td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                  </tr>
-                  <tr class="tr1" id="trhcp">
-                    <td class="xxxxtdright" colspan="6">
-                      <div class="hcpwrapper" id="hcpwrapper"><span class="minusx" id="minushcpx">playing</span><span class="numx" id="numhcp">?</span> <span class="plusx" id="plushcpx">handicap</span></div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="holesinfoy">&nbsp;</td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                    <td class="holesinfoy"></td>
-                  </tr>
-                  <tr class="xxxtr1">
-                    <td class="xxxxtdright" colspan="6">
-                      <div class="submitwrapper" id="submitwrapper" onclick="submitForm()">
-                        <div id="submittxt">Submit score</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="6">
-                      <div>&nbsp;</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td id="limg" colspan="2">
-                         <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="float: left; height: 40px; width: 40px;">
-                    </td>
-
-                    <td id="mimgl">
-                          <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 40px; width: 40px;">
-                    </td>
-
-                    <td id="mimgr">
-                          <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 40px; width: 40px;">
-                    </td>
-
-                    <td id="rimg" colspan="2">
-                          <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="float: right; height: 40px; width: 40px;">
-                          
                           <div id="xxx"></div>
                           
                           <div class="demo">
@@ -2222,7 +2105,9 @@ document.getElementById("showrules").style.visibility = "visible";
   console.log("test")
   }
   
-
+function plustest() {
+alert("plus");
+}
 
 
 
