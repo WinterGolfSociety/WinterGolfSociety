@@ -657,7 +657,7 @@ window.addEventListener('orientationchange', setDocHeight());
 setDocHeight();
 
     // declare global variables
-    var hcp = "hcp";
+    var hcp = "0";
     var player = "select player";
     var comp;
     var compday = "no";
@@ -1299,12 +1299,12 @@ setDocHeight();
           checkBeforeSubmitID += "player not set\n"
           err = "yes";
         }
-        if (hcp == "hcp") {
+        if (hcp == "0") {
           checkBeforeSubmitID += "hcp not set\n"
           err = "yes";
         }
     
-        if (err == "xxxyes") {
+        if (err == "yes") {
           // error message
           checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
           showIncompleteSubmitData(checkBeforeSubmitID);
@@ -1463,7 +1463,6 @@ setDocHeight();
     }
     // calculated additional totals, countback etc.
     function totalScore() {
-      console.log("totalscore")
       var ih = 0;
       var ip = 0;
       var c6 = 0;
@@ -1489,7 +1488,6 @@ setDocHeight();
           c1 = parseInt(document.getElementById("p" + j).innerText);
         }
       }
-      console.log(ip)
       document.getElementById("hfront").innerText = ih;
       document.getElementById("hback").innerText = jh;
       document.getElementById("pfront").innerText = ip;
@@ -1501,7 +1499,6 @@ setDocHeight();
     }
     // convert scores to stableford points
     function pointsCalc(hcp, par, si, score) {
-      console.log("hcp = " + hcp + " " + par + " " + si + " " + score)
       allowance = 0;
       if (score == 0) {
         return 0;
@@ -1570,7 +1567,6 @@ setDocHeight();
               hcp = Math.trunc(strng2);
               //=====LocalStorage.hcp=====
               localStorage.hcp = hcp;
-              console.log("hcp = " + hcp)
               //==========================
               // recalc scores to cope with any new lookup
               recalcScores();
@@ -1688,7 +1684,7 @@ setDocHeight();
         // make hcp visible
         document.getElementById("hcpwrapper").style.visibility = "visible";
         // make submit visible
-        document.getElementById("submitwrapper").style.visibility = "visible";
+        //document.getElementById("submitwrapper").style.visibility = "visible";
       } else {
         document.getElementById("numhcp").innerText = "?";
         //document.getElementById("numhcp").style.fontSize = "15px";
@@ -1706,6 +1702,7 @@ setDocHeight();
         //======================================
       }
       //	recalc points etc.
+   
       for (var i = 1; i <= 18; i++) {
         // put values for holes back
         if (("hole" + i) in localStorage) {
