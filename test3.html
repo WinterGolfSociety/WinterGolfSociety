@@ -16,9 +16,9 @@
 
 
 
- /* vh fix */
+ /* vh fix 
  — app-height: 100%;
-
+*/
 
     }
 
@@ -29,7 +29,7 @@
     background: rgb(0,0,20); // black;
     padding-left: 0;
     padding-right: 0;
-
+//min-height: 100vh;
 
     overflow-x: hidden; /* Hide horizontal scrollbar */
   overflow-y: auto; /* Add vertical scrollbar */
@@ -120,11 +120,12 @@
     }
 
   .padnumber {
-    background-color: dodgerBlue;
+    background-color: green; //dodgerBlue;
     display:grid;
     place-items:center;
     border-style: none none solid none; /* t, r, b, l */
     border-color: rgb(30, 130, 255);
+    font-size: 2vw;
     }
 
   .padplus {
@@ -133,7 +134,6 @@
     place-items: center;
     border-style: none solid solid none; /* t, r, b, l */
     border-color: rgb(30, 130, 255);
-    opacity: 0.5;
     }
 
   .padminus {
@@ -142,7 +142,6 @@
     place-items: center;
     border-style: none none solid solid; /* t, r, b, l */
     border-color: rgb(30, 130, 255);
-    opacity: 0.5;
     }
 
   .hole {
@@ -420,75 +419,75 @@
    <div class="wrapperforscoring">
 
       <div class="padminus" onclick='decrementScore("numscore1")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore1" onclick="showHole(this.id)">hole 1</div>
       <div class="padplus" onclick='incrementScore("numscore1")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
 
       <div class="padminus" onclick='decrementScore("numscore2")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore2" onclick="showHole(this.id)">hole 2</div>
       <div class="padplus" onclick='incrementScore("numscore2")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
 
       <div class="padminus" onclick='decrementScore("numscore3")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore3" onclick="showHole(this.id)">hole 3</div>
       <div class="padplus" onclick='incrementScore("numscore3")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
 
       <div class="padminus" onclick='decrementScore("numscore4")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore4" onclick="showHole(this.id)">hole 4</div>
       <div class="padplus" onclick='incrementScore("numscore4")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
 
       <div class="padminus" onclick='decrementScore("numscore5")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore5" onclick="showHole(this.id)">hole 5</div>
       <div class="padplus" onclick='incrementScore("numscore5")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
 
       <div class="padminus" onclick='decrementScore("numscore6")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore6" onclick="showHole(this.id)">hole 6</div>
       <div class="padplus" onclick='incrementScore("numscore6")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
 
       <div class="padminus" onclick='decrementScore("numscore7")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore7" onclick="showHole(this.id)">hole 7</div>
       <div class="padplus" onclick='incrementScore("numscore7")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
 
       <div class="padminus" onclick='decrementScore("numscore8")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore8" onclick="showHole(this.id)">hole 8</div>
       <div class="padplus" onclick='incrementScore("numscore8")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
 
       <div class="padminus" onclick='decrementScore("numscore9")'>
-        <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+        <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
       </div>
       <div class="padnumber" id="numscore9" onclick="showHole(this.id)">hole 9</div>
       <div class="padplus" onclick='incrementScore("numscore9")'>
-        <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+        <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
       </div>
   
 
@@ -507,75 +506,75 @@
 <div class="wrapperforscoring">
 
   <div class="padminus" onclick='decrementScore("numscore10")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore10" onclick="showHole(this.id)">hole 10</div>
   <div class="padplus" onclick='incrementScore("numscore10")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
   <div class="padminus" onclick='decrementScore("numscore11")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore11" onclick="showHole(this.id)">hole 11</div>
   <div class="padplus" onclick='incrementScore("numscore11")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
   <div class="padminus" onclick='decrementScore("numscore12")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore12" onclick="showHole(this.id)">hole 12</div>
   <div class="padplus" onclick='incrementScore("numscore12")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
   <div class="padminus" onclick='decrementScore("numscore13")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore13" onclick="showHole(this.id)">hole 13</div>
   <div class="padplus" onclick='incrementScore("numscore13")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
   <div class="padminus" onclick='decrementScore("numscore14")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore14" onclick="showHole(this.id)">hole 14</div>
   <div class="padplus" onclick='incrementScore("numscore14")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
   <div class="padminus" onclick='decrementScore("numscore15")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore15" onclick="showHole(this.id)">hole 15</div>
   <div class="padplus" onclick='incrementScore("numscore15")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
   <div class="padminus" onclick='decrementScore("numscore16")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore16" onclick="showHole(this.id)">hole 16</div>
   <div class="padplus" onclick='incrementScore("numscore16")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
   <div class="padminus" onclick='decrementScore("numscore17")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore17" onclick="showHole(this.id)">hole 17</div>
   <div class="padplus" onclick='incrementScore("numscore17")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
   <div class="padminus" onclick='decrementScore("numscore18")'>
-    <img src="minusw.png" alt="-" style="height: 40px; width: 40px;">
+    <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
   </div>
   <div class="padnumber" id="numscore18" onclick="showHole(this.id)">hole 18</div>
   <div class="padplus" onclick='incrementScore("numscore18")'>
-    <img src="plusw.png" alt="+" style="height: 40px; width: 40px;">  
+    <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.5;">  
   </div>
 
 </div> 
@@ -676,6 +675,17 @@ window.addEventListener(‘resize’, appHeight)
 appHeight()
 // --- end of fix
 
+
+
+
+function setDocHeight() {
+document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+};
+
+window.addEventListener('resize', setDocHeight(););
+window.addEventListener('orientationchange', setDocHeight(););
+
+setDocHeight();
 
 
 
