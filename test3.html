@@ -923,7 +923,6 @@ setDocHeight();
     dd = new Date();
     // get date number and format it
     d1 = dd.getDate();
-    console.log(d1)
     if (d1 < 10) {
       d1 = "0" + d1;
     }
@@ -967,7 +966,6 @@ setDocHeight();
       m = "December";
     }
     dateToday = d1 + " " + m;
-    console.log(m)
     // tidy localStorage if out of date to allow new "blank" setup
     if ("comp" in localStorage) {
       if (localStorage.comp.indexOf(dateToday) == -1) {
@@ -975,7 +973,7 @@ setDocHeight();
         clearCache();
       }
     }
-console.log(dateToday + " = " + localStorage.comp)
+
     // recover data if dates match
     // this allows data to be kept over refreshes
     if ("comp" in localStorage) {
@@ -1130,9 +1128,7 @@ console.log(dateToday + " = " + localStorage.comp)
     function checkDirection() {
       if (touchendX < touchstartX) {
         // clear swipe icon
-        console.log("here 1")
-        document.getElementById("swiperight").innerHTML = "";
-        console.log("here 2")
+         document.getElementById("swiperight").innerHTML = "";
         // unblur submit button
         // document.getElementById("submitwrapper").style.filter = "none";
         document.getElementById("submitwrapper").style.visibility = "visible";
@@ -1397,22 +1393,7 @@ console.log(dateToday + " = " + localStorage.comp)
         }
       }
     }
-    // + button for HCP
-    function incrementHcp(id) {
-      incScore = document.getElementById(id).innerText;
-      //	if(incScore.indexOf("hcp") > -1) {
-      if (incScore == "hcp" || incScore == "") {
-        document.getElementById(id).style.fontSize = "5vmax";
-        //document.getElementById(id).style.paddingTop = 0;
-        incScore = 0;
-      }
-      document.getElementById(id).innerText = ++incScore;
-      hcp = incScore;
-      //=====LocalStorage.hcp=====
-      localStorage.hcp = hcp;
-      //==========================
-      recalcScores();
-    }
+    
     // + button for hole scores
     function incrementScore(id) {
       incScore = document.getElementById(id).innerText;
@@ -1439,32 +1420,7 @@ console.log(dateToday + " = " + localStorage.comp)
       localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
       //==================================================================
     }
-    // - button for HCP
-    function decrementHcp(id) {
-      incScore = document.getElementById(id).innerText;
-      // if already at 0 say what it is
-      if (incScore == 0) {
-        document.getElementById(id).style.fontSize = "5vmax";
-        //document.getElementById(id).style.paddingTop = "20px";
-        holenum = id.replace("numscore", "");
-        document.getElementById(id).innerText = "hcp";
-      } else {
-        if (incScore.indexOf("hcp") > -1) {
-          document.getElementById(id).style.fontSize = "5vmax";
-          //document.getElementById(id).style.paddingTop = 0;
-          incScore = 0;
-        }
-        if (incScore > 0) {
-          --incScore;
-        }
-        document.getElementById(id).innerText = incScore;
-      }
-      hcp = incScore;
-      //=====LocalStorage.hcp=====
-      localStorage.hcp = hcp;
-      //==========================
-      recalcScores();
-    }
+    
     // - button for scores
     function decrementScore(id) {
       incScore = document.getElementById(id).innerText;
@@ -1545,6 +1501,7 @@ console.log(dateToday + " = " + localStorage.comp)
     }
     // convert scores to stableford points
     function pointsCalc(hcp, par, si, score) {
+      console.log("hcp = " + hcp + " " + par + " " + si + " " + score)
       allowance = 0;
       if (score == 0) {
         return 0;
@@ -1613,6 +1570,7 @@ console.log(dateToday + " = " + localStorage.comp)
               hcp = Math.trunc(strng2);
               //=====LocalStorage.hcp=====
               localStorage.hcp = hcp;
+              console.log("hcp = " + hcp)
               //==========================
               // recalc scores to cope with any new lookup
               recalcScores();
