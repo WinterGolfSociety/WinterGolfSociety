@@ -189,6 +189,7 @@
   .numx {
     padding-left: 10vmax;
     padding-right: 10vmax;
+    font-size: 5vmax;
     }
 
   .footer {
@@ -1400,7 +1401,7 @@ setDocHeight();
       incScore = document.getElementById(id).innerText;
       //	if(incScore.indexOf("hcp") > -1) {
       if (incScore == "hcp" || incScore == "") {
-        document.getElementById(id).style.fontSize = "3vmax";
+        document.getElementById(id).style.fontSize = "5vmax";
         //document.getElementById(id).style.paddingTop = 0;
         incScore = 0;
       }
@@ -1442,13 +1443,13 @@ setDocHeight();
       incScore = document.getElementById(id).innerText;
       // if already at 0 say what it is
       if (incScore == 0) {
-        document.getElementById(id).style.fontSize = "3vmax";
+        document.getElementById(id).style.fontSize = "5vmax";
         //document.getElementById(id).style.paddingTop = "20px";
         holenum = id.replace("numscore", "");
         document.getElementById(id).innerText = "hcp";
       } else {
         if (incScore.indexOf("hcp") > -1) {
-          document.getElementById(id).style.fontSize = "3vmax";
+          document.getElementById(id).style.fontSize = "5vmax";
           //document.getElementById(id).style.paddingTop = 0;
           incScore = 0;
         }
@@ -1603,7 +1604,7 @@ setDocHeight();
             //console.log("completed");
             if (Math.trunc(strng2) > 0) {
               document.getElementById("numhcp").innerHTML = "";
-              document.getElementById("numhcp").style.fontSize = "3vmax";
+              document.getElementById("numhcp").style.fontSize = "5vmax";
               //document.getElementById("numhcp").style.paddingTop = 0;
               //document.getElementById("numhcp").style.paddingBottom = 0;
               document.getElementById("numhcp").innerText = Math.trunc(strng2);
@@ -1723,7 +1724,7 @@ setDocHeight();
       // hcp
       if (("hcp") in localStorage) {
         document.getElementById("numhcp").innerText = localStorage.getItem("hcp");
-        document.getElementById("numhcp").style.fontSize = "3vmax";
+        document.getElementById("numhcp").style.fontSize = "5vmax";
         //document.getElementById("numhcp").style.paddingTop = 0;
         // make hcp visible
         document.getElementById("hcpwrapper").style.visibility = "visible";
