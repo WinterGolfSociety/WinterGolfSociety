@@ -60,7 +60,14 @@ footer
 {
   grid-area: myfooter;
   background: cyan;
+  bottom: 0;
 }
+
+.spacer {
+  clear: both;
+  height: 50px;
+}
+
   </style>
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
@@ -70,7 +77,9 @@ footer
 </head>
 
 <body>
+  <!--
   <header>Header content</header>
+  -->
   <main>Main content which should be centered and the content length may change.
   <details><summary>Collapsible content</summary>
   <p>Here's some text to cause more vertical space to be used.</p>
@@ -99,25 +108,7 @@ footer
   <p>Here's some text to cause more vertical space to be used (4).</p>
   <p>Here's some text to cause more vertical space to be used (5).</p>
   <p>Here's some text to cause more vertical space to be used.</p>
-  <p>Here's some text to cause more vertical space to be used (2).</p>
-  <p>Here's some text to cause more vertical space to be used (3).</p>
-  <p>Here's some text to cause more vertical space to be used (4).</p>
-  <p>Here's some text to cause more vertical space to be used (5).</p>
-  <p>Here's some text to cause more vertical space to be used.</p>
-  <p>Here's some text to cause more vertical space to be used (2).</p>
-  <p>Here's some text to cause more vertical space to be used (3).</p>
-  <p>Here's some text to cause more vertical space to be used (4).</p>
-  <p>Here's some text to cause more vertical space to be used (5).</p>
-  <p>Here's some text to cause more vertical space to be used.</p>
-  <p>Here's some text to cause more vertical space to be used (2).</p>
-  <p>Here's some text to cause more vertical space to be used (3).</p>
-  <p>Here's some text to cause more vertical space to be used (4).</p>
-  <p>Here's some text to cause more vertical space to be used (5).</p>
-  <p>Here's some text to cause more vertical space to be used.</p>
-  <p>Here's some text to cause more vertical space to be used (2).</p>
-  <p>Here's some text to cause more vertical space to be used (3).</p>
-  <p>Here's some text to cause more vertical space to be used (4).</p>
-  <p>Here's some text to cause more vertical space to be used (5).</p>
+  
   </details>
   </main>
   <footer>Footer content</footer>
@@ -145,6 +136,14 @@ appHeight()
 
 
 
+function setDocHeight() {
+document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
+};
+
+window.addEventListener('resize', setDocHeight(););
+window.addEventListener('orientationchange', setDocHeight(););
+
+setDocHeight();
 
 
 
