@@ -714,8 +714,8 @@ setDocHeight();
     // if they are to be recorded properly in the results
     arrComps = [
       "Dawson 02 November 2023",
-
-      "Lakes 01 November 2023",
+      "Dawson 02 October 2023",
+      "Lakes 06 October 2023",
       "Dawson 09 October 2023",
       "Lakes 13 October 2023",
       "Dawson 16 October 2023",
@@ -923,6 +923,7 @@ setDocHeight();
     dd = new Date();
     // get date number and format it
     d1 = dd.getDate();
+    console.log(d1)
     if (d1 < 10) {
       d1 = "0" + d1;
     }
@@ -966,7 +967,7 @@ setDocHeight();
       m = "December";
     }
     dateToday = d1 + " " + m;
-  
+    console.log(m)
     // tidy localStorage if out of date to allow new "blank" setup
     if ("comp" in localStorage) {
       if (localStorage.comp.indexOf(dateToday) == -1) {
@@ -974,7 +975,7 @@ setDocHeight();
         clearCache();
       }
     }
-
+console.log(dateToday + " = " + localStorage.comp)
     // recover data if dates match
     // this allows data to be kept over refreshes
     if ("comp" in localStorage) {
@@ -1758,7 +1759,7 @@ setDocHeight();
           // change to hole1 etc and change font size
           document.getElementById("h" + i).innerText = "0";
           document.getElementById("numscore" + i).innerText = "hole " + i;
-          document.getElementById("numscore" + i).style.fontSize = "3vmax";
+          //document.getElementById("numscore" + i).style.fontSize = "3vmax";
          // document.getElementById("numscore" + i).style.paddingTop = "20px";
         }
       }
