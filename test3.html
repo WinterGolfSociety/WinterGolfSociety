@@ -246,7 +246,7 @@
       z-index: 1;
       border-radius: 3px;
       box-shadow: 10px 10px 25px black;
-      max-height: 70vh;
+      max-height: 100vh;
     }
     
     .dropdown-content a {
@@ -644,44 +644,16 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQE
     // this code runs at startup
     //===========================
 
-
-
-
-
-
-// --- fix for iphones etc. with vh problem
-const appHeight = () => {
-const doc = document.documentElement
-doc.style.setProperty(‘ — app-height’, `${window.innerHeight}px`)
-}
-window.addEventListener(‘resize’, appHeight)
-appHeight()
-// --- end of fix
-
-
-
-
+/* problem with safari browser */
+/* try to fix */
 function setDocHeight() {
 document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`);
 };
 
-window.addEventListener('resize', setDocHeight(););
-window.addEventListener('orientationchange', setDocHeight(););
+window.addEventListener('resize', setDocHeight());
+window.addEventListener('orientationchange', setDocHeight());
 
 setDocHeight();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // declare global variables
     var hcp = "hcp";
@@ -1001,17 +973,16 @@ setDocHeight();
         clearCache();
       }
     }
-  
+
     // recover data if dates match
     // this allows data to be kept over refreshes
-    /*
     if ("comp" in localStorage) {
       if (localStorage.comp.indexOf(dateToday) > -1) {
         // recover
         recoverFromLocalStorage();
       }
     }
-    */
+    
     // see if it is a compday and if so find comp and course from array list
     for (i = 0; i < arrComps.length; i++) {
       // if today - eg. "22 June" in arrComps list then compday = "yes"
@@ -1053,61 +1024,6 @@ setDocHeight();
     if ("comp" in localStorage) {
       showCompMessage();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //=============================================================
     // functions - run when called
@@ -1484,8 +1400,8 @@ setDocHeight();
       incScore = document.getElementById(id).innerText;
       //	if(incScore.indexOf("hcp") > -1) {
       if (incScore == "hcp" || incScore == "") {
-        document.getElementById(id).style.fontSize = "25px";
-        document.getElementById(id).style.paddingTop = 0;
+        document.getElementById(id).style.fontSize = "3vmax";
+        //document.getElementById(id).style.paddingTop = 0;
         incScore = 0;
       }
       document.getElementById(id).innerText = ++incScore;
@@ -1499,7 +1415,7 @@ setDocHeight();
     function incrementScore(id) {
       incScore = document.getElementById(id).innerText;
       if (incScore.indexOf("hole") > -1) {
-        document.getElementById(id).style.fontSize = "25px";
+        document.getElementById(id).style.fontSize = "3vmax";
         document.getElementById(id).style.paddingTop = 0;
         incScore = 0;
       }
@@ -1526,14 +1442,14 @@ setDocHeight();
       incScore = document.getElementById(id).innerText;
       // if already at 0 say what it is
       if (incScore == 0) {
-        document.getElementById(id).style.fontSize = "15px";
-        document.getElementById(id).style.paddingTop = "20px";
+        document.getElementById(id).style.fontSize = "3vmax";
+        //document.getElementById(id).style.paddingTop = "20px";
         holenum = id.replace("numscore", "");
         document.getElementById(id).innerText = "hcp";
       } else {
         if (incScore.indexOf("hcp") > -1) {
-          document.getElementById(id).style.fontSize = "25px";
-          document.getElementById(id).style.paddingTop = 0;
+          document.getElementById(id).style.fontSize = "3vmax";
+          //document.getElementById(id).style.paddingTop = 0;
           incScore = 0;
         }
         if (incScore > 0) {
@@ -1552,14 +1468,14 @@ setDocHeight();
       incScore = document.getElementById(id).innerText;
       // if already at 0 say what hole it is
       if (incScore == 0) {
-        document.getElementById(id).style.fontSize = "15px";
-        document.getElementById(id).style.paddingTop = "20px";
+        document.getElementById(id).style.fontSize = "3vmax";
+        //document.getElementById(id).style.paddingTop = "20px";
         holenum = id.replace("numscore", "");
         document.getElementById(id).innerText = "hole " + holenum;
       } else {
         if (incScore.indexOf("hole") > -1) {
-          document.getElementById(id).style.fontSize = "25px";
-          document.getElementById(id).style.paddingTop = 0;
+          document.getElementById(id).style.fontSize = "3vmax";
+          //document.getElementById(id).style.paddingTop = 0;
           incScore = 0;
         }
         if (incScore > 0) {
@@ -1687,9 +1603,9 @@ setDocHeight();
             //console.log("completed");
             if (Math.trunc(strng2) > 0) {
               document.getElementById("numhcp").innerHTML = "";
-              document.getElementById("numhcp").style.fontSize = "25px";
-              document.getElementById("numhcp").style.paddingTop = 0;
-              document.getElementById("numhcp").style.paddingBottom = 0;
+              document.getElementById("numhcp").style.fontSize = "3vmax";
+              //document.getElementById("numhcp").style.paddingTop = 0;
+              //document.getElementById("numhcp").style.paddingBottom = 0;
               document.getElementById("numhcp").innerText = Math.trunc(strng2);
               // update global hcp
               hcp = Math.trunc(strng2);
@@ -1807,8 +1723,8 @@ setDocHeight();
       // hcp
       if (("hcp") in localStorage) {
         document.getElementById("numhcp").innerText = localStorage.getItem("hcp");
-        document.getElementById("numhcp").style.fontSize = "25px";
-        document.getElementById("numhcp").style.paddingTop = 0;
+        document.getElementById("numhcp").style.fontSize = "3vmax";
+        //document.getElementById("numhcp").style.paddingTop = 0;
         // make hcp visible
         document.getElementById("hcpwrapper").style.visibility = "visible";
         // make submit visible
@@ -1834,15 +1750,15 @@ setDocHeight();
         // put values for holes back
         if (("hole" + i) in localStorage) {
           document.getElementById("numscore" + i).innerText = localStorage.getItem("hole" + i);
-          document.getElementById("numscore" + i).style.fontSize = "25px";
-          document.getElementById("numscore" + i).style.paddingTop = 0;
+          document.getElementById("numscore" + i).style.fontSize = "3vmax";
+         // document.getElementById("numscore" + i).style.paddingTop = 0;
           document.getElementById("h" + i).innerText = localStorage.getItem("hole" + i);
         } else {
           // change to hole1 etc and change font size
           document.getElementById("h" + i).innerText = "0";
           document.getElementById("numscore" + i).innerText = "hole " + i;
-          document.getElementById("numscore" + i).style.fontSize = "15px";
-          document.getElementById("numscore" + i).style.paddingTop = "20px";
+          document.getElementById("numscore" + i).style.fontSize = "3vmax";
+         // document.getElementById("numscore" + i).style.paddingTop = "20px";
         }
       }
       for (var i = 1; i <= 18; i++) {
@@ -1968,9 +1884,9 @@ setDocHeight();
       if (tempsaved.indexOf("hole") == -1) {
         // change to hole1 etc and change font size
         tempe.innerText = id.replace("numscore", "hole ");
-        tempe.style.fontSize = "15px";
-        tempe.style.paddingTop = "20px";
-        tempe.style.fontWeight = "bold";
+        //tempe.style.fontSize = "3vmax";
+        //tempe.style.paddingTop = "20px";
+        //tempe.style.fontWeight = "bold";
         tempe.style.color = "lime";
         // disable click
         for (var i = 1; i <= 18; i++) {
@@ -1983,9 +1899,9 @@ setDocHeight();
           for (var i = 1; i <= 18; i++) {
             document.getElementById("numscore" + i).style.pointerEvents = '';
           }
-          tempe.style.fontSize = "25px";
-          tempe.style.paddingTop = 0;
-          tempe.style.fontWeight = "normal";
+          //tempe.style.fontSize = "3vmax";
+          //tempe.style.paddingTop = 0;
+          //tempe.style.fontWeight = "normal";
           tempe.style.color = "white";
           tempe.innerText = tempsaved;
         }, 500);
