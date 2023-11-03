@@ -2040,13 +2040,27 @@ setDocHeight();
     // - message about not allowing a submit of incomplete data
     //=============================================================  
     function showIncompleteSubmitData(msg) {
-      document.getElementById("popuppanel").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n" + msg + "\n\n";
+      aborttxt = "\nSubmit for " + comp + "\nfailed - incomplete data.\n" + msg + "\n\n";
+      
+      document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
       document.getElementById("popuppanel").style.display = "block";
-      setTimeout(function() {
-        document.getElementById("popuppanel").innerText = "";
-        document.getElementById("popuppanel").style.display = "none";
-      }, 3000);
+
+      // hide submit button
+      //document.getElementById("submitwrapper").style.visibility = "hidden";
+    
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" },1000)    
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds" },2000)
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds" },3000)
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second" },4000) 
+ 
+   setTimeout(function() {    
+      document.getElementById("popuppanel").innerText = ""
+      document.getElementById("popuppanel").style.display = "none"
+   },5000);
+    
     }
+
+
     //=============================================================
     // function showMessageRetryHCP()
     // - message about retrying to get HCP
