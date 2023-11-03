@@ -22,6 +22,19 @@
 
     }
 
+/* hide all scrollbars */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+  }
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  }
+
   body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -187,20 +200,16 @@
     }
 
   .numx {
-    padding-left: 10vmax;
-    padding-right: 10vmax;
+    padding-left: 7vmax;
+    padding-right: 7vmax;
     font-size: 5vmax;
     }
 
   .footer {
-   padding-top: 2vmax;
-   padding-bottom: 2vmax;
+    padding-top: 2vmax;
+    padding-bottom: 2vmax;
     justify-content: center;
     align-items: center;
-
-
-  
-
     }
 
 
@@ -247,7 +256,7 @@
       z-index: 1;
       border-radius: 3px;
       box-shadow: 10px 10px 25px black;
-      max-height: 100vh;
+      max-height: 90vh;
     }
     
     .dropdown-content a {
@@ -270,8 +279,150 @@
       width: 60px;
     }
     
+/* for icon related pages */
+  
+#showrules {
+      visibility: hidden;
+      font-family: 'Kalam';
+      font-size: 2vmax;
+      color: white;
+      text-align: left;
+      position: fixed;
+      z-index: 1;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 5px;
+      padding-bottom: 10px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: dodgerBlue;
+      background-color: rgba(0, 0, 0, 0.7);
+    }    
+
+#showcoursecard {
+      visibility: hidden;
+      font-family: 'Kalam';
+      font-size: 2vmax;
+      color: white;
+      text-align: left;
+      position: fixed;
+      z-index: 1;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 5px;
+      padding-bottom: 10px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: dodgerBlue;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    
+    #xxx {
+      font-family: 'Kalam';
+      font-size: 16px;
+      color: white;
+    }
+    
+    .circle1 {
+      font-family: 'Kalam';
+      border-radius: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+      background: black;
+      border: 3px solid white;
+      color: white;
+      text-align: center;
+      font-size: 16px;
+    }
+
+ .circle2 {
+      font-family: 'Kalam';
+      border-radius: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+      background: black;
+      border: 4px solid cyan;
+      color: cyan;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .nocircle1 {
+      font-family: 'Kalam';
+      padding-left: 10px;
+      padding-right: 10px;
+      color: lightBlue;
+      text-align: center;
+      font-size: 16px;
+    }
+    
+    .cyanhole {
+       color: cyan;
+    }
+
+/* popup box related */
+   
+#submit_popuppanel {
+      display: none;
+      color: white;
+      background-color: #eee;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      position: fixed;
+      width: 90vw;
+      margin-left: 5vw;
+      margin-top: 20vh;
+      padding: 10px 10px 10px; // t lr b
+      box-sizing: border-box;
+      text-align: center;
+    }
+    
+    #popuppanel {
+      display: none;
+      color: black;
+      background-color: #eee;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      position: fixed;
+      width: 300px;
+      left: 50%;
+      margin-left: -150px;
+      margin-top: 10vh;
+      padding: 6px 8px 8px;
+      box-sizing: border-box;
+      text-align: center;
+
+left: 50%;
+top: 10%;
+font-size: 2vmax;
 
 
+    }
+    
+    #popuppanel button,
+    #submit_popuppanel button {
+      background-color: #ccc;
+      display: inline-block;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+      padding: 2px;
+      text-align: center;
+      width: 100px;
+      height: 50px;
+      cursor: pointer;
+    }
+    
+    #popuppanel .button:hover {
+      background-color: #ddd;
+    }
+  
 
   </style>
   <meta content="score input" name="description">
@@ -406,6 +557,34 @@
     <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" 
         style="height: 40px; width: 40px;">
    </div>
+
+
+
+
+
+
+
+
+   <div class="demo">
+    <!-- coursecard strokes and rules -->
+    <div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
+    <div class="showrules" id="showrules" onclick="rclose()"></div>     
+                  
+ </div>
+ <div id="popuppanel"></div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    </div>
 
@@ -1027,7 +1206,12 @@ setDocHeight();
 
     //=============================================================
     // functions - run when called
-    //=============================================================     
+    //=============================================================  
+    
+    //=============================================================
+    // function resetNames()
+    // - gets rid of "selected" names
+    //=============================================================  
     function resetNames() {
       // create/recreate options favourites
       // run from menu item at bottom of list
@@ -1054,7 +1238,11 @@ setDocHeight();
         select.appendChild(el);
       }
     }
-    // sort function to sort by second array item in 2D array
+    
+    //=============================================================
+    // function compareSecondColumn()
+    // - sort function to sort by second array item in 2D array
+    //=============================================================  
     function compareSecondColumn(a, b) {
       if (a[1] === b[1]) {
         return 0;
@@ -1112,16 +1300,20 @@ setDocHeight();
       }
     }
 
-    // show menu of names
+    //=============================================================
+    // function myFunction()
+    // - show player name choices
+    //=============================================================  
     function myFunction() {
       // When the user clicks on the button, toggle between hiding and showing the dropdown content
       document.getElementById("myDropdown").classList.toggle("show");
     }
 
-    //=================================================
-    // look after swipes etc.
+    //=============================================================
+    // function checkDirection()
+    // - look after swipes etc.
     // global keep track of swipes
-    //=================================================
+    //=============================================================  
     var touchstartX = 0;
     var touchendX = 0;
     // do stuff when swiped
@@ -1206,6 +1398,10 @@ setDocHeight();
     	entry.789190149=compplayer
     	*/
     // send info from HTML form to google form	
+    //=============================================================
+    // function submitForm()
+    // - send info from HTML form to google form
+    //=============================================================  
     function submitForm() {
       // get the relevant info into a form
       // dont allow submit for an incorrect day
@@ -1393,7 +1589,10 @@ setDocHeight();
         }
       }
     }
-    
+    //=============================================================
+    // function incrementScore()
+    // - plus button handler
+    //=============================================================  
     // + button for hole scores
     function incrementScore(id) {
       incScore = document.getElementById(id).innerText;
@@ -1421,7 +1620,10 @@ setDocHeight();
       //==================================================================
     }
     
-    // - button for scores
+    ///=============================================================
+    // function decrementScore()
+    // - minus button handler
+    //=============================================================  
     function decrementScore(id) {
       incScore = document.getElementById(id).innerText;
       // if already at 0 say what hole it is
@@ -1461,6 +1663,10 @@ setDocHeight();
         //==================================================================
       }
     }
+    //=============================================================
+    // function totalScore()
+    // - total score calculation
+    //=============================================================  
     // calculated additional totals, countback etc.
     function totalScore() {
       var ih = 0;
@@ -1497,7 +1703,10 @@ setDocHeight();
       cb = "9=" + jp + ", 6=" + c6 + ", 3=" + c3 + ", 1=" + c1;
       document.getElementById("cback").innerText = cb;
     }
-    // convert scores to stableford points
+    //=============================================================
+    // function pointsCalc()
+    // - convert scores to stableford points
+    //=============================================================  
     function pointsCalc(hcp, par, si, score) {
       allowance = 0;
       if (score == 0) {
@@ -1526,7 +1735,10 @@ setDocHeight();
         return points;
       }
     }
-    // papaparse uses HTML5's filereader API to get csv file
+    //=============================================================
+    // function doGetHCP()
+    // - papaparse uses HTML's filereader API to get info from csv file
+    //=============================================================  
     function doGetHCP() {
       // show hcp and controls on screen
       document.getElementById("hcpwrapper").style.visibility = "visible";
@@ -1584,7 +1796,10 @@ setDocHeight();
       // change to swipe icon
       document.getElementById("swiperight").innerHTML = '<img src="swiperightflash.png" alt="swipe" style="position: absolute; top: 6vh; right: 3vw; height: 85px; width: 85px;">';
     }
-    // redo score/points calculations for 18 holes
+    //=============================================================
+    // function recalcScores()
+    // - recalculate scores etc.
+    //=============================================================  // redo score/points calculations for 18 holes
     function recalcScores() {
       for (i = 1; i <= 18; i++) {
         tempscore = document.getElementById("numscore" + i).innerText;
@@ -1605,6 +1820,10 @@ setDocHeight();
       totalScore();
     }
     // switches to and from a high contrast mode
+    //=============================================================
+    // function toggleContrast()
+    // - switches to and from high contrast mode
+    //=============================================================  
     function togglecontrast() {
       // toggle between normal and high contrast
       if (document.getElementById("plusscore1").style.color == "yellow") {
@@ -1666,7 +1885,10 @@ setDocHeight();
         document.getElementById("setup").style.backgroundColor = "black";
       }
     }
-    // retrieves locally saved temp data to allow integrity over refreshes
+    //=============================================================
+    // function recoverFromLocalStorage()
+    // - retrieves locally saved temp data to retain integrity over refreshes
+    //=============================================================  
     function recoverFromLocalStorage() {
       // put other values back
       // player
@@ -1735,7 +1957,10 @@ setDocHeight();
       }
       totalScore();
     }
-    // wipe local storage but not menu items
+    //=============================================================
+    // function clearCache()
+    // - wipe saved local storage but not player list
+    //=============================================================  
     function clearCache() {
       localStorage.removeItem("player");
       localStorage.removeItem("hcp");
@@ -1747,11 +1972,14 @@ setDocHeight();
       recoverFromLocalStorage();
       location.reload();
     }
+
+
+
     // set up Lakes as non competition day course
     function doSomethingLakes() {
       course = "Lakes";
       comp = course + " " + dateToday;
-      document.getElementById("id_confrmdiv").style.display = "none";
+      document.getElementById("popuppanel").style.display = "none";
       localStorage.course = course;
       localStorage.comp = comp;
     }
@@ -1759,48 +1987,76 @@ setDocHeight();
     function doSomethingDawson() {
       course = "Dawson";
       comp = course + " " + dateToday;
-      document.getElementById("id_confrmdiv").style.display = "none";
+      document.getElementById("popuppanel").style.display = "none";
       localStorage.course = course;
       localStorage.comp = comp;
     }
-    // message saying what competition is being processed
+    //=============================================================
+    // function showCompMessage()
+    // - message showing what competition is in place
+    //=============================================================  
     function showCompMessage() {
       if (compday == "yes") {
-        document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\ncompetition\n\n";
+        aborttxt = "\nScoring for " + comp + "\ncompetition\n\n";
       } else {
-        document.getElementById("id_confrmdiv").innerText = "\nScoring for " + comp + "\n(no competition)\n\n";
+        aborttxt = "\nScoring for " + comp + "\n(no competition)\n\n";
       }
-      document.getElementById("id_confrmdiv").style.display = "block";
-      setTimeout(function() {
-        document.getElementById("id_confrmdiv").innerText = "";
-        document.getElementById("id_confrmdiv").style.display = "none";
-      }, 3000);
+
+
+
+
+
+      
+      document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
+      document.getElementById("popuppanel").style.display = "block";
+
+      // hide submit button
+      //document.getElementById("submitwrapper").style.visibility = "hidden";
+    
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" },1000)    
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds" },2000)
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds" },3000)
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second" },4000) 
+ 
+   setTimeout(function() {    
+      document.getElementById("popuppanel").innerText = ""
+      document.getElementById("popuppanel").style.display = "none"
+   },5000);
+    
+
     }
+
     // message for non competition day denying submit
     function showNoSubmitMessage() {
-      document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\n(no competition) is disabled.\n\n";
-      document.getElementById("id_confrmdiv").style.display = "block";
+      document.getElementById("popuppanel").innerText = "\nSubmit for " + comp + "\n(no competition) is disabled.\n\n";
+      document.getElementById("popuppanel").style.display = "block";
       setTimeout(function() {
-        document.getElementById("id_confrmdiv").innerText = "";
-        document.getElementById("id_confrmdiv").style.display = "none";
+        document.getElementById("popuppanel").innerText = "";
+        document.getElementById("popuppanel").style.display = "none";
       }, 3000);
     }
-    // nessage not allowing submit because data is incomplete
+    //=============================================================
+    // function showIncompleteSubmitData()
+    // - message about not allowing a submit of incomplete data
+    //=============================================================  
     function showIncompleteSubmitData(msg) {
-      document.getElementById("id_confrmdiv").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n" + msg + "\n\n";
-      document.getElementById("id_confrmdiv").style.display = "block";
+      document.getElementById("popuppanel").innerText = "\nSubmit for " + comp + "\nfailed - incomplete data.\n" + msg + "\n\n";
+      document.getElementById("popuppanel").style.display = "block";
       setTimeout(function() {
-        document.getElementById("id_confrmdiv").innerText = "";
-        document.getElementById("id_confrmdiv").style.display = "none";
+        document.getElementById("popuppanel").innerText = "";
+        document.getElementById("popuppanel").style.display = "none";
       }, 3000);
     }
-    // message saying HCP lookup failed
+    //=============================================================
+    // function showMessageRetryHCP()
+    // - message about retrying to get HCP
+    //=============================================================  
     function showMessageRetryHCP() {
-      document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed - retrying ...\n\n";
-      document.getElementById("id_confrmdiv").style.display = "block";
+      document.getElementById("popuppanel").innerText = "\nHCP lookup failed - retrying ...\n\n";
+      document.getElementById("popuppanel").style.display = "block";
       setTimeout(function() {
-        document.getElementById("id_confrmdiv").innerText = "";
-        document.getElementById("id_confrmdiv").style.display = "none";
+        document.getElementById("popuppanel").innerText = "";
+        document.getElementById("popuppanel").style.display = "none";
         // put back hcp
         document.getElementById("numhcp").innerHTML = "";
         document.getElementById("numhcp").innerText = "?";
@@ -1808,13 +2064,16 @@ setDocHeight();
         //		document.getElementById("numhcp").style.paddingTop = "20px";
       }, 3000);
     }
-    // message saying HCP lookup failed
+    //=============================================================
+    // function showMessageRetryHCPFailed()
+    // - message about failure to get HCP
+    //=============================================================  
     function showMessageRetryHCPFailed() {
-      document.getElementById("id_confrmdiv").innerText = "\nHCP lookup failed.\n\n" + "check the network and try again.\n\n";
-      document.getElementById("id_confrmdiv").style.display = "block";
+      document.getElementById("popuppanel").innerText = "\nHCP lookup failed.\n\n" + "check the network and try again.\n\n";
+      document.getElementById("popuppanel").style.display = "block";
       setTimeout(function() {
-        document.getElementById("id_confrmdiv").innerText = "";
-        document.getElementById("id_confrmdiv").style.display = "none";
+        document.getElementById("popuppanel").innerText = "";
+        document.getElementById("popuppanel").style.display = "none";
         // put back hcp
         document.getElementById("numhcp").innerHTML = "";
         document.getElementById("numhcp").innerText = "?";
@@ -1822,17 +2081,23 @@ setDocHeight();
         //document.getElementById("numhcp").style.paddingTop = "20px";
       }, 3000);
     }
+
+
+
     // choose course dialog for non competition day
     function showCourseChoice() {
       tempt = '<br /> No competition today. Select which course to use.';
       tempt += '<br /><br />';
       tempt += '<button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>';
       tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
-      document.getElementById("id_confrmdiv").innerHTML = tempt;
-      //console.log(document.getElementById("id_confrmdiv").innerHTML);
-      document.getElementById("id_confrmdiv").style.display = "block";
+      document.getElementById("popuppanel").innerHTML = tempt;
+      //console.log(document.getElementById("popuppanel").innerHTML);
+      document.getElementById("popuppanel").style.display = "block";
     }
-    // show hole number when hole score pressed
+    //=============================================================
+    // function showHole()
+    // - shows wich hole when score is tapped
+    //=============================================================  
     function showHole(id) {
       tempe = document.getElementById(id);
       tempsaved = tempe.innerText;
@@ -1865,24 +2130,57 @@ setDocHeight();
       }
 
     }
-    // show message when no player has been set
+    //=============================================================
+    // function showSetPlayerMessage()
+    // - message about player not being selected
+    //=============================================================  
     function showSetPlayerMessage() {
-      document.getElementById("id_confrmdiv").innerText = "\nPlayer and HCP have not been set, do this before entering scores.\n\n";
-      document.getElementById("id_confrmdiv").style.display = "block";
+      //document.getElementById("popuppanel").innerText = "\nPlayer and HCP have not been set, do this before entering scores.\n\n";
+      //document.getElementById("popuppanel").style.display = "block";
+
+      
+
+      aborttxt = "\nPlayer and HCP have not been set, do this before entering scores.\n\n";
+      document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
+      document.getElementById("popuppanel").style.display = "block";
 
       // hide submit button
       document.getElementById("submitwrapper").style.visibility = "hidden";
+    
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" },1000)    
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds" },2000)
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds" },3000)
+      setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second" },4000) 
+ 
+   setTimeout(function() {    
+      document.getElementById("popuppanel").innerText = ""
+      document.getElementById("popuppanel").style.display = "none"
+   },5000);
+    
+
+
+
+
+
+
+
 
       setTimeout(function() {
-        document.getElementById("id_confrmdiv").innerText = "";
-        document.getElementById("id_confrmdiv").style.display = "none";
+        document.getElementById("popuppanel").innerText = "";
+        document.getElementById("popuppanel").style.display = "none";
       }, 3000);
     }
-
+    //=============================================================
+    // function cccloaw()
+    // - closes scorecard
+    //=============================================================  
     function ccclose() {
       document.getElementById("showcoursecard").style.visibility = "hidden";
     }
-
+    //=============================================================
+    // function showcoursecard()
+    // - shows course card info
+    //=============================================================  
     function showcoursecard() {
     // show msg if not available
     abort = "no";
@@ -1891,7 +2189,7 @@ setDocHeight();
     if (!(hcp > 0)) {
        abort = "yes";
        aborttxt += "\nhcp not found\n"
-    }
+    }aborttxt
     if (player == "select player") {
        abort = "yes"
        aborttxt += "\nplayer not found\n"
@@ -1900,21 +2198,21 @@ setDocHeight();
        abort = "yes"
        aborttxt += "\ncourse not found\n"
     }
-    
+    console.log(aborttxt)
     if (abort == "yes") {
     
-      document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
-      document.getElementById("id_confrmdiv").style.display = "block";
+      document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
+      document.getElementById("popuppanel").style.display = "block";
 
     
-   setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 4 seconds" },1000)    
-   setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 3 seconds" },2000)
-   setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 2 seconds" },3000)
-   setTimeout(function() {document.getElementById("id_confrmdiv").innerText = aborttxt + "\n\nthis message closes in 1 second" },4000) 
+   setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 4 seconds" },1000)    
+   setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 3 seconds" },2000)
+   setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 2 seconds" },3000)
+   setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 1 second" },4000) 
  
    setTimeout(function() {    
-      document.getElementById("id_confrmdiv").innerText = ""
-      document.getElementById("id_confrmdiv").style.display = "none"
+      document.getElementById("popuppanel").innerText = ""
+      document.getElementById("popuppanel").style.display = "none"
    },5000);
     
     } else {
@@ -1964,7 +2262,7 @@ setDocHeight();
       
       document.getElementById("showcoursecard").innerHTML = cctxt;
       document.getElementById("showcoursecard").style.visibility = "visible";
-    }
+  }
 
 
 
@@ -1974,7 +2272,10 @@ setDocHeight();
 
 
 
-
+  //=============================================================
+  // function rclose()
+  // - closes rules info
+  //=============================================================  
  function rclose() {
       document.getElementById("showrules").style.visibility = "hidden";
     }
