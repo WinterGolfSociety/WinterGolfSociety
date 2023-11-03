@@ -25,15 +25,15 @@
 /* hide all scrollbars */
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-*::-webkit-scrollbar {
-  display: none;
-  }
+//*::-webkit-scrollbar {
+//  display: none;
+//  }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-* {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-  }
+//* {
+//  -ms-overflow-style: none;  /* IE and Edge */
+//  scrollbar-width: none;  /* Firefox */
+//  }
 
   body {
     margin: 0;
@@ -1325,7 +1325,7 @@ setDocHeight();
          document.getElementById("swiperight").innerHTML = "";
         // unblur submit button
         // document.getElementById("submitwrapper").style.filter = "none";
-        document.getElementById("submitwrapper").style.visibility = "visible";
+        //document.getElementById("submitwrapper").style.visibility = "visible";
 
         if (localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
           // prevent some false messages
@@ -1827,65 +1827,21 @@ setDocHeight();
     // - switches to and from high contrast mode
     //=============================================================  
     function togglecontrast() {
+console.log("here")
+      console.log(document.getElementById("numscore1").style.color)
+
       // toggle between normal and high contrast
-      if (document.getElementById("plusscore1").style.color == "yellow") {
-        // put back to normal
-        for (i = 1; i <= 18; i++) {
-          document.getElementById("plusscore" + i).style.color = "white";
-          document.getElementById("plusscore" + i).style.fontWeight = "400";
-          document.getElementById("minusscore" + i).style.color = "white";
-          document.getElementById("minusscore" + i).style.fontWeight = "400";
-          document.getElementById("numscore" + i).style.color = "white";
-          document.getElementById("numscore" + i).style.fontWeight = "400";
-          document.getElementById("tr" + i).style.background = "dodgerBlue";
+      
+
+
+        var tinter = document.querySelector(".wrapperforscoring");
+        if (tinter.style.color = "white") {
+            tinter.style.color = "blue";   
+        } else {
+            tinter.stylr.color = "blue";
         }
-        document.getElementById("submitwrapper").style.background = "dodgerBlue";
-        document.getElementById("submitwrapper").style.color = "white";
-        document.getElementById("submitwrapper").style.fontWeight = "400";
-        document.getElementById("dropbtn").style.background = "dodgerBlue";
-        document.getElementById("dropbtn").style.color = "white";
-        document.getElementById("dropbtn").style.fontWeight = "400";
-        document.getElementById("numhcp").style.background = "dodgerBlue";
-        document.getElementById("numhcp").style.color = "white";
-        document.getElementById("numhcp").style.fontWeight = "400";
-        document.getElementById("plushcpx").style.background = "dodgerBlue";
-        document.getElementById("plushcpx").style.color = "white";
-        document.getElementById("plushcpx").style.fontWeight = "400";
-        document.getElementById("minushcpx").style.background = "dodgerBlue";
-        document.getElementById("minushcpx").style.color = "white";
-        document.getElementById("minushcpx").style.fontWeight = "400";
-        document.getElementById("trhcp").style.background = "dodgerBlue";
-        //document.getElementById("setup").style.backgroundColor = "darkSlateGray";
-        document.getElementById("setup").style.backgroundColor = "rgb(0,0,20)";
-      } else {
-        // put into high contrast
-        for (i = 1; i <= 18; i++) {
-          document.getElementById("plusscore" + i).style.color = "yellow";
-          document.getElementById("plusscore" + i).style.fontWeight = "700";
-          document.getElementById("minusscore" + i).style.color = "yellow";
-          document.getElementById("minusscore" + i).style.fontWeight = "700";
-          document.getElementById("numscore" + i).style.color = "yellow";
-          document.getElementById("numscore" + i).style.fontWeight = "700";
-          document.getElementById("tr" + i).style.background = "midnightBlue";
-        }
-        document.getElementById("submitwrapper").style.background = "midnightBlue";
-        document.getElementById("submitwrapper").style.color = "yellow";
-        document.getElementById("submitwrapper").style.fontWeight = "700";
-        document.getElementById("dropbtn").style.background = "midnightBlue";
-        document.getElementById("dropbtn").style.color = "yellow";
-        document.getElementById("dropbtn").style.fontWeight = "700";
-        document.getElementById("numhcp").style.background = "midnightBlue";
-        document.getElementById("numhcp").style.color = "yellow";
-        document.getElementById("numhcp").style.fontWeight = "700";
-        document.getElementById("plushcpx").style.background = "midnightBlue";
-        document.getElementById("plushcpx").style.color = "yellow";
-        document.getElementById("plushcpx").style.fontWeight = "700";
-        document.getElementById("minushcpx").style.background = "midnightBlue";
-        document.getElementById("minushcpx").style.color = "yellow";
-        document.getElementById("minushcpx").style.fontWeight = "700";
-        document.getElementById("trhcp").style.background = "midnightBlue";
-        document.getElementById("setup").style.backgroundColor = "black";
-      }
+
+
     }
     //=============================================================
     // function recoverFromLocalStorage()
@@ -2161,7 +2117,7 @@ setDocHeight();
       document.getElementById("popuppanel").style.display = "block";
 
       // hide submit button
-      document.getElementById("submitwrapper").style.visibility = "hidden";
+     // document.getElementById("submitwrapper").style.visibility = "hidden";
     
       setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" },1000)    
       setTimeout(function() {document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds" },2000)
