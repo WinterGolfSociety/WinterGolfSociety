@@ -47,7 +47,7 @@
     overflow-x: hidden; /* Hide horizontal scrollbar */
   overflow-y: auto; /* Add vertical scrollbar */
 
-
+font-weight: 400;
     }
     
   .three-page-container {
@@ -1837,12 +1837,14 @@ setDocHeight();
           document.getElementById("dropbtn").style.backgroundColor = "blue"
           document.getElementById("hcpwrapper").style.backgroundColor = "blue"
           document.getElementById("submit").style.backgroundColor = "blue"
+          document.body.style.fontWeight = "700";
       } else {
           elements[0].style.backgroundColor = "dodgerBlue"
           elements[1].style.backgroundColor = "dodgerBlue"
           document.getElementById("dropbtn").style.backgroundColor = "dodgerBlue"
           document.getElementById("hcpwrapper").style.backgroundColor = "dodgerBlue"
           document.getElementById("submit").style.backgroundColor = "dodgerBlue"
+          document.body.style.fontWeight = "400";
       }
       
     }
