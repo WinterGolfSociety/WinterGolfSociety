@@ -25,12 +25,12 @@
 /* hide all scrollbars */
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-//*::-webkit-scrollbar {
+// *::-webkit-scrollbar {
 //  display: none;
 //  }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-//* {
+// * {
 //  -ms-overflow-style: none;  /* IE and Edge */
 //  scrollbar-width: none;  /* Firefox */
 //  }
@@ -134,7 +134,7 @@
     }
 
   .padnumber {
-    background-color: dodgerBlue;
+    //background-color: dodgerBlue;
     display:grid;
     place-items:center;
     border-style: none none solid none; /* t, r, b, l */
@@ -144,7 +144,7 @@
     }
 
   .padplus {
-    background-color: dodgerBlue;
+    //background-color: dodgerBlue;
     display: grid;
     place-items: center;
     border-style: none solid solid none; /* t, r, b, l */
@@ -152,7 +152,7 @@
     }
 
   .padminus {
-    background-color: dodgerBlue;
+    //background-color: dodgerBlue;
     display: grid;
     place-items: center;
     border-style: none none solid solid; /* t, r, b, l */
@@ -592,7 +592,7 @@ font-size: 2vmax;
 
   <!-- score input pages -->
 
-   <div class="wrapperforscoring">
+   <div class="wrapperforscoring" id="scoringfront9">
 
       <div class="padminus" onclick='decrementScore("numscore1")'>
         <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
@@ -668,7 +668,7 @@ font-size: 2vmax;
 
 </div>
    
-<div class="wrapperforscoring">
+<div class="wrapperforscoring" id="scoringback9">
 
   <div class="padminus" onclick='decrementScore("numscore10")'>
     <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.5;">
@@ -1827,21 +1827,24 @@ setDocHeight();
     // - switches to and from high contrast mode
     //=============================================================  
     function togglecontrast() {
-console.log("here")
-      console.log(document.getElementById("numscore1").style.color)
-
       // toggle between normal and high contrast
+      var elements = document.getElementsByClassName('wrapperforscoring'); // get all elements
+            
+      // toggle blue and dodgerBlue
+      if (elements[0].style.backgroundColor !== "blue") {    
+          elements[0].style.backgroundColor = "blue"
+          elements[1].style.backgroundColor = "blue"
+          document.getElementById("dropbtn").style.backgroundColor = "blue"
+          document.getElementById("hcpwrapper").style.backgroundColor = "blue"
+          document.getElementById("submit").style.backgroundColor = "blue"
+      } else {
+          elements[0].style.backgroundColor = "dodgerBlue"
+          elements[1].style.backgroundColor = "dodgerBlue"
+          document.getElementById("dropbtn").style.backgroundColor = "dodgerBlue"
+          document.getElementById("hcpwrapper").style.backgroundColor = "dodgerBlue"
+          document.getElementById("submit").style.backgroundColor = "dodgerBlue"
+      }
       
-
-
-        var tinter = document.querySelector(".wrapperforscoring");
-        if (tinter.style.color = "white") {
-            tinter.style.color = "blue";   
-        } else {
-            tinter.stylr.color = "blue";
-        }
-
-
     }
     //=============================================================
     // function recoverFromLocalStorage()
