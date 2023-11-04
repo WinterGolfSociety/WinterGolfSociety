@@ -135,8 +135,8 @@ font-weight: 400;
 
   .padnumber {
     //background-color: dodgerBlue;
-    display:grid;
-    place-items:center;
+    display: grid;
+    place-items: center;
     border-style: none none solid none; /* t, r, b, l */
     border-color: rgb(30, 130, 255);
     //font-size: 2vmax;
@@ -1629,6 +1629,10 @@ setDocHeight();
         incScore = 0;
       }
       document.getElementById(id).innerText = ++incScore;
+      if (++incScore >= 0) {
+          document.getElementById(id).style.fontSize = "4vmax";
+          --incScore;
+      }
       document.getElementById(id.replace("numscore", "h")).innerText = incScore;
       //console.log("course from increment = " + course)
       //console.log("course from localstorage = " + localStorage.course)
@@ -1661,7 +1665,7 @@ setDocHeight();
         document.getElementById(id).innerText = "hole " + holenum;
       } else {
         if (incScore.indexOf("hole") > -1) {
-          document.getElementById(id).style.fontSize = "3vmax";
+          document.getElementById(id).style.fontSize = "4vmax";
           //document.getElementById(id).style.paddingTop = 0;
           incScore = 0;
         }
@@ -1669,10 +1673,6 @@ setDocHeight();
           document.getElementById(id).style.fontSize = "4vmax";
           --incScore;
         }
-
-
-
-
         document.getElementById(id).innerText = incScore;
         document.getElementById(id.replace("numscore", "h")).innerText = incScore;
         if (course == "Lakes") {
