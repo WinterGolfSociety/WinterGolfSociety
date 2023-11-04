@@ -13,7 +13,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    font-family: Arial, Helvetica, sans-serif;
 
 
  /* vh fix 
@@ -428,7 +428,7 @@ font-size: 2vmax;
     }
 
 /* hide scrollbar for small screens ie. not PC and laptop */
-//@media (max-width: 7680px) {
+//@media (max-width: 768px) {
 //  *::-webkit-scrollbar {
 //  display: default;
 //  }
@@ -2079,7 +2079,8 @@ setDocHeight();
 
     // choose course dialog for non competition day
     function showCourseChoice() {
-      tempt = '<br /> No competition today. Select which course to use.';
+      tempt = '<br />No competition today.';
+      tempt += '<br />To use scoring, select your course and continue.' 
       tempt += '<br /><br />';
       tempt += '<button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>';
       tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
