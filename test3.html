@@ -1459,7 +1459,7 @@
       }
       document.getElementById(id).innerText = ++incScore;
       if (++incScore >= 0) {
-        document.getElementById(id).style.fontSize = "4vmax";
+        document.getElementById(id).style.fontSize = "5vmax";
         --incScore;
       }
       document.getElementById(id.replace("numscore", "h")).innerText = incScore;
@@ -1491,11 +1491,11 @@
         document.getElementById(id).innerText = "hole " + holenum;
       } else {
         if (incScore.indexOf("hole") > -1) {
-          document.getElementById(id).style.fontSize = "4vmax";
+          document.getElementById(id).style.fontSize = "5vmax";
           incScore = 0;
         }
         if (incScore > 0) {
-          document.getElementById(id).style.fontSize = "4vmax";
+          document.getElementById(id).style.fontSize = "5vmax";
           --incScore;
         }
         document.getElementById(id).innerText = incScore;
@@ -1726,7 +1726,7 @@
         // put values for holes back
         if (("hole" + i) in localStorage) {
           document.getElementById("numscore" + i).innerText = localStorage.getItem("hole" + i);
-          document.getElementById("numscore" + i).style.fontSize = "4vmax";
+          document.getElementById("numscore" + i).style.fontSize = "5vmax";
           document.getElementById("h" + i).innerText = localStorage.getItem("hole" + i);
         } else {
           // change to hole1 etc and change font size
