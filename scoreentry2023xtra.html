@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+<!--
+allows score entry at later date
+-->
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -934,6 +936,18 @@
     //===========================
     // this code runs at startup
     //===========================
+    //================================================================    
+    // show intro message for 5 seconds
+    function showIntroMessage() {
+      document.getElementById("id_confrmdiv").innerText = "\nAllows score entry after day of competition.\n\n";
+      document.getElementById("id_confrmdiv").style.display = "block";
+      setTimeout(function() {
+        document.getElementById("id_confrmdiv").innerText = "";
+        document.getElementById("id_confrmdiv").style.display = "none";
+      }, 5000);
+    }
+    showIntroMessage()
+    //================================================================    
     // declare global variables
     var hcp = "hcp";
     var player = "select player";
