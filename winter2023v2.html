@@ -657,6 +657,7 @@
 		for(i = 0; i < arrComps.length; i++) {
 			temptest = arrComps[i].replace("Lakes ", "");
 			temptest = temptest.replace("Dawson ", "");
+			temptest = temptest.replace("OldCourse ", "");
 			// should give something like: 03 June 2023
 			darr = new Date(temptest);
 			d1 = darr.getDate();
