@@ -737,6 +737,9 @@
 				}
 				if (arrComps[i].indexOf("Dawson") > -1) {
 					tempd = '<p style="color:white;">Dawson - competition today</p>';
+				}
+				if (arrComps[i].indexOf("OldCourse") > -1) {
+					tempd = '<p style="color:white;">OldCourse - competition today</p>';
 				}	
 				dlist = dlist + tempd;
 				dlistcount++;
@@ -745,6 +748,7 @@
 			if(darr > dd && dlistcount < 3) {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
 				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
+				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
 				dlist = dlist + tempd + "<br>";
 				dlistcount++;
 			}
