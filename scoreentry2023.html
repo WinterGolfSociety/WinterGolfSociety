@@ -994,6 +994,29 @@
       [17, 4, 10],
       [18, 4, 8]
     ];
+    // array ["hole num",par,si]
+    // OldCourse
+    arrOldCourse = [
+      [0, 0, 0],
+      [1, 5, 18],
+      [2, 4, 9],
+      [3, 3, 11],
+      [4, 5, 14],
+      [5, 3, 8],
+      [6, 4, 5],
+      [7, 4, 12],
+      [8, 4, 10],
+      [9, 4, 7],
+      [10, 4, 4],
+      [11, 3, 6],
+      [12, 4, 13],
+      [13, 4, 1],
+      [14, 5, 15],
+      [15, 3, 3],
+      [16, 5, 16],
+      [17, 4, 2],
+      [18, 5, 17]
+    ];
     // array of competition dates
     // these need to be the same as the setup page on google sheets
     // if they are to be recorded properly in the results
@@ -1008,7 +1031,7 @@
       "Lakes 27 October 2023",
       "Dawson 30 October 2023",
       "Lakes 03 November 2023",
-      "Dawson 06 November 2023",
+      "OldCourse 06 November 2023",
       "Lakes 10 November 2023",
       "Dawson 13 November 2023",
       "Lakes 17 November 2023",
@@ -1286,6 +1309,12 @@
           course = "Dawson";
           // localStorage course
           localStorage.course = "Dawson";
+        }
+        if (arrComps[i].indexOf("OldCourse") > -1) {
+          // global course
+          course = "OldCourse";
+          // localStorage course
+          localStorage.course = "OldCourse";
         }
       }
     }
@@ -1707,9 +1736,14 @@
       if (course == "Lakes") {
         par = arrLakes[id.replace("numscore", "")][1];
         si = arrLakes[id.replace("numscore", "")][2];
-      } else {
+      }
+      if (course == "Dawson") {
         par = arrDawson[id.replace("numscore", "")][1];
         si = arrDawson[id.replace("numscore", "")][2];
+      }
+      if (course == "OldCourse") {
+        par = arrOldCourse[id.replace("numscore", "")][1];
+        si = arrOldCourse[id.replace("numscore", "")][2];
       }
       document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
       totalScore();
@@ -1767,9 +1801,14 @@
         if (course == "Lakes") {
           par = arrLakes[id.replace("numscore", "")][1];
           si = arrLakes[id.replace("numscore", "")][2];
-        } else {
+        }
+        if (course == "Dawson") {
           par = arrDawson[id.replace("numscore", "")][1];
           si = arrDawson[id.replace("numscore", "")][2];
+        }
+        if (course == "OldCourse") {
+          par = arrOldCourse[id.replace("numscore", "")][1];
+          si = arrOldCourse[id.replace("numscore", "")][2];
         }
         document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
       }
@@ -1917,9 +1956,14 @@
         if (course == "Lakes") {
           temppar = arrLakes[i][1];
           tempsi = arrLakes[i][2];
-        } else {
+        } 
+        if (course == "Dawson") {
           temppar = arrDawson[i][1];
           tempsi = arrDawson[i][2];
+        }
+        if (course == "OldCourse") {
+          temppar = arrOldCourse[i][1];
+          tempsi = arrOldCourse[i][2];
         }
         temppoints = pointsCalc(hcp, temppar, tempsi, tempscore);
         document.getElementById("h" + i).innerText = tempscore;
@@ -2044,9 +2088,14 @@
         if (course == "Lakes") {
           par = arrLakes[i][1];
           si = arrLakes[i][2];
-        } else {
+        } 
+        if (course == "Dawson") {
           par = arrDawson[i][1];
           si = arrDawson[i][2];
+        }
+        if (course == "OldCourse") {
+          par = arrOldCourse[i][1];
+          si = arrOldCourse[i][2];
         }
         if (("hole" + i) in localStorage) {
           document.getElementById("p" + i).innerText = pointsCalc(hcp, par, si, localStorage.getItem("hole" + i));
@@ -2218,7 +2267,7 @@
        abort = "yes"
        aborttxt += "\nplayer not found\n"
     }
-    if (!(course == "Lakes" || course == "Dawson")) {
+    if (!(course == "Lakes" || course == "Dawson" || course == "OldCourse")) {
        abort = "yes"
        aborttxt += "\ncourse not found\n"
     }
@@ -2273,6 +2322,24 @@
                  } else {
                      cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawson[i][0] + ", par " + 
                               arrDawson[i][1] + ", si  " + arrDawson[i][2] + "</span>"
+                 }
+            } 
+        }
+      }
+      
+      if (course == "OldCourse") {
+        cctxt = player + ", OldCourse, " + hcp + " hcp"
+        for (var i = 1; i <= 18; i++) {
+             if (hcp >= (arrOldCourse[i][2] + 18)) {
+                 cctxt += '<span class="cyanhole"><b><br>hole ' + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] +
+                 ", si " + '<span class="circle2">' + arrOldCourse[i][2] + "</span></b></span>"
+             } else {
+                 if (hcp >= arrOldCourse[i][2]) {
+                     cctxt += "<b><br>hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " +
+                              '<span class="circle1">' + arrOldCourse[i][2] + "</span></b>"
+                 } else {
+                     cctxt += '<span class="nocircle1">' + "<br>hole " + arrOldCourse[i][0] + ", par " + 
+                              arrOldCourse[i][1] + ", si  " + arrOldCourse[i][2] + "</span>"
                  }
             } 
         }
