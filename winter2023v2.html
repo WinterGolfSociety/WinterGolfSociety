@@ -19,26 +19,22 @@
 	}
 	
 	body {
-	        overflow-x: auto;
-                overflow-y: hidden;
 		background-color: darkSlateGray;
-		//width: 100vw;
-                //height: 100%;
-                
-                
-                height: 98vh; //100vh; /* This is for browsers that don't support custom properties */
-  //height: calc(var(--vh, 1vh) * 100);
-                
-	}
-	
-	::-webkit-scrollbar {
-		display: none;
-	}
+		overflow-y: scroll;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        
+        body::-webkit-scrollbar { /* WebKit */
+               width: 0;
+               height: 0;
+        }	
+
 	
 	.square_menu_icon {
 		display: block;
 		position: absolute;
-		overflow: hidden;
+		//overflow: hidden;
 		margin: 0;
 		padding: 0;
 		width: 45px;
