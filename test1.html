@@ -337,7 +337,15 @@
 	}
 	
 	@media screen and (orientation:landscape) {
-   body: {overflow-y: scroll;}
+   body: {overflow-y: scroll;
+          scrollbar-width: 20px; /* Firefox */
+         }
+         
+   body::-webkit-scrollbar { /* WebKit */
+               width: 20px;
+               height: 20px;
+        }
+         
         }
 	
 	</style>
@@ -358,7 +366,7 @@
 			<h2 class="title">Winter 2023</h2>
 				<div class="contentinfo">
 				(including some of autumn)<br><br>
-				hcps, score entry, twos, results, leaderboard
+				xhcps, score entry, twos, results, leaderboard
 				</div>
 				<br>
 				<br>
