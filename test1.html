@@ -21,7 +21,7 @@
 	body {
 	height: 90vh;
 		background-color: darkSlateGray;
-		overflow-y: hidden;
+	//overflow-y: hidden;
          //       scrollbar-width: none; /* Firefox */
          //       -ms-overflow-style: none;  /* Internet Explorer 10+ */
         }
@@ -337,7 +337,17 @@
 	}
 	
 	
-	
+@media screen and (orientation:portrait) {
+   body: {
+   overflow-y: hidden;
+
+         }
+         
+ 
+   .contentinfo {
+          color: yellow;
+         }
+}	
 	
 @media screen and (orientation:landscape) {
    body: {
@@ -347,7 +357,7 @@
          
  
    .contentinfo {
-          color: green;
+          color: cyan;
          }
 }
 	
