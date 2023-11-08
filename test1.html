@@ -3,8 +3,7 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale = 0.86, maximum-scale=3.0, minimum-scale=0.86">
-<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<title>winter 2023</title>
 	<meta content="Bryan M" name="author" />
 	<meta name="theme-color" content="#2F4F4F">
@@ -20,18 +19,23 @@
 	}
 	
 	body {
-		overflow: hidden;
+	height: 90vh;
 		background-color: darkSlateGray;
-	}
-	
-	::-webkit-scrollbar {
-		display: none;
-	}
+		overflow-y: hidden;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        
+        body::-webkit-scrollbar { /* WebKit */
+               width: 0;
+               height: 0;
+        }	
+
 	
 	.square_menu_icon {
 		display: block;
 		position: absolute;
-		overflow: hidden;
+		//overflow: hidden;
 		margin: 0;
 		padding: 0;
 		width: 45px;
@@ -201,7 +205,7 @@
 	
 	section {
 		width: 100vw;
-		height: 100vh;
+		height: 100%;
 		position: absolute;
 	}
 	
@@ -213,7 +217,7 @@
 	
 	.content {
 		width: 80%;
-		height: 100vh;
+		height: 100%;
 		opacity: 1;
 		margin: 0 auto;
 	}
@@ -332,32 +336,13 @@
 		//width: 100%;
 	}
 	
-	
-	html, body, div {
-    height: 100%;
-}
-
-div {
-    text-align: center;
-}
-
-img {
-    max-height: 100%;
-    max-width: 100%;
-}
-	
-	#mainDiv
-{
-        max-width:670px; 
-        margin-right: auto; 
-}
+	@media screen and (orientation:landscape) {
+   overflow-y: scroll;
+        }
 	
 	</style>
 
 	<body>
-	
-	<div id="mainDiv">
-	
 		<nav id="nav">
 			<div class="bubble_menu" id="icon">
 				<button class="square_menu_icon square_menu_icon-X"> <span></span> </button>
@@ -385,25 +370,14 @@ img {
     <br>
 				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> </div>
 			</div>
-			<div class="fadein" id="pressbutton"> <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="pressbuttonflash.png" alt="press"> </div>
+			
+			    <br>
+			
+			
 		</section>
-	
-	
-	
-	
-	</div>
-	
-	
 	</body>
 	<script>
-	
-	// hide hands after 1 menu use
-        if ("handspressbutton" in localStorage) {
-        // hide hands
-           document.getElementById("pressbutton").style.visibility = "hidden"
-        } else {
-           localStorage.handspressbutton = "hidden" 
-        }
+
          
 	// array of competition dates
 		 arrComps = [
@@ -653,7 +627,7 @@ img {
 		}, 1000);
   */
   
-  	window.location.assign("scoreentryloader2023.html");
+  	window.location.assign("scoreentryloader2023v2.html");
 	}
 
 	function doThree() {
