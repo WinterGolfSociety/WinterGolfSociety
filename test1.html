@@ -336,40 +336,38 @@
 		//width: 100%;
 	}
 	
-	
+/* alter screen according to porteate or landscape */	
 @media screen and (orientation:portrait) {
    body: {
-  // overflow-y: hidden;
-   height: 90%;
-   
-   
-   //overflow-y: hidden;
+          height: 90%;
           scrollbar-width: none; /* Firefox */
           -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        }
-   
-         
-         
- 
-   .contentinfo {
-          color: yellow;
          }
+   
+   .contentinfo {
+                 color: yellow;
+                }
+
 }	
+
 	
 @media screen and (orientation:landscape) {
    body: {
-   overflow-y: scroll;
-height: 180%;
+          overflow-y: scroll;
+          height: 180%;
          }
          
-    #spacer {
-    height: 20vh;
-    }
+         #spacer {
+                  height: 20vh;
+                 }
  
-   .contentinfo {
-          color: cyan;
-         }
+        .contentinfo {
+                      color: cyan;
+                     }
+
 }
+
+
 	
 	</style>
 
