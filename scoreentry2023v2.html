@@ -171,7 +171,7 @@
     }
 
     .bar {
-      width: 98vw;
+      width: 100vw; //98vw;
       height: 10vmax;
       display: flex;
       justify-content: center;
@@ -765,20 +765,7 @@
     var player = "select player";
     var comp;
     var compday = "no";
-    
-      
-    
-    
-    
-    
-    console.log("compday = " + compday)
-    
-    
-    
-    
-    
-    
-
+ 
     // set up courses with details for calculations etc.
     // array ["hole num",par,si]
     // Lakes
@@ -1469,10 +1456,10 @@
           checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
           showIncompleteSubmitData(checkBeforeSubmitID);
         } else {
-          //===== submit data
-
+          //===== submit data ==========
+          //============================
           document.forms[0].submit();
-
+          //============================
           // hide icons to allow tick etc.
           document.getElementById('limg').style.visibility = "hidden";
           document.getElementById('rimg').style.visibility = "hidden";
