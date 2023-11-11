@@ -35,9 +35,7 @@
     /*  } */
 
     body {
-      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: white;
       background: rgb(0, 0, 20);
       padding-left: 0;
       padding-right: 0;
@@ -57,7 +55,6 @@
 
     .wrapper {
       display: grid;
-      /* grid-template-columns: auto auto auto auto auto auto; */
       grid-template-columns: repeat(6, [col] auto);
       background-color: rgb(0, 0, 20);
       color: white;
@@ -69,7 +66,7 @@
       font-size: 3vmax;
     }
 
-    .box {
+    .xxxbox {
       background-color: black;
       color: white;
     }
@@ -171,23 +168,23 @@
     }
 
     .bar {
-      width: 100vw; //98vw;
+      width: 100vw;
       height: 11vmax;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-style: solid solid solid solid;
-      /* t, r, b, l */
-      border-color: rgb(30, 130, 255);
     }
 
-    .border {
+    .xxxborder {
       border: 1px white solid;
     }
 
     #dropbtn,
     #hcpwrapper,
     #submit {
+      border-style: solid solid solid solid;
+      /* t, r, b, l */
+      border-color: rgb(30, 130, 255);
       background: dodgerBlue;
     }
 
@@ -395,15 +392,7 @@
     #submit {
       font-size: 5vmax;
     }
-    
-    
-    
-  //  html, body, div {
-  //  height: 100%;
-//}
-    
-    
-    
+       
   </style>
 
 </head>
