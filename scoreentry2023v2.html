@@ -754,6 +754,7 @@
     var player = "select player";
     var comp;
     var compday = "no";
+    var course = "";
     var arrComps=[];
     var master=[];
     // set up courses with details for calculations etc.
@@ -969,13 +970,15 @@
     
    // papaparse uses HTML5's filereader API to get csv file
     function downloader() {
-     // setupcsv
+    // setupcsv
       var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
-      strng1 = "strng1";
-      strng2 = "strng2";
-      strng3 = "strng3";
-    i=0;  
-          
+      var strng1 = "strng1"; // player
+      var strng2 = "strng2"; // hcp
+      var strng3 = "strng3"; // comp
+      i=0;  
+      var guessedPlayer = localStorage.guessPlayer
+      var guessedHCP=0    
+      
       showDownloadingInfoMsg()
       
       try {
@@ -989,19 +992,46 @@
           download: true,
           header: true,
           step: function(results, parser) {
-          strng1 = results.data.players;
-          // add row
-          master.push([strng1,0]);
-          strng3 = results.data.comps;
-          arrComps[i] = strng3;
-          i++
+             strng1 = results.data.players;
+             // add row
+             master.push([strng1,0]);
+             strng3 = results.data.comps;
+             arrComps[i] = strng3;
+             if (strng1 == guessedPlayer) {
+                 guessedHCP = results.data.hcp;
+             }
+             i++
           },
           complete: function() {
-          //console.log("completed");
-          //document.getElementById("test").innerHTML = strng1 + strng2 + strng3;
-          console.log(master)
-          console.log(arrComps)
-          start();
+          // global player
+          player = guessedPlayer;
+          aborttxt = "\nGuessing you are " + guessedPlayer + " hcp " + Math.trunc(Number(guessedHCP)) + "\n\n\n";
+          document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds";
+          document.getElementById("popuppanel").style.display = "block";
+          setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds" }, 1000)
+          setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second" }, 2000)
+          setTimeout(function () {
+        document.getElementById("popuppanel").innerText = ""
+        document.getElementById("popuppanel").style.display = "none"
+        start();
+      }, 3000);
+          // replace button name
+          element = document.getElementById("dropbtn");
+          element.innerText = player;
+          //=====LocalStorage.player=====
+          localStorage.player = player;
+          player2submit = player;
+          document.getElementById("numhcp").innerHTML = "";
+          document.getElementById("numhcp").style.fontSize = "50px";
+          document.getElementById("numhcp").style.paddingTop = 0;
+          document.getElementById("numhcp").style.paddingBottom = 0;
+          document.getElementById("numhcp").innerText = Math.trunc(Number(guessedHCP));
+          // update global hcp
+          hcp = Math.trunc(Number(guessedHCP));
+          //=====LocalStorage.hcp=====
+          localStorage.hcp = hcp;
+          //==========================
+          //start();
               }
           })
        
@@ -1278,6 +1308,9 @@ downloader();
           //=====LocalStorage.dropdown====================
           localStorage.dropdown = JSON.stringify(options);
           //==============================================
+          //=====LocalStorage.guessPlayer=====
+          localStorage.guessPlayer = player;
+          //=============================
         }
         // global player
         player = playerName;
