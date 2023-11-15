@@ -402,8 +402,8 @@
 
     <div class="wrapper">
       <div class="box r1c1to6">
-        <div onclick="myFunction();" class="dropbtn bar" id="dropbtn">select player</div>
-        <div id="myDropdown" class="dropdown-content"> </div>
+        <div onclick="toggleDropdown();" class="dropbtn bar" id="dropbtn">select player</div>
+        <div id="playersDropdown" class="dropdown-content"> </div>
       </div>
 
       <div class="box holesinfoout">hole</div>
@@ -955,7 +955,7 @@
     // bring most commonly selected to the top
     arrOptions.sort(compareSecondColumn);
     // create player dropdown
-    var select = document.getElementById("myDropdown");
+    var select = document.getElementById("playersDropdown");
     // this is what is created
     //<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
     //
@@ -1118,7 +1118,7 @@
       // bring most commonly selected to the top
       // arrOptions.sort(compareSecondColumn);
       // create player dropdown
-      var select = document.getElementById("myDropdown");
+      var select = document.getElementById("playersDropdown");
       // empty names
       select.innerHTML = "";
       // redo list for menu
@@ -1205,12 +1205,12 @@
     }
 
     //=============================================================
-    // function myFunction()
+    // function toggleDropdown()
     // - show player name choices
     //=============================================================  
-    function myFunction() {
+    function toggleDropdown() {
       // When the user clicks on the button, toggle between hiding and showing the dropdown content
-      document.getElementById("myDropdown").classList.toggle("show");
+      document.getElementById("playersDropdown").classList.toggle("show");
     }
 
     //=============================================================
@@ -1849,7 +1849,7 @@
     // - no comp so return to menu
     //=============================================================  
     function returnToMenu() {
-      aborttxt = "\nNo competition today, you will be returned to the Main screen.\n\n";
+      aborttxt = "\nNo competition today, you will be returned to the Main Menu screen.\n\n";
       document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
       document.getElementById("popuppanel").style.display = "block";
       setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" }, 1000)
