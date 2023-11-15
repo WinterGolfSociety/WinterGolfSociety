@@ -756,7 +756,7 @@
     var compday = "no";
     var course = "";
     var arrComps=[];
-    var master=[];
+    var arrPlayers=[];
     if (!("guessPlayer" in localStorage)) {
         localStorage.guessPlayer = "unknown";
     }
@@ -807,7 +807,7 @@
       [17, 4, 10],
       [18, 4, 8]
     ];
-   // array ["hole num",par,si]
+    // array ["hole num",par,si]
     // OldCourse
     arrOldCourse = [
       [0, 0, 0],
@@ -831,147 +831,11 @@
       [18, 5, 9]
     ];
     
-    
-    /*
-    // array of competition dates
-    // these need to be the same as the setup page on google sheets
-    // if they are to be recorded properly in the results
-   arrComps = [
-      "Dawson 02 October 2023",
-      "Lakes 06 October 2023",
-      "Dawson 09 October 2023",
-      "Lakes 13 October 2023",
-      "Dawson 16 October 2023",
-      "Lakes 20 October 2023",
-      "Dawson 23 October 2023",
-      "Lakes 27 October 2023",
-      "Dawson 30 October 2023",
-      "Lakes 03 November 2023",
-      "OldCourse 06 November 2023",
-      "OldCourse 10 November 2023",
-      "Dawson 13 November 2023",
-      "Lakes 17 November 2023",
-      "Dawson 20 November 2023",
-      "Lakes 24 November 2023",
-      "Dawson 27 November 2023",
-      "Dawson 01 December 2023",
-      "Lakes 04 December 2023",
-      "Dawson 08 December 2023",
-      "Lakes 11 December 2023",
-      "Dawson 15 December 2023",
-      "Lakes 18 December 2023",
-      "Dawson 22 December 2023",
-      "Lakes 25 December 2023",
-      "Dawson 29 December 2023",
-      "Dawson 01 January 2024",
-      "Lakes 05 January 2024",
-      "Dawson 08 January 2024",
-      "Lakes 12 January 2024",
-      "Dawson 15 January 2024",
-      "Lakes 19 January 2024",
-      "Dawson 22 January 2024",
-      "Lakes 26 January 2024",
-      "Dawson 29 January 2024",
-      "Dawson 02 February 2024",
-      "Lakes 05 February 2024",
-      "Dawson 09 February 2024",
-      "Lakes 12 February 2024",
-      "Dawson 16 February 2024",
-      "Lakes 19 February 2024",
-      "Dawson 23 February 2024",
-      "Lakes 26 February 2024",
-      "Lakes 01 March 2024",
-      "Dawson 04 March 2024",
-      "Lakes 08 March 2024",
-      "Dawson 11 March 2024",
-      "Lakes 15 March 2024",
-      "Dawson 18 March 2024",
-      "Lakes 22 March 2024",
-      "Dawson 25 March 2024",
-      "Lakes 29 March 2024"
-    ];
-    // master array of members
-    // this is the centralised list of members, the 0 is used to allow a "sorted" menu
-    // by keeping track of the number of "hits" per name
-    var master = [
-      ['Graham Airey', 0],
-      ['Dale Aitkenhead', 0],
-      ['Stephen Alldridge', 0],
-      ['Keith Belshaw', 0],
-      ['Malcolm Broom', 0],
-      ['Neil Brotherton', 0],
-      ['Craig Caesar', 0],
-      ['Clive Caisley', 0],
-      ['Chris Chelton', 0],
-      ['Ken Clark', 0],
-      ['Ian Collier', 0],
-      ['Bob Connelly', 0],
-      ['Jed Cornhill', 0],
-      ['Alex Coupland', 0],
-      ['Neil Coxon', 0],
-      ['Bryan Craggs', 0],
-      ['Andy Davison', 0],
-      ['John Dean', 0],
-      ['Peter Dodds', 0],
-      ['Graham Doughty', 0],
-      ['Martin Edwards', 0],
-      ['Joe Fletcher', 0],
-      ['Norman Ford', 0],
-      ['Bill French', 0],
-      ['Norman Gilholm', 0],
-      ['David Gilroy', 0],
-      ['Graeme Gow', 0],
-      ['Vince Graham', 0],
-      ['Chris Green', 0],
-      ['Rob Green', 0],
-      ['Richard Hedley', 0],
-      ['Barry Henderson', 0],
-      ['Clive Herbert', 0],
-      ['David Hersey', 0],
-      ['Ken Heslop', 0],
-      ['Barry Hill', 0],
-      ['Colin Hills', 0],
-      ['Pete Holleran', 0],
-      ['Roger Ireland', 0],
-      ['David Jackson', 0],
-      ['John Jackson', 0],
-      ['Tom Lemin', 0],
-      ['Martin Leonard', 0],
-      ['Jim Little', 0],
-      ['Bryan Maddison', 0],
-      ['James Main', 0],
-      ['Tony Main', 0],
-      ['John Matthews', 0],
-      ['Tom McNally', 0],
-      ['Steff Murray', 0],
-      ['Darren Nelson', 0],
-      ['Trevor Ord', 0],
-      ['James Patterson', 0],
-      ['Tim Pinkney', 0],
-      ['Mike Riddell', 0],
-      ['Eric Saddler', 0],
-      ['David Scurfield', 0],
-      ['Brian Simpson', 0],
-      ['John Smith', 0],
-      ['Tony Smith', 0],
-      ['Ray Straker', 0],
-      ['Tom Straker', 0],
-      ['Neil Tait', 0],
-      ['Roly Thompson', 0],
-      ['Bob Toward', 0],
-      ['Trevor Towns', 0],
-      ['Joe Waddle', 0],
-      ['Marcus Wilkinson', 0],
-      ['Gordon Willis', 0],
-      ['Ron Woodcock', 0],
-      ['reset list', 0]
-    ];
-    */
-    
-    
-    // create arrays automated
-    
-   // papaparse uses HTML5's filereader API to get csv file
+    //=============================================================
+    // function downloader()
+    // - gets data to create arrays for players, hcps, comps
+    // - papaparse uses HTML5's filereader API to get csv file
+    //=============================================================  
     function downloader() {
       // setupcsv
       var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
@@ -997,12 +861,11 @@
           step: function(results, parser) {
              strng1 = results.data.players;
              // add row
-             master.push([strng1,0]);
+             arrPlayers.push([strng1,0]);
              strng3 = results.data.comps;
              arrComps[i] = strng3;
              if (strng1 == guessedPlayer) {
                  guessedHCP = results.data.hcp;
-                // console.log(guessedHCP)
              }
              i++
           },
@@ -1012,7 +875,6 @@
           // replace button name
           element = document.getElementById("dropbtn");
           element.innerText = player;
-          console.log("guessed " + guessedPlayer)
           //=====LocalStorage.player=====
           localStorage.player = player;
           player2submit = player;
@@ -1033,34 +895,40 @@
       } // end try
       catch (err) {
         console.log(err.message);
-        //console.log("bryan error");
       }
     }
 
-downloader();
-    
-    
+    //=============================================================
+    // run downloder() function 
+    //=============================================================
+    downloader();
+    //=============================================================
+     
+    //=============================================================
+    // function start()
+    // - initialise everything and do checks etc.
+    //=============================================================  
     function start() {
     // check for any new members etc.
     // setup local dropdown if not there
     if (!("dropdown" in localStorage)) {
       //=====LocalStorage.dropdown===================
-      localStorage.dropdown = JSON.stringify(master);
+      localStorage.dropdown = JSON.stringify(arrPlayers);
       //=============================================
     }
     // default notsame to false
     var notsame = false;
     if ("dropdown" in localStorage) {
       // retrieve dropdown info
-      var options = JSON.parse(localStorage.dropdown);
+      var arrOptions = JSON.parse(localStorage.dropdown);
       // see if different number of items
-      if (options.length !== master.length) {
+      if (arrOptions.length !== arrPlayers.length) {
         notsame = true;
       } else {
         // Comparing each element of your array
-        for (var i = 0; i < options.length; i++) {
+        for (var i = 0; i < arrOptions.length; i++) {
           // see if items are different
-          if (options[i][0] !== master[i][0]) {
+          if (arrOptions[i][0] !== arrPlayers[i][0]) {
             notsame = true;
           }
         }
@@ -1069,36 +937,36 @@ downloader();
 
     // if different
     if (notsame) {
-      // option is original, master is new
+      // option is original, arrPlayers is new
       // update new with numbers from original
-      for (var i = 0; i < options.length; i++) {
-        for (var j = 0; j < master.length; j++) {
-          if (options[i][0] == master[j][0]) {
-            master[j][1] = options[i][1];
+      for (var i = 0; i < arrOptions.length; i++) {
+        for (var j = 0; j < arrPlayers.length; j++) {
+          if (arrOptions[i][0] == arrPlayers[j][0]) {
+            arrPlayers[j][1] = arrOptions[i][1];
           }
         }
       }
-      options = JSON.parse(JSON.stringify(master));
+      arrOptions = JSON.parse(JSON.stringify(arrPlayers));
       //=====LocalStorage.dropdown====================
-      localStorage.dropdown = JSON.stringify(options);
+      localStorage.dropdown = JSON.stringify(arrOptions);
       //==============================================
     }
 
     // bring most commonly selected to the top
-    options.sort(compareSecondColumn);
+    arrOptions.sort(compareSecondColumn);
     // create player dropdown
     var select = document.getElementById("myDropdown");
     // this is what is created
     //<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
     //
-    for (var i = 0; i < options.length; i++) {
+    for (var i = 0; i < arrOptions.length; i++) {
       var el = document.createElement("a");
       el.id = "myLink" + (i);
       el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
       el.setAttribute("href", "#");
-      el.innerText = options[i][0];
+      el.innerText = arrOptions[i][0];
       select.appendChild(el);
-      if (options[i][1] > 0) {
+      if (arrOptions[i][1] > 0) {
         document.getElementById("myLink" + (i)).style.color = "blue";
         document.getElementById("myLink" + (i)).style.background = "lightBlue";
       }
@@ -1187,9 +1055,7 @@ downloader();
       if (arrComps[i].indexOf(d1 + " " + m) > -1) {
         compday = "yes";
         comp = arrComps[i];
-        //console.log("comp = " + comp)
-        //console.log("course Lakes = " + arrComps[i].indexOf("Lakes"))
-        //console.log("course Dawson = " + arrComps[i].indexOf("Dawson"))
+   
         if (arrComps[i].indexOf("Lakes") > -1) {
           // global course
           course = "Lakes";
@@ -1210,7 +1076,7 @@ downloader();
         }
       }
     }
-    //console.log("course = " + course)	
+
     if (compday == "yes") {
       localStorage.comp = comp;
     }
@@ -1218,8 +1084,10 @@ downloader();
     // if not a compday find out what course is played and create a comp
     if (compday == "no") {
       if (!("comp" in localStorage)) {
-        showCourseChoice();
+        //showCourseChoice();
+        returnToMenu();
       }
+  
     }
     // recover	
     if (comp == localStorage.comp) {
@@ -1240,15 +1108,15 @@ downloader();
     // - gets rid of "selected" names
     //=============================================================  
     function resetNames() {
-      // create/recreate options favourites
+      // create/recreate arrOptions favourites
       // run from menu item at bottom of list
-      options = JSON.parse(JSON.stringify(master));
+      arrOptions = JSON.parse(JSON.stringify(arrPlayers));
       // update local storage
       //=====LocalStorage.dropdown====================
-      localStorage.dropdown = JSON.stringify(options);
+      localStorage.dropdown = JSON.stringify(arrOptions);
       //==============================================
       // bring most commonly selected to the top
-      // options.sort(compareSecondColumn);
+      // arrOptions.sort(compareSecondColumn);
       // create player dropdown
       var select = document.getElementById("myDropdown");
       // empty names
@@ -1256,12 +1124,12 @@ downloader();
       // redo list for menu
       // <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
       //
-      for (var i = 0; i < options.length; i++) {
+      for (var i = 0; i < arrOptions.length; i++) {
         var el = document.createElement("a");
         el.id = "myLink" + (i + 1);
         el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
         el.setAttribute("href", "#");
-        el.innerText = options[i][0];
+        el.innerText = arrOptions[i][0];
         select.appendChild(el);
       }
     }
@@ -1279,15 +1147,14 @@ downloader();
     }
     // name selected, do stuff
     function dropSelected(playerName) {
-    console.log("playerName = " + playerName)
+
       if (playerName == "reset list") {
         resetNames();
       } else {
         // retrieve dropdown info
-        var options = JSON.parse(localStorage.dropdown);
-        for (var k = 0; k < options.length; k++) {
-          if (options[k][0] == playerName) {
-          console.log(options[k][0] +"=="+ k + "==" + playerName)
+        var arrOptions = JSON.parse(localStorage.dropdown);
+        for (var k = 0; k < arrOptions.length; k++) {
+          if (arrOptions[k][0] == playerName) {
             found = true;
             pos = k;
           }
@@ -1297,14 +1164,13 @@ downloader();
         document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
         // update player choice
         player2submit = document.getElementById("myLink" + pos.toString()).innerText;
-        console.log("player2submit = " + player2submit)
         if (pos >= 0) {
           // increment number of times chosen
-          var tc = parseInt(options[pos][1]) + 1;
-          options[pos][1] = tc;
+          var tc = parseInt(arrOptions[pos][1]) + 1;
+          arrOptions[pos][1] = tc;
           // store new order
           //=====LocalStorage.dropdown====================
-          localStorage.dropdown = JSON.stringify(options);
+          localStorage.dropdown = JSON.stringify(arrOptions);
           //==============================================
           // global player
           player = playerName;
@@ -1377,62 +1243,6 @@ downloader();
     //
     //====================================================
 
- /*
-
-  
-     prefilled form from google forms to allow inputs
-     https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?usp=pp_url&
-      entry.474474348=player&
-      entry.2131369517=comp&
-      entry.477101370=hcp&
-      entry.1980297491=s1&
-      entry.463832232=s2&
-      entry.205704642=s3&
-      entry.278278589=s4&
-      entry.949547387=s5&
-      entry.703011397=s6&
-      entry.1460583253=s7&
-      entry.462940045=s8&
-      entry.477691508=s9&
-      entry.413249407=s10&
-      entry.108900453=s11&
-      entry.1841236411=s12&
-      entry.1864644918=s13&
-      entry.1538428689=s14&
-      entry.1449918213=s15&
-      entry.38761817=s16&
-      entry.247392471=s17&
-      entry.741809181=s18&
-      entry.1362729237=p1&
-      entry.1372983908=p2&
-      entry.2002196917=p3&
-      entry.640802794=p4&
-      entry.2076656246=p5&
-      entry.486346919=p6&
-      entry.1918313229=p7&
-      entry.638821=p8&
-      entry.737099688=p9&
-      entry.488827232=p10&
-      entry.1203421487=p11&
-      entry.979421831=p12&
-      entry.929858153=p13&
-      entry.1330487443=p14&
-      entry.940496448=p15&
-      entry.1127168348=p16&
-      entry.638332104=p17&
-      entry.1626319908=p18&
-      entry.362674948=out9&
-      entry.544180710=back9&
-      entry.893562950=totalpoints&
-      entry.335596501=cb9&
-      entry.1453506389=cb6&
-      entry.1045870519=cb3&
-      entry.683300283=cb1&
-      entry.967906330=twos&
-      entry.789190149=compplayer
- */
-    
-    // send info from HTML form to google form	
     //=============================================================
     // function submitForm()
     // - send info from HTML form to google form
@@ -1441,9 +1251,7 @@ downloader();
     function submitForm() {
       // get the relevant info into a form
       // dont allow submit for an incorrect day
-      if (compday == "no") {
-        showNoSubmitMessage();
-      } else {
+      if (compday == "yes") {
         document.getElementById('mx474474348').value = player;
         document.getElementById('mx2131369517').value = comp;
         document.getElementById('mx477101370').value = hcp;
@@ -1911,57 +1719,11 @@ downloader();
     }
 
     //=============================================================
-    // function doSomethingLakes()
-    // - set Lakes course on non competition day
-    //=============================================================
-    function doSomethingLakes() {
-      course = "Lakes";
-      comp = course + " " + dateToday;
-      document.getElementById("popuppanel").style.display = "none";
-      localStorage.course = course;
-      localStorage.comp = comp;
-    }
-    
-    //=============================================================
-    // function doSomethingDawson()
-    // - set Dawson course on non competition day
-    //=============================================================
-    function doSomethingDawson() {
-      course = "Dawson";
-      comp = course + " " + dateToday;
-      document.getElementById("popuppanel").style.display = "none";
-      localStorage.course = course;
-      localStorage.comp = comp;
-    }
-
-    //=============================================================
     // function showCompMessage()
     // - message showing what competition is in place
     //=============================================================  
     function showCompMessage() {
-      if (compday == "yes") {
-        aborttxt = "\nScoring for " + comp + "\ncompetition\n\n";
-      } else {
-        aborttxt = "\nScoring for " + comp + "\n(no competition)\n\n";
-      }
-      document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
-      document.getElementById("popuppanel").style.display = "block";
-      setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" }, 1000)
-      setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds" }, 2000)
-      setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds" }, 3000)
-      setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second" }, 4000)
-      setTimeout(function () {
-        document.getElementById("popuppanel").innerText = ""
-        document.getElementById("popuppanel").style.display = "none"
-      }, 5000);
-    }
-
-    //=============================================================
-    // function showNoSubmitMessage()
-    // - show message for deny submit on non competition day
-    //=============================================================
-    function showNoSubmitMessage() {
-      aborttxt = "\nSubmit for " + comp + "\n(no competition) is disabled.\n\n";
+      aborttxt = "\nScoring for " + comp + "\ncompetition\n\n";
       document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
       document.getElementById("popuppanel").style.display = "block";
       setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" }, 1000)
@@ -2025,20 +1787,6 @@ downloader();
     }
 
     //=============================================================
-    // function showCourseChoice()
-    // - show course choice dialog for non competition day
-    //=============================================================
-    function showCourseChoice() {
-      tempt = '<br />No competition today.';
-      tempt += '<br />To use scoring, select a course and continue.'
-      tempt += '<br /><br />';
-      tempt += '<button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>';
-      tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
-      document.getElementById("popuppanel").innerHTML = tempt;
-      document.getElementById("popuppanel").style.display = "block";
-    }
-
-    //=============================================================
     // function showDownloadingInfoMsg()
     // - show message when downloading player and course info and creating arrays
     //=============================================================  
@@ -2096,6 +1844,25 @@ downloader();
       }, 3000);
     }
 
+   //=============================================================
+    // function returnToMenu()
+    // - no comp so return to menu
+    //=============================================================  
+    function returnToMenu() {
+      aborttxt = "\nNo competition today, you will be returned to the Main screen.\n\n";
+      document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
+      document.getElementById("popuppanel").style.display = "block";
+      setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" }, 1000)
+      setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds" }, 2000)
+      setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds" }, 3000)
+      setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second" }, 4000)
+      setTimeout(function () {
+        document.getElementById("popuppanel").innerText = ""
+        document.getElementById("popuppanel").style.display = "none"
+        history.go(-2);  
+      }, 5000);
+    }
+
     //=============================================================
     // function ccclose()
     // - closes scorecard
@@ -2123,7 +1890,6 @@ downloader();
         abort = "yes"
         aborttxt += "\ncourse not found\n"
       }
-      console.log(aborttxt)
       if (abort == "yes") {
         document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
         document.getElementById("popuppanel").style.display = "block";
