@@ -757,6 +757,9 @@
     var course = "";
     var arrComps=[];
     var master=[];
+    if (!("guessPlayer" in localStorage)) {
+        localStorage.guessPlayer = "unknown";
+    }
     // set up courses with details for calculations etc.
     // array ["hole num",par,si]
     // Lakes
@@ -970,7 +973,7 @@
     
    // papaparse uses HTML5's filereader API to get csv file
     function downloader() {
-    // setupcsv
+      // setupcsv
       var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
       var strng1 = "strng1"; // player
       var strng2 = "strng2"; // hcp
@@ -999,25 +1002,17 @@
              arrComps[i] = strng3;
              if (strng1 == guessedPlayer) {
                  guessedHCP = results.data.hcp;
+                // console.log(guessedHCP)
              }
              i++
           },
           complete: function() {
           // global player
           player = guessedPlayer;
-          aborttxt = "\nGuessing you are " + guessedPlayer + " hcp " + Math.trunc(Number(guessedHCP)) + "\n\n\n";
-          document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds";
-          document.getElementById("popuppanel").style.display = "block";
-          setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds" }, 1000)
-          setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second" }, 2000)
-          setTimeout(function () {
-        document.getElementById("popuppanel").innerText = ""
-        document.getElementById("popuppanel").style.display = "none"
-        start();
-      }, 3000);
           // replace button name
           element = document.getElementById("dropbtn");
           element.innerText = player;
+          console.log("guessed " + guessedPlayer)
           //=====LocalStorage.player=====
           localStorage.player = player;
           player2submit = player;
@@ -1031,7 +1026,7 @@
           //=====LocalStorage.hcp=====
           localStorage.hcp = hcp;
           //==========================
-          //start();
+          start();
               }
           })
        
@@ -1098,14 +1093,14 @@ downloader();
     //
     for (var i = 0; i < options.length; i++) {
       var el = document.createElement("a");
-      el.id = "myLink" + (i + 1);
+      el.id = "myLink" + (i);
       el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
       el.setAttribute("href", "#");
       el.innerText = options[i][0];
       select.appendChild(el);
       if (options[i][1] > 0) {
-        document.getElementById("myLink" + (i + 1)).style.color = "blue";
-        document.getElementById("myLink" + (i + 1)).style.background = "lightBlue";
+        document.getElementById("myLink" + (i)).style.color = "blue";
+        document.getElementById("myLink" + (i)).style.background = "lightBlue";
       }
     }
 
@@ -1284,6 +1279,7 @@ downloader();
     }
     // name selected, do stuff
     function dropSelected(playerName) {
+    console.log("playerName = " + playerName)
       if (playerName == "reset list") {
         resetNames();
       } else {
@@ -1291,16 +1287,18 @@ downloader();
         var options = JSON.parse(localStorage.dropdown);
         for (var k = 0; k < options.length; k++) {
           if (options[k][0] == playerName) {
+          console.log(options[k][0] +"=="+ k + "==" + playerName)
             found = true;
             pos = k;
           }
         }
         // change color on selection
-        document.getElementById("myLink" + (pos + 1)).style.color = "blue";
-        document.getElementById("myLink" + (pos + 1)).style.background = "lightBlue";
+        document.getElementById("myLink" + pos.toString()).style.color = "blue";
+        document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
         // update player choice
-        player2submit = document.getElementById("myLink" + (pos + 1)).innerText;
-        if (pos > 0) {
+        player2submit = document.getElementById("myLink" + pos.toString()).innerText;
+        console.log("player2submit = " + player2submit)
+        if (pos >= 0) {
           // increment number of times chosen
           var tc = parseInt(options[pos][1]) + 1;
           options[pos][1] = tc;
@@ -1308,12 +1306,13 @@ downloader();
           //=====LocalStorage.dropdown====================
           localStorage.dropdown = JSON.stringify(options);
           //==============================================
+          // global player
+          player = playerName;
           //=====LocalStorage.guessPlayer=====
           localStorage.guessPlayer = player;
           //=============================
         }
-        // global player
-        player = playerName;
+        
         // replace button name
         element = document.getElementById("dropbtn");
         element.innerText = player;
@@ -1321,6 +1320,9 @@ downloader();
         // reset hole scores
         //=====LocalStorage.player=====
         localStorage.player = player;
+        //=============================
+        //=====LocalStorage.guessPlayer=====
+        localStorage.guessPlayer = player;
         //=============================
         player2submit = player;
         // close dropdown
