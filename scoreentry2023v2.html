@@ -1322,13 +1322,7 @@ downloader();
     // do stuff when swiped
     function checkDirection() {
       if (touchendX < touchstartX) {
-        // clear swipe icon
-      //  document.getElementById("swiperight").innerHTML = "";
-        // unblur submit button
-        // document.getElementById("submitwrapper").style.filter = "none";
-        //document.getElementById("submitwrapper").style.visibility = "visible";
-
-        if (localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
+         if (localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
           // prevent some false messages
           if ((touchstartX - touchendX) > 100) {
             showSetPlayerMessage();
@@ -2014,7 +2008,7 @@ downloader();
     // - show message when downloading player and course info and creating arrays
     //=============================================================  
     function showDownloadingInfoMsg() {
-      document.getElementById("popuppanel").innerText = "\nRetrieving Course and Player information.\n\n";
+       document.getElementById("popuppanel").innerHTML = 'Retrieving Course and Player information.<br><br><img src="throbber.gif" width=50 height=48>';
       document.getElementById("popuppanel").style.display = "block";
     }
     
