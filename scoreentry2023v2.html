@@ -754,7 +754,8 @@
     var player = "select player";
     var comp;
     var compday = "no";
- 
+    var arrComps=[];
+    var master=[];
     // set up courses with details for calculations etc.
     // array ["hole num",par,si]
     // Lakes
@@ -825,6 +826,9 @@
       [17, 4, 1],
       [18, 5, 9]
     ];
+    
+    
+    /*
     // array of competition dates
     // these need to be the same as the setup page on google sheets
     // if they are to be recorded properly in the results
@@ -958,6 +962,60 @@
       ['Ron Woodcock', 0],
       ['reset list', 0]
     ];
+    */
+    
+    
+    // create arrays automated
+    
+   // papaparse uses HTML5's filereader API to get csv file
+    function downloader() {
+     // setupcsv
+      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
+      strng1 = "strng1";
+      strng2 = "strng2";
+      strng3 = "strng3";
+    i=0;  
+          
+      showDownloadingInfoMsg()
+      
+      try {
+        // if it fails after 20 seconds, put up error message
+        setTimeout(function() {
+          if (!(strng2.length) > 0) {
+            alert("failed");
+          }
+        }, 20000);
+        Papa.parse(public_hcp_url, {
+          download: true,
+          header: true,
+          step: function(results, parser) {
+          strng1 = results.data.players;
+          // add row
+          master.push([strng1,0]);
+          strng3 = results.data.comps;
+          arrComps[i] = strng3;
+          i++
+          },
+          complete: function() {
+          //console.log("completed");
+          //document.getElementById("test").innerHTML = strng1 + strng2 + strng3;
+          console.log(master)
+          console.log(arrComps)
+          start();
+              }
+          })
+       
+      } // end try
+      catch (err) {
+        console.log(err.message);
+        //console.log("bryan error");
+      }
+    }
+
+downloader();
+    
+    
+    function start() {
     // check for any new members etc.
     // setup local dropdown if not there
     if (!("dropdown" in localStorage)) {
@@ -1146,6 +1204,7 @@
     if ("comp" in localStorage) {
       showCompMessage();
     }
+    } // end function start()
 
     //=============================================================
     // functions - run when called
@@ -1198,6 +1257,8 @@
       if (playerName == "reset list") {
         resetNames();
       } else {
+        // retrieve dropdown info
+        var options = JSON.parse(localStorage.dropdown);
         for (var k = 0; k < options.length; k++) {
           if (options[k][0] == playerName) {
             found = true;
@@ -1948,6 +2009,15 @@
       document.getElementById("popuppanel").style.display = "block";
     }
 
+    //=============================================================
+    // function showDownloadingInfoMsg()
+    // - show message when downloading player and course info and creating arrays
+    //=============================================================  
+    function showDownloadingInfoMsg() {
+      document.getElementById("popuppanel").innerText = "\nRetrieving Course and Player information.\n\n";
+      document.getElementById("popuppanel").style.display = "block";
+    }
+    
     //=============================================================
     // function showHole()
     // - shows which hole when score is tapped
