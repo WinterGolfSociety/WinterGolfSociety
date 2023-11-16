@@ -179,7 +179,14 @@
       border: 1px white solid;
     }
 
-    #dropbtn,
+    #dropbtn {
+      font-size: 5vmax;
+      border-style: solid solid solid solid;
+      /* t, r, b, l */
+      border-color: rgb(30, 130, 255);
+      background: dodgerBlue;
+    }
+    
     #hcpwrapper,
     #submit {
       border-style: solid solid solid solid;
@@ -1849,7 +1856,7 @@
     // - no comp so return to menu
     //=============================================================  
     function returnToMenu() {
-      aborttxt = "\nNo competition today, you will be returned to the Main Menu screen.\n\n";
+      aborttxt = "\nNo competition today\nso returning you to the previous screen.\n\n";
       document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
       document.getElementById("popuppanel").style.display = "block";
       setTimeout(function () { document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds" }, 1000)
