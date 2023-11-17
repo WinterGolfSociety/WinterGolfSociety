@@ -79,56 +79,145 @@ body {
   background-color: #87ccea;
 }
 
-.sideways {
+.player1sideways {
 color: gray;
 font-size: 20px;
 writing-mode: vertical-rl;
 text-orientation: mixed;
 float: left;
- line-height: 128px;
-  height: 128px;
-  //border: 3px solid green;
-  text-align: center;
+line-height: 128px;
+height: 128px;
+text-align: center;
 }
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+
+.wrapper {
+      display: grid;
+      grid-template-columns: repeat(6, [col] auto);
+      //background-color: rgb(0, 0, 20);
+      color: blue;
+      height: 10vmax;
+      align-items: center;
+      justify-items: center;
+      //scroll-snap-align: start;
+      //scroll-snap-stop: always;
+      font-size: 3vmax;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
 
 
+<button type="button" class="collapsible">Recorded scores</button>
+<div class="content" id="content">
+  <p>Lorem ipsum...</p>
+  <div class="wrapper">
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  <div>11</div>
+  
+  </div>
+  
+</div>
 
 
 
+
+<button type="button" class="collapsible">Score entry</button>
 
 <div class="holster">
 <div>hole 1, par 3, si 18</div>
   <div class="container x mandatory-scroll-snapping" dir="ltr">
-    <div><span class="sideways">Joe</span>X</div>
-    <div><span class="sideways">Joe</span>0</div>
-    <div><span class="sideways">Joe</span>1</div>
-    <div><span class="sideways">Joe</span>2</div>
-    <div><span class="sideways">Joe</span>3</div>
-    <div><span class="sideways">Joe</span>4</div>
-    <div><span class="sideways">Joe</span>5</div>
-    <div><span class="sideways">Joe</span>6</div>
-    <div><span class="sideways">Joe</span>7</div>
-    <div><span class="sideways">Joe</span>8</div>
-    <div><span class="sideways">Joe</span>9</div>
-  </div>
+    <div><span class="player1sideways" id="player1x"></span>X</div>
+    <div><span class="player1sideways" id="player10"></span>0</div>
+    <div><span class="player1sideways" id="player11"></span>1</div>
+    <div><span class="player1sideways" id="player12"></span>2</div>
+    <div><span class="player1sideways" id="player13"></span>3</div>
+    <div><span class="player1sideways" id="player14"></span>4</div>
+    <div><span class="player1sideways" id="player15"></span>5</div>
+    <div><span class="player1sideways" id="player16"></span>6</div>
+    <div><span class="player1sideways" id="player17"></span>7</div>
+    <div><span class="player1sideways" id="player18"></span>8</div>
+    <div><span class="player1sideways" id="player19"></span>9</div>
+    </div>
   
   
     <div class="container x mandatory-scroll-snapping" dir="ltr">
-    <div><span class="sideways">Joe</span>X</div>
-    <div>0</div>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
-  </div>
+    <div><span class="sideways" id="player2"></span>X</div>
+    <div><span class="sideways" id="player2"></span>0</div>
+    <div><span class="sideways" id="player2"></span>1</div>
+    <div><span class="sideways" id="player2"></span>2</div>
+    <div><span class="sideways" id="player2"></span>3</div>
+    <div><span class="sideways" id="player2"></span>4</div>
+    <div><span class="sideways" id="player2"></span>5</div>
+    <div><span class="sideways" id="player2"></span>6</div>
+    <div><span class="sideways" id="player2"></span>7</div>
+    <div><span class="sideways" id="player2"></span>8</div>
+    <div><span class="sideways" id="player2"></span>9</div>
+    </div>
   
   
     <div class="container x mandatory-scroll-snapping" dir="ltr">
@@ -161,7 +250,39 @@ float: left;
   </div>
   
 </div>  
+  <script>
+  var player1name = "Bryan"
+  document.getElementById("player1x").innerText = player1name
+  for (i = 0; i < 10; i++) {
+     document.getElementById("player1" + i).innerText = player1name
+  }
   
+  
+  
+ var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+  
+  
+ /* 
+  document.getElementById("content").innerHTML = "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" 
+  */
+  
+  
+  
+  
+  </script>
   </body>
   </html>
   
