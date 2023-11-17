@@ -155,7 +155,7 @@ text-align: center;
 
 
 <button type="button" class="collapsible">Recorded scores</button>
-<div class="content" id="content">
+<div class="content" id="content1">
   <p>Lorem ipsum...</p>
   <div class="wrapper">
   <div>11</div>
@@ -186,10 +186,10 @@ text-align: center;
 
 
 
-<button type="button" class="collapsible">Score entry</button>
-
+<button type="button" class="collapsible">hole 1, par 3, si 18</button>
+<div class="content" id="content2">
 <div class="holster">
-<div>hole 1, par 3, si 18</div>
+
   <div class="container x mandatory-scroll-snapping" dir="ltr">
     <div><span class="player1sideways" id="player1x"></span>X</div>
     <div><span class="player1sideways" id="player10"></span>0</div>
@@ -202,59 +202,69 @@ text-align: center;
     <div><span class="player1sideways" id="player17"></span>7</div>
     <div><span class="player1sideways" id="player18"></span>8</div>
     <div><span class="player1sideways" id="player19"></span>9</div>
-    </div>
+  </div>
   
-  
-    <div class="container x mandatory-scroll-snapping" dir="ltr">
-    <div><span class="sideways" id="player2"></span>X</div>
-    <div><span class="sideways" id="player2"></span>0</div>
-    <div><span class="sideways" id="player2"></span>1</div>
-    <div><span class="sideways" id="player2"></span>2</div>
-    <div><span class="sideways" id="player2"></span>3</div>
-    <div><span class="sideways" id="player2"></span>4</div>
-    <div><span class="sideways" id="player2"></span>5</div>
-    <div><span class="sideways" id="player2"></span>6</div>
-    <div><span class="sideways" id="player2"></span>7</div>
-    <div><span class="sideways" id="player2"></span>8</div>
-    <div><span class="sideways" id="player2"></span>9</div>
-    </div>
-  
-  
-    <div class="container x mandatory-scroll-snapping" dir="ltr">
-    <div><span class="sideways">Joe</span>X</div>
-    <div>0</div>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+
+  <div class="container x mandatory-scroll-snapping" dir="ltr">
+    <div><span class="player1sideways" id="player2x"></span>X</div>
+    <div><span class="player1sideways" id="player20"></span>0</div>
+    <div><span class="player1sideways" id="player21"></span>1</div>
+    <div><span class="player1sideways" id="player22"></span>2</div>
+    <div><span class="player1sideways" id="player23"></span>3</div>
+    <div><span class="player1sideways" id="player24"></span>4</div>
+    <div><span class="player1sideways" id="player25"></span>5</div>
+    <div><span class="player1sideways" id="player26"></span>6</div>
+    <div><span class="player1sideways" id="player27"></span>7</div>
+    <div><span class="player1sideways" id="player28"></span>8</div>
+    <div><span class="player1sideways" id="player29"></span>9</div>
   </div>
   
   
-    <div class="container x mandatory-scroll-snapping" dir="ltr">
-    <div><span class="sideways">Joe</span>X</div>
-    <div>0</div>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
+  <div class="container x mandatory-scroll-snapping" dir="ltr">
+    <div><span class="player1sideways" id="player3x"></span>X</div>
+    <div><span class="player1sideways" id="player30"></span>0</div>
+    <div><span class="player1sideways" id="player31"></span>1</div>
+    <div><span class="player1sideways" id="player32"></span>2</div>
+    <div><span class="player1sideways" id="player33"></span>3</div>
+    <div><span class="player1sideways" id="player34"></span>4</div>
+    <div><span class="player1sideways" id="player35"></span>5</div>
+    <div><span class="player1sideways" id="player36"></span>6</div>
+    <div><span class="player1sideways" id="player37"></span>7</div>
+    <div><span class="player1sideways" id="player38"></span>8</div>
+    <div><span class="player1sideways" id="player39"></span>9</div>
   </div>
   
+  
+  <div class="container x mandatory-scroll-snapping" dir="ltr">
+    <div><span class="player1sideways" id="player4x"></span>X</div>
+    <div><span class="player1sideways" id="player40"></span>0</div>
+    <div><span class="player1sideways" id="player41"></span>1</div>
+    <div><span class="player1sideways" id="player42"></span>2</div>
+    <div><span class="player1sideways" id="player43"></span>3</div>
+    <div><span class="player1sideways" id="player44"></span>4</div>
+    <div><span class="player1sideways" id="player45"></span>5</div>
+    <div><span class="player1sideways" id="player46"></span>6</div>
+    <div><span class="player1sideways" id="player47"></span>7</div>
+    <div><span class="player1sideways" id="player48"></span>8</div>
+    <div><span class="player1sideways" id="player49"></span>9</div>
+  </div>
+    
+  </div>
 </div>  
   <script>
   var player1name = "Bryan"
+  var player2name = "Bob"
+  var player3name = "Stephen"
+  var player4name = "Joe"
   document.getElementById("player1x").innerText = player1name
+  document.getElementById("player2x").innerText = player2name
+  document.getElementById("player3x").innerText = player3name
+  document.getElementById("player4x").innerText = player4name
   for (i = 0; i < 10; i++) {
      document.getElementById("player1" + i).innerText = player1name
+     document.getElementById("player2" + i).innerText = player2name
+     document.getElementById("player3" + i).innerText = player3name
+     document.getElementById("player4" + i).innerText = player4name
   }
   
   
