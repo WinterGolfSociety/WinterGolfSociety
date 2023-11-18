@@ -101,7 +101,7 @@ text-align: center;
 
 .wrapper {
       display: grid;
-      grid-template-columns: repeat(6, [col] auto);
+      grid-template-columns: repeat(5, [col] auto);
       //background-color: rgb(0, 0, 20);
       color: blue;
       height: 10vmax;
@@ -138,28 +138,26 @@ text-align: center;
 
 <button type="button" class="collapsible">Recorded scores</button>
 <div class="content" id="content1">
-  <p>Lorem ipsum...</p>
+
   <div class="wrapper">
+  <div>hole</div>
+  <div>player1</div>
+  <div>player2</div>
+  <div>player3</div>
+  <div>player4</div>
+  
+  <div id="r1">1</div>
+  <div id="r2">11</div>
   <div>11</div>
   <div>11</div>
+  <div>11</div>
+  
+  <div>2</div>
   <div>11</div>
   <div>11</div>
   <div>11</div>
   <div>11</div>
   
-  <div>11</div>
-  <div>11</div>
-  <div>11</div>
-  <div>11</div>
-  <div>11</div>
-  <div>11</div>
-  
-  <div>11</div>
-  <div>11</div>
-  <div>11</div>
-  <div>11</div>
-  <div>11</div>
-  <div>11</div>
   
   </div>
   
@@ -167,8 +165,7 @@ text-align: center;
 
 
 
-
-<button type="button" class="collapsible">hole 1, par 3, si 18</button>
+<button type="button" class="collapsible" id="coll1">hole 1</button>
 <div class="content" id="content2">
 <div class="holster">
 
@@ -233,7 +230,98 @@ text-align: center;
     
   </div>
 </div>  
+
+
+<button type="button" class="collapsible" id="coll1">hole 1</button>
+<div class="content" id="content2">
+<div class="holster">
+
+  <div class="container x mandatory-scroll-snapping" dir="ltr">
+    <div><span class="player1sideways" id="player1x"></span>X</div>
+    <div><span class="player1sideways" id="player10"></span>0</div>
+    <div><span class="player1sideways" id="player11"></span>1</div>
+    <div><span class="player1sideways" id="player12"></span>2</div>
+    <div><span class="player1sideways" id="player13"></span>3</div>
+    <div><span class="player1sideways" id="player14"></span>4</div>
+    <div><span class="player1sideways" id="player15"></span>5</div>
+    <div><span class="player1sideways" id="player16"></span>6</div>
+    <div><span class="player1sideways" id="player17"></span>7</div>
+    <div><span class="player1sideways" id="player18"></span>8</div>
+    <div><span class="player1sideways" id="player19"></span>9</div>
+  </div>
+  
+
+  <div class="container x mandatory-scroll-snapping" dir="ltr">
+    <div><span class="player1sideways" id="layer2x"></span>X</div>
+    <div><span class="player1sideways" id="layer20"></span>0</div>
+    <div><span class="player1sideways" id="layer21"></span>1</div>
+    <div><span class="player1sideways" id="layer22"></span>2</div>
+    <div><span class="player1sideways" id="layer23"></span>3</div>
+    <div><span class="player1sideways" id="layer24"></span>4</div>
+    <div><span class="player1sideways" id="layer25"></span>5</div>
+    <div><span class="player1sideways" id="layer26"></span>6</div>
+    <div><span class="player1sideways" id="layer27"></span>7</div>
+    <div><span class="player1sideways" id="layer28"></span>8</div>
+    <div><span class="player1sideways" id="layer29"></span>9</div>
+  </div>
+  
+  
+  <div class="container x mandatory-scroll-snapping" dir="ltr">
+    <div><span class="player1sideways" id="layer3x"></span>X</div>
+    <div><span class="player1sideways" id="layer30"></span>0</div>
+    <div><span class="player1sideways" id="layer31"></span>1</div>
+    <div><span class="player1sideways" id="layer32"></span>2</div>
+    <div><span class="player1sideways" id="layer33"></span>3</div>
+    <div><span class="player1sideways" id="layer34"></span>4</div>
+    <div><span class="player1sideways" id="layer35"></span>5</div>
+    <div><span class="player1sideways" id="layer36"></span>6</div>
+    <div><span class="player1sideways" id="layer37"></span>7</div>
+    <div><span class="player1sideways" id="layer38"></span>8</div>
+    <div><span class="player1sideways" id="layer39"></span>9</div>
+  </div>
+  
+  
+  <div class="container x mandatory-scroll-snapping" dir="ltr">
+    <div><span class="player1sideways" id="layer4x"></span>X</div>
+    <div><span class="player1sideways" id="layer40"></span>0</div>
+    <div><span class="player1sideways" id="layer41"></span>1</div>
+    <div><span class="player1sideways" id="layer42"></span>2</div>
+    <div><span class="player1sideways" id="layer43"></span>3</div>
+    <div><span class="player1sideways" id="layer44"></span>4</div>
+    <div><span class="player1sideways" id="layer45"></span>5</div>
+    <div><span class="player1sideways" id="layer46"></span>6</div>
+    <div><span class="player1sideways" id="layer47"></span>7</div>
+    <div><span class="player1sideways" id="layer48"></span>8</div>
+    <div><span class="player1sideways" id="layer49"></span>9</div>
+  </div>
+    
+  </div>
+</div>  
   <script>
+  
+  
+  arrOldCourse = [
+      [0, 0, 0],
+      [1, 5, 10],
+      [2, 4, 6],
+      [3, 3, 18],
+      [4, 5, 4],
+      [5, 3, 16],
+      [6, 4, 2],
+      [7, 4, 14],
+      [8, 4, 8],
+      [9, 4, 12],
+      [10, 4, 5],
+      [11, 3, 13],
+      [12, 4, 15],
+      [13, 4, 1],
+      [14, 5, 7],
+      [15, 3, 11],
+      [16, 5, 9],
+      [17, 4, 3],
+      [18, 5, 17]
+    ];
+  
   var player1name = "Bryan"
   var player2name = "Bob"
   var player3name = "Stephen"
@@ -264,13 +352,46 @@ for (i = 0; i < coll.length; i++) {
       content.style.display = "block";
     }
   });
+if (i > 0) { 
+    coll[i].innerText = "hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " + arrOldCourse[i][2]
+}
 }
   
   
- /* 
-  document.getElementById("content").innerHTML = "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" + "line 1" + "<br>" 
-  */
   
+const el11 = document.querySelector('#player11')
+const el12 = document.querySelector('#player12')  
+const el13 = document.querySelector('#player13')
+const el14 = document.querySelector('#player14')
+
+
+const el21 = document.querySelector('#player21')
+const el22 = document.querySelector('#player22')  
+const el23 = document.querySelector('#player23')
+const el24 = document.querySelector('#player24')
+
+
+const observer = new window.IntersectionObserver(([entry]) => {
+  if (entry.isIntersecting) {
+    //console.log('ENTER ' + entry.target.id)
+   document.getElementById("r1").innerText = entry.target.id;
+    return
+  }
+//  console.log('LEAVE')
+}, {
+  root: null,
+  threshold: 0.5, // set offset 0.1 means trigger if atleast 10% of element in viewport
+})
+
+observer.observe(el11);
+observer.observe(el12);
+observer.observe(el13);
+observer.observe(el14); 
+  
+observer.observe(el21);
+observer.observe(el22); 
+observer.observe(el23);
+observer.observe(el24); 
   
   
   
