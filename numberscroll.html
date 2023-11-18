@@ -134,7 +134,7 @@ text-align: center;
 </style>
 </head>
 <body>
-
+ <button type="button" id="test" onclick="updateScores()">updateScores</button>
 
 <button type="button" class="collapsible">Recorded scores</button>
 <div class="content" id="content1">
@@ -146,7 +146,7 @@ text-align: center;
   <div>player3</div>
   <div>player4</div>
   
-  <div id="r1">1</div>
+  <div id="r1">11111</div>
   <div id="r2">11</div>
   <div>11</div>
   <div>11</div>
@@ -157,7 +157,7 @@ text-align: center;
   <div>11</div>
   <div>11</div>
   <div>11</div>
-  
+ 
   
   </div>
   
@@ -233,7 +233,7 @@ text-align: center;
 
 
 <button type="button" class="collapsible" id="coll1">hole 1</button>
-<div class="content" id="content2">
+<div class="content" id="content3">
 <div class="holster">
 
   <div class="container x mandatory-scroll-snapping" dir="ltr">
@@ -299,6 +299,14 @@ text-align: center;
 </div>  
   <script>
   
+  globalCurrentHole = 0
+  var player1name = "player1"
+  var player2name = "player2"
+  var player3name = "player3"
+  var player4name = "player4"
+  
+  lastNodeOpen = "";
+  
   
   arrOldCourse = [
       [0, 0, 0],
@@ -322,14 +330,16 @@ text-align: center;
       [18, 5, 17]
     ];
   
-  var player1name = "Bryan"
-  var player2name = "Bob"
-  var player3name = "Stephen"
-  var player4name = "Joe"
+  player1name = "Bryan"
+  player2name = "Bob"
+  player3name = "Stephen"
+  player4name = "Joe"
+  
   document.getElementById("player1x").innerText = player1name
   document.getElementById("player2x").innerText = player2name
   document.getElementById("player3x").innerText = player3name
   document.getElementById("player4x").innerText = player4name
+  
   for (i = 0; i < 10; i++) {
      document.getElementById("player1" + i).innerText = player1name
      document.getElementById("player2" + i).innerText = player2name
@@ -339,60 +349,115 @@ text-align: center;
   
   
   
- var coll = document.getElementsByClassName("collapsible");
+var coll = document.getElementsByClassName("collapsible");
+var cont = document.getElementsByClassName("content");
 var i;
-
+var inuse = 0;
 for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
+    coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
+/*   
+    // close all
+    for (j = 0; j < cont.length; j++) {
+         cont[j].style.display = "none"
     }
+  
+    
+var result = [],
+    node = this.parentNode.firstChild;
+//node = this.firstElementSibling
+
+while ( node ) {
+    if ( node !== this && node.nodeType === Node.ELEMENT_NODE ) 
+      result.push( node );
+      console.log(node)
+  //    node.style.display = "none"
+    node = node.nextElementSibling || node.nextSibling;
+}
+*/ 
+// close all
+//for (j = 0; j < result.length; j++) {
+//     result[j].style.display = "none"
+//}
+    
+    
+    var content = this.nextElementSibling; 
+
+    if (content.style.display == "block") {
+        lastNodeOpen = this.nextElementSibling; 
+        content.style.display = "none";
+    } else {
+    // close last one
+    if (lastNodeOpen !== "") {
+        lastNodeOpen.style.display = "none";
+    }
+    // open new one
+    content.style.display = "block";
+    lastNodeOpen = this.nextElementSibling; 
+    }
+    
   });
-if (i > 0) { 
+  if (i > 0) { 
     coll[i].innerText = "hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " + arrOldCourse[i][2]
-}
-}
-  
-  
-  
-const el11 = document.querySelector('#player11')
-const el12 = document.querySelector('#player12')  
-const el13 = document.querySelector('#player13')
-const el14 = document.querySelector('#player14')
-
-
-const el21 = document.querySelector('#player21')
-const el22 = document.querySelector('#player22')  
-const el23 = document.querySelector('#player23')
-const el24 = document.querySelector('#player24')
-
-
-const observer = new window.IntersectionObserver(([entry]) => {
-  if (entry.isIntersecting) {
-    //console.log('ENTER ' + entry.target.id)
-   document.getElementById("r1").innerText = entry.target.id;
-    return
+    
   }
-//  console.log('LEAVE')
-}, {
-  root: null,
-  threshold: 0.6, // set offset 0.1 means trigger if atleast 10% of element in viewport
-})
+}
+  
+  
+function isElementVisible(el) {
+    var rect     = el.getBoundingClientRect(),
+        vWidth   = window.innerWidth || document.documentElement.clientWidth,
+        vHeight  = window.innerHeight || document.documentElement.clientHeight,
+        efp      = function (x, y) { return document.elementFromPoint(x, y) };     
 
-observer.observe(el11);
-observer.observe(el12);
-observer.observe(el13);
-observer.observe(el14); 
+    // Return false if it's not in the viewport
+    if (rect.right < 0 || rect.bottom < 0 
+            || rect.left > vWidth || rect.top > vHeight)
+        return false;
+
+    // Return true if any of its four corners are visible
+    return (
+          el.contains(efp(rect.left,  rect.top))
+      ||  el.contains(efp(rect.right, rect.top))
+      ||  el.contains(efp(rect.right, rect.bottom))
+      ||  el.contains(efp(rect.left,  rect.bottom))
+    );
+}
   
-observer.observe(el21);
-observer.observe(el22); 
-observer.observe(el23);
-observer.observe(el24); 
-  
+function updateScores() {
+
+if (isElementVisible(document.getElementById("player10"))) {
+    document.getElementById("r1").innerText = "0"
+} 
+if (isElementVisible(document.getElementById("player11"))) {
+    document.getElementById("r1").innerText = "1"
+} 
+if (isElementVisible(document.getElementById("player12"))) {
+    document.getElementById("r1").innerText = "2"
+} 
+if (isElementVisible(document.getElementById("player13"))) {
+    document.getElementById("r1").innerText = "3"
+} 
+if (isElementVisible(document.getElementById("player14"))) {
+    document.getElementById("r1").innerText = "4"
+} 
+if (isElementVisible(document.getElementById("player15"))) {
+    document.getElementById("r1").innerText = "5"
+} 
+if (isElementVisible(document.getElementById("player16"))) {
+    document.getElementById("r1").innerText = "6"
+} 
+if (isElementVisible(document.getElementById("player17"))) {
+    document.getElementById("r1").innerText = "7"
+} 
+if (isElementVisible(document.getElementById("player18"))) {
+    document.getElementById("r1").innerText = "8"
+} 
+if (isElementVisible(document.getElementById("player19"))) {
+    document.getElementById("r1").innerText = "9"
+} 
+
+}  
   
   
   </script>
