@@ -386,7 +386,7 @@
       border: 1px solid #aaa;
       padding: 2px;
       text-align: center;
-      width: 100px;
+      width: 75px;
       height: 50px;
       cursor: pointer;
     }
@@ -2130,6 +2130,13 @@
       localStorage.course = course;
       localStorage.comp = comp;
     }
+    function doSomethingOldCourse() {
+      course = "OldCourse";
+      comp = course + " " + dateToday;
+      document.getElementById("id_confrmdiv").style.display = "none";
+      localStorage.course = course;
+      localStorage.comp = comp;
+    }
     // message saying what competition is being processed
     function showCompMessage() {
       if (compday == "yes") {
@@ -2195,6 +2202,7 @@
       tempt += '<br /><br />';
       tempt += '<button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>';
       tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
+      tempt += '<button id="id_oldcoursebtn" onclick="doSomethingOldCourse()">OldCourse</button>';
       document.getElementById("id_confrmdiv").innerHTML = tempt;
       //console.log(document.getElementById("id_confrmdiv").innerHTML);
       document.getElementById("id_confrmdiv").style.display = "block";
