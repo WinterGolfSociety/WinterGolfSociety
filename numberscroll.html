@@ -120,10 +120,10 @@
     <div class="content" id="contentx">
       <div class="wrapper">
         <div>hole</div>
-        <div>player1</div>
-        <div>player2</div>
-        <div>player3</div>
-        <div>player4</div>
+        <div id="player1">player1</div>
+        <div id="player2">player2</div>
+        <div id="player3">player3</div>
+        <div id="player4">player4</div>
         <div id="h1">1</div>
         <div id="p1">-</div>
         <div id="pp1">-</div>
@@ -558,6 +558,22 @@
       player2name = "Bob Toward"
       player3name = "Stephen Alldridge"
       player4name = "Joe Fletcher"
+      // shorten player name
+      s1 = player1name.split(" ")
+      shortPlayer1name = s1[0] + " " + s1[1].substring(0,1);
+      document.getElementById("player1").innerText = shortPlayer1name;
+      s1 = player2name.split(" ")
+      shortPlayer2name = s1[0] + " " + s1[1].substring(0,1);
+      document.getElementById("player2").innerText = shortPlayer2name;
+      s1 = player3name.split(" ")
+      shortPlayer3name = s1[0] + " " + s1[1].substring(0,1);
+      document.getElementById("player3").innerText = shortPlayer3name;
+      s1 = player4name.split(" ")
+      shortPlayer4name = s1[0] + " " + s1[1].substring(0,1);
+      document.getElementById("player4").innerText = shortPlayer4name;
+       
+      
+      
       var coll = document.getElementsByClassName("collapsible");
       var cont = document.getElementsByClassName("content");
       var i;
@@ -661,9 +677,6 @@
             var el = document.createElement("span");
             el.id = "h" + k + "player1x" + i;
             el.setAttribute("class", "player1sideways");
-            // shorten player name
-            s1 = player1name.split(" ")
-            shortPlayer1name = s1[0] + " " + s1[1].substring(0,1);
             el.innerText = shortPlayer1name;
             // SPAN has now been created
             var select2 = document.getElementById(elouter.id);
