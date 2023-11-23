@@ -31,7 +31,7 @@
 
       .container.x {
         width: 100%;
-        height: 128px;
+        height: 15vmax;
         flex-flow: row nowrap;
         overflow-y: hidden;
       }
@@ -48,10 +48,10 @@
       }
 
       .x.container>div {
-        line-height: 100px;
+        line-height: 15vmax;
         font-size: 50px;
         width: 100%;
-        height: 100x;
+        //height: 100x;
       }
 
       /* coloration */
@@ -65,9 +65,10 @@
 
       .player1sideways {
         color: blue;
-        font-size: 15px;
+        font-size: 2vmax;
         writing-mode: vertical-rl;
         text-orientation: mixed;
+        //text-align: center;
         float: left;
         height: 128px;
       }
@@ -86,7 +87,7 @@
         border: 1px solid gray;
       }
 
-      /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+      /* Add a background color to the button if it is clicked on (add the .active class with JS) */
       .active {
         background-color: #ccc;
       }
@@ -116,7 +117,7 @@
   <body>
     <div id="all">
  
-    <button type="button" class="collapsible" id="coll0">Recorded scores</button>
+    <button type="button" class="collapsible" id="coll0">Recorded scores<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="contentx">
       <div class="wrapper">
         <div>hole</div>
@@ -216,7 +217,7 @@
         <div id="pppp18">-</div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll1">hole 1</button>
+    <button type="button" class="collapsible" id="coll1">hole 1<img src="tick1.png" alt="done"></button>
     <div class="content" id="content1">
       <div class="holster" id="holster1">
         <div class="container x mandatory-scroll-snapping" id="holster1a" dir="ltr">
@@ -590,6 +591,22 @@
             if (lastNodeOpen !== "") {
               // update scores for closing hole
               updateScores()
+              // add icon showing DONE
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               lastNodeOpen.style.display = "none";
               lastNodeOpen.previousElementSibling.style.background = "white"
               //lastNodeOpen.classList.remove("active"); 
