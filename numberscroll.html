@@ -114,6 +114,11 @@
         font-family: kalam;
         font-size: 2.5vmax;
       }
+      
+      .totals {
+         color: purple;
+      }
+      
     </style>
   </head>
   <body>
@@ -172,6 +177,15 @@
         <div id="pp9">-</div>
         <div id="ppp9">-</div>
         <div id="pppp9">-</div>
+        
+        
+        <div id="hf" class="totals">front</div>
+        <div id="pf" class="totals">-</div>
+        <div id="ppf" class="totals">-</div>
+        <div id="pppf" class="totals">-</div>
+        <div id="ppppf" class="totals">-</div>
+        
+        
         <div id="h10">10</div>
         <div id="p10">-</div>
         <div id="pp10">-</div>
@@ -217,6 +231,23 @@
         <div id="pp18">-</div>
         <div id="ppp18">-</div>
         <div id="pppp18">-</div>
+        
+        
+        <div id="hb" class="totals">back</div>
+        <div id="pb" class="totals">-</div>
+        <div id="ppb" class="totals">-</div>
+        <div id="pppb" class="totals">-</div>
+        <div id="ppppb" class="totals">-</div>
+        
+        
+        
+        <div id="ht" class="totals">full</div>
+        <div id="pt" class="totals">-</div>
+        <div id="ppt" class="totals">-</div>
+        <div id="pppt" class="totals">-</div>
+        <div id="ppppt" class="totals">-</div>
+        
+        
       </div>
     </div>
     <button type="button" class="collapsible" id="coll1">hole 1<img src="tick1.png" alt="done"></button>
@@ -713,6 +744,9 @@ course = JSON.parse(JSON.stringify(arrOldCourse));
       
         }
         
+        totalsCalc();
+        
+        
       }
 
       function createScreens() {
@@ -835,7 +869,122 @@ course = JSON.parse(JSON.stringify(arrOldCourse));
     
     
       
+      function totalsCalc() {
+      p1front = 0
+      p2front = 0
+      p3front = 0
+      p4front = 0
       
+      p1frontpoints = 0
+      p2frontpoints = 0
+      p3frontpoints = 0
+      p4frontpoints = 0
+      
+      p1back = 0
+      p2back = 0
+      p3back = 0
+      p4back = 0
+      
+      p1backpoints = 0
+      p2backpoints = 0
+      p3backpoints = 0
+      p4backpoints = 0
+      
+      for (var i = 1; i <= 9; i++) {
+           var tempp1txt = document.getElementById("p" + i).innerText
+           if (!(tempp1txt == "-")) {
+                 tempp1 = tempp1txt.split("/");
+                 p1front += parseInt(tempp1[0])
+                 p1frontpoints += parseInt(tempp1[1])
+           }
+           var tempp2txt = document.getElementById("pp" + i).innerText
+           if (!(tempp2txt == "-")) {
+                 tempp2 = tempp2txt.split("/");
+                 p2front += parseInt(tempp2[0])
+                 p2frontpoints += parseInt(tempp2[1])
+           }
+           var tempp3txt = document.getElementById("ppp" + i).innerText
+           if (!(tempp3txt == "-")) {
+                 tempp3 = tempp3txt.split("/");
+                 p3front += parseInt(tempp3[0])
+                 p3frontpoints += parseInt(tempp3[1])
+           }
+           var tempp4txt = document.getElementById("pppp" + i).innerText
+           if (!(tempp4txt == "-")) {
+                 tempp4 = tempp4txt.split("/");
+                 p4front += parseInt(tempp4[0])
+                 p4frontpoints += parseInt(tempp4[1])
+           }
+           
+           
+           
+           
+           
+           
+      }
+      
+      
+      for (var i = 10; i <= 18; i++) {
+           var tempp1txt = document.getElementById("p" + i).innerText
+           if (!(tempp1txt == "-")) {
+                 tempp1 = tempp1txt.split("/");
+                 p1back += parseInt(tempp1[0])
+                 p1backpoints += parseInt(tempp1[1])
+           }
+           var tempp2txt = document.getElementById("pp" + i).innerText
+           if (!(tempp2txt == "-")) {
+                 tempp2 = tempp2txt.split("/");
+                 p2back += parseInt(tempp2[0])
+                 p2backpoints += parseInt(tempp2[1])
+           }
+           var tempp3txt = document.getElementById("ppp" + i).innerText
+           if (!(tempp3txt == "-")) {
+                 tempp3 = tempp3txt.split("/");
+                 p3back += parseInt(tempp3[0])
+                 p3backpoints += parseInt(tempp3[1])
+           }
+           var tempp4txt = document.getElementById("pppp" + i).innerText
+           if (!(tempp4txt == "-")) {
+                 tempp4 = tempp4txt.split("/");
+                 p4back += parseInt(tempp4[0])
+                 p4backpoints += parseInt(tempp4[1])
+           }
+           
+           
+           
+           
+           
+           
+      }
+      
+      
+      
+      
+      
+      
+      document.getElementById("pf").innerText = p1front.toString() + " (" + p1frontpoints.toString() + ")";
+      document.getElementById("ppf").innerText = p2front.toString() + " (" + p2frontpoints.toString() + ")";
+      document.getElementById("pppf").innerText = p3front.toString() + " (" + p3frontpoints.toString() + ")";
+      document.getElementById("ppppf").innerText = p4front.toString() + " (" + p4frontpoints.toString() + ")";
+      
+      document.getElementById("pb").innerText = p1back.toString() + " (" + p1backpoints.toString() + ")";
+      document.getElementById("ppb").innerText = p2back.toString() + " (" + p2backpoints.toString() + ")";
+      document.getElementById("pppb").innerText = p3back.toString() + " (" + p3backpoints.toString() + ")";
+      document.getElementById("ppppb").innerText = p4back.toString() + " (" + p4backpoints.toString() + ")";
+      
+      document.getElementById("pt").innerText = 
+      (p1front + p1back).toString() + " (" + (p1frontpoints + p1backpoints).toString() + ")";
+      document.getElementById("ppt").innerText = 
+      (p2front + p2back).toString() + " (" + (p2frontpoints + p2backpoints).toString() + ")";
+      document.getElementById("pppt").innerText = 
+      (p3front + p3back).toString() + " (" + (p3frontpoints + p3backpoints).toString() + ")";
+      document.getElementById("ppppt").innerText = 
+      (p4front + p4back).toString() + " (" + (p4frontpoints + p4backpoints).toString() + ")";
+      
+      
+      
+      
+      }
       
       
       
