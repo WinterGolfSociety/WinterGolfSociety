@@ -713,7 +713,7 @@ for (i = 1; i <= 18; i++) {
 
 
       function updateScores() {
-         
+        var check = 0; 
         // for each hole check to see if it is currently the one in use
         for (h = 1; h <= 18; h++) {
         
@@ -727,6 +727,8 @@ for (i = 1; i <= 18; i++) {
                 document.getElementById("p" + h).innerText = i + "/" + p
                 if (i > 0) {
                     document.getElementById("h" + h + "img").style.display = "block"
+                } else {
+                    check++
                 }
             }
             
@@ -736,6 +738,8 @@ for (i = 1; i <= 18; i++) {
                 document.getElementById("pp" + h).innerText = i + "/" + p
                 if (i > 0) {
                     document.getElementById("h" + h + "img").style.display = "block"
+                } else {
+                    check++
                 }
             }
             
@@ -745,6 +749,8 @@ for (i = 1; i <= 18; i++) {
                 document.getElementById("ppp" + h).innerText = i + "/" + p
                 if (i > 0) {
                     document.getElementById("h" + h + "img").style.display = "block"
+                } else {
+                    check++
                 }
             }
             
@@ -754,9 +760,19 @@ for (i = 1; i <= 18; i++) {
                 document.getElementById("pppp" + h).innerText = i + "/" + p
                 if (i > 0) {
                     document.getElementById("h" + h + "img").style.display = "block"
+                } else {
+                    check++
                 }
             }
    
+          }
+      
+          // if no scores - reset
+          if (check == 4) {
+              document.getElementById("p" + h).innerText = "-";
+              document.getElementById("pp" + h).innerText = "-";
+              document.getElementById("ppp" + h).innerText = "-";
+              document.getElementById("pppp" + h).innerText = "-";
           }
       
           }  
