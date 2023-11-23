@@ -624,16 +624,14 @@
       }
 
 
-      function isPVisible(element, container)
-      {
+      function isPVisible(element, container) {
          const elRect = element.getBoundingClientRect();
          const conRect = container.getBoundingClientRect();
   
          var result = false;
   
-         if(elRect.x >= conRect.x && elRect.y >= conRect.y
-            && elRect.x + elRect.width <= conRect.x + conRect.width 
-            && elRect.y + elRect.height <= conRect.y + conRect.height)
+         // check distance from left is between 0 and 20 to find correct one
+         if(elRect.x > 0 && elRect.x < 20)
          {
          result = true
          }
@@ -651,12 +649,12 @@
           // for each possible score
           for (i = 0; i <= 9; i++) {      
             if (isPVisible(document.getElementById("h" + h + "player1x" + i),
-                           document.getElementById("holster" + h))) {
+                           document.getElementById("holster" + h))) {         
                 document.getElementById("p" + h).innerText = i
             }
             
             if (isPVisible(document.getElementById("h" + h + "player2x" + i),
-                           document.getElementById("holster" + h))) {
+                           document.getElementById("holster" + h))) {          
                 document.getElementById("pp" + h).innerText = i
             }
             
