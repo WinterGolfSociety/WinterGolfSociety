@@ -21,17 +21,16 @@
             @keyframes jiggle {
                 0% {
                     transform: rotate(-1deg);
-                    background: #aaa;
                 }
                 50% {
-                    transform: rotate(1deg);
-                    background: #aaa;
+                    transform: rotate(1deg);                   
                 }
             }
 
             .dock-item[data-editing="true"] {
-                animation: jiggle 0.2s 5s;
+                animation: jiggle 0.2s infinite;
                 border: 1px solid #aaa;
+                background: #aaa;
                 box-shadow: 0 0 1px rgba(0,0,0,.85);
             }
         </style>
