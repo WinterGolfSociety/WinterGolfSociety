@@ -16,10 +16,10 @@
 
 body {
   font-family: "Dosis", Helvetica, Arial, sans-serif; 
-  background: #ecf0f1;
-  color: #34495e;
+  //background: #ecf0f1;
+  //color: #34495e;
   padding-top: 40px;
-  text-shadow: white 1px 1px 1px;
+  //text-shadow: white 1px 1px 1px;
   width: 90vw;
   height: 90vh;
 }
@@ -33,12 +33,12 @@ body {
   line-height: 60px;
   margin: 40px 10px;
   //letter-spacing: -.07em;
-  text-shadow: white 2px 2px 2px;
+  //text-shadow: white 2px 2px 2px;
 }
 input[type="range"] {
   display: block;
   -webkit-appearance: none;
-  background-color: #bdc3c7;
+  background-color: gray;
   width: 70vw;
   height: 5px;
   border-radius: 5px;
@@ -47,17 +47,17 @@ input[type="range"] {
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background-color: #e74c3c;
+  background-color: gray;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid white;
+  border: 2px solid cyan;
   cursor: pointer;
   transition: .3s ease-in-out;
 }​
   input[type="range"]::-webkit-slider-thumb:hover {
     background-color: white;
-    border: 2px solid #e74c3c;
+    border: 2px solid cyan;
   }
   input[type="range"]::-webkit-slider-thumb:active {
     transform: scale(1.6);
@@ -90,24 +90,29 @@ input[type="range"]::-webkit-slider-thumb {
 
 <body>
 <div class="wrapper">
-     <div class="value">0</div>
-     <input type="range" min="0" max="9" step="1" value="0">
+     <div class="value" id="value1a">0</div>
+     <input type="range" id="input1a" min="0" max="9" step="1" value="0">
 </div>
 
 
 
 
-<script>
-          var elem = document.querySelector('input[type="range"]');
 
-var rangeValue = function(){
-  var newValue = elem.value;
-  var target = document.querySelector('.value');
-  target.innerHTML = newValue;
+
+
+
+<script>
+//var elem = document.querySelector('input[type="range"]');
+var elem1a = document.getElementById("input1a")
+var rangeValue1a = function(){
+  var newValue1a = elem1a.value;
+  var target1a = document.getElementById("value1a");
+  target1a.innerHTML = newValue1a;
 }
 
-elem.addEventListener("input", rangeValue);
-          </script>
+elem1a.addEventListener("input", rangeValue1a);
+
+</script>
 
     
 
