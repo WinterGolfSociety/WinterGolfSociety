@@ -61,6 +61,22 @@ input[type="range"]::-webkit-slider-thumb {
   }
 
 
+
+
+
+  .wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, [col] auto);
+        //background-color: rgb(0, 0, 20);
+        color: blue;
+       // height: 10vmax;
+        align-items: center;
+        justify-items: center;
+        //scroll-snap-align: start;
+        //scroll-snap-stop: always;
+        //font-family: kalam;
+        font-size: 2.5vmax;
+      }
 </style>
 
 </head>
@@ -69,9 +85,16 @@ input[type="range"]::-webkit-slider-thumb {
 
 
 <body>
+<div class="wrapper">
+
   <div class="value">0</div>
-<input type="range" min="0" max="10" step="1" value="0">
-          <script>
+<input type="range" min="0" max="9" step="1" value="0">
+
+
+
+
+</div>
+<script>
           var elem = document.querySelector('input[type="range"]');
 
 var rangeValue = function(){
