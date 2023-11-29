@@ -52,7 +52,7 @@
 
   font-size: 9vmax;
  font-weight: bold;
- 
+
 }
 input[type="range"] {
   display: block;
@@ -106,6 +106,8 @@ input[type="range"]::-webkit-slider-thumb {
   color: silver;
   font-size: 1vmax;
   font-style: italic;
+  padding-top: 0.2vh;
+  
 }
 
 
@@ -123,7 +125,7 @@ text-align: center;
 
 <div class="grid-container">
   <div class="item1"><div class="value" id="value1a">0</div></div>
-  <div class="item2"><input type="range" id="input1a" min="0" max="9" step="1" value="0">Bryan Maddison</div>
+  <div class="item2">Bryan Maddison<input type="range" id="input1a" min="0" max="9" step="1" value="0"><a id="onea">9 points</a></div>
   <div class="item3">3</div>  
   <div class="item4">4</div>
   <div class="item5">5</div>
@@ -589,15 +591,30 @@ text-align: center;
     
     
     var elem1a = document.getElementById("input1a")
+
 var rangeValue1a = function(){
   var newValue1a = elem1a.value;
   var target1a = document.getElementById("value1a");
   target1a.innerHTML = newValue1a;
+  
+  console.log(document.getElementById("onea").innerText)
+  var n = newValue1a - 2; 
+  
+  if (n == 1) {
+      var nstring = n + " point";
+  } else {
+      var nstring = n + " points"
+  }
+  if (n <= 0) {
+       var nstring = "no points";
+  }
+  document.getElementById("onea").innerText = nstring;   
+ 
+  
+  
 }
 
 elem1a.addEventListener("input", rangeValue1a);
-    
-    
     
     
     
