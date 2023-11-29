@@ -117,11 +117,30 @@ text-align: center;
   font-size: 30px;
 }
 
+
+
+
+
+
+
+
+
+
+ .stop-scroll {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+
+
+
+
 </style>
 </head>
 <body>
 
-<h1>Grid Lines</h1>
+
 
 
     <div id="all">
@@ -254,7 +273,7 @@ text-align: center;
     </div>
     
 <button type="button" class="collapsible" id="coll1" onclick="recordScores(this.id)">hole 1<img src="tick1.png" alt="done" id="h1img" style="height: 3vmax; width: 3vmax; float: right;"></button>
-<div class="content" id="zcontent1">
+<div class="content" id="content1">
    <div class="grid-container">
  
      <div class="item1"><div class="value" id="value1a">0</div></div>
@@ -281,8 +300,8 @@ text-align: center;
 </div>
 
 
-<button type="button" class="collapsible" id="coll2" onclick="recordScores(this.id)">hole 1<img src="tick1.png" alt="done" id="h2img" style="height: 3vmax; width: 3vmax; float: right;"></button>
-<div class="content" id="zcontent2">
+<button type="button" class="collapsible" id="coll2" onclick="recordScores(this.id)">hole 2<img src="tick1.png" alt="done" id="h2img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+<div class="content" id="content2">
    <div class="grid-container">
  
      <div class="item1"><div class="value" id="value2a">0</div></div>
@@ -441,19 +460,50 @@ course = JSON.parse(JSON.stringify(arrOldCourse));
 
 function recordScores(id) {
 console.log(id)
-       
-       for (i = 0; i <=18; i++) {
-       
-     document.getElementById("content" + i).style.display = "none"
-      }
-
-      var newid = id.replace("coll","content");
-       document.getElementById(newid).style.display = "block"
+// if content is open, close and reset things
+if (document.getElementById(id.replace("coll","content")).style.display == "block") {
+   for (i = 0; i <=2; i++) {
+       // hide content, but show buttons  
+       document.getElementById("content" + i).style.display = "none"
+       document.getElementById("coll" + i).style.display = "block"
+   }
+} else {
+   // close all
+   for (i = 0; i <=2; i++) {
+       document.getElementById("content" + i).style.display = "none"
+       document.getElementById("coll" + i).style.display = "none"
+   }
+   // show single button
+   document.getElementById(id).style.display = "block"
+   // show related content
+   var newid = id.replace("coll","content");
+   document.getElementById(newid).style.display = "block"
+      
+      
+      
+      // .stop-scroll {
+      //margin: 0;
+      //height: 100%;
+      //overflow: hidden;
+   // }
+      
+//      document.body.style.position = "fixed";
+      
+//       document.body.style.maxHeight = "100%";
+      
+      
+      
+      
       
 //console.log(document.getElementById("hole1id1p1").innerText)
 console.log("before")
-  updateScores()
+  //updateScores()
   console.log("after")
+  
+  }
+  
+  
+  
   }      
      
       
@@ -552,87 +602,7 @@ console.log(isPVisible(document.getElementById("hole1id0p1"),
 }
 
 */
-      function createScreens() {
-        // this is what is created
-        // < div > < span class = "player1sideways" id = "h2player1x" > < /span>X < /div>
-        // do for 18 holes
-        for (var k = 1; k <= 18; k++) {
-          var select = document.getElementById("holster" + k + "a");
-          // set up 0 to 9 scores per player
-          for (var i = 0; i <= 9; i++) {
-            var elouter = document.createElement("div");
-            elouter.id = "hole" + k + "id" + i + "p1"
-            elouter.innerText = i;
-            select.appendChild(elouter);
-            // DIV has now been created  
-            var el = document.createElement("span");
-            el.id = "h" + k + "player1x" + i;
-            el.setAttribute("class", "player1sideways");
-            el.innerText = shortPlayer1name;
-            // SPAN has now been created
-            var select2 = document.getElementById(elouter.id);
-            // add 2 together
-            select2.appendChild(el)
-             
-          }
-          var select = document.getElementById("holster" + k + "b");
-          // set up 0 to 9 scores per player
-          for (var i = 0; i <= 9; i++) {
-            var elouter = document.createElement("div");
-            elouter.id = "hole" + k + "id" + i + "p2"
-            elouter.innerText = i;
-            select.appendChild(elouter);
-            // DIV has now been created  
-            var el = document.createElement("span");
-            el.id = "h" + k + "player2x" + i;
-            el.setAttribute("class", "player1sideways");
-            el.innerText = shortPlayer2name;
-            // SPAN has now been created
-            var select2 = document.getElementById(elouter.id);
-            // add 2 together
-            select2.appendChild(el)
-          }
-          var select = document.getElementById("holster" + k + "c");
-          // set up 0 to 9 scores per player
-          for (var i = 0; i <= 9; i++) {
-            var elouter = document.createElement("div");
-            elouter.id = "hole" + k + "id" + i + "p3"
-            elouter.innerText = i;
-            select.appendChild(elouter);
-            // DIV has now been created  
-            var el = document.createElement("span");
-            el.id = "h" + k + "player3x" + i;
-            el.setAttribute("class", "player1sideways");
-            el.innerText = shortPlayer3name;
-            // SPAN has now been created
-            var select2 = document.getElementById(elouter.id);
-            // add 2 together
-            select2.appendChild(el)
-          }
-          var select = document.getElementById("holster" + k + "d");
-          // set up 0 to 9 scores per player
-          for (var i = 0; i <= 9; i++) {
-            var elouter = document.createElement("div");
-            elouter.id = "hole" + k + "id" + i + "p4"
-            elouter.innerText = i;
-            select.appendChild(elouter);
-            // DIV has now been created  
-            var el = document.createElement("span");
-            el.id = "h" + k + "player4x" + i;
-            el.setAttribute("class", "player1sideways");
-            el.innerText = shortPlayer4name;
-            // SPAN has now been created
-            var select2 = document.getElementById(elouter.id);
-            // add 2 together
-            select2.appendChild(el)
-          }    
-        } 
-      }
-      
-      //create the input screens
- //     createScreens()
-      
-      
+     
       
       
       
