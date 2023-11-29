@@ -125,7 +125,7 @@ text-align: center;
 
 <div class="grid-container">
   <div class="item1"><div class="value" id="value1a">0</div></div>
-  <div class="item2">Bryan Maddison<input type="range" id="input1a" min="0" max="9" step="1" value="0"><a id="onea">9 points</a></div>
+  <div class="item2">Bryan Maddison<input type="range" id="input1a" min="0" max="9" step="1" value="0"><div id="onea">9 points</div></div>
   <div class="item3">3</div>  
   <div class="item4">4</div>
   <div class="item5">5</div>
@@ -597,7 +597,6 @@ var rangeValue1a = function(){
   var target1a = document.getElementById("value1a");
   target1a.innerHTML = newValue1a;
   
-  console.log(document.getElementById("onea").innerText)
   var n = newValue1a - 2; 
   
   if (n == 1) {
@@ -610,8 +609,6 @@ var rangeValue1a = function(){
   }
   document.getElementById("onea").innerText = nstring;   
  
-  
-  
 }
 
 elem1a.addEventListener("input", rangeValue1a);
