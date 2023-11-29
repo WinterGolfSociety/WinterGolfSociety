@@ -49,11 +49,9 @@
 
       
  .value {
-  text-align: left;
-  font-weight: bold;
-  font-size: 3vmax;
-   padding-top: 70px;
-  line-height: 30px;
+
+  font-size: 9vmax;
+ font-weight: bold;
  
 }
 input[type="range"] {
@@ -78,7 +76,7 @@ input[type="range"]::-webkit-slider-thumb {
   transition: .3s ease-in-out;
 }​
   input[type="range"]::-webkit-slider-thumb:hover {
-    background-color: sikver;
+    background-color: silver;
     border: 2px solid cyan;
   }
   input[type="range"]::-webkit-slider-thumb:active {
@@ -107,6 +105,7 @@ input[type="range"]::-webkit-slider-thumb {
   grid-column-end: 4;
   color: silver;
   font-size: 1vmax;
+  font-style: italic;
 }
 
 
@@ -123,7 +122,7 @@ text-align: center;
 <h1>Grid Lines</h1>
 
 <div class="grid-container">
-  <div class="item1"><div class="valuexxx" id="value1a">0</div></div>
+  <div class="item1"><div class="value" id="value1a">0</div></div>
   <div class="item2"><input type="range" id="input1a" min="0" max="9" step="1" value="0">Bryan Maddison</div>
   <div class="item3">3</div>  
   <div class="item4">4</div>
