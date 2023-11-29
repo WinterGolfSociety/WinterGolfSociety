@@ -14,6 +14,23 @@
       }
 
 
+
+.grid-container-top {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  //gap: 10px;
+  background-color: white;
+  //padding: 10px;
+}
+
+.grid-container-top > div {
+  background-color: white;
+  text-align: center;
+  //padding: 20px 0;
+  font-size: 3vmax;
+}
+
+
       .player1sideways {
         color: blue;
         font-size: 2vmax;
@@ -40,12 +57,12 @@
 
       /* Style the collapsible content. Note: hidden by default */
       .content {
-       display: grid;
+       //display: grid;
   grid-template-columns: auto auto auto auto;
   gap: 10px;
   background-color: white;
 
-
+display: none;
 
 
 
@@ -58,7 +75,7 @@
       
  .value {
 
-  font-size: 12vmax;
+  font-size: 12vh;
  font-weight: bold;
  
 }
@@ -174,6 +191,7 @@ height: 10vh;
     <button type="button" class="collapsible" id="coll0" onclick="recordScores(this.id)">Recorded scores</button>
     <div class="content" id="content0">
       <div class="wrapper">
+        <div class="grid-container-top">
         <div>hole</div>
         <div id="player1">player1</div>
         <div id="player2">player2</div>
@@ -294,7 +312,7 @@ height: 10vh;
         <div id="pppt" class="totals">-</div>
         <div id="ppppt" class="totals">-</div>
         
-        
+      </div>  
       </div>
     </div>
     
@@ -488,14 +506,35 @@ course = JSON.parse(JSON.stringify(arrOldCourse));
     
 
 function recordScores(id) {
+//eg. id = coll1
 console.log(id)
 // if content is open, close and reset things
-if (document.getElementById(id.replace("coll","content")).style.display == "block") {
+if (document.getElementById(id.replace("coll","content")).style.display == "grid") {
    for (i = 0; i <=2; i++) {
        // hide content, but show buttons  
        document.getElementById("content" + i).style.display = "none"
        document.getElementById("coll" + i).style.display = "block"
+
    }
+   
+   
+     
+       // at this point, save scores
+       // player 1
+       document.getElementById(id.replace("coll","p")).innerText = 
+       document.getElementById(id.replace("coll","input") + "a").value;
+       // player 1
+       document.getElementById(id.replace("coll","pp")).innerText = 
+       document.getElementById(id.replace("coll","input") + "b").value;
+       // player 1
+       document.getElementById(id.replace("coll","ppp")).innerText = 
+       document.getElementById(id.replace("coll","input") + "c").value;
+       // player 1
+       document.getElementById(id.replace("coll","pppp")).innerText = 
+       document.getElementById(id.replace("coll","input") + "d").value;
+      
+   
+   
 } else {
    // close all
    for (i = 0; i <=2; i++) {
@@ -506,8 +545,8 @@ if (document.getElementById(id.replace("coll","content")).style.display == "bloc
    document.getElementById(id).style.display = "block"
    // show related content
    var newid = id.replace("coll","content");
-   document.getElementById(newid).style.display = "block"
-      
+   document.getElementById(newid).style.display = "grid"; 
+   //document.getElementById(newid).style.display = "block"     
       
       
       // .stop-scroll {
