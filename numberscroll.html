@@ -60,7 +60,7 @@
 
   font-size: 12vmax;
  font-weight: bold;
-
+ 
 }
 input[type="range"] {
   display: block;
@@ -304,23 +304,23 @@ height: 10vh;
  
      <div class="item1"><div class="value" id="value1a">0</div></div>
      <div class="item2">Bryan Maddison
-     <input type="range" class="input" id="input1a" min="0" max="9" step="1" value="0">
-     <div id="onea">9 points</div></div>
+     <input type="range" class="input" id="input1a" onchange="update(this.id)" min="0" max="9" step="1" value="0">
+     <div id="points1a">9 points</div></div>
   
      <div class="item1"><div class="value" id="value1b">0</div></div>
      <div class="item2">Bryan Maddison
-     <input type="range" class="input" id="input1b" min="0" max="9" step="1" value="0">
-     <div id="oneb">9 points</div></div>
+     <input type="range" class="input" id="input1b" onchange="update(this.id)" min="0" max="9" step="1" value="0">
+     <div id="points1b">9 points</div></div>
   
      <div class="item1"><div class="value" id="value1c">0</div></div>
      <div class="item2">Bryan Maddison
-     <input type="range" class="input" id="input1c" min="0" max="9" step="1" value="0">
-     <div id="onec">9 points</div></div>
+     <input type="range" class="input" id="input1c" onchange="update(this.id)" min="0" max="9" step="1" value="0">
+     <div id="points1c">9 points</div></div>
   
      <div class="item1"><div class="value" id="value1d">0</div></div>
      <div class="item2">Bryan Maddison
-     <input type="range" class="input" id="input1d" min="0" max="9" step="1" value="0">
-     <div id="oned">9 points</div></div>  
+     <input type="range" class="input" id="input1d" onchange="update(this.id)" min="0" max="9" step="1" value="0">
+     <div id="points1d">9 points</div></div>  
  
    </div>        
 </div>
@@ -334,23 +334,23 @@ height: 10vh;
  
      <div class="item1"><div class="value" id="value2a">0</div></div>
      <div class="item2">Bryan Maddison
-     <input type="range" class="input" id="input2a" min="0" max="9" step="1" value="0">
-     <div id="twoa">9 points</div></div>
+     <input type="range" class="input" id="input2a" onchange="update(this.id)" min="0" max="9" step="1" value="0">
+     <div id="points2a">9 points</div></div>
   
      <div class="item1"><div class="value" id="value2b">0</div></div>
      <div class="item2">Bryan Maddison
-     <input type="range" class="input" id="input2b" min="0" max="9" step="1" value="0">
-     <div id="twob">9 points</div></div>
+     <input type="range" class="input" id="input2b" onchange="update(this.id)" min="0" max="9" step="1" value="0">
+     <div id="points2b">9 points</div></div>
   
      <div class="item1"><div class="value" id="value2c">0</div></div>
      <div class="item2">Bryan Maddison
-     <input type="range" class="input" id="input2c" min="0" max="9" step="1" value="0">
-     <div id="twoc">9 points</div></div>
+     <input type="range" class="input" id="input2c" onchange="update(this.id)" min="0" max="9" step="1" value="0">
+     <div id="points2c">9 points</div></div>
   
      <div class="item1"><div class="value" id="value2d">0</div></div>
      <div class="item2">Bryan Maddison
-     <input type="range" class="input" id="input2d" min="0" max="9" step="1" value="0">
-     <div id="twod">9 points</div></div>  
+     <input type="range" class="input" id="input2d" onchange="update(this.id)" min="0" max="9" step="1" value="0">
+     <div id="points2d">9 points</div></div>  
  
    </div>        
 </div>  
@@ -359,7 +359,7 @@ height: 10vh;
     
     <script>
     
-    
+/*    
     var elem1a = document.getElementById("input1a")
 
 var rangeValue1a = function(){
@@ -384,7 +384,8 @@ var rangeValue1a = function(){
 elem1a.addEventListener("input", rangeValue1a);
     
     
-    
+*/
+   
     
     
     
@@ -786,6 +787,36 @@ console.log(isPVisible(document.getElementById("hole1id0p1"),
       
       
       
+function update(id) {
+//eg. id = input1a
+
+var tempscore = document.getElementById(id).value;
+document.getElementById(id.replace("input","value")).innerHTML = tempscore;
+
+  var n = tempscore - 2; 
+  
+  // these to sort out
+  
+  hcp = 25;
+  par = 4;
+  si = 12;
+  
+  var n = pointsCalc(hcp, par, si, tempscore)
+  
+  
+  
+  if (n == 1) {
+      var nstring = n + " point";
+  } else {
+      var nstring = n + " points"
+  }
+  if (n <= 0) {
+       var nstring = "no points";
+  }
+  document.getElementById(id.replace("input","points")).innerText = nstring;   
+ 
+}
+ 
       
       
       
