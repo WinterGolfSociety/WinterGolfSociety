@@ -12,57 +12,6 @@
         font-size: 20px;
       }
 
-      .holster {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-flow: column nowrap;
-        //font-family: monospace;
-        // width: 100%;
-      }
-
-      .container {
-        display: flex;
-        //margin: 1em auto;
-        // outline: 1px dashed lightgray;
-        border: 1px solid gray;
-        flex: none;
-        overflow: auto;
-      }
-
-      .container.x {
-        width: 100%;
-        height: 15vmax;
-        flex-flow: row nowrap;
-        overflow-y: hidden;
-      }
-
-      /* scroll-snap */
-      .x.mandatory-scroll-snapping {
-        scroll-snap-type: x mandatory;
-      }
-
-      .container>div {
-        text-align: center;
-        scroll-snap-align: center;
-        flex: none;
-      }
-
-      .x.container>div {
-        line-height: 15vmax;
-        font-size: 50px;
-        width: 100%;
-        //height: 100x;
-      }
-
-      /* coloration */
-      .container>div:nth-child(even) {
-        background-color: #87ea87;
-      }
-
-      .container>div:nth-child(odd) {
-        background-color: #87ccea;
-      }
 
       .player1sideways {
         color: blue;
@@ -88,67 +37,105 @@
         border: 1px solid gray;
       }
 
-      /* Add a background color to the button if it is clicked on (add the .active class with JS) */
-      .active {
-        background-color: #ccc;
-      }
-
       /* Style the collapsible content. Note: hidden by default */
       .content {
-        //padding: 0 18px;
-        display: none;
-        overflow: hidden;
-        background-color: #f1f1f1;
+       display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  background-color: white;
+
       }
 
-      .wrapper {
-        display: grid;
-        grid-template-columns: repeat(5, [col] auto);
-        //background-color: rgb(0, 0, 20);
-        color: blue;
-       // height: 10vmax;
-        align-items: center;
-        justify-items: center;
-        //scroll-snap-align: start;
-        //scroll-snap-stop: always;
-        font-family: kalam;
-        font-size: 2.5vmax;
-      }
+
       
-      .totals {
-         color: purple;
-      }
-      
-      #h1img,
-      #h2img,
-      #h3img,
-      #h4img,
-      #h5img,
-      #h6img,
-      #h7img,
-      #h8img,
-      #h9img,
-      #h10img,
-      #h11img,
-      #h12img,
-      #h13img,
-      #h14img,
-      #h15img,
-      #h16img,
-      #h17img,
-      #h18img {
-           display: none;      
-      }
-      
-      
-      
-    </style>
-  </head>
-  <body>
+ .value {
+  text-align: left;
+  font-weight: bold;
+  font-size: 3vmax;
+   padding-top: 70px;
+  line-height: 30px;
+ 
+}
+input[type="range"] {
+  display: block;
+  -webkit-appearance: none;
+  background-color: gainsboro;
+  width: 70vw;
+  height: 2px;
+  border-radius: 25px;
+margin: 0 auto;
+
+  outline: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: silver;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid silver;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}​
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: sikver;
+    border: 2px solid cyan;
+  }
+  input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.6);
+  }
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item2 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  color: silver;
+  font-size: 1vmax;
+}
+
+
+#input1a {
+text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Grid Lines</h1>
+
+<div class="grid-container">
+  <div class="item1"><div class="valuexxx" id="value1a">0</div></div>
+  <div class="item2"><input type="range" id="input1a" min="0" max="9" step="1" value="0">Bryan Maddison</div>
+  <div class="item3">3</div>  
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+  <div class="item6">6</div>
+  <div class="item7">7</div>
+  <div class="item8">8</div>  
+</div>
     <div id="all">
  
-    <button type="button" class="collapsible" id="coll0">Recorded scores</button>
-    <div class="content" id="contentx">
+    <button type="button" class="collapsible" id="coll0" onclick="recordScores(this.id)">Recorded scores</button>
+    <div class="content" id="content0">
       <div class="wrapper">
         <div>hole</div>
         <div id="player1">player1</div>
@@ -273,24 +260,40 @@
         
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll1"><img src="tick1.png" alt="done" id="h1img" style="height: 3vmax; width: 3vmax; float: right;"></button>
-    <div class="content" id="content1">
-      <div class="holster" id="holster1">
-        <div class="container x mandatory-scroll-snapping" id="holster1a" dir="ltr">
+    
+<button type="button" class="collapsible" id="coll1" onclick="recordScores(this.id)">hole 1<img src="tick1.png" alt="done" id="h1img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+<div class="content" id="zcontent1">
           <!-- generated code goes here -->
-        </div>
+          
+         
+          <div class="slide">    
+          
+          </div>
+          
+</div>
+
+
         <div class="container x mandatory-scroll-snapping" id="holster1b" dir="ltr">
           <!-- generated code goes here -->
+<div class="value" id="value1b">0</div>
+<input type="range" id="input1b" min="0" max="9" step="1" value="0">Bryan Maddison
+</div>
         </div>
         <div class="container x mandatory-scroll-snapping" id="holster1c" dir="ltr">
           <!-- generated code goes here -->
+<div class="value" id="value1c">0</div>
+<input type="range" id="input1c" min="0" max="9" step="1" value="0">Bryan Maddison
+</div>
         </div>
         <div class="container x mandatory-scroll-snapping" id="holster1d" dir="ltr">
           <!-- generated code goes here -->
+<div class="value" id="value1d">0</div>
+<input type="range" id="input1d" min="0" max="9" step="1" value="0">Bryan Maddison
+</div>
         </div>
-      </div>
+
     </div>
-    <button type="button" class="collapsible" id="coll2">hole 2<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll2" onclick="recordScores(this.id)">hole 2<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content2">
       <div class="holster" id="holster2">
         <div class="container x mandatory-scroll-snapping" id="holster2a" dir="ltr">
@@ -307,7 +310,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll3">hole 3<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll3" onclick="recordScores(this.id)">hole 3<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content3">
       <div class="holster" id="holster3">
         <div class="container x mandatory-scroll-snapping" id="holster3a" dir="ltr">
@@ -324,7 +327,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll4">hole 4<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll4" onclick="recordScores(this.id)">hole 4<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content4">
       <div class="holster" id="holster4">
         <div class="container x mandatory-scroll-snapping" id="holster4a" dir="ltr">
@@ -341,7 +344,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll5">hole 5<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll5" onclick="recordScores(this.id)">hole 5<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content5">
       <div class="holster" id="holster5">
         <div class="container x mandatory-scroll-snapping" id="holster5a" dir="ltr">
@@ -358,7 +361,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll6">hole 6<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll6" onclick="recordScores(this.id)">hole 6<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content6">
       <div class="holster" id="holster6">
         <div class="container x mandatory-scroll-snapping" id="holster6a" dir="ltr">
@@ -375,7 +378,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll7">hole 7<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll7" onclick="recordScores(this.id)">hole 7<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content7">
       <div class="holster" id="holster7">
         <div class="container x mandatory-scroll-snapping" id="holster7a" dir="ltr">
@@ -392,7 +395,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll8">hole 8<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll8" onclick="recordScores(this.id)">hole 8<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content8">
       <div class="holster" id="holster8">
         <div class="container x mandatory-scroll-snapping" id="holster8a" dir="ltr">
@@ -409,7 +412,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll9">hole 9<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll9" onclick="recordScores(this.id)">hole 9<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content9">
       <div class="holster" id="holster9">
         <div class="container x mandatory-scroll-snapping" id="holster9a" dir="ltr">
@@ -426,7 +429,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll10">hole 10<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll10" onclick="recordScores(this.id)">hole 10<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content10">
       <div class="holster" id="holster10">
         <div class="container x mandatory-scroll-snapping" id="holster10a" dir="ltr">
@@ -443,7 +446,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll11">hole 11<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll11" onclick="recordScores(this.id)">hole 11<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content11">
       <div class="holster" id="holster11">
         <div class="container x mandatory-scroll-snapping" id="holster11a" dir="ltr">
@@ -460,7 +463,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll12">hole 12<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll12" onclick="recordScores(this.id)">hole 12<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content12">
       <div class="holster" id="holster12">
         <div class="container x mandatory-scroll-snapping" id="holster12a" dir="ltr">
@@ -477,7 +480,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll13">hole 13<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll13" onclick="recordScores(this.id)">hole 13<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content13">
       <div class="holster" id="holster13">
         <div class="container x mandatory-scroll-snapping" id="holster13a" dir="ltr">
@@ -494,7 +497,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll14">hole 14<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll14" onclick="recordScores(this.id)">hole 14<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content14">
       <div class="holster" id="holster14">
         <div class="container x mandatory-scroll-snapping" id="holster14a" dir="ltr">
@@ -511,7 +514,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll15">hole 15<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll15" onclick="recordScores(this.id)">hole 15<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content15">
       <div class="holster" id="holster15">
         <div class="container x mandatory-scroll-snapping" id="holster15a" dir="ltr">
@@ -528,7 +531,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll16">hole 16<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll16" onclick="recordScores(this.id)">hole 16<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content16">
       <div class="holster" id="holster16">
         <div class="container x mandatory-scroll-snapping" id="holster16a" dir="ltr">
@@ -545,7 +548,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll17">hole 17<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll17" onclick="recordScores(this.id)">hole 17<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content17">
       <div class="holster" id="holster17">
         <div class="container x mandatory-scroll-snapping" id="holster17a" dir="ltr">
@@ -562,7 +565,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="collapsible" id="coll18">hole 18<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
+    <button type="button" class="collapsible" id="coll18" onclick="recordScores(this.id)">hole 18<img src="tick1.png" alt="done" style="height: 3vmax; width: 3vmax; float: right;"></button>
     <div class="content" id="content18">
       <div class="holster" id="holster18">
         <div class="container x mandatory-scroll-snapping" id="holster18a" dir="ltr">
@@ -584,6 +587,40 @@
     </div>
     
     <script>
+    
+    
+    var elem1a = document.getElementById("input1a")
+var rangeValue1a = function(){
+  var newValue1a = elem1a.value;
+  var target1a = document.getElementById("value1a");
+  target1a.innerHTML = newValue1a;
+}
+
+elem1a.addEventListener("input", rangeValue1a);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
       globalCurrentHole = 0
       var player1name = "player1"
       var player2name = "player2"
@@ -658,49 +695,45 @@ course = JSON.parse(JSON.stringify(arrOldCourse));
       player3hcp = 9;
       player4hcp = 15;
    
-for (i = 1; i <= 18; i++) {
-     document.getElementById("coll" + i).innerHTML ='<img src="tick1.png" alt="done" id="h' +
-     i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' +  "hole " + arrOldCourse[i][0] + 
-     ", par " + arrOldCourse[i][1] + ", si " + arrOldCourse[i][2]
-}
-    
-      var coll = document.getElementsByClassName("collapsible");
-      var cont = document.getElementsByClassName("content");
-      var i;
-      var inuse = 0;
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          var content = this.nextElementSibling;
-          if (content.style.display == "block") {
-            lastNodeOpen = this.nextElementSibling;
-            content.style.display = "none";
-            content.previousElementSibling.style.background = "white"
-          } else {
-            // close last one
-            if (lastNodeOpen !== "") {
-              // update scores for closing hole
-              updateScores()
-              // add icon showing DONE
-
-              lastNodeOpen.style.display = "none";
-              lastNodeOpen.previousElementSibling.style.background = "white"
-              //lastNodeOpen.classList.remove("active"); 
-              //  lastNodeOpen.classList.toggle("active");
-            }
-            // open new one
-            content.style.display = "block";
-            lastNodeOpen = this.nextElementSibling;
-            content.previousElementSibling.style.background = "cyan";
-          }
-        });
-
+      for (i = 1; i <= 18; i++) {
+           document.getElementById("coll" + i).innerHTML ='<img src="tick1.png" alt="done" id="h' +
+           i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' +  "hole " + arrOldCourse[i][0] + 
+           ", par " + arrOldCourse[i][1] + ", si " + arrOldCourse[i][2]
       }
+    
+    
+
+function recordScores(id) {
+console.log(id)
+       
+       for (i = 0; i <=18; i++) {
+       
+     document.getElementById("content" + i).style.display = "none"
+      }
+
+      var newid = id.replace("coll","content");
+       document.getElementById(newid).style.display = "block"
+      
+//console.log(document.getElementById("hole1id1p1").innerText)
+console.log("before")
+  updateScores()
+  console.log("after")
+  }      
+     
+      
+        
+       
+
+
+
 
 
       function isPVisible(element, container) {
+      console.log("isPVisible()")
          const elRect = element.getBoundingClientRect();
+           console.log(elRect.x)
          const conRect = container.getBoundingClientRect();
-  
+  console.log(elRect.x + " " + conRect.x)
          var result = false;
   
          // check distance from left is between 0 and 20 to find correct one
@@ -708,82 +741,81 @@ for (i = 1; i <= 18; i++) {
          {
          result = true
          }
+         
          return result;
       }
 
 
-      function updateScores() {
-        var check = 0; 
-        // for each hole check to see if it is currently the one in use
-        for (h = 1; h <= 18; h++) {
-        
-           if (isPVisible(document.getElementById("content" + h),
-                          document.getElementById("all"))) {
-          // for each possible score
-          for (i = 0; i <= 9; i++) {      
-            if (isPVisible(document.getElementById("h" + h + "player1x" + i),
-                           document.getElementById("holster" + h))) { 
-                var p = pointsCalc(player1hcp, course[h][1], course[h][2], i)        
-                document.getElementById("p" + h).innerText = i + "/" + p
-                if (i > 0) {
-                    document.getElementById("h" + h + "img").style.display = "block"
-                } else {
-                    check++
-                }
-            }
-            
-            if (isPVisible(document.getElementById("h" + h + "player2x" + i),
-                           document.getElementById("holster" + h))) {  
-                var p = pointsCalc(player2hcp, course[h][1], course[h][2], i)              
-                document.getElementById("pp" + h).innerText = i + "/" + p
-                if (i > 0) {
-                    document.getElementById("h" + h + "img").style.display = "block"
-                } else {
-                    check++
-                }
-            }
-            
-            if (isPVisible(document.getElementById("h" + h + "player3x" + i),
-                           document.getElementById("holster" + h))) {
-                var p = pointsCalc(player3hcp, course[h][1], course[h][2], i)      
-                document.getElementById("ppp" + h).innerText = i + "/" + p
-                if (i > 0) {
-                    document.getElementById("h" + h + "img").style.display = "block"
-                } else {
-                    check++
-                }
-            }
-            
-            if (isPVisible(document.getElementById("h" + h + "player4x" + i),
-                           document.getElementById("holster" + h))) {
-                var p = pointsCalc(player4hcp, course[h][1], course[h][2], i)      
-                document.getElementById("pppp" + h).innerText = i + "/" + p
-                if (i > 0) {
-                    document.getElementById("h" + h + "img").style.display = "block"
-                } else {
-                    check++
-                }
-            }
-   
-          }
-      
-          // if no scores - reset
-          if (check == 4) {
-              document.getElementById("p" + h).innerText = "-";
-              document.getElementById("pp" + h).innerText = "-";
-              document.getElementById("ppp" + h).innerText = "-";
-              document.getElementById("pppp" + h).innerText = "-";
-          }
-      
-          }  
-      
-        }
-        
-        totalsCalc();
-        
-        
-      }
 
+
+function updateScores() {
+console.log(isPVisible(document.getElementById("hole1id0p1"),
+                                 document.getElementById("holster1a")) )
+}
+
+  /*
+//hole1id6p1
+
+
+     
+        // for each hole check to see if it is has scores
+        for (h = 1; h <= 18; h++) {
+         var check = 0; 
+         
+         
+         
+         
+         
+       // for each possible score
+               for (i = 0; i <= 9; i++) {      
+                   if isPVisible(document.getElementById("hole" + h + "id" + i + "p1"),
+                                 document.getElementById("holster" + h + "a")) {
+                       var p = pointsCalc(player1hcp, course[h][1], course[h][2], i)        
+                       document.getElementById("p" + h).innerText = i + "/" + p
+                       if (!(i > 0)) {
+                           check++
+                       }
+                   }     
+                        
+                    if isPVisible(document.getElementById("hole" + h + "id" + i + "p2"),
+                                 document.getElementById("holster" + h + "b")) {
+                        var p = pointsCalc(player2hcp, course[h][1], course[h][2], i)              
+                        document.getElementById("pp" + h).innerText = i + "/" + p
+                        if (!(i > 0)) {
+                            check++
+                        }
+                    }
+            
+                    if isPVisible(document.getElementById("hole" + h + "id" + i + "p3"),
+                                 document.getElementById("holster" + h + "c")) {
+                        var p = pointsCalc(player3hcp, course[h][1], course[h][2], i)      
+                        document.getElementById("ppp" + h).innerText = i + "/" + p
+                        if (!(i > 0)) {
+                            check++
+                        }
+                   }
+             
+                  if isPVisible(document.getElementById("hole" + h + "id" + i + "p4"),
+                                 document.getElementById("holster" + h + "d")) {
+                       var p = pointsCalc(player4hcp, course[h][1], course[h][2], i)      
+                       document.getElementById("pppp" + h).innerText = i + "/" + p
+                       if (!(i > 0)) {
+                           check++
+                       }
+                   }
+   
+              }
+              // if no scores - reset
+              if (check == 4) {
+                  document.getElementById("p" + h).innerText = "-";
+                  document.getElementById("pp" + h).innerText = "-";
+                  document.getElementById("ppp" + h).innerText = "-";
+                  document.getElementById("pppp" + h).innerText = "-";
+              } 
+   }           
+}
+
+*/
       function createScreens() {
         // this is what is created
         // < div > < span class = "player1sideways" id = "h2player1x" > < /span>X < /div>
@@ -862,7 +894,7 @@ for (i = 1; i <= 18; i++) {
       }
       
       //create the input screens
-      createScreens()
+ //     createScreens()
       
       
       
@@ -1024,7 +1056,7 @@ for (i = 1; i <= 18; i++) {
       
       
       
-      
+     
       
       
     </script>
