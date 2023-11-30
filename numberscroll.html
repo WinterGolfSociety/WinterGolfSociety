@@ -178,6 +178,44 @@ text-align: center;
 .small {
 font-size: 2vmax;
 }
+
+
+#p1, #pp1, #ppp1, #pppp1,
+#p2, #pp2, #ppp2, #pppp2,
+#p3, #pp3, #ppp3, #pppp3,
+#p4, #pp4, #ppp4, #pppp4,
+#p5, #pp5, #ppp5, #pppp5,
+#p6, #pp6, #ppp6, #pppp6,
+#p7, #pp7, #ppp7, #pppp7,
+#p8, #pp8, #ppp8, #pppp8,
+#p9, #pp9, #ppp9, #pppp9,
+#p10, #pp10, #ppp10, #pppp10,
+#p11, #pp11, #ppp11, #pppp11,
+#p12, #pp12, #ppp12, #pppp12,
+#p13, #pp13, #ppp13, #pppp13,
+#p14, #pp14, #ppp14, #pppp14,
+#p15, #pp15, #ppp15, #pppp15,
+#p16, #pp16, #ppp16, #pppp16, 
+#p17, #pp17, #ppp17, #pppp17,
+#p18, #pp18, #ppp18, #pppp18,
+#pf, #ppf, #pppf, #ppppf,
+#pb, #ppb, #pppb, #ppppb,
+#pt, #ppt, #pppt, #ppppt {
+  font-family: 'Kalam';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -450,15 +488,9 @@ elem1a.addEventListener("input", rangeValue1a);
         [17, 4, 3],
         [18, 5, 17]
       ];
-      
-      
-course = JSON.parse(JSON.stringify(arrOldCourse));
+           
+      course = JSON.parse(JSON.stringify(arrOldCourse));
 
-
-      
-      
-      
-      
       player1name = "Bryan Maddison"
       player2name = "Bob Toward"
       player3name = "Stephen Alldridge"
@@ -487,19 +519,17 @@ course = JSON.parse(JSON.stringify(arrOldCourse));
       shortPlayer4name = shortPlayer4name.replace("Stephen","Steve")
       shortPlayer4name = shortPlayer4name.replace("Malcolm","Mal") 
       document.getElementById("player4").innerText = shortPlayer4name;
-      
-      
-      
+
       // get these by lookup xxxxx
       player1hcp = 29;
       player2hcp = 16;
       player3hcp = 9;
       player4hcp = 15;
-   
+      // install green ticks then hide them
       for (i = 1; i <= 18; i++) {
            document.getElementById("coll" + i).innerHTML ='<img src="tick1.png" alt="done" id="h' +
-           i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' +  "hole " + arrOldCourse[i][0] + 
-           ", par " + arrOldCourse[i][1] + ", si " + arrOldCourse[i][2]
+           i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' +  "hole " + course[i][0] + 
+           ", par " + course[i][1] + ", si " + course[i][2]
            
            document.getElementById("h" + i + "img").style.display="none"
       }
@@ -517,25 +547,29 @@ if (document.getElementById(id.replace("coll","content")).style.display == "grid
        document.getElementById("coll" + i).style.display = "block"
 
    }
-   
-   
-     
+
        // at this point, save scores
        // player 1
-       document.getElementById(id.replace("coll","p")).innerText = 
-       document.getElementById(id.replace("coll","input") + "a").value;
-       // player 1
-       document.getElementById(id.replace("coll","pp")).innerText = 
-       document.getElementById(id.replace("coll","input") + "b").value;
-       // player 1
-       document.getElementById(id.replace("coll","ppp")).innerText = 
-       document.getElementById(id.replace("coll","input") + "c").value;
-       // player 1
-       document.getElementById(id.replace("coll","pppp")).innerText = 
-       document.getElementById(id.replace("coll","input") + "d").value;
-      
-   
-   
+       var h = id.replace("coll","");
+       var s1 = document.getElementById(id.replace("coll","input") + "a").value
+       var p1 = pointsCalc(player1hcp, course[h][1], course[h][2], s1) 
+       document.getElementById(id.replace("coll","p")).innerText = s1 + "/" + p1
+        
+       // player 2
+       var s2 = document.getElementById(id.replace("coll","input") + "b").value
+       var p2 = pointsCalc(player1hcp, course[h][1], course[h][2], s2) 
+       document.getElementById(id.replace("coll","pp")).innerText = s2 + "/" + p2
+       
+       // player 3
+       var s3 = document.getElementById(id.replace("coll","input") + "c").value
+       var p3 = pointsCalc(player1hcp, course[h][1], course[h][2], s3) 
+       document.getElementById(id.replace("coll","ppp")).innerText = s3 + "/" + p3
+       
+       // player 4
+       var s4 = document.getElementById(id.replace("coll","input") + "d").value
+       var p4 = pointsCalc(player1hcp, course[h][1], course[h][2], s4) 
+       document.getElementById(id.replace("coll","pppp")).innerText = s4 + "/" + p4
+             
 } else {
    // close all
    for (i = 0; i <=2; i++) {
@@ -550,33 +584,14 @@ if (document.getElementById(id.replace("coll","content")).style.display == "grid
    //document.getElementById(newid).style.display = "block"     
    
    // show green tick bevause score recorded   
-   document.getElementById(id.replace("coll","h") + "img").style.display="block" 
-    
-    
-    
-      
-      // .stop-scroll {
-      //margin: 0;
-      //height: 100%;
-      //overflow: hidden;
-   // }
-      
-//      document.body.style.position = "fixed";
-      
-//       document.body.style.maxHeight = "100%";
-      
-      
-      
-      
+   document.getElementById(id.replace("coll","h") + "img").style.display="block"      
       
 //console.log(document.getElementById("hole1id1p1").innerText)
 console.log("before")
-  //updateScores()
-  console.log("after")
+//updateScores()
+console.log("after")
   
   }
-  
-  
   
   }      
      
