@@ -161,7 +161,12 @@ text-align: center;
 }
 
 
-
+.player1name, .player2name, .player3name, .player4name,
+.player1points, .player2points, .player3points, .player4points {
+ color: silver;
+  font-size: 5vh;
+  font-style: italic;
+}
 
 
 
@@ -359,24 +364,24 @@ font-size: 2vmax;
    <div class="grid-container">
  
      <div class="item1"><div class="value" id="value1a">0</div></div>
-     <div class="item2">Bryan Maddison
+     <div class="item2"><div class="player1name">Player 1</div>
      <input type="range" class="input" id="input1a" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div id="points1a">9 points</div></div>
+     <div class="player1points" id="points1a">no points</div></div>
   
      <div class="item1"><div class="value" id="value1b">0</div></div>
-     <div class="item2">Bryan Maddison
+     <div class="item2"><div class="player2name">Player 2</div>
      <input type="range" class="input" id="input1b" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div id="points1b">9 points</div></div>
+     <div class="player2points" id="points1b">no points</div></div>
   
      <div class="item1"><div class="value" id="value1c">0</div></div>
-     <div class="item2">Bryan Maddison
+     <div class="item2"><div class="player3name">Player 3</div>
      <input type="range" class="input" id="input1c" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div id="points1c">9 points</div></div>
+     <div class="player3points" id="points1c">no points</div></div>
   
      <div class="item1"><div class="value" id="value1d">0</div></div>
-     <div class="item2">Bryan Maddison
+     <div class="item2"><div class="player4name">Player 4</div>
      <input type="range" class="input" id="input1d" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div id="points1d">9 points</div></div>  
+     <div class="player4points" id="points1d">no points</div></div>  
  
    </div>        
 </div>
@@ -389,24 +394,24 @@ font-size: 2vmax;
    <div class="grid-container">
  
      <div class="item1"><div class="value" id="value2a">0</div></div>
-     <div class="item2">Bryan Maddison
+     <div class="item2"><div class="player1name">Player 1</div>
      <input type="range" class="input" id="input2a" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div id="points2a">9 points</div></div>
+     <div class="player1points" id="points2a">no points</div></div>
   
      <div class="item1"><div class="value" id="value2b">0</div></div>
-     <div class="item2">Bryan Maddison
+     <div class="item2"><div class="player2name">Player 2</div>
      <input type="range" class="input" id="input2b" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div id="points2b">9 points</div></div>
+     <div class="player2points" id="points2b">no points</div></div>
   
      <div class="item1"><div class="value" id="value2c">0</div></div>
-     <div class="item2">Bryan Maddison
+     <div class="item2"><div class="player3name">Player 3</div>
      <input type="range" class="input" id="input2c" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div id="points2c">9 points</div></div>
+     <div class="player3points" id="points2c">no points</div></div>
   
      <div class="item1"><div class="value" id="value2d">0</div></div>
-     <div class="item2">Bryan Maddison
+     <div class="item2"><div class="player4name">Player 4</div>
      <input type="range" class="input" id="input2d" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div id="points2d">9 points</div></div>  
+     <div class="player4points" id="points2d">no points</div></div>  
  
    </div>        
 </div>  
@@ -527,15 +532,46 @@ elem1a.addEventListener("input", rangeValue1a);
       player3hcp = 9;
       player4hcp = 15;
       // install green ticks then hide them
-      for (i = 1; i <= 18; i++) {
+          console.log("=before 1")
+      for (i = 1; i <= 2; i++) {
            document.getElementById("coll" + i).innerHTML ='<img src="tick1.png" alt="done" id="h' +
            i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' +  "hole " + course[i][0] + 
            ", par " + course[i][1] + ", si " + course[i][2]
            
            document.getElementById("h" + i + "img").style.display="none"
+              console.log("before i = " + i)
       }
+
+ 
+  var collection = document.getElementsByClassName("player1name");
+
+    for (i = 0; i < collection.length; i++) {
+        collection[i].innerText = player1name; 
+    }
+    
+  var collection = document.getElementsByClassName("player2name");
+
+    for (i = 0; i < collection.length; i++) {
+        collection[i].innerText = player2name; 
+    }
+    
+    var collection = document.getElementsByClassName("player3name");
+
+    for (i = 0; i < collection.length; i++) {
+        collection[i].innerText = player3name; 
+    }
+    
+    var collection = document.getElementsByClassName("player4name");
+
+    for (i = 0; i < collection.length; i++) {
+        collection[i].innerText = player4name; 
+    }  
     
     
+    
+    
+    
+    console.log("after")
 
 function recordScores(id) {
 //eg. id = coll1
@@ -548,6 +584,7 @@ if (document.getElementById(id.replace("coll","content")).style.display == "grid
        document.getElementById("coll" + i).style.display = "block"
 
    }
+   
 
        // at this point, save scores
        // player 1
@@ -555,6 +592,19 @@ if (document.getElementById(id.replace("coll","content")).style.display == "grid
        var s1 = document.getElementById(id.replace("coll","input") + "a").value
        var p1 = pointsCalc(player1hcp, course[h][1], course[h][2], s1) 
        document.getElementById(id.replace("coll","p")).innerText = s1 + "/" + p1
+       
+       
+       
+       
+          console.log("hcp = " + player1hcp)
+   console.log("par = " + course[h][1])
+   console.log("si = " + course[h][2])
+   console.log("score = " + s1)
+
+       
+       
+       
+       
         
        // player 2
        var s2 = document.getElementById(id.replace("coll","input") + "b").value
@@ -846,24 +896,37 @@ console.log(isPVisible(document.getElementById("hole1id0p1"),
       
       }
       
-      
-      
+// runs when slider moves
+// update big number     
+// update text saying "points 7" etc.      
 function update(id) {
 //eg. id = input1a
-
+// update big number
 var tempscore = document.getElementById(id).value;
 document.getElementById(id.replace("input","value")).innerHTML = tempscore;
 
-  var n = tempscore - 2; 
-  
-  // these to sort out
+var n = tempscore - 2; 
+// these to sort out
   
   hcp = 25;
   par = 4;
   si = 12;
+  var temp1 = id.substring(id.length - 1); // gives a etc.
+  var temp2 = id.replace("input","");      // gives 1a etc.
+  var temp3 = temp2.substring(0,temp2.length - 1);      // gives 1 etc.
   
-  var n = pointsCalc(hcp, par, si, tempscore)
-  
+  if (temp1 == "a") {
+      var n = pointsCalc(player1hcp, course[temp3][1], course[temp3][2], tempscore);
+  }
+  if (temp1 == "b") {
+      var n = pointsCalc(player2hcp, course[temp3][1], course[temp3][2], tempscore);
+  }
+  if (temp1 == "c") {
+      var n = pointsCalc(player3hcp, course[temp3][1], course[temp3][2], tempscore);
+  }
+  if (temp1 == "d") {
+      var n = pointsCalc(player4hcp, course[temp3][1], course[temp3][2], tempscore);
+  }
   
   
   if (n == 1) {
