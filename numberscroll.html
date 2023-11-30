@@ -94,20 +94,22 @@ margin: 0 auto;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background-color: silver;
-  width: 50px;
-  height: 50px;
+  background-color: dodgerBlue;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  border: 2px solid silver;
+  border: 10px solid black;
   cursor: pointer;
   transition: .3s ease-in-out;
+  opacity: 0.6;
 }​
   input[type="range"]::-webkit-slider-thumb:hover {
-    background-color: silver;
-    border: 2px solid cyan;
+    background-color: dodgerBlue;
+    border: 10px solid black;
   }
   input[type="range"]::-webkit-slider-thumb:active {
-    transform: scale(1.6);
+    transform: scale(2.0);
+  color: silver;
   }
 
 
@@ -150,13 +152,12 @@ input[type="range"]::-webkit-slider-thumb {
   height: 10vh;
   
   
-  
 }
 
 
 .input {
 text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   font-size: 30px;
 }
 
@@ -202,6 +203,7 @@ font-size: 2vmax;
 #pb, #ppb, #pppb, #ppppb,
 #pt, #ppt, #pppt, #ppppt {
   font-family: 'Kalam';
+  color: blue;
 }
 
 
