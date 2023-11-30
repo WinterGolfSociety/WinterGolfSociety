@@ -133,6 +133,13 @@ input[type="range"]::-webkit-slider-thumb {
 
   
   height: 10vh;
+   color: silver;
+  font-size: 1vmax;
+  font-style: italic;
+  padding-top: 0.2vh;
+  
+  
+  height: 10vh;
   
   
   
@@ -363,10 +370,15 @@ font-size: 2vmax;
 <div class="content" id="content1">
    <div class="grid-container">
  
-     <div class="item1"><div class="value" id="value1a">0</div></div>
-     <div class="item2"><div class="player1name">Player 1</div>
+     <div class="item1">
+     <div class="value" id="value1a">0</div>
+     </div>
+     
+     <div class="item2">
+     <div class="player1name">Player 1</div>
      <input type="range" class="input" id="input1a" oninput="update(this.id)" min="0" max="9" step="1" value="0">
-     <div class="player1points" id="points1a">no points</div></div>
+     <div class="player1points" id="points1a">no points</div>
+     </div>
   
      <div class="item1"><div class="value" id="value1b">0</div></div>
      <div class="item2"><div class="player2name">Player 2</div>
