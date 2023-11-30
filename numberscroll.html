@@ -498,6 +498,8 @@ course = JSON.parse(JSON.stringify(arrOldCourse));
            document.getElementById("coll" + i).innerHTML ='<img src="tick1.png" alt="done" id="h' +
            i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' +  "hole " + arrOldCourse[i][0] + 
            ", par " + arrOldCourse[i][1] + ", si " + arrOldCourse[i][2]
+           
+           document.getElementById("h" + i + "img").style.display="none"
       }
     
     
@@ -544,7 +546,12 @@ if (document.getElementById(id.replace("coll","content")).style.display == "grid
    var newid = id.replace("coll","content");
    document.getElementById(newid).style.display = "grid"; 
    //document.getElementById(newid).style.display = "block"     
-      
+   
+   // show green tick bevause score recorded   
+   document.getElementById(id.replace("coll","h") + "img").style.display="block" 
+    
+    
+    
       
       // .stop-scroll {
       //margin: 0;
