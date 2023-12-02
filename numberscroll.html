@@ -6,6 +6,9 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>4score</title>
     <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+
 <style>
 
 body {
@@ -191,6 +194,80 @@ font-size: 2vh;
 
 
 
+.scroll {
+ 
+  
+  max-height: 70vh;
+  overflow:hidden;
+  overflow-y:scroll;
+  
+  
+  
+ 
+}
+
+#player4ball {
+float: right;
+}
+
+
+nav {
+  margin:0 auto;
+  width:100%;
+  height:auto;
+  display:inline-block;
+  background:#37bc9b;
+}
+
+nav ul {
+  margin:0;padding:0;
+  list-style-type:none;
+  float:left;
+  display:inline-block; 
+}
+
+nav ul li {
+  position:relative;
+  margin:0 20px 0 0;
+  float:left;
+  display:inline-block;
+}
+
+li > a:after { content: ''; } /* Change this in order to change the Dropdown symbol */
+
+li > a:only-child:after { content: ''; }
+
+nav ul li a {
+  padding:20px;
+  display:inline-block;
+  color:white;
+  text-decoration:none;
+}
+
+nav ul li a:hover {
+  opacity:0.5;
+}
+
+nav ul li ul {
+  display:none;
+  position:absolute;
+  left:0;
+  background:#37bc9b;
+  float:left;
+}
+
+nav ul li ul li {
+  width:100%;
+  border-bottom:1px solid rgba(255,255,255,.3);
+}
+
+nav ul li:hover ul {
+  display:block;
+}
+
+
+
+
 
 
 
@@ -199,6 +276,49 @@ font-size: 2vh;
 </style>
 </head>
 <body>
+
+<div id="firstscreen">
+<nav>
+  <ul>
+    <li><a href="#">Select 4-ball Players</a>
+      <ul class="scroll">
+        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
+        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
+        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
+        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
+        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
+        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
+        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
+        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
+        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
+        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
+        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
+        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
+        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
+        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
+        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
+        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
+        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
+        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
+        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
+        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
+        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
+        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
+        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
+        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<div id="player4ball"></div>
+</div>
+
+
+
+
+
+
+
 
 <div id="all">
 	<button type="button" class="collapsible" id="coll0" onclick="recordScores(this.id)">Recorded scores</button>
@@ -519,8 +639,8 @@ p4h18score
 
 
 
-
-
+var msglist = "";
+var msglistcount = 0;
 
 
 comp = "from somewhere"
@@ -628,10 +748,9 @@ for(i = 0; i < collection.length; i++) {
 
 
 
-
-
-
-
+//==============
+// recovery bit
+//==============
 // do recover - why ?
 // loop through all scores and retrieve valid ones
 for(i = 1; i <= 18; i++) {
@@ -641,10 +760,11 @@ for(i = 1; i <= 18; i++) {
         }
     }
 }
-
-
-
-
+// redo totals
+totalsCalc()
+//=====================
+// end of recovery bit
+//=====================
 
 
 
@@ -928,16 +1048,394 @@ function recoverRecordedScores(lshole) {
 	
 	
 	
-	// do ticks
+	// do tick
 	document.getElementById("h" + temphole + "img").style.display = "block"
 	
-	// redo totals
-	totalsCalc()			
+				
 }
 
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  //=============================================================
+    // function downloader()
+    // - gets data to create arrays for players, hcps, comps
+    // - papaparse uses HTML5's filereader API to get csv file
+    //=============================================================  
+    function downloader() {
+      // setupcsv
+      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
+      var strng1 = "strng1"; // player
+      var strng2 = "strng2"; // hcp
+      var strng3 = "strng3"; // comp
+      i=0;  
+       
+      console.log("downloading msg")
+      //showDownloadingInfoMsg()
+      
+      try {
+        // if it fails after 20 seconds, put up error message
+        setTimeout(function() {
+          if (!(strng2.length) > 0) {
+            alert("failed");
+          }
+        }, 20000);
+        Papa.parse(public_hcp_url, {
+          download: true,
+          header: true,
+          step: function(results, parser) {
+             strng1 = results.data.players;
+             // add row
+             console.log(strng1)
+             arrPlayers.push([strng1,0]);
+             //strng3 = results.data.comps;
+             //arrComps[i] = strng3;
+             i++
+          },
+          complete: function() {
+          // global player
+          // replace button name
+          element = document.getElementById("dropbtn");
+          element.innerText = player;
+          start();
+              }
+          })
+       
+      } // end try
+      catch (err) {
+        console.log(err.message);
+      }
+    }
+
+    //=============================================================
+    // run downloder() function 
+    //=============================================================
+    downloader();
+    
+    console.log(arrPlayers[2])
+    
+    //=============================================================
+    // function toggleDropdown()
+    // - show player name choices
+    //=============================================================  
+    function toggleDropdown() {
+      // When the user clicks on the button, toggle between hiding and showing the dropdown content
+      document.getElementById("playersDropdown").classList.toggle("show");
+    }
+
+   	
+	
+	
+	
+  // name selected, do stuff
+    function dropSelected(playerName) {
+
+      if (playerName == "reset list") {
+        resetNames();
+      } else {
+        // retrieve dropdown info
+        var arrOptions = JSON.parse(localStorage.dropdown);
+        for (var k = 0; k < arrOptions.length; k++) {
+          if (arrOptions[k][0] == playerName) {
+            found = true;
+            pos = k;
+          }
+        }
+        // change color on selection
+        document.getElementById("myLink" + pos.toString()).style.color = "blue";
+        document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
+        // update player choice
+        player2submit = document.getElementById("myLink" + pos.toString()).innerText;
+        if (pos >= 0) {
+          // increment number of times chosen
+          var tc = parseInt(arrOptions[pos][1]) + 1;
+          arrOptions[pos][1] = tc;
+          // store new order
+          //=====LocalStorage.dropdown====================
+          localStorage.dropdown = JSON.stringify(arrOptions);
+          //==============================================
+          // global player
+          player = playerName;
+          //=====LocalStorage.guessPlayer=====
+          localStorage.guessPlayer = player;
+          //=============================
+        }
+        
+        // replace button name
+        element = document.getElementById("dropbtn");
+        element.innerText = player;
+        // update player choices
+        // reset hole scores
+        //=====LocalStorage.player=====
+        localStorage.player = player;
+        //=============================
+        //=====LocalStorage.guessPlayer=====
+        localStorage.guessPlayer = player;
+        //=============================
+        player2submit = player;
+        // close dropdown
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+        doGetHCP();
+      }
+    }	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ //=============================================================
+    // function start()
+    // - initialise everything and do checks etc.
+    //=============================================================  
+    function start() {
+    // check for any new members etc.
+    // setup local dropdown if not there
+    if (!("dropdown" in localStorage)) {
+      //=====LocalStorage.dropdown===================
+      localStorage.dropdown = JSON.stringify(arrPlayers);
+      //=============================================
+    }
+    // default notsame to false
+    var notsame = false;
+    if ("dropdown" in localStorage) {
+      // retrieve dropdown info
+      var arrOptions = JSON.parse(localStorage.dropdown);
+      // see if different number of items
+      if (arrOptions.length !== arrPlayers.length) {
+        notsame = true;
+      } else {
+        // Comparing each element of your array
+        for (var i = 0; i < arrOptions.length; i++) {
+          // see if items are different
+          if (arrOptions[i][0] !== arrPlayers[i][0]) {
+            notsame = true;
+          }
+        }
+      }
+    };
+
+    // if different
+    if (notsame) {
+      // option is original, arrPlayers is new
+      // update new with numbers from original
+      for (var i = 0; i < arrOptions.length; i++) {
+        for (var j = 0; j < arrPlayers.length; j++) {
+          if (arrOptions[i][0] == arrPlayers[j][0]) {
+            arrPlayers[j][1] = arrOptions[i][1];
+          }
+        }
+      }
+      arrOptions = JSON.parse(JSON.stringify(arrPlayers));
+      //=====LocalStorage.dropdown====================
+      localStorage.dropdown = JSON.stringify(arrOptions);
+      //==============================================
+    }
+
+    // bring most commonly selected to the top
+    arrOptions.sort(compareSecondColumn);
+    // create player dropdown
+    var select = document.getElementById("playersDropdown");
+    // this is what is created
+    //<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+    //
+    for (var i = 0; i < arrOptions.length; i++) {
+      var el = document.createElement("a");
+      el.id = "myLink" + (i);
+      el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+      el.setAttribute("href", "#");
+      el.innerText = arrOptions[i][0];
+      select.appendChild(el);
+      if (arrOptions[i][1] > 0) {
+        document.getElementById("myLink" + (i)).style.color = "blue";
+        document.getElementById("myLink" + (i)).style.background = "lightBlue";
+      }
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+    // get todays date eg 26 June
+    dd = new Date();
+    // get date number and format it
+    d1 = dd.getDate();
+    if (d1 < 10) {
+      d1 = "0" + d1;
+    }
+    // get month and format it
+    d2 = dd.getMonth();
+
+    if (d2 == 0) {
+      m = "January";
+    }
+    if (d2 == 1) {
+      m = "February";
+    }
+    if (d2 == 2) {
+      m = "March";
+    }
+    if (d2 == 3) {
+      m = "April";
+    }
+    if (d2 == 4) {
+      m = "May";
+    }
+    if (d2 == 5) {
+      m = "June";
+    }
+    if (d2 == 6) {
+      m = "July";
+    }
+    if (d2 == 7) {
+      m = "August";
+    }
+    if (d2 == 8) {
+      m = "September";
+    }
+    if (d2 == 9) {
+      m = "October";
+    }
+    if (d2 == 10) {
+      m = "November";
+    }
+    if (d2 == 11) {
+      m = "December";
+    }
+    dateToday = d1 + " " + m;
+    // tidy localStorage if out of date to allow new "blank" setup
+    if ("comp" in localStorage) {
+      if (localStorage.comp.indexOf(dateToday) == -1) {
+        // tidy
+        clearCache();
+      }
+    }
+
+    // recover data if dates match
+    // this allows data to be kept over refreshes
+    if ("comp" in localStorage) {
+      if (localStorage.comp.indexOf(dateToday) > -1) {
+        // recover
+        recoverFromLocalStorage();
+      }
+    }
+
+    // see if it is a compday and if so find comp and course from array list
+    for (i = 0; i < arrComps.length; i++) {
+      // if today - eg. "22 June" in arrComps list then compday = "yes"
+      if (arrComps[i].indexOf(d1 + " " + m) > -1) {
+        compday = "yes";
+        comp = arrComps[i];
+   
+        if (arrComps[i].indexOf("Lakes") > -1) {
+          // global course
+          course = "Lakes";
+          // localStorage course
+          localStorage.course = "Lakes";
+        }
+        if (arrComps[i].indexOf("Dawson") > -1) {
+          // global course
+          course = "Dawson";
+          // localStorage course
+          localStorage.course = "Dawson";
+        }
+        if (arrComps[i].indexOf("OldCourse") > -1) {
+          // global course
+          course = "OldCourse";
+          // localStorage course
+          localStorage.course = "OldCourse";
+        }
+      }
+    }
+
+    if (compday == "yes") {
+      localStorage.comp = comp;
+    }
+  
+    // if not a compday find out what course is played and create a comp
+    if (compday == "no") {
+      if (!("comp" in localStorage)) {
+        //showCourseChoice();
+        returnToMenu();
+      }
+  
+    }
+    // recover	
+    if (comp == localStorage.comp) {
+      recoverFromLocalStorage();
+    }
+    // show comp info message for 3 seconds
+    if ("comp" in localStorage) {
+      showCompMessage();
+    }
+    } // end function start()
+
+	
+	
+	
+	function output(msg) {
+	msglistcount++
+	if (msglistcount > 4) {
+	    console.log("too many players")
+	} else {
+	    if (msglist == "") {
+	        msglist = msg;
+	    } else {    
+	        msglist += "#" + msg
+	    }
+	    console.log(msglist)
+	}
+	
+	document.getElementById("player4ball").innerHTML = msglist.replaceAll("#","<br>")
+	}
 	
 
     
