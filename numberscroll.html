@@ -194,78 +194,83 @@ font-size: 2vh;
 
 
 
-.scroll {
+
  
-  
-  max-height: 70vh;
-  overflow:hidden;
-  overflow-y:scroll;
-  
-  
-  
- 
+ .scroll {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
+.scroll::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+  
+  
+
 
 #player4ball {
 float: right;
 }
 
-
-nav {
-  margin:0 auto;
-  width:100%;
-  height:auto;
-  display:inline-block;
-  background:#37bc9b;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+ul:hover {
+  overflow: visible;
+}
+li {
+  position: relative;
+  float: left;
+  background-color: #17B0FF;
+}
+li:hover {
+  background-color: #189BDF;
+}
+a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-nav ul {
-  margin:0;padding:0;
-  list-style-type:none;
-  float:left;
-  display:inline-block; 
+/* second level */
+ul ul {
+  max-height: 0;
+  transition: max-height 1s;
+}
+ul li:hover ul {
+  max-height: 999px;
+}
+ul ul li {
+  float: none;
+  background-color: #189BDF;
+}
+ul ul li:hover {
+  background-color: #1289C7;
 }
 
-nav ul li {
-  position:relative;
-  margin:0 20px 0 0;
-  float:left;
-  display:inline-block;
+/* third level */
+ul ul ul {
+  position: absolute;
+  width: 0;
+  top: 0;
+  left: 100%;
+  transition: width 0.5s;
 }
-
-li > a:after { content: '  >'; } /* Change this in order to change the Dropdown symbol */
-
-li > a:only-child:after { content: ''; }
-
-nav ul li a {
-  padding:20px;
-  display:inline-block;
-  color:white;
-  text-decoration:none;
+ul ul li:hover ul {
+  width: 100%;
 }
-
-nav ul li a:hover {
-  opacity:0.5;
+ul ul ul li {
+  background-color: #DF7F18;
 }
-
-nav ul li ul {
-  display:none;
-  position:absolute;
-  left:0;
-  background:#37bc9b;
-  float:left;
+ul ul ul li:hover {
+  background-color: #C77115;
 }
-
-nav ul li ul li {
-  width:100%;
-  border-bottom:1px solid rgba(255,255,255,.3);
-}
-
-nav ul li:hover ul {
-  display:block;
-}
-
-
 
 
 
