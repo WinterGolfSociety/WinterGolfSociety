@@ -633,24 +633,14 @@ for(i = 0; i < collection.length; i++) {
 
 
 // do recover - why ?
-
-
-recoverRecordedScores("p1h1score")
-
-recoverRecordedScores("p2h1score")
-
-recoverRecordedScores("p3h1score")
-
-recoverRecordedScores("p4h1score")
-
-recoverRecordedScores("p1h2score")
-
-recoverRecordedScores("p2h2score")
-
-recoverRecordedScores("p3h2score")
-
-recoverRecordedScores("p4h2score")
-
+// loop through all scores and retrieve valid ones
+for(i = 1; i <= 18; i++) {
+    for(j = 1; j <= 4; j++) {
+        if ("p" + j + "h" + i + "score" in localStorage) {
+            recoverRecordedScores("p" + j + "h" + i + "score")
+        }
+    }
+}
 
 
 
