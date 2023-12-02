@@ -272,7 +272,6 @@ nav ul li:hover ul {
 
 
 
-
 </style>
 </head>
 <body>
@@ -283,7 +282,7 @@ nav ul li:hover ul {
     <li><a href="#">Select 4 Players</a>
 
       <ul class="scroll">
-        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
+        <li><a  draggable="true" ondragstart="drag(event)" href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
         <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
         <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
         <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
@@ -313,7 +312,7 @@ nav ul li:hover ul {
     <li><a href="#">X</a></li>
   </ul>
 </nav>
-<div id="player4ball"></div>
+<div id="player4ball" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 </div>
 
@@ -1442,6 +1441,32 @@ function recoverRecordedScores(lshole) {
 	}
 	
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
     
     
      
