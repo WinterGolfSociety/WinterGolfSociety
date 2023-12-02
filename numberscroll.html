@@ -293,30 +293,14 @@ nav ul li:hover ul {
         <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
         <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
         <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
-        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
-        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
-        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
-        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
-        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
-        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
-        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
-        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
-        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
-        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
-        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
-        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
-        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
-        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
-        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
-        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
-        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
+     
       </ul>
           
     </li>
     <li><a href="#">X</a></li>
   </ul>
 </nav>
-
+  <div draggable="true" ondragstart="drag(event)" >Bryan Maddison</div>
 </div>
 
 
@@ -1463,7 +1447,7 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+  ev.dataTransfer.setData("text/plain", ev.target.id);
 }
 
 function drop(ev) {
