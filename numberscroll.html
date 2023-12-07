@@ -30,6 +30,7 @@ body {
                            background-color: yellow;
                            text-align: left; //center;
                            border: 1px solid green;
+                           padding: 10px;
                           }
 
 
@@ -395,6 +396,29 @@ width: 100%;
 width: 98vw;
 }
 
+#all {
+display: none;
+
+}
+
+/* fade out */
+
+.fadeout {
+  animation: fadeout 0.5s forwards;
+}
+
+/* Keyframe animations */
+@keyframes fadeout {
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+/* end of fade out */
+
+
+
+
 
 </style>
 </head>
@@ -412,7 +436,14 @@ width: 98vw;
               
                <div id="player4ballplayer"></div>
                <div id="player4ballname"></div>
-               <div id="player4ballhcp" contenteditable="true"></div>
+               <div id="player4ballhcp" contenteditable="true" oninput="editCheck(event)"></div>
+               
+               <div></div>
+               <div onclick="getScoring()">test</div>
+               <div></div>
+               
+               
+               
                </div>
      </div>
 
@@ -1595,7 +1626,7 @@ function recoverRecordedScores(lshole) {
 	    console.log(msglist)
 	}
 	
-	msglistx = msglist + "#none xx#none xxx#none xxx#none xxx#none xxx"
+	msglistx = msglist + "#no player#no player#no player#no player#no player"
 	arr1 = msglistx.split("#");
 	newmsglistplayer = "Player 1:" + "<br>" +
 	                   "Player 2:" + "<br>" + 
@@ -1628,13 +1659,39 @@ player4name = arr1[3]
     
      
      
-     body();
+body();
      
      	
-	
-	}
+}
 
+
+
+
+function editCheck(event) {
+     console.log(event.inputType)
      
+     
+     
+     
+}
+   
+   
+   
+   
+function getScoring() {
+
+
+document.getElementById("firstscreen").classList.add("fadeout");
+ 
+ 
+ //document.getElementById("firstscreen").classList.add("spindelete");    
+//document.getElementById("firstscreen").classList.add("fadeout");
+//document.getElementById("firstscreen").style.display = "none"
+     
+     
+      document.getElementById("all").style.display = "initial"
+     
+}     
      
 </script>
 
