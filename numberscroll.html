@@ -15,7 +15,24 @@ body {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 20px;
      // height: 70vh;
+     //width: 100vw;
      }
+
+
+.grid-container-frontscreen {
+                     display: grid;
+                     grid-template-columns: auto auto auto;
+                     //width: 95vw;
+                     background-color: cyan;
+                    }
+
+.grid-container-frontscreen > div {
+                           background-color: yellow;
+                           text-align: left; //center;
+                           border: 1px solid green;
+                          }
+
+
 
 .grid-container-top {
                      display: grid;
@@ -116,11 +133,11 @@ input[type="range"] {
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background-color: crimson;
+  background-color: dodgerBlue;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid dodgerBlue; //black;
+  border: 1px solid black;
   cursor: pointer;
   transition: .3s ease-in-out;
 }​
@@ -209,8 +226,8 @@ font-size: 2vh;
 
 #player4ballwrapper {
   float: right;
-  width: 100%;
-  height: 20vh;
+  //width: 100%;
+  height: 60vh;
   //padding: 1vmax;
 
   //border: 1px solid green;
@@ -218,76 +235,37 @@ font-size: 2vh;
   color: blue;
 }
 
-#player4ball {
+#player4ballplayer, #player4ballhcp {
 font-size: 2.5vmax;
-  float: right;
-  height: 90%;
+text-align: right;
+ // float: right;
+  height: 100%;
 min-width: 20%;
 padding: 1vh;
   //border: 1px solid red;
   color: blue;
 }
 
-#startbutton {
+#player4ballname {
+font-size: 2.5vmax;
+  float: left;
+  height: 100%;
+min-width: 20%;
+padding: 1vh;
+  //border: 1px solid red;
+  color: blue;
+}
+
+
+
+
+#startbutton, #button1, #button2, #button3, #button4 {
 float: right;
 font-size: 7vh; 
 height: 100%;
 min-width: 15vw;
 }
 
-nav {
-  //margin:0 auto;
-  width:100%;
-  height:auto;
-  display:inline-block;
-  background:#37bc9b;
-}
-
-nav ul {
-  margin:0;padding:0;
-  list-style-type:none;
-  float:left;
-  display:inline-block; 
-}
-
-nav ul li {
-  position:relative;
-  margin:0 20px 0 0;
-  float:left;
-  display:inline-block;
-}
-
-li > a:after { content: '  >'; } /* Change this in order to change the Dropdown symbol */
-
-li > a:only-child:after { content: ''; }
-
-nav ul li a {
-  padding:20px;
-  display:inline-block;
-  color:white;
-  text-decoration:none;
-}
-
-nav ul li a:hover {
-  opacity:0.5;
-}
-
-nav ul li ul {
-  display:none;
-  position:absolute;
-  left:0;
-  background:#37bc9b;
-  float:left;
-}
-
-nav ul li ul li {
-  width:100%;
-  border-bottom:1px solid rgba(255,255,255,.3);
-}
-
-nav ul li:hover ul {
-  display:block;
-}
 
 
 
@@ -296,6 +274,126 @@ nav ul li:hover ul {
 height: 100px;
 }
 
+/* menu */
+    #dropbtn {
+    //position: fixed;
+    //top: 0;
+    //left:0;
+width: 100%;
+
+
+      font-size: 4.5vmax;
+      border-style: solid solid solid solid;
+      /* t, r, b, l */
+      border-color: rgb(30, 130, 255);
+      background: dodgerBlue;
+    }
+    
+    
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 3px;
+      box-shadow: 10px 10px 25px black;
+      max-height: 90vh;
+    }
+
+    .dropdown-content a {
+      color: gray;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .show {
+      display: block;
+    }
+
+
+
+
+
+ .wrapper {
+      display: grid;
+      grid-template-columns: repeat(6, [col] auto);
+      background-color: rgb(0, 0, 20);
+      color: white;
+      height: 100vmax;
+      align-items: center;
+      justify-items: center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      font-size: 3vmax;
+    }
+/* menu end */    
+
+
+  /* popup box related */
+
+    #submit_popuppanel {
+      display: none;
+      color: white;
+      background-color: #eee;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      position: fixed;
+      width: 90vw;
+      margin-left: 5vw;
+      margin-top: 20vh;
+      padding: 10px 10px 10px;
+      /* t lr b */
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    #popuppanel {
+      display: none;
+      color: black;
+      background-color: #eee;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      position: fixed;
+      height: fit-content;
+      width: 80%;
+      padding: 6px; // 8px 8px;
+      box-sizing: border-box;
+      text-align: center;
+      left: 10%;
+      top: 10%;
+      font-size: 2vmax;
+    }
+
+    #popuppanel button,
+    #submit_popuppanel button {
+      background-color: #ccc;
+      display: inline-block;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 2vmax;
+    }
+
+    #popuppanel .button:hover {
+      background-color: #ddd;
+    }
+
+
+#firstscreen {
+width: 98vw;
+}
 
 
 </style>
@@ -303,47 +401,31 @@ height: 100px;
 <body>
 
 <div id="firstscreen">
-<nav>
-  <ul>
-    <li><a href="#">Select 4 Players</a>
+     <div class="xxxwrapper">
+          <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player</div>
+          <div id="playersDropdown" class="dropdown-content"> </div>
+            
+               <div id="player4ballwrapper" class="grid-container-frontscreen">
+               <div></div>
+               <div>name</div>
+               <div>hcp</div>
+              
+               <div id="player4ballplayer"></div>
+               <div id="player4ballname"></div>
+               <div id="player4ballhcp" contenteditable="true"></div>
+               </div>
+     </div>
 
-      <ul class="scroll">
-        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
-        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
-        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
-        <li><a href="javascript:output('Bob Toward')";">Bob Toward</a></li>
-        <li><a href="javascript:output('Bryan Maddison')";">Bryan Maddison</a></li>
-        <li><a href="javascript:output('Joe Fletcher')";">Joe Fletcher</a></li>
-        <li><a href="javascript:output('Dale Aitkenhead')";">Dale Aitkenhead</a></li>
-     
-      </ul>
-          
-    </li>
-    <li><a href="#">X</a></li>
-  </ul>
-</nav>
 
-	
-<div id="player4ballwrapper">
+<!--
 
-   <div id="player4ball"></div>
-
-   <button id="startbutton">start</button>
-
-</div>
-<div></div>
-<div>
 <p>Select up to 4 players for your 4-ball.</p>	
 <p>After pressing the start button, handicaps will be looked up and, if successful, scoring can commence.</p>	
-<p>Select up to 4 players for your 4-ball.</p>	
-<p>Select up to 4 players for your 4-ball.</p>	
-<p>Select up to 4 players for your 4-ball.</p>	
-<p>Select up to 4 players for your 4-ball.</p>	
-</div>
+-->
 
-
-
-
+<!--
+<div id="popuppanel"></div>
+-->
 </div>
 
 
@@ -640,31 +722,37 @@ height: 100px;
 	
 	
 	
-</div> <!-- all -->
+</div>
+
+
+
+
+
+
+
+
+
 <script>
 
 
 
 
-/*
-       localStorage structure
-comp
-p1name
-p2name
-p3name
-p4name
-p1hcp
-p2hcp
-p3hcp
-p4hcp
-p1h1score
-..to..
-p4h18score
 
-*/
+
+localStorage.clear();
 
 
 
+
+
+
+
+
+
+player1name = "xxx yyy"
+player2name = "xxx yyy"
+player3name = "xxx yyy"
+player4name = "xxx yyy"
 
 
 
@@ -682,10 +770,10 @@ comp = "from somewhere"
 
 // either start again or retrieve from localStorage  
 
-player1name = "Bryan Maddison"
-player2name = "Bob Toward"
-player3name = "Stephen Alldridge"
-player4name = "Joe Fletcher"
+//player1name = "Bryan Maddison"
+//player2name = "Bob Toward"
+//player3name = "Stephen Alldridge"
+//player4name = "Joe Fletcher"
 player1hcp = 29;
 player2hcp = 16;
 player3hcp = 9;
@@ -716,34 +804,409 @@ arrOldCourse = [
 	[17, 4, 3],
 	[18, 5, 17]
 ];
+
+
+// +++ choose course somehow
 course = JSON.parse(JSON.stringify(arrOldCourse));
 
 
-player1name = "Bryan Maddison"
-player2name = "Bob Toward"
-player3name = "Stephen Alldridge"
-player4name = "Joe Fletcher"
+
+
+
+
+
+
+
+
+var compday="no";
+
+  var arrComps=[];
+
+
+  var arrPlayers=[];
+  //=============================================================
+    // function downloader()
+    // - gets data to create arrays for players, hcps, comps
+    // - papaparse uses HTML5's filereader API to get csv file
+    //=============================================================  
+    function downloader() {
+      // setupcsv
+      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
+      var strng1 = "strng1"; // player
+      var strng2 = "strng2"; // hcp
+      var strng3 = "strng3"; // comp
+      i=0;  
+    
+      //var guessedHCP=0    
+      
+     // showDownloadingInfoMsg()
+      
+      try {
+        // if it fails after 20 seconds, put up error message
+        setTimeout(function() {
+          if (!(strng2.length) > 0) {
+            alert("failed");
+          }
+        }, 20000);
+        Papa.parse(public_hcp_url, {
+          download: true,
+          header: true,
+          step: function(results, parser) {
+             strng1 = results.data.players;
+             console.log(strng1)
+             // add row
+             arrPlayers.push([strng1,0]);
+             strng3 = results.data.comps;
+             if (strng3.length > 0) {
+                 arrComps[i] = strng3;
+             }
+            
+             i++
+          },
+          complete: function() {
+          // global player
+          console.log("completed")
+          start();
+              }
+          })
+       
+      } // end try
+      catch (err) {
+        console.log(err.message);
+      }
+    }
+
+    //=============================================================
+    // run downloder() function 
+    //=============================================================
+    downloader();
+    //=============================================================
+     
+    //=============================================================
+    // function start()
+    // - initialise everything and do checks etc.
+    //=============================================================  
+    function start() {
+   
+
+    // bring most commonly selected to the top
+    arrPlayers.sort(compareSecondColumn);
+    // create player dropdown
+    var select = document.getElementById("playersDropdown");
+    // this is what is created
+    //<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+    //
+    for (var i = 0; i < arrPlayers.length; i++) {
+    console.log(i)
+      var el = document.createElement("a");
+      el.id = "myLink" + (i);
+      el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+      el.setAttribute("href", "#");
+      el.innerText = arrPlayers[i][0];
+      select.appendChild(el);
+      if (arrPlayers[i][1] > 0) {
+        document.getElementById("myLink" + (i)).style.color = "blue";
+        document.getElementById("myLink" + (i)).style.background = "lightBlue";
+      }
+    }
+//console.log(getElementById("playersDropdown").innerHTML)
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+    
+    
+    
+    
+    
+    // get todays date eg 26 June
+    dd = new Date();
+    // get date number and format it
+    d1 = dd.getDate();
+    if (d1 < 10) {
+      d1 = "0" + d1;
+    }
+    // get month and format it
+    d2 = dd.getMonth();
+
+    if (d2 == 0) {
+      m = "January";
+    }
+    if (d2 == 1) {
+      m = "February";
+    }
+    if (d2 == 2) {
+      m = "March";
+    }
+    if (d2 == 3) {
+      m = "April";
+    }
+    if (d2 == 4) {
+      m = "May";
+    }
+    if (d2 == 5) {
+      m = "June";
+    }
+    if (d2 == 6) {
+      m = "July";
+    }
+    if (d2 == 7) {
+      m = "August";
+    }
+    if (d2 == 8) {
+      m = "September";
+    }
+    if (d2 == 9) {
+      m = "October";
+    }
+    if (d2 == 10) {
+      m = "November";
+    }
+    if (d2 == 11) {
+      m = "December";
+    }
+    dateToday = d1 + " " + m;
+    // tidy localStorage if out of date to allow new "blank" setup
+
+     
+        // tidy
+    //    clearCache();
+    
+    
+
+    // recover data if dates match
+    // this allows data to be kept over refreshes
+
+     
+        // recover
+        //recoverFromLocalStorage();
+ 
+    
+/*
+   
+        if (arrComps[i].indexOf("Lakes") > -1) {
+          // global course
+          course = "Lakes";
+          // localStorage course
+          localStorage.course = "Lakes";
+        }
+        if (arrComps[i].indexOf("Dawson") > -1) {
+          // global course
+          course = "Dawson";
+          // localStorage course
+          localStorage.course = "Dawson";
+        }
+        if (arrComps[i].indexOf("OldCourse") > -1) {
+          // global course
+          course = "OldCourse";
+          // localStorage course
+          localStorage.course = "OldCourse";
+        }
+  */ 
+  
+    // recover	
+    if (comp == localStorage.comp) {
+      recoverFromLocalStorage();
+    }
+    // show comp info message for 3 seconds
+    if ("comp" in localStorage) {
+      showCompMessage();
+    }
+    } // end function start()
+
+    //=============================================================
+    // functions - run when called
+    //=============================================================  
+
+    //=============================================================
+    // function resetNames()
+    // - gets rid of "selected" names
+    //=============================================================  
+    function resetNames() {
+      
+      // bring most commonly selected to the top
+      arrPlayers.sort(compareSecondColumn);
+      // create player dropdown
+      var select = document.getElementById("playersDropdown");
+      // empty names
+      select.innerHTML = "";
+      // redo list for menu
+      // <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+      //
+      for (var i = 0; i < arrPlayers.length; i++) {
+        var el = document.createElement("a");
+        el.id = "myLink" + (i + 1);
+        el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+        el.setAttribute("href", "#");
+        el.innerText = arrPlayers[i][0];
+        select.appendChild(el);
+      }
+    }
+
+
+//=============================================================
+    // function compareSecondColumn()
+    // - sort function to sort by second array item in 2D array
+    //=============================================================  
+    function compareSecondColumn(a, b) {
+      if (a[1] === b[1]) {
+        return 0;
+      } else {
+        return (a[1] > b[1]) ? -1 : 1;
+      }
+    }
+
+   // name selected, do stuff
+    function dropSelected(playerName) {
+
+      if (playerName == "reset list") {
+        resetNames();
+      } else {
+        // retrieve dropdown info
+  //      var arrPlayers = JSON.parse(localStorage.dropdown);
+        for (var k = 0; k < arrPlayers.length; k++) {
+          if (arrPlayers[k][0] == playerName) {
+            found = true;
+            pos = k;
+          }
+        }
+        // change color on selection
+        document.getElementById("myLink" + pos.toString()).style.color = "blue";
+        document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
+        // update player choice
+        player2submit = document.getElementById("myLink" + pos.toString()).innerText;
+        if (pos >= 0) {
+          // increment number of times chosen
+          var tc = parseInt(arrPlayers[pos][1]) + 1;
+          arrPlayers[pos][1] = tc;
+          // store new order
+          //=====LocalStorage.dropdown====================
+          localStorage.dropdown = JSON.stringify(arrPlayers);
+          //==============================================
+          // global player
+          player = playerName;
+          //=====LocalStorage.guessPlayer=====
+          //localStorage.guessPlayer = player;
+          //=============================
+        }
+        
+        // replace button name
+        element = document.getElementById("dropbtn");
+        element.innerText = "added ... " + player;
+        
+        output(player)
+        
+        
+        
+        
+        
+        
+        
+        
+        // update player choices
+        // reset hole scores
+        //=====LocalStorage.player=====
+        localStorage.player = player;
+        //=============================
+        //=====LocalStorage.guessPlayer=====
+        //localStorage.guessPlayer = player;
+        //=============================
+        player2submit = player;
+        // close dropdown
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+        //doGetHCP();
+      }
+    }
+
+   //=============================================================
+    // function toggleDropdown()
+    // - show player name choices
+    //=============================================================  
+    function toggleDropdown() {
+         // When the user clicks on the button, toggle between hiding and showing the dropdown content
+         document.getElementById("playersDropdown").classList.toggle("show");
+    }
+
+
+   //=============================================================
+    // function showDownloadingInfoMsg()
+    // - show message when downloading player and course info and creating arrays
+    //=============================================================  
+    function showDownloadingInfoMsg() {
+       document.getElementById("popuppanel").innerHTML = '<br>Retrieving Course and Player information.<br><br><img src="throbber.gif" width=50 height=48>';
+      document.getElementById("popuppanel").style.display = "block";
+    }
+    
+
+/*
+       localStorage structure
+comp
+p1name
+p2name
+p3name
+p4name
+p1hcp
+p2hcp
+p3hcp
+p4hcp
+p1h1score
+..to..
+p4h18score
+
+*/
+
+
+
+function body() {
+console.log("body 1")
+course = JSON.parse(JSON.stringify(arrOldCourse));
+
 	// shorten player name
 s1 = player1name.split(" ")
 shortPlayer1name = s1[0] + " " + s1[1].substring(0, 1);
 shortPlayer1name = shortPlayer1name.replace("Stephen", "Steve")
 shortPlayer1name = shortPlayer1name.replace("Malcolm", "Mal")
+
+console.log(shortPlayer1name)
+
+
+
 document.getElementById("player1").innerText = shortPlayer1name;
+console.log(player2name)
 s1 = player2name.split(" ")
 shortPlayer2name = s1[0] + " " + s1[1].substring(0, 1);
 shortPlayer2name = shortPlayer2name.replace("Stephen", "Steve")
 shortPlayer2name = shortPlayer2name.replace("Malcolm", "Mal")
 document.getElementById("player2").innerText = shortPlayer2name;
+console.log(shortPlayer2name)
 s1 = player3name.split(" ")
 shortPlayer3name = s1[0] + " " + s1[1].substring(0, 1);
 shortPlayer3name = shortPlayer3name.replace("Stephen", "Steve")
 shortPlayer3name = shortPlayer3name.replace("Malcolm", "Mal")
 document.getElementById("player3").innerText = shortPlayer3name;
+console.log(shortPlayer3name)
 s1 = player4name.split(" ")
 shortPlayer4name = s1[0] + " " + s1[1].substring(0, 1);
 shortPlayer4name = shortPlayer4name.replace("Stephen", "Steve")
 shortPlayer4name = shortPlayer4name.replace("Malcolm", "Mal")
 document.getElementById("player4").innerText = shortPlayer4name;
+console.log(shortPlayer4name)
 // get these by lookup xxxxx
 player1hcp = 29;
 player2hcp = 16;
@@ -802,7 +1265,7 @@ totalsCalc()
 //=====================
 
 
-
+}
 
 
 
@@ -818,6 +1281,7 @@ function recordScores(id) {
 			document.getElementById("coll" + i).style.display = "block"
 		}
 		// at this point, save scores
+		if (id !== "coll0") {
 		// player 1
 		var h = id.replace("coll", "");
 		var s1 = document.getElementById(id.replace("coll", "input") + "a").value
@@ -840,7 +1304,7 @@ function recordScores(id) {
 		localStorage.setItem("p2h" + h +"score", s2 + "/" + p2)
 		localStorage.setItem("p3h" + h +"score", s3 + "/" + p3)
 		localStorage.setItem("p4h" + h +"score", s4 + "/" + p4)
-	
+	        }
 	} else {
 	
 	//eg. id = coll1
@@ -856,15 +1320,13 @@ function recordScores(id) {
 		var newid = id.replace("coll", "content");
 		document.getElementById(newid).style.display = "initial";
 		//document.getElementById(newid).style.display = "block"     
-		// show green tick bevause score recorded   
-		document.getElementById(id.replace("coll", "h") + "img").style.display = "block"
-			
+		// show green tick because score recorded   
+		
+		if (id !== "coll0") {
+		    document.getElementById(id.replace("coll", "h") + "img").style.display = "block"
+		}	
 	}
-	
-	
-	
-	
-	
+		
 }
 
 
@@ -1120,342 +1582,6 @@ function recoverRecordedScores(lshole) {
 	
 	
 	
-  //=============================================================
-    // function downloader()
-    // - gets data to create arrays for players, hcps, comps
-    // - papaparse uses HTML5's filereader API to get csv file
-    //=============================================================  
-    function downloader() {
-      // setupcsv
-      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
-      var strng1 = "strng1"; // player
-      var strng2 = "strng2"; // hcp
-      var strng3 = "strng3"; // comp
-      i=0;  
-       
-      console.log("downloading msg")
-      //showDownloadingInfoMsg()
-      
-      try {
-        // if it fails after 20 seconds, put up error message
-        setTimeout(function() {
-          if (!(strng2.length) > 0) {
-            alert("failed");
-          }
-        }, 20000);
-        Papa.parse(public_hcp_url, {
-          download: true,
-          header: true,
-          step: function(results, parser) {
-             strng1 = results.data.players;
-             // add row
-             console.log(strng1)
-             arrPlayers.push([strng1,0]);
-             //strng3 = results.data.comps;
-             //arrComps[i] = strng3;
-             i++
-          },
-          complete: function() {
-          // global player
-          // replace button name
-          element = document.getElementById("dropbtn");
-          element.innerText = player;
-          start();
-              }
-          })
-       
-      } // end try
-      catch (err) {
-        console.log(err.message);
-      }
-    }
-
-    //=============================================================
-    // run downloder() function 
-    //=============================================================
-    downloader();
-    
-    console.log(arrPlayers[2])
-    
-    //=============================================================
-    // function toggleDropdown()
-    // - show player name choices
-    //=============================================================  
-    function toggleDropdown() {
-      // When the user clicks on the button, toggle between hiding and showing the dropdown content
-      document.getElementById("playersDropdown").classList.toggle("show");
-    }
-
-   	
-	
-	
-	
-  // name selected, do stuff
-    function dropSelected(playerName) {
-
-      if (playerName == "reset list") {
-        resetNames();
-      } else {
-        // retrieve dropdown info
-        var arrOptions = JSON.parse(localStorage.dropdown);
-        for (var k = 0; k < arrOptions.length; k++) {
-          if (arrOptions[k][0] == playerName) {
-            found = true;
-            pos = k;
-          }
-        }
-        // change color on selection
-        document.getElementById("myLink" + pos.toString()).style.color = "blue";
-        document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
-        // update player choice
-        player2submit = document.getElementById("myLink" + pos.toString()).innerText;
-        if (pos >= 0) {
-          // increment number of times chosen
-          var tc = parseInt(arrOptions[pos][1]) + 1;
-          arrOptions[pos][1] = tc;
-          // store new order
-          //=====LocalStorage.dropdown====================
-          localStorage.dropdown = JSON.stringify(arrOptions);
-          //==============================================
-          // global player
-          player = playerName;
-          //=====LocalStorage.guessPlayer=====
-          localStorage.guessPlayer = player;
-          //=============================
-        }
-        
-        // replace button name
-        element = document.getElementById("dropbtn");
-        element.innerText = player;
-        // update player choices
-        // reset hole scores
-        //=====LocalStorage.player=====
-        localStorage.player = player;
-        //=============================
-        //=====LocalStorage.guessPlayer=====
-        localStorage.guessPlayer = player;
-        //=============================
-        player2submit = player;
-        // close dropdown
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-        doGetHCP();
-      }
-    }	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
- //=============================================================
-    // function start()
-    // - initialise everything and do checks etc.
-    //=============================================================  
-    function start() {
-    // check for any new members etc.
-    // setup local dropdown if not there
-    if (!("dropdown" in localStorage)) {
-      //=====LocalStorage.dropdown===================
-      localStorage.dropdown = JSON.stringify(arrPlayers);
-      //=============================================
-    }
-    // default notsame to false
-    var notsame = false;
-    if ("dropdown" in localStorage) {
-      // retrieve dropdown info
-      var arrOptions = JSON.parse(localStorage.dropdown);
-      // see if different number of items
-      if (arrOptions.length !== arrPlayers.length) {
-        notsame = true;
-      } else {
-        // Comparing each element of your array
-        for (var i = 0; i < arrOptions.length; i++) {
-          // see if items are different
-          if (arrOptions[i][0] !== arrPlayers[i][0]) {
-            notsame = true;
-          }
-        }
-      }
-    };
-
-    // if different
-    if (notsame) {
-      // option is original, arrPlayers is new
-      // update new with numbers from original
-      for (var i = 0; i < arrOptions.length; i++) {
-        for (var j = 0; j < arrPlayers.length; j++) {
-          if (arrOptions[i][0] == arrPlayers[j][0]) {
-            arrPlayers[j][1] = arrOptions[i][1];
-          }
-        }
-      }
-      arrOptions = JSON.parse(JSON.stringify(arrPlayers));
-      //=====LocalStorage.dropdown====================
-      localStorage.dropdown = JSON.stringify(arrOptions);
-      //==============================================
-    }
-
-    // bring most commonly selected to the top
-    arrOptions.sort(compareSecondColumn);
-    // create player dropdown
-    var select = document.getElementById("playersDropdown");
-    // this is what is created
-    //<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-    //
-    for (var i = 0; i < arrOptions.length; i++) {
-      var el = document.createElement("a");
-      el.id = "myLink" + (i);
-      el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-      el.setAttribute("href", "#");
-      el.innerText = arrOptions[i][0];
-      select.appendChild(el);
-      if (arrOptions[i][1] > 0) {
-        document.getElementById("myLink" + (i)).style.color = "blue";
-        document.getElementById("myLink" + (i)).style.background = "lightBlue";
-      }
-    }
-
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) {
-      if (!event.target.matches('.dropbtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-          }
-        }
-      }
-    };
-    // get todays date eg 26 June
-    dd = new Date();
-    // get date number and format it
-    d1 = dd.getDate();
-    if (d1 < 10) {
-      d1 = "0" + d1;
-    }
-    // get month and format it
-    d2 = dd.getMonth();
-
-    if (d2 == 0) {
-      m = "January";
-    }
-    if (d2 == 1) {
-      m = "February";
-    }
-    if (d2 == 2) {
-      m = "March";
-    }
-    if (d2 == 3) {
-      m = "April";
-    }
-    if (d2 == 4) {
-      m = "May";
-    }
-    if (d2 == 5) {
-      m = "June";
-    }
-    if (d2 == 6) {
-      m = "July";
-    }
-    if (d2 == 7) {
-      m = "August";
-    }
-    if (d2 == 8) {
-      m = "September";
-    }
-    if (d2 == 9) {
-      m = "October";
-    }
-    if (d2 == 10) {
-      m = "November";
-    }
-    if (d2 == 11) {
-      m = "December";
-    }
-    dateToday = d1 + " " + m;
-    // tidy localStorage if out of date to allow new "blank" setup
-    if ("comp" in localStorage) {
-      if (localStorage.comp.indexOf(dateToday) == -1) {
-        // tidy
-        clearCache();
-      }
-    }
-
-    // recover data if dates match
-    // this allows data to be kept over refreshes
-    if ("comp" in localStorage) {
-      if (localStorage.comp.indexOf(dateToday) > -1) {
-        // recover
-        recoverFromLocalStorage();
-      }
-    }
-
-    // see if it is a compday and if so find comp and course from array list
-    for (i = 0; i < arrComps.length; i++) {
-      // if today - eg. "22 June" in arrComps list then compday = "yes"
-      if (arrComps[i].indexOf(d1 + " " + m) > -1) {
-        compday = "yes";
-        comp = arrComps[i];
-   
-        if (arrComps[i].indexOf("Lakes") > -1) {
-          // global course
-          course = "Lakes";
-          // localStorage course
-          localStorage.course = "Lakes";
-        }
-        if (arrComps[i].indexOf("Dawson") > -1) {
-          // global course
-          course = "Dawson";
-          // localStorage course
-          localStorage.course = "Dawson";
-        }
-        if (arrComps[i].indexOf("OldCourse") > -1) {
-          // global course
-          course = "OldCourse";
-          // localStorage course
-          localStorage.course = "OldCourse";
-        }
-      }
-    }
-
-    if (compday == "yes") {
-      localStorage.comp = comp;
-    }
-  
-    // if not a compday find out what course is played and create a comp
-    if (compday == "no") {
-      if (!("comp" in localStorage)) {
-        //showCourseChoice();
-        returnToMenu();
-      }
-  
-    }
-    // recover	
-    if (comp == localStorage.comp) {
-      recoverFromLocalStorage();
-    }
-    // show comp info message for 3 seconds
-    if ("comp" in localStorage) {
-      showCompMessage();
-    }
-    } // end function start()
-
-	
-	
-	
 	function output(msg) {
 	msglistcount++
 	if (msglistcount > 4) {
@@ -1469,17 +1595,46 @@ function recoverRecordedScores(lshole) {
 	    console.log(msglist)
 	}
 	
-	msglistx = msglist + "#none#none#none#none"
+	msglistx = msglist + "#none xx#none xxx#none xxx#none xxx#none xxx"
 	arr1 = msglistx.split("#");
+	newmsglistplayer = "Player 1:" + "<br>" +
+	                   "Player 2:" + "<br>" + 
+	                   "Player 3:" + "<br>" + 
+	                   "Player 4:"
+	
+	newmsglistname = arr1[0] + "<br>" +
+	                 arr1[1] + "<br>" + 
+	                 arr1[2] + "<br>" + 
+	                 arr1[3]
+	
+	newmsglisthcp = player1hcp + "<br>" +
+	                player2hcp + "<br>" + 
+	                player3hcp + "<br>" + 
+	                player4hcp
+	
 	newmsglist = "Player 1: " + arr1[0] + "<br>" +
 	             "Player 2: " + arr1[1] + "<br>" +
 	             "Player 3: " + arr1[2] + "<br>" +
 	             "Player 4: " + arr1[3]
-	document.getElementById("player4ball").innerHTML = newmsglist
-	}
+	document.getElementById("player4ballplayer").innerHTML = newmsglistplayer
+	document.getElementById("player4ballname").innerHTML = newmsglistname
+	document.getElementById("player4ballhcp").innerHTML = newmsglisthcp
 	
-
+// add players names
+player1name = arr1[0]
+player2name = arr1[1]
+player3name = arr1[2]
+player4name = arr1[3]
     
+     
+     
+     body();
+     
+     	
+	
+	}
+
+     
      
 </script>
 
