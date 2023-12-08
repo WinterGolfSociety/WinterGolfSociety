@@ -27,6 +27,7 @@ body {
                     }
 
 .grid-container-frontscreen > div {
+                           font-size: 3vmax;
                            background-color: yellow;
                            text-align: left; //center;
                            border: 1px solid green;
@@ -283,7 +284,7 @@ height: 100px;
 width: 100%;
 
 
-      font-size: 4.5vmax;
+       font-size: 3vmax;
       border-style: solid solid solid solid;
       /* t, r, b, l */
       border-color: rgb(30, 130, 255);
@@ -436,24 +437,25 @@ display: none;
 
 <div id="firstscreen">
      <div class="xxxwrapper">
-          <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player</div>
-          <div id="playersDropdown" class="dropdown-content"> </div>
-            
+          <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">add player 1</div>
+          <div id="playersDropdown" class="dropdown-content"></div>
+ <!--           
                <div id="player4ballwrapper" class="grid-container-frontscreen">
                <div></div>
                <div>name</div>
                <div>hcp</div>
-              
-               <div id="player4ballplayer"></div>
-               <div id="player4ballname"></div>
+               </div>
+ -->              
+               <div class="grid-container-frontscreen">
+               <div id="player4ballplayer">11111</div>
+               <div id="player4ballname">22222</div>
                <div id="player4ballhcp" contenteditable="true" oninput="editCheck(event)"></div>
+               </div>
                
+               <div id="hhplayer4ballwrapper" class="grid-container-frontscreen">
+               <div>edit hcps if necessary</div>
+               <div onclick="getScoring()">start scoring</div>
                <div></div>
-               <div onclick="getScoring()">test</div>
-               <div></div>
-               
-               
-               
                </div>
      </div>
 
@@ -1140,9 +1142,7 @@ var compday="no";
           //=============================
         }
         
-        // replace button name
-        element = document.getElementById("dropbtn");
-        element.innerText = "added ... " + player;
+        
         
         output(player)
         
@@ -1330,21 +1330,25 @@ function recordScores(id) {
 		document.getElementById(id.replace("coll", "p")).innerText = s1 + "/" + p1
 		// player 2
 		var s2 = document.getElementById(id.replace("coll", "input") + "b").value
-		var p2 = pointsCalc(player1hcp, course[h][1], course[h][2], s2)
+		var p2 = pointsCalc(player2hcp, course[h][1], course[h][2], s2)
 		document.getElementById(id.replace("coll", "pp")).innerText = s2 + "/" + p2
 		// player 3
 		var s3 = document.getElementById(id.replace("coll", "input") + "c").value
-		var p3 = pointsCalc(player1hcp, course[h][1], course[h][2], s3)
+		var p3 = pointsCalc(player3hcp, course[h][1], course[h][2], s3)
 		document.getElementById(id.replace("coll", "ppp")).innerText = s3 + "/" + p3
 		// player 4
 		var s4 = document.getElementById(id.replace("coll", "input") + "d").value
-		var p4 = pointsCalc(player1hcp, course[h][1], course[h][2], s4)
+		var p4 = pointsCalc(player4hcp, course[h][1], course[h][2], s4)
 		document.getElementById(id.replace("coll", "pppp")).innerText = s4 + "/" + p4
 		// to localStorage eg p1h1score,5
 		localStorage.setItem("p1h" + h +"score", s1 + "/" + p1)
 		localStorage.setItem("p2h" + h +"score", s2 + "/" + p2)
 		localStorage.setItem("p3h" + h +"score", s3 + "/" + p3)
 		localStorage.setItem("p4h" + h +"score", s4 + "/" + p4)
+		
+		// redo totals
+                totalsCalc()
+		
 	        }
 	} else {
 	
@@ -1666,6 +1670,25 @@ player1name = arr1[0]
 player2name = arr1[1]
 player3name = arr1[2]
 player4name = arr1[3]
+    
+if (arr1[3] == "no player") {
+    txt = "add player 4"
+}
+if (arr1[2] == "no player") {
+    txt = "add player 3"
+}
+if (arr1[1] == "no player") {
+    txt = "add player 2"
+}
+if (arr1[0] == "no player") {
+    txt = "add player 1"
+}
+document.getElementById("dropbtn").innerText = txt;  
+if (arr1[3] !== "no player") {
+   // hide button
+   document.getElementById("dropbtn").style.display = "none";
+}    
+    
     
      
      
