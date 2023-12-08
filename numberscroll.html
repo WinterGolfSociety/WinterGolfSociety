@@ -23,14 +23,14 @@ body {
                      display: grid;
                      grid-template-columns: auto auto auto;
                      //width: 95vw;
-                     background-color: cyan;
+                  //   background-color: cyan;
                     }
 
 .grid-container-frontscreen > div {
                            font-size: 3vmax;
-                           background-color: yellow;
+                       //    background-color: yellow;
                            text-align: left; //center;
-                           border: 1px solid green;
+                       //    border: 1px solid green;
                            padding: 10px;
                           }
 
@@ -278,12 +278,15 @@ height: 100px;
 
 /* menu */
     #dropbtn {
+    display: flex;
+  justify-content: center;
+  align-items: center;
     //position: fixed;
     //top: 0;
     //left:0;
 width: 100%;
 
-
+height: 20vh;
        font-size: 3vmax;
       border-style: solid solid solid solid;
       /* t, r, b, l */
@@ -429,7 +432,15 @@ display: none;
          }
 
 
+.spacer1 {
+height: 10vh;
+}
 
+
+#startscoring {
+width: 100%;
+height: 20vh;
+}
 
 </style>
 </head>
@@ -437,7 +448,7 @@ display: none;
 
 <div id="firstscreen">
      <div class="xxxwrapper">
-          <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">add player 1</div>
+          <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">tap to add player 1</div>
           <div id="playersDropdown" class="dropdown-content"></div>
  <!--           
                <div id="player4ballwrapper" class="grid-container-frontscreen">
@@ -447,14 +458,22 @@ display: none;
                </div>
  -->              
                <div class="grid-container-frontscreen">
-               <div id="player4ballplayer">11111</div>
-               <div id="player4ballname">22222</div>
+               <div id="player4ballplayer">no players selected</div>
+               <div id="player4ballname"></div>
                <div id="player4ballhcp" contenteditable="true" oninput="editCheck(event)"></div>
                </div>
                
+               <div id="cchhplayer4ballwrapper" class="grid-container-frontscreen">
+               <div class="spacer1"></div>
+               <div class="spacer1"></div>
+               <div class="spacer1"></div>
+               </div>
+               
+               
+               
                <div id="hhplayer4ballwrapper" class="grid-container-frontscreen">
-               <div>edit hcps if necessary</div>
-               <div onclick="getScoring()">start scoring</div>
+               <div></div>
+               <div onclick="getScoring()"><button id="startscoring">start scoring</button></div>
                <div></div>
                </div>
      </div>
@@ -1672,16 +1691,16 @@ player3name = arr1[2]
 player4name = arr1[3]
     
 if (arr1[3] == "no player") {
-    txt = "add player 4"
+    txt = "tap to add player 4"
 }
 if (arr1[2] == "no player") {
-    txt = "add player 3"
+    txt = "tap to add player 3"
 }
 if (arr1[1] == "no player") {
-    txt = "add player 2"
+    txt = "tap to add player 2"
 }
 if (arr1[0] == "no player") {
-    txt = "add player 1"
+    txt = "tap to add player 1"
 }
 document.getElementById("dropbtn").innerText = txt;  
 if (arr1[3] !== "no player") {
