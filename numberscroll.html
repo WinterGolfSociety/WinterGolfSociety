@@ -13,23 +13,17 @@
 	body {
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 20px;
-		// height: 70vh;
-		//width: 100vw;
 	}
 	
 	.grid-container-frontscreen {
 		display: grid;
 		grid-template-columns: auto auto auto;
 		width: 94vw;
-		//   background-color: cyan;
 	}
 	
 	.grid-container-frontscreen > div {
-		//width: 94vw;
 		font-size: 5vmax;
-		//    background-color: yellow;
-		text-align: left; //center;
-		//    border: 1px solid green;
+		text-align: left;
 	}
 	
 	.grid-container-top {
@@ -51,7 +45,6 @@
 	
 	.grid-container > div {
 		text-align: center;
-		//border: 2px solid purple;
 	}
 	
 	.bignumber {
@@ -59,21 +52,14 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		//border: 2px solid purple;
 		height: 20vh;
-		//min-width: 400px;
 		font-size: 12vh;
 		font-weight: bold;
-		//padding-top: 0.5vh;
-		//padding-bottom: 0.5vh;
-		//padding-left: 0.1vw;
-		//padding-right: 0.5vw;
 	}
 	
 	.input,
 	.slide {
 		text-align: center;
-		// padding: 10px 0; /* tb, lr*/
 		font-size: 7vh;
 		display: flex;
 		justify-content: center;
@@ -91,7 +77,6 @@
 		flex-wrap: wrap;
 		justify-content: flex-end;
 		align-content: flex-end;
-		//border: 2px solid purple;
 		padding-top: 10px;
 		padding-right: 2px;
 	}
@@ -106,7 +91,6 @@
 		display: flex;
 		justify-content: flex-end;
 		align-content: flex-end;
-		//border: 2px solid purple;
 		padding-bottom: 10px;
 		padding-right: 2px;
 	}
@@ -154,12 +138,12 @@
 		text-align: left;
 		outline: none;
 		font-size: 3vmax;
-		border: 1px solid gray;
+		border: 2px solid gray;
+		border-radius: 5px;
 	}
 	/* Style the collapsible content. Note: hidden by default */
 	
 	.content {
-		//display: grid;
 		grid-template-columns: auto auto auto auto;
 		gap: 10px;
 		background-color: white;
@@ -276,10 +260,7 @@
 	
 	#player4ballwrapper {
 		float: right;
-		//width: 100%;
 		height: 60vh;
-		//padding: 1vmax;
-		//border: 1px solid green;
 		background: cyan;
 		color: blue;
 	}
@@ -288,11 +269,9 @@
 	#player4ballhcp {
 		font-size: 2.5vmax;
 		text-align: right;
-		// float: right;
 		height: 100%;
 		min-width: 20%;
 		padding: 1vh;
-		//border: 1px solid red;
 		color: blue;
 	}
 	
@@ -302,7 +281,6 @@
 		height: 100%;
 		min-width: 20%;
 		padding: 1vh;
-		//border: 1px solid red;
 		color: blue;
 	}
 	
@@ -326,18 +304,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		//position: fixed;
-		//top: 0;
-		//left:0;
 		color: white;
-		//width: 96vw; //100%;
 		height: 20vh;
 		font-size: 3vmax;
 		border: 2px solid silver;
-		/* t, r, b, l */
-		//border-color: silver; //rgb(30, 130, 255);
 		background: dodgerBlue;
-		border-radius: 10px;
+		border-radius: 5px;
 	}
 	
 	.dropdown {
@@ -409,7 +381,7 @@
 		position: fixed;
 		height: fit-content;
 		width: 80%;
-		padding: 6px; // 8px 8px;
+		padding: 6px;
 		box-sizing: border-box;
 		text-align: center;
 		left: 10%;
@@ -421,7 +393,7 @@
 	#submit_popuppanel button {
 		background-color: #ccc;
 		display: inline-block;
-		border-radius: 3px;
+		border-radius: 5px;
 		border: 1px solid #aaa;
 		padding: 20px;
 		text-align: center;
@@ -434,10 +406,8 @@
 	}
 	
 	#firstscreen {
-		//width: 98vw;
-		//margin-right: 2vw;
-		-webkit-animation-duration: 2s;
-		animation-duration: 2s;
+		-webkit-animation-duration: 1.5s;
+		animation-duration: 1.5s;
 		-webkit-animation-fill-mode: both;
 		animation-fill-mode: both;
 	}
@@ -480,7 +450,7 @@
 		font-size: 3vmax;
 		border: 2px solid silver;
 		background: dodgerBlue;
-		border-radius: 10px;
+		border-radius: 5px;
 	}
 	</style>
 </head>
@@ -782,6 +752,726 @@
 			<!-- grid container -->
 		</div>
 		<!-- content -->
+		
+		
+		
+		
+	
+
+
+	<button type="button" class="collapsible" id="coll5" onclick="recordScores(this.id)">hole 5<img src="tick1.png" alt="done" id="h5img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content5">
+			<div class="grid-container">
+				<div class="bignumber" id="value5a">0</div>
+				<div class="player5name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input5a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points5a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value5b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input5b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points5b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value5c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input5c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points5c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value5d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input5d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points5d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll6" onclick="recordScores(this.id)">hole 6<img src="tick1.png" alt="done" id="h6img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content6">
+			<div class="grid-container">
+				<div class="bignumber" id="value6a">0</div>
+				<div class="player6name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input6a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points6a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value6b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input6b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points6b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value6c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input6c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points6c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value6d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input6d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points6d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll7" onclick="recordScores(this.id)">hole 7<img src="tick1.png" alt="done" id="h7img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content7">
+			<div class="grid-container">
+				<div class="bignumber" id="value7a">0</div>
+				<div class="player7name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input7a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points7a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value7b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input7b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points7b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value7c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input7c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points7c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value7d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input7d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points7d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll8" onclick="recordScores(this.id)">hole 8<img src="tick1.png" alt="done" id="h8img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content8">
+			<div class="grid-container">
+				<div class="bignumber" id="value8a">0</div>
+				<div class="player8name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input8a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points8a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value8b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input8b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points8b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value8c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input8c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points8c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value8d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input8d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points8d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll9" onclick="recordScores(this.id)">hole 9<img src="tick1.png" alt="done" id="h9img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content9">
+			<div class="grid-container">
+				<div class="bignumber" id="value9a">0</div>
+				<div class="player9name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input9a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points9a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value9b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input9b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points9b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value9c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input9c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points9c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value9d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input9d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points9d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll10" onclick="recordScores(this.id)">hole 10<img src="tick1.png" alt="done" id="h10img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content10">
+			<div class="grid-container">
+				<div class="bignumber" id="value10a">0</div>
+				<div class="player10name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input10a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points10a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value10b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input10b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points10b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value10c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input10c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points10c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value10d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input10d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points10d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll11" onclick="recordScores(this.id)">hole 11<img src="tick1.png" alt="done" id="h11img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content11">
+			<div class="grid-container">
+				<div class="bignumber" id="value11a">0</div>
+				<div class="player11name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input11a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points11a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value11b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input11b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points11b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value11c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input11c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points11c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value11d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input11d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points11d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll12" onclick="recordScores(this.id)">hole 12<img src="tick1.png" alt="done" id="h12img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content12">
+			<div class="grid-container">
+				<div class="bignumber" id="value12a">0</div>
+				<div class="player12name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input12a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points12a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value12b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input12b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points12b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value12c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input12c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points12c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value12d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input12d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points12d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll13" onclick="recordScores(this.id)">hole 13<img src="tick1.png" alt="done" id="h13img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content13">
+			<div class="grid-container">
+				<div class="bignumber" id="value13a">0</div>
+				<div class="player13name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input13a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points13a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value13b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input13b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points13b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value13c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input13c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points13c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value13d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input13d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points13d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll14" onclick="recordScores(this.id)">hole 14<img src="tick1.png" alt="done" id="h14img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content14">
+			<div class="grid-container">
+				<div class="bignumber" id="value14a">0</div>
+				<div class="player14name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input14a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points14a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value14b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input14b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points14b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value14c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input14c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points14c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value14d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input14d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points14d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll15" onclick="recordScores(this.id)">hole 15<img src="tick1.png" alt="done" id="h15img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content15">
+			<div class="grid-container">
+				<div class="bignumber" id="value15a">0</div>
+				<div class="player15name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input15a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points15a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value15b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input15b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points15b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value15c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input15c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points15c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value15d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input15d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points15d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll16" onclick="recordScores(this.id)">hole 16<img src="tick1.png" alt="done" id="h16img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content16">
+			<div class="grid-container">
+				<div class="bignumber" id="value16a">0</div>
+				<div class="player16name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input16a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points16a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value16b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input16b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points16b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value16c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input16c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points16c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value16d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input16d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points16d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll17" onclick="recordScores(this.id)">hole 17<img src="tick1.png" alt="done" id="h17img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content17">
+			<div class="grid-container">
+				<div class="bignumber" id="value17a">0</div>
+				<div class="player17name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input17a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points17a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value17b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input17b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points17b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value17c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input17c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points17c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value17d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input17d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points17d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+	<button type="button" class="collapsible" id="coll18" onclick="recordScores(this.id)">hole 18<img src="tick1.png" alt="done" id="h18img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<div class="content" id="content18">
+			<div class="grid-container">
+				<div class="bignumber" id="value18a">0</div>
+				<div class="player18name">Player 1</div>
+				<div class="slide">
+					<input type="range" class="input" id="input18a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player1points" id="points18a">no points</div>
+			</div>
+			<div class="grid-container">
+				<div class="bignumber" id="value18b">0</div>
+				<div class="player2name">Player 2</div>
+				<div class="slide">
+					<input type="range" class="input" id="input18b" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player2points" id="points18b">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value18c">0</div>
+				<div class="player3name">Player 3</div>
+				<div class="slide">
+					<input type="range" class="input" id="input18c" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player3points" id="points18c">no points</div>
+			</div>
+			<!-- grid container -->
+			<div class="grid-container">
+				<div class="bignumber" id="value18d">0</div>
+				<div class="player4name">Player 4</div>
+				<div class="slide">
+					<input type="range" class="input" id="input18d" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
+				<div class="player4points" id="points18d">no points</div>
+			</div>
+			<!-- grid container -->
+		</div>
+		<!-- content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</div>
 	<script>
 	localStorage.clear();
@@ -1141,8 +1831,10 @@
 		shortPlayer4name = shortPlayer4name.replace("Malcolm", "Mal")
 		document.getElementById("player4").innerText = shortPlayer4name;
 		// install green ticks then hide them
-		for(i = 1; i <= 4; i++) {
-			document.getElementById("coll" + i).innerHTML = '<img src="tick1.png" alt="done" id="h' + i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' + "hole " + course[i][0] + ", par " + course[i][1] + ", si " + course[i][2]
+		for(i = 1; i <= 18; i++) {
+			document.getElementById("coll" + i).innerHTML = '<img src="tick1.png" alt="done" id="h' +
+			i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' + "hole " + 
+			course[i][0] + ", par " + course[i][1] + ", si " + course[i][2]
 			document.getElementById("h" + i + "img").style.display = "none"
 		}
 		var collection = document.getElementsByClassName("player1name");
@@ -1184,7 +1876,7 @@
 		//eg. id = coll1
 		// if content is open, close and reset things
 		if(document.getElementById(id.replace("coll", "content")).style.display == "initial") {
-			for(i = 0; i <= 4; i++) {
+			for(i = 0; i <= 18; i++) {
 				// hide content, but show buttons  
 				document.getElementById("content" + i).style.display = "none"
 				document.getElementById("coll" + i).style.display = "block"
@@ -1219,7 +1911,7 @@
 		} else {
 			//eg. id = coll1
 			// close all
-			for(i = 0; i <= 4; i++) {
+			for(i = 0; i <= 18; i++) {
 				document.getElementById("content" + i).style.display = "none"
 				document.getElementById("coll" + i).style.display = "none"
 			}
@@ -1330,18 +2022,30 @@
 				p4backpoints += parseInt(tempp4[1])
 			}
 		}
-		document.getElementById("pf").innerText = p1front.toString() + " (" + p1frontpoints.toString() + ")";
-		document.getElementById("ppf").innerText = p2front.toString() + " (" + p2frontpoints.toString() + ")";
-		document.getElementById("pppf").innerText = p3front.toString() + " (" + p3frontpoints.toString() + ")";
-		document.getElementById("ppppf").innerText = p4front.toString() + " (" + p4frontpoints.toString() + ")";
-		document.getElementById("pb").innerText = p1back.toString() + " (" + p1backpoints.toString() + ")";
-		document.getElementById("ppb").innerText = p2back.toString() + " (" + p2backpoints.toString() + ")";
-		document.getElementById("pppb").innerText = p3back.toString() + " (" + p3backpoints.toString() + ")";
-		document.getElementById("ppppb").innerText = p4back.toString() + " (" + p4backpoints.toString() + ")";
-		document.getElementById("pt").innerText = (p1front + p1back).toString() + " (" + (p1frontpoints + p1backpoints).toString() + ")";
-		document.getElementById("ppt").innerText = (p2front + p2back).toString() + " (" + (p2frontpoints + p2backpoints).toString() + ")";
-		document.getElementById("pppt").innerText = (p3front + p3back).toString() + " (" + (p3frontpoints + p3backpoints).toString() + ")";
-		document.getElementById("ppppt").innerText = (p4front + p4back).toString() + " (" + (p4frontpoints + p4backpoints).toString() + ")";
+		document.getElementById("pf").innerText = p1front.toString() + 
+		         " (" + p1frontpoints.toString() + ")";
+		document.getElementById("ppf").innerText = p2front.toString() +
+		         " (" + p2frontpoints.toString() + ")";
+		document.getElementById("pppf").innerText = p3front.toString() +
+		         " (" + p3frontpoints.toString() + ")";
+		document.getElementById("ppppf").innerText = p4front.toString() +
+		         " (" + p4frontpoints.toString() + ")";
+		document.getElementById("pb").innerText = p1back.toString() +
+		         " (" + p1backpoints.toString() + ")";
+		document.getElementById("ppb").innerText = p2back.toString() +
+		         " (" + p2backpoints.toString() + ")";
+		document.getElementById("pppb").innerText = p3back.toString() +
+		         " (" + p3backpoints.toString() + ")";
+		document.getElementById("ppppb").innerText = p4back.toString() +
+		         " (" + p4backpoints.toString() + ")";
+		document.getElementById("pt").innerText = (p1front + p1back).toString() +
+		         " (" + (p1frontpoints + p1backpoints).toString() + ")";
+		document.getElementById("ppt").innerText = (p2front + p2back).toString() +
+		         " (" + (p2frontpoints + p2backpoints).toString() + ")";
+		document.getElementById("pppt").innerText = (p3front + p3back).toString() +
+		         " (" + (p3frontpoints + p3backpoints).toString() + ")";
+		document.getElementById("ppppt").innerText = (p4front + p4back).toString() +
+		         " (" + (p4frontpoints + p4backpoints).toString() + ")";
 	}
 	// runs when slider moves
 	// update big number     
@@ -1468,7 +2172,8 @@
 		newmsglistplayer = "Player 1:" + "<br>" + "Player 2:" + "<br>" + "Player 3:" + "<br>" + "Player 4:"
 		newmsglistname = arr1[0] + "<br>" + arr1[1] + "<br>" + arr1[2] + "<br>" + arr1[3]
 		newmsglisthcp = player1hcp + "<br>" + player2hcp + "<br>" + player3hcp + "<br>" + player4hcp
-		newmsglist = "Player 1: " + arr1[0] + "<br>" + "Player 2: " + arr1[1] + "<br>" + "Player 3: " + arr1[2] + "<br>" + "Player 4: " + arr1[3]
+		newmsglist = "Player 1: " + arr1[0] + "<br>" + "Player 2: " + arr1[1] + "<br>" + 
+		             "Player 3: " + arr1[2] + "<br>" + "Player 4: " + arr1[3]
 		document.getElementById("player4ballplayer").innerHTML = newmsglistplayer
 		document.getElementById("player4ballname").innerHTML = newmsglistname
 		document.getElementById("player4ballhcp").innerHTML = newmsglisthcp
@@ -1503,11 +2208,7 @@
 		document.getElementById("firstscreen").classList.add("fadeOut");
 		setTimeout(() => {
 			document.getElementById("firstscreen").style.display = "none";
-		}, "1500");
-		//setTimeout(document.getElementById("firstscreen").style.display = "none", 2000);
-		//document.getElementById("firstscreen").classList.add("spindelete");    
-		//document.getElementById("firstscreen").classList.add("fadeout");
-		//document.getElementById("firstscreen").style.display = "none"
+		}, "1000");
 		document.getElementById("all").style.display = "initial"
 	}
 	</script>
