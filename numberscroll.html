@@ -1388,18 +1388,20 @@
 
 	</div>
 	<script>
-		
-	localStorage.clear();
+	
+	
+	
+	// globals
 	var hcplist = "";
 	var msglist = "";
 	var msglistcount = 0;
-	comp = "from somewhere"
-		// either start again or retrieve from localStorage  
+	comp = ""
+	
 	var player1hcp
 	var player2hcp
 	var player3hcp
 	var player4hcp
-		// hole, par, si
+	// hole, par, si
 	arrOldCourse = [
 		[0, 0, 0],
 		[1, 5, 10],
@@ -1421,13 +1423,49 @@
 		[17, 4, 3],
 		[18, 5, 17]
 	];
-	// +++ choose course somehow
-	course = JSON.parse(JSON.stringify(arrOldCourse));
+	
 	var compday = "no";
+	var arrCourse = [];
 	var arrComps = [];
 	var arrPlayers = [];
-	var arrHCPs = [];
-	var arrComps = [];
+
+	
+	
+	
+	
+	// either start again or retrieve from localStorage 
+	/*
+	       localStorage structure
+	date4ball      eg 26 June
+	course4ball    eg Lakes
+	p1name4ball    eg Bryan Maddison
+	p2name4ball
+	p3name4ball
+	p4name4ball
+	p1hcp4ball     eg 23
+	p2hcp4ball
+	p3hcp4ball
+	p4hcp4ball
+	p1h1score4ball eg 5
+	..to..
+	p4h18score4ball
+
+	*/
+	
+	// if same date ask if using saved data
+	
+	
+	
+
+	// if new date, clear and begin anew
+	
+	 
+	//localStorage.clear();
+	
+	
+	
+	
+	
 	//=============================================================
 	// function downloader()
 	// - gets data to create arrays for players, hcps, comps
@@ -1435,25 +1473,19 @@
 	//=============================================================  
 	function downloader() {
 	
-	
-	
-	showDownloadingInfoMsg()
-	
-	
-	
+                showDownloadingInfoMsg()
+
 		// setupcsv
 		var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
 		var strng1 = "strng1"; // player
 		var strng2 = "strng2"; // hcp
 		var strng3 = "strng3"; // comp
 		i = 0;
-		//var guessedHCP=0    
-		// showDownloadingInfoMsg()
 		try {
 			// if it fails after 20 seconds, put up error message
 			setTimeout(function() {
-				if(!(strng2.length) > 0) {
-					//   alert("failed");
+				if(!(arrPlayers.length) > 0) {
+					alert("failed");
 				}
 			}, 20000);
 			Papa.parse(public_hcp_url, {
@@ -1472,14 +1504,14 @@
 					i++
 				},
 				complete: function() {
-				document.getElementById("popuppanel").style.display = "none";
-					// global player
-					start();
+					showRecoverChoice()
+				//document.getElementById("popuppanel").style.display = "none";
+				//	start();
 				}
 			})
 		} // end try
 		catch(err) {
-			console.log(err.message);
+			console.log("bryan: " + err.message);
 		}
 	}
 	//=============================================================
@@ -1606,6 +1638,18 @@
 		if("comp" in localStorage) {
 			showCompMessage();
 		}
+		
+		
+		
+		
+		// update localStorage
+		localStorage.date4ball = datetoday;
+		
+		
+		
+		
+		
+		
 	} // end function start()
 	//=============================================================
 	// functions - run when called
@@ -1676,7 +1720,7 @@
 				//localStorage.guessPlayer = player;
 				//=============================
 			}
-			output(player)
+			outputPlayers(player)
 				// update player choices
 				// reset hole scores
 				//=====LocalStorage.player=====
@@ -1714,24 +1758,9 @@
 		document.getElementById("popuppanel").innerHTML = '<br>Retrieving Course and Player information.<br><br><img src="throbber.gif" width=50 height=48>';
 		document.getElementById("popuppanel").style.display = "block";
 	}
-	/*
-	       localStorage structure
-	comp
-	p1name
-	p2name
-	p3name
-	p4name
-	p1hcp
-	p2hcp
-	p3hcp
-	p4hcp
-	p1h1score
-	..to..
-	p4h18score
-
-	*/
+	
 	function body() {
-		course = JSON.parse(JSON.stringify(arrOldCourse));
+		//course = JSON.parse(JSON.stringify(arrOldCourse));
 		// shorten player name
 		s1 = player1name.split(" ")
 		shortPlayer1name = s1[0] + " " + s1[1].substring(0, 1);
@@ -1764,13 +1793,17 @@
 		}
 		document.getElementById("player4").innerText = shortPlayer4name;
 		
-		// install green ticks then hide them
-		for(i = 1; i <= 18; i++) {
-			document.getElementById("coll" + i).innerHTML = '<img src="tick1.png" alt="done" id="h' +
-			i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' + "hole " + 
-			course[i][0] + ", par " + course[i][1] + ", si " + course[i][2]
-			document.getElementById("h" + i + "img").style.display = "none"
-		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		var collection = document.getElementsByClassName("player1name");
 		for(i = 0; i < collection.length; i++) {
 			collection[i].innerText = player1name;
@@ -1820,19 +1853,19 @@
 				// player 1
 				var h = id.replace("coll", "");
 				var s1 = document.getElementById(id.replace("coll", "input") + "a").value
-				var p1 = pointsCalc(player1hcp, course[h][1], course[h][2], s1)
+				var p1 = pointsCalc(player1hcp, arrCourse[h][1], arrCourse[h][2], s1)
 				document.getElementById(id.replace("coll", "p")).innerText = s1 + "/" + p1
 					// player 2
 				var s2 = document.getElementById(id.replace("coll", "input") + "b").value
-				var p2 = pointsCalc(player2hcp, course[h][1], course[h][2], s2)
+				var p2 = pointsCalc(player2hcp, arrCourse[h][1], arrCourse[h][2], s2)
 				document.getElementById(id.replace("coll", "pp")).innerText = s2 + "/" + p2
 					// player 3
 				var s3 = document.getElementById(id.replace("coll", "input") + "c").value
-				var p3 = pointsCalc(player3hcp, course[h][1], course[h][2], s3)
+				var p3 = pointsCalc(player3hcp, arrCourse[h][1], arrCourse[h][2], s3)
 				document.getElementById(id.replace("coll", "ppp")).innerText = s3 + "/" + p3
 					// player 4
 				var s4 = document.getElementById(id.replace("coll", "input") + "d").value
-				var p4 = pointsCalc(player4hcp, course[h][1], course[h][2], s4)
+				var p4 = pointsCalc(player4hcp, arrCourse[h][1], arrCourse[h][2], s4)
 				document.getElementById(id.replace("coll", "pppp")).innerText = s4 + "/" + p4
 					// to localStorage eg p1h1score,5
 				localStorage.setItem("p1h" + h + "score", s1 + "/" + p1)
@@ -1993,17 +2026,19 @@
 		var temp1 = id.substring(id.length - 1); // gives a etc.
 		var temp2 = id.replace("input", ""); // gives 1a etc.
 		var temp3 = temp2.substring(0, temp2.length - 1); // gives 1 etc.
+		console.log(player1hcp+" , "+arrCourse[temp3][1]+" , "+arrCourse[temp3][2]+" , "+tempscore)
+		
 		if(temp1 == "a") {
-			var n = pointsCalc(player1hcp, course[temp3][1], course[temp3][2], tempscore);
+			var n = pointsCalc(player1hcp, arrCourse[temp3][1], arrCourse[temp3][2], tempscore);
 		}
 		if(temp1 == "b") {
-			var n = pointsCalc(player2hcp, course[temp3][1], course[temp3][2], tempscore);
+			var n = pointsCalc(player2hcp, arrCourse[temp3][1], arrCourse[temp3][2], tempscore);
 		}
 		if(temp1 == "c") {
-			var n = pointsCalc(player3hcp, course[temp3][1], course[temp3][2], tempscore);
+			var n = pointsCalc(player3hcp, arrCourse[temp3][1], arrCourse[temp3][2], tempscore);
 		}
 		if(temp1 == "d") {
-			var n = pointsCalc(player4hcp, course[temp3][1], course[temp3][2], tempscore);
+			var n = pointsCalc(player4hcp, arrCourse[temp3][1], arrCourse[temp3][2], tempscore);
 		}
 		if(n == 1) {
 			var nstring = n + " point";
@@ -2049,7 +2084,7 @@
 			// bignumber
 		document.getElementById("value" + temphole + tempplayer).innerText = tempscore
 			// calc points
-		var p1 = pointsCalc(player1hcp, course[temphole][1], course[temphole][2], tempscore)
+		var p1 = pointsCalc(player1hcp, arrCourse[temphole][1], arrCourse[temphole][2], tempscore)
 			// update recorded scores
 		document.getElementById(ps + temphole).innerText = tempscore + "/" + p1
 			// update msg about points
@@ -2066,7 +2101,7 @@
 		document.getElementById("h" + temphole + "img").style.display = "block"
 	}
 
-	function output(msg) {
+	function outputPlayers(msg) {
 		// msg is player name eg "Bryan Maddison"
 		// find HCP
 		var hcp;
@@ -2204,20 +2239,89 @@
 	   
 	   document.getElementById(id).style.opacity = "1.0";
 	   
-	   course = id.replace("button","");
+	   comp = id.replace("button","");
+	   comp = comp.replace("dawson","Dawson")
+	   comp = comp.replace("lakes","Lakes")
+	   comp = comp.replace("oldcourse","OldCourse")
+	   // choose course
+
+           if (comp == "Dawson") {
+	       arrCourse = arrDeepCopy(arrDawson);
+           }
+           if (comp == "Lakes") {
+	       arrCourse = arrDeepCopy(arrLakes);
+           }
+           if (comp == "OldCourse") {
+	       arrCourse = arrDeepCopy(arrOldCourse);
+           }
+   
+	   // install green ticks then hide them
+           for(i = 1; i <= 18; i++) {
+               document.getElementById("coll" + i).innerHTML = '<img src="tick1.png" alt="done" id="h' +
+                        i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' + "hole " + 
+                        arrCourse[i][0] + ", par " + arrCourse[i][1] + ", si " + arrCourse[i][2]
+               document.getElementById("h" + i + "img").style.display = "none"
+           }	
+           
+           // save course to localStorage
+           localStorage.course4ball = comp;
+              
 	}
 	
+	// helper function to deep copy array
+        function arrDeepCopy(aObject) {
+           // deep copy array
+           // Prevent undefined objects
+           // if (!aObject) return aObject;
+           var bObject = Array.isArray(aObject) ? [] : {};
+           var value;
+           for (const key in aObject) {
+                // Prevent self-references to parent object
+                // if (Object.is(aObject[key], aObject)) continue;
+                value = aObject[key];
+                bObject[key] = (typeof value === "object") ? arrDeepCopy(value) : value;
+           }
+           return bObject;
+       }	
 	
 	
 	
 	
+  // choose course dialog for non competition day
+    function showCourseChoice() {
+      tempt = '<br /> No competition today. Select which course to use.';
+      tempt += '<br /><br />';
+      tempt += '<button id="id_lakesbtn" onclick="doSomethingLakes()">Lakes</button>';
+      tempt += '<button id="id_dawsonbtn" onclick="doSomethingDawson()">Dawson</button>';
+      tempt += '<button id="id_oldcoursebtn" onclick="doSomethingOldCourse()">OldCourse</button>';
+      document.getElementById("id_confrmdiv").innerHTML = tempt;
+      //console.log(document.getElementById("id_confrmdiv").innerHTML);
+      document.getElementById("id_confrmdiv").style.display = "block";
+    }	
 	
+	  // choose course dialog for non competition day
+    function showRecoverChoice() {
+      tempt = '<br /> Recover saved data or Clear saved data.';
+      tempt += '<br /><br />';
+      tempt += '<button id="id_recoverbtn" onclick="doSomethingRecover()">Recover</button>';
+      tempt += '<button id="id_clearbtn" onclick="doSomethingClear()">Clear</button>';
+      
+      document.getElementById("popuppanel").innerHTML = tempt;
+      //console.log(document.getElementById("id_confrmdiv").innerHTML);
+      document.getElementById("popuppanel").style.display = "block";
+    }
 	
-	
-	
-	
-	
-	
+    function doSomethingRecover() {
+       compdate = localStorage.date4ball
+       // etc.
+    document.getElementById("popuppanel").style.display = "none";
+    }
+    
+    function doSomethingClear() {
+    document.getElementById("popuppanel").style.display = "none";
+    localStorage.clear();
+    // do individually
+    }
 	
 	
 	
