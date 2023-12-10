@@ -95,12 +95,13 @@
 		padding-right: 2px;
 	}
 	
+	
 	input[type="range"] {
 		display: block;
 		-webkit-appearance: none;
 		background-color: gainsboro;
 		width: 98%;
-		height: 2px;
+		height: 5px;
 		border-radius: 25px;
 		border: 1px solid gray;
 		margin: 0 auto;
@@ -119,13 +120,11 @@
 	}
 	
 	​ input[type="range"]::-webkit-slider-thumb:hover {
-		background-color: crimson;
+		background-color: dodgerBlue;
 		border: 2px solid black;
 	}
 	
-	input[type="range"]::-webkit-slider-thumb:active {
-		//transform: scale(1.6);
-	}
+	
 	/* Style the button that is used to open and close the collapsible content */
 	
 	.collapsible {
@@ -443,7 +442,7 @@
 		height: 10vh;
 	}
 	
-	#startscoring {
+	#startscoring, #dawsonbutton, #lakesbutton, #oldcoursebutton {
 		color: white;
 		width: 100%;
 		height: 20vh;
@@ -460,13 +459,6 @@
 		<div class="xxxwrapper">
 			<div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">tap to add player 1</div>
 			<div id="playersDropdown" class="dropdown-content"></div>
-			<!--           
-               <div id="player4ballwrapper" class="grid-container-frontscreen">
-               <div></div>
-               <div>name</div>
-               <div>hcp</div>
-               </div>
- -->
 			<div class="spacer1"></div>
 			<div id="popuppanel"></div>
 			<div class="grid-container-frontscreen">
@@ -474,12 +466,25 @@
 				<div id="player4ballname"></div>
 				<div id="player4ballhcp" contenteditable="true" oninput="editCheck(event)"></div>
 			</div>
-			<div id="cchhplayer4ballwrapper" class="grid-container-frontscreen">
+			<div class="grid-container-frontscreen">
 				<div class="spacer1"></div>
 				<div class="spacer1"></div>
 				<div class="spacer1"></div>
 			</div>
-			<div id="hhplayer4ballwrapper" class="grid-container-frontscreen">
+			
+			<div class="grid-container-frontscreen">
+				<div><button id="dawsonbutton" onclick="chooseCourse(this.id)">Dawson</button></div>
+				<div><button id="lakesbutton" onclick="chooseCourse(this.id)">Lakes</button></div>
+				<div><button id="oldcoursebutton" onclick="chooseCourse(this.id)">OldCourse</button></div>
+			</div>
+			
+			<div class="grid-container-frontscreen">
+				<div class="spacer1"></div>
+				<div class="spacer1"></div>
+				<div class="spacer1"></div>
+			</div>
+			
+			<div class="grid-container-frontscreen">
 				<div></div>
 				<div onclick="getScoring()">
 					<button id="startscoring">start scoring</button>
@@ -1381,98 +1386,6 @@
 		</div>
 		<!-- content -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	</div>
 	<script>
 		
@@ -2284,7 +2197,15 @@
 	}
 	
 	
-	
+	function chooseCourse(id) {
+	   document.getElementById("dawsonbutton").style.opacity = "0.3";
+	   document.getElementById("lakesbutton").style.opacity = "0.3";
+	   document.getElementById("oldcoursebutton").style.opacity = "0.3";
+	   
+	   document.getElementById(id).style.opacity = "1.0";
+	   
+	   course = id.replace("button","");
+	}
 	
 	
 	
