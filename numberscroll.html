@@ -8,7 +8,7 @@
 	<title>4score</title>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 	<style>
 	body {
 		font-family: Arial, Helvetica, sans-serif;
@@ -29,7 +29,7 @@
 	.grid-container-top {
 		display: grid;
 		grid-template-columns: auto auto auto auto auto;
-		width: 95vw;
+		//width: 94vw;
 		background-color: white;
 	}
 	
@@ -468,6 +468,7 @@
                </div>
  -->
 			<div class="spacer1"></div>
+			<div id="popuppanel"></div>
 			<div class="grid-container-frontscreen">
 				<div id="player4ballplayer">no players have been added</div>
 				<div id="player4ballname"></div>
@@ -1474,6 +1475,7 @@
 		
 	</div>
 	<script>
+		
 	localStorage.clear();
 	var hcplist = "";
 	var msglist = "";
@@ -1519,6 +1521,13 @@
 	// - papaparse uses HTML5's filereader API to get csv file
 	//=============================================================  
 	function downloader() {
+	
+	
+	
+	showDownloadingInfoMsg()
+	
+	
+	
 		// setupcsv
 		var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
 		var strng1 = "strng1"; // player
@@ -1550,6 +1559,7 @@
 					i++
 				},
 				complete: function() {
+				document.getElementById("popuppanel").style.display = "none";
 					// global player
 					start();
 				}
@@ -1815,21 +1825,32 @@
 		shortPlayer1name = shortPlayer1name.replace("Stephen", "Steve")
 		shortPlayer1name = shortPlayer1name.replace("Malcolm", "Mal")
 		document.getElementById("player1").innerText = shortPlayer1name;
+		
 		s1 = player2name.split(" ")
 		shortPlayer2name = s1[0] + " " + s1[1].substring(0, 1);
 		shortPlayer2name = shortPlayer2name.replace("Stephen", "Steve")
 		shortPlayer2name = shortPlayer2name.replace("Malcolm", "Mal")
+		if (shortPlayer2name == "no p") {
+		    shortPlayer2name = "none";
+		}
 		document.getElementById("player2").innerText = shortPlayer2name;
 		s1 = player3name.split(" ")
 		shortPlayer3name = s1[0] + " " + s1[1].substring(0, 1);
 		shortPlayer3name = shortPlayer3name.replace("Stephen", "Steve")
 		shortPlayer3name = shortPlayer3name.replace("Malcolm", "Mal")
+		if (shortPlayer3name == "no p") {
+		    shortPlayer3name = "none";
+		}
 		document.getElementById("player3").innerText = shortPlayer3name;
 		s1 = player4name.split(" ")
 		shortPlayer4name = s1[0] + " " + s1[1].substring(0, 1);
 		shortPlayer4name = shortPlayer4name.replace("Stephen", "Steve")
 		shortPlayer4name = shortPlayer4name.replace("Malcolm", "Mal")
+		if (shortPlayer4name == "no p") {
+		    shortPlayer4name = "none";
+		}
 		document.getElementById("player4").innerText = shortPlayer4name;
+		
 		// install green ticks then hide them
 		for(i = 1; i <= 18; i++) {
 			document.getElementById("coll" + i).innerHTML = '<img src="tick1.png" alt="done" id="h' +
@@ -2195,6 +2216,7 @@
 			txt = "tap to add player 1"
 		}
 		document.getElementById("dropbtn").innerText = txt;
+		// just close it now
 		if(arr1[3] !== "no player") {
 			// hide button
 			document.getElementById("dropbtn").style.display = "none";
@@ -2210,7 +2232,154 @@
 			document.getElementById("firstscreen").style.display = "none";
 		}, "1000");
 		document.getElementById("all").style.display = "initial"
+		
+		// set up for correct number of players
+		if (player1name == "no player") {
+		    child = "a"
+		    for(i = 1; i <= 18; i++) {
+		        document.getElementById("value" + i + child).parentElement.style.display = 'none';
+		        document.getElementById("p" + i).style.visibility = "hidden";
+		    }          
+    
+		    document.getElementById("pf").style.visibility = "hidden";
+		    document.getElementById("pb").style.visibility = "hidden";
+		    document.getElementById("pt").style.visibility = "hidden"; 
+		    
+		}
+		if (player2name == "no player") {
+		    child = "b"
+		     for(i = 1; i <= 18; i++) {
+		        document.getElementById("value" + i + child).parentElement.style.display = 'none';
+		        document.getElementById("pp" + i).style.visibility = "hidden";
+		    }          
+    
+		    document.getElementById("ppf").style.visibility = "hidden";
+		    document.getElementById("ppb").style.visibility = "hidden";
+		    document.getElementById("ppt").style.visibility = "hidden"; 
+		}
+		if (player3name == "no player") {
+		    child = "c"
+		     for(i = 1; i <= 18; i++) {
+		        document.getElementById("value" + i + child).parentElement.style.display = 'none';
+		        document.getElementById("ppp" + i).style.visibility = "hidden";
+		    }          
+    
+		    document.getElementById("pppf").style.visibility = "hidden";
+		    document.getElementById("pppb").style.visibility = "hidden";
+		    document.getElementById("pppt").style.visibility = "hidden"; 
+		}
+		if (player4name == "no player") {
+		    child = "d"
+		    for(i = 1; i <= 18; i++) {
+		        document.getElementById("value" + i + child).parentElement.style.display = 'none';
+		        document.getElementById("pppp" + i).style.visibility = "hidden";
+		    }          
+    
+		    document.getElementById("ppppf").style.visibility = "hidden";
+		    document.getElementById("ppppb").style.visibility = "hidden";
+		    document.getElementById("ppppt").style.visibility = "hidden"; 
+		}
+				
+			
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/*	
+	
+const cookieObject = document.cookie.split(';')
+    .map(kv => kv.split('='))
+    .map(kv => [ kv[0].trim(), decodeURIComponent(kv[1]) ])
+    .reduce((o,kv) => { o[kv[0]] = kv[1]; return o; },{})
+    ;
+
+const userSiteInfo = JSON.parse(cookieObject["SiteUserInfo"]);
+const userFirstName = userSiteInfo["firstName"];
+const userId = userSiteInfo["siteUserId"];
+const xsrf1 = cookieObject["crumb"];
+const xsrf2 = cookieObject["siteUserCrumb"];
+const profileURL = "/api/site-users/account/profile";
+const headers = { "x-csrf-token": xsrf1, "x-siteuser-xsrf-token": xsrf2 };
+fetch(profileURL, { headers })
+	.then(r => r.json())
+	.then(j => {
+  		const userEmailAddress = j.email;
+  		const userLastName = j.name.lastName;
+  		console.log(userId, userFirstName, userLastName, userEmailAddress);  
+  		// do whatever you want with your data here
+  		// but be very careful with peoples personal data!!!
+	});
+
+	
+*/
+
+	
+	
+	
+	
+	
+	
 	</script>
 </body>
 
