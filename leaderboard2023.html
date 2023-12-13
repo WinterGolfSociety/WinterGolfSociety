@@ -108,6 +108,9 @@ var dddate = dd.getDate();
 var ddmonth = dd.getMonth();
 var ddhours = dd.getHours();
 var ddminutes = dd.getMinutes();
+if (ddminutes < 10) {
+    ddminutes = "0" + ddminutes
+} 
 var ddseconds = dd.getSeconds();
 if (ddseconds < 10) {
     ddseconds = "0" + ddseconds
