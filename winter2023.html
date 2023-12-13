@@ -192,12 +192,6 @@
 		justify-content: center;
 	}
 	
-	.title {
-		color: white;
-		font-family: 'Kalam';
-		font-size: 40px;
-	}
-	
 	section {
 		width: 100vw;
 		height: 100vh;
@@ -221,11 +215,7 @@
 		color: white;
 		font-family: 'Kalam';
 		font-size: 40px;
-	}
-	
-	h2 {
-		font-size: 40px;
-		color: #111111;
+		font-weight: bold;
 		margin-top: 160px;
 	}
 	
@@ -305,6 +295,14 @@
 		font-size: 13px;
 	}
 	
+	.pretitle {
+		font-family: 'Kalam';
+		height: 2vh;
+		color: white;
+		font-size: 15px;
+		float:left;
+	}
+	
 	#scheduled {
 		float: left;
 	}
@@ -322,6 +320,9 @@
 		transform: scale(5);
 	}
 	
+	.spacer1  {
+	        height: 3vh;
+	}
 	
 	.contentinfo {
 	font-family: 'Kalam';
@@ -419,34 +420,34 @@
 		</nav>
 		<section class="start">
 			<div class="content">
-			<h2 class="title">Winter 2023</h2>
-				<div class="contentinfo">
-				(including some of autumn)<br><br>
-				hcps, score entry, twos, results, leaderboard
-				</div>
-				<br>
-				<br>
-				<div class="datescontent"> <a class="dates" id="scheduled">scheduled ...</a>
-					<br>
-					<br>
-					<a class="dates" id="xdcomp1"></a>
-				</div>
-    <br>
-				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> </div>
+			
+			<div class="title">
+			<div class="pretitle">Longhirst seniors</div>
+			<div class="spacer1"></div>
+			<div>Winter 2023</div>
+			
 			</div>
-			<div class="fadein" id="pressbutton"> <img style="position: absolute; top: 10vh; right: 3vw; border: 0; height: 100px; width: 100px;" src="pressbuttonflash.png" alt="press"> </div>
+			
+			<div class="contentinfo">
+			hcps, score entry, twos, results, leaderboard
+			</div>
+				
+			<br>
+			<br>
+			<div class="datescontent">
+			<a class="dates" id="scheduled">scheduled ...</a>
+			<br><br>
+			<a class="dates" id="xdcomp1"></a>
+			</div>
+                        <br>
+			
+			<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrseniors.png" alt="qr"> </div>
+			</div>
+			
 		</section>
 	</body>
 	<script>
-	
-	// hide hands after 1 menu use
-        if ("handspressbutton" in localStorage) {
-        // hide hands
-           document.getElementById("pressbutton").style.visibility = "hidden"
-        } else {
-           localStorage.handspressbutton = "hidden" 
-        }
-         
+	         
 	// array of competition dates
 		 arrComps = [
       "Dawson 02 October 2023",
