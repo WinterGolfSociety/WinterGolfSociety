@@ -1467,7 +1467,18 @@
 	
 	
 	// disable backbutton
-	document.addEventListener("backbutton", function(){}, false);
+	let popHandler = () => {
+  if (confirm('Go back?')) {
+    window.history.back() 
+  } else {
+    window.history.forward()
+    setTimeout(() => {
+      window.addEventListener('popstate', popHandler, {once: true})
+    }, 50) // delay needed since the above is an async operation for some reason
+  }
+}
+window.addEventListener('popstate', popHandler, {once: true})
+window.history.pushState(null,null,null)
 	
 	
 	
