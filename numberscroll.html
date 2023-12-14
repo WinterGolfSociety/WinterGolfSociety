@@ -1395,7 +1395,7 @@
 	var hcplist = "";
 	var msglist = "";
 	var msglistcount = 0;
-	comp = ""
+	
 	
 	var player1hcp
 	var player2hcp
@@ -1428,7 +1428,9 @@
 	var arrCourse = [];
 	var arrComps = [];
 	var arrPlayers = [];
-
+        var compcourse = "none";
+        var compdate = "14 December";
+        
 	
 	
 	
@@ -1473,7 +1475,7 @@
 	//=============================================================  
 	function downloader() {
 	
-                showDownloadingInfoMsg()
+          //      showDownloadingInfoMsg()
 
 		// setupcsv
 		var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
@@ -1506,7 +1508,7 @@
 				complete: function() {
 					showRecoverChoice()
 				//document.getElementById("popuppanel").style.display = "none";
-				//	start();
+					start();
 				}
 			})
 		} // end try
@@ -1630,20 +1632,13 @@
 		          localStorage.course = "OldCourse";
 		        }
 		  */
-		// recover	
-		if(comp == localStorage.comp) {
-			recoverFromLocalStorage();
-		}
-		// show comp info message for 3 seconds
-		if("comp" in localStorage) {
-			showCompMessage();
-		}
+		
 		
 		
 		
 		
 		// update localStorage
-		localStorage.date4ball = datetoday;
+//		localStorage.date4ball = datetoday;
 		
 		
 		
@@ -1694,7 +1689,7 @@
 			resetNames();
 		} else {
 			// retrieve dropdown info
-			//      var arrPlayers = JSON.parse(localStorage.dropdown);
+			//      var arrPlayers = JSON.parse(localStorage.dropdown4ball);
 			for(var k = 0; k < arrPlayers.length; k++) {
 				if(arrPlayers[k][0] == playerName) {
 					found = true;
@@ -1712,7 +1707,7 @@
 				arrPlayers[pos][1] = tc;
 				// store new order
 				//=====LocalStorage.dropdown====================
-				localStorage.dropdown = JSON.stringify(arrPlayers);
+				localStorage.dropdown4ball = JSON.stringify(arrPlayers);
 				//==============================================
 				// global player
 				player = playerName;
@@ -1724,7 +1719,7 @@
 				// update player choices
 				// reset hole scores
 				//=====LocalStorage.player=====
-			localStorage.player = player;
+			//localStorage.player = player;
 			//=============================
 			//=====LocalStorage.guessPlayer=====
 			//localStorage.guessPlayer = player;
@@ -1868,12 +1863,42 @@
 				var p4 = pointsCalc(player4hcp, arrCourse[h][1], arrCourse[h][2], s4)
 				document.getElementById(id.replace("coll", "pppp")).innerText = s4 + "/" + p4
 					// to localStorage eg p1h1score,5
+				
+				/*
 				localStorage.setItem("p1h" + h + "score", s1 + "/" + p1)
 				localStorage.setItem("p2h" + h + "score", s2 + "/" + p2)
 				localStorage.setItem("p3h" + h + "score", s3 + "/" + p3)
 				localStorage.setItem("p4h" + h + "score", s4 + "/" + p4)
+				*/
 					// redo totals
 				totalsCalc()
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				saveAllToLocalStorage()
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			}
 		} else {
 			//eg. id = coll1
@@ -2172,7 +2197,7 @@
 		body();
 	}
 
-	function editCheck(event) {}
+	
 
 	function getScoring() {
 		document.getElementById("firstscreen").classList.add("fadeOut");
@@ -2239,19 +2264,19 @@
 	   
 	   document.getElementById(id).style.opacity = "1.0";
 	   
-	   comp = id.replace("button","");
-	   comp = comp.replace("dawson","Dawson")
-	   comp = comp.replace("lakes","Lakes")
-	   comp = comp.replace("oldcourse","OldCourse")
+	   compcourse = id.replace("button","");
+	   compcourse = compcourse.replace("dawson","Dawson")
+	   compcourse = compcourse.replace("lakes","Lakes")
+	   compcourse = compcourse.replace("oldcourse","OldCourse")
 	   // choose course
 
-           if (comp == "Dawson") {
+           if (compcourse == "Dawson") {
 	       arrCourse = arrDeepCopy(arrDawson);
            }
-           if (comp == "Lakes") {
+           if (compcourse == "Lakes") {
 	       arrCourse = arrDeepCopy(arrLakes);
            }
-           if (comp == "OldCourse") {
+           if (compcourse == "OldCourse") {
 	       arrCourse = arrDeepCopy(arrOldCourse);
            }
    
@@ -2263,9 +2288,6 @@
                document.getElementById("h" + i + "img").style.display = "none"
            }	
            
-           // save course to localStorage
-           localStorage.course4ball = comp;
-              
 	}
 	
 	// helper function to deep copy array
@@ -2316,14 +2338,14 @@
     }
 	
     function doSomethingRecover() {
-       compdate = localStorage.date4ball
+     //  compdate = localStorage.date4ball
        // etc.
     document.getElementById("popuppanel").style.display = "none";
     
     
     
     
-    	start();
+    retrieveAllFromLocalStorage()
     
     
     
@@ -2338,85 +2360,237 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-/*	
-	
-const cookieObject = document.cookie.split(';')
-    .map(kv => kv.split('='))
-    .map(kv => [ kv[0].trim(), decodeURIComponent(kv[1]) ])
-    .reduce((o,kv) => { o[kv[0]] = kv[1]; return o; },{})
-    ;
+function saveAllToLocalStorage() {
+      // save player names
+      localStorage.setItem("player1name4ball", player1name)
+      localStorage.setItem("player2name4ball", player2name)
+      localStorage.setItem("player3name4ball", player3name)
+      localStorage.setItem("player4name4ball", player4name)
+      
+      // save player hcps
+      localStorage.setItem("player1hcp4ball", player1hcp)
+      localStorage.setItem("player2hcp4ball", player2hcp)
+      localStorage.setItem("player3hcp4ball", player3hcp)
+      localStorage.setItem("player4hcp4ball", player4hcp)
+            
+      // save course
+      localStorage.setItem("compcourse4ball", compcourse)
+      // save date
+      localStorage.setItem("compdate4ball", compdate)
 
-const userSiteInfo = JSON.parse(cookieObject["SiteUserInfo"]);
-const userFirstName = userSiteInfo["firstName"];
-const userId = userSiteInfo["siteUserId"];
-const xsrf1 = cookieObject["crumb"];
-const xsrf2 = cookieObject["siteUserCrumb"];
-const profileURL = "/api/site-users/account/profile";
-const headers = { "x-csrf-token": xsrf1, "x-siteuser-xsrf-token": xsrf2 };
-fetch(profileURL, { headers })
-	.then(r => r.json())
-	.then(j => {
-  		const userEmailAddress = j.email;
-  		const userLastName = j.name.lastName;
-  		console.log(userId, userFirstName, userLastName, userEmailAddress);  
-  		// do whatever you want with your data here
-  		// but be very careful with peoples personal data!!!
-	});
-
+      // save all scores and points
+      var temp1 = "";
+      for(i = 1; i <= 18; i++) {
+          j = 1;
+              temp1 = document.getElementById("p" + i).innerText
+              if (temp1.indexOf("/") > -1) {
+                  temp1array = temp1.split("/")
+                  localStorage.setItem("h" + i + "p" + j + "strokes4ball", temp1array[0])
+                  localStorage.setItem("h" + i + "p" + j + "points4ball", temp1array[1])
+              } else {
+                  localStorage.setItem("h" + i + "p" + j + "strokes4ball", "-")
+                  localStorage.setItem("h" + i + "p" + j + "points4ball", "-")
+              }     
+          j++;
+              temp1 = document.getElementById("pp" + i).innerText
+              if (temp1.indexOf("/") > -1) {
+                  temp1array = temp1.split("/")
+                  localStorage.setItem("h" + i + "p" + j + "strokes4ball", temp1array[0])
+                  localStorage.setItem("h" + i + "p" + j + "points4ball", temp1array[1])
+              } else {
+                  localStorage.setItem("h" + i + "p" + j + "strokes4ball", "-")
+                  localStorage.setItem("h" + i + "p" + j + "points4ball", "-")
+              }      
+          j++
+              temp1 = document.getElementById("ppp" + i).innerText
+              if (temp1.indexOf("/") > -1) {
+                  temp1array = temp1.split("/")
+                  localStorage.setItem("h" + i + "p" + j + "strokes4ball", temp1array[0])
+                  localStorage.setItem("h" + i + "p" + j + "points4ball", temp1array[1])
+              } else {
+                  localStorage.setItem("h" + i + "p" + j + "strokes4ball", "-")
+                  localStorage.setItem("h" + i + "p" + j + "points4ball", "-")
+              }      
+          j++          
+              temp1 = document.getElementById("pppp" + i).innerText
+              if (temp1.indexOf("/") > -1) {
+                  temp1array = temp1.split("/")
+                  localStorage.setItem("h" + i + "p" + j + "strokes4ball", temp1array[0])
+                  localStorage.setItem("h" + i + "p" + j + "points4ball", temp1array[1])
+              } else {
+                  localStorage.setItem("h" + i + "p" + j + "strokes4ball", "-")
+                  localStorage.setItem("h" + i + "p" + j + "points4ball", "-")
+              }      
+      }
+      
+      
+      // save totals
+      temp1 = document.getElementById("pf").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("pfstrokes4ball", temp1array[0])
+          localStorage.setItem("pfpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("pfstrokes4ball", "-")
+          localStorage.setItem("pfpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("ppf").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("ppfstrokes4ball", temp1array[0])
+          localStorage.setItem("ppfpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("ppfstrokes4ball", "-")
+          localStorage.setItem("ppfpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("pppf").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("pppfstrokes4ball", temp1array[0])
+          localStorage.setItem("pppfpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("pppfstrokes4ball", "-")
+          localStorage.setItem("pppfpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("ppppf").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("ppppfstrokes4ball", temp1array[0])
+          localStorage.setItem("ppppfpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("ppppfstrokes4ball", "-")
+          localStorage.setItem("ppppfpoints4ball", "-")
+      }
+      
+      
+       temp1 = document.getElementById("pb").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("pbstrokes4ball", temp1array[0])
+          localStorage.setItem("pbpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("pbstrokes4ball", "-")
+          localStorage.setItem("pbpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("ppb").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("ppbstrokes4ball", temp1array[0])
+          localStorage.setItem("ppbpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("ppbstrokes4ball", "-")
+          localStorage.setItem("ppbpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("pppb").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("pppbstrokes4ball", temp1array[0])
+          localStorage.setItem("pppbpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("pppbstrokes4ball", "-")
+          localStorage.setItem("pppbpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("ppppb").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("ppppbstrokes4ball", temp1array[0])
+          localStorage.setItem("ppppbpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("ppppbstrokes4ball", "-")
+          localStorage.setItem("ppppbpoints4ball", "-")
+      }
+      
+      
+       temp1 = document.getElementById("pt").innerText
+      if (temp1.indexOf("(") > -1) {
+         temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("ptstrokes4ball", temp1array[0])
+          localStorage.setItem("ptpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("ptstrokes4ball", "-")
+          localStorage.setItem("ptpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("ppt").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("pptstrokes4ball", temp1array[0])
+          localStorage.setItem("pptpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("pptstrokes4ball", "-")
+          localStorage.setItem("pptpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("pppt").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("ppptstrokes4ball", temp1array[0])
+          localStorage.setItem("ppptpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("ppptstrokes4ball", "-")
+          localStorage.setItem("ppptpoints4ball", "-")
+      }
+      
+      temp1 = document.getElementById("ppppt").innerText
+      if (temp1.indexOf("(") > -1) {
+          temp1array = temp1.replace(")","").split(" (")
+          localStorage.setItem("pppptstrokes4ball", temp1array[0])
+          localStorage.setItem("pppptpoints4ball", temp1array[1])
+      } else {    
+          localStorage.setItem("pppptstrokes4ball", "-")
+          localStorage.setItem("pppptpoints4ball", "-")
+      }
+      
+}	
 	
-*/
-
-	
-	
-	
-	
-	
+function retrieveAllFromLocalStorage() {
+      for(i = 1; i <= 1; i++) {
+          j = 1;
+              // Recorded scores
+              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes")
+              if (temp1.indexOf("p") > -1) {
+                  temp2 = localStorage.getItem("h" + i + "p" + j + "points")
+             //     document.getElementById("p" + i).innerText = temp1 + "/" + temp2  
+                  
+                  
+                       console.log(temp1 + "/" + temp2)
+                       
+                       
+                       
+              }      
+          j++;
+              // Recorded scores
+              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes")
+              if (temp1.indexOf("p") > -1) {
+                  temp2 = localStorage.getItem("h" + i + "p" + j + "points")
+           //       document.getElementById("pp" + i).innerText = temp1 + "/" + temp2  
+              }       
+          j++;
+              // Recorded scores
+              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes")
+              if (temp1.indexOf("p") > -1) {
+                  temp2 = localStorage.getItem("h" + i + "p" + j + "points")
+         //         document.getElementById("ppp" + i).innerText = temp1 + "/" + temp2  
+              }       
+          j++;          
+              // Recorded scores
+              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes")
+              if (temp1.indexOf("p") > -1) {
+                  temp2 = localStorage.getItem("h" + i + "p" + j + "points")
+          //        document.getElementById("pppp" + i).innerText = temp1 + "/" + temp2  
+              }      
+      }
+      
+ 
+      
+      
+}	
 	
 	</script>
 </body>
