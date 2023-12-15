@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="ie=edge" http-equiv="X-UA-Compatible">
-  <meta name="theme-color" content="#2F4F4F">
   <meta content="score input" name="description">
   <meta content="Bryan M" name="author">
   <title>winter 2023</title>
+  <meta name="theme-color" content="black">
   <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
   <link href="wintericon.png" rel="icon" type="image/x-icon">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -22,7 +22,7 @@
     
     body {
       color: white;
-      background-color: darkSlateGray;
+      background-color: darkSlateBlue;
       font-family: Arial, Helvetica, sans-serif;
       overflow-y: hidden;
     }
@@ -49,7 +49,7 @@
       height: 100%; //90vh; //98vh; for iphone
       overflow: hidden;
       display: flex;
-      background-color: darkSlateGray;
+      background-color: darkSlateBlue;
       scroll-snap-align: start;
       scroll-snap-stop: always;
     }
@@ -536,6 +536,15 @@
 </head>
 
 <body>
+<script>
+   // do this early to avoid too much flick over       
+   // match theme color to background color
+   var backgroundcolor = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
+   document.querySelector("meta[name=theme-color]").setAttribute("content",backgroundcolor);
+</script>
+
+
+
   <div class="container">
     <div class="pagecard" id="setup">
       <table class="table1">
@@ -874,7 +883,7 @@
   <br>
   <br>
   <!-- form to construct data prior to submit -->
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSfdwx-CGlC7iba_8pi7yNcxN0gibgGXQJxEvAO91cTVhnmfrg/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
     <!-- name, hcp, course -->
     <input id='mx474474348' name='entry.474474348' type='text' value='default'>
     <input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
@@ -926,7 +935,7 @@
     <input id='mx789190149' name='entry.789190149' type='text' value='default'>
     <input type="submit"> </form>
   <!-- google iframe inserted here - invisible -->
-  <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfz7JwsoPVvFYEiZqlH2IS3YOw7OuT9hQEdN1O8zfLXWtU4sw/viewform?embedded=true" width="60"></iframe>
+  <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfdwx-CGlC7iba_8pi7yNcxN0gibgGXQJxEvAO91cTVhnmfrg/viewform?embedded=true" width="60"></iframe>
   <br>
   <br>
   <br>
@@ -948,21 +957,21 @@
     arrLakes = [
       [0, 0, 0],
       [1, 4, 15],
-      [2, 4, 7],
+      [2, 4, 1],
       [3, 5, 3],
-      [4, 4, 1],
+      [4, 4, 5],
       [5, 3, 17],
-      [6, 3, 11],
-      [7, 4, 9],
-      [8, 4, 5],
+      [6, 3, 9],
+      [7, 4, 11],
+      [8, 4, 17],
       [9, 4, 13],
       [10, 3, 16],
       [11, 4, 18],
-      [12, 4, 10],
-      [13, 4, 6],
+      [12, 4, 4],
+      [13, 4, 12],
       [14, 3, 14],
-      [15, 3, 4],
-      [16, 5, 12],
+      [15, 3, 10],
+      [16, 5, 6],
       [17, 4, 2],
       [18, 5, 8]
     ];
@@ -970,182 +979,141 @@
     // Dawson
     arrDawson = [
       [0, 0, 0],
-      [1, 5, 13],
-      [2, 4, 15],
+      [1, 5, 7],
+      [2, 4, 5],
       [3, 3, 17],
       [4, 4, 3],
       [5, 4, 1],
-      [6, 5, 11],
-      [7, 4, 7],
-      [8, 4, 9],
-      [9, 5, 5],
-      [10, 4, 16],
-      [11, 5, 14],
+      [6, 5, 9],
+      [7, 4, 15],
+      [8, 4, 13],
+      [9, 5, 11],
+      [10, 4, 10],
+      [11, 5, 4],
       [12, 3, 18],
       [13, 4, 2],
-      [14, 4, 4],
-      [15, 4, 12],
-      [16, 3, 6],
-      [17, 4, 10],
-      [18, 4, 8]
+      [14, 4, 14],
+      [15, 4, 8],
+      [16, 3, 16],
+      [17, 4, 12],
+      [18, 4, 6]
     ];
     // array ["hole num",par,si]
     // OldCourse
     arrOldCourse = [
       [0, 0, 0],
-      [1, 5, 10],
-      [2, 4, 6],
-      [3, 3, 18],
-      [4, 5, 4],
+      [1, 5, 3],
+      [2, 4, 9],
+      [3, 3, 17],
+      [4, 5, 11],
       [5, 3, 16],
-      [6, 4, 2],
+      [6, 4, 13],
       [7, 4, 14],
-      [8, 4, 8],
-      [9, 4, 12],
-      [10, 4, 5],
-      [11, 3, 13],
-      [12, 4, 15],
-      [13, 4, 1],
-      [14, 5, 7],
-      [15, 3, 11],
-      [16, 5, 9],
-      [17, 4, 3],
-      [18, 5, 17]
+      [8, 4, 2],
+      [9, 4, 8],
+      [10, 4, 6],
+      [11, 3, 18],
+      [12, 4, 10],
+      [13, 4, 7],
+      [14, 5, 14],
+      [15, 3, 12],
+      [16, 5, 15],
+      [17, 4, 5],
+      [18, 5, 4]
     ];
     // array of competition dates
     // these need to be the same as the setup page on google sheets
     // if they are to be recorded properly in the results
-    arrComps = [
-      "Dawson 02 October 2023",
-      "Lakes 06 October 2023",
-      "Dawson 09 October 2023",
-      "Lakes 13 October 2023",
-      "Dawson 16 October 2023",
-      "Lakes 20 October 2023",
-      "Dawson 23 October 2023",
-      "Lakes 27 October 2023",
-      "Dawson 30 October 2023",
-      "Lakes 03 November 2023",
-      "OldCourse 06 November 2023",
-      "OldCourse 10 November 2023",
-      "OldCourse 13 November 2023",
-      "OldCourse 17 November 2023",
-      "OldCourse 20 November 2023",
-      "OldCourse 24 November 2023",
-      "Lakes 27 November 2023",
-      "OldCourse 01 December 2023",
-      "OldCourse 04 December 2023",
-      "OldCourse 08 December 2023",
-      "OldCourse 11 December 2023",
-      "OldCourse 15 December 2023",
-      "Lakes 18 December 2023",
-      "Dawson 22 December 2023",
-      "Lakes 25 December 2023",
-      "Dawson 29 December 2023",
-      "Dawson 01 January 2024",
-      "Lakes 05 January 2024",
-      "Dawson 08 January 2024",
-      "Lakes 12 January 2024",
-      "Dawson 15 January 2024",
-      "Lakes 19 January 2024",
-      "Dawson 22 January 2024",
-      "Lakes 26 January 2024",
-      "Dawson 29 January 2024",
-      "Dawson 02 February 2024",
-      "Lakes 05 February 2024",
-      "Dawson 09 February 2024",
-      "Lakes 12 February 2024",
-      "Dawson 16 February 2024",
-      "Lakes 19 February 2024",
-      "Dawson 23 February 2024",
-      "Lakes 26 February 2024",
-      "Lakes 01 March 2024",
-      "Dawson 04 March 2024",
-      "Lakes 08 March 2024",
-      "Dawson 11 March 2024",
-      "Lakes 15 March 2024",
-      "Dawson 18 March 2024",
-      "Lakes 22 March 2024",
-      "Dawson 25 March 2024",
-      "Lakes 29 March 2024"
+// array of competition dates
+		 arrComps = [
+"Lakes 12 December 2023",
+"Lakes 13 December 2023",
+"Lakes 14 December 2023",
+"Lakes 15 December 2023",
+"Lakes 16 December 2023",
+"Lakes 17 December 2023",
+"Lakes 18 December 2023",
+"Lakes 19 December 2023",
+"Lakes 20 December 2023",
+"Lakes 21 December 2023",
+"Lakes 22 December 2023",
+"Lakes 23 December 2023",
+"Lakes 24 December 2023",
+"Lakes 25 December 2023",
+"Lakes 26 December 2023",
+"Lakes 27 December 2023",
+"Lakes 28 December 2023",
+"Lakes 29 December 2023",
+"Lakes 30 December 2023",
+"Lakes 31 December 2023",
+"OldCourse 01 January 2024",
+"OldCourse 02 January 2024",
+"OldCourse 03 January 2024",
+"OldCourse 04 January 2024",
+"OldCourse 05 January 2024",
+"OldCourse 06 January 2024",
+"OldCourse 07 January 2024",
+"OldCourse 08 January 2024",
+"OldCourse 09 January 2024",
+"OldCourse 10 January 2024",
+"OldCourse 11 January 2024",
+"OldCourse 12 January 2024",
+"OldCourse 13 January 2024",
+"OldCourse 14 January 2024",
+"OldCourse 15 January 2024",
+"OldCourse 16 January 2024",
+"OldCourse 17 January 2024",
+"OldCourse 18 January 2024",
+"OldCourse 19 January 2024",
+"OldCourse 20 January 2024",
+"OldCourse 21 January 2024",
+"OldCourse 22 January 2024",
+"OldCourse 23 January 2024",
+"OldCourse 24 January 2024",
+"OldCourse 25 January 2024",
+"OldCourse 26 January 2024",
+"OldCourse 27 January 2024",
+"OldCourse 28 January 2024",
+"OldCourse 29 January 2024",
+"OldCourse 30 January 2024",
+"OldCourse 31 January 2024"
     ];
+    
     
     // master array of members
     // this is the centralised list of members, the 0 is used to allow a "sorted" menu
     // by keeping track of the number of "hits" per name
     var master = [
-      ['Graham Airey', 0],
-      ['Dale Aitkenhead', 0],
-      ['Stephen Alldridge', 0],
-      ['Keith Belshaw', 0],
-      ['Malcolm Broom', 0],
-      ['Neil Brotherton', 0],
-      ['Craig Caesar', 0],
-      ['Clive Caisley', 0],
-      ['Chris Chelton', 0],
-      ['Ken Clark', 0],
-      ['Ian Collier', 0],
-      ['Bob Connelly', 0],
-      ['Jed Cornhill', 0],
-      ['Alex Coupland', 0],
-      ['Neil Coxon', 0],
-      ['Bryan Craggs', 0],
-      ['Andy Davison', 0],
-      ['John Dean', 0],
-      ['Peter Dodds', 0],
-      ['Graham Doughty', 0],
-      ['Martin Edwards', 0],
-      ['Joe Fletcher', 0],
-      ['Norman Ford', 0],
-      ['Bill French', 0],
-      ['Norman Gilholm', 0],
-      ['David Gilroy', 0],
-      ['Graeme Gow', 0],
-      ['Vince Graham', 0],
-      ['Chris Green', 0],
-      ['Rob Green', 0],
-      ['Richard Hedley', 0],
-      ['Barry Henderson', 0],
-      ['Clive Herbert', 0],
-      ['David Hersey', 0],
-      ['Ken Heslop', 0],
-      ['Barry Hill', 0],
-      ['Colin Hills', 0],
-      ['Pete Holleran', 0],
-      ['Roger Ireland', 0],
-      ['David Jackson', 0],
-      ['John Jackson', 0],
-      ['Tom Lemin', 0],
-      ['Martin Leonard', 0],
-      ['Jim Little', 0],
-      ['Bryan Maddison', 0],
-      ['James Main', 0],
-      ['Tony Main', 0],
-      ['John Matthews', 0],
-      ['Tom McNally', 0],
-      ['Steff Murray', 0],
-      ['Darren Nelson', 0],
-      ['Trevor Ord', 0],
-      ['James Patterson', 0],
-      ['Tim Pinkney', 0],
-      ['Mike Riddell', 0],
-      ['Eric Saddler', 0],
-      ['David Scurfield', 0],
-      ['Brian Simpson', 0],
-      ['John Smith', 0],
-      ['Tony Smith', 0],
-      ['Ray Straker', 0],
-      ['Tom Straker', 0],
-      ['Neil Tait', 0],
-      ['Roly Thompson', 0],
-      ['Bob Toward', 0],
-      ['Trevor Towns', 0],
-      ['Joe Waddle', 0],
-      ['Marcus Wilkinson', 0],
-      ['Gordon Willis', 0],
-      ['Ron Woodcock', 0],
-      ['reset list', 0]
-    ];
+["Claire Allison",0],
+["Karen Anderson",0],
+["Rosina Baker",0],
+["Diane Brown",0],
+["Maureen Burn",0],
+["Janet Cornhill",0],
+["Lesley Dennis",0],
+["Wendy Dunn",0],
+["Pearl Ford",0],
+["Eileen Gow",0],
+["Sarah Hartop",0],
+["Brenda Herbert",0],
+["Sue Kelly",0],
+["Fiona Kramer",0],
+["Kathleen Lamb",0],
+["Anne Middleton",0],
+["Lynne Moore",0],
+["Lesley Morris",0],
+["Jean Oswell",0],
+["Yvonne Robertson",0],
+["Sandra Sav",0],
+["Kay Smith",0],
+["Gillian Taggart",0],
+["Barbara Tait",0],
+["Janet Thomson",0],
+["Clare Toman",0],
+["Angela Young",0],
+["reset list",0]    
+];
+ 
     // check for any new members etc.
     // setup local dropdown if not there
     if (!("dropdown" in localStorage)) {
@@ -1520,8 +1488,8 @@
       if (compday == "no") {
         showNoSubmitMessage();
       } else {
-        document.getElementById('mx474474348').value = player;
-        document.getElementById('mx2131369517').value = comp;
+        document.getElementById('mx474474348').value = comp;  // swapped ???
+        document.getElementById('mx2131369517').value = player;   // swapped ???
         document.getElementById('mx477101370').value = hcp;
         document.getElementById('mx1980297491').value = document.getElementById("h1").innerText;
         document.getElementById('mx463832232').value = document.getElementById("h2").innerText;
@@ -1672,8 +1640,8 @@
             document.getElementById('submitwrapper').style.borderColor = "black";
             document.getElementById('submitwrapper').style.background = "black";
           } else {
-            document.getElementById('submitwrapper').style.borderColor = "darkSlateGray";
-            document.getElementById('submitwrapper').style.background = "darkSlateGray";
+            document.getElementById('submitwrapper').style.borderColor = "darkSlateBlue";
+            document.getElementById('submitwrapper').style.background = "darkSlateBlue";
           }
           
           
@@ -1892,7 +1860,7 @@
       document.getElementById("numhcp").innerHTML = '<img src="throbber.gif" width=50 height=48>'
       document.getElementById("numhcp").style.paddingTop = "5px";
       document.getElementById("numhcp").style.paddingBottom = "5px";
-      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=836261355&single=true&output=csv";
+      var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT1rILUJ0CUKUSby7WwizLYoQQChEqOz5ZBTu3jNejKr-M5OwynuTKgrCurmkwi1D0UILF17BuhR15k/pub?gid=836261355&single=true&output=csv";
       strng2 = "?";
       try {
         // if it fails after 20 seconds, put up error message
@@ -1996,7 +1964,7 @@
         document.getElementById("minushcpx").style.color = "white";
         document.getElementById("minushcpx").style.fontWeight = "400";
         document.getElementById("trhcp").style.background = "dodgerBlue";
-        document.getElementById("setup").style.backgroundColor = "darkSlateGray";
+        document.getElementById("setup").style.backgroundColor = "darkSlateBlue";
       } else {
         // put into high contrast
         for (i = 1; i <= 18; i++) {

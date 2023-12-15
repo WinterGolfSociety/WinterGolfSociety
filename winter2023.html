@@ -6,13 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<title>winter 2023</title>
 	<meta content="Bryan M" name="author" />
-	<meta name="theme-color" content="#2F4F4F">
+	<meta name="theme-color" content="darkSlateBlue">
 	<link href="wintericon.png" rel="icon" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="wintericon.png"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-	
 	<style>
 	* {
 		margin: 0;
@@ -21,7 +20,7 @@
 	
 	body {
 		overflow: hidden;
-		background-color: darkSlateGray;
+		background-color: darkSlateBlue;		
 	}
 	
 	::-webkit-scrollbar {
@@ -123,8 +122,8 @@
 	
 	nav {
 		position: absolute;
-		top: 80px; //100px;
-		left: 80px; //100px;
+		top: 80px;
+		left: 80px;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
 		width: 75px;
@@ -220,6 +219,8 @@
 		margin-top: 160px;
 	}
 	
+	
+	
 	#onetxt,
 	#twotxt,
 	#threetxt,
@@ -311,7 +312,7 @@
 	
 	#dcomp1 {
 		float: left;
-		padding left: 5vw;
+		padding-left: 5vw;
 	}
 	
 	#img {
@@ -327,11 +328,9 @@
 	}
 	
 	.contentinfo {
-	font-family: 'Kalam';
+	        font-family: 'Kalam';
 		color: white;
 		font-size: 12px;
-		
-		//width: 100%;
 	}
 	
 	
@@ -343,9 +342,8 @@
                 height: 40px;
                 overflow: hidden;
                 position: relative;
-                background: darkSlateGray;
+                background: darkSlateBlue;
                 color: white;
-                //border: 1px solid white;
             }
             
             .marquee p {
@@ -424,7 +422,7 @@
 			<div class="content">
 			
 			<div class="title">
-			<div class="pretitle">Longhirst seniors</div>
+			<div class="pretitle">Longhirst ladies</div>
 			<div class="spacer1"></div>
 			<div>Winter golf</div>
 			
@@ -443,68 +441,68 @@
 			</div>
                         <br>
 			
-			<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrseniors.png" alt="qr"> </div>
+			<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrladies.png" alt="qr"> </div>
 			</div>
 			
 		</section>
 	</body>
 	<script>
-	         
+         
 	// array of competition dates
 		 arrComps = [
-      "Dawson 02 October 2023",
-      "Lakes 06 October 2023",
-      "Dawson 09 October 2023",
-      "Lakes 13 October 2023",
-      "Dawson 16 October 2023",
-      "Lakes 20 October 2023",
-      "Dawson 23 October 2023",
-      "Lakes 27 October 2023",
-      "Dawson 30 October 2023",
-      "Lakes 03 November 2023",
-      "OldCourse 06 November 2023",
-      "OldCourse 10 November 2023",
-      "OldCourse 13 November 2023",
-      "OldCourse 17 November 2023",
-      "OldCourse 20 November 2023",
-      "OldCourse 24 November 2023",
-      "Lakes 27 November 2023",
-      "OldCourse 01 December 2023",
-      "OldCourse 04 December 2023",
-      "OldCourse 08 December 2023",
-      "OldCourse 11 December 2023",
-      "OldCourse 15 December 2023",
-      "Lakes 18 December 2023",
-      "Dawson 22 December 2023",
-      "Lakes 25 December 2023",
-      "Dawson 29 December 2023",
-      "Dawson 01 January 2024",
-      "Lakes 05 January 2024",
-      "Dawson 08 January 2024",
-      "Lakes 12 January 2024",
-      "Dawson 15 January 2024",
-      "Lakes 19 January 2024",
-      "Dawson 22 January 2024",
-      "Lakes 26 January 2024",
-      "Dawson 29 January 2024",
-      "Dawson 02 February 2024",
-      "Lakes 05 February 2024",
-      "Dawson 09 February 2024",
-      "Lakes 12 February 2024",
-      "Dawson 16 February 2024",
-      "Lakes 19 February 2024",
-      "Dawson 23 February 2024",
-      "Lakes 26 February 2024",
-      "Lakes 01 March 2024",
-      "Dawson 04 March 2024",
-      "Lakes 08 March 2024",
-      "Dawson 11 March 2024",
-      "Lakes 15 March 2024",
-      "Dawson 18 March 2024",
-      "Lakes 22 March 2024",
-      "Dawson 25 March 2024",
-      "Lakes 29 March 2024"
+"Lakes 12 December 2023",
+"Lakes 13 December 2023",
+"Lakes 14 December 2023",
+"Lakes 15 December 2023",
+"Lakes 16 December 2023",
+"Lakes 17 December 2023",
+"Lakes 18 December 2023",
+"Lakes 19 December 2023",
+"Lakes 20 December 2023",
+"Lakes 21 December 2023",
+"Lakes 22 December 2023",
+"Lakes 23 December 2023",
+"Lakes 24 December 2023",
+"Lakes 25 December 2023",
+"Lakes 26 December 2023",
+"Lakes 27 December 2023",
+"Lakes 28 December 2023",
+"Lakes 29 December 2023",
+"Lakes 30 December 2023",
+"Lakes 31 December 2023",
+"OldCourse 01 January 2024",
+"OldCourse 02 January 2024",
+"OldCourse 03 January 2024",
+"OldCourse 04 January 2024",
+"OldCourse 05 January 2024",
+"OldCourse 06 January 2024",
+"OldCourse 07 January 2024",
+"OldCourse 08 January 2024",
+"OldCourse 09 January 2024",
+"OldCourse 10 January 2024",
+"OldCourse 11 January 2024",
+"OldCourse 12 January 2024",
+"OldCourse 13 January 2024",
+"OldCourse 14 January 2024",
+"OldCourse 15 January 2024",
+"OldCourse 16 January 2024",
+"OldCourse 17 January 2024",
+"OldCourse 18 January 2024",
+"OldCourse 19 January 2024",
+"OldCourse 20 January 2024",
+"OldCourse 21 January 2024",
+"OldCourse 22 January 2024",
+"OldCourse 23 January 2024",
+"OldCourse 24 January 2024",
+"OldCourse 25 January 2024",
+"OldCourse 26 January 2024",
+"OldCourse 27 January 2024",
+"OldCourse 28 January 2024",
+"OldCourse 29 January 2024",
+"OldCourse 30 January 2024",
+"OldCourse 31 January 2024"
     ];
+    
  var isTop = true;
 	var menuIsOpen = false;
 	var menuIcon = $('.square_menu_icon');
@@ -514,7 +512,7 @@
 	var three = $('#three');
 	var four = $('#four');
 	var five = $('#five');
-	// menuIcon.click(function() {
+
 	bubblemenu.click(function() {
 		if(isTop === true) {
 			$('#nav').animate({
@@ -683,45 +681,33 @@
 	function doOne() {
 		// put menu back then move to hcp page
 		setTimeout(function() {
-//			window.open("hcp2023.html", "_blank");
-	window.location.assign("hcp2023.html");
+	        window.location.assign("hcp2023.html");
 		}, 1000);
 	}
 
 	function doTwo() {
 		// put menu back then move to score entry page
-  
-  /*
-		setTimeout(function() {
-	//		window.open("scoreentry2023.html", "_blank");
- 	window.location.assign("scoreentry2023.html");
-		}, 1000);
-  */
-  
-  	window.location.assign("scoreentryloader2023.html");
+                window.location.assign("scoreentryloader2023.html");
 	}
 
 	function doThree() {
 		// put menu back then move to twos page
 		setTimeout(function() {
-	//		window.open("twos2023.html", "_blank");
- window.location.assign("twos2023.html");
+	        window.location.assign("twos2023.html");
 		}, 1000);
 	}
 
 	function doFour() {
 		// put menu back then move to results page
 		setTimeout(function() {
-		//	window.open("results2023.html", "_blank");
-  window.location.assign("results2023.html");
+		window.location.assign("results2023.html");
 		}, 1000);
 	}
 
 	function doFive() {
 		// put menu back then move to results page
 		setTimeout(function() {
-		//	window.open("results2023.html", "_blank");
-  window.location.assign("leaderboardloader2023.html");
+		window.location.assign("leaderboardloader2023.html");
 		}, 1000);
 	}
 
