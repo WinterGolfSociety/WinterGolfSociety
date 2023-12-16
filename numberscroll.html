@@ -47,6 +47,20 @@
 		text-align: center;
 	}
 	
+	.grid-container-mini {
+		display: grid;
+		grid-template-columns: 25% 25% 25% 25%;
+	}
+	
+	.grid-container-mini > div {
+	
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+	}
+	
+	
 	.bignumber {
 		grid-area: 1 / 1 / span 3 / span 1;
 		display: flex;
@@ -465,7 +479,7 @@
 	}
 	
 	.pnom {
-	padding-right: 2vw;
+	
 	}
 	</style>
 </head>
@@ -2755,27 +2769,41 @@ function retrieveAllFromLocalStorage() {
         tempt = '<br />Edit hcps.';
         tempt += '<br /><br />';
         
-        tempt += '<a class="pnom">' + player1name.substring(0, player1name.indexOf(' ')) + '</a>'
         
-        tempt += '<button id="minus1btn" onclick="hcpMinus(this.id)">-</button>';
-        tempt += '<button id="hcp1btn">' + arrbefore[0] + '</button>';
-        tempt += '<button id="plus1btn" onclick="hcpPlus(this.id)">+</button>';
-      tempt += '<br /><br />';
-       tempt += '<a class="pnom">' + player2name.substring(0, player2name.indexOf(' ')) + '</a>'
-        tempt += '<button id="minus2btn" onclick="hcpMinus(this.id)">-</button>';
-        tempt += '<button id="hcp2btn">' + arrbefore[1] + '</button>';
-        tempt += '<button id="plus2btn" onclick="hcpPlus(this.id)">+</button>';
+        tempt += '<div class="grid-container-mini">'
+        
+        
+        
+        tempt += '<div class="pnom">' + player1name.substring(0, player1name.indexOf(' ')) + '</div>'   
+        tempt += '<div><button id="minus1btn" onclick="hcpMinus(this.id)">-</button></div>';
+        tempt += '<div id="hcp1btn">' + arrbefore[0] + '</div>';
+        tempt += '<div><button id="plus1btn" onclick="hcpPlus(this.id)">+</button></div>';
+        
+        
+      //tempt += '<br /><br />';
+       tempt += '<div class="pnom">' + player2name.substring(0, player2name.indexOf(' ')) + '</div>'
+        tempt += '<div><button id="minus2btn" onclick="hcpMinus(this.id)">-</button></div>';
+        tempt += '<div id="hcp2btn">' + arrbefore[1] + '</div>';
+        tempt += '<div><button id="plus2btn" onclick="hcpPlus(this.id)">+</button></div>';
       
-      tempt += '<br /><br />';
-       tempt += '<a class="pnom">' + player3name.substring(0, player3name.indexOf(' ')) + '</a>'
-        tempt += '<button id="minus3btn" onclick="hcpMinus(this.id)">-</button>';
-        tempt += '<button id="hcp3btn">' + arrbefore[2] + '</button>';
-        tempt += '<button id="plus3btn" onclick="hcpPlus(this.id)">+</button>';
-      tempt += '<br /><br />';
-       tempt += '<a class="pnom">' + player4name.substring(0, player4name.indexOf(' ')) + '</a>'
-        tempt += '<button id="minus4btn" onclick="hcpMinus(this.id)">-</button>';
-        tempt += '<button id="hcp4btn">' + arrbefore[3] + '</button>';
-        tempt += '<button id="plus4btn" onclick="hcpPlus(this.id)">+</button>';
+    //  tempt += '<br /><br />';
+      
+       tempt += '<div class="pnom">' + player3name.substring(0, player3name.indexOf(' ')) + '</div>'
+        tempt += '<div><button id="minus3btn" onclick="hcpMinus(this.id)">-</button></div>';
+        tempt += '<div id="hcp3btn">' + arrbefore[2] + '</div>';
+        tempt += '<div><button id="plus3btn" onclick="hcpPlus(this.id)">+</button></div>';
+   //   tempt += '<br /><br />';
+       tempt += '<div class="pnom">' + player4name.substring(0, player4name.indexOf(' ')) + '</div>'
+        tempt += '<div><button id="minus4btn" onclick="hcpMinus(this.id)">-</button></div>';
+        tempt += '<div id="hcp4btn">' + arrbefore[3] + '</div>';
+        tempt += '<div><button id="plus4btn" onclick="hcpPlus(this.id)">+</button></div>';
+      
+      
+      
+      tempt += '</div>' 
+      
+      
+      
       
        tempt += '<br /><br />';
         tempt += '<button onclick="finishHcpEdit()">finish</button>';
