@@ -653,7 +653,7 @@
 			<!-- grid container -->
 		</div>
 		<!-- content -->
-		<button type="button" class="collapsible" id="coll2" onclick="recordScores(this.id)">hole 1<img src="tick1.png" alt="done" id="h2img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<button type="button" class="collapsible" id="coll2" onclick="recordScores(this.id)">hole 2<img src="tick1.png" alt="done" id="h2img" style="height: 3vmax; width: 3vmax; float: right;"></button>
 		<div class="content" id="content2">
 			<div class="grid-container">
 				<div class="bignumber" id="value2a">0</div>
@@ -688,7 +688,7 @@
 			<!-- grid container -->
 		</div>
 		<!-- content -->
-		<button type="button" class="collapsible" id="coll3" onclick="recordScores(this.id)">hole 1<img src="tick1.png" alt="done" id="h3img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<button type="button" class="collapsible" id="coll3" onclick="recordScores(this.id)">hole 3<img src="tick1.png" alt="done" id="h3img" style="height: 3vmax; width: 3vmax; float: right;"></button>
 		<div class="content" id="content3">
 			<div class="grid-container">
 				<div class="bignumber" id="value3a">0</div>
@@ -723,7 +723,7 @@
 			<!-- grid container -->
 		</div>
 		<!-- content -->
-		<button type="button" class="collapsible" id="coll4" onclick="recordScores(this.id)">hole 1<img src="tick1.png" alt="done" id="h4img" style="height: 3vmax; width: 3vmax; float: right;"></button>
+		<button type="button" class="collapsible" id="coll4" onclick="recordScores(this.id)">hole 4<img src="tick1.png" alt="done" id="h4img" style="height: 3vmax; width: 3vmax; float: right;"></button>
 		<div class="content" id="content4">
 			<div class="grid-container">
 				<div class="bignumber" id="value4a">0</div>
@@ -1215,7 +1215,7 @@
 		<div class="content" id="content15">
 			<div class="grid-container">
 				<div class="bignumber" id="value15a">0</div>
-				<div class="player15name">Player 1</div>
+				<div class="player1name">Player 1</div>
 				<div class="slide">
 					<input type="range" class="input" id="input15a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
 				<div class="player1points" id="points15a">no points</div>
@@ -1310,7 +1310,7 @@
 		<div class="content" id="content17">
 			<div class="grid-container">
 				<div class="bignumber" id="value17a">0</div>
-				<div class="player17name">Player 1</div>
+				<div class="player1name">Player 1</div>
 				<div class="slide">
 					<input type="range" class="input" id="input17a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
 				<div class="player1points" id="points17a">no points</div>
@@ -1397,10 +1397,17 @@
 	var msglistcount = 0;
 	
 	
-	var player1hcp
-	var player2hcp
-	var player3hcp
-	var player4hcp
+	var player1name = "player 1";
+	var player2name = "player 2";
+	var player3name = "player 3";
+	var player4name = "player 4";
+	
+	var player1hcp = 0;
+	var player2hcp = 0;
+	var player3hcp = 0;
+	var player4hcp = 0;
+	
+	
 	// hole, par, si
 	arrOldCourse = [
 		[0, 0, 0],
@@ -1800,49 +1807,28 @@
 		document.getElementById("popuppanel").style.display = "block";
 	}
 	
+        function shortName(nom) {
+        // shorten player name
+		s1 = nom.split(" ")
+		shortPlayername = s1[0] + " " + s1[1].substring(0, 1);
+		shortPlayername = shortPlayername.replace("Stephen", "Steve")
+		shortPlayername = shortPlayername.replace("Malcolm", "Mal")
+		
+		return shortPlayername;
+		
+		
+        }
+
+
+
+
 	function body() {
 		//course = JSON.parse(JSON.stringify(arrOldCourse));
 		// shorten player name
-		s1 = player1name.split(" ")
-		shortPlayer1name = s1[0] + " " + s1[1].substring(0, 1);
-		shortPlayer1name = shortPlayer1name.replace("Stephen", "Steve")
-		shortPlayer1name = shortPlayer1name.replace("Malcolm", "Mal")
-		document.getElementById("player1").innerText = shortPlayer1name;
-		
-		s1 = player2name.split(" ")
-		shortPlayer2name = s1[0] + " " + s1[1].substring(0, 1);
-		shortPlayer2name = shortPlayer2name.replace("Stephen", "Steve")
-		shortPlayer2name = shortPlayer2name.replace("Malcolm", "Mal")
-		if (shortPlayer2name == "no p") {
-		    shortPlayer2name = "none";
-		}
-		document.getElementById("player2").innerText = shortPlayer2name;
-		s1 = player3name.split(" ")
-		shortPlayer3name = s1[0] + " " + s1[1].substring(0, 1);
-		shortPlayer3name = shortPlayer3name.replace("Stephen", "Steve")
-		shortPlayer3name = shortPlayer3name.replace("Malcolm", "Mal")
-		if (shortPlayer3name == "no p") {
-		    shortPlayer3name = "none";
-		}
-		document.getElementById("player3").innerText = shortPlayer3name;
-		s1 = player4name.split(" ")
-		shortPlayer4name = s1[0] + " " + s1[1].substring(0, 1);
-		shortPlayer4name = shortPlayer4name.replace("Stephen", "Steve")
-		shortPlayer4name = shortPlayer4name.replace("Malcolm", "Mal")
-		if (shortPlayer4name == "no p") {
-		    shortPlayer4name = "none";
-		}
-		document.getElementById("player4").innerText = shortPlayer4name;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		document.getElementById("player1").innerText = shortName(player1name);
+		document.getElementById("player2").innerText = shortName(player2name);
+		document.getElementById("player3").innerText = shortName(player3name);
+		document.getElementById("player4").innerText = shortName(player4name);
 		
 		
 		var collection = document.getElementsByClassName("player1name");
@@ -1861,23 +1847,7 @@
 		for(i = 0; i < collection.length; i++) {
 			collection[i].innerText = player4name;
 		}
-		//==============
-		// recovery bit
-		//==============
-		// do recover - why ?
-		// loop through all scores and retrieve valid ones
-		for(i = 1; i <= 18; i++) {
-			for(j = 1; j <= 4; j++) {
-				if("p" + j + "h" + i + "score" in localStorage) {
-					recoverRecordedScores("p" + j + "h" + i + "score")
-				}
-			}
-		}
-		// redo totals
-		totalsCalc()
-			//=====================
-			// end of recovery bit
-			//=====================
+
 	}
 
 	function recordScores(id) {
@@ -2097,7 +2067,7 @@
 		var temp1 = id.substring(id.length - 1); // gives a etc.
 		var temp2 = id.replace("input", ""); // gives 1a etc.
 		var temp3 = temp2.substring(0, temp2.length - 1); // gives 1 etc.
-		console.log(player1hcp+" , "+arrCourse[temp3][1]+" , "+arrCourse[temp3][2]+" , "+tempscore)
+	//	console.log(player1hcp+" , "+arrCourse[temp3][1]+" , "+arrCourse[temp3][2]+" , "+tempscore)
 		
 		if(temp1 == "a") {
 			var n = pointsCalc(player1hcp, arrCourse[temp3][1], arrCourse[temp3][2], tempscore);
@@ -2169,6 +2139,7 @@
 		}
 		document.getElementById("points" + temphole + tempplayer).innerText = nstring;
 		// do tick
+		alert("do tick")
 		document.getElementById("h" + temphole + "img").style.display = "block"
 	}
 
@@ -2390,10 +2361,11 @@
     
     
     
-    
+    // get all the data back and put in right places
     retrieveAllFromLocalStorage()
     
-    
+    // setup number of players and proceed
+    getScoring()
     
     
     }
@@ -2593,48 +2565,164 @@ function saveAllToLocalStorage() {
           localStorage.setItem("pppptpoints4ball", "-")
       }
       
-}	
-	
-function retrieveAllFromLocalStorage() {
-      for(i = 1; i <= 1; i++) {
-          j = 1;
-              // Recorded scores
-              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes")
-              if (temp1.indexOf("p") > -1) {
-                  temp2 = localStorage.getItem("h" + i + "p" + j + "points")
-             //     document.getElementById("p" + i).innerText = temp1 + "/" + temp2  
-                  
-                  
-                       console.log(temp1 + "/" + temp2)
-                       
-                       
-                       
-              }      
-          j++;
-              // Recorded scores
-              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes")
-              if (temp1.indexOf("p") > -1) {
-                  temp2 = localStorage.getItem("h" + i + "p" + j + "points")
-           //       document.getElementById("pp" + i).innerText = temp1 + "/" + temp2  
-              }       
-          j++;
-              // Recorded scores
-              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes")
-              if (temp1.indexOf("p") > -1) {
-                  temp2 = localStorage.getItem("h" + i + "p" + j + "points")
-         //         document.getElementById("ppp" + i).innerText = temp1 + "/" + temp2  
-              }       
-          j++;          
-              // Recorded scores
-              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes")
-              if (temp1.indexOf("p") > -1) {
-                  temp2 = localStorage.getItem("h" + i + "p" + j + "points")
-          //        document.getElementById("pppp" + i).innerText = temp1 + "/" + temp2  
-              }      
+ /*     // do green ticks
+      for(i = 1; i <= 18; i++) {
+               document.getElementById("coll" + i).innerHTML = '<img src="tick1.png" alt="done" id="h' +
+                        i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' + "hole " + 
+                        arrCourse[i][0] + ", par " + arrCourse[i][1] + ", si " + arrCourse[i][2]
+               document.getElementById("h" + i + "img").style.display = "none"
       }
       
- 
+*/      
       
+      
+}	
+	
+	
+function xxxretrieveAllFromLocalStorage() {
+	// do recover - why ?
+		// loop through all scores and retrieve valid ones
+		for(i = 1; i <= 18; i++) {
+			for(j = 1; j <= 4; j++) {
+				if("p" + j + "h" + i + "score" in localStorage) {
+					recoverRecordedScores("p" + j + "h" + i + "score")
+				}
+			}
+		}
+		// redo totals
+		totalsCalc()
+}	
+	
+	
+	
+function retrieveAllFromLocalStorage() {
+
+    
+     
+      // get date and comp
+      compdate = localStorage.getItem("compdate4ball");
+      compcourse = localStorage.getItem("compcourse4ball");
+      
+      
+      
+    
+    
+      // get course details
+      if (compcourse == "Dawson") {
+	  arrCourse = arrDeepCopy(arrDawson);
+      }
+      if (compcourse == "Lakes") {
+          arrCourse = arrDeepCopy(arrLakes);
+      }
+      if (compcourse == "OldCourse") {
+          arrCourse = arrDeepCopy(arrOldCourse);
+      }
+
+
+      // recover players names and hcps
+      player1name = localStorage.getItem("player1name4ball");
+      player2name = localStorage.getItem("player2name4ball");
+      player3name = localStorage.getItem("player3name4ball");
+      player4name = localStorage.getItem("player4name4ball");
+
+
+      player1hcp = localStorage.getItem("player1hcp4ball");
+      player2hcp = localStorage.getItem("player2hcp4ball");
+      player3hcp = localStorage.getItem("player3hcp4ball");
+      player4hcp = localStorage.getItem("player4hcp4ball");
+
+      // do shortnames etc.
+      body();
+
+
+
+      // recover scores, points etc
+      for(i = 1; i <= 18; i++) {
+          j = 1;
+          tick = "no";
+          //temp1 = "nothing";
+              // Recorded scores
+              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes4ball");
+              if (temp1 !== "-") {
+                  temp2 = localStorage.getItem("h" + i + "p" + j + "points4ball");
+                  document.getElementById("p" + i).innerText = temp1 + "/" + temp2;
+                  // do sliders
+                  document.getElementById("input" + i + "a").value = temp1;
+                  document.getElementById("value" + i + "a").innerText = temp1;  
+                  // tick should show
+                  tick = "yes"   
+              } else {
+                  document.getElementById("p" + i).innerText = "-";
+                  document.getElementById("input" + i + "a").value = 0;
+                  document.getElementById("value" + i + "a").innerText = 0;  
+              }
+         j++;
+              // Recorded scores
+              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes4ball")
+              if (temp1 !== "-") {
+                  temp2 = localStorage.getItem("h" + i + "p" + j + "points4ball")
+                  document.getElementById("pp" + i).innerText = temp1 + "/" + temp2 
+                  // do sliders
+                  document.getElementById("input" + i + "b").value = temp1;
+                  document.getElementById("value" + i + "b").innerText = temp1;  
+                  // tick should show
+                  tick = "yes"       
+              } else {
+                  document.getElementById("pp" + i).innerText = "-";
+                  document.getElementById("input" + i + "b").value = 0; 
+                  document.getElementById("value" + i + "b").innerText = 0;  
+              }
+         j++;
+              // Recorded scores
+              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes4ball")
+              if (temp1 !== "-") {
+                  temp2 = localStorage.getItem("h" + i + "p" + j + "points4ball")
+                  document.getElementById("ppp" + i).innerText = temp1 + "/" + temp2;
+                  // do sliders
+                  document.getElementById("input" + i + "c").value = temp1;
+                  document.getElementById("value" + i + "c").innerText = temp1;
+                  // tick should show
+                  tick = "yes"    
+              } else {
+                  document.getElementById("ppp" + i).innerText = "-";
+                  document.getElementById("input" + i + "c").value = 0;
+                  document.getElementById("value" + i + "a").innerText = 0;   
+              }  
+         j++;          
+              // Recorded scores
+              temp1 = localStorage.getItem("h" + i + "p" + j + "strokes4ball")
+              if (temp1 !== "-") {
+                  temp2 = localStorage.getItem("h" + i + "p" + j + "points4ball")
+                  document.getElementById("pppp" + i).innerText = temp1 + "/" + temp2;
+                  // do sliders
+                  document.getElementById("input" + i + "d").value = temp1;
+                  document.getElementById("value" + i + "d").innerText = temp1;
+                  // tick should show
+                  tick = "yes"        
+              } else {
+                  document.getElementById("pppp" + i).innerText = "-";
+                  document.getElementById("input" + i + "d").value = 0;
+                  document.getElementById("value" + i + "d").innerText = 0;   
+              }  
+              
+              document.getElementById("coll" + i).innerHTML = '<img src="tick1.png" alt="done" id="h' +
+                        i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' + "hole " + 
+                        arrCourse[i][0] + ", par " + arrCourse[i][1] + ", si " + arrCourse[i][2]
+               
+              document.getElementById("h" + i + "img").style.display = "none"
+              
+              
+              
+              
+             // console.log(tick)
+              // tick should show
+              if (tick == "yes") {
+                  document.getElementById("h" + i + "img").style.display = "block" 
+              }
+      }
+      // redo totals
+      totalsCalc()
+     
       
 }	
 	
