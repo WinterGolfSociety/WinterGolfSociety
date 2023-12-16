@@ -464,7 +464,7 @@
 			<div class="grid-container-frontscreen">
 				<div id="player4ballplayer">no players have been added</div>
 				<div id="player4ballname"></div>
-				<div id="player4ballhcp" contenteditable="true" oninput="editCheck(event)"></div>
+				<div id="player4ballhcp" onclick="editHCPs()"></div>
 			</div>
 			<div class="grid-container-frontscreen">
 				<div class="spacer1"></div>
@@ -2725,6 +2725,70 @@ function retrieveAllFromLocalStorage() {
      
       
 }	
+	
+	function editHCPs() {
+	
+	
+	before = document.getElementById("player4ballhcp").innerHTML
+	arrbefore = before.split("<br>")
+	
+        tempt = '<br />Edit hcps.';
+        tempt += '<br /><br />';
+        tempt += '<button id="minus1btn" onclick="hcpMinus(this.id)">-</button>';
+        tempt += '<button id="hcp1btn">' + arrbefore[0] + '</button>';
+        tempt += '<button id="plus1btn" onclick="hcpPlus(this.id)">+</button>';
+      tempt += '<br /><br />';
+        tempt += '<button id="minus2btn" onclick="hcpMinus(this.id)">-</button>';
+        tempt += '<button id="hcp2btn">' + arrbefore[1] + '</button>';
+        tempt += '<button id="plus2btn" onclick="hcpPlus(this.id)">+</button>';
+      
+      tempt += '<br /><br />';
+        tempt += '<button id="minus3btn" onclick="hcpMinus(this.id)">-</button>';
+        tempt += '<button id="hcp3btn">' + arrbefore[2] + '</button>';
+        tempt += '<button id="plus3btn" onclick="hcpPlus(this.id)">+</button>';
+      tempt += '<br /><br />';
+        tempt += '<button id="minus4btn" onclick="hcpMinus(this.id)">-</button>';
+        tempt += '<button id="hcp4btn">' + arrbefore[2] + '</button>';
+        tempt += '<button id="plus4btn" onclick="hcpPlus(this.id)">+</button>';
+      
+       tempt += '<br /><br />';
+        tempt += '<button onclick="finishHcpEdit()">finish</button>';
+      tempt += '<br /><br />';
+      
+      
+        document.getElementById("popuppanel").innerHTML = tempt;
+        //console.log(document.getElementById("id_confrmdiv").innerHTML);
+        document.getElementById("popuppanel").style.display = "block";
+      
+	}
+	
+	function hcpMinus(id) {
+	temp1 = document.getElementById(id.replace("minus","hcp")).innerText
+	console.log(temp1)
+	document.getElementById(id.replace("minus","hcp")).innerText = parseInt(temp1) - 1;
+	}
+	
+	
+	function hcpPlus(id) {
+	temp1 = document.getElementById(id.replace("plus","hcp")).innerText
+	console.log(temp1)
+	document.getElementById(id.replace("plus","hcp")).innerText = parseInt(temp1) + 1;
+	}
+	
+	function finishHcpEdit() {
+	document.getElementById("popuppanel").style.display = "none";
+	after = document.getElementById("hcp1btn").innerText + "<br>";
+	after += document.getElementById("hcp2btn").innerText + "<br>";
+	after += document.getElementById("hcp3btn").innerText + "<br>";
+	after += document.getElementById("hcp4btn").innerText;
+		
+	document.getElementById("player4ballhcp").innerHTML = after;
+	
+	}
+	
+	
+	
+	
 	
 	</script>
 </body>
