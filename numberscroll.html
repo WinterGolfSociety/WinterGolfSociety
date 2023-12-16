@@ -475,11 +475,19 @@
 	}
 	
 	#minus1btn, #minus2btn, #minus3btn, #minus4btn {
-	  font-size: 10vh;
+	  font-size: 8vh;
+	  color: dodgerBlue;
+		background-color: silver;
+		border-radius: 5px;
+		border: 1px solid #aaa;
 	}
 	
 	#plus1btn, #plus2btn, #plus3btn, #plus4btn {
-	  font-size: 5vh;
+	  font-size: 8vh;
+	  color: dodgerBlue;
+		background-color: silver;
+		border-radius: 5px;
+		border: 1px solid #aaa;
 	}
 	
 	.pnom {
@@ -2782,28 +2790,28 @@ function retrieveAllFromLocalStorage() {
         
         
         tempt += '<div class="pnom">' + player1name.substring(0, player1name.indexOf(' ')) + '</div>'   
-        tempt += '<div><button id="minus1btn" onclick="hcpMinus(this.id)">-</button></div>';
+        tempt += '<div id="minus1btn" onclick="hcpMinus(this.id)">-</div>';
         tempt += '<div id="hcp1btn">' + arrbefore[0] + '</div>';
-        tempt += '<div><button id="plus1btn" onclick="hcpPlus(this.id)">+</button></div>';
+        tempt += '<div id="plus1btn" onclick="hcpPlus(this.id)">+</div>';
         
         
       //tempt += '<br /><br />';
        tempt += '<div class="pnom">' + player2name.substring(0, player2name.indexOf(' ')) + '</div>'
-        tempt += '<div><button id="minus2btn" onclick="hcpMinus(this.id)">-</button></div>';
+        tempt += '<div id="minus2btn" onclick="hcpMinus(this.id)">-</div>';
         tempt += '<div id="hcp2btn">' + arrbefore[1] + '</div>';
-        tempt += '<div><button id="plus2btn" onclick="hcpPlus(this.id)">+</button></div>';
+        tempt += '<div id="plus2btn" onclick="hcpPlus(this.id)">+</div>';
       
     //  tempt += '<br /><br />';
       
        tempt += '<div class="pnom">' + player3name.substring(0, player3name.indexOf(' ')) + '</div>'
-        tempt += '<div><button id="minus3btn" onclick="hcpMinus(this.id)">-</button></div>';
+        tempt += '<div id="minus3btn" onclick="hcpMinus(this.id)">-</div>';
         tempt += '<div id="hcp3btn">' + arrbefore[2] + '</div>';
-        tempt += '<div><button id="plus3btn" onclick="hcpPlus(this.id)">+</button></div>';
+        tempt += '<div id="plus3btn" onclick="hcpPlus(this.id)">+</div>';
    //   tempt += '<br /><br />';
        tempt += '<div class="pnom">' + player4name.substring(0, player4name.indexOf(' ')) + '</div>'
-        tempt += '<div><button id="minus4btn" onclick="hcpMinus(this.id)">-</button></div>';
+        tempt += '<div id="minus4btn" onclick="hcpMinus(this.id)">-</div>';
         tempt += '<div id="hcp4btn">' + arrbefore[3] + '</div>';
-        tempt += '<div><button id="plus4btn" onclick="hcpPlus(this.id)">+</button></div>';
+        tempt += '<div id="plus4btn" onclick="hcpPlus(this.id)">+</div>';
       
       
       
@@ -2826,14 +2834,18 @@ function retrieveAllFromLocalStorage() {
 	function hcpMinus(id) {
 	temp1 = document.getElementById(id.replace("minus","hcp")).innerText
 	console.log(temp1)
-	document.getElementById(id.replace("minus","hcp")).innerText = parseInt(temp1) - 1;
+	if (temp1 !== "no hcp") {
+	    document.getElementById(id.replace("minus","hcp")).innerText = parseInt(temp1) - 1;
+	}
 	}
 	
 	
 	function hcpPlus(id) {
 	temp1 = document.getElementById(id.replace("plus","hcp")).innerText
 	console.log(temp1)
+	if (temp1 !== "no hcp") {
 	document.getElementById(id.replace("plus","hcp")).innerText = parseInt(temp1) + 1;
+	}
 	}
 	
 	function finishHcpEdit() {
