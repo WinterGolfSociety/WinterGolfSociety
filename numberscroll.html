@@ -1083,7 +1083,7 @@
 		<div class="content" id="content12">
 			<div class="grid-container">
 				<div class="bignumber" id="value12a">0</div>
-				<div class="player12name">Player 1</div>
+				<div class="player1name">Player 1</div>
 				<div class="slide">
 					<input type="range" class="input" id="input12a" oninput="update(this.id)" min="0" max="9" step="1" value="0"> </div>
 				<div class="player1points" id="points12a">no points</div>
@@ -2748,7 +2748,7 @@ function retrieveAllFromLocalStorage() {
         tempt += '<button id="plus3btn" onclick="hcpPlus(this.id)">+</button>';
       tempt += '<br /><br />';
         tempt += '<button id="minus4btn" onclick="hcpMinus(this.id)">-</button>';
-        tempt += '<button id="hcp4btn">' + arrbefore[2] + '</button>';
+        tempt += '<button id="hcp4btn">' + arrbefore[3] + '</button>';
         tempt += '<button id="plus4btn" onclick="hcpPlus(this.id)">+</button>';
       
        tempt += '<br /><br />';
@@ -2782,7 +2782,23 @@ function retrieveAllFromLocalStorage() {
 	after += document.getElementById("hcp3btn").innerText + "<br>";
 	after += document.getElementById("hcp4btn").innerText;
 		
-	document.getElementById("player4ballhcp").innerHTML = after;
+		
+		
+		
+		
+	console.log ("before " + hcplist)	
+	// hcplist changes #11#12#13#14 etc.
+	hcplist = after.replaceAll("<br>","#")	
+		console.log ("after " + hcplist)
+		
+		
+	document.getElementById("player4ballhcp").innerHTML = after;	
+		
+	player1hcp = document.getElementById("hcp1btn").innerText;	
+	player2hcp = document.getElementById("hcp2btn").innerText;
+	player3hcp = document.getElementById("hcp3btn").innerText;
+	player4hcp = document.getElementById("hcp4btn").innerText;	
+	
 	
 	}
 	
