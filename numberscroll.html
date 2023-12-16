@@ -463,6 +463,10 @@
 	#plus1btn, #plus2btn, #plus3btn, #plus4btn {
 	  font-size: 5vh;
 	}
+	
+	.pnom {
+	padding-right: 2vw;
+	}
 	</style>
 </head>
 
@@ -2750,19 +2754,25 @@ function retrieveAllFromLocalStorage() {
 	
         tempt = '<br />Edit hcps.';
         tempt += '<br /><br />';
+        
+        tempt += '<a class="pnom">' + player1name.substring(0, player1name.indexOf(' ')) + '</a>'
+        
         tempt += '<button id="minus1btn" onclick="hcpMinus(this.id)">-</button>';
         tempt += '<button id="hcp1btn">' + arrbefore[0] + '</button>';
         tempt += '<button id="plus1btn" onclick="hcpPlus(this.id)">+</button>';
       tempt += '<br /><br />';
+       tempt += '<a class="pnom">' + player2name.substring(0, player2name.indexOf(' ')) + '</a>'
         tempt += '<button id="minus2btn" onclick="hcpMinus(this.id)">-</button>';
         tempt += '<button id="hcp2btn">' + arrbefore[1] + '</button>';
         tempt += '<button id="plus2btn" onclick="hcpPlus(this.id)">+</button>';
       
       tempt += '<br /><br />';
+       tempt += '<a class="pnom">' + player3name.substring(0, player3name.indexOf(' ')) + '</a>'
         tempt += '<button id="minus3btn" onclick="hcpMinus(this.id)">-</button>';
         tempt += '<button id="hcp3btn">' + arrbefore[2] + '</button>';
         tempt += '<button id="plus3btn" onclick="hcpPlus(this.id)">+</button>';
       tempt += '<br /><br />';
+       tempt += '<a class="pnom">' + player4name.substring(0, player4name.indexOf(' ')) + '</a>'
         tempt += '<button id="minus4btn" onclick="hcpMinus(this.id)">-</button>';
         tempt += '<button id="hcp4btn">' + arrbefore[3] + '</button>';
         tempt += '<button id="plus4btn" onclick="hcpPlus(this.id)">+</button>';
