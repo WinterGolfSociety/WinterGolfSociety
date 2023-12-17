@@ -456,7 +456,7 @@
 		height: 5vh;
 	}
 	
-	#startscoring, #dawsonbutton, #lakesbutton, #oldcoursebutton {
+	#edithcps, #startscoring, #dawsonbutton, #lakesbutton, #oldcoursebutton {
 		color: white;
 		width: 100%;
 		height: 15vh;
@@ -465,6 +465,11 @@
 		background: dodgerBlue;
 		border-radius: 5px;
 	}
+	
+	#startscoring {
+	display: none;
+	}
+	
 	
 	#hcp1btn, #hcp2btn, #hcp3btn, #hcp4btn {
 	    font-size: 3vh;
@@ -509,7 +514,7 @@
 			<div class="grid-container-frontscreen">
 				<div id="player4ballplayer">no players have been added</div>
 				<div id="player4ballname"></div>
-				<div id="player4ballhcp" onclick="editHCPs()"></div>
+				<div id="player4ballhcp"></div>
 			</div>
 			<div class="grid-container-frontscreen">
 				<div class="spacer1"></div>
@@ -517,25 +522,33 @@
 				<div class="spacer1"></div>
 			</div>
 			
+			
+			<div class="grid-container-frontscreen">
+				<div></div>
+				<div>
+				        <button id="edithcps" onclick="editHCPs()">edit handicaps</button>
+				</div>
+				<div></div>
+				
+				<div></div>
+				<div>
+				        <button  id="startscoring" onclick="getScoring()">start scoring</button>
+				</div>
+				<div></div>
+				
+			</div>
+			
+			<div class="grid-container-frontscreen">
+				<div class="spacer1"></div>
+				<div class="spacer1"></div>
+				<div class="spacer1"></div>
+			</div>
 			<div class="grid-container-frontscreen">
 				<div><button id="dawsonbutton" onclick="chooseCourse(this.id)">Dawson</button></div>
 				<div><button id="lakesbutton" onclick="chooseCourse(this.id)">Lakes</button></div>
 				<div><button id="oldcoursebutton" onclick="chooseCourse(this.id)">OldCourse</button></div>
 			</div>
 			
-			<div class="grid-container-frontscreen">
-				<div class="spacer1"></div>
-				<div class="spacer1"></div>
-				<div class="spacer1"></div>
-			</div>
-			
-			<div class="grid-container-frontscreen">
-				<div></div>
-				<div onclick="getScoring()">
-					<button id="startscoring">start scoring</button>
-				</div>
-				<div></div>
-			</div>
 		</div>
 		<!--
 
@@ -2350,6 +2363,11 @@
                document.getElementById("h" + i + "img").style.display = "none"
            }	
            
+           
+           document.getElementById("startscoring").style.display = "block";
+           
+           
+           
 	}
 	
 	// helper function to deep copy array
@@ -2776,7 +2794,8 @@ function retrieveAllFromLocalStorage() {
 }	
 	
 	function editHCPs() {
-	
+	console.log(document.getElementById("player4ballhcp").innerText)
+	if (document.getElementById("player4ballplayer").innerText !== "no players have been added") {
 	
 	before = document.getElementById("player4ballhcp").innerHTML
 	arrbefore = before.split("<br>")
@@ -2829,6 +2848,10 @@ function retrieveAllFromLocalStorage() {
         //console.log(document.getElementById("id_confrmdiv").innerHTML);
         document.getElementById("popuppanel").style.display = "block";
       
+      
+      
+      
+        } // end if      
 	}
 	
 	function hcpMinus(id) {
@@ -2861,7 +2884,7 @@ function retrieveAllFromLocalStorage() {
 		
 	console.log ("before " + hcplist)	
 	// hcplist changes #11#12#13#14 etc.
-	hcplist = after.replaceAll("<br>","#")	
+	hcplist = after.replaceAll("<br>","#").replaceAll("#no hcp","")	
 		console.log ("after " + hcplist)
 		
 		
