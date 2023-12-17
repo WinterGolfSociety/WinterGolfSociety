@@ -155,7 +155,7 @@
 		border-radius: 5px;
 		
 		
-		box-shadow: inset 0px 0px 5px 5px rgba(169, 168, 169,0.4);
+	//	box-shadow: inset 0px 0px 5px 5px rgba(169, 168, 169,0.4);
 		
 		
 		
@@ -566,7 +566,7 @@
 <div id="popuppanel"></div>
 --></div>
 	<div id="all">
-		<button type="button" class="collapsible" id="coll0" onclick="recordScores(this.id)">Recorded scores</button>
+		<button type="button" class="collapsible" id="coll0" onclick="recordScores(this.id)">Scores</button>
 		<div class="content" id="content0">
 			<div class="grid-container-top">
 				<div class="small">hole</div>
@@ -2434,7 +2434,7 @@
            }
            
            // update button to show course
-           document.getElementById("coll0").innerText = "Recorded scores for " + compcourse;
+           document.getElementById("coll0").innerText = "Scores for " + compcourse;
 	}
 	
 	// helper function to deep copy array
@@ -2856,7 +2856,7 @@ function retrieveAllFromLocalStorage() {
       }
       
       // update button to show course
-      document.getElementById("coll0").innerText = "Recorded scores for " + compcourse;
+      document.getElementById("coll0").innerText = "Scores for " + compcourse;
       
       // redo totals
       totalsCalc()
