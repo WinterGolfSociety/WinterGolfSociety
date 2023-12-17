@@ -340,14 +340,14 @@
 	.dropdown-content {
 		display: none;
 		position: absolute;
-		background-color: #f1f1f1;
+		background-color: white;
 		min-width: 160px;
 		overflow: auto;
 		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 		z-index: 1;
 		border-radius: 3px;
 		box-shadow: 10px 10px 25px black;
-		max-height: 90vh;
+		max-height: 50vh;
 	}
 	
 	.dropdown-content a {
@@ -503,11 +503,21 @@
 	}
 	
 	.pnom {
-	color: black;
+	        color: black;
 		background-color: silver;
 		border-radius: 5px;
 		border: 1px solid #aaa;
 	}
+	
+	#my-form,
+        #my-response-iframe {
+            display: none;
+            height: 20px;
+            width: 60px;
+        }
+	
+	
+	
 	</style>
 </head>
 
@@ -1452,6 +1462,35 @@
 		<!-- content -->
 
 	</div>
+	
+	
+	<!--
+	invisible nut necessary for submit of data
+	-->
+	
+	 <!-- form to construct data prior to submit -->
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSdqW6j0CDZA8gOpRn3Wew6KNKkeEf1T6w2-f0qKgwacddblkA/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+    <!-- name, hcp, course -->
+    <input id='mx867055232' name='entry.867055232' type='text' value='default'>
+    <input id='mx2105479454' name='entry.2105479454' type='text' value='default'>
+   
+    <input type="submit"> </form>
+  <!-- google iframe inserted here - invisible -->
+  <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdqW6j0CDZA8gOpRn3Wew6KNKkeEf1T6w2-f0qKgwacddblkA/viewform?embedded=true" width="60"></iframe>
+  <br>
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<script>
 	
 	
@@ -1472,6 +1511,10 @@
 	var player3hcp = 0;
 	var player4hcp = 0;
 	
+	var originalhcp1 = 0;
+	var originalhcp2 = 0;
+	var originalhcp3 = 0;
+	var originalhcp4 = 0;
 	
 	 // set up courses with details for calculations etc.
     // array ["hole num",par,si]
@@ -1547,39 +1590,10 @@
 	var compday = "no";
 	var arrCourse = [];
 	var arrComps = [];
+	var arrHCP = [];
 	var arrPlayers = [];
         var compcourse = "none";
         var compdate = "";
-	
-	// either start again or retrieve from localStorage 
-	/*
-	       localStorage structure
-	date4ball      eg 26 June
-	course4ball    eg Lakes
-	p1name4ball    eg Bryan Maddison
-	p2name4ball
-	p3name4ball
-	p4name4ball
-	p1hcp4ball     eg 23
-	p2hcp4ball
-	p3hcp4ball
-	p4hcp4ball
-	p1h1score4ball eg 5
-	..to..
-	p4h18score4ball
-
-	*/
-	
-	// if same date ask if using saved data
-	
-	
-	
-
-	// if new date, clear and begin anew
-	
-	 
-	//localStorage.clear();
-	
 	
 	
 	// disable backbutton
@@ -1632,63 +1646,37 @@
       document.getElementById("popuppanel").style.display = "block";
       }
       showDownloadingWait()	
-	
-	
-	
-	
-	
-	//=============================================================
-	// function downloader()
-	// - gets data to create arrays for players, hcps, comps
-	// - papaparse uses HTML5's filereader API to get csv file
-	//=============================================================  
-	function downloader() {
-	
-          //      showDownloadingInfoMsg()
 
-		// setupcsv
-		var public_hcp_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pub?gid=581380869&single=true&output=csv";
-		var strng1 = "strng1"; // player
-		var strng2 = "strng2"; // hcp
-		var strng3 = "strng3"; // comp
-		i = 0;
-		try {
-			// if it fails after 20 seconds, put up error message
-			setTimeout(function() {
-				if(!(arrPlayers.length) > 0) {
-					alert("failed");
-				}
-			}, 20000);
-			Papa.parse(public_hcp_url, {
-				download: true,
-				header: true,
-				step: function(results, parser) {
-					strng1 = results.data.players;
-					strng2 = results.data.hcp;
-					strng3 = results.data.comps;
-					// add row to create menu - [player,0,hcp]
-					arrPlayers.push([strng1, 0, strng2]);
-					// get the comp dates and venues
-					if(strng3.length > 0) {
-						arrComps[i] = strng3;
-					}
-					i++
-				},
-				complete: function() {
-				start();
-				showRecoverChoice()
-					
-				}
-			})
-		} // end try
-		catch(err) {
-			console.log("bryan: " + err.message);
-		}
-	}
-	//=============================================================
-	// run downloder() function 
-	//=============================================================
-	downloader();
+
+async function getData() {
+
+var dataStream = await fetch(
+  "https://opensheet.elk.sh/1xeS22CrN3Mdq2nRQLACDBN7iaMSBJ7MM1PX7gikWOJM/sweepcsv"
+)
+
+var resultsarray = await dataStream.json();
+
+
+
+// get rid of blanks in array by creating new arrays
+for (var i = 0; i < resultsarray.length; i++) {
+    if (resultsarray[i].player.length > 2) { 
+        arrPlayers.push(resultsarray[i].player);
+        arrHCP.push(resultsarray[i].hcp);
+    }
+}
+
+
+
+
+start();
+showRecoverChoice()
+
+}
+getData()
+
+
+	
 	//=============================================================
 	//=============================================================
 	// function start()
@@ -1696,23 +1684,24 @@
 	//=============================================================  
 	function start() {
 		// bring most commonly selected to the top
-		arrPlayers.sort(compareSecondColumn);
+		//arrPlayers.sort(compareSecondColumn);
 		// create player dropdown
 		var select = document.getElementById("playersDropdown");
 		// this is what is created
 		//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
 		//
+		
 		for(var i = 0; i < arrPlayers.length; i++) {
 			var el = document.createElement("a");
 			el.id = "myLink" + (i);
 			el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
 			el.setAttribute("href", "#");
-			el.innerText = arrPlayers[i][0];
+			el.innerText = arrPlayers[i];
 			select.appendChild(el);
-			if(arrPlayers[i][1] > 0) {
-				document.getElementById("myLink" + (i)).style.color = "blue";
-				document.getElementById("myLink" + (i)).style.background = "lightBlue";
-			}
+			//if(arrPlayers[i] > 0) {
+			//	document.getElementById("myLink" + (i)).style.color = "blue";
+			//	document.getElementById("myLink" + (i)).style.background = "lightBlue";
+			//}
 		}
 		// Close the dropdown if the user clicks outside of it
 		window.onclick = function(event) {
@@ -1775,50 +1764,7 @@
 		//dateToday = d1 + " " + m;
 		compdate = d1 + " " + m;
 		
-		
-		
-		
-		// tidy localStorage if out of date to allow new "blank" setup
-		// tidy
-		//    clearCache();
-		// recover data if dates match
-		// this allows data to be kept over refreshes
-		// recover
-		//recoverFromLocalStorage();
-		/*
-		   
-		        if (arrComps[i].indexOf("Lakes") > -1) {
-		          // global course
-		          course = "Lakes";
-		          // localStorage course
-		          localStorage.course = "Lakes";
-		        }
-		        if (arrComps[i].indexOf("Dawson") > -1) {
-		          // global course
-		          course = "Dawson";
-		          // localStorage course
-		          localStorage.course = "Dawson";
-		        }
-		        if (arrComps[i].indexOf("OldCourse") > -1) {
-		          // global course
-		          course = "OldCourse";
-		          // localStorage course
-		          localStorage.course = "OldCourse";
-		        }
-		  */
-		
-		
-		
-		
-		
-		// update localStorage
-//		localStorage.date4ball = datetoday;
-		
-		
-		
-		
-		
-		
+ 		
 	} // end function start()
 	//=============================================================
 	// functions - run when called
@@ -1828,8 +1774,7 @@
 	// - gets rid of "selected" names
 	//=============================================================  
 	function resetNames() {
-		// bring most commonly selected to the top
-		arrPlayers.sort(compareSecondColumn);
+	
 		// create player dropdown
 		var select = document.getElementById("playersDropdown");
 		// empty names
@@ -1842,63 +1787,33 @@
 			el.id = "myLink" + (i + 1);
 			el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
 			el.setAttribute("href", "#");
-			el.innerText = arrPlayers[i][0];
+			el.innerText = arrPlayers[i];
 			select.appendChild(el);
 		}
 	}
-	//=============================================================
-	// function compareSecondColumn()
-	// - sort function to sort by second array item in 2D array
-	//=============================================================  
-	function compareSecondColumn(a, b) {
-		if(a[1] === b[1]) {
-			return 0;
-		} else {
-			return(a[1] > b[1]) ? -1 : 1;
-		}
-	}
+
 	// name selected, do stuff
 	function dropSelected(playerName) {
-		if(playerName == "reset list") {
-			resetNames();
-		} else {
+		
 			// retrieve dropdown info
-			//      var arrPlayers = JSON.parse(localStorage.dropdown4ball);
+			//var arrPlayers = JSON.parse(localStorage.dropdown4ball);
 			for(var k = 0; k < arrPlayers.length; k++) {
-				if(arrPlayers[k][0] == playerName) {
+				if(arrPlayers[k] == playerName) {
 					found = true;
 					pos = k;
 				}
 			}
+			
+		
 			// change color on selection
 			document.getElementById("myLink" + pos.toString()).style.color = "blue";
 			document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
 			// update player choice
-			player2submit = document.getElementById("myLink" + pos.toString()).innerText;
-			if(pos >= 0) {
-				// increment number of times chosen
-				var tc = parseInt(arrPlayers[pos][1]) + 1;
-				arrPlayers[pos][1] = tc;
-				// store new order
-				//=====LocalStorage.dropdown====================
-				localStorage.dropdown4ball = JSON.stringify(arrPlayers);
-				//==============================================
-				// global player
-				player = playerName;
-				//=====LocalStorage.guessPlayer=====
-				//localStorage.guessPlayer = player;
-				//=============================
-			}
+			player = document.getElementById("myLink" + pos.toString()).innerText;
+			
 			outputPlayers(player)
-				// update player choices
-				// reset hole scores
-				//=====LocalStorage.player=====
-			//localStorage.player = player;
-			//=============================
-			//=====LocalStorage.guessPlayer=====
-			//localStorage.guessPlayer = player;
-			//=============================
-			player2submit = player;
+				
+			
 			// close dropdown
 			var dropdowns = document.getElementsByClassName("dropdown-content");
 			var i;
@@ -1908,8 +1823,8 @@
 					openDropdown.classList.remove('show');
 				}
 			}
-			//doGetHCP();
-		}
+			
+		
 	}
 	//=============================================================
 	// function toggleDropdown()
@@ -1942,9 +1857,6 @@
 
 
 	function body() {
-		//course = JSON.parse(JSON.stringify(arrOldCourse));
-		
-		
 		
 		var collection = document.getElementsByClassName("player1name");
 		for(i = 0; i < collection.length; i++) {
@@ -1972,6 +1884,7 @@
 	}
 
 	function recordScores(id) {
+	
 		//eg. id = coll1
 		// if content is open, close and reset things
 		if(document.getElementById(id.replace("coll", "content")).style.display == "initial") {
@@ -2001,40 +1914,12 @@
 				document.getElementById(id.replace("coll", "pppp")).innerText = s4 + "/" + p4
 					// to localStorage eg p1h1score,5
 				
-				/*
-				localStorage.setItem("p1h" + h + "score", s1 + "/" + p1)
-				localStorage.setItem("p2h" + h + "score", s2 + "/" + p2)
-				localStorage.setItem("p3h" + h + "score", s3 + "/" + p3)
-				localStorage.setItem("p4h" + h + "score", s4 + "/" + p4)
-				*/
+			
 					// redo totals
 				totalsCalc()
-				
-				
-				
-				
-				
-				
-				
-				
-				
+
 				saveAllToLocalStorage()
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+		
 				
 			}
 		} else {
@@ -2211,65 +2096,15 @@
 		}
 		document.getElementById(id.replace("input", "points")).innerText = nstring;
 	}
-	// recover functions ===================================================================
-	// runs per player, per hole
-	function recoverRecordedScores(lshole) {
-		//eg. p1h1score
-		templshole = localStorage.getItem(lshole)
-			// get hole
-		temphole = lshole.substr(3).replace("score", "")
-			// get score
-		tempscore = templshole.substr(0, 1)
-			// get points
-		temppoints = templshole.substr(2, 1)
-			// update slider value (eg input3a) with score
-		if(lshole.substr(1, 1) == "1") {
-			tempplayer = "a"
-			ps = "p"
-		}
-		if(lshole.substr(1, 1) == "2") {
-			tempplayer = "b"
-			ps = "pp"
-		}
-		if(lshole.substr(1, 1) == "3") {
-			tempplayer = "c"
-			ps = "ppp"
-		}
-		if(lshole.substr(1, 1) == "4") {
-			tempplayer = "d"
-			ps = "pppp"
-		}
-		// run processes
-		// at this point, save scores
-		document.getElementById("input" + temphole + tempplayer).value = tempscore
-			// bignumber
-		document.getElementById("value" + temphole + tempplayer).innerText = tempscore
-			// calc points
-		var p1 = pointsCalc(player1hcp, arrCourse[temphole][1], arrCourse[temphole][2], tempscore)
-			// update recorded scores
-		document.getElementById(ps + temphole).innerText = tempscore + "/" + p1
-			// update msg about points
-		if(p1 == 1) {
-			var nstring = p1 + " point";
-		} else {
-			var nstring = p1 + " points"
-		}
-		if(p1 <= 0) {
-			var nstring = "no points";
-		}
-		document.getElementById("points" + temphole + tempplayer).innerText = nstring;
-		// do tick
-		alert("do tick")
-		document.getElementById("h" + temphole + "img").style.display = "block"
-	}
+
 
 	function outputPlayers(msg) {
 		// msg is player name eg "Bryan Maddison"
 		// find HCP
 		var hcp;
 		for(var i = 0, len = arrPlayers.length; i < len; i++) {
-			if(arrPlayers[i][0] === msg) {
-				hcp = arrPlayers[i][2];
+			if(arrPlayers[i] === msg) {
+				hcp = arrHCP[i];
 				break;
 			}
 		}
@@ -2393,6 +2228,69 @@
 		    document.getElementById("ppppb").style.visibility = "hidden";
 		    document.getElementById("ppppt").style.visibility = "hidden"; 
 		}
+			
+		 
+		// submit new data - asychronous after first so does not cause a delay
+	
+	
+	
+	
+	
+	
+	
+	for(var i = 0, len = arrPlayers.length; i < len; i++) {
+			if(arrPlayers[i] === player1name) {
+				originalhcp1 = arrHCP[i];
+				//console.log(originalhcp1 + " = " + player1hcp)
+				if (originalhcp1 !== player1hcp) {
+				    document.getElementById('mx867055232').value = player1name;	
+		                    document.getElementById('mx2105479454').value = player1hcp;
+		                    document.forms[0].submit();	
+				}	
+			}
+			// delay others
+			delay = 2000
+			
+			if(arrPlayers[i] === player2name) {
+				originalhcp2 = arrHCP[i];
+				//console.log(originalhcp2 + " = " + player2hcp)
+				if (originalhcp2 !== player2hcp) {
+				setTimeout(function(){
+				    document.getElementById('mx867055232').value = player2name;	
+		                    document.getElementById('mx2105479454').value = player2hcp;
+		                    document.forms[0].submit();	
+				}, delay);
+				delay = (delay + 2000);
+				} 
+			}
+			if(arrPlayers[i] === player3name) {
+				originalhcp3 = arrHCP[i];
+				//console.log(originalhcp3 + " = " + player3hcp)
+				if (originalhcp3 !== player3hcp) {
+				setTimeout(function(){
+				    document.getElementById('mx867055232').value = player3name;	
+		                    document.getElementById('mx2105479454').value = player3hcp;
+		                    document.forms[0].submit();	
+				}, delay);
+				delay = (delay + 2000);
+				} 
+			}
+			if(arrPlayers[i] === player4name) {
+				originalhcp4 = arrHCP[i];
+				//console.log(originalhcp4 + " = " + player4hcp)
+				if (originalhcp4 !== player4hcp) {
+				setTimeout(function(){
+				    document.getElementById('mx867055232').value = player4name;	
+		                    document.getElementById('mx2105479454').value = player4hcp;
+		                    document.forms[0].submit();	
+				}, delay);
+				}
+			}
+			
+	}
+		
+	
+	
 			
 		// initial save of data
 		saveAllToLocalStorage()		
@@ -2701,33 +2599,10 @@ function saveAllToLocalStorage() {
           localStorage.setItem("pppptpoints4ball", "-")
       }
       
- /*     // do green ticks
-      for(i = 1; i <= 18; i++) {
-               document.getElementById("coll" + i).innerHTML = '<img src="tick1.png" alt="done" id="h' +
-                        i + 'img" style="height: 3vmax; width: 3vmax; float: right;">' + "hole " + 
-                        arrCourse[i][0] + ", par " + arrCourse[i][1] + ", si " + arrCourse[i][2]
-               document.getElementById("h" + i + "img").style.display = "none"
-      }
-      
-*/      
-      
-      
+   
 }	
 	
 	
-function xxxretrieveAllFromLocalStorage() {
-	// do recover - why ?
-		// loop through all scores and retrieve valid ones
-		for(i = 1; i <= 18; i++) {
-			for(j = 1; j <= 4; j++) {
-				if("p" + j + "h" + i + "score" in localStorage) {
-					recoverRecordedScores("p" + j + "h" + i + "score")
-				}
-			}
-		}
-		// redo totals
-		totalsCalc()
-}	
 	
 	
 	
@@ -2961,27 +2836,17 @@ function retrieveAllFromLocalStorage() {
 	player3hcp = document.getElementById("hcp3btn").innerText;
 	player4hcp = document.getElementById("hcp4btn").innerText;	
 	
-	
+
 	}
 	
 	
 function clearLocalStorage() {
-
 for (const [key, value] of Object.entries(localStorage)) {
-  
    if (key.indexOf("4ball") > -1) {
-        console.log(key, value);
+        //console.log(key, value);
         localStorage.removeItem(key);
    }
-   
-   
-   
-   
-   
 }
-
-
-
 }
 	
 	
