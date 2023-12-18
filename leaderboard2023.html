@@ -89,6 +89,19 @@ var arrPlayer = []
 var arrPoints = []
 var arrTwos = []
 var arrPlayerOld = [];
+
+var dd = new Date();
+var dddate = dd.getDate();
+var ddmonth = dd.getMonth();
+if (!("lbdatecheck" in localStorage)) {
+    localStorage.lbdatecheck = "0";
+}
+
+if (localStorage.lbdatecheck != dddate+ddmonth) {
+    localStorage.lbdatecheck = dddate+ddmonth;
+    localStorage.removeItem("lbarray");
+}
+
 getData();
 async function getData() {
 	var dataStream = await fetch("https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard")
