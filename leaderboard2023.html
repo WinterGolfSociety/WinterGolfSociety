@@ -105,7 +105,7 @@ if (localStorage.lbdatecheck != dddate + "-" + ddmonth) {
 getData();
 
 async function getData() {
-	var dataStream = await fetch("https://opensheet.elk.sh/1uIiDAX46VsHb_L17iI0p259sao7cJfuLIC-5Qec-lk4/Leaderboard")
+	var dataStream = await fetch("https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard")
 	var resultsarray = await dataStream.json();
 	// get rid of blanks in array by creating new arrays
 	for(var i = 0; i < resultsarray.length; i++) {
