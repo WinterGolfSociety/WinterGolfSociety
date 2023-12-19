@@ -1531,12 +1531,21 @@
     // do stuff when swiped
     function checkDirection() {
       if (touchendX < touchstartX) {
-        console.log("here 1")
+        console.log("left swipe")
           // prevent some false messages
           if ((touchstartX - touchendX) > 100) {
             console.log("setting unlocked to yes");
             alert("setting unlocked to yes")
             unlocked = "yes";
+          }
+      }
+      if (touchendX > touchstartX) {
+        console.log("right swipe")
+          // prevent some false messages
+          if ((touchstartX - touchendX) > 100) {
+            console.log("setting unlocked to no");
+            alert("setting unlocked to no")
+            unlocked = "no";
           }
       }
     }
@@ -1955,7 +1964,7 @@ getData()
 	}
 
 	function recordScores(id) {
-	alert(unlocked);
+	
 	        if (unlocked  == "yes") {
 		//eg. id = coll1
 		// if content is open, close and reset things
