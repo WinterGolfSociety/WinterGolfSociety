@@ -259,7 +259,7 @@
 	}
 	
 	.small {
-		font-size: 2vh;
+		font-size: 1.5vh;
 	}
 	
 	.scroll {
@@ -1462,6 +1462,19 @@
 		<!-- content -->
 
 	</div>
+
+<!-- lock screen testing -->
+	<div id="lockscreen">
+			<div class="grid-container-frontscreen">
+				<div id="x1"></div>
+				<div id="x2"></div>
+				<div id="x3"></div>
+			</div>
+	</div>
+
+
+
+
 	
 	
 	<!--
@@ -1498,6 +1511,53 @@
 	window.onbeforeunload = function(event) {
   event.returnValue = "Write something clever here..";
 };
+	var unlocked = "no";
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    //=================================================
+    // look after swipes etc.
+    // global keep track of swipes
+    //=================================================
+    var touchstartX = 0;
+    var touchendX = 0;
+    // do stuff when swiped
+    function checkDirection() {
+      if (touchendX < touchstartX) {
+        console.log("here 1")
+          // prevent some false messages
+          if ((touchstartX - touchendX) > 100) {
+            console.log("setting locked to yes");
+          }
+        }
+      }
+    }
+    document.addEventListener('touchstart', e => {
+      touchstartX = e.changedTouches[0].screenX;
+    });
+    document.addEventListener('touchend', e => {
+      touchendX = e.changedTouches[0].screenX;
+      checkDirection();
+    });
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -1893,7 +1953,8 @@ getData()
 	}
 
 	function recordScores(id) {
-	
+	alert(unlocked);
+	        if (unlocked  == "yes") {
 		//eg. id = coll1
 		// if content is open, close and reset things
 		if(document.getElementById(id.replace("coll", "content")).style.display == "initial") {
@@ -1949,6 +2010,10 @@ getData()
 				document.getElementById(id.replace("coll", "h") + "img").style.display = "block"
 			}
 		}
+		
+		} // unlocked
+		
+		
 	}
 	// convert scores to stableford points
 	function pointsCalc(hcp, par, si, score) {
