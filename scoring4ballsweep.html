@@ -1540,10 +1540,10 @@ var unlocked = "no";
     function lockUnlock() {
     if (unlocked == "yes") {
         unlocked = "no";
-        document.getElementById("padlocktxt").innerHTML = "locked" + '<img src="padlock.png" alt="done" id="padlock" onclick="lockUnlock()" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+        document.getElementById("padlocktxt").innerHTML = "locked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
     } else {
         unlocked = "yes";
-         document.getElementById("padlocktxt").innerHTML = "unlocked" + '<img src="padlock.png" alt="done" id="padlock" onclick="lockUnlock()" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+         document.getElementById("padlocktxt").innerHTML = "unlocked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
     }
 
     }	
@@ -2095,29 +2095,29 @@ getData()
 			}
 		}
 		document.getElementById("pf").innerText = p1front.toString() + 
-		         " (" + p1frontpoints.toString() + ")";
+		         "(" + p1frontpoints.toString() + ")";
 		document.getElementById("ppf").innerText = p2front.toString() +
-		         " (" + p2frontpoints.toString() + ")";
+		         "(" + p2frontpoints.toString() + ")";
 		document.getElementById("pppf").innerText = p3front.toString() +
-		         " (" + p3frontpoints.toString() + ")";
+		         "(" + p3frontpoints.toString() + ")";
 		document.getElementById("ppppf").innerText = p4front.toString() +
-		         " (" + p4frontpoints.toString() + ")";
+		         "(" + p4frontpoints.toString() + ")";
 		document.getElementById("pb").innerText = p1back.toString() +
-		         " (" + p1backpoints.toString() + ")";
+		         "(" + p1backpoints.toString() + ")";
 		document.getElementById("ppb").innerText = p2back.toString() +
-		         " (" + p2backpoints.toString() + ")";
+		         "(" + p2backpoints.toString() + ")";
 		document.getElementById("pppb").innerText = p3back.toString() +
-		         " (" + p3backpoints.toString() + ")";
+		         "(" + p3backpoints.toString() + ")";
 		document.getElementById("ppppb").innerText = p4back.toString() +
-		         " (" + p4backpoints.toString() + ")";
+		         "(" + p4backpoints.toString() + ")";
 		document.getElementById("pt").innerText = (p1front + p1back).toString() +
-		         " (" + (p1frontpoints + p1backpoints).toString() + ")";
+		         "(" + (p1frontpoints + p1backpoints).toString() + ")";
 		document.getElementById("ppt").innerText = (p2front + p2back).toString() +
-		         " (" + (p2frontpoints + p2backpoints).toString() + ")";
+		         "(" + (p2frontpoints + p2backpoints).toString() + ")";
 		document.getElementById("pppt").innerText = (p3front + p3back).toString() +
-		         " (" + (p3frontpoints + p3backpoints).toString() + ")";
+		         "(" + (p3frontpoints + p3backpoints).toString() + ")";
 		document.getElementById("ppppt").innerText = (p4front + p4back).toString() +
-		         " (" + (p4frontpoints + p4backpoints).toString() + ")";
+		         "(" + (p4frontpoints + p4backpoints).toString() + ")";
 	}
 	// runs when slider moves
 	// update big number     
@@ -2537,7 +2537,7 @@ function saveAllToLocalStorage() {
       // save totals
       temp1 = document.getElementById("pf").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("pfstrokes4ball", temp1array[0])
           localStorage.setItem("pfpoints4ball", temp1array[1])
       } else {    
@@ -2547,7 +2547,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("ppf").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("ppfstrokes4ball", temp1array[0])
           localStorage.setItem("ppfpoints4ball", temp1array[1])
       } else {    
@@ -2557,7 +2557,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("pppf").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("pppfstrokes4ball", temp1array[0])
           localStorage.setItem("pppfpoints4ball", temp1array[1])
       } else {    
@@ -2567,7 +2567,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("ppppf").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("ppppfstrokes4ball", temp1array[0])
           localStorage.setItem("ppppfpoints4ball", temp1array[1])
       } else {    
@@ -2578,7 +2578,7 @@ function saveAllToLocalStorage() {
       
        temp1 = document.getElementById("pb").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("pbstrokes4ball", temp1array[0])
           localStorage.setItem("pbpoints4ball", temp1array[1])
       } else {    
@@ -2588,7 +2588,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("ppb").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("ppbstrokes4ball", temp1array[0])
           localStorage.setItem("ppbpoints4ball", temp1array[1])
       } else {    
@@ -2598,7 +2598,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("pppb").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("pppbstrokes4ball", temp1array[0])
           localStorage.setItem("pppbpoints4ball", temp1array[1])
       } else {    
@@ -2608,7 +2608,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("ppppb").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("ppppbstrokes4ball", temp1array[0])
           localStorage.setItem("ppppbpoints4ball", temp1array[1])
       } else {    
@@ -2619,7 +2619,7 @@ function saveAllToLocalStorage() {
       
        temp1 = document.getElementById("pt").innerText
       if (temp1.indexOf("(") > -1) {
-         temp1array = temp1.replace(")","").split(" (")
+         temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("ptstrokes4ball", temp1array[0])
           localStorage.setItem("ptpoints4ball", temp1array[1])
       } else {    
@@ -2629,7 +2629,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("ppt").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("pptstrokes4ball", temp1array[0])
           localStorage.setItem("pptpoints4ball", temp1array[1])
       } else {    
@@ -2639,7 +2639,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("pppt").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("ppptstrokes4ball", temp1array[0])
           localStorage.setItem("ppptpoints4ball", temp1array[1])
       } else {    
@@ -2649,7 +2649,7 @@ function saveAllToLocalStorage() {
       
       temp1 = document.getElementById("ppppt").innerText
       if (temp1.indexOf("(") > -1) {
-          temp1array = temp1.replace(")","").split(" (")
+          temp1array = temp1.replace(")","").split("(")
           localStorage.setItem("pppptstrokes4ball", temp1array[0])
           localStorage.setItem("pppptpoints4ball", temp1array[1])
       } else {    
