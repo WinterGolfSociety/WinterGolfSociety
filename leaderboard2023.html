@@ -163,18 +163,10 @@ async function getData() {
 				document.getElementById("twos" + i).innerHTML = displaytwos
 			} else {
 				// new player
-				if (firstrun == "yes") {
-				    displaypos = arrPos[i] + "<br>";
-				    displayplayer = arrPlayer[i] + "<br>";
-				    displaypoints = arrPoints[i] + "<br>";
-				    displaytwos = arrTwos[i] + "<br>";
-                                    firstrun = "no";
-				} else {
-				    displaypos = '<p style="color:cyan">' + arrPos[i] + "</p>";
-				    displayplayer = '<p style="color:cyan">' + arrPlayer[i] + "</p>";
-				    displaypoints = '<p style="color:cyan">' + arrPoints[i] + "</p>";
-				    displaytwos = '<p style="color:cyan">' + arrTwos[i] + "</p>";
-				}    
+				displaypos = '<p style="color:cyan">' + arrPos[i] + "</p>";
+				displayplayer = '<p style="color:cyan">' + arrPlayer[i] + "</p>";
+				displaypoints = '<p style="color:cyan">' + arrPoints[i] + "</p>";
+				displaytwos = '<p style="color:cyan">' + arrTwos[i] + "</p>";
 				document.getElementById("pos" + i).innerHTML = displaypos
 				document.getElementById("player" + i).innerHTML = displayplayer
 				document.getElementById("points" + i).innerHTML = displaypoints
