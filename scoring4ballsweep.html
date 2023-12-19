@@ -1542,7 +1542,7 @@
       if (touchendX > touchstartX) {
         console.log("right swipe")
           // prevent some false messages
-          if ((touchendX - touchdtsrtX) > 100) {
+          if ((touchendX - touchstartX) > 100) {
             console.log("setting unlocked to no");
             alert("setting unlocked to no")
             unlocked = "no";
