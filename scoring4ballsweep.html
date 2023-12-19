@@ -1531,23 +1531,23 @@
     // do stuff when swiped
     function checkDirection() {
       if (touchendX < touchstartX) {
-        console.log("left swipe")
+        //console.log("left swipe")
           // prevent some false messages
           if ((touchstartX - touchendX) > 100) {
-            console.log("setting unlocked to yes");
+          //  console.log("setting unlocked to yes");
             unlocked();
             //alert("setting unlocked to yes")
-            unlocked = "yes";
+            //unlocked = "yes";
           }
       }
       if (touchendX > touchstartX) {
-        console.log("right swipe")
+        //console.log("right swipe")
           // prevent some false messages
           if ((touchendX - touchstartX) > 100) {
-            console.log("setting unlocked to no");
+            //console.log("setting unlocked to no");
             //alert("setting unlocked to no")
             locked();
-            unlocked = "no";
+            //unlocked = "no";
           }
       }
     }
@@ -1562,7 +1562,7 @@
 
     function locked() {
     unlocked = "no";
-    
+    alert("right swipe")
     tempt = '<br /> swipe left to unlock.';
     tempt += '<br /><br />';
       
@@ -1575,7 +1575,7 @@
     
     function unlocked() {
     unlocked = "yes";
-    
+    alert("left swipe")
     tempt = '<br /> swipe right to lock.';
     tempt += '<br /><br />';
       
