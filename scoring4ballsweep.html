@@ -1535,7 +1535,8 @@
           // prevent some false messages
           if ((touchstartX - touchendX) > 100) {
             console.log("setting unlocked to yes");
-            alert("setting unlocked to yes")
+            unlocked();
+            //alert("setting unlocked to yes")
             unlocked = "yes";
           }
       }
@@ -1544,7 +1545,8 @@
           // prevent some false messages
           if ((touchendX - touchstartX) > 100) {
             console.log("setting unlocked to no");
-            alert("setting unlocked to no")
+            //alert("setting unlocked to no")
+            locked();
             unlocked = "no";
           }
       }
@@ -1558,7 +1560,31 @@
       checkDirection();
     });
 
-	
+    function locked() {
+    unlocked = "no";
+    
+    tempt = '<br /> swipe left to unlock.';
+    tempt += '<br /><br />';
+      
+    document.getElementById("popuppanel").innerHTML = tempt;
+    document.getElementById("popuppanel").style.display = "block";
+    
+    setTimeout(document.getElementById("popuppanel").style.display = "none";,2000);
+      
+    }
+    
+    function unlocked() {
+    unlocked = "yes";
+    
+    tempt = '<br /> swipe right to lock.';
+    tempt += '<br /><br />';
+      
+    document.getElementById("popuppanel").innerHTML = tempt;
+    document.getElementById("popuppanel").style.display = "block";
+    
+    setTimeout(document.getElementById("popuppanel").style.display = "none";,2000);
+      
+    }	
 	
 	
 	
