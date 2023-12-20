@@ -518,9 +518,11 @@
         }
 	
 	#padlocktxt {
-	display: flex;
+	        display: flex;
 		justify-content: center;
 		align-items: center;
+		height: 10vmax;
+		font-size: 3vmax;
 	}
 	
 	</style>
@@ -581,7 +583,7 @@
 
 </div>
 	<div id="all">
-	<div id="padlocktxt" onclick="lockUnlock()">locked<img src="padlock.png" onclick="lockUnlock()" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;"></div>
+	<div id="padlocktxt" onclick="lockUnlock()">locked<img src="padlock.png" onclick="lockUnlock()" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding: 20px;"></div>
 	
 	
 		<button type="button" class="collapsible" id="coll0" onclick="recordScores(this.id)">Scores
