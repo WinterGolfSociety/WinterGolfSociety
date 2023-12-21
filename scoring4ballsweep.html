@@ -523,9 +523,16 @@
 		align-items: center;
 		height: 10vmax;
 		font-size: 3vmax;
-		color: red;
 	}
-
+     #padlock {
+            height: 5vmax;
+            width: 5vmax;
+            float: right;
+            padding: 10px;
+            border: 3px solid red;
+            border-radius: 10px;
+            margin-left: 20px;
+     }
 	
 	</style>
 </head>
@@ -585,7 +592,7 @@
 
 </div>
 	<div id="all">
-	<div id="padlocktxt" onclick="lockUnlock()">locked<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding: 20px;"></div>
+	<div id="padlocktxt" onclick="lockUnlock()">locked<img src="padlock.png" onclick="lockUnlock()" alt="done" id="padlock"></div>
 	
 	
 		<button type="button" class="collapsible" id="coll0" onclick="recordScores(this.id)">Scores
@@ -1545,10 +1552,13 @@ var unlocked = "no";
     function lockUnlock() {
     if (unlocked == "yes") {
         unlocked = "no";
-        document.getElementById("padlocktxt").innerHTML = '<a style="color: red">locked</a>' + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+        document.getElementById("padlocktxt").innerHTML = "locked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+        document.getElementById("padlock").style.border = "3px solid red";
+        
     } else {
         unlocked = "yes";
-         document.getElementById("padlocktxt").innerHTML = '<a style="color: black">unlocked</a>' + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+         document.getElementById("padlocktxt").innerHTML = "unlocked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+         document.getElementById("padlock").style.border = "3px solid dodgerBlue";
     }
 shots()
     }	
