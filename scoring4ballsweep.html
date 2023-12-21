@@ -523,7 +523,9 @@
 		align-items: center;
 		height: 10vmax;
 		font-size: 3vmax;
+		color: red;
 	}
+
 	
 	</style>
 </head>
@@ -1543,12 +1545,12 @@ var unlocked = "no";
     function lockUnlock() {
     if (unlocked == "yes") {
         unlocked = "no";
-        document.getElementById("padlocktxt").innerHTML = "locked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+        document.getElementById("padlocktxt").innerHTML = '<a style="color: red">locked</a>' + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
     } else {
         unlocked = "yes";
-         document.getElementById("padlocktxt").innerHTML = "unlocked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+         document.getElementById("padlocktxt").innerHTML = '<a style="color: black">unlocked</a>' + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
     }
-
+shots()
     }	
 	
 	// globals
@@ -1562,10 +1564,10 @@ var unlocked = "no";
 	var player3name = "player 3";
 	var player4name = "player 4";
 	
-	var player1hcp = 0;
-	var player2hcp = 0;
-	var player3hcp = 0;
-	var player4hcp = 0;
+	var player1hcp = 99;
+	var player2hcp = 99;
+	var player3hcp = 99;
+	var player4hcp = 99;
 	
 	var originalhcp1 = 0;
 	var originalhcp2 = 0;
@@ -2350,8 +2352,8 @@ getData()
 			
 	}
 		
-	
-	
+	// do shots coloration
+	shots()
 			
 		// initial save of data
 		saveAllToLocalStorage()		
@@ -2910,7 +2912,85 @@ for (const [key, value] of Object.entries(localStorage)) {
 }
 }
 	
-	
+function shots() {
+temp1 = 99
+temp2 = 99
+temp3 = 99
+temp4 = 99
+
+console.log("here " + player1hcp)
+  console.log("here " + player2hcp)
+  console.log("here " + player3hcp)
+  console.log("here " + player4hcp)
+
+  temp1 = (player1hcp * 0.9)
+  
+  if (player2hcp !== "no hcp") {
+      temp2 = (player2hcp * 0.9)
+  } else {
+      temp2 = 99
+  }
+  if (player3hcp !== "no hcp") {
+      temp3 = (player3hcp * 0.9)
+  } else {
+      temp3 = 99
+  }
+  if (player4hcp !== "no hcp") { 
+      temp4 = (player4hcp * 0.9)
+  } else {
+      temp4 = 99
+  }
+  
+  temp1 = Math.round(temp1);
+  temp2 = Math.round(temp2);
+  temp3 = Math.round(temp3);
+  temp4 = Math.round(temp4);
+  
+  console.log("here " + typeof temp1)
+  console.log("here " + typeof temp2)
+  console.log("here " + typeof temp3)
+  console.log("here " + typeof temp4)
+  console.log("here " + temp1)
+  console.log("here " + temp2)
+  console.log("here " + temp3)
+  console.log("here " + temp4)
+  
+  tempmin = Math.min(temp1, temp2, temp3, temp4);
+   console.log("here tempmin " + tempmin)
+  
+  
+  shots1 = Math.round(temp1 - tempmin);
+  shots2 = Math.round(temp2 - tempmin);
+  shots3 = Math.round(temp3 - tempmin);
+  shots4 = Math.round(temp4 - tempmin);
+  console.log(arrCourse[3][2])
+  console.log("shots ",shots1)
+   console.log("shots ",shots2)
+    console.log("shots ",shots3)
+     console.log("shots ",shots4)
+
+  for(i = 1; i <= 18; i++) {
+
+      if (shots1 >= arrCourse[i][2] && shots1 < 54) {
+      // bignumber is blue for shot hole
+      document.getElementById("value" + arrCourse[i][0] + "a").style.color = "dodgerBlue"
+      }
+      if (shots2 >= arrCourse[i][2] && shots2 < 54) {
+      // bignumber is blue for shot hole
+      document.getElementById("value" + arrCourse[i][0] + "b").style.color = "dodgerBlue"
+      }
+      if (shots3 >= arrCourse[i][2] && shots3 < 54) {
+      // bignumber is blue for shot hole
+      document.getElementById("value" + arrCourse[i][0] + "c").style.color = "dodgerBlue"
+      }
+      if (shots4 >= arrCourse[i][2] && shots4 < 54) {
+      // bignumber is blue for shot hole
+      document.getElementById("value" + arrCourse[i][0] + "d").style.color = "dodgerBlue"
+      }
+      
+  }
+}	
+
 	</script>
 </body>
 
