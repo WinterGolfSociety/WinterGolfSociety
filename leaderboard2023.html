@@ -154,14 +154,6 @@ async function getData() {
 	if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
 		// comp day
 		for(var i = 0; i < arrPlayer.length; i++) {
-		
-		   
-		
-		
-		
-		
-		
-		
 			// old player 
 			if(arrPlayerOld.indexOf(arrPlayer[i]) > -1) {
 			   // odd number 
@@ -275,7 +267,7 @@ function createDisplay(num) {
 	
 	
 	
-	
+	if (arrPlayer.length % 2 !== 0) {
 	var el = document.createElement("div");
 	el.id = "bottom1";
 	el.setAttribute("class", "grid-item-top");
@@ -283,6 +275,7 @@ function createDisplay(num) {
 	document.getElementById("bottom1").innerHTML = "&nbsp;"
 	document.getElementById("bottom1").style.background = "dimGray";
 	document.getElementById("bottom1").style.color = "cyan";
+	}
 	
 	var el = document.createElement("div");
 	el.id = "bottom2";
