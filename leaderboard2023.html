@@ -29,7 +29,7 @@ body {
       display: grid;
       grid-template-columns: 15vw auto 15vw 15vw;
    //   padding-left: 20px;
-   border: 1px solid gray;
+   border: 1px solid #787878;
     }
    
     .grid-item {
@@ -161,7 +161,7 @@ async function getData() {
 		               // light background
 		               bg = '<p style="background:#808080;">'
 		           } else {
-		               bg = '<p style="background:gray;">'
+		               bg = '<p style="background:#787878;">'
 		           } 
 				displaypos    = bg + arrPos[i]    + "</p>";
 				displayplayer = bg + arrPlayer[i] + "</p>";
@@ -177,7 +177,7 @@ async function getData() {
 		                    // light background
 		                    bg = '<p style="background:#808080; color:cyan;">'
 		                } else {
-		                    bg = '<p style="background:gray; color: cyan;">'
+		                    bg = '<p style="background:#787878; color: cyan;">'
 		                } 
 				displaypos    = bg + arrPos[i]    + "</p>";
 				displayplayer = bg + arrPlayer[i] + "</p>";
@@ -292,7 +292,7 @@ function createDisplay(num) {
 	select.appendChild(el);
 	document.getElementById("footer").innerHTML = "&nbsp;"
 	document.getElementById("footer").style.background = "#808080";
-	document.getElementById("footer").style.color = "lightGray";
+	document.getElementById("footer").style.color = "light#787878";
 	
 	
 }
