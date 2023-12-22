@@ -21,23 +21,26 @@ body {
       background-color: darkSlateGray;
       font-family: Arial, Helvetica, sans-serif;
      // overflow-y: hidden; 
+     padding-left: 20px;
+     padding-right: 20px;
 }
  
     .grid-container {
       display: grid;
       grid-template-columns: 15vw auto 15vw 15vw;
-      padding-left: 20px;
+   //   padding-left: 20px;
+   border: 1px solid gray;
     }
    
     .grid-item {
-      padding: 2px;
+     // padding: 2px;
       font-family: arial;
       font-size: 15px; //2vmin;
       text-align: left;
     }
     
    .grid-item-pos {
-      padding: 2px;
+  //    padding: 2px;
       font-family: arial;
       font-size: 15px; //2vmin;
       text-align: center;
@@ -46,13 +49,13 @@ body {
      .grid-item-top {
         display: grid;
         grid-column: 1 / 5;
-        padding: 2px;
+        //padding: 2px;
         font-family: arial;
         font-size: 15px; //2vmin;
         text-align: left;           
    }
    
-   .grid-item, .grid-item-pos, #footer {
+   .grid-item, .grid-item-pos, #footer, #top1, #top2, #bottom1, #bottom2 {
       animation: fadein 3s linear forwards;
    }
 
@@ -151,30 +154,51 @@ async function getData() {
 	if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
 		// comp day
 		for(var i = 0; i < arrPlayer.length; i++) {
+		
+		   
+		
+		
+		
+		
+		
+		
 			// old player 
 			if(arrPlayerOld.indexOf(arrPlayer[i]) > -1) {
-				displaypos = arrPos[i] + "<br>";
-				displayplayer = arrPlayer[i] + "<br>";
-				displaypoints = arrPoints[i] + "<br>";
-				displaytwos = arrTwos[i] + "<br>";
-				document.getElementById("pos" + i).innerHTML = displaypos
+			   // odd number 
+                           if (i % 2 !== 0) {
+		               // light background
+		               bg = '<p style="background:dimGray;">'
+		           } else {
+		               bg = '<p style="background:gray;">'
+		           } 
+				displaypos    = bg + arrPos[i]    + "</p>";
+				displayplayer = bg + arrPlayer[i] + "</p>";
+				displaypoints = bg + arrPoints[i] + "</p>";
+				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
+				document.getElementById("pos"    + i).innerHTML = displaypos
 				document.getElementById("player" + i).innerHTML = displayplayer
 				document.getElementById("points" + i).innerHTML = displaypoints
-				document.getElementById("twos" + i).innerHTML = displaytwos
+				document.getElementById("twos"   + i).innerHTML = displaytwos
 			} else {
 				// new player
-				displaypos = '<p style="color:cyan">' + arrPos[i] + "</p>";
-				displayplayer = '<p style="color:cyan">' + arrPlayer[i] + "</p>";
-				displaypoints = '<p style="color:cyan">' + arrPoints[i] + "</p>";
-				displaytwos = '<p style="color:cyan">' + arrTwos[i] + "</p>";
-				document.getElementById("pos" + i).innerHTML = displaypos
+				if (i % 2 !== 0) {
+		                    // light background
+		                    bg = '<p style="background:dimGray; color:cyan;">'
+		                } else {
+		                    bg = '<p style="background:gray; color: cyan;">'
+		                } 
+				displaypos    = bg + arrPos[i]    + "</p>";
+				displayplayer = bg + arrPlayer[i] + "</p>";
+				displaypoints = bg + arrPoints[i] + "</p>";
+				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
+				document.getElementById("pos"    + i).innerHTML = displaypos
 				document.getElementById("player" + i).innerHTML = displayplayer
 				document.getElementById("points" + i).innerHTML = displaypoints
-				document.getElementById("twos" + i).innerHTML = displaytwos
+				document.getElementById("twos"   + i).innerHTML = displaytwos
 			}
 		}
 		document.getElementById("notyet").innerHTML = "Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
-		document.getElementById("footer").innerHTML = "<br>These are the latest 'live' results as they come in, updated automatically every 35 seconds.<br>Your submitted result should be available at next refresh.<br><br>"
+		document.getElementById("footer").innerHTML = "Updated automatically every 35 seconds."
 	} else {
 		// not a comp day or no results
 		document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
@@ -210,6 +234,24 @@ function createDisplay(num) {
 	el.id = "comp";
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
+	
+	
+	var el = document.createElement("div");
+	el.id = "top1";
+	el.setAttribute("class", "grid-item-top");
+	select.appendChild(el);
+	document.getElementById("top1").innerHTML = "&nbsp;"
+	document.getElementById("top1").style.background = "gray";
+	document.getElementById("top1").style.color = "cyan";
+	
+	var el = document.createElement("div");
+	el.id = "top2";
+	el.setAttribute("class", "grid-item-top");
+	select.appendChild(el);
+	document.getElementById("top2").innerHTML = "&nbsp;"
+	document.getElementById("top2").style.background = "dimGray";
+	document.getElementById("top2").style.color = "cyan";
+	
 	// create the right number of holders
 	for(var i = 0; i < num; i++) {
 		var el = document.createElement("div");
@@ -230,10 +272,36 @@ function createDisplay(num) {
 		select.appendChild(el);
 	}
 	// create footer 
+	
+	
+	
+	
+	var el = document.createElement("div");
+	el.id = "bottom1";
+	el.setAttribute("class", "grid-item-top");
+	select.appendChild(el);
+	document.getElementById("bottom1").innerHTML = "&nbsp;"
+	document.getElementById("bottom1").style.background = "dimGray";
+	document.getElementById("bottom1").style.color = "cyan";
+	
+	var el = document.createElement("div");
+	el.id = "bottom2";
+	el.setAttribute("class", "grid-item-top");
+	select.appendChild(el);
+	document.getElementById("bottom2").innerHTML = "&nbsp;"
+	document.getElementById("bottom2").style.background = "gray";
+	document.getElementById("bottom2").style.color = "cyan";
+	
+	
 	var el = document.createElement("div");
 	el.id = "footer";
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
+	document.getElementById("footer").innerHTML = "&nbsp;"
+	document.getElementById("footer").style.background = "dimGray";
+	document.getElementById("footer").style.color = "lightGray";
+	
+	
 }
 
 </script>
