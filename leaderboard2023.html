@@ -151,8 +151,10 @@ async function getData() {
 	}
 	arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 		// create HTML
-	createDisplay(arrPlayer.length)
+	//createDisplay(arrPlayer.length)
 	if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
+		// create HTML
+	        createDisplay(arrPlayer.length)
 		// comp day
 		for(var i = 0; i < arrPlayer.length; i++) {
 			// old player 
@@ -193,28 +195,53 @@ async function getData() {
 		document.getElementById("notyet").innerHTML = "Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
 		document.getElementById("footer").innerHTML = "Updated every 35 seconds."
 	} else {
+                createSmallDisplay()
 		// not a comp day or no results
 		document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';
-		document.getElementById("footer").innerHTML = '';
+		//document.getElementById("footer").innerHTML = '';
 		setTimeout(function() {
-			document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 5 seconds"
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 5 seconds"
 		}, 200)
 		setTimeout(function() {
-			document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 4 seconds"
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 4 seconds"
 		}, 1200)
 		setTimeout(function() {
-			document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 3 seconds"
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 3 seconds"
 		}, 2200)
 		setTimeout(function() {
-			document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 2 seconds"
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 2 seconds"
 		}, 3200)
 		setTimeout(function() {
-			document.getElementById("comp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 1 second"
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 1 second"
 		}, 4200)
 		setTimeout(function() {
 			history.go(-2)
 		}, 5200);
 	}
+}
+
+function createSmallDisplay() {
+	// create HTML to hold results
+	var select = document.getElementById("leaderlist");
+	select.classList.remove("grid-container")
+	// empty names
+	select.innerHTML = "";
+	// create comp holder
+	var el = document.createElement("div");
+	el.id = "notyet";
+	//el.setAttribute("class", "grid-item-top");
+	select.appendChild(el);
+	
+	
+	var el = document.createElement("div");
+	el.id = "nocomp";
+	//el.setAttribute("class", "grid-item-top");
+	select.appendChild(el);
+	//document.getElementById("top1").innerHTML = "&nbsp;"
+	//document.getElementById("top1").style.background = "#787878";
+	//document.getElementById("top1").style.color = "cyan";
+	
+
 }
 
 function createDisplay(num) {
