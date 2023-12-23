@@ -130,42 +130,43 @@ var dname = new Date();
 var tempmonth = month[dname.getMonth()];
 var tempdate = dname.getDate()
 currentMonthNumber = dname.getMonth();
+var tempyear = dname.getYear()
 for(i = 0; i < arrInfo.length; i++) {
 	if(arrInfo[i][0].indexOf("Jan") > -1) {
-		oldMonthNumber = 0
+		oldMonthNumber = tempyear + 0 
 	}
 	if(arrInfo[i][0].indexOf("Feb") > -1) {
-		oldMonthNumber = 1
+		oldMonthNumber = tempyear + 1
 	}
 	if(arrInfo[i][0].indexOf("Mar") > -1) {
-		oldMonthNumber = 2
+		oldMonthNumber = tempyear + 2
 	}
 	if(arrInfo[i][0].indexOf("Apr") > -1) {
-		oldMonthNumber = 3
+		oldMonthNumber = tempyear + 3
 	}
 	if(arrInfo[i][0].indexOf("May") > -1) {
-		oldMonthNumber = 4
+		oldMonthNumber = tempyear + 4
 	}
 	if(arrInfo[i][0].indexOf("Jun") > -1) {
-		oldMonthNumber = 5
+		oldMonthNumber = tempyear + 5
 	}
 	if(arrInfo[i][0].indexOf("Jul") > -1) {
-		oldMonthNumber = 6
+		oldMonthNumber = tempyear + 6
 	}
 	if(arrInfo[i][0].indexOf("Aug") > -1) {
-		oldMonthNumber = 7
+		oldMonthNumber = tempyear + 7
 	}
 	if(arrInfo[i][0].indexOf("Sep") > -1) {
-		oldMonthNumber = 8
+		oldMonthNumber = tempyear + 8
 	}
 	if(arrInfo[i][0].indexOf("Oct") > -1) {
-		oldMonthNumber = 9
+		oldMonthNumber = tempyear + 9
 	}
 	if(arrInfo[i][0].indexOf("Nov") > -1) {
-		oldMonthNumber = 10
+		oldMonthNumber = tempyear + 10
 	}
 	if(arrInfo[i][0].indexOf("Dec") > -1) {
-		oldMonthNumber = 11
+		oldMonthNumber = tempyear + 11
 	}
 	var older = "no";
 	if(currentMonthNumber > oldMonthNumber) {
