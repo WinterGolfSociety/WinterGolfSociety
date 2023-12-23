@@ -1963,6 +1963,19 @@ getData()
 				document.getElementById("coll" + i).style.display = "block"
 			}
 			// at this point, save scores
+			// but only if a score is entered
+			 if (document.getElementById("input" + id.replace("coll","") + "a").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "b").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "c").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "d").value > 0 ) {
+			
+			
+			
+			
+			
+			
+			
+			
 			if(id !== "coll0") {
 				// player 1
 				var h = id.replace("coll", "");
@@ -2003,6 +2016,16 @@ getData()
 				saveAllToLocalStorage()
 	
 			}
+			
+			
+			
+			
+			
+			}
+			
+			
+			
+			
 		} else {
 			//eg. id = coll1
 			// close all
