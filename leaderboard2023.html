@@ -224,22 +224,11 @@ function createSmallDisplay() {
 	// create HTML to hold results
 	var select = document.getElementById("leaderlist");
 	select.classList.remove("grid-container")
-	// empty names
 	select.innerHTML = "";
-	// create comp holder
-	var el = document.createElement("div");
-	el.id = "notyet";
-	//el.setAttribute("class", "grid-item-top");
-	select.appendChild(el);
-	
-	
 	var el = document.createElement("div");
 	el.id = "nocomp";
-	//el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
-	//document.getElementById("top1").innerHTML = "&nbsp;"
-	//document.getElementById("top1").style.background = "#787878";
-	//document.getElementById("top1").style.color = "cyan";
+
 	
 
 }
