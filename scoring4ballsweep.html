@@ -1983,13 +1983,25 @@ getData()
 				document.getElementById(id.replace("coll", "pppp")).innerText = s4 + "/" + p4
 					// to localStorage eg p1h1score,5
 				
+			if(id !== "coll0") {
+			   if (document.getElementById("input" + id.replace("coll","") + "a").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "b").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "c").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "d").value > 0 ) {
+				
+				  document.getElementById(id.replace("coll", "h") + "img").style.display = "block" 
+							
+			   } else {
+			   
+			          document.getElementById(id.replace("coll", "h") + "img").style.display = "none" 
+			  } 
+			  }		
 			
 					// redo totals
 				totalsCalc()
 
 				saveAllToLocalStorage()
-		
-				
+	
 			}
 		} else {
 			//eg. id = coll1
@@ -2006,8 +2018,18 @@ getData()
 			//document.getElementById(newid).style.display = "block"     
 			// show green tick because score recorded   
 			if(id !== "coll0") {
-				document.getElementById(id.replace("coll", "h") + "img").style.display = "block"
-			}
+			   if (document.getElementById("input" + id.replace("coll","") + "a").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "b").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "c").value > 0 ||
+			       document.getElementById("input" + id.replace("coll","") + "d").value > 0 ) {
+				
+				  document.getElementById(id.replace("coll", "h") + "img").style.display = "block" 
+							
+			   } else {
+			   
+			          document.getElementById(id.replace("coll", "h") + "img").style.display = "none" 
+			  } 
+			}	
 		}
 		
 		} // unlocked
@@ -2735,7 +2757,9 @@ function retrieveAllFromLocalStorage() {
                   document.getElementById("value" + i + "a").innerText = temp1; 
                   document.getElementById("points" + i + "a").innerText = temp2 + " points";  
                   // tick should show
-                  tick = "yes"   
+                  if (temp1 > 0) {
+                      tick = "yes"   
+                  }
               } else {
                   document.getElementById("p" + i).innerText = "-";
                   document.getElementById("input" + i + "a").value = 0;
@@ -2752,7 +2776,9 @@ function retrieveAllFromLocalStorage() {
                   document.getElementById("value" + i + "b").innerText = temp1;
                   document.getElementById("points" + i + "b").innerText = temp2 + " points";   
                   // tick should show
-                  tick = "yes"       
+                  if (temp1 > 0) {
+                      tick = "yes"   
+                  }     
               } else {
                   document.getElementById("pp" + i).innerText = "-";
                   document.getElementById("input" + i + "b").value = 0; 
@@ -2769,7 +2795,9 @@ function retrieveAllFromLocalStorage() {
                   document.getElementById("value" + i + "c").innerText = temp1;
                   document.getElementById("points" + i + "c").innerText = temp2 + " points"; 
                   // tick should show
-                  tick = "yes"    
+                  if (temp1 > 0) {
+                      tick = "yes"   
+                  } 
               } else {
                   document.getElementById("ppp" + i).innerText = "-";
                   document.getElementById("input" + i + "c").value = 0;
@@ -2786,7 +2814,13 @@ function retrieveAllFromLocalStorage() {
                   document.getElementById("value" + i + "d").innerText = temp1;
                   document.getElementById("points" + i + "d").innerText = temp2 + " points"; 
                   // tick should show
-                  tick = "yes"        
+                  
+                  console.log(temp1)
+                  
+                  
+                  if (temp1 > 0) {
+                      tick = "yes"   
+                  }      
               } else {
                   document.getElementById("pppp" + i).innerText = "-";
                   document.getElementById("input" + i + "d").value = 0;
