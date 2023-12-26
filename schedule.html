@@ -56,7 +56,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
-  <p id="title"><img src="cal.png" alt="cal" width="50" height="50" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors 2024</p>
+  <p id="title"><img src="cal.png" alt="cal" width="50" height="50" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors scheduled events</p>
 
 <div class="grid-container" id="eventlist">
   <div class="grid-item gray">Date</div>
@@ -75,7 +75,7 @@
 
 var currentMonth = ""
 var arrInfo = [
-["January","",""],
+["January 2024","",""],
 ["Fri 5th","OldCourse","Winter stableford"],
 ["Mon 8th","OldCourse","Winter stableford"],
 ["Fri 12th","OldCourse","Winter stableford"],
@@ -84,7 +84,7 @@ var arrInfo = [
 ["Mon 22th","OldCourse","Winter stableford"],
 ["Fri 24th","OldCourse","Winter stableford"],
 ["Mon 29th","OldCourse","Winter stableford"],
-["February","",""],
+["February 2024","",""],
 ["Fri 2nd","OldCourse","Winter stableford"],
 ["Mon 5th","OldCourse","Winter stableford"],
 ["Fri 9th","OldCourse","Winter stableford"],
@@ -93,7 +93,7 @@ var arrInfo = [
 ["Mon 19th","OldCourse","Winter stableford"],
 ["Fri 23rd","OldCourse","Winter stableford"],
 ["Mon 26th","OldCourse","Winter stableford"],
-["March","",""],      
+["March 2024","",""],      
 ["Fri 1st","OldCourse","Winter stableford"],
 ["Mon 4th","OldCourse","Winter stableford"],
 ["Fri 8th","OldCourse","Winter stableford"],
@@ -103,7 +103,7 @@ var arrInfo = [
 ["Fri 22nd","OldCourse","Winter stableford"],
 ["Mon 25th","OldCourse","Winter stableford"],
 ["Fri 29th","OldCourse","Winter stableford"],
-["April","",""],
+["April 2024","",""],
 ["Mon 1st","unknown","Team game proposed"],
 ["Fri 5th","unknown","stableford"],
 ["Mon 8th","unknown","stableford"],
@@ -113,7 +113,7 @@ var arrInfo = [
 ["Mon 22nd","unknown","stableford"],
 ["Fri 26th","unknown","stableford"],
 ["Mon 29th","unknown","stableford"],
-["May","",""],
+["May 2024","",""],
 ["Fri 3rd","unknown","stableford"],
 ["Mon 6th","unknown","Team game proposed"],
 ["Fri 10th","unknown","stableford"],
@@ -123,7 +123,7 @@ var arrInfo = [
 ["Fri 24th","unknown","stableford"],
 ["Mon 27th","unknown","stableford"],
 ["Fri 31st","unknown","stableford"],
-["June","",""],
+["June 2024","",""],
 ["Mon 3rd","unknown","Team game proposed"],
 ["Fri 7th","unknown","stableford"],
 ["Mon 10th","unknown","stableford"],
@@ -132,7 +132,7 @@ var arrInfo = [
 ["Fri 21th","unknown","stableford"],
 ["Mon 24th","unknown","stableford"],
 ["Fri 28th","unknown","stableford"],
-["July","",""],
+["July 2024","",""],
 ["Mon 1st","unknown","Team game proposed"],
 ["Fri 5th","unknown","stableford"],
 ["Mon 8th","unknown","stableford"],
@@ -142,7 +142,7 @@ var arrInfo = [
 ["Mon 22nd","unknown","stableford"],
 ["Fri 26th","unknown","stableford"],
 ["Mon 29th","unknown","stableford"],
-["August","",""],
+["August 2024","",""],
 ["Fri 2nd","unknown","stableford"],
 ["Mon 5th","unknown","Team game proposed"],
 ["Fri 9th","unknown","stableford"],
@@ -152,7 +152,7 @@ var arrInfo = [
 ["Fri 23th","unknown","stableford"],
 ["Mon 26th","unknown","stableford"],
 ["Fri 30th","unknown","stableford"],
-["September","",""],
+["September 2024","",""],
 ["Mon 2nd","unknown","Team game proposed"],
 ["Fri 6th","unknown","stableford"],
 ["Mon 9th","unknown","stableford"],
@@ -161,7 +161,7 @@ var arrInfo = [
 ["Fri 20th","unknown","stableford"],
 ["Mon 23rd","unknown","stableford"],
 ["Fri 30th","unknown","stableford"],
-["October","",""],
+["October 2024","",""],
 ["Fri 4th","OldCourse","Winter stableford"],
 ["Mon 7th","OldCourse","Winter stableford"],
 ["Fri 11th","OldCourse","Winter stableford"],
@@ -170,7 +170,7 @@ var arrInfo = [
 ["Mon 21st","OldCourse","Winter stableford"],
 ["Fri 25th","OldCourse","Winter stableford"],
 ["Mon 28th","OldCourse","Winter stableford"],
-["November","",""],
+["November 2024","",""],
 ["Fri 1st","OldCourse","Winter stableford"],
 ["Mon 4th","OldCourse","Winter stableford"],
 ["Fri 8th","OldCourse","Winter stableford"],
@@ -180,7 +180,7 @@ var arrInfo = [
 ["Fri 22nd","OldCourse","Winter stableford"],
 ["Mon 25th","OldCourse","Winter stableford"],
 ["Fri 29th","OldCourse","Winter stableford"],
-["December","",""],
+["December 2024","",""],
 ["Mon 2nd","OldCourse","Winter stableford"],
 ["Fri 6th","OldCourse","Winter stableford"],
 ["Mon 9th","OldCourse","Winter stableford"],
@@ -189,8 +189,38 @@ var arrInfo = [
 ["Fri 20th","OldCourse","Winter stableford"],
 ["Mon 23rd","OldCourse","Winter stableford"],
 ["Fri 27th","OldCourse","Winter stableford"],
-["Mon 30th","OldCourse","Winter stableford"]
+["Mon 30th","OldCourse","Winter stableford"],
+["January 2025","",""],
+["Fri 3rd","OldCourse","Winter stableford"],
+["Mon 6th","OldCourse","Winter stableford"],
+["Fri 10th","OldCourse","Winter stableford"],
+["Mon 13th","OldCourse","Winter stableford"],
+["Fri 17th","OldCourse","Winter stableford"],
+["Mon 20th","OldCourse","Winter stableford"],
+["Fri 24th","OldCourse","Winter stableford"],
+["Mon 27th","OldCourse","Winter stableford"],
+["Fri 31st","OldCourse","Winter stableford"],
+["February 2025","",""],
+["Mon 3rd","OldCourse","Winter stableford"],
+["Fri 7th","OldCourse","Winter stableford"],
+["Mon 10th","OldCourse","Winter stableford"],
+["Fri 14th","OldCourse","Winter stableford"],
+["Mon 17th","OldCourse","Winter stableford"],
+["Fri 21st","OldCourse","Winter stableford"],
+["Mon 24th","OldCourse","Winter stableford"],
+["Fri 28th","OldCourse","Winter stableford"],
+["March 2025","",""],
+["Mon 3rd","OldCourse","Winter stableford"],
+["Fri 7th","OldCourse","Winter stableford"],
+["Mon 10th","OldCourse","Winter stableford"],
+["Fri 14th","OldCourse","Winter stableford"],
+["Mon 17th","OldCourse","Winter stableford"],
+["Fri 21st","OldCourse","Winter stableford"],
+["Mon 24th","OldCourse","Winter stableford"],
+["Fri 28th","OldCourse","Winter stableford"],
+["Mon 31st","OldCourse","Winter stableford"]
 ]
+
 // set up title bar
 lineFull = '<div class="grid-item gray">Date</div>'
 lineFull += '<div class="grid-item gray">Venue</div>'
@@ -201,6 +231,9 @@ var tempmonth = month[dname.getMonth()];
 var tempdate = dname.getDate()
 currentMonthNumber = dname.getMonth();
 var tempyear = dname.getYear()
+
+var nextyear = 0
+
 for(i = 0; i < arrInfo.length; i++) {
 	if(arrInfo[i][0].indexOf("Jan") > -1) {
 		oldMonthNumber = 0
@@ -237,16 +270,23 @@ for(i = 0; i < arrInfo.length; i++) {
 	}
 	if(arrInfo[i][0].indexOf("Dec") > -1) {
 		oldMonthNumber = 11
+		// start new year
+		nextyear = 12
 	}
 	var older = "no";
-	if(currentMonthNumber > oldMonthNumber) {
+	if(currentMonthNumber > (oldMonthNumber + nextyear)) {
 		older = "yes";
 	} else {
 		older = "no";
 	}
+	console.log("older = " + older)
+	
 	if(currentMonthNumber == oldMonthNumber && arrInfo[i][1] !== "" && arrInfo[i][2] !== "") {
 		olddate = arrInfo[i][0].match(/\d/g);
 		olddate = olddate.join("");
+		
+		console.log(olddate, tempdate)
+		
 		if(olddate < tempdate) {
 			older = "yes"
 		} else {
