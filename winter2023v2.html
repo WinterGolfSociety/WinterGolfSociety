@@ -19,23 +19,18 @@
 	}
 	
 	body {
-	height: 90vh;
+		overflow: hidden;
 		background-color: darkSlateGray;
-		overflow-y: scroll;
-                scrollbar-width: none; /* Firefox */
-                -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        }
-        
-        body::-webkit-scrollbar { /* WebKit */
-               width: 0;
-               height: 0;
-        }	
-
+	}
+	
+	::-webkit-scrollbar {
+		display: none;
+	}
 	
 	.square_menu_icon {
 		display: block;
 		position: absolute;
-		//overflow: hidden;
+		overflow: hidden;
 		margin: 0;
 		padding: 0;
 		width: 45px;
@@ -197,15 +192,9 @@
 		justify-content: center;
 	}
 	
-	.title {
-		color: white;
-		font-family: 'Kalam';
-		font-size: 40px;
-	}
-	
 	section {
 		width: 100vw;
-		//height: 100%;
+		height: 100vh;
 		position: absolute;
 	}
 	
@@ -217,7 +206,7 @@
 	
 	.content {
 		width: 80%;
-		height: 100%;
+		height: 100vh;
 		opacity: 1;
 		margin: 0 auto;
 	}
@@ -226,11 +215,7 @@
 		color: white;
 		font-family: 'Kalam';
 		font-size: 40px;
-	}
-	
-	h2 {
-		//font-size: 50px;
-		//color: #111111;
+		font-weight: bold;
 		margin-top: 160px;
 	}
 	
@@ -310,7 +295,16 @@
 		font-size: 13px;
 	}
 	
-	#upcoming {
+	.pretitle {
+		font-family: 'Kalam';
+		transform: rotate(-5deg);
+		height: 2vh;
+		color: white;
+		font-size: 15px;
+		float:left;
+	}
+	
+	#scheduled {
 		float: left;
 	}
 	
@@ -327,6 +321,9 @@
 		transform: scale(5);
 	}
 	
+	.spacer1  {
+	        height: 3vh;
+	}
 	
 	.contentinfo {
 	font-family: 'Kalam';
@@ -335,12 +332,85 @@
 		
 		//width: 100%;
 	}
+
 	
 	
 	
-	</style>
+	/* marquee CSS */
+	 .marquee {
+	        font-family: Arial, Helvetica, sans-serif;
+	        font-size: 14px;
+	        font-style: italic;
+                height: 40px;
+                overflow: hidden;
+                position: relative;
+                background: darkSlateGray;
+                color: white;
+                //border: 1px solid white;
+            }
+            
+            .marquee p {
+                color: yellow;
+                font-weight: 400;
+                position: absolute;
+                width: 150%;
+                height: 100%;
+                margin: 0;
+                line-height: 40px;
+                text-align: center;
+                -moz-transform: translateX(100%);
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+                -moz-animation: scroll-left 2s linear 1;
+                -webkit-animation: scroll-left 2s linear 1;
+                animation: scroll-left 10s linear 1;
+                animation-delay: -3s;
+            }
+            
+            @-moz-keyframes scroll-left {
+                0% {
+                    -moz-transform: translateX(100%);
+                }
+                100% {
+                    -moz-transform: translateX(-100%);
+                }
+            }
+            
+            @-webkit-keyframes scroll-left {
+                0% {
+                    -webkit-transform: translateX(100%);
+                }
+                100% {
+                    -webkit-transform: translateX(-100%);
+                }
+            }
+            
+            @keyframes scroll-left {
+                0% {
+                    -moz-transform: translateX(100%);
+                    -webkit-transform: translateX(100%);
+                    transform: translateX(100%);
+                }
+                100% {
+                    -moz-transform: translateX(-100%);
+                    -webkit-transform: translateX(-100%);
+                    transform: translateX(-100%);
+                }
+            }
+	
+	
+	/* end of marque CSS */
+</style>
 
 	<body>
+	
+	<!-- remove when not required 100% is about 40 characters 
+		
+		<div class="marquee"><p>Note: some stroke indexes have changed on the Old Course.</p></div>
+		
+	-->
+	
+	
 		<nav id="nav">
 			<div class="bubble_menu" id="icon">
 				<button class="square_menu_icon square_menu_icon-X"> <span></span> </button>
@@ -348,32 +418,39 @@
 			<div class="bubble" id="one" onclick="doOne();"> <a id="onetxt">HCPs</a> </div>
 			<div class="bubble" id="two" onclick="doTwo();"> <a id="twotxt">Score entry</a> </div>
 			<div class="bubble" id="three" onclick="doThree();"> <a id="threetxt">Twos</a> </div>
-			<div class="bubble" id="four" onclick="doFour();"> <a id="fourtxt">Results</a> </div>
+			<div class="bubble" id="four" onclick="doFour();"> <a id="fourtxt">All results</a> </div>
 			<div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a> </div>
 		</nav>
 		<section class="start">
 			<div class="content">
-			<h2 class="title">Winter golf</h2>
-				<div class="contentinfo">
-				<br>
-				hcps, score entry, twos, results, leaderboard
-				</div>
-				<br>
-				<div class="datescontent"> <a class="dates" id="upcoming">upcoming ...</a>
-					<br>
-					<br>
-					<a class="dates" id="xdcomp1"></a>
-				</div>
-    <br>
-				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="frame.png" alt="qr"> </div>
+			
+			<div class="title">
+			<div class="pretitle">Longhirst seniors</div>
+			<div class="spacer1"></div>
+			<div>Winter golf</div>
+			
 			</div>
 			
-			    <br>
+			<div class="contentinfo">
+			hcps, score entry, twos, results, leaderboard
+			</div>
+				
+			<br>
+			<br>
+			<div class="datescontent">
+			<a class="dates" id="scheduled">scheduled ...</a>
+			<br><br>
+			<a class="dates" id="xdcomp1"></a>
+			</div>
+                        <br>
 			
+			<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrseniors.png" alt="qr"> </div>
+			</div>
 			
 		</section>
 	</body>
 	<script>
+
     // global arrays
     var arrPlayers = []
     var arrHcp = []
