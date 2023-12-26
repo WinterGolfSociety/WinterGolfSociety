@@ -374,63 +374,7 @@
 		</section>
 	</body>
 	<script>
-
-         
-	// array of competition dates
-		 arrCompsxxx = [
-      "Dawson 02 October 2023",
-      "Lakes 06 October 2023",
-      "Dawson 09 October 2023",
-      "Lakes 13 October 2023",
-      "Dawson 16 October 2023",
-      "Lakes 20 October 2023",
-      "Dawson 23 October 2023",
-      "Lakes 27 October 2023",
-      "Dawson 30 October 2023",
-      "Lakes 03 November 2023",
-      "OldCourse 06 November 2023",
-      "OldCourse 10 November 2023",
-      "OldCourse 13 November 2023",
-      "OldCourse 17 November 2023",
-      "Dawson 20 November 2023",
-      "Lakes 24 November 2023",
-      "Dawson 27 November 2023",
-      "Dawson 01 December 2023",
-      "Lakes 04 December 2023",
-      "Dawson 08 December 2023",
-      "Lakes 11 December 2023",
-      "Dawson 15 December 2023",
-      "Lakes 18 December 2023",
-      "Dawson 22 December 2023",
-      "Lakes 25 December 2023",
-      "Dawson 29 December 2023",
-      "Dawson 01 January 2024",
-      "Lakes 05 January 2024",
-      "Dawson 08 January 2024",
-      "Lakes 12 January 2024",
-      "Dawson 15 January 2024",
-      "Lakes 19 January 2024",
-      "Dawson 22 January 2024",
-      "Lakes 26 January 2024",
-      "Dawson 29 January 2024",
-      "Dawson 02 February 2024",
-      "Lakes 05 February 2024",
-      "Dawson 09 February 2024",
-      "Lakes 12 February 2024",
-      "Dawson 16 February 2024",
-      "Lakes 19 February 2024",
-      "Dawson 23 February 2024",
-      "Lakes 26 February 2024",
-      "Lakes 01 March 2024",
-      "Dawson 04 March 2024",
-      "Lakes 08 March 2024",
-      "Dawson 11 March 2024",
-      "Lakes 15 March 2024",
-      "Dawson 18 March 2024",
-      "Lakes 22 March 2024",
-      "Dawson 25 March 2024",
-      "Lakes 29 March 2024"
-    ];
+    // global arrays
     var arrPlayers = []
     var arrHcp = []
     var arrComps = []
@@ -438,13 +382,8 @@
     var arrPlayersOld = []
     var arrHcpOld = []
 
-    
-    
-    
-    
-    
-    
- var isTop = true;
+        // menu code
+        var isTop = true;
 	var menuIsOpen = false;
 	var menuIcon = $('.square_menu_icon');
 	var bubblemenu = $('.bubble_menu');
@@ -665,6 +604,42 @@
 	}
 
 
+//====================================
+// end of menu code
+//====================================
+
+
+
+//====================================
+// runs on start or refresh
+//====================================
+// see if a new download is necessary
+// get todays date eg 26
+dd = new Date();
+// get date number and format it
+d1 = dd.getDate();
+if (d1 < 10) {
+    d1 = "0" + d1;
+}
+// get todays month number eg 2
+d2 = dd.getMonth();
+// create log date eg 26-2
+dstored = d1 + "-" + d2;
+if ("dstored" in localStorage) {
+     if (dstored == localStorage.dstored) {
+	afterGetData();
+     } else {
+            getData();
+     }
+} else {
+     getData();
+}
+
+
+//=====================================
+// functions
+//=====================================
+        // get list of next comps
 	function getNextComps() {
 		dd = new Date();
 		dlist = "";
@@ -774,34 +749,18 @@
 		document.getElementById("xdcomp1").innerHTML = dlist;
 	}
 	
-
+        // resize QRcode
 	function enlarge() {
 		document.getElementById('img').classList.toggle("half");
 	}
 	
 
-// see if a new download is necessary
-// get todays date eg 26
-dd = new Date();
-// get date number and format it
-d1 = dd.getDate();
-if (d1 < 10) {
-    d1 = "0" + d1;
-}
-// get todays month number eg 2
-d2 = dd.getMonth();
-// create log date eg 26-2
-dstored = d1 + "-" + d2;
-if ("dstored" in localStorage) {
-     if (dstored == localStorage.dstored) {
-	afterGetData();
-     } else {
-            getData();
-     }
-} else {
-     getData();
-}
 
+//=====================================
+// get data and create arrays
+// store in localStorage for retrieval
+// and use in scoreentry
+//=====================================
 async function getData() {
 if (!("dstored" in localStorage && dstored == localStorage.dstored)) {
 	var dataStream = await fetch("https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/setupcsv")
@@ -811,19 +770,24 @@ if (!("dstored" in localStorage && dstored == localStorage.dstored)) {
 		if(resultsarray[i].players.length > 2) {
 			arrPlayers.push(resultsarray[i].players);
 			arrHcp.push(resultsarray[i].hcp);
+                        // comps is shorter than players and hcps
+                        // so cobtains empty items that need to be removed
 			sparseArrComps.push(resultsarray[i].comps);
 		}
 	}
 	// remove empty items
 	arrComps = sparseArrComps.filter(function (el) {return el != null;});
 	
-	// overwrite saved data
+	// overwrite saved data in localStorage
 	// players
 	localStorage.playersarray = JSON.stringify(arrPlayers);
 	// hcps
 	localStorage.hcparray = JSON.stringify(arrHcp);
 	// comps
 	localStorage.compsarray = JSON.stringify(arrComps);
+
+        // tag date to saved data
+        localStorage.dstored = dstored
 
         afterGetData();
        
@@ -837,13 +801,15 @@ if (!("dstored" in localStorage && dstored == localStorage.dstored)) {
 
 
 function afterGetData() {
-
-	if ("playersarray" in localStorage) {
-	    arrPlayers = JSON.parse(localStorage.playersarray);
-	}
-	if ("hcparray" in localStorage) {
-	    arrHcp = JSON.parse(localStorage.hcparray);
-	}
+        
+        // retrieve arrays
+        // only comps is needed here
+	//if ("playersarray" in localStorage) {
+	//    arrPlayers = JSON.parse(localStorage.playersarray);
+	//}
+	//if ("hcparray" in localStorage) {
+	//    arrHcp = JSON.parse(localStorage.hcparray);
+	//}
 	if ("compsarray" in localStorage) {
 	    arrComps = JSON.parse(localStorage.compsarray);
 	}
@@ -851,18 +817,10 @@ function afterGetData() {
 //	for(var i = 0; i < arrPlayers.length; i++) {
 //	    console.log(arrPlayers[i], arrHcp[i])
 //	}
-       
-	localStorage.dstored = dstored
-       
+              
         getNextComps();
       
 }
-
-
-	
-	
-	
-	
 	
 	</script>
 	</body>
