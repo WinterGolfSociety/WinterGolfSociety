@@ -455,6 +455,7 @@
     var arrPlayers = []
     var arrHcp = []
     var arrComps = []
+    var compday = "no"  
     var sparseArrComps = []
     var arrPlayersOld = []
     var arrHcpOld = []
@@ -646,14 +647,12 @@
 	function doTwo() {
 		// put menu back then move to score entry page
   
-  /*
-		setTimeout(function() {
-	//		window.open("scoreentry2023.html", "_blank");
- 	window.location.assign("scoreentry2023.html");
-		}, 1000);
-  */
+  if (localStorage.compday == "yes") {
   
   	window.location.assign("scoreentryloader2023v2.html");
+  } else {
+  alert("no comp message")
+  }	
 	}
 
 	function doThree() {
@@ -733,49 +732,9 @@ if ("dstored" in localStorage) {
 			if(d1 < 10) {
 				d1 = "0" + d1;
 			}
-			d2 = darr.getMonth();
-			d3 = darr.getFullYear();
-			d4 = darr.getDay();
 
-			
-			if(d2 == 0) {
-				m = "January";
-			}
-			if(d2 == 1) {
-				m = "February";
-			}
-			if(d2 == 2) {
-				m = "March";
-			}
-			if(d2 == 3) {
-				m = "April";
-			}
-			if(d2 == 4) {
-				m = "May";
-			}
-			if(d2 == 5) {
-				m = "June";
-			}
-			if(d2 == 6) {
-				m = "July";
-			}
-			if(d2 == 7) {
-				m = "August";
-			}
-			if(d2 == 8) {
-				m = "September";
-			}
-			if(d2 == 9) {
-				m = "October";
-			}
-			if(d2 == 10) {
-				m = "November";
-			}
-			if(d2 == 11) {
-				m = "December";
-			}
-			
-			
+			d4 = darr.getDay();
+		
 			if(d4 == 0) {
 				d = "Sunday";
 			}
@@ -797,10 +756,11 @@ if ("dstored" in localStorage) {
 			if(d4 == 6) {
 				d = "Saturday";
 			}
-			// alert(darr.toString().substring(0,15) + "   " + dd.toString().substring(0,15))
 			
 			if(darr.toString().substring(0,15) == dd.toString().substring(0,15) && dlistcount < 4) {
-				//alert(darr.toString().substring(0,15) + "   " + dd.toString().substring(0,15));
+				
+				localStorage.setItem("compday","yes")
+				
 				if (arrComps[i].indexOf("Lakes") > -1) {
 					tempd = '<p style="color:white;">Lakes - competition today</p>';
 				}
@@ -854,7 +814,7 @@ if (!("dstored" in localStorage && dstored == localStorage.dstored)) {
 	}
 	// remove empty items
 	arrComps = sparseArrComps.filter(function (el) {return el != null;});
-	
+
 	// overwrite saved data in localStorage
 	// players
 	localStorage.playersarray = JSON.stringify(arrPlayers);
@@ -878,23 +838,11 @@ if (!("dstored" in localStorage && dstored == localStorage.dstored)) {
 
 
 function afterGetData() {
-        
-        // retrieve arrays
-        // only comps is needed here
-	//if ("playersarray" in localStorage) {
-	//    arrPlayers = JSON.parse(localStorage.playersarray);
-	//}
-	//if ("hcparray" in localStorage) {
-	//    arrHcp = JSON.parse(localStorage.hcparray);
-	//}
+
 	if ("compsarray" in localStorage) {
 	    arrComps = JSON.parse(localStorage.compsarray);
 	}
 	
-//	for(var i = 0; i < arrPlayers.length; i++) {
-//	    console.log(arrPlayers[i], arrHcp[i])
-//	}
-              
         getNextComps();
       
 }
