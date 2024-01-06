@@ -2464,6 +2464,9 @@ document.getElementById("showrules").style.visibility = "visible";
 }
 
 function goLeft() {
+   //console.log("goLeft")
+   document.getElementById("container").scrollBy(-window.innerWidth,0);
+   
    if (checkVisible("setup")) {
       // hide left arrow, show only right
       document.getElementById("goleft").style.display = "none";
@@ -2480,35 +2483,43 @@ function goLeft() {
       document.getElementById("goright").style.display = "none";
    } 
 
-   //console.log("goLeft")
-   document.getElementById("container").scrollBy(-window.innerWidth,0);
+
 }
 
 function goRight() {
+   //console.log("goRight")
+   document.getElementById("container").scrollBy(window.innerWidth,0);
+
   if (checkVisible("setup")) {
       // hide left arrow, show only right
       document.getElementById("goleft").style.display = "none";
       document.getElementById("goright").style.display = "block";
    }   
    if (checkVisible("front")) {
-      // hide left arrow, show only right
+      // show left and right arrow
       document.getElementById("goleft").style.display = "block";
       document.getElementById("goright").style.display = "block";
    } 
    if (checkVisible("back")) {
-      // hide left arrow, show only right
+      // hide right arrow, show only left
       document.getElementById("goleft").style.display = "block";
       document.getElementById("goright").style.display = "none";
    }
 
-   //console.log("goRight")
-   document.getElementById("container").scrollBy(window.innerWidth,0);
+   
 }
 
-function checkVisible(elm) {
+function checkVisible(elmid) {
+
+  var elm = document.getElementById(elmid);
   var rect = elm.getBoundingClientRect();
-  var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-  return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+  
+  if (rect.left == 0) {
+    return true;
+  } else {
+    return false;
+  }  
+  
 }
 
   </script>
