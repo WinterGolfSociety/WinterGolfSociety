@@ -531,44 +531,21 @@
        text-align: center;  
     }
 
+    .prev-btn, .next-btn {
+         font-size: 40px;
+         color: white;
+         position: absolute;
+         top: 40%;
+    //     translate: transformY(-50%)
+    }
 
+    .prev-btn {
+         left: 20%;
+    }
 
-
-
-
-
-
-
-.prev-btn, .next-btn {
-    font-size: 40px;
-    color: white;
-    position: absolute;
-    top: 40%;
-    translate: transformY(-50%)
-}
-.prev-btn {
-  left: 20%;
-}
-.next-btn {
-  right: 20%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .next-btn {
+        right: 20%;
+    }
 
   </style>
   
@@ -576,34 +553,11 @@
 
 <body>
   <div class="container" id="container">
-  
-  
-  
-    
-    
-    
-    
-    
-    
+   
   <span id="goleft" class="prev-btn" onclick="goLeft()"><img src="scrollleft.png" alt="left" style="height: 60px; width: 60px; opacity:0.4;"></span>
 
   <span id="goright" class="next-btn" onclick="goRight()"><img src="scrollright.png" alt="right" style="height: 60px; width: 60px; opacity: 0.4;"></span>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-  
-  
-  
-  
     <div class="pagecard" id="setup">
       <table class="table1">
         <caption></caption>
@@ -2510,17 +2464,52 @@ document.getElementById("showrules").style.visibility = "visible";
 }
 
 function goLeft() {
-console.log("goLeft")
-document.getElementById("container").scrollBy(-window.innerWidth,0);
+   if (checkVisible("setup")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "none";
+      document.getElementById("goright").style.display = "block";
+   }   
+   if (checkVisible("front")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "block";
+   } 
+   if (checkVisible("back")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "none";
+   } 
+
+   //console.log("goLeft")
+   document.getElementById("container").scrollBy(-window.innerWidth,0);
 }
 
 function goRight() {
-console.log("goRight")
-document.getElementById("container").scrollBy(window.innerWidth,0);
+  if (checkVisible("setup")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "none";
+      document.getElementById("goright").style.display = "block";
+   }   
+   if (checkVisible("front")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "block";
+   } 
+   if (checkVisible("back")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "none";
+   }
+
+   //console.log("goRight")
+   document.getElementById("container").scrollBy(window.innerWidth,0);
 }
 
-
-
+function checkVisible(elm) {
+  var rect = elm.getBoundingClientRect();
+  var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+  return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+}
 
   </script>
 </body>
