@@ -1511,6 +1511,8 @@
     document.addEventListener('touchend', e => {
       touchendX = e.changedTouches[0].screenX;
       checkDirection();
+      // sort out arrows if swiped
+      goRight();
     });
 
     //====================================================
