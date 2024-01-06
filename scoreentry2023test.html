@@ -1522,7 +1522,7 @@
               document.getElementById("goleft").style.display = "block";
               document.getElementById("goright").style.display = "none";
           }
-      }, 1500);
+      }, 1200);
       
     }
     
@@ -2538,7 +2538,8 @@ function checkVisible(elmid) {
   var elm = document.getElementById(elmid);
   var rect = elm.getBoundingClientRect();
   
-  if (rect.left == 0) {
+  //if (rect.left == 0) {
+  if (rect.left < 100) {
     return true;
   } else {
     return false;
