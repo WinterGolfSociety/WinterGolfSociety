@@ -1512,6 +1512,7 @@
       touchendX = e.changedTouches[0].screenX;
       checkDirection();
       // sort out arrows if swiped
+      
       goRight();
     });
 
@@ -2519,7 +2520,7 @@ function checkVisible(elmid) {
   var elm = document.getElementById(elmid);
   var rect = elm.getBoundingClientRect();
   
-  if (rect.left == 0) {
+  if (rect.left < 200) {
     return true;
   } else {
     return false;
