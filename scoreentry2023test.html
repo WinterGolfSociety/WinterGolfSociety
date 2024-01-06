@@ -1505,9 +1505,8 @@
         }
       }
       // sort out arrows if swiped
-      alert("here")
-      setTimeout(
-      function(){
+     // alert("here")
+      setTimeout(function() {
           if (checkVisible("setup")) {
               // hide left arrow, show only right
               document.getElementById("goleft").style.display = "none";
@@ -1523,11 +1522,10 @@
               document.getElementById("goleft").style.display = "block";
               document.getElementById("goright").style.display = "none";
           }
-      }, 3000);
-      
-      
+      }, 1500);
       
     }
+    
     document.addEventListener('touchstart', e => {
       touchstartX = e.changedTouches[0].screenX;
     });
