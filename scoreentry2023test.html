@@ -1504,6 +1504,8 @@
           }
         }
       }
+      // sort out arrows if swiped
+      setTimeout(goRight(), 3000);
     }
     document.addEventListener('touchstart', e => {
       touchstartX = e.changedTouches[0].screenX;
@@ -1511,9 +1513,6 @@
     document.addEventListener('touchend', e => {
       touchendX = e.changedTouches[0].screenX;
       checkDirection();
-      // sort out arrows if swiped
-      
-      goRight();
     });
 
     //====================================================
@@ -2520,7 +2519,7 @@ function checkVisible(elmid) {
   var elm = document.getElementById(elmid);
   var rect = elm.getBoundingClientRect();
   
-  if (rect.left < 200) {
+  if (rect.left == 0) {
     return true;
   } else {
     return false;
