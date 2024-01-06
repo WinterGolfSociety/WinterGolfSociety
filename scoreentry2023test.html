@@ -1505,7 +1505,27 @@
         }
       }
       // sort out arrows if swiped
-      setTimeout(goRight(), 3000);
+      setTimeout(
+      function(){
+          if (checkVisible("setup")) {
+              // hide left arrow, show only right
+              document.getElementById("goleft").style.display = "none";
+              document.getElementById("goright").style.display = "block";
+          }   
+          if (checkVisible("front")) {
+              // show left and right arrow
+              document.getElementById("goleft").style.display = "block";
+              document.getElementById("goright").style.display = "block";
+          } 
+          if (checkVisible("back")) {
+              // hide right arrow, show only left
+              document.getElementById("goleft").style.display = "block";
+              document.getElementById("goright").style.display = "none";
+          }
+      }, 3000);
+      
+      
+      
     }
     document.addEventListener('touchstart', e => {
       touchstartX = e.changedTouches[0].screenX;
