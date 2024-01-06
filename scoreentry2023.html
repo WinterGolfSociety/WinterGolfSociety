@@ -531,12 +531,36 @@
        text-align: center;  
     }
 
+    .prev-btn, .next-btn {
+         font-size: 40px;
+         color: white;
+         position: absolute;
+         top: 40%;
+    //     translate: transformY(-50%)
+    }
+
+    .prev-btn {
+         left: 20%;
+    }
+
+    .next-btn {
+        right: 20%;
+    }
+
+    #goleft {
+       display: none;
+    }
   </style>
   
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" id="container">
+   
+  <span id="goleft" class="prev-btn" onclick="goLeft()"><img src="scrollleft.png" alt="left" style="height: 60px; width: 60px; opacity:0.4;"></span>
+
+  <span id="goright" class="next-btn" onclick="goRight()"><img src="scrollright.png" alt="right" style="height: 60px; width: 60px; opacity: 0.4;"></span>
+
     <div class="pagecard" id="setup">
       <table class="table1">
         <caption></caption>
@@ -753,6 +777,7 @@
       </div>
     </div>
     <div class="pagecard" id="front">
+  
       <div class="left">
         <table class="table2">
           <caption></caption>
@@ -1464,14 +1489,8 @@
     // do stuff when swiped
     function checkDirection() {
       if (touchendX < touchstartX) {
-        // clear swipe icon
-        console.log("here 1")
-        document.getElementById("swiperight").innerHTML = "";
-        console.log("here 2")
-        // unblur submit button
-        // document.getElementById("submitwrapper").style.filter = "none";
+        // show submit button
         document.getElementById("submitwrapper").style.visibility = "visible";
-
         if (localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
           // prevent some false messages
           if ((touchstartX - touchendX) > 100) {
@@ -1479,7 +1498,27 @@
           }
         }
       }
+      // sort out arrows if swiped
+      setTimeout(function() {
+          if (checkVisible("setup")) {
+              // hide left arrow, show only right
+              document.getElementById("goleft").style.display = "none";
+              document.getElementById("goright").style.display = "block";
+          }   
+          if (checkVisible("front")) {
+              // show left and right arrow
+              document.getElementById("goleft").style.display = "block";
+              document.getElementById("goright").style.display = "block";
+          } 
+          if (checkVisible("back")) {
+              // hide right arrow, show only left
+              document.getElementById("goleft").style.display = "block";
+              document.getElementById("goright").style.display = "none";
+          }
+      }, 700);
+      
     }
+    
     document.addEventListener('touchstart', e => {
       touchstartX = e.changedTouches[0].screenX;
     });
@@ -2441,6 +2480,61 @@ document.getElementById("showrules").style.visibility = "visible";
  
 }
 
+function goLeft() {
+   //console.log("goLeft")
+   document.getElementById("container").scrollBy(-window.innerWidth,0);
+   
+   setTimeout(function() {
+   if (checkVisible("setup")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "none";
+      document.getElementById("goright").style.display = "block";
+   }   
+   if (checkVisible("front")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "block";
+   } 
+   if (checkVisible("back")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "none";
+   } 
+   },200);
+
+}
+
+function goRight() {
+  document.getElementById("container").scrollBy(window.innerWidth,0);
+  setTimeout(function() {
+  if (checkVisible("setup")) {
+      // hide left arrow, show only right
+      document.getElementById("goleft").style.display = "none";
+      document.getElementById("goright").style.display = "block";
+   }   
+   if (checkVisible("front")) {
+      // show left and right arrow
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "block";
+   } 
+   if (checkVisible("back")) {
+      // hide right arrow, show only left
+      document.getElementById("goleft").style.display = "block";
+      document.getElementById("goright").style.display = "none";
+   }
+   },200);
+   
+}
+
+function checkVisible(elmid) {
+  var elm = document.getElementById(elmid);
+  var rect = elm.getBoundingClientRect();
+  if (rect.left < 10) {
+    return true;
+  } else {
+    return false;
+  }  
+}
 
   </script>
 </body>
