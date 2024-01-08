@@ -132,7 +132,7 @@
 
     .padplus {
       display: grid;
-      place-items: center;
+      place-items: center end;
       border-style: none solid solid none;
       /* t, r, b, l */
       border-color: rgb(30, 130, 255);
@@ -140,7 +140,7 @@
 
     .padminus {
       display: grid;
-      place-items: center;
+      place-items: center start;
       border-style: none none solid solid;
       /* t, r, b, l */
       border-color: rgb(30, 130, 255);
@@ -978,7 +978,7 @@ function startNewDay() {
 }
   
 
-
+   console.log("end 1")
 //=====================================================
 // Close the dropdown if the user clicks outside of it
 //=====================================================
@@ -997,7 +997,7 @@ window.onclick = function(event) {
 //======================================
 // end of dropdown close procedure
 //======================================
-
+   console.log("end 2")
 
 
 // get todays date eg 26 June
@@ -1099,7 +1099,7 @@ if("comp" in localStorage) {
 	showCompMessage();
 }
 
-
+   console.log("end 3")
 
 
 
@@ -1215,6 +1215,7 @@ function toggleDropdown() {
 
 		// When the user clicks on the button, toggle between hiding and showing the dropdown content
 	document.getElementById("playersDropdown").classList.toggle("show");
+	   console.log("end ")
 }
 
 
