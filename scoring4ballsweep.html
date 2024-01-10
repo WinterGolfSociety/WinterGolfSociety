@@ -593,7 +593,7 @@
 
 </div>
 	<div id="all">
-	<div id="padlocktxt" onclick="lockUnlock()">locked<img src="padlock.png" onclick="lockUnlock()" alt="done" id="padlock"></div>
+	<div id="padlocktxt" onclick="lockUnlock()">locked<img src="padlock.png" alt="done" id="padlock"></div>
 	
 	
 		<button type="button" class="collapsible" id="coll0" onclick="recordScores(this.id)">Scores
@@ -1548,20 +1548,36 @@
 window.onbeforeunload = function(event) {
 	event.returnValue = "Write something clever here..";
 };
+
 var unlocked = "no";
 
 function lockUnlock() {
-	if(unlocked == "yes") {
-		unlocked = "no";
-		document.getElementById("padlocktxt").innerHTML = "locked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
-		document.getElementById("padlock").style.border = "3px solid red";
+
+	if(unlocked == "no") {
+           unlocked = "yes"
+	   document.getElementById("padlocktxt").innerHTML = "unlocked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+	   document.getElementById("padlock").style.border = "3px solid dodgerBlue";
 	} else {
-		unlocked = "yes";
-		document.getElementById("padlocktxt").innerHTML = "unlocked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
-		document.getElementById("padlock").style.border = "3px solid dodgerBlue";
+	  unlocked = "no"
+	  document.getElementById("padlocktxt").innerHTML = "locked" + '<img src="padlock.png" alt="done" id="padlock" style="height: 5vmax; width: 5vmax; float: right; padding:10px;">'
+	  document.getElementById("padlock").style.border = "3px solid red";
 	}
+	
 	shots()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 // globals
 var hcplist = "";
 var msglist = "";
