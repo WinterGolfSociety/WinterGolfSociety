@@ -354,7 +354,8 @@ for(i = 0; i < arrInfo.length; i++) {
            // last year
            nextyear = -12
         }
-        if(arrInfo[i][0].indexOf(tempyear - 1) > -1) {
+
+        if(arrInfo[i][0].indexOf(tempyear) > -1) {
            // this year
            nextyear = 0
         }
@@ -421,6 +422,7 @@ for(i = 0; i < arrInfo.length; i++) {
 			older = "no"
 		}
 	}
+	
 	if(arrInfo[i][1] == "" && arrInfo[i][2] == "") {
 		line = '<div class="grid-item bluemonth">' + arrInfo[i][0] + '</div>'
 		line += '<div class="grid-item bluemonth">' + arrInfo[i][1] + '</div>'
