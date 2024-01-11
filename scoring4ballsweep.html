@@ -2767,7 +2767,9 @@ function clearLocalStorage() {
 
 function shots() {
         shotsscore = "";
-
+        msgss1 = 0
+        msgss2 = 0
+        
 	temp1 = 99
 	temp2 = 99
 	temp3 = 99
@@ -2907,14 +2909,30 @@ function shots() {
 	       if (t1win > 0 && t2win == 0) {
 	           // t1win hole
 	           msg = t1 + " win"
+	           msgss1++ 
 	       }
 	       // lose
 	       if (t2win > 0 && t1win == 0) {
 	           // t2win hole
-	           msg = t2 + " win" 
+	           msg = t2 + " win"
+	           msgss2++ 
 	       }
 
-	       shotsscore = shotsscore + "\n" + "hole " + i + " " + msg
+ 
+               if (msgss1 == msgss2) {
+                  msgss = " (all square)"
+               }
+               if (msgss1 > msgss2) {
+                  msgss = " (" + t1 + " " + (msgss1 - msgss2) + " up)"
+               }
+               if (msgss2 > msgss1) {
+                  msgss = " (" + t2 + " " + (msgss2 - msgss1) + " up)"
+               }
+ 
+ 
+ 
+ 
+	       shotsscore = shotsscore + "\n" + "hole " + i + " " + msg + msgss
 
 	       document.getElementById("x1").innerText = shotsscore
 	       
