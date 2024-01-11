@@ -2801,15 +2801,21 @@ function shots() {
 	shots3 = Math.round(temp3 - tempmin);
 	shots4 = Math.round(temp4 - tempmin);
 
-        p1xtrashots = 0;
-        p2xtrashots = 0;
-        p3xtrashots = 0;
-        p4xtrashots = 0;
         
         
         
         
 	for(i = 1; i <= 18; i++) {
+	
+	p1xtrashots = 0;
+        p2xtrashots = 0;
+        p3xtrashots = 0;
+        p4xtrashots = 0;
+        
+	
+	
+	
+	
 		if(shots1 >= arrCourse[i][2] && shots1 < 54) {
 			// bignumber is blue for shot hole
 			document.getElementById("value" + arrCourse[i][0] + "a").style.color = "dodgerBlue"
@@ -2843,7 +2849,7 @@ function shots() {
 		        }
 		}
 	
-	        
+	        console.log("extrashots hole " + i,p1xtrashots, p2xtrashots, p3xtrashots, p4xtrashots);
 	       
 	       // calc score using "shots"
 	       p1shotsscore = (document.getElementById("value" + arrCourse[i][0] + "a").innerText) 
