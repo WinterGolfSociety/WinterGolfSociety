@@ -1915,10 +1915,17 @@ function recordScores(id) {
 		//eg. id = coll1
 		// if content is open, close and reset things
 		if(document.getElementById(id.replace("coll", "content")).style.display == "initial") {
-			for(i = 0; i <= 18; i++) {
+			for(j = 0; j <= 18; j++) {
+				// hide content, but show buttons  
+				document.getElementById("content" + j).style.display = "none"
+				document.getElementById("coll" + j).style.display = "block"
+			}
+			if (showhide == "hide") {
+			   for(i = 1; i <= 9; i++) {
 				// hide content, but show buttons  
 				document.getElementById("content" + i).style.display = "none"
-				document.getElementById("coll" + i).style.display = "block"
+				document.getElementById("coll" + i).style.display = "none"
+			   }
 			}
 			// at this point, save scores
 			if(id !== "coll0") {
