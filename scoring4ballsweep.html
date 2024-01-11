@@ -2801,21 +2801,13 @@ function shots() {
 	shots3 = Math.round(temp3 - tempmin);
 	shots4 = Math.round(temp4 - tempmin);
 
-        
-        
-        
-        
 	for(i = 1; i <= 18; i++) {
 	
 	p1xtrashots = 0;
         p2xtrashots = 0;
         p3xtrashots = 0;
         p4xtrashots = 0;
-        
-	
-	
-	
-	
+
 		if(shots1 >= arrCourse[i][2] && shots1 < 54) {
 			// bignumber is blue for shot hole
 			document.getElementById("value" + arrCourse[i][0] + "a").style.color = "dodgerBlue"
@@ -2848,8 +2840,6 @@ function shots() {
 		            p4xtrashots++
 		        }
 		}
-	
-	        console.log("extrashots hole " + i,p1xtrashots, p2xtrashots, p3xtrashots, p4xtrashots);
 	       
 	       // calc score using "shots"
 	       p1shotsscore = (document.getElementById("value" + arrCourse[i][0] + "a").innerText) 
@@ -2881,59 +2871,56 @@ function shots() {
 	        p2shotsscore = (p2shotsscore - p2xtrashots) 
 	        p3shotsscore = (p3shotsscore - p3xtrashots) 
 	        p4shotsscore = (p4shotsscore - p4xtrashots) 
-	
-	
-	if (i == 15) {
-	
-	console.log(shots1, shots2, shots3, shots4);
-	console.log(p1shotsscore, p2shotsscore, p3shotsscore, p4shotsscore);
-	alert(p1shotsscore + " " + p2shotsscore + " " + p3shotsscore + " " + p4shotsscore)
-	
-	}
-	
-	
+
+	        t1win = 0
+	        t2win = 0
 	
 	       tempmin = Math.min(p1shotsscore, p2shotsscore, p3shotsscore, p4shotsscore);
 	       tempmincount = 0
-	       msg = "won by "
+	       
 	       if (p1shotsscore == tempmin) {
 	           tempmincount++
-	           msg += "-" + shortName(player1name) + "-" 
+	           t1win++
 	       }
 	       if (p2shotsscore == tempmin) {
 	           tempmincount++
-	           msg += "-" + shortName(player2name) + "-"
+	           t1win++
 	       }
 	       if (p3shotsscore == tempmin) {
 	           tempmincount++
-	           msg += "-" + shortName(player3name) + "-"
+	           t2win++
 	       }
 	       if (p4shotsscore == tempmin) {
 	           tempmincount++
-	           msg += "-" + shortName(player4name) + "-" 
+	           t2win++
 	       }
+
+	       t1 = shortName(player1name).slice(0,-2) + "/" + shortName(player2name).slice(0,-2)
+	       t2 = shortName(player3name).slice(0,-2) + "/" + shortName(player4name).slice(0,-2)  
 	       
-	       
-	       msg = msg.replaceAll("--",", ")
-	       msg = msg.replaceAll("-","")
-	       console.log("hole " + i + " " + msg)
+	       // draw
+	       if (t1win > 0 && t2win > 0) {
+	           // halved hole
+	           msg = "halved"
+	       }
+	       // win
+	       if (t1win > 0 && t2win == 0) {
+	           // t1win hole
+	           msg = t1 + " win"
+	       }
+	       // lose
+	       if (t2win > 0 && t1win == 0) {
+	           // t2win hole
+	           msg = t2 + " win" 
+	       }
+
 	       shotsscore = shotsscore + "\n" + "hole " + i + " " + msg
-	       //alert(shotsscore)
-	       
-	       
-	       
+
 	       document.getElementById("x1").innerText = shotsscore
-	       
-	       
 	       
 	}       
 	       
 	}
-	
-	
-	
-	
-	
 	
 }
 
