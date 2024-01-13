@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<title>4score</title>
+	<title>Sweep</title>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
@@ -1501,7 +1501,7 @@
 		
 		
 		
-		<button type="button" class="collapsible" id="showhide" onclick="showHide()">show/hide front 9 (toggle)</button>	
+		<button type="button" class="collapsible" id="showhide" onclick="showHideToggle()">show all holes - YES</button>	
 		
 
 	</div>
@@ -1548,6 +1548,16 @@
 	
 	
 	<script>
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
 	
 window.onbeforeunload = function(event) {
 	event.returnValue = "Write something clever here..";
@@ -1676,6 +1686,9 @@ var arrPlayers = [];
 var compcourse = "none";
 var compdate = "";
 var shotsscore = "";
+var currenthole = 0;
+//var showhide = "show"
+ 
 // disable backbutton
 (function(global) {
 	if(typeof(global) === "undefined") {
@@ -1920,18 +1933,32 @@ function recordScores(id) {
 		//eg. id = coll1
 		// if content is open, close and reset things
 		if(document.getElementById(id.replace("coll", "content")).style.display == "initial") {
+
+
+                  
+
+
 			for(j = 0; j <= 18; j++) {
 				// hide content, but show buttons  
 				document.getElementById("content" + j).style.display = "none"
 				document.getElementById("coll" + j).style.display = "block"
 			}
-			if (showhide == "hide") {
-			   for(i = 1; i <= 9; i++) {
-				// hide content, but show buttons  
-				document.getElementById("content" + i).style.display = "none"
-				document.getElementById("coll" + i).style.display = "none"
-			   }
-			}
+			//if (showhide == "hide") {
+			 //  for(i = 1; i <= 9; i++) {
+			//	// hide content, but show buttons  
+			//	document.getElementById("content" + i).style.display = "none"
+			//	document.getElementById("coll" + i).style.display = "none"
+			 //  }
+			   
+			   
+			 //   showHide();
+			   
+			   
+			   
+			   
+			   
+			   
+			//}
 			// at this point, save scores
 			if(id !== "coll0") {
 				// player 1
@@ -1953,12 +1980,16 @@ function recordScores(id) {
 				document.getElementById(id.replace("coll", "pppp")).innerText = s4 + "/" + p4
 					// to localStorage eg p1h1score,5
 				if(id !== "coll0") {
-					if(document.getElementById("input" + id.replace("coll", "") + "a").value > 0 || document.getElementById("input" + id.replace("coll", "") + "b").value > 0 || document.getElementById("input" + id.replace("coll", "") + "c").value > 0 || document.getElementById("input" + id.replace("coll", "") + "d").value > 0) {
+				  if(document.getElementById("input" + id.replace("coll", "") + "a").value > 0 ||
+				     document.getElementById("input" + id.replace("coll", "") + "b").value > 0 ||
+				     document.getElementById("input" + id.replace("coll", "") + "c").value > 0 ||
+				     document.getElementById("input" + id.replace("coll", "") + "d").value > 0) {
 						document.getElementById(id.replace("coll", "h") + "img").style.display = "block"
 					} else {
 						document.getElementById(id.replace("coll", "h") + "img").style.display = "none"
 					}
 				}
+
 				checkResetHole(id.replace("coll", ""))
 					// redo totals
 				totalsCalc()
@@ -1979,18 +2010,46 @@ function recordScores(id) {
 			//document.getElementById(newid).style.display = "block"     
 			// show green tick because score recorded   
 			if(id !== "coll0") {
-				if(document.getElementById("input" + id.replace("coll", "") + "a").value > 0 || document.getElementById("input" + id.replace("coll", "") + "b").value > 0 || document.getElementById("input" + id.replace("coll", "") + "c").value > 0 || document.getElementById("input" + id.replace("coll", "") + "d").value > 0) {
+				if(document.getElementById("input" + id.replace("coll", "") + "a").value > 0 ||
+				   document.getElementById("input" + id.replace("coll", "") + "b").value > 0 ||
+				   document.getElementById("input" + id.replace("coll", "") + "c").value > 0 ||
+				   document.getElementById("input" + id.replace("coll", "") + "d").value > 0) {
 					document.getElementById(id.replace("coll", "h") + "img").style.display = "block"
+	
+	
+	
+	
+					
+					
+					
+					
+					
+					
+					
 				} else {
 					document.getElementById(id.replace("coll", "h") + "img").style.display = "none"
 				}
 			}
 		}
 	} // unlocked
+	
+	
+	
+	
+	
+	 showHide();
+	
+	
+	
+	
+	
 }
 
 function checkResetHole(holenumber) {
-	if(document.getElementById("input" + holenumber + "a").value == 0 && document.getElementById("input" + holenumber + "b").value == 0 && document.getElementById("input" + holenumber + "c").value == 0 && document.getElementById("input" + holenumber + "d").value == 0) {
+	if(document.getElementById("input" + holenumber + "a").value == 0 &&
+	   document.getElementById("input" + holenumber + "b").value == 0 && 
+	   document.getElementById("input" + holenumber + "c").value == 0 && 
+	   document.getElementById("input" + holenumber + "d").value == 0) {
 		document.getElementById("p" + holenumber).innerText = "-";
 		document.getElementById("pp" + holenumber).innerText = "-";
 		document.getElementById("ppp" + holenumber).innerText = "-";
@@ -2192,7 +2251,10 @@ function outputPlayers(msg) {
 	newmsglistplayer = "Player 1:" + "<br>" + "Player 2:" + "<br>" + "Player 3:" + "<br>" + "Player 4:"
 	newmsglistname = arr1[0] + "<br>" + arr1[1] + "<br>" + arr1[2] + "<br>" + arr1[3]
 	newmsglisthcp = player1hcp + "<br>" + player2hcp + "<br>" + player3hcp + "<br>" + player4hcp
-	newmsglist = "Player 1: " + arr1[0] + "<br>" + "Player 2: " + arr1[1] + "<br>" + "Player 3: " + arr1[2] + "<br>" + "Player 4: " + arr1[3]
+	newmsglist = "Player 1: " + arr1[0] + "<br>" + 
+	             "Player 2: " + arr1[1] + "<br>" + 
+	             "Player 3: " + arr1[2] + "<br>" + 
+	             "Player 4: " + arr1[3]
 	document.getElementById("player4ballplayer").innerHTML = newmsglistplayer
 	document.getElementById("player4ballname").innerHTML = newmsglistname
 	document.getElementById("player4ballhcp").innerHTML = newmsglisthcp
@@ -2315,7 +2377,7 @@ function getScoring() {
 		}
 	}
 	// do shots coloration
-	shots()
+	//shots()
 	// initial save of data
 	saveAllToLocalStorage()
 }
@@ -2942,9 +3004,9 @@ function shots() {
 	
 }
 
-var showhide = "show"
 
-function showHide() {
+
+function xshowHide() {
 if(showhide == "show") {
    showhide = "hide"
    	for(i = 1; i <= 9; i++) {
@@ -2960,6 +3022,50 @@ if(showhide == "show") {
 }        
 
 }
+
+function showHide() {
+    for(i = 1; i <= 18; i++) {
+        if (document.getElementById("h" + i + "img").style.display !== "none") {
+            currenthole = i
+        }
+        document.getElementById("coll" + i).style.display = "none"
+    }
+
+    if (currenthole >= 5) {
+    
+         for(i = (currenthole - 2); i <= (currenthole + 1); i++) {
+             document.getElementById("coll" + i).style.display = "block"
+         }
+    
+    } else {
+       //  document.getElementById("coll" + i).style.display = "none"
+         for(j = 1; j <= 5; j++) {
+            document.getElementById("coll" + j).style.display = "block"
+         }
+    }
+    
+    
+    
+    shots();
+    
+    
+}
+
+function showHideToggle() {
+if (document.getElementById("showhide").innerText.indexOf("YES") > -1) {
+    //showhide = "NO"
+    document.getElementById("showhide").innerText = "Show all holes - NO"
+    showHide();
+} else {
+    document.getElementById("showhide").innerText = "Show all holes - YES"
+   for(j = 1; j <= 18; j++) {
+            document.getElementById("coll" + j).style.display = "block"
+    }
+}
+
+}
+
+
 
 
 
