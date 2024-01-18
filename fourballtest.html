@@ -301,10 +301,13 @@ document.getElementById("p4name").style.background = ""
 
 function prevHole() {
 whichhole--
+if (whichhole == 0) {
+    whichhole = 1
+}
+
 holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]	
 		
-   document.getElementById("holedetails").innerText = holedetails
-   
+document.getElementById("holedetails").innerText = holedetails
    
 // change highlight colour
 document.getElementById("p1name").style.background = ""
