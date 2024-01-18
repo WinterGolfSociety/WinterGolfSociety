@@ -281,12 +281,17 @@ holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whi
 		
    document.getElementById("holedetails").innerText = holedetails
    
-   // change highlight colour
+   // reset scores
 document.getElementById("p1score").innerText = "0"
 document.getElementById("p2score").innerText = "0"
 document.getElementById("p3score").innerText = "0"
 document.getElementById("p4score").innerText = "0"
 
+// change highlight colour
+document.getElementById("p1name").style.background = ""
+document.getElementById("p2name").style.background = ""
+document.getElementById("p3name").style.background = ""
+document.getElementById("p4name").style.background = ""
 
      document.getElementById("scorenext").style.background = ""
     selectedplayer = 1
