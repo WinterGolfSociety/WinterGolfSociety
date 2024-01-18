@@ -299,7 +299,20 @@ document.getElementById("p4name").style.background = ""
    
 }
 
-
+function prevHole() {
+whichhole--
+holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]	
+		
+   document.getElementById("holedetails").innerText = holedetails
+   
+   
+// change highlight colour
+document.getElementById("p1name").style.background = ""
+document.getElementById("p2name").style.background = ""
+document.getElementById("p3name").style.background = ""
+document.getElementById("p4name").style.background = ""
+   
+}   
 
 
 
