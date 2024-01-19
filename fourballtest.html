@@ -191,6 +191,25 @@
 	
 	// find the player number	
 	function selected(id) {
+	        // reset all
+	        // put player name back
+		document.getElementById("p1name").style.color = "black"
+		document.getElementById("p1name").style.borderColor = "gainsboro"
+		document.getElementById("p1name").style.boxShadow = ""
+		
+		document.getElementById("p2name").style.color = "black"
+		document.getElementById("p2name").style.borderColor = "gainsboro"
+		document.getElementById("p2name").style.boxShadow = ""
+			
+		document.getElementById("p3name").style.color = "black"
+		document.getElementById("p3name").style.borderColor = "gainsboro"
+		document.getElementById("p3name").style.boxShadow = ""
+			
+		document.getElementById("p4name").style.color = "black"
+		document.getElementById("p4name").style.borderColor = "gainsboro"
+		document.getElementById("p4name").style.boxShadow = ""
+		
+	        // highlight selected
 		selectedplayer = id.replace("score", "").replace("name", "").replace("p", "")
 		document.getElementById("p" + selectedplayer + "name").style.color = "blue"
 		document.getElementById("p" + selectedplayer + "name").style.borderColor = "blue"
