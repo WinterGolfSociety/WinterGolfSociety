@@ -10,8 +10,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 	<style>
-	
-	
 	body {
 		font-family: Arial, Helvetica, sans-serif;
 		font-size: 3vh;
@@ -23,42 +21,32 @@
 	}
 	
 	.grid-container-top > div {
-	        display: flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
 		border: 1px solid gray;
 		border-radius: 5px;
 		height: 10vh;
-		
-		
-		 box-shadow: inset gray 0px 0px 60px -12px; 
-		
-		
+		box-shadow: inset gray 0px 0px 60px -12px;
 	}
 	
 	.grid-container-middle {
 		display: grid;
-		grid-template-columns: auto calc(98vw/3);	
+		grid-template-columns: auto calc(98vw/3);
 	}
 	
 	.grid-container-middle > div {
-	        display: flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
+		font-size: 3vh;
 		border: 1px solid gainsboro;
 		//border-radius: 5px;
 		height: 10vh;
-		
-		
-		
-		 //box-shadow: inset gray 0px 0px 60px -12px; 
-		
-		
-		
+		//box-shadow: inset gray 0px 0px 60px -12px; 
 	}
-	
 	
 	.grid-container-bottom {
 		display: grid;
@@ -66,8 +54,8 @@
 	}
 	
 	.grid-container-bottom > div {
-	        font-size: 5vh;
-	        display: flex;
+		font-size: 5vh;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
@@ -76,335 +64,301 @@
 		border: 1px solid dodgerBlue;
 		border-radius: 5px;
 		height: 10vh;
-		
-		
-		 box-shadow: inset dodgerBlue 0px 0px 60px -12px; 
-		
-		
-		
+		box-shadow: inset dodgerBlue 0px 0px 60px -12px;
 	}
 	
-	
-	#p1score, #p2score, #p3score, #p4score {
-	     font-size: 5vh;
+	#p1score,
+	#p2score,
+	#p3score,
+	#p4score {
+		font-size: 5vh;
 	}
-	
-
-	
 	</style>
 </head>
 
 <body>
-
 	<div id="all">
-	   <div class="grid-container-top">
-	   
-	   <div id="holedetails"></div>
-	   	   
-	   </div>
-	   
-	   <div class="grid-container-middle">
-           <div id="p1name" onclick="selected(this.id)">Bryan Maddison</div>
-           <div id="p1score" onclick="selected(this.id)">0</div>
-	   <div id="p2name"onclick="selected(this.id)">Stephen Alldridge</div>
-	   <div id="p2score" onclick="selected(this.id)">0</div>
-	   <div id="p3name" onclick="selected(this.id)">Joe Fletcher</div>
-	   <div id="p3score" onclick="selected(this.id)">0</div>
-	   <div id="p4name" onclick="selected(this.id)">Dale Aitkenhead</div>
-	   <div id="p4score" onclick="selected(this.id)">0</div>
-	   </div>
-	
-           <div class="grid-container-bottom">
-		<div class="small" id="score1" onclick="numberScore(this.id)">1</div>
-		<div class="small" id="score2" onclick="numberScore(this.id)">2</div>
-		<div class="small" id="score3" onclick="numberScore(this.id)">3</div>
-		
-		<div class="small" id="score4" onclick="numberScore(this.id)">4</div>
-		<div class="small" id="score5" onclick="numberScore(this.id)">5</div>
-		<div class="small" id="score6" onclick="numberScore(this.id)">6</div>
-		
-		<div class="small" id="score7" onclick="numberScore(this.id)">7</div>
-		<div class="small" id="score8" onclick="numberScore(this.id)">8</div>
-		<div class="small" id="score9" onclick="numberScore(this.id)">9</div>
-		
-		<div class="small" id="scoreprev" onclick="prevHole()">prev</div>
-		<div class="small" id="score0" onclick="numberScore(this.id)">0</div>
-		<div class="small" id="scorenext" onclick="nextHole()">next</div>
-	
-		
+		<div class="grid-container-top">
+			<div id="holedetails"></div>
+		</div>
+		<div class="grid-container-middle">
+			<div id="p1name" onclick="selected(this.id)">Bryan Maddison</div>
+			<div id="p1score" onclick="selected(this.id)">0</div>
+			<div id="p2name" onclick="selected(this.id)">Stephen Alldridge</div>
+			<div id="p2score" onclick="selected(this.id)">0</div>
+			<div id="p3name" onclick="selected(this.id)">Joe Fletcher</div>
+			<div id="p3score" onclick="selected(this.id)">0</div>
+			<div id="p4name" onclick="selected(this.id)">Dale Aitkenhead</div>
+			<div id="p4score" onclick="selected(this.id)">0</div>
+		</div>
+		<div class="grid-container-bottom">
+			<div class="small" id="score1" onclick="numberScore(this.id)">1</div>
+			<div class="small" id="score2" onclick="numberScore(this.id)">2</div>
+			<div class="small" id="score3" onclick="numberScore(this.id)">3</div>
+			<div class="small" id="score4" onclick="numberScore(this.id)">4</div>
+			<div class="small" id="score5" onclick="numberScore(this.id)">5</div>
+			<div class="small" id="score6" onclick="numberScore(this.id)">6</div>
+			<div class="small" id="score7" onclick="numberScore(this.id)">7</div>
+			<div class="small" id="score8" onclick="numberScore(this.id)">8</div>
+			<div class="small" id="score9" onclick="numberScore(this.id)">9</div>
+			<div class="small" id="scoreprev" onclick="prevHole()">prev</div>
+			<div class="small" id="score0" onclick="numberScore(this.id)">0</div>
+			<div class="small" id="scorenext" onclick="nextHole()">next</div>
+		</div>
 	</div>
-</div>
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<script>
-	
-	
-   var selectedplayer = 1;
-   document.getElementById("p1name").style.background = "silver"
-	
-   // set up courses with details for calculations etc.
-    // array ["hole num",par,si]
-    // Lakes
-    arrLakes = [
-      [0, 0, 0],
-      [1, 4, 15],
-      [2, 4, 7],
-      [3, 5, 3],
-      [4, 4, 1],
-      [5, 3, 17],
-      [6, 3, 11],
-      [7, 4, 9],
-      [8, 4, 5],
-      [9, 4, 13],
-      [10, 3, 16],
-      [11, 4, 18],
-      [12, 4, 10],
-      [13, 4, 6],
-      [14, 3, 14],
-      [15, 3, 4],
-      [16, 5, 12],
-      [17, 4, 2],
-      [18, 5, 8]
-    ];
-    // array ["hole num",par,si]
-    // Dawson
-    arrDawson = [
-      [0, 0, 0],
-      [1, 5, 13],
-      [2, 4, 15],
-      [3, 3, 17],
-      [4, 4, 3],
-      [5, 4, 1],
-      [6, 5, 11],
-      [7, 4, 7],
-      [8, 4, 9],
-      [9, 5, 5],
-      [10, 4, 16],
-      [11, 5, 14],
-      [12, 3, 18],
-      [13, 4, 2],
-      [14, 4, 4],
-      [15, 4, 12],
-      [16, 3, 6],
-      [17, 4, 10],
-      [18, 4, 8]
-    ];
-    // array ["hole num",par,si]
-    // OldCourse
-    arrOldCourse = [
-      [0, 0, 0],
-      [1, 5, 10],
-      [2, 4, 6],
-      [3, 3, 18],
-      [4, 5, 4],
-      [5, 3, 16],
-      [6, 4, 2],
-      [7, 4, 14],
-      [8, 4, 8],
-      [9, 4, 12],
-      [10, 4, 5],
-      [11, 3, 13],
-      [12, 4, 15],
-      [13, 4, 1],
-      [14, 5, 7],
-      [15, 3, 11],
-      [16, 5, 9],
-      [17, 4, 3],
-      [18, 5, 17]
-    ];	
-	
+	var selectedplayer = 1;
+	document.getElementById("p1name").style.color = "blue"
+	document.getElementById("p1name").style.borderColor = "blue"
+	document.getElementById("p1name").style.boxShadow = "inset blue 0px 0px 60px -12px"
+	// set up courses with details for calculations etc.
+	// array ["hole num",par,si]
+	// Lakes
+	arrLakes = [
+		[0, 0, 0],
+		[1, 4, 15],
+		[2, 4, 7],
+		[3, 5, 3],
+		[4, 4, 1],
+		[5, 3, 17],
+		[6, 3, 11],
+		[7, 4, 9],
+		[8, 4, 5],
+		[9, 4, 13],
+		[10, 3, 16],
+		[11, 4, 18],
+		[12, 4, 10],
+		[13, 4, 6],
+		[14, 3, 14],
+		[15, 3, 4],
+		[16, 5, 12],
+		[17, 4, 2],
+		[18, 5, 8]
+	];
+	// array ["hole num",par,si]
+	// Dawson
+	arrDawson = [
+		[0, 0, 0],
+		[1, 5, 13],
+		[2, 4, 15],
+		[3, 3, 17],
+		[4, 4, 3],
+		[5, 4, 1],
+		[6, 5, 11],
+		[7, 4, 7],
+		[8, 4, 9],
+		[9, 5, 5],
+		[10, 4, 16],
+		[11, 5, 14],
+		[12, 3, 18],
+		[13, 4, 2],
+		[14, 4, 4],
+		[15, 4, 12],
+		[16, 3, 6],
+		[17, 4, 10],
+		[18, 4, 8]
+	];
+	// array ["hole num",par,si]
+	// OldCourse
+	arrOldCourse = [
+		[0, 0, 0],
+		[1, 5, 10],
+		[2, 4, 6],
+		[3, 3, 18],
+		[4, 5, 4],
+		[5, 3, 16],
+		[6, 4, 2],
+		[7, 4, 14],
+		[8, 4, 8],
+		[9, 4, 12],
+		[10, 4, 5],
+		[11, 3, 13],
+		[12, 4, 15],
+		[13, 4, 1],
+		[14, 5, 7],
+		[15, 3, 11],
+		[16, 5, 9],
+		[17, 4, 3],
+		[18, 5, 17]
+	];
 	whichhole = 1
 	// 1st hole
-	var holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]	
+	var holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]
 	document.getElementById("holedetails").innerText = holedetails
 	
+	// create set of local storage items	
+	setupScores()
 	
-// create set of local storage items	
-setupScores() 	
-	
-	
-// find the player number	
-function selected(id) {
-selectedplayer =  id.replace("score","").replace("name","").replace("p","")
-// returns a number 1 to 4
-
-// change highlight colour
-document.getElementById("p1name").style.background = ""
-document.getElementById("p2name").style.background = ""
-document.getElementById("p3name").style.background = ""
-document.getElementById("p4name").style.background = ""
-
-
-document.getElementById("p" + selectedplayer + "name").style.background = "silver"
-}	
-	
-	
-// put score in the selected player
-// and move on	
-function numberScore(id) {
-
-temppscore = "p" + selectedplayer + "score"
-// highlight number selected for a brief time
-document.getElementById(id).style.color = "blue"
-document.getElementById(id).style.borderColor = "blue"
-document.getElementById(id).style.boxShadow = "inset blue 0px 0px 60px -12px"
-document.getElementById(id).style.fontSize = "6vh"
-setTimeout(() => {
-  document.getElementById(id).style.color = "dodgerBlue"
-  document.getElementById(id).style.borderColor = "dodgerBlue"
-  document.getElementById(id).style.boxShadow = "inset dodgerBlue 0px 0px 60px -12px"
-  document.getElementById(id).style.fontSize = "5vh"
-}, "500");
-document.getElementById(temppscore).innerText = id.replace("score","")
-
-// change highlight colour
-document.getElementById("p1name").style.background = ""
-document.getElementById("p2name").style.background = ""
-document.getElementById("p3name").style.background = ""
-document.getElementById("p4name").style.background = ""
-
-//document.getElementById("p" + selectedplayer + "name").style.background = "silver"
-
-// move on
-selectedplayer++
-if (selectedplayer <= 4) {
-    document.getElementById("p" + selectedplayer + "name").style.background = "silver"
-} else {
-    document.getElementById("scorenext").style.background = "silver"
-    selectedplayer = 1
-}
-
-}
-	
-	
-	
-
-function scoreMinus(id) {
-	temp1 = document.getElementById(id.replace("minus", "hcp")).innerText
-	if(temp1 !== "no hcp") {
-		document.getElementById(id.replace("minus", "hcp")).innerText = parseInt(temp1) - 1;
+	// find the player number	
+	function selected(id) {
+		selectedplayer = id.replace("score", "").replace("name", "").replace("p", "")
+		document.getElementById("p" + selectedplayer + "name").style.color = "blue"
+		document.getElementById("p" + selectedplayer + "name").style.borderColor = "blue"
+		document.getElementById("p" + selectedplayer + "name").style.boxShadow = "inset blue 0px 0px 60px -12px"
 	}
-}
-
-function scorePlus(id) {
-	temp1 = document.getElementById(id.replace("plus", "hcp")).innerText
-	if(temp1 !== "no hcp") {
-		document.getElementById(id.replace("plus", "hcp")).innerText = parseInt(temp1) + 1;
+	// put score in the selected player
+	// and move on	
+	function numberScore(id) {
+		// id is number button pressed eg. score5
+		temppscore = "p" + selectedplayer + "score"
+		temppname = "p" + selectedplayer + "name"
+		// highlight number button for a brief time
+		tempid = document.getElementById(id)
+		temppscoreid = document.getElementById(temppscore)
+		temppnameid = document.getElementById(temppname)
+		// do number button
+		tempid.style.color = "blue"
+		tempid.style.borderColor = "blue"
+		tempid.style.boxShadow = "inset blue 0px 0px 60px -12px"
+		tempid.style.fontSize = "6vh"
+		// do score entred
+		temppscoreid.style.color = "blue"
+		temppscoreid.style.borderColor = "blue"
+		temppscoreid.style.boxShadow = "inset blue 0px 0px 60px -12px"
+		// do player name
+		temppnameid.style.color = "blue"
+		temppnameid.style.borderColor = "blue"
+		temppnameid.style.boxShadow = "inset blue 0px 0px 60px -12px"
+		// delay putting everything back
+		setTimeout(() => {
+			// put number button back
+			tempid.style.color = "dodgerBlue"
+			tempid.style.borderColor = "dodgerBlue"
+			tempid.style.boxShadow = "inset dodgerBlue 0px 0px 60px -12px"
+			tempid.style.fontSize = "5vh"
+			// put score back
+			temppscoreid.style.color = "black"
+			temppscoreid.style.borderColor = "gainsboro"
+			temppscoreid.style.boxShadow = ""
+			// put player name back
+			temppnameid.style.color = "black"
+			temppnameid.style.borderColor = "gainsboro"
+			temppnameid.style.boxShadow = ""
+			// reset all player name backgrounds
+			//document.getElementById("p1name").style.background = ""
+			//document.getElementById("p2name").style.background = ""
+			//document.getElementById("p3name").style.background = ""
+			//document.getElementById("p4name").style.background = ""
+			// update score
+			document.getElementById(temppscore).innerText = id.replace("score", "")
+			// move on to next player and highlight
+			selectedplayer++
+			if(selectedplayer <= 4) {
+				tempstrokesid = document.getElementById("p" + selectedplayer + "name")
+				tempstrokesid.style.color = "blue"
+				tempstrokesid.style.borderColor = "blue"
+				tempstrokesid.style.boxShadow = "inset blue 0px 0px 60px -12px"
+			} else {
+				document.getElementById("scorenext").style.color = "blue"
+				document.getElementById("scorenext").style.borderColor = "blue"
+				document.getElementById("scorenext").style.boxShadow = "inset blue 0px 0px 60px -12px"
+				selectedplayer = 0
+			}
+		}, "200");
 	}
-}
 
-function nextHole() {
+	function scoreMinus(id) {
+		temp1 = document.getElementById(id.replace("minus", "hcp")).innerText
+		if(temp1 !== "no hcp") {
+			document.getElementById(id.replace("minus", "hcp")).innerText = parseInt(temp1) - 1;
+		}
+	}
 
+	function scorePlus(id) {
+		temp1 = document.getElementById(id.replace("plus", "hcp")).innerText
+		if(temp1 !== "no hcp") {
+			document.getElementById(id.replace("plus", "hcp")).innerText = parseInt(temp1) + 1;
+		}
+	}
 
-saveScores()
-
-
-whichhole++
-holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]	
+	function nextHole() {
+		saveScores()
+		whichhole++
+		holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]
+		document.getElementById("holedetails").innerText = holedetails
+		// reset all player name backgrounds
+		document.getElementById("p1name").style.background = ""
+		document.getElementById("p2name").style.background = ""
+		document.getElementById("p3name").style.background = ""
+		document.getElementById("p4name").style.background = ""
+		// put player name back
+		document.getElementById("p1name").style.color = "black"
+		document.getElementById("p1name").style.borderColor = "gainsboro"
+		document.getElementById("p1name").style.boxShadow = ""
 		
-   document.getElementById("holedetails").innerText = holedetails
-   
-   // reset scores
-document.getElementById("p1score").innerText = "0"
-document.getElementById("p2score").innerText = "0"
-document.getElementById("p3score").innerText = "0"
-document.getElementById("p4score").innerText = "0"
-
-// change highlight colour
-document.getElementById("p1name").style.background = ""
-document.getElementById("p2name").style.background = ""
-document.getElementById("p3name").style.background = ""
-document.getElementById("p4name").style.background = ""
-
-document.getElementById("scorenext").style.background = ""
-selectedplayer = 1
-document.getElementById("p" + selectedplayer + "name").style.background = "silver"
-  
-// get scores  
-getScores()   
-}
-
-function prevHole() {
-
-
-saveScores()
-
-
-
-whichhole--
-if (whichhole == 0) {
-    whichhole = 1
-}
-
-holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]	
+		document.getElementById("p2name").style.color = "black"
+		document.getElementById("p2name").style.borderColor = "gainsboro"
+		document.getElementById("p2name").style.boxShadow = ""
+			
+		document.getElementById("p3name").style.color = "black"
+		document.getElementById("p3name").style.borderColor = "gainsboro"
+		document.getElementById("p3name").style.boxShadow = ""
+			
+		document.getElementById("p4name").style.color = "black"
+		document.getElementById("p4name").style.borderColor = "gainsboro"
+		document.getElementById("p4name").style.boxShadow = ""
 		
-document.getElementById("holedetails").innerText = holedetails
-   
-// change highlight colour
-document.getElementById("p1name").style.background = ""
-document.getElementById("p2name").style.background = ""
-document.getElementById("p3name").style.background = ""
-document.getElementById("p4name").style.background = ""
-   
-   
-   
-//save scores   
-   
-   
-// retrieve scores   
-getScores()  
-}   
+		document.getElementById("p1score").innerText = "0"
+		document.getElementById("p2score").innerText = "0"
+		document.getElementById("p3score").innerText = "0"
+		document.getElementById("p4score").innerText = "0"
+		document.getElementById("scorenext").style.color = "dodgerBlue"
+		document.getElementById("scorenext").style.borderColor = "dodgerBlue"
+		document.getElementById("scorenext").style.boxShadow = "inset dodgerBlue 0px 0px 60px -12px"
+		selectedplayer = 1
+		document.getElementById("p" + selectedplayer + "name").style.color = "blue"
+		document.getElementById("p" + selectedplayer + "name").style.borderColor = "blue"
+		document.getElementById("p" + selectedplayer + "name").style.boxShadow = "inset blue 0px 0px 60px -12px"
+		// get scores  
+		getScores()
+	}
 
+	function prevHole() {
+		saveScores()
+		whichhole--
+		if(whichhole == 0) {
+			whichhole = 1
+		}
+		holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]
+		document.getElementById("holedetails").innerText = holedetails
+		// change highlight colour
+		document.getElementById("p1name").style.background = ""
+		document.getElementById("p2name").style.background = ""
+		document.getElementById("p3name").style.background = ""
+		document.getElementById("p4name").style.background = ""
+		// retrieve scores   
+		getScores()
+	}
 
-function setupScores() {
+	function setupScores() {
+		// do date check here
+		for(var i = 1; i <= 18; i++) {
+			for(var j = 1; j <= 4; j++) {
+				localStorage.setItem("p" + j + "h" + i, "0")
+			}
+		}
+	}
 
-// do date check here
+	function saveScores() {
+		// only save if scores are there
+		if(!(document.getElementById("p1score").innerText == "0" &&
+		     document.getElementById("p2score").innerText == "0" &&
+	             document.getElementById("p3score").innerText == "0" &&
+	             document.getElementById("p4score").innerText == "0")) {
+			localStorage.setItem("p1h" + whichhole, document.getElementById("p1score").innerText)
+			localStorage.setItem("p2h" + whichhole, document.getElementById("p2score").innerText)
+			localStorage.setItem("p3h" + whichhole, document.getElementById("p3score").innerText)
+			localStorage.setItem("p4h" + whichhole, document.getElementById("p4score").innerText)
+		}
+	}
 
-
-    for (var i = 1; i <= 18; i++) {
-         for (var j = 1; j <= 4; j++) {
-              localStorage.setItem("p" + j + "h" + i, "0")
-         }
-    }
-}
-
-
-
-
-function saveScores() {
-    // only save if scores are there
-    if (!(document.getElementById("p1score").innerText == "0" &&
-          document.getElementById("p2score").innerText == "0" &&
-          document.getElementById("p3score").innerText == "0" &&
-          document.getElementById("p4score").innerText == "0")) {
-             localStorage.setItem("p1h" + whichhole, document.getElementById("p1score").innerText)
-             localStorage.setItem("p2h" + whichhole, document.getElementById("p2score").innerText)
-             localStorage.setItem("p3h" + whichhole, document.getElementById("p3score").innerText)
-             localStorage.setItem("p4h" + whichhole, document.getElementById("p4score").innerText)    
-   }
-}
-
-function getScores() {
-    document.getElementById("p1score").innerText = localStorage.getItem("p1h" + whichhole)
-    document.getElementById("p2score").innerText = localStorage.getItem("p2h" + whichhole)
-    document.getElementById("p3score").innerText = localStorage.getItem("p3h" + whichhole)
-    document.getElementById("p4score").innerText = localStorage.getItem("p4h" + whichhole)
-}
-
-
-
+	function getScores() {
+		document.getElementById("p1score").innerText = localStorage.getItem("p1h" + whichhole)
+		document.getElementById("p2score").innerText = localStorage.getItem("p2h" + whichhole)
+		document.getElementById("p3score").innerText = localStorage.getItem("p3h" + whichhole)
+		document.getElementById("p4score").innerText = localStorage.getItem("p4h" + whichhole)
+	}
+	
 	</script>
 </body>
 
