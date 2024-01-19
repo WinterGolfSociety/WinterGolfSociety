@@ -259,10 +259,12 @@ temppscore = "p" + selectedplayer + "score"
 // highlight number selected for a brief time
 document.getElementById(id).style.color = "blue"
 document.getElementById(id).style.borderColor = "blue"
+document.getElementById(id).style.boxShadow = "inset blue 0px 0px 60px -12px"
 document.getElementById(id).style.fontSize = "6vh"
 setTimeout(() => {
   document.getElementById(id).style.color = "dodgerBlue"
   document.getElementById(id).style.borderColor = "dodgerBlue"
+  document.getElementById(id).style.boxShadow = "inset dodgerBlue 0px 0px 60px -12px"
   document.getElementById(id).style.fontSize = "5vh"
 }, "500");
 document.getElementById(temppscore).innerText = id.replace("score","")
