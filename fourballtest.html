@@ -73,6 +73,14 @@
 	#p4score {
 		font-size: 5vh;
 	}
+	
+	.highlight {
+	    color: blue;
+            border-color: blue;
+            box-shadow: inset blue 0px 0px 60px -12px;
+	}
+	
+	
 	</style>
 </head>
 
@@ -107,10 +115,13 @@
 		</div>
 	</div>
 	<script>
+	//=================================================================================
+	// this runs on startup or reload
+	// 
+	//=================================================================================
 	var selectedplayer = 1;
-	document.getElementById("p1name").style.color = "blue"
-	document.getElementById("p1name").style.borderColor = "blue"
-	document.getElementById("p1name").style.boxShadow = "inset blue 0px 0px 60px -12px"
+	document.getElementById("p1name").classList.add("highlight");
+	
 	// set up courses with details for calculations etc.
 	// array ["hole num",par,si]
 	// Lakes
@@ -189,35 +200,32 @@
 	// create set of local storage items	
 	setupScores()
 	
-	// find the player number	
+	//=================================================================================
+	// highlight the current player number
+	// 
+	//=================================================================================	
 	function selected(id) {
-	        // reset all
-	        // put player name back
-		document.getElementById("p1name").style.color = "black"
-		document.getElementById("p1name").style.borderColor = "gainsboro"
-		document.getElementById("p1name").style.boxShadow = ""
-		
-		document.getElementById("p2name").style.color = "black"
-		document.getElementById("p2name").style.borderColor = "gainsboro"
-		document.getElementById("p2name").style.boxShadow = ""
+	        // reset all player names
+		document.getElementById("p1name").classList.remove("highlight");
 			
-		document.getElementById("p3name").style.color = "black"
-		document.getElementById("p3name").style.borderColor = "gainsboro"
-		document.getElementById("p3name").style.boxShadow = ""
+		document.getElementById("p2name").classList.remove("highlight");
 			
-		document.getElementById("p4name").style.color = "black"
-		document.getElementById("p4name").style.borderColor = "gainsboro"
-		document.getElementById("p4name").style.boxShadow = ""
+		document.getElementById("p3name").classList.remove("highlight");
+			
+		document.getElementById("p4name").classList.remove("highlight");
 		
 	        // highlight selected
 		selectedplayer = id.replace("score", "").replace("name", "").replace("p", "")
-		document.getElementById("p" + selectedplayer + "name").style.color = "blue"
-		document.getElementById("p" + selectedplayer + "name").style.borderColor = "blue"
-		document.getElementById("p" + selectedplayer + "name").style.boxShadow = "inset blue 0px 0px 60px -12px"
+		document.getElementById("p" + selectedplayer + "name").classList.add("highlight");
+		
 	}
+	//=================================================================================
 	// put score in the selected player
 	// and move on	
+	//=================================================================================
 	function numberScore(id) {
+	if (selectedplayer !== 0) {
+	
 		// id is number button pressed eg. score5
 		temppscore = "p" + selectedplayer + "score"
 		temppname = "p" + selectedplayer + "name"
@@ -226,112 +234,73 @@
 		temppscoreid = document.getElementById(temppscore)
 		temppnameid = document.getElementById(temppname)
 		// do number button
-		tempid.style.color = "blue"
-		tempid.style.borderColor = "blue"
-		tempid.style.boxShadow = "inset blue 0px 0px 60px -12px"
+		tempid.classList.add("highlight");
+		
 		tempid.style.fontSize = "6vh"
 		// do score entred
-		temppscoreid.style.color = "blue"
-		temppscoreid.style.borderColor = "blue"
-		temppscoreid.style.boxShadow = "inset blue 0px 0px 60px -12px"
+		temppscoreid.classList.add("highlight");
+			
 		// do player name
-		temppnameid.style.color = "blue"
-		temppnameid.style.borderColor = "blue"
-		temppnameid.style.boxShadow = "inset blue 0px 0px 60px -12px"
+		temppnameid.classList.add("highlight");
+		
 		// delay putting everything back
 		setTimeout(() => {
 			// put number button back
-			tempid.style.color = "dodgerBlue"
-			tempid.style.borderColor = "dodgerBlue"
-			tempid.style.boxShadow = "inset dodgerBlue 0px 0px 60px -12px"
-			tempid.style.fontSize = "5vh"
+			tempid.classList.remove("highlight");
+			
 			// put score back
-			temppscoreid.style.color = "black"
-			temppscoreid.style.borderColor = "gainsboro"
-			temppscoreid.style.boxShadow = ""
+			temppscoreid.classList.remove("highlight");
+			
 			// put player name back
-			temppnameid.style.color = "black"
-			temppnameid.style.borderColor = "gainsboro"
-			temppnameid.style.boxShadow = ""
-			// reset all player name backgrounds
-			//document.getElementById("p1name").style.background = ""
-			//document.getElementById("p2name").style.background = ""
-			//document.getElementById("p3name").style.background = ""
-			//document.getElementById("p4name").style.background = ""
+			temppnameid.classList.remove("highlight");
+			
 			// update score
 			document.getElementById(temppscore).innerText = id.replace("score", "")
 			// move on to next player and highlight
 			selectedplayer++
+			
+			console.log(selectedplayer)
+			
 			if(selectedplayer <= 4) {
 				tempstrokesid = document.getElementById("p" + selectedplayer + "name")
-				tempstrokesid.style.color = "blue"
-				tempstrokesid.style.borderColor = "blue"
-				tempstrokesid.style.boxShadow = "inset blue 0px 0px 60px -12px"
+				tempstrokesid.classList.add("highlight");
 			} else {
-				document.getElementById("scorenext").style.color = "blue"
-				document.getElementById("scorenext").style.borderColor = "blue"
-				document.getElementById("scorenext").style.boxShadow = "inset blue 0px 0px 60px -12px"
 				selectedplayer = 0
 			}
 		}, "200");
 	}
-
-	function scoreMinus(id) {
-		temp1 = document.getElementById(id.replace("minus", "hcp")).innerText
-		if(temp1 !== "no hcp") {
-			document.getElementById(id.replace("minus", "hcp")).innerText = parseInt(temp1) - 1;
-		}
 	}
-
-	function scorePlus(id) {
-		temp1 = document.getElementById(id.replace("plus", "hcp")).innerText
-		if(temp1 !== "no hcp") {
-			document.getElementById(id.replace("plus", "hcp")).innerText = parseInt(temp1) + 1;
-		}
-	}
-
+        //=================================================================================
+	// move to next hole
+	// 
+	//=================================================================================
 	function nextHole() {
 		saveScores()
 		whichhole++
 		holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]
 		document.getElementById("holedetails").innerText = holedetails
 		// reset all player name backgrounds
-		document.getElementById("p1name").style.background = ""
-		document.getElementById("p2name").style.background = ""
-		document.getElementById("p3name").style.background = ""
-		document.getElementById("p4name").style.background = ""
-		// put player name back
-		document.getElementById("p1name").style.color = "black"
-		document.getElementById("p1name").style.borderColor = "gainsboro"
-		document.getElementById("p1name").style.boxShadow = ""
-		
-		document.getElementById("p2name").style.color = "black"
-		document.getElementById("p2name").style.borderColor = "gainsboro"
-		document.getElementById("p2name").style.boxShadow = ""
-			
-		document.getElementById("p3name").style.color = "black"
-		document.getElementById("p3name").style.borderColor = "gainsboro"
-		document.getElementById("p3name").style.boxShadow = ""
-			
-		document.getElementById("p4name").style.color = "black"
-		document.getElementById("p4name").style.borderColor = "gainsboro"
-		document.getElementById("p4name").style.boxShadow = ""
+		document.getElementById("p1name").classList.remove("highlight");
+		document.getElementById("p2name").classList.remove("highlight");
+		document.getElementById("p3name").classList.remove("highlight");
+		document.getElementById("p4name").classList.remove("highlight");
 		
 		document.getElementById("p1score").innerText = "0"
 		document.getElementById("p2score").innerText = "0"
 		document.getElementById("p3score").innerText = "0"
 		document.getElementById("p4score").innerText = "0"
-		document.getElementById("scorenext").style.color = "dodgerBlue"
-		document.getElementById("scorenext").style.borderColor = "dodgerBlue"
-		document.getElementById("scorenext").style.boxShadow = "inset dodgerBlue 0px 0px 60px -12px"
+		
 		selectedplayer = 1
-		document.getElementById("p" + selectedplayer + "name").style.color = "blue"
-		document.getElementById("p" + selectedplayer + "name").style.borderColor = "blue"
-		document.getElementById("p" + selectedplayer + "name").style.boxShadow = "inset blue 0px 0px 60px -12px"
+			
+		document.getElementById("p1name").classList.add("highlight");
+			
 		// get scores  
 		getScores()
 	}
-
+        //=================================================================================
+	// move to the previous hole
+	//
+	//=================================================================================
 	function prevHole() {
 		saveScores()
 		whichhole--
@@ -341,14 +310,18 @@
 		holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]
 		document.getElementById("holedetails").innerText = holedetails
 		// change highlight colour
-		document.getElementById("p1name").style.background = ""
-		document.getElementById("p2name").style.background = ""
-		document.getElementById("p3name").style.background = ""
-		document.getElementById("p4name").style.background = ""
+		document.getElementById("p1name").classList.remove("highlight");
+		document.getElementById("p2name").classList.remove("highlight");
+		document.getElementById("p3name").classList.remove("highlight");
+		document.getElementById("p4name").classList.remove("highlight");
+			
 		// retrieve scores   
 		getScores()
 	}
-
+        //=================================================================================
+	// create an empty set of local storage score containers
+	// and move on	
+	//=================================================================================
 	function setupScores() {
 		// do date check here
 		for(var i = 1; i <= 18; i++) {
@@ -357,7 +330,10 @@
 			}
 		}
 	}
-
+        //=================================================================================
+	// save scores for a single page to local storage
+	// 
+	//=================================================================================
 	function saveScores() {
 		// only save if scores are there
 		if(!(document.getElementById("p1score").innerText == "0" &&
@@ -370,7 +346,10 @@
 			localStorage.setItem("p4h" + whichhole, document.getElementById("p4score").innerText)
 		}
 	}
-
+        //=================================================================================
+	// get scores for a single page from local storage
+	// 
+	//=================================================================================
 	function getScores() {
 		document.getElementById("p1score").innerText = localStorage.getItem("p1h" + whichhole)
 		document.getElementById("p2score").innerText = localStorage.getItem("p2h" + whichhole)
