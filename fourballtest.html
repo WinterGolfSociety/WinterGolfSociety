@@ -27,9 +27,14 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		border: 1px solid #e2dcd3;
+		border: 1px solid gray;
 		border-radius: 5px;
 		height: 10vh;
+		
+		
+		 box-shadow: inset gray 0px 0px 60px -12px; 
+		
+		
 	}
 	
 	.grid-container-middle {
@@ -42,9 +47,16 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		border: 1px solid #e2dcd3;
-		border-radius: 5px;
+		border: 1px solid gainsboro;
+		//border-radius: 5px;
 		height: 10vh;
+		
+		
+		
+		 //box-shadow: inset gray 0px 0px 60px -12px; 
+		
+		
+		
 	}
 	
 	
@@ -64,6 +76,12 @@
 		border: 1px solid dodgerBlue;
 		border-radius: 5px;
 		height: 10vh;
+		
+		
+		 box-shadow: inset dodgerBlue 0px 0px 60px -12px; 
+		
+		
+		
 	}
 	
 	
@@ -238,7 +256,13 @@ document.getElementById("p" + selectedplayer + "name").style.background = "silve
 function numberScore(id) {
 
 temppscore = "p" + selectedplayer + "score"
-
+// highlight number selected for a brief time
+document.getElementById(id).style.color = "blue"
+document.getElementById(id).style.borderColor = "blue"
+setTimeout(() => {
+  document.getElementById(id).style.color = "dodgerBlue"
+  document.getElementById(id).style.borderColor = "dodgerBlue"
+}, "500");
 document.getElementById(temppscore).innerText = id.replace("score","")
 
 // change highlight colour
