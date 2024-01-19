@@ -59,12 +59,11 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		color: dodgerBlue;
-		background: azure;
-		border: 1px solid dodgerBlue;
+		
+		
 		border-radius: 5px;
 		height: 10vh;
-		box-shadow: inset dodgerBlue 0px 0px 60px -12px;
+		
 	}
 	
 	#p1score,
@@ -79,6 +78,22 @@
             border-color: blue;
             box-shadow: inset blue 0px 0px 60px -12px;
 	}
+	
+	.scorelow {
+	   color: dodgerBlue;
+	   background: azure;
+	   border: 1px solid dodgerBlue;
+	   box-shadow: inset dodgerBlue 0px 0px 60px -12px;
+	}
+	
+	.scorehigh {
+	   color: blue;
+	   background: azure;
+	   border: 1px solid blue;
+	   box-shadow: inset blue 0px 0px 60px -12px;
+	}
+	
+	
 	
 	
 	</style>
@@ -100,18 +115,18 @@
 			<div id="p4score" onclick="selected(this.id)">0</div>
 		</div>
 		<div class="grid-container-bottom">
-			<div class="small" id="score1" onclick="numberScore(this.id)">1</div>
-			<div class="small" id="score2" onclick="numberScore(this.id)">2</div>
-			<div class="small" id="score3" onclick="numberScore(this.id)">3</div>
-			<div class="small" id="score4" onclick="numberScore(this.id)">4</div>
-			<div class="small" id="score5" onclick="numberScore(this.id)">5</div>
-			<div class="small" id="score6" onclick="numberScore(this.id)">6</div>
-			<div class="small" id="score7" onclick="numberScore(this.id)">7</div>
-			<div class="small" id="score8" onclick="numberScore(this.id)">8</div>
-			<div class="small" id="score9" onclick="numberScore(this.id)">9</div>
-			<div class="small" id="scoreprev" onclick="prevHole()">prev</div>
-			<div class="small" id="score0" onclick="numberScore(this.id)">0</div>
-			<div class="small" id="scorenext" onclick="nextHole()">next</div>
+			<div class="small scorelow" id="score1" onclick="numberScore(this.id)">1</div>
+			<div class="small scorelow" id="score2" onclick="numberScore(this.id)">2</div>
+			<div class="small scorelow" id="score3" onclick="numberScore(this.id)">3</div>
+			<div class="small scorelow" id="score4" onclick="numberScore(this.id)">4</div>
+			<div class="small scorelow" id="score5" onclick="numberScore(this.id)">5</div>
+			<div class="small scorelow" id="score6" onclick="numberScore(this.id)">6</div>
+			<div class="small scorelow" id="score7" onclick="numberScore(this.id)">7</div>
+			<div class="small scorelow" id="score8" onclick="numberScore(this.id)">8</div>
+			<div class="small scorelow" id="score9" onclick="numberScore(this.id)">9</div>
+			<div class="small scorelow" id="scoreprev" onclick="prevHole()">prev</div>
+			<div class="small scorelow" id="score0" onclick="numberScore(this.id)">0</div>
+			<div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
 		</div>
 	</div>
 	<script>
@@ -224,20 +239,18 @@
 	// and move on	
 	//=================================================================================
 	function numberScore(id) {
-	if (selectedplayer !== 0) {
-	
+		if (("1234").indexOf(selectedplayer) > -1) {
 		// id is number button pressed eg. score5
 		temppscore = "p" + selectedplayer + "score"
-		temppname = "p" + selectedplayer + "name"
+		temppname  = "p" + selectedplayer + "name"
 		// highlight number button for a brief time
 		tempid = document.getElementById(id)
 		temppscoreid = document.getElementById(temppscore)
-		temppnameid = document.getElementById(temppname)
+		temppnameid  = document.getElementById(temppname)
 		// do number button
-		tempid.classList.add("highlight");
+		tempid.classList.replace("scorelow", "scorehigh");
 		
-		tempid.style.fontSize = "6vh"
-		// do score entred
+		// do score entered
 		temppscoreid.classList.add("highlight");
 			
 		// do player name
@@ -246,7 +259,7 @@
 		// delay putting everything back
 		setTimeout(() => {
 			// put number button back
-			tempid.classList.remove("highlight");
+			tempid.classList.replace("scorehigh", "scorelow");
 			
 			// put score back
 			temppscoreid.classList.remove("highlight");
@@ -267,7 +280,7 @@
 			} else {
 				selectedplayer = 0
 			}
-		}, "200");
+		}, "250");
 	}
 	}
         //=================================================================================
@@ -276,6 +289,14 @@
 	//=================================================================================
 	function nextHole() {
 		saveScores()
+		document.getElementById("scorenext").classList.replace("scorelow", "scorehigh");
+		// delay putting everything back
+		setTimeout(() => {
+			// put number button back
+			document.getElementById("scorenext").classList.replace("scorehigh", "scorelow");
+		}, "250");
+		
+		
 		whichhole++
 		holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]
 		document.getElementById("holedetails").innerText = holedetails
