@@ -332,6 +332,14 @@
 	//=================================================================================
 	function prevHole() {
 		saveScores()
+		document.getElementById("scoreprev").classList.replace("scorelow", "scorehigh");
+		// delay putting everything back
+		setTimeout(() => {
+			// put number button back
+			document.getElementById("scoreprev").classList.replace("scorehigh", "scorelow");
+		}, "250");
+		
+		
 		whichhole--
 		if(whichhole == 0) {
 			whichhole = 1
@@ -343,7 +351,16 @@
 		document.getElementById("p2name").classList.remove("highlight");
 		document.getElementById("p3name").classList.remove("highlight");
 		document.getElementById("p4name").classList.remove("highlight");
+		
+		//document.getElementById("p1score").innerText = "0"
+		//document.getElementById("p2score").innerText = "0"
+		//document.getElementById("p3score").innerText = "0"
+		//document.getElementById("p4score").innerText = "0"
+		
+		selectedplayer = 1
 			
+		document.getElementById("p1name").classList.add("highlight");
+				
 		// retrieve scores   
 		getScores()
 	}
