@@ -30,7 +30,7 @@ body {
     display: none;
 }
 
-.va_menu_icon {
+.roundmenu_icon {
     display: block;
     position: absolute;
     overflow: hidden;
@@ -53,11 +53,11 @@ body {
     z-index: 99;
 }
 
-.va_menu_icon:focus {
+.roundmenu_icon:focus {
     outline: none;
 }
 
-.va_menu_icon span {
+.roundmenu_icon span {
     display: block;
     position: absolute;
     top: 15px;
@@ -67,7 +67,7 @@ body {
     background: #fff;
 }
 
-.va_menu_icon span:before, .va_menu_icon span:after {
+.roundmenu_icon span:before, .roundmenu_icon span:after {
     position: absolute;
     display: block;
     left: 0;
@@ -77,46 +77,46 @@ body {
     content: "";
 }
 
-.va_menu_icon span:before {
+.roundmenu_icon span:before {
     top: -14px;
 }
 
-.va_menu_icon span:after {
+.roundmenu_icon span:after {
     bottom: -14px;
 }
 
-.va_menu_icon-X span {
+.roundmenu_icon-X span {
     transition: background 0s 0.3s;
 }
 
-.va_menu_icon-X span:before, .va_menu_icon-X span:after {
+.roundmenu_icon-X span:before, .roundmenu_icon-X span:after {
     transition-duration: 0.3s, 0.3s;
     transition-delay: 0.3s, 0s;
 }
 
-.va_menu_icon-X span:before {
+.roundmenu_icon-X span:before {
     transition-property: top, transform;
 }
 
-.va_menu_icon-X span:after {
+.roundmenu_icon-X span:after {
     transition-property: bottom, transform;
 }
 
-.va_menu_icon-X.is-active span {
+.roundmenu_icon-X.is-active span {
     background: none;
 }
 
-.va_menu_icon-X.is-active span:before {
+.roundmenu_icon-X.is-active span:before {
     top: 0;
     transform: rotate(45deg);
 }
 
-.va_menu_icon-X.is-active span:after {
+.roundmenu_icon-X.is-active span:after {
     bottom: 0;
     transform: rotate(-45deg);
 }
 
-.va_menu_icon-X.is-active span:before, .va_menu_icon-X.is-active span:after {
+.roundmenu_icon-X.is-active span:before, .roundmenu_icon-X.is-active span:after {
     transition-delay: 0s, 0.3s;
 }
 
@@ -314,7 +314,7 @@ h2 {
 
 <nav id="nav">
   <div class="bubble_all" id="icon">
-    <button class="va_menu_icon va_menu_icon-X">
+    <button class="roundmenu_icon roundmenu_icon-X">
       <span></span>
     </button>
   </div>
@@ -376,7 +376,7 @@ h2 {
   var isTop = true;
   var menuIsOpen = false;
 
-  var menuIcon = $('.va_menu_icon');
+  var menuIcon = $('.roundmenu_icon');
 
   var one   = $('#one');
   var two   = $('#two');
