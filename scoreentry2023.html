@@ -1856,7 +1856,49 @@
         if (incScore.indexOf("hole") > -1) {
           document.getElementById(id).style.fontSize = "50px";
           document.getElementById(id).style.paddingTop = 0;
-          incScore = 0;
+          
+     // moved ito new code     
+     //     incScore = 0;
+          
+          
+     // new
+               
+          if (localStorage.getItem("setupdefaultholescore") !== null) {
+              if (course == "Lakes") {
+                  spar = arrLakes[id.replace("hole ", "")][1];
+              }
+              if (course == "Dawson") {
+                  spar = arrDawson[id.replace("hole ", "")][1];
+              }
+              if (course == "OldCourse") {
+                  spar = arrOldCourse[incScore.replace("hole ", "")][1];
+              }
+              
+             
+              if (localStorage.setupdefaultholescore == "zero") {
+                  incScore = 0;
+                  // cope with the -- below
+                  incScore++
+              }   
+              
+              if (localStorage.setupdefaultholescore == "par") {
+                  incScore = parseInt(spar)
+                  // cope with the -- below
+                  incScore++
+              }  
+              
+              if (localStorage.setupdefaultholescore == "bogey") {
+                  incScore = parseInt(spar + 1)
+                  // cope with the -- below
+                  incScore++
+              }  
+              
+              
+          } else {
+             incScore = 0;
+          }
+          // end new
+          
         }
         if (incScore > 0) {
           --incScore;
@@ -1877,6 +1919,7 @@
         }
         document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
       }
+      
       totalScore();
       // update local storage
       // if incScore = "hole 1" etc., remove key from localStorage

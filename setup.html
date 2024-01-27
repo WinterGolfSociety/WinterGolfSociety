@@ -1,0 +1,95 @@
+    
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+      <title>winter 2023</title>
+      <meta content="Bryan M" name="author" />
+      <link href="favicon.ico" rel="icon" type="image/x-icon" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+<style>
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    color: white;
+       background-color: darkSlateGray;
+      font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.holder {
+    width: 100vw;
+    height:100vh;
+    position:relative;
+    overflow: hidden;
+    font-size: 4vh;
+}
+
+.radio {
+  font-size: 7vh;
+  line-height: 2;
+  display: grid;
+  grid-template-columns: 10vw auto;
+  gap: 5vw;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+<div class="holder">
+
+
+
+  <legend>Select a Score Entry default.<br>This will be the initial input when minus is selected on a hole.</legend>
+<br>
+  <div class="radio">
+    <input type="radio" id="zero"  onClick="validateRadio(this.id)" name="drone" value="zero" checked />
+    <label for="zero">0</label>
+  </div>
+
+  <div class="radio">
+    <input type="radio" id="par"  onClick="validateRadio(this.id)" name="drone" value="par" />
+    <label for="par">Par</label>
+  </div>
+
+  <div class="radio">
+    <input type="radio" id="bogey"  onClick="validateRadio(this.id)" name="drone" value="bogey" />
+    <label for="bogey">Bogey</label>
+  </div>
+
+
+</div>
+
+<script>
+function validateRadio(id) {
+
+if (id == "zero") {
+console.log("Zero")
+localStorage.setupdefaultholescore = "zero"
+}
+
+if (id == "par") {
+console.log("Par")
+localStorage.setupdefaultholescore = "par"
+}
+
+if (id == "bogey") {
+console.log("Bogey")
+localStorage.setupdefaultholescore = "bogey"
+}
+
+}
+
+
+
+
+</script>
+</body>
+</html>
+
