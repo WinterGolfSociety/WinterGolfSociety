@@ -67,6 +67,22 @@ body{
 </div>
 
 <script>
+// get current value, if available
+if (localStorage.getItem("setupdefaultholescore") !== null) {
+  if (localStorage.setupdefaultholescore == "zero") {
+              document.getElementById("zero").checked = true;
+  }   
+              
+  if (localStorage.setupdefaultholescore == "par") {
+              document.getElementById("par").checked = true;
+  }  
+              
+  if (localStorage.setupdefaultholescore == "bogey") {
+              document.getElementById("bogey").checked = true;
+  } 
+}
+
+
 function validateRadio(id) {
 
 if (id == "zero") {
