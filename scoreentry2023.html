@@ -1770,22 +1770,7 @@
         }
       }
     }
-    // + button for HCP
-    function incrementHcp(id) {
-      incScore = document.getElementById(id).innerText;
-      //	if(incScore.indexOf("hcp") > -1) {
-      if (incScore == "hcp" || incScore == "") {
-        document.getElementById(id).style.fontSize = "50px";
-        document.getElementById(id).style.paddingTop = 0;
-        incScore = 0;
-      }
-      document.getElementById(id).innerText = ++incScore;
-      hcp = incScore;
-      //=====LocalStorage.hcp=====
-      localStorage.hcp = hcp;
-      //==========================
-      recalcScores();
-    }
+   
     // + button for hole scores
     function incrementScore(id) {
       incScore = document.getElementById(id).innerText;
@@ -1817,32 +1802,7 @@
       localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
       //==================================================================
     }
-    // - button for HCP
-    function decrementHcp(id) {
-      incScore = document.getElementById(id).innerText;
-      // if already at 0 say what it is
-      if (incScore == 0) {
-        document.getElementById(id).style.fontSize = "15px";
-        document.getElementById(id).style.paddingTop = "20px";
-        holenum = id.replace("numscore", "");
-        document.getElementById(id).innerText = "hcp";
-      } else {
-        if (incScore.indexOf("hcp") > -1) {
-          document.getElementById(id).style.fontSize = "50px";
-          document.getElementById(id).style.paddingTop = 0;
-          incScore = 0;
-        }
-        if (incScore > 0) {
-          --incScore;
-        }
-        document.getElementById(id).innerText = incScore;
-      }
-      hcp = incScore;
-      //=====LocalStorage.hcp=====
-      localStorage.hcp = hcp;
-      //==========================
-      recalcScores();
-    }
+   
     // - button for scores
     function decrementScore(id) {
       incScore = document.getElementById(id).innerText;
@@ -1862,7 +1822,7 @@
           
           
      // new
-               
+          spar = 0     
           if (localStorage.getItem("setupdefaultholescore") !== null) {
               if (course == "Lakes") {
                   spar = arrLakes[id.replace("hole ", "")][1];
