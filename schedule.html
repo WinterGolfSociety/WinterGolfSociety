@@ -52,7 +52,7 @@
 }     
 
 .grayx {
-color: gainsboro;
+color: lightSteelBlue;
 
 }
 }
@@ -78,20 +78,18 @@ color: gainsboro;
   <div class="grid-item"></div>  
    
 </div>
-   
-   
-   <div class="bluemonth">Tap the icon above to show all events.</div>
 
-<div class="grid-container"> 
+<!--   
+<div class="bluemonth">Tap the icon above to show all events.</div>
+-->
+
+<div class="grid-container" id="shortlist"> 
    <div id="latestinfo1" class="bluemonth"></div>
    <div id="latestinfo2" class="bluemonth"></div>
    <div id="latestinfo3" class="bluemonth"></div>
 </div>
     
 <script>
-     
-     
-
 var currentMonth = ""
 var arrInfo = [
 ["April 2023","",""],      
@@ -496,9 +494,9 @@ document.getElementById("eventlist").innerHTML = lineFull
 
 // do latest set of events
 var lookup = tempmonth + " " + tempyear
-var templist1 = "<br>"
-var templist2 = "<br>"
-var templist3 = "<br>"
+var templist1 = "<br>" + lookup + "<br>"
+var templist2 = "<br><br>"
+var templist3 = "<br><br>"
 var switchon = ""
 var s=0;
 
@@ -527,6 +525,10 @@ for(i = 0; i < arrInfo.length; i++) {
        switchon = "yes"
    }
    if (switchon == "yes") {
+   
+   if (arrInfo[i][2] !== "") {
+   
+   
        if(i % 2 == 0) {
           templist1 += '<a class="grayx">' + arrInfo[i][0] + "</a><br>"
           templist2 += '<a class="grayx">' + arrInfo[i][1] + "</a><br>"
@@ -536,6 +538,9 @@ for(i = 0; i < arrInfo.length; i++) {
           templist2 += arrInfo[i][1] + "<br>"
           templist3 += arrInfo[i][2] + "<br>"
        }
+   
+   }    
+   
    }
    if (lookup == arrInfo[i][0]) {
        templist1 += "<br>Date<br><br>"
@@ -553,8 +558,10 @@ function xxx() {
 
 if (document.getElementById("eventlist").style.display == "none") {
     document.getElementById("eventlist").style.display="grid";
+    document.getElementById("shortlist").style.display="none";
 } else {
     document.getElementById("eventlist").style.display="none";
+    document.getElementById("shortlist").style.display="grid";
 }
 }
 
