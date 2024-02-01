@@ -34,6 +34,7 @@
 .bluemonth {
       background-color: dodgerBlue;
       color: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
 }
 
 .older {
@@ -49,6 +50,9 @@
       margin-top: 10px;
       margin-bottom: 10px;
 }     
+
+
+
       
 </style>
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
@@ -58,7 +62,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
-  <p id="title"><img src="cal.png" alt="cal" width="70" height="70" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events</p>
+  <p id="title"><img src="cal.png" alt="cal" onclick="xxx()" width="70" height="70" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events</p>
 
 <div class="grid-container" id="eventlist">
   <div class="grid-item gray">Date</div>
@@ -69,6 +73,15 @@
   <div class="grid-item"></div>
   <div class="grid-item"></div>  
    
+</div>
+   
+   
+   <div class="bluemonth">Tap the icon above to show all events.</div>
+
+<div class="grid-container"> 
+   <div id="latestinfo1" class="bluemonth"></div>
+   <div id="latestinfo2" class="bluemonth"></div>
+   <div id="latestinfo3" class="bluemonth"></div>
 </div>
     
 <script>
@@ -459,6 +472,9 @@ for(i = 0; i < arrInfo.length; i++) {
 		lineFull += line
 	}
 }
+
+
+//footer
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
@@ -469,6 +485,54 @@ lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 
 	
 document.getElementById("eventlist").innerHTML = lineFull
+
+
+
+
+
+// do latest set of events
+var lookup = tempmonth + " " + tempyear
+var templist1 = "<br>"
+var templist2 = "<br>"
+var templist3 = "<br>"
+var switchon = ""
+
+// hide full list
+document.getElementById("eventlist").style.display="none";
+
+for(i = 0; i < arrInfo.length; i++) {
+   if (lookup !== arrInfo[i][0] &&  arrInfo[i][1] == "" && arrInfo[i][2] == "") {
+       switchon = ""
+   }
+   if (lookup == arrInfo[i][0]) {
+       switchon = "yes"
+   }
+   if (switchon == "yes") {
+       templist1 += arrInfo[i][0] + "<br>"
+       templist2 += arrInfo[i][1] + "<br>"
+       templist3 += arrInfo[i][2] + "<br>"
+   }
+   if (lookup == arrInfo[i][0]) {
+       templist1 += "<br>Date<br><br>"
+       templist2 += "<br>Venue<br><br>"
+       templist3 += "<br>Event<br><br>"
+   }
+}
+document.getElementById("latestinfo1").innerHTML = templist1
+document.getElementById("latestinfo2").innerHTML = templist2
+document.getElementById("latestinfo3").innerHTML = templist3
+
+
+
+function xxx() {
+
+if (document.getElementById("eventlist").style.display == "none") {
+    document.getElementById("eventlist").style.display="grid";
+} else {
+    document.getElementById("eventlist").style.display="none";
+}
+}
+
     </script>
   </body>
 </html>
