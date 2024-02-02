@@ -2360,6 +2360,12 @@
           document.getElementById(id).style.fontSize = "50px";
           document.getElementById(id).style.paddingTop = 0;
           document.getElementById(id).innerText = incScore;
+          
+          // update local storage
+          //=====LocalStorage.holes===========================================
+          localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
+          //==================================================================
+      
       }
       
     }
