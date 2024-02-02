@@ -1688,7 +1688,7 @@
         } else {
           //===== submit data
 
-          document.forms[0].submit();
+//          document.forms[0].submit();
 
           // hide icons to allow tick etc.
           document.getElementById('limg').style.visibility = "hidden";
@@ -1757,10 +1757,31 @@
           document.getElementById('submittxt').innerHTML =
             '<img src="uploada.png" style="height: 100px; width: 100px;">'
             //}, 500);
-
+     
+      
+      
+      var audio = new Audio('techclip.wav');
+audio.play();
+      
+      
+      
+      
+      
+ 
           setTimeout(function() {
             document.getElementById('submittxt').innerHTML =
               '<img src="tick1.png" style="height: 100px; width: 100px;">'
+                   
+      
+      
+      var audio = new Audio('techclip.wav');
+audio.play();
+      
+      
+      
+      
+      
+ 
           }, 6500);
 
           // return to main menu
@@ -1817,10 +1838,13 @@
           document.getElementById(id).style.fontSize = "50px";
           document.getElementById(id).style.paddingTop = 0;
           
+          incScore = 0;
+          
+          
      // moved ito new code     
      //     incScore = 0;
           
-          
+     /*     
      // new
           spar = 0     
           if (localStorage.getItem("setupdefaultholescore") !== null) {
@@ -1858,7 +1882,7 @@
              incScore = 0;
           }
           // end new
-          
+   */       
         }
         if (incScore > 0) {
           --incScore;
@@ -2309,8 +2333,43 @@
           tempe.style.color = "white";
           tempe.innerText = tempsaved;
         }, 500);
-      }
+      } else {
+          // added default score for each hole by tapping "hole x"     
+          incScore = document.getElementById(id).innerText;
+          spar = 0     
+          if (localStorage.getItem("setupdefaultholescore") !== null) {
+              if (course == "Lakes") {
+                  spar = arrLakes[incScore.replace("hole ", "")][1];
+              }
+              if (course == "Dawson") {
+                  spar = arrDawson[incScore.replace("hole ", "")][1];
+              }
+              if (course == "OldCourse") {
+                  spar = arrOldCourse[incScore.replace("hole ", "")][1];
+              }
+              
+             
+              if (localStorage.setupdefaultholescore == "zero") {
+                  incScore = 0;
+              }   
+              
+              if (localStorage.setupdefaultholescore == "par") {
+                  incScore = parseInt(spar)
+              }  
+              
+              if (localStorage.setupdefaultholescore == "bogey") {
+                  incScore = parseInt(spar + 1)
+              }  
+              
+          } else {
+             incScore = 0;
+          }
 
+          document.getElementById(id).style.fontSize = "50px";
+          document.getElementById(id).style.paddingTop = 0;
+          document.getElementById(id).innerText = incScore;
+      }
+      
     }
     // show message when no player has been set
     function showSetPlayerMessage() {
