@@ -1761,27 +1761,23 @@
       
       
       var audio = new Audio('techclip.wav');
-audio.play();
+      audio.play();
+      setTimeout(function() {  
+         audio.play();  
+      }, 1500); 
       
+      setTimeout(function() {  
+         audio.play();  
+      }, 3000); 
       
-      
-      
-      
+      setTimeout(function() {  
+         audio.play();  
+      }, 4500); 
  
           setTimeout(function() {
             document.getElementById('submittxt').innerHTML =
               '<img src="tick1.png" style="height: 100px; width: 100px;">'
-                   
-      
-      
-      var audio = new Audio('techclip.wav');
-audio.play();
-      
-      
-      
-      
-      
- 
+          audio.play();
           }, 6500);
 
           // return to main menu
