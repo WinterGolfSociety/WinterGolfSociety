@@ -27,15 +27,15 @@ body{
     height:100vh;
     position:relative;
     overflow: hidden;
-    font-size: 3vh;
+    font-size: 2vh;
 }
 
 .radio {
-  font-size: 7vh;
+  font-size: 3vh;
   line-height: 2;
   display: grid;
   grid-template-columns: 10vw auto;
-  gap: 5vw;
+  gap: 1vw;
   color: white;
 }
 
@@ -46,8 +46,8 @@ body{
 
 
 
-  <legend>Select a Score Entry default. This will be the initial input when minus is selected on a hole.</legend>
-<br>
+<a>Select a Score Entry default. This will be the initial input when "hole 1" etc is selected.</a>
+<br><br>
   <div class="radio">
     <input type="radio" id="zero"  onClick="validateRadio(this.id)" name="drone" value="zero" checked />
     <label for="zero">0</label>
@@ -62,6 +62,27 @@ body{
     <input type="radio" id="bogey"  onClick="validateRadio(this.id)" name="drone" value="bogey" />
     <label for="bogey">Bogey</label>
   </div>
+
+<br><br>
+
+<a>Make a sound to confirm when score data has been uploaded.</a>
+<br><br>
+  <div class="radio">
+    <input type="radio" id="soundoff"  onClick="validateRadio(this.id)" name="sound" value="off" checked />
+    <label for="off">off</label>
+  </div>
+  
+  <div class="radio">
+    <input type="radio" id="soundon"  onClick="validateRadio(this.id)" name="sound" value="on" />
+    <label for="on">on</label>
+  </div>
+
+ 
+
+
+
+
+
 
 
 </div>
@@ -80,7 +101,24 @@ if (localStorage.getItem("setupdefaultholescore") !== null) {
   if (localStorage.setupdefaultholescore == "bogey") {
               document.getElementById("bogey").checked = true;
   } 
+} else {
+  localStorage.setItem("setupdefaultholescore", "zero")
 }
+
+
+if (localStorage.getItem("setupdefaultsound") !== null) {
+  if (localStorage.setupdefaultsound == "off") {
+              document.getElementById("soundoff").checked = true;
+  }   
+              
+  if (localStorage.setupdefaultsound == "on") {
+              document.getElementById("soundon").checked = true;
+  }  
+   
+} else {
+  localStorage.setItem("setupdefaultsound", "off")
+}
+
 
 
 function validateRadio(id) {
@@ -98,6 +136,16 @@ localStorage.setupdefaultholescore = "par"
 if (id == "bogey") {
 console.log("Bogey")
 localStorage.setupdefaultholescore = "bogey"
+}
+
+if (id == "soundoff") {
+console.log("off")
+localStorage.setupdefaultsound = "off"
+}
+
+if (id == "soundon") {
+console.log("on")
+localStorage.setupdefaultsound = "on"
 }
 
 }

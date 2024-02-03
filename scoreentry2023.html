@@ -1688,7 +1688,7 @@
         } else {
           //===== submit data
 
-//          document.forms[0].submit();
+          document.forms[0].submit();
 
           // hide icons to allow tick etc.
           document.getElementById('limg').style.visibility = "hidden";
@@ -1696,42 +1696,9 @@
           document.getElementById('mimgl').style.visibility = "hidden";
           document.getElementById('mimgr').style.visibility = "hidden";
           // hide button
-    //      var slideSource = document.getElementById('submitwrapper');
-         
-        
-        
-        
-        
-        
-        
-        
-        
-         
-         
+       
           document.getElementById("submitwrapper").style.visibility = "visible";
-        
-        
-        
-        
-        
-        
-        
-         
-         
-         
-         
-     //    slideSource.classList.toggle('fade');
-
-
-
-
-
-
-
-
-
-
-
+ 
           // allow some time for submit then give a completion message
           // keep user interested by changing colors ???
 
@@ -1745,24 +1712,26 @@
             document.getElementById('submitwrapper').style.borderColor = "darkSlateGray";
             document.getElementById('submitwrapper').style.background = "darkSlateGray";
           }
-          
-          
-          
-          
-          
+
           document.getElementById('submittxt').innerText = "";
           // show empty text which is placeholder for image
-  //        slideSource.classList.toggle('fade');
 
           document.getElementById('submittxt').innerHTML =
             '<img src="uploada.png" style="height: 100px; width: 100px;">'
-            //}, 500);
      
           var audio = new Audio('techclip.wav');
          
-          setTimeout(function() {
-             audio.play();
-          }, 5000);
+          
+          // play sound if set
+          if (localStorage.getItem("setupdefaultsound") !== null) {
+              if (localStorage.setupdefaultsound == "on") {
+                  setTimeout(function() {
+                     audio.play();
+                  }, 5000);  
+              }   
+          }
+              
+          
          
           setTimeout(function() {
             document.getElementById('submittxt').innerHTML =
