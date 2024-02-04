@@ -133,7 +133,7 @@
  
 <button type="button" class="dropbtn" id="addtomenu" onclick="addTeamToMenu()">add to menu</button>
  
-<button type="button" class="dropbtn" onclick="clearTeam()">clear team</button>
+<button type="button" class="dropbtn" id="clearteam" onclick="clearTeam()">clear team</button>
 <!--
 <button class="dropbtn" id="coursebtn">course</button>
 --> 
@@ -147,7 +147,7 @@
 <!-- countback -->
 <button type="button"  class="dropbtn">
 	<a class="aaa" id="aaal10" onclick="decrementTest('aaac10')">-</a>
-	<a class="aaa" id="aaac10">0</a>
+	<a class="aaa" id="aaac10">15</a>
 	<a class="aaa" id="aaar10" onclick="incrementTest('aaac10')">+</a>
 </button>
  
@@ -498,7 +498,7 @@ audio.play()
 // show button highlight
 document.getElementById("submit").classList.add("submithighlight");
 setTimeout(function() {document.getElementById("submit").classList.remove("submithighlight");}
-,1000)
+,500)
 
 
 
@@ -625,6 +625,11 @@ function addTeamToMenu() {
    el.setAttribute("href", "#");
    el.innerText = temp;
    select.appendChild(el);
+   // show button highlight
+   document.getElementById("addtomenu").classList.add("submithighlight");
+   setTimeout(function() {document.getElementById("addtomenu").classList.remove("submithighlight");}
+   ,500)
+
 }
 
 function clearTeam() {
@@ -632,6 +637,11 @@ function clearTeam() {
    document.getElementById("addtomenu").innerText = "add to menu"
    document.getElementById("dropbtn").innerText = "select player for " + course
    player = "none"
+   // show button highlight
+   document.getElementById("clearteam").classList.add("submithighlight");
+   setTimeout(function() {document.getElementById("clearteam").classList.remove("submithighlight");}
+   ,500)
+
 }
 
 </script>
