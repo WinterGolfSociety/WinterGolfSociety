@@ -364,10 +364,10 @@ h2 {
 	<br>
 	<br>
 	<a class="dates" id="xdcomp1"><br>
-	Tuesday, Course A<br>
-	Wednesday, Course B<br>
-	Thursday, Course C<br>
-	Friday, Course D
+	Tuesday, Burntisland - 1:00pm<br>
+	Wednesday, Dunnikier - 10:30am<br>
+	Thursday, Thornton - 12:00pm<br>
+	Friday, Kircaldy - 10:30am
 	</a>
 	</div>
         <br>
@@ -526,32 +526,32 @@ function highlightEvent() {
 var today = new Date();
 var day = today.getDay();
 
-var tu = "Tuesday, Burtisland<br>"
-var we = "Wednesday, Dunnikier<br>"
-var th = "Thursday, Thornton<br>"
-var fr = "Friday, Kirkcaldy"
+var tu = "Tuesday, Burntisland - 1:00pm<br>"
+var we = "Wednesday, Dunnikier - 10:30am<br>"
+var th = "Thursday, Thornton - 12:00pm<br>"
+var fr = "Friday, Kirkcaldy - 10:30am"
 
 // 2 = tuesday
 if (day == 2) {
-    var tu = '<a id="highlight">Today, Burtisland</a><br>'
+    var tu = '<a id="highlight">Today, Burntisland - 1:00pm</a><br>'
 }
 // 3 = wednesday
 if (day == 3) {
-    var tu = '<a id="lowlight">Tuesday, Burtisland</a><br>'
-    var we = '<a id="highlight">Today, Dunnikier</a><br>'
+    var tu = '<a id="lowlight">Tuesday, Burntisland - 1:00pm</a><br>'
+    var we = '<a id="highlight">Today, Dunnikier - 10:30am</a><br>'
 }
 // 4 = thursday
 if (day == 4) {
-    var tu = '<a id="lowlight">Tuesday, Burtisland</a><br>'
-    var we = '<a id="lowlight">Wednesday, Dunnikier</a><br>'
-    var th = '<a id="highlight">Today, Thornton</a><br>'
+    var tu = '<a id="lowlight">Tuesday, Burntisland - 1:00pm</a><br>'
+    var we = '<a id="lowlight">Wednesday, Dunnikier - 10:30am</a><br>'
+    var th = '<a id="highlight">Today, Thornton - 12:00pm</a><br>'
 }
 // 5 = friday
 if (day == 5) {
-    var tu = '<a id="lowlight">Tuesday, Burtisland</a><br>'
-    var we = '<a id="lowlight">Wednesday, Dunnikier</a><br>'
-    var th = '<a id="lowlight">Thursday, Thornton</a><br>'
-    var fr = '<a id="highlight">Today, Kirkcaldy</a>'
+    var tu = '<a id="lowlight">Tuesday, Burntisland - 1:00pm</a><br>'
+    var we = '<a id="lowlight">Wednesday, Dunnikier - 10:30am</a><br>'
+    var th = '<a id="lowlight">Thursday, Thornton - 12:00pm</a><br>'
+    var fr = '<a id="highlight">Today, Kirkcaldy - 10:30am</a>'
 }
 
 document.getElementById("xdcomp1").innerHTML = tu + we + th + fr 
