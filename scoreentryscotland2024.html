@@ -134,9 +134,9 @@
 <button type="button" class="dropbtn" id="addtomenu" onclick="addTeamToMenu()">add to menu</button>
  
 <button type="button" class="dropbtn" onclick="clearTeam()">clear team</button>
- 
+<!--
 <button class="dropbtn" id="coursebtn">course</button>
- 
+--> 
 <!-- points -->    
 <button type="button"  class="dropbtn">
 	<a class="aaa" id="aaalscore" onclick="decrementScore('scoreaaa')">-</a>
@@ -221,7 +221,7 @@ const dd = formatter.format(new Date());
    
   dday = "Friday"
    course = "Kirkcaldy"
-   document.getElementById("coursebtn").innerText = course
+   document.getElementById("dropbtn").innerText = "select player for " + course
    
    
    
@@ -352,30 +352,6 @@ function clearStorage() {
 
 
 
-function hideholes() {
-	/*
-for (j = 10; j <19; j++) {
-	var x = document.getElementById("xx" + j);
-	if (x.style.display === "none") {
-		x.style.display = "block";
-	} else {
-		x.style.display = "none";
-	}	
-}
-
-*/
-
-
-var lTable = document.getElementById("table2");
-    lTable.style.display = (lTable.style.display == "table") ? "none" : "table";
-
-
-
-
-
-}
-
-
 
 
 
@@ -443,51 +419,13 @@ if (what == "recover") {
 }
 
 
-function xxxxxxxxxxxxxxxxcalcCbs() {
-var cb9=0;
-var cb6=0;
-var cb3=0;
-var cb1=0;
-
-cb1 = parseInt(document.getElementById("aaac18").innerText);	
-
-cb3 = cb3 + parseInt(document.getElementById("aaac16").innerText);	
-cb3 = cb3 + parseInt(document.getElementById("aaac17").innerText);		
-cb3 = cb3 + cb1
-
-cb6 = cb6 + parseInt(document.getElementById("aaac13").innerText);	
-cb6 = cb6 + parseInt(document.getElementById("aaac14").innerText);	
-cb6 = cb6 + parseInt(document.getElementById("aaac15").innerText);	
-cb6 = cb6 + cb3
-
-cb9 = cb9 + parseInt(document.getElementById("aaac10").innerText);	
-cb9 = cb9 + parseInt(document.getElementById("aaac11").innerText);	
-cb9 = cb9 + parseInt(document.getElementById("aaac12").innerText);	
-cb9 = cb9 + cb6
-
-document.getElementById("cb9txt").innerText = "countback 9 = "
-document.getElementById("cb9").innerText = cb9
-
-document.getElementById("cb6txt").innerText = "countback 6 = "
-document.getElementById("cb6").innerText = cb6
-   
-document.getElementById("cb3txt").innerText = "countback 3 = "
-document.getElementById("cb3").innerText = cb3
-   
-document.getElementById("cb1txt").innerText = "countback 1 = "
-document.getElementById("cb1").innerText = cb1      
-
-}
 
 
 function dropSelected(playerName) {
     
    player = playerName
    
-  // replace button name
- // element = document.getElementById("dropbtn") 
- // element.innerText =  player 
-  
+ 
   createTeam();
 }
 
@@ -629,9 +567,7 @@ setTimeout(function() {document.getElementById("submit").classList.remove("submi
   
 function incrementTest(id) {
 	incPoints = document.getElementById(id).innerText;
-	if (incPoints === "9") {
-		incPoints = 8
-	}
+	
     document.getElementById(id).innerText = ++incPoints;
     //calcCbs() 
 } 
@@ -694,7 +630,7 @@ function addTeamToMenu() {
 function clearTeam() {
    document.getElementById("team").innerText = "new team/player"
    document.getElementById("addtomenu").innerText = "add to menu"
-   document.getElementById("dropbtn").innerText = "select player menu"
+   document.getElementById("dropbtn").innerText = "select player for " + course
    player = "none"
 }
 
