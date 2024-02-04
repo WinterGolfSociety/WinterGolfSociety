@@ -177,20 +177,10 @@
         src="https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?embedded=true"
         width="60"></iframe>
 
-
-
-
 <div id="completed"></div>
-
-
 
 <script>  
 // https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url&entry.1433824128=player&entry.1119360478=course&entry.83976721=points&entry.717166862=countback
-
-
-
-
-
  
 var arrPlayers = []	
 var hcp = "22"  
@@ -213,43 +203,29 @@ var options = {
 	   };
 const formatter = new Intl.DateTimeFormat('en-GB', options);
 const dd = formatter.format(new Date());  
-   
-   
-   
-   
-   // testing
-   
-  dday = "Friday"
-   course = "Kirkcaldy"
-   document.getElementById("dropbtn").innerText = "select player for " + course
-   
-   
-   
-   
-   
-   
+
 if (dd.indexOf("Tuesday") > -1) {
    dday = "Tuesday"
    course = "Burntisland"
-   document.getElementById("coursebtn").innerText = course
+   document.getElementById("dropbtn").innerText = "select player for " + course
 }
 
 if (dd.indexOf("Wednesday") > -1) {
    dday = "Wednesday"
    course = "Dunnikier"
-   document.getElementById("coursebtn").innerText = course
+   document.getElementById("dropbtn").innerText = "select player for " + course
 }
 
 if (dd.indexOf("Thursday") > -1) {  
    dday = "Thursday"
    course = "Thornton"
-   document.getElementById("coursebtn").innerText = course
+   document.getElementById("dropbtn").innerText = "select player for " + course
 }
 
 if (dd.indexOf("Friday") > -1) {  
    dday = "Friday"
    course = "Kirkcaldy"
-   document.getElementById("coursebtn").innerText = course
+   document.getElementById("dropbtn").innerText = "select player for " + course
 }
 
 async function getData() {
@@ -262,9 +238,6 @@ async function getData() {
 		}
 	}
 	menucount = (i - 1)
-	//start();
-	//showRecoverChoice()
-//	console.log(arrPlayers[5])
 
 // create player dropdown
 var select = document.getElementById("playersDropdown");
@@ -280,7 +253,6 @@ for(var i = 0; i < arrPlayers.length; i++) {
 	select.appendChild(el);
 }
 
-//console.log(document.getElementById("playersDropdown").innerHTML)
 }
 getData()
 
@@ -299,9 +271,6 @@ window.onclick = function(event) {
 	}
 };
 
-
-
-
 //=============================================================
 // function toggleDropdown()
 // - show player name choices
@@ -310,24 +279,6 @@ function toggleDropdown() {
 	// When the user clicks on the button, toggle between hiding and showing the dropdown content
 	document.getElementById("playersDropdown").classList.toggle("show");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // --- functions --- // 
 
@@ -342,18 +293,6 @@ recoverTempData("recover")
 function clearStorage() {
 	localStorage.clear(); 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 function recoverTempData(what) {
 // allows the current state of prorress to be carried across restarts	
@@ -421,12 +360,9 @@ if (what == "recover") {
 
 
 
-function dropSelected(playerName) {
-    
+function dropSelected(playerName) {   
    player = playerName
-   
- 
-  createTeam();
+   createTeam();
 }
 
 
@@ -486,39 +422,19 @@ function submitForm() {
   // submit if all OK
   if (checkBeforeSubmit === 0) {
 	
-	//===== submit data
-//	document.forms[0].submit() 
+      //===== submit data
+      document.forms[0].submit() 
 
+      // add sound
+      var audio = new Audio('techclip.wav');
+      audio.play()
 
-// add sound
-   var audio = new Audio('techclip.wav');
-audio.play()
-
-
-// show button highlight
-document.getElementById("submit").classList.add("submithighlight");
-setTimeout(function() {document.getElementById("submit").classList.remove("submithighlight");}
-,500)
-
-
-
-
-
-
-	
-	// keep a record of completed entries
-//   completedEntries = completedEntries + z + " " + player + "<br>"
-    //document.getElementById("completed").innerHTML = completedEntries
-    
-    
-   
-    //document.getElementById("completed").innerHTML = completedEntries
-    
-    
-    
+      // show button highlight
+      document.getElementById("submit").classList.add("submithighlight");
+      setTimeout(function() {document.getElementById("submit").classList.remove("submithighlight");}
+      ,500)
     
     //increment array when player added
-    //playerDone.push(player)
     playerDone.push(document.getElementById("team").innerText)
     //increment array for later sorting
     playerComplete.push(z + " - " + document.getElementById("team").innerText)
@@ -558,31 +474,25 @@ setTimeout(function() {document.getElementById("submit").classList.remove("submi
 		alert("not valid so not submitted") 
     }
   
-  // reset team or player
-  clearTeam()
-  
-  
+    // reset team or player
+    clearTeam()
   
 } 
   
 function incrementTest(id) {
-	incPoints = document.getElementById(id).innerText;
-	
+    incPoints = document.getElementById(id).innerText;
     document.getElementById(id).innerText = ++incPoints;
-    //calcCbs() 
 } 
   
   
 function decrementTest(id) {
-	incPoints = document.getElementById(id).innerText;
-	if (incPoints === "0") {
-		incPoints = 1
-	}
+    incPoints = document.getElementById(id).innerText;
+    if (incPoints === "0") {
+	incPoints = 1
+    }
     document.getElementById(id).innerText = --incPoints;
-    //calcCbs() 
 }  
   
-
 function incrementScore(id) {
 	incPoints = document.getElementById(id).innerText;
     document.getElementById(id).innerText = ++incPoints;
@@ -601,8 +511,6 @@ function decrementScore(id) {
 	}
     document.getElementById(id).innerText = --incPoints;
 }  
-
-
 
 function createTeam() {
    var el = document.getElementById("team")
