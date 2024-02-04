@@ -102,6 +102,10 @@
 	    font-size: 3vmax;
 	}
 	
+	.submithighlight {
+	background: blue;
+	}
+	
     </style>
     <meta content="score input" name="description">
     <meta content="Bryan M" name="author">
@@ -115,9 +119,11 @@
 
      <button onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player name</button>
      <div id="playersDropdown" class="dropdown-content"></div>
-     <div id="team">new team</div>
+     <div id="team" class="dropbtn">new team/player</div>
      <div>
+    <!--
          <button onclick="createTeam();" class="dropbtn" id="createteam">create team</button>
+     -->
      </div>
 
  
@@ -188,7 +194,7 @@
  
 var arrPlayers = []	
 var hcp = "22"  
-var player = "player"
+var player = "none"
 var course = "course" 
 var dday = "today"  
 var cback1 = 0
@@ -404,7 +410,7 @@ if (what == "recover") {
 		localStorage.clear
 	}
 	
-	if (storedcourse == course){ 
+/*	if (storedcourse == course){ 
 	
 		playerDone = JSON.parse(localStorage.playerDone);
 		playerComplete = JSON.parse(localStorage.playerComplete);
@@ -431,7 +437,7 @@ if (what == "recover") {
 		document.getElementById("completed").innerHTML = dn  
 		
 	}
-
+*/
 }
 
 }
@@ -479,39 +485,10 @@ function dropSelected(playerName) {
    player = playerName
    
   // replace button name
-  element = document.getElementById("dropbtn") 
-  element.innerText =  player 
+ // element = document.getElementById("dropbtn") 
+ // element.innerText =  player 
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  document.getElementById("createteam").innerText = "add " + player + " to team" 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  createTeam();
 }
 
 
@@ -572,12 +549,22 @@ function submitForm() {
   if (checkBeforeSubmit === 0) {
 	
 	//===== submit data
-	document.forms[0].submit() 
+//	document.forms[0].submit() 
 
 
 // add sound
    var audio = new Audio('techclip.wav');
 audio.play()
+
+
+// show button highlight
+document.getElementById("submit").classList.add("submithighlight");
+setTimeout(function() {document.getElementById("submit").classList.remove("submithighlight");}
+,1000)
+
+
+
+
 
 
 	
@@ -683,7 +670,7 @@ function decrementScore(id) {
 
 function createTeam() {
    var el = document.getElementById("team")
-   if (el.innerText == "new team") { 
+   if (el.innerText == "new team/player") { 
        el.innerText = player
    } else {
        el.innerText = el.innerText + "/" + player
@@ -705,7 +692,10 @@ function addTeamToMenu() {
 }
 
 function clearTeam() {
-   document.getElementById("team").innerText = "new team"
+   document.getElementById("team").innerText = "new team/player"
+   document.getElementById("addtomenu").innerText = "add to menu"
+   document.getElementById("dropbtn").innerText = "select player menu"
+   player = "none"
 }
 
 </script>
