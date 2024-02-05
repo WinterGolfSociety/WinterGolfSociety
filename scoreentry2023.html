@@ -2323,6 +2323,12 @@
           document.getElementById(id).style.paddingTop = 0;
           document.getElementById(id).innerText = incScore;
           
+          
+          // recalc scores
+          recalcScores()
+          
+          
+          
           // update local storage
           //=====LocalStorage.holes===========================================
           localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
