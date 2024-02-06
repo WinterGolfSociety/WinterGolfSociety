@@ -106,6 +106,9 @@
 	background: blue;
 	}
 	
+	#completed {
+	   font-size: 2vmax;
+	}
     </style>
     <meta content="score input" name="description">
     <meta content="Bryan M" name="author">
@@ -437,7 +440,7 @@ function submitForm() {
     //increment array when player added
     playerDone.push(document.getElementById("team").innerText)
     //increment array for later sorting
-    playerComplete.push(z + " - " + document.getElementById("team").innerText)
+    playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " +  document.getElementById("team").innerText)
  
 //	var array3 = playerList.filter(function(obj) { 
 //		return playerDone.indexOf(obj) == -1; 
