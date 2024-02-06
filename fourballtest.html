@@ -15,6 +15,183 @@
 		font-size: 3vh;
 	}
 	
+	/* front screen */
+	.grid-container-frontscreen {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		width: 94vw;
+	}
+	
+	.grid-container-frontscreen > div {
+		font-size: 5vmax;
+		text-align: left;
+	}
+	
+	/* front screen */
+	.grid-container-popup {
+		display: grid;
+		grid-template-columns: auto auto auto auto auto;
+		width: 94vw;
+	}
+	
+	.grid-container-popup > div {
+		font-size: 2vh;
+		text-align: left;
+	}
+	
+	
+	
+	
+	
+		
+	#dropbtn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		height: 20vh;
+		font-size: 3vmax;
+		border: 2px solid silver;
+		background: dodgerBlue;
+		border-radius: 5px;
+	}
+	
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: white;
+		min-width: 160px;
+		overflow: auto;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+		border-radius: 5px;
+		box-shadow: 10px 10px 25px black;
+		max-height: 60vh;
+	}
+	
+	.dropdown-content a {
+		color: gray;
+		padding: 10px 16px;
+		text-decoration: none;
+		display: block;
+	}
+	
+	.show {
+		display: block;
+	}
+	
+	.wrapper {
+		display: grid;
+		grid-template-columns: repeat(6, [col] auto);
+		background-color: rgb(0, 0, 20);
+		color: white;
+		height: 100vmax;
+		align-items: center;
+		justify-items: center;
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+		font-size: 3vmax;
+	}
+	#firstscreen {
+		-webkit-animation-duration: 1.5s;
+		animation-duration: 1.5s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	
+	#all {
+		display: none;
+	}
+	
+	@-webkit-keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	
+	.fadeOut {
+		-webkit-animation-name: fadeOut;
+		animation-name: fadeOut;
+	}
+	
+	.spacer1 {
+		height: 5vh;
+	}
+	
+	#edithcps, #startscoring, #dawsonbutton, #lakesbutton, #oldcoursebutton {
+		color: white;
+		width: 100%;
+		height: 15vh;
+		font-size: 3vmax;
+		border: 2px solid silver;
+		background: dodgerBlue;
+		border-radius: 5px;
+	}
+	
+	#startscoring {
+	display: none;
+	}
+	
+	
+	#hcp1btn, #hcp2btn, #hcp3btn, #hcp4btn {
+	    font-size: 3vh;
+	    color: black;
+		background-color: silver;
+		border-radius: 5px;
+		border: 1px solid #aaa;
+	}
+	
+	#minus1btn, #minus2btn, #minus3btn, #minus4btn {
+	  font-size: 8vh;
+	  color: dodgerBlue;
+		background-color: silver;
+		border-radius: 5px;
+		border: 1px solid #aaa;
+	}
+	
+	#plus1btn, #plus2btn, #plus3btn, #plus4btn {
+	  font-size: 8vh;
+	  color: dodgerBlue;
+		background-color: silver;
+		border-radius: 5px;
+		border: 1px solid #aaa;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	.grid-container-top {
 		display: grid;
 		grid-template-columns: auto;
@@ -101,16 +278,117 @@
 	   box-shadow: inset black 0px 0px 60px -12px;
 	}
 	
-	
+	#info {
+	display: none;
+	position: absolute;
+	top: 5vh;
+	left: 5vw;
+	height: 80vh;
+	width: 84vw;
+	color: white;
+		background-color: dimGray;
+		opacity: 0.95;
+		border-radius:10px;
+		padding: 10px;
+		box-shadow: inset black 0px 0px 60px -12px;
+	}
 	
 	
 	</style>
 </head>
 
 <body>
+
+
+
+
+
+
+
+	<div id="firstscreen">
+		<div class="xxxwrapper">
+			<div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">tap to add player 1</div>
+			<div id="playersDropdown" class="dropdown-content"></div>
+			<div class="spacer1"></div>
+			<div id="popuppanel"></div>
+			<div class="grid-container-frontscreen">
+				<div id="player4ballplayer">no players have been added</div>
+				<div id="player4ballname"></div>
+				<div id="player4ballhcp"></div>
+			</div>
+			<div class="grid-container-frontscreen">
+				<div class="spacer1"></div>
+				<div class="spacer1"></div>
+				<div class="spacer1"></div>
+			</div>
+			
+			
+			<div class="grid-container-frontscreen">
+				
+				
+				<div></div>
+				<div>
+				        <button  id="startscoring" onclick="getScoring()">start scoring</button>
+				</div>
+				<div></div>
+				
+			</div>
+			
+			<div class="grid-container-frontscreen">
+				<div class="spacer1"></div>
+				<div class="spacer1"></div>
+				<div class="spacer1"></div>
+			</div>
+			<div class="grid-container-frontscreen">
+				<div></div>
+				<div><button id="dawsonbutton" onclick="chooseCourse(this.id)">Dawson</button></div>
+				<div></div>
+			</div>
+			
+			<div class="grid-container-frontscreen">
+				<div></div>
+				<div><button id="lakesbutton" onclick="chooseCourse(this.id)">Lakes</button></div>
+				<div></div>
+			</div>
+			
+			<div class="grid-container-frontscreen">
+				<div></div>
+				<div><button id="oldcoursebutton" onclick="chooseCourse(this.id)">OldCourse</button></div>
+				<div></div>
+			</div>
+			
+			
+			
+			
+		</div>
+
+         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<div id="all">
 		<div class="grid-container-top">
-			<div id="holedetails"></div>
+			<div id="holedetails" onclick="displayInfo()"></div>
 		</div>
 		<div class="grid-container-middle">
 			<div id="p1name" onclick="selected(this.id)">Bryan Maddison</div>
@@ -136,7 +414,128 @@
 			<div class="small scorelow" id="score0" onclick="numberScore(this.id)">0</div>
 			<div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
 		</div>
+	
+	
+	<div id="info" onclick="hideInfo()">
+	<div class="grid-container-popup">
+	     <div id="xh0">hole</div>
+	     <div id="xp1h0">player 1</div>
+	     <div id="xp2h0">player 2</div>
+	     <div id="xp3h0">player 3</div>
+	     <div id="xp4h0">player 4</div>
+	     
+	     <div id="xh1">1</div>
+	     <div id="xp1h1">-</div>
+	     <div id="xp2h1">-</div>
+	     <div id="xp3h1">-</div>
+	     <div id="xp4h1">-</div>
+	     
+	     <div id="xh2">2</div>
+	     <div id="xp1h2">-</div>
+	     <div id="xp2h2">-</div>
+	     <div id="xp3h2">-</div>
+	     <div id="xp4h2">-</div>
+	     
+	     <div id="xh3">3</div>
+	     <div id="xp1h3">-</div>
+	     <div id="xp2h3">-</div>
+	     <div id="xp3h3">-</div>
+	     <div id="xp4h3">-</div>
+	     
+	     <div id="xh4">4</div>
+	     <div id="xp1h4">-</div>
+	     <div id="xp2h4">-</div>
+	     <div id="xp3h4">-</div>
+	     <div id="xp4h4">-</div>
+	     
+	     <div id="xh5">5</div>
+	     <div id="xp1h5">-</div>
+	     <div id="xp2h5">-</div>
+	     <div id="xp3h5">-</div>
+	     <div id="xp4h5">-</div>
+	     
+	     <div id="xh6">6</div>
+	     <div id="xp1h6">-</div>
+	     <div id="xp2h6">-</div>
+	     <div id="xp3h6">-</div>
+	     <div id="xp4h6">-</div>	
+	     
+	     <div id="xh7">7</div>
+	     <div id="xp1h7">-</div>
+	     <div id="xp2h7">-</div>
+	     <div id="xp3h7">-</div>
+	     <div id="xp4h7">-</div>
+	     
+	     <div id="xh8">8</div>
+	     <div id="xp1h8">-</div>
+	     <div id="xp2h8">-</div>
+	     <div id="xp3h8">-</div>
+	     <div id="xp4h8">-</div>
+	     
+	     <div id="xh9">9</div>
+	     <div id="xp1h9">-</div>
+	     <div id="xp2h9">-</div>
+	     <div id="xp3h9">-</div>
+	     <div id="xp4h9">-</div>
+	     
+	     <div id="xh10">10</div>
+	     <div id="xp1h10">-</div>
+	     <div id="xp2h10">-</div>
+	     <div id="xp3h10">-</div>
+	     <div id="xp4h10">-</div>
+	     
+	     <div id="xh11">11</div>
+	     <div id="xp1h11">-</div>
+	     <div id="xp2h11">-</div>
+	     <div id="xp3h11">-</div>
+	     <div id="xp4h11">-</div>
+	     
+	     <div id="xh12">12</div>
+	     <div id="xp1h12">-</div>
+	     <div id="xp2h12">-</div>
+	     <div id="xp3h12">-</div>
+	     <div id="xp4h12">-</div>
+	     
+	     <div id="xh13">13</div>
+	     <div id="xp1h13">-</div>
+	     <div id="xp2h13">-</div>
+	     <div id="xp3h13">-</div>
+	     <div id="xp4h13">-</div>
+	     
+	     <div id="xh14">14</div>
+	     <div id="xp1h14">-</div>
+	     <div id="xp2h14">-</div>
+	     <div id="xp3h14">-</div>
+	     <div id="xp4h14">-</div>
+	     
+	     <div id="xh15">15</div>
+	     <div id="xp1h15">-</div>
+	     <div id="xp2h15">-</div>
+	     <div id="xp3h15">-</div>
+	     <div id="xp4h15">-</div>
+	     
+	     <div id="xh16">16</div>
+	     <div id="xp1h16">-</div>
+	     <div id="xp2h16">-</div>
+	     <div id="xp3h16">-</div>
+	     <div id="xp4h16">-</div>
+	     
+	     <div id="xh17">17</div>
+	     <div id="xp1h17">-</div>
+	     <div id="xp2h17">-</div>
+	     <div id="xp3h17">-</div>
+	     <div id="xp4h17">-</div>
+	     
+	     <div id="xh18">18</div>
+	     <div id="xp1h18">-</div>
+	     <div id="xp2h18">-</div>
+	     <div id="xp3h18">-</div>
+	     <div id="xp4h18">-</div>
+	
 	</div>
+	</div>
+	
+	
 	<script>
 	//=================================================================================
 	// this runs on startup or reload
@@ -144,6 +543,52 @@
 	//=================================================================================
 	var selectedplayer = 1;
 	document.getElementById("p1name").classList.add("highlight");
+var compday = "no";
+var arrCourse = [];
+var arrComps = [];
+var arrHCPs = [];
+var arrPlayers = [];
+var compcourse = "none";
+var compdate = "";
+var shotsscore = "";
+var currenthole = 0;
+// declare global variables
+var hcp        = "0";
+var player     = "select player";
+var comp;
+var compday    = "no";
+var course     = "";
+//var arrComps   = [];
+//var arrPlayers = [];
+//var arrHcps     = [];
+var arrOptions = [];
+var oldArrOptions = [];
+// set up courses with details for calculations etc.	
+
+
+// globals
+var hcplist = "";
+var msglist = "";
+var msglistcount = 0;
+var player1name = "player 1";
+var player2name = "player 2";
+var player3name = "player 3";
+var player4name = "player 4";
+var player1hcp = 99;
+var player2hcp = 99;
+var player3hcp = 99;
+var player4hcp = 99;
+var originalhcp1 = 0;
+var originalhcp2 = 0;
+var originalhcp3 = 0;
+var originalhcp4 = 0;	
+	
+	
+	
+	
+	
+	
+	
 	
 	// set up courses with details for calculations etc.
 	// array ["hole num",par,si]
@@ -222,6 +667,494 @@
 	
 	// create set of local storage items	
 	setupScores()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//===========================
+// this code runs at startup
+//===========================
+// declare global variables
+//var hcp        = "0";
+//var player     = "select player";
+//var comp;
+//var compday    = "no";
+//var course     = "";
+//var arrComps   = [];
+//var arrPlayers = [];
+//var arrHcps     = [];
+//var arrOptions = [];
+//var oldArrOptions = [];
+// set up courses with details for calculations etc.
+// array ["hole num",par,si]
+// Lakes
+
+//==============================================================
+// data has previously been stored so just retrieve it
+//==============================================================
+// retrieve arrays
+// previously downloaded by menu screen
+if("playersarray" in localStorage) {
+	arrPlayers = JSON.parse(localStorage.playersarray);
+}
+if("hcparray" in localStorage) { 
+alert("yes")
+	arrHCPs = JSON.parse(localStorage.hcparray);
+alert(arrHCPs[9])	
+}
+if("compsarray" in localStorage) {
+	arrComps = JSON.parse(localStorage.compsarray);
+}
+
+
+	
+
+
+
+
+startNewDay();
+start();
+
+//=============================================================
+// functions - run when called
+//=============================================================  
+
+//=============================================================
+// function start()
+// - initialise everything and do checks etc.
+//=============================================================  
+function xxxstart() {
+	// check for any previous selections
+	// setup local dropdown if not there
+	if("dropdown" in localStorage) {
+		oldArrOptions = JSON.parse(localStorage.dropdown);
+	}
+	// create options array for dropdown 
+	for(var i = 0; i < arrPlayers.length; i++) {
+		x = arrPlayers[i]
+		arrOptions.push([x, 0])
+	}
+	// update Options array with choices info
+	for(var i = 0; i < oldArrOptions.length; i++) {
+		// if there is a value
+		if(oldArrOptions[i][1] > 0) {
+			for(var j = 0; j < arrOptions.length; j++) {
+				// if names match
+				if(arrOptions[j][0] == oldArrOptions[i][0]) {
+					arrOptions[j][1] = oldArrOptions[i][1]
+				}
+			}
+		}
+	}
+	// save dropdown info
+	localStorage.dropdown = JSON.stringify(arrOptions);
+	// bring most commonly selected to the top
+	arrOptions.sort(compareSecondColumn);
+	// create player dropdown
+	var select = document.getElementById("playersDropdown");
+	// this is what is created
+	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+	//
+	for(var i = 0; i < arrOptions.length; i++) {
+		var el = document.createElement("a");
+		el.id = "myLink" + (i);
+		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+		el.setAttribute("href", "#");
+		el.innerText = arrOptions[i][0];
+		select.appendChild(el);
+		if(arrOptions[i][1] > 0) {
+			document.getElementById("myLink" + (i)).style.color = "blue";
+			document.getElementById("myLink" + (i)).style.background = "lightBlue";
+		}
+	}
+	console.log("end of start()")
+} // end function start()
+
+
+function startNewDay() {
+
+   // get todays date eg 26 June
+   dd = new Date();
+   // get date number and format it
+   d1 = dd.getDate();
+   if(d1 < 10) {
+      d1 = "0" + d1;
+   }
+   // get month and format it
+   d2 = dd.getMonth();
+   if(d2 == 0) {
+      m = "January";
+   }
+   if(d2 == 1) {
+      m = "February";
+   }
+   if(d2 == 2) {
+      m = "March";
+   }
+   if(d2 == 3) {
+      m = "April";
+   }
+   if(d2 == 4) {
+      m = "May";
+   }
+   if(d2 == 5) {
+      m = "June";
+   }
+   if(d2 == 6) {
+      m = "July";
+   }
+   if(d2 == 7) {
+      m = "August";
+   }
+   if(d2 == 8) {
+      m = "September";
+   }
+   if(d2 == 9) {
+      m = "October";
+   }
+   if(d2 == 10) {
+      m = "November";
+   }
+   if(d2 == 11) {
+      m = "December";
+   }
+   dateToday = d1 + " " + m;
+   dstored = d1 + "-" + d2
+
+   // doublecheck ??    
+   if ("comp" in localStorage) {
+   // if its a new comp
+   if (localStorage.comp.indexOf(dateToday) < 0) {
+       localStorage.removeItem("comp");  
+       localStorage.removeItem("course");  
+       localStorage.removeItem("player");  
+       localStorage.removeItem("hcp");  
+    
+       localStorage.setItem("dstored", dstored);
+
+   }
+   }
+   console.log("end of startNewDay()")
+}
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+function showDownloadingWait() {
+	tempt = '<br /><br /> Downloading information ...';
+	tempt += '<br /><br /><br />';
+	document.getElementById("popuppanel").innerHTML = tempt;
+	document.getElementById("popuppanel").style.display = "block";
+}
+
+//showDownloadingWait()
+
+async function getData() {
+	var dataStream = await fetch("https://opensheet.elk.sh/1xeS22CrN3Mdq2nRQLACDBN7iaMSBJ7MM1PX7gikWOJM/sweepcsv")
+	var resultsarray = await dataStream.json();
+	// get rid of blanks in array by creating new arrays
+	for(var i = 0; i < resultsarray.length; i++) {
+		if(resultsarray[i].player.length > 2) {
+			arrPlayers.push(resultsarray[i].player);
+			arrHCPs.push(resultsarray[i].hcp);
+		}
+	}
+	start();
+//	showRecoverChoice()
+}
+
+
+
+
+
+
+// already done
+
+
+
+getData()
+	//=============================================================
+	//=============================================================
+	// function start()
+	// - initialise everything and do checks etc.
+	//=============================================================  
+function start() {
+	// bring most commonly selected to the top
+	//arrPlayers.sort(compareSecondColumn);
+	// create player dropdown
+	var select = document.getElementById("playersDropdown");
+	// this is what is created
+	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+	//
+	for(var i = 0; i < arrPlayers.length; i++) {
+		var el = document.createElement("a");
+		el.id = "myLink" + (i);
+		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+		el.setAttribute("href", "#");
+		el.innerText = arrPlayers[i];
+		select.appendChild(el);
+		//if(arrPlayers[i] > 0) {
+		//	document.getElementById("myLink" + (i)).style.color = "blue";
+		//	document.getElementById("myLink" + (i)).style.background = "lightBlue";
+		//}
+	}
+	// Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+		if(!event.target.matches('.dropbtn')) {
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for(i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if(openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	};
+	// get todays date eg 26 June
+	dd = new Date();
+	// get date number and format it
+	d1 = dd.getDate();
+	if(d1 < 10) {
+		d1 = "0" + d1;
+	}
+	// get month and format it
+	d2 = dd.getMonth();
+	if(d2 == 0) {
+		m = "January";
+	}
+	if(d2 == 1) {
+		m = "February";
+	}
+	if(d2 == 2) {
+		m = "March";
+	}
+	if(d2 == 3) {
+		m = "April";
+	}
+	if(d2 == 4) {
+		m = "May";
+	}
+	if(d2 == 5) {
+		m = "June";
+	}
+	if(d2 == 6) {
+		m = "July";
+	}
+	if(d2 == 7) {
+		m = "August";
+	}
+	if(d2 == 8) {
+		m = "September";
+	}
+	if(d2 == 9) {
+		m = "October";
+	}
+	if(d2 == 10) {
+		m = "November";
+	}
+	if(d2 == 11) {
+		m = "December";
+	}
+	//dateToday = d1 + " " + m;
+	compdate = d1 + " " + m;
+} // end function start()
+//=============================================================
+// functions - run when called
+//=============================================================  
+//=============================================================
+// function resetNames()
+// - gets rid of "selected" names
+//=============================================================  
+function resetNames() {
+	// create player dropdown
+	var select = document.getElementById("playersDropdown");
+	// empty names
+	select.innerHTML = "";
+	// redo list for menu
+	// <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+	//
+	for(var i = 0; i < arrPlayers.length; i++) {
+		var el = document.createElement("a");
+		el.id = "myLink" + (i + 1);
+		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+		el.setAttribute("href", "#");
+		el.innerText = arrPlayers[i];
+		select.appendChild(el);
+	}
+}
+// name selected, do stuff
+function dropSelected(playerName) {
+	// retrieve dropdown info
+	//var arrPlayers = JSON.parse(localStorage.dropdown4ball);
+	for(var k = 0; k < arrPlayers.length; k++) {
+		if(arrPlayers[k] == playerName) {
+			found = true;
+			pos = k;
+		}
+	}
+	// change color on selection
+	document.getElementById("myLink" + pos.toString()).style.color = "blue";
+	document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
+	// update player choice
+	player = document.getElementById("myLink" + pos.toString()).innerText;
+	outputPlayers(player)
+		// close dropdown
+	var dropdowns = document.getElementsByClassName("dropdown-content");
+	var i;
+	for(i = 0; i < dropdowns.length; i++) {
+		var openDropdown = dropdowns[i];
+		if(openDropdown.classList.contains('show')) {
+			openDropdown.classList.remove('show');
+		}
+	}
+}
+//=============================================================
+// function toggleDropdown()
+// - show player name choices
+//=============================================================  
+function toggleDropdown() {
+	// When the user clicks on the button, toggle between hiding and showing the dropdown content
+	document.getElementById("playersDropdown").classList.toggle("show");
+}
+//=============================================================
+// function showDownloadingInfoMsg()
+// - show message when downloading player and course info and creating arrays
+//=============================================================  
+function showDownloadingInfoMsg() {
+	document.getElementById("popuppanel").innerHTML = '<br>Retrieving Course and Player information.<br><br><img src="throbber.gif" width=50 height=48>';
+	document.getElementById("popuppanel").style.display = "block";
+}
+
+function shortName(nom) {
+	// shorten player name
+	s1 = nom.split(" ")
+	shortPlayername = s1[0] + " " + s1[1].substring(0, 1);
+	shortPlayername = shortPlayername.replace("Stephen", "Steve")
+	shortPlayername = shortPlayername.replace("Malcolm", "Mal")
+	return shortPlayername;
+}
+
+function body() {
+	var collection = document.getElementsByClassName("player1name");
+	for(i = 0; i < collection.length; i++) {
+		collection[i].innerText = player1name;
+	}
+	var collection = document.getElementsByClassName("player2name");
+	for(i = 0; i < collection.length; i++) {
+		collection[i].innerText = player2name;
+	}
+	var collection = document.getElementsByClassName("player3name");
+	for(i = 0; i < collection.length; i++) {
+		collection[i].innerText = player3name;
+	}
+	var collection = document.getElementsByClassName("player4name");
+	for(i = 0; i < collection.length; i++) {
+		collection[i].innerText = player4name;
+	}
+	// shorten player name
+	//document.getElementById("player1").innerText = player1name;
+	//document.getElementById("player2").innerText = player2name;
+	//document.getElementById("player3").innerText = player3name;
+	//document.getElementById("player4").innerText = player4name;
+}
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//=================================================================================
 	// highlight the current player number
@@ -402,6 +1335,247 @@
 		document.getElementById("p3score").innerText = localStorage.getItem("p3h" + whichhole)
 		document.getElementById("p4score").innerText = localStorage.getItem("p4h" + whichhole)
 	}
+	
+	function outputPlayers(msg) {
+	// msg is player name eg "Bryan Maddison"
+	// find HCP
+	alert(arrHCPs)
+	var hcp;
+	for(var i = 0, len = arrPlayers.length; i < len; i++) {
+		if(arrPlayers[i] === msg) {
+			hcp = arrHCPs[i];
+			break;
+		}
+	}
+	msglistcount++
+	if(msglistcount > 4) {
+		console.log("too many players")
+	} else {
+		if(hcplist == "") {
+			hcplist = hcp;
+		} else {
+			hcplist += "#" + hcp
+		}
+	}
+	hcplistx = hcplist + "#no hcp#no hcp#no hcp#no hcp#no hcp"
+	arr2 = hcplistx.split("#");
+	player1hcp = arr2[0];
+	player2hcp = arr2[1];
+	player3hcp = arr2[2];
+	player4hcp = arr2[3];
+	if(msglistcount > 4) {
+		console.log("too many players")
+	} else {
+		if(msglist == "") {
+			msglist = msg;
+			// enable scoring button if player there and ourse chosen
+			if(compcourse !== "none") {
+				document.getElementById("startscoring").style.display = "block";
+			}
+		} else {
+			msglist += "#" + msg
+		}
+	}
+	msglistx = msglist + "#no player#no player#no player#no player#no player"
+	arr1 = msglistx.split("#");
+	newmsglistplayer = "Player 1:" + "<br>" + "Player 2:" + "<br>" + "Player 3:" + "<br>" + "Player 4:"
+	newmsglistname = arr1[0] + "<br>" + arr1[1] + "<br>" + arr1[2] + "<br>" + arr1[3]
+	newmsglisthcp = player1hcp + "<br>" + player2hcp + "<br>" + player3hcp + "<br>" + player4hcp
+	newmsglist = "Player 1: " + arr1[0] + "<br>" + 
+	             "Player 2: " + arr1[1] + "<br>" + 
+	             "Player 3: " + arr1[2] + "<br>" + 
+	             "Player 4: " + arr1[3]
+	document.getElementById("player4ballplayer").innerHTML = newmsglistplayer
+	document.getElementById("player4ballname").innerHTML = newmsglistname
+	document.getElementById("player4ballhcp").innerHTML = newmsglisthcp
+		// add players names
+	player1name = arr1[0]
+	player2name = arr1[1]
+	player3name = arr1[2]
+	player4name = arr1[3]
+	if(arr1[3] == "no player") {
+		txt = "tap to add player 4"
+	}
+	if(arr1[2] == "no player") {
+		txt = "tap to add player 3"
+	}
+	if(arr1[1] == "no player") {
+		txt = "tap to add player 2"
+	}
+	if(arr1[0] == "no player") {
+		txt = "tap to add player 1"
+	}
+	document.getElementById("dropbtn").innerText = txt;
+	// just close it now
+	if(arr1[3] !== "no player") {
+		// hide button
+		document.getElementById("dropbtn").style.display = "none";
+	}
+	body();
+}
+	
+	
+function chooseCourse(id) {
+	document.getElementById("dawsonbutton").style.opacity = "0.3";
+	document.getElementById("lakesbutton").style.opacity = "0.3";
+	document.getElementById("oldcoursebutton").style.opacity = "0.3";
+	document.getElementById(id).style.opacity = "1.0";
+	compcourse = id.replace("button", "");
+	compcourse = compcourse.replace("dawson", "Dawson")
+	compcourse = compcourse.replace("lakes", "Lakes")
+	compcourse = compcourse.replace("oldcourse", "OldCourse")
+		// choose course
+	if(compcourse == "Dawson") {
+		arrCourse = arrDeepCopy(arrDawson);
+	}
+	if(compcourse == "Lakes") {
+		arrCourse = arrDeepCopy(arrLakes);
+	}
+	if(compcourse == "OldCourse") {
+		arrCourse = arrDeepCopy(arrOldCourse);
+	}
+	// install green ticks then hide them
+
+	if(document.getElementById("player4ballplayer").innerText !== "no players have been added") {
+		document.getElementById("startscoring").style.display = "block";
+	}
+	// update button to show course
+//	document.getElementById("coll0").innerText = "Scores for " + compcourse;
+}	
+	
+// helper function to deep copy array
+function arrDeepCopy(aObject) {
+	// deep copy array
+	// Prevent undefined objects
+	// if (!aObject) return aObject;
+	var bObject = Array.isArray(aObject) ? [] : {};
+	var value;
+	for(const key in aObject) {
+		// Prevent self-references to parent object
+		// if (Object.is(aObject[key], aObject)) continue;
+		value = aObject[key];
+		bObject[key] = (typeof value === "object") ? arrDeepCopy(value) : value;
+	}
+	return bObject;
+}	
+	
+	
+function getScoring() {
+	document.getElementById("firstscreen").classList.add("fadeOut");
+	setTimeout(() => {
+		document.getElementById("firstscreen").style.display = "none";
+	}, "1000");
+	document.getElementById("all").style.display = "initial"
+		// set up for correct number of players
+/*
+
+	if(player1name == "no player") {
+		child = "a"
+		for(i = 1; i <= 18; i++) {
+			document.getElementById("value" + i + child).parentElement.style.display = 'none';
+			document.getElementById("p" + i).style.visibility = "hidden";
+		}
+		document.getElementById("pf").style.visibility = "hidden";
+		document.getElementById("pb").style.visibility = "hidden";
+		document.getElementById("pt").style.visibility = "hidden";
+	}
+	if(player2name == "no player") {
+		child = "b"
+		for(i = 1; i <= 18; i++) {
+			document.getElementById("value" + i + child).parentElement.style.display = 'none';
+			document.getElementById("pp" + i).style.visibility = "hidden";
+		}
+		document.getElementById("ppf").style.visibility = "hidden";
+		document.getElementById("ppb").style.visibility = "hidden";
+		document.getElementById("ppt").style.visibility = "hidden";
+	}
+	if(player3name == "no player") {
+		child = "c"
+		for(i = 1; i <= 18; i++) {
+			document.getElementById("value" + i + child).parentElement.style.display = 'none';
+			document.getElementById("ppp" + i).style.visibility = "hidden";
+		}
+		document.getElementById("pppf").style.visibility = "hidden";
+		document.getElementById("pppb").style.visibility = "hidden";
+		document.getElementById("pppt").style.visibility = "hidden";
+	}
+	if(player4name == "no player") {
+		child = "d"
+		for(i = 1; i <= 18; i++) {
+			document.getElementById("value" + i + child).parentElement.style.display = 'none';
+			document.getElementById("pppp" + i).style.visibility = "hidden";
+		}
+		document.getElementById("ppppf").style.visibility = "hidden";
+		document.getElementById("ppppb").style.visibility = "hidden";
+		document.getElementById("ppppt").style.visibility = "hidden";
+	}
+	// submit new data - asychronous after first so does not cause a delay
+	for(var i = 0, len = arrPlayers.length; i < len; i++) {
+		if(arrPlayers[i] === player1name) {
+			originalhcp1 = arrHCP[i];
+			if(originalhcp1 !== player1hcp) {
+				document.getElementById('mx867055232').value = player1name;
+				document.getElementById('mx2105479454').value = player1hcp;
+				document.forms[0].submit();
+			}
+		}
+		// delay others
+		delay = 2000
+		if(arrPlayers[i] === player2name) {
+			originalhcp2 = arrHCP[i];
+			if(originalhcp2 !== player2hcp) {
+				setTimeout(function() {
+					document.getElementById('mx867055232').value = player2name;
+					document.getElementById('mx2105479454').value = player2hcp;
+					document.forms[0].submit();
+				}, delay);
+				delay = (delay + 2000);
+			}
+		}
+		if(arrPlayers[i] === player3name) {
+			originalhcp3 = arrHCP[i];
+			if(originalhcp3 !== player3hcp) {
+				setTimeout(function() {
+					document.getElementById('mx867055232').value = player3name;
+					document.getElementById('mx2105479454').value = player3hcp;
+					document.forms[0].submit();
+				}, delay);
+				delay = (delay + 2000);
+			}
+		}
+		if(arrPlayers[i] === player4name) {
+			originalhcp4 = arrHCP[i];
+			if(originalhcp4 !== player4hcp) {
+				setTimeout(function() {
+					document.getElementById('mx867055232').value = player4name;
+					document.getElementById('mx2105479454').value = player4hcp;
+					document.forms[0].submit();
+				}, delay);
+			}
+		}
+	}
+	// do shots coloration
+	//shots()
+	// initial save of data
+	saveAllToLocalStorage()
+*/
+}	
+	
+function displayInfo() {
+if (document.getElementById("info").style.display !== "block") {
+    document.getElementById("info").style.display = "block"
+} else {
+    document.getElementById("info").style.display = "none" 
+}	
+}
+
+function hideInfo() {
+//if (document.getElementById("info").style.display !== "block") {
+//    document.getElementById("info").style.display = "block"
+//} else {
+    document.getElementById("info").style.display = "none" 
+//}	
+}
 	
 	</script>
 </body>
