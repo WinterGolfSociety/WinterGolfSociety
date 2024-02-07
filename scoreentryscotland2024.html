@@ -332,7 +332,7 @@ if (localStorage.course == course) {
 			return playerDone.indexOf(obj) == -1; 
 		});
 
-		var not = "not yet recorded (" +  + array3.length + ")<br>" 
+/*		var not = "not yet recorded (" +  + array3.length + ")<br>" 
 	
 		for (i = 0; i < array3.length; i++) {
 			not = not + "<br>" + array3[i] 
@@ -347,6 +347,67 @@ if (localStorage.course == course) {
 			dn = dn + "<br>" + playerComplete[j] 
 		}
 		document.getElementById("completed").innerHTML = dn  
+		
+*/		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		//increment array when player added
+    playerDone.push(document.getElementById("team").innerText)
+    //increment array for later sorting
+    playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " +  document.getElementById("team").innerText)
+ 
+//	var array3 = playerList.filter(function(obj) { 
+//		return playerDone.indexOf(obj) == -1; 
+//	});
+
+//	var not = "not yet recorded (" +  + array3.length + ")<br>" 
+//	for (i = 0; i < array3.length; i++) {
+//		not = not + "<br>" + array3[i] 
+//	}
+
+//	document.getElementById("not").innerHTML = not 
+
+	var dn=""
+	playerComplete.sort()
+	playerComplete.reverse()
+   
+	for (j = 0; j < playerComplete.length; j++) {
+		dn = dn + "<br>" + playerComplete[j] 
+	}
+
+	document.getElementById("completed").innerHTML = dn  
+
+	// save onscreen info
+	//recoverTempData("save")
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	} else {
