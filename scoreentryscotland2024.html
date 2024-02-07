@@ -308,7 +308,7 @@ function recoverTempData(what) {
 
 if (what == "save") {
 
-	
+	localStorage.course = course;
 		
 		localStorage.playerDone = JSON.stringify(playerDone);
 		localStorage.playerComplete = JSON.stringify(playerComplete);
@@ -319,6 +319,8 @@ if (what == "save") {
 
 
 if (what == "recover") {	
+
+if (localStorage.course == course) {
 		playerDone = JSON.parse(localStorage.playerDone);
 		playerComplete = JSON.parse(localStorage.playerComplete);
 		completedEntries = JSON.parse(localStorage.completedEntries);
@@ -343,6 +345,9 @@ if (what == "recover") {
 		}
 		document.getElementById("completed").innerHTML = dn  
 		
+	}
+	} else {
+	localStorage.clear();
 	}
 
 }
