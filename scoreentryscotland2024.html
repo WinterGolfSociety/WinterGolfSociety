@@ -308,14 +308,13 @@ function recoverTempData(what) {
 
 if (what == "save") {
 
-	if (storedcourse == course || storedcourse == null){ 
 	
-		localStorage.course = course;
+		
 		localStorage.playerDone = JSON.stringify(playerDone);
 		localStorage.playerComplete = JSON.stringify(playerComplete);
 		localStorage.completedEntries = JSON.stringify(completedEntries);
 		
-	}
+	
 }
 
 
