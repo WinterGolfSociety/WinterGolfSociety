@@ -181,6 +181,8 @@
         width="60"></iframe>
 
 <div id="completed"></div>
+<div id="not"></div>
+<button type="button" class="dropbtn" id="clearls" onclick="clearStorage()">clear local storage</button>
 
 <script>  
 // https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url&entry.1433824128=player&entry.1119360478=course&entry.83976721=points&entry.717166862=countback
@@ -197,6 +199,12 @@ var cback9 = 0
 var rslts = ""
 var completedEntries = "Scores entered for:<br><br>"
 var menucount = 0
+
+var incPoints = 0;
+var player="none";
+var playerDone = []
+var playerComplete = []
+
 // set course by day of week
 var options = {
 	       weekday: 'long',
@@ -285,16 +293,12 @@ function toggleDropdown() {
 
 // --- functions --- // 
 
-var incPoints = 0;
-var player="none";
-var playerDone = []
-var playerComplete = []
-
 
 recoverTempData("recover")
 
 function clearStorage() {
 	localStorage.clear(); 
+	document.getElementById("completed").innerHTML = "";
 }
 
 function recoverTempData(what) {
@@ -306,17 +310,18 @@ function recoverTempData(what) {
 // var playerDone = []
 // var playerComplete = []
 localStorage.course = course;
-alert(localStorage.course)
+//alert(localStorage.course)
 
 
 if (what == "save") {
 
-	localStorage.course = course;
-		
-		localStorage.playerDone = JSON.stringify(playerDone);
-		localStorage.playerComplete = JSON.stringify(playerComplete);
-		localStorage.completedEntries = JSON.stringify(completedEntries);
-		
+	localStorage.setItem("course",course);
+console.log(playerComplete)	
+console.log(JSON.stringify(playerComplete))	
+		//localStorage.playerDone = JSON.stringify(playerDone);
+		localStorage.setItem("playerComplete",JSON.stringify(playerComplete));
+		//localStorage.completedEntries = JSON.stringify(completedEntries);
+console.log(JSON.stringify(playerComplete))		
 	
 }
 
@@ -324,15 +329,26 @@ if (what == "save") {
 if (what == "recover") {	
 
 if (localStorage.course == course) {
-		playerDone = JSON.parse(localStorage.playerDone);
+		//playerDone = JSON.parse(localStorage.playerDone);
 		playerComplete = JSON.parse(localStorage.playerComplete);
-		completedEntries = JSON.parse(localStorage.completedEntries);
 		
-		var array3 = playerList.filter(function(obj) { 
+		var dn = ""
+		console.log("playerComplete = "+playerComplete)
+		for (j = 0; j < playerComplete.length; j++) {
+			dn = dn + "<br>" + playerComplete[j] 
+		}
+		
+		
+		document.getElementById("completed").innerHTML = dn + "<br><br>"
+		
+		
+		//completedEntries = JSON.parse(localStorage.completedEntries);
+/*		
+		var array3 = arrPlayers.filter(function(obj) { 
 			return playerDone.indexOf(obj) == -1; 
 		});
 
-/*		var not = "not yet recorded (" +  + array3.length + ")<br>" 
+		var not = "not yet recorded (" +  + array3.length + ")<br>" 
 	
 		for (i = 0; i < array3.length; i++) {
 			not = not + "<br>" + array3[i] 
@@ -360,15 +376,15 @@ if (localStorage.course == course) {
 		
 		
 		
-		
+/*		
 		//increment array when player added
     playerDone.push(document.getElementById("team").innerText)
     //increment array for later sorting
     playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " +  document.getElementById("team").innerText)
  
-//	var array3 = playerList.filter(function(obj) { 
-//		return playerDone.indexOf(obj) == -1; 
-//	});
+var array3 = arrPlayers.filter(function(obj) { 
+			return playerDone.indexOf(obj) == -1; 
+		});
 
 //	var not = "not yet recorded (" +  + array3.length + ")<br>" 
 //	for (i = 0; i < array3.length; i++) {
@@ -393,7 +409,7 @@ if (localStorage.course == course) {
 		
 		
 		
-		
+*/		
 		
 		
 		
@@ -411,7 +427,7 @@ if (localStorage.course == course) {
 		
 	}
 	} else {
-	localStorage.clear();
+	//localStorage.clear();
 	}
 
 }
@@ -495,17 +511,17 @@ function submitForm() {
     //increment array for later sorting
     playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " +  document.getElementById("team").innerText)
  
-//	var array3 = playerList.filter(function(obj) { 
-//		return playerDone.indexOf(obj) == -1; 
-//	});
+	var array3 = playerDone.filter(function(obj) { 
+		return playerDone.indexOf(obj) == -1; 
+	});
+/*
+	var not = "not yet recorded (" +  + array3.length + ")<br>" 
+	for (i = 0; i < array3.length; i++) {
+		not = not + "<br>" + array3[i] 
+	}
 
-//	var not = "not yet recorded (" +  + array3.length + ")<br>" 
-//	for (i = 0; i < array3.length; i++) {
-//		not = not + "<br>" + array3[i] 
-//	}
-
-//	document.getElementById("not").innerHTML = not 
-
+	document.getElementById("not").innerHTML = not 
+*/
 	var dn=""
 	playerComplete.sort()
 	playerComplete.reverse()
@@ -514,7 +530,7 @@ function submitForm() {
 		dn = dn + "<br>" + playerComplete[j] 
 	}
 
-	document.getElementById("completed").innerHTML = dn  
+	document.getElementById("completed").innerHTML = dn  + "<br><br>"
 
 	// save onscreen info
 	recoverTempData("save")
