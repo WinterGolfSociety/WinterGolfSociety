@@ -107,7 +107,7 @@
 	}
 	
 	#completed {
-	   font-size: 2.5vmax;
+	   font-size: 2vmax;
 	}
     </style>
     <meta content="score input" name="description">
@@ -320,16 +320,6 @@ if (what == "save") {
 
 
 if (what == "recover") {	
-	
-	var storedcourse = localStorage.course;
-	
-	if (storedcourse !== course){
-		// new course so clear local storage
-		localStorage.clear
-	}
-	
-/*	if (storedcourse == course){ 
-	
 		playerDone = JSON.parse(localStorage.playerDone);
 		playerComplete = JSON.parse(localStorage.playerComplete);
 		completedEntries = JSON.parse(localStorage.completedEntries);
@@ -355,11 +345,6 @@ if (what == "recover") {
 		document.getElementById("completed").innerHTML = dn  
 		
 	}
-*/
-}
-
-}
-
 
 
 
