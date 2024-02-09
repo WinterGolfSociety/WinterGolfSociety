@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <title>score</title>
-    <style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      margin: 0;
-      font: normal 20px Arial, sans-serif;
-      color: white;
-      background: darkSlateGray;
-      
-    }
-    
-    #my-response-iframe, #my-form {
-    display: none;
-    }
-    
-    .grid-container {
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	 <title>Scotland 2024</title>
+        <meta content="Bryan M" name="author" />
+        <link href="scotland.png" rel="icon" type="image/x-icon" />
+	<link href="scotland2024.png" rel="icon" type="image/x-icon" />
+	  
+	<style>
+	* {
+		box-sizing: border-box;
+	}
+	
+	body {
+		margin: 0;
+		font: normal 20px Arial, sans-serif;
+		color: white;
+		background: darkSlateGray;
+	}
+	
+	#my-response-iframe,
+	#my-form {
+		display: none;
+	}
+	
+	.grid-container {
 		display: grid;
 		grid-template-columns: auto auto auto;
 		width: 94vw;
-     }
+	}
 	
-     .grid-container > div {
+	.grid-container > div {
 		font-size: 5vmax;
 		text-align: left;
-     }  
-   
+	}
 	
 	#dropbtn {
 		display: flex;
@@ -88,544 +92,396 @@
 		border-radius: 5px;
 	}
 	
-	#aaalscore, #aaal10 {
-	    font-size: 10vh;
-	    padding-right: 30%;
+	#aaalscore,
+	#aaal10 {
+		font-size: 10vh;
+		padding-right: 30%;
 	}
 	
-	#aaarscore, #aaar10 {
-	    font-size: 10vh;
-	    padding-left: 30%;
+	#aaarscore,
+	#aaar10 {
+		font-size: 10vh;
+		padding-left: 30%;
 	}
 	
 	#team {
-	    font-size: 3vmax;
+		font-size: 3vmax;
+	}
+	
+	#not {
+		font-size: 2vmax;
+		color: yellow;
 	}
 	
 	.submithighlight {
-	background: blue;
+		background: blue;
 	}
 	
 	#completed {
-	   font-size: 2vmax;
+		font-size: 2vmax;
 	}
-    </style>
-    <meta content="score input" name="description">
-    <meta content="Bryan M" name="author">
-    <link href="favicon.ico" rel="icon" type="image/x-icon">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+	</style>
+	<meta content="score input" name="description">
+	<meta content="Bryan M" name="author">
+	<link href="favicon.ico" rel="icon" type="image/x-icon">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 </head>
+
 <body>
-
-
-
-     <button onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player name</button>
-     <div id="playersDropdown" class="dropdown-content"></div>
-     <div id="team" class="dropbtn">new team/player</div>
-     <div>
-    <!--
+	<button onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player name</button>
+	<div id="playersDropdown" class="dropdown-content"></div>
+	<div id="team" class="dropbtn">new team/player</div>
+	<div>
+		<!--
          <button onclick="createTeam();" class="dropbtn" id="createteam">create team</button>
      -->
-     </div>
-
- 
- 
- <div class="grid-container">
- </div>
- 
-<button type="button" class="dropbtn" id="addtomenu" onclick="addTeamToMenu()">add to menu</button>
- 
-<button type="button" class="dropbtn" id="clearteam" onclick="clearTeam()">clear team</button>
-<!--
+	</div>
+	<div class="grid-container"> </div>
+	<button type="button" class="dropbtn" id="addtomenu" onclick="addTeamToMenu()">add to menu</button>
+	<button type="button" class="dropbtn" id="clearteam" onclick="clearTeam()">clear team</button>
+	<!--
 <button class="dropbtn" id="coursebtn">course</button>
---> 
-<!-- points -->    
-<button type="button"  class="dropbtn">
-	<a class="aaa" id="aaalscore" onclick="decrementScore('scoreaaa')">-</a>
-	<a class="aaa" id="scoreaaa">30</a>
-	<a class="aaa" id="aaarscore" onclick="incrementScore('scoreaaa')">+</a>
-</button>
-            
-<!-- countback -->
-<button type="button"  class="dropbtn">
-	<a class="aaa" id="aaal10" onclick="decrementTest('aaac10')">-</a>
-	<a class="aaa" id="aaac10">15</a>
-	<a class="aaa" id="aaar10" onclick="incrementTest('aaac10')">+</a>
-</button>
- 
-<button id="submit" class="dropbtn" onClick="submitForm()">submit</button>
-
-
-
-<!-- form to construct data prior to submit -->
-
-<form action="https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/formResponse"
-      id="my-form" method="post" name="my-form" target="my-response-iframe">
-<!-- player -->
-    <input id="mx1433824128" name="entry.1433824128" type="text" value="default">
-<!-- course -->    
-    <input id="mx1119360478" name="entry.1119360478" type="text" value="default">
-<!-- points -->
-    <input id="mx83976721" name="entry.83976721" type="text" value="default">
-<!-- countback -->
-    <input id="mx717166862" name="entry.717166862" type="text" value="default">
-
-    <input type="submit">
-
-</form>
-
-<!-- google forms inserted here - invisible -->
-<iframe height="20" id="my-response-iframe" name="my-response-iframe"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?embedded=true"
-        width="60"></iframe>
-
-<div id="completed"></div>
-<div id="not"></div>
-<button type="button" class="dropbtn" id="clearls" onclick="clearStorage()">clear local storage</button>
-
-<script>  
-// https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url&entry.1433824128=player&entry.1119360478=course&entry.83976721=points&entry.717166862=countback
- 
-var arrPlayers = []	
-var hcp = "22"  
-var player = "none"
-var course = "course" 
-var dday = "today"  
-var cback1 = 0
-var cback3 = 0
-var cback6 = 0
-var cback9 = 0
-var rslts = ""
-var completedEntries = "Scores entered for:<br><br>"
-var menucount = 0
-
-var incPoints = 0;
-var player="none";
-var playerDone = []
-var playerComplete = []
-
-// set course by day of week
-var options = {
-	       weekday: 'long',
-	       day: 'numeric',
-	       month: 'long',
-	       year: 'numeric'
-	   };
-const formatter = new Intl.DateTimeFormat('en-GB', options);
-const dd = formatter.format(new Date());  
-
-if (dd.indexOf("Tuesday") > -1) {
-   dday = "Tuesday"
-   course = "Burntisland"
-   document.getElementById("dropbtn").innerText = "select player for " + course
-}
-
-if (dd.indexOf("Wednesday") > -1) {
-   dday = "Wednesday"
-   course = "Dunnikier"
-   document.getElementById("dropbtn").innerText = "select player for " + course
-}
-
-if (dd.indexOf("Thursday") > -1) {  
-   dday = "Thursday"
-   course = "Thornton"
-   document.getElementById("dropbtn").innerText = "select player for " + course
-}
-
-if (dd.indexOf("Friday") > -1) {  
-   dday = "Friday"
-   course = "Kirkcaldy"
-   document.getElementById("dropbtn").innerText = "select player for " + course
-}
-
-async function getData() {
-	var dataStream = await fetch("https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/setupcsv")
-	var resultsarray = await dataStream.json();
-	// get rid of blanks in array by creating new arrays
-	for(var i = 0; i < resultsarray.length; i++) {
-		if(resultsarray[i].player.length > 2) {
-			arrPlayers.push(resultsarray[i].player);
-		}
+-->
+	<!-- points -->
+	<button type="button" class="dropbtn"> <a class="aaa" id="aaalscore" onclick="decrementScore('scoreaaa')">-</a> <a class="aaa" id="scoreaaa">30</a> <a class="aaa" id="aaarscore" onclick="incrementScore('scoreaaa')">+</a> </button>
+	<!-- countback -->
+	<button type="button" class="dropbtn"> <a class="aaa" id="aaal10" onclick="decrementTest('aaac10')">-</a> <a class="aaa" id="aaac10">15</a> <a class="aaa" id="aaar10" onclick="incrementTest('aaac10')">+</a> </button>
+	<button id="submit" class="dropbtn" onClick="submitForm()">submit</button>
+	<!-- form to construct data prior to submit -->
+	<form action="https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+		<!-- player -->
+		<input id="mx1433824128" name="entry.1433824128" type="text" value="default">
+		<!-- course -->
+		<input id="mx1119360478" name="entry.1119360478" type="text" value="default">
+		<!-- points -->
+		<input id="mx83976721" name="entry.83976721" type="text" value="default">
+		<!-- countback -->
+		<input id="mx717166862" name="entry.717166862" type="text" value="default">
+		<input type="submit"> </form>
+	<!-- google forms inserted here - invisible -->
+	<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?embedded=true" width="60"></iframe>
+	<div id="completed"></div>
+	<div id="not"></div>
+	<button type="button" class="dropbtn" id="clearls" onclick="clearStorage()">clear local storage</button>
+	<script>
+	// https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url&entry.1433824128=player&entry.1119360478=course&entry.83976721=points&entry.717166862=countback
+	var arrPlayers = []
+	var hcp = "22"
+	var player = "none"
+	var course = "course"
+	var dday = "today"
+	var cback1 = 0
+	var cback3 = 0
+	var cback6 = 0
+	var cback9 = 0
+	var rslts = ""
+	var completedEntries = "Scores entered for:<br><br>"
+	var menucount = 0
+	var incPoints = 0;
+	var player = "none";
+	var playerDone = []
+	var playerComplete = []
+	var cleanArray = [];
+	itemsToBeRemoved = [];
+		// set course by day of week
+	var options = {
+		weekday: 'long',
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric'
+	};
+	const formatter = new Intl.DateTimeFormat('en-GB', options);
+	const dd = formatter.format(new Date());
+	if(dd.indexOf("Tuesday") > -1) {
+		dday = "Tuesday"
+		course = "Burntisland"
+		document.getElementById("dropbtn").innerText = "select player for " + course
 	}
-	menucount = (i - 1)
-
-// create player dropdown
-var select = document.getElementById("playersDropdown");
-// this is what is created
-//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-//
-for(var i = 0; i < arrPlayers.length; i++) {
-	var el = document.createElement("a");
-	el.id = "myLink" + (i);
-	el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-	el.setAttribute("href", "#");
-	el.innerText = arrPlayers[i];
-	select.appendChild(el);
-}
-
-}
-getData()
-
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-	if(!event.target.matches('.dropbtn')) {
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for(i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if(openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
+	if(dd.indexOf("Wednesday") > -1) {
+		dday = "Wednesday"
+		course = "Dunnikier"
+		document.getElementById("dropbtn").innerText = "select player for " + course
+	}
+	if(dd.indexOf("Thursday") > -1) {
+		dday = "Thursday"
+		course = "Thornton"
+		document.getElementById("dropbtn").innerText = "select player for " + course
+	}
+	if(dd.indexOf("Friday") > -1) {
+		dday = "Friday"
+		course = "Kirkcaldy"
+		document.getElementById("dropbtn").innerText = "select player for " + course
+	}
+	async function getData() {
+		var dataStream = await fetch("https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/setupcsv")
+		var resultsarray = await dataStream.json();
+		// get rid of blanks in array by creating new arrays
+		for(var i = 0; i < resultsarray.length; i++) {
+			if(resultsarray[i].player.length > 2) {
+				arrPlayers.push(resultsarray[i].player);
 			}
 		}
-	}
-};
-
-//=============================================================
-// function toggleDropdown()
-// - show player name choices
-//=============================================================  
-function toggleDropdown() {
-	// When the user clicks on the button, toggle between hiding and showing the dropdown content
-	document.getElementById("playersDropdown").classList.toggle("show");
-}
-
-// --- functions --- // 
-
-
-recoverTempData("recover")
-
-function clearStorage() {
-	localStorage.clear(); 
-	document.getElementById("completed").innerHTML = "";
-}
-
-function recoverTempData(what) {
-// allows the current state of progress to be carried across restarts	
-// save and restore progress by updating the global variables	
-// globals - as defined
-	
-// var completedEntries = "Scores entered for:<br><br>"
-// var playerDone = []
-// var playerComplete = []
-localStorage.course = course;
-//alert(localStorage.course)
-
-
-if (what == "save") {
-
-	localStorage.setItem("course",course);
-
-		//localStorage.playerDone = JSON.stringify(playerDone);
-		localStorage.setItem("playerComplete",JSON.stringify(playerComplete));
-		//localStorage.completedEntries = JSON.stringify(completedEntries);
-	
-	
-}
-
-
-if (what == "recover") {	
-
-if (localStorage.course == course) {
-		//playerDone = JSON.parse(localStorage.playerDone);
-		playerComplete = JSON.parse(localStorage.playerComplete);
+		// make a copy of array
+		//arrPlayersCopy = [...arrPlayers];
 		
-		var dn = ""
-		
-		for (j = 0; j < playerComplete.length; j++) {
-			dn = dn + "<br>" + playerComplete[j] 
+		menucount = (i - 1)
+			// create player dropdown
+		var select = document.getElementById("playersDropdown");
+		// this is what is created
+		//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+		//
+		for(var i = 0; i < arrPlayers.length; i++) {
+			var el = document.createElement("a");
+			el.id = "myLink" + (i);
+			el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+			el.setAttribute("href", "#");
+			el.innerText = arrPlayers[i];
+			select.appendChild(el);
 		}
-		
-		
-		document.getElementById("completed").innerHTML = dn + "<br><br>"
-		
-		
-		//completedEntries = JSON.parse(localStorage.completedEntries);
-/*		
-		var array3 = arrPlayers.filter(function(obj) { 
-			return playerDone.indexOf(obj) == -1; 
-		});
-
-		var not = "not yet recorded (" +  + array3.length + ")<br>" 
-	
-		for (i = 0; i < array3.length; i++) {
-			not = not + "<br>" + array3[i] 
+	}
+	getData()
+		// Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+		if(!event.target.matches('.dropbtn')) {
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for(i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if(openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
 		}
-		document.getElementById("not").innerHTML = not 
+	};
+	//=============================================================
+	// function toggleDropdown()
+	// - show player name choices
+	//=============================================================  
+	function toggleDropdown() {
+		// When the user clicks on the button, toggle between hiding and showing the dropdown content
+		document.getElementById("playersDropdown").classList.toggle("show");
+	}
+	// --- functions --- // 
+	recoverTempData("recover")
+
+	function clearStorage() {
+		localStorage.clear();
+		document.getElementById("completed").innerHTML = "";
+	}
+
+	function recoverTempData(what) {
+		// allows the current state of progress to be carried across restarts	
+		// save and restore progress by updating the global variables	
+
+		if(what == "save") {
+			localStorage.setItem("course", course);
+			//localStorage.playerDone = JSON.stringify(playerDone);
+			localStorage.setItem("playerComplete", JSON.stringify(playerComplete));
+			//localStorage.completedEntries = JSON.stringify(completedEntries);
+			
+			localStorage.setItem("cleanArray", JSON.stringify(cleanArray));
+			
+			localStorage.setItem("itemsToBeRemoved", JSON.stringify(itemsToBeRemoved));
 	
-		var dn=""
-		playerComplete.sort()
-		playerComplete.reverse()
-   
-		for (j = 0; j < playerComplete.length; j++) {
-			dn = dn + "<br>" + playerComplete[j] 
 		}
-		document.getElementById("completed").innerHTML = dn  
+		if(what == "recover") {
+			if(localStorage.course == course) {
+				//playerDone = JSON.parse(localStorage.playerDone);
+				playerComplete = JSON.parse(localStorage.playerComplete);
+				var dn = ""
+				for(j = 0; j < playerComplete.length; j++) {
+					dn = dn + "<br>" + playerComplete[j]
+				}
+				document.getElementById("completed").innerHTML = dn + "<br><br>"
 		
-*/		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-/*		
-		//increment array when player added
-    playerDone.push(document.getElementById("team").innerText)
-    //increment array for later sorting
-    playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " +  document.getElementById("team").innerText)
- 
-var array3 = arrPlayers.filter(function(obj) { 
-			return playerDone.indexOf(obj) == -1; 
-		});
-
-//	var not = "not yet recorded (" +  + array3.length + ")<br>" 
-//	for (i = 0; i < array3.length; i++) {
-//		not = not + "<br>" + array3[i] 
-//	}
-
-//	document.getElementById("not").innerHTML = not 
-
-	var dn=""
-	playerComplete.sort()
-	playerComplete.reverse()
-   
-	for (j = 0; j < playerComplete.length; j++) {
-		dn = dn + "<br>" + playerComplete[j] 
+				cleanArray = JSON.parse(localStorage.cleanArray);
+				var not = "not yet recorded (" + cleanArray.length + ")<br>" 
+				for (i = 0; i < cleanArray.length; i++) {
+				     not = not + "<br>" + cleanArray[i] 
+				}
+				document.getElementById("not").innerHTML = not 
+				
+				itemsToBeRemoved = JSON.parse(localStorage.itemsToBeRemoved);						
+			}
+		} else {
+			//localStorage.clear();
+		}
 	}
 
-	document.getElementById("completed").innerHTML = dn  
-
-	// save onscreen info
-	//recoverTempData("save")
-
-		
-		
-		
-*/		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	function dropSelected(playerName) {
+		player = playerName
+		createTeam();
 	}
-	} else {
-	//localStorage.clear();
+	/* When the user clicks on the button, 
+	toggle between hiding and showing the dropdown content */
+	function myFunction() {
+		document.getElementById("myDropdown").classList.toggle("show");
 	}
 
-}
+	function submitForm() {
+		// get the relevant info into a form
+		var z = parseInt(document.getElementById('scoreaaa').innerText)
+			//-- player --
+		document.getElementById("mx1433824128").value = player
+			//-- day --
+		document.getElementById("mx1119360478").value = dday
+			//-- scoretotal --
+		document.getElementById("mx83976721").value = z
+			//-- countback --
+		document.getElementById("mx717166862").value = document.getElementById("aaac10").innerText
+			// check data is complete 
+		var checkBeforeSubmit = 0
+		var checkBeforeSubmitID = ""
+			//-- player --
+		if(document.getElementById("mx1433824128").value == "none") {
+			checkBeforeSubmit++
+			checkBeforeSubmitID = checkBeforeSubmitID + "player" + "\n"
+		}
+		//-- course --
+		if(document.getElementById("mx1119360478").value == "course") {
+			checkBeforeSubmit++
+			checkBeforeSubmitID = checkBeforeSubmitID + "course" + "\n"
+		}
+		//-- scoretotal --
+		if(document.getElementById("mx83976721").value == "") {
+			checkBeforeSubmit++
+			checkBeforeSubmitID = checkBeforeSubmitID + "scoretotal" + "\n"
+		}
+		//-- countback --
+		if(document.getElementById("mx717166862").value == "") {
+			checkBeforeSubmit++
+			checkBeforeSubmitID = checkBeforeSubmitID + "countback" + "\n"
+		}
+		// submit if all OK
+		if(checkBeforeSubmit === 0) {
+			//===== submit data
+			document.forms[0].submit()
+				// add sound
+			var audio = new Audio('techclip.wav');
+			audio.play()
+				// show button highlight
+			document.getElementById("submit").classList.add("submithighlight");
+			setTimeout(function() {
+					document.getElementById("submit").classList.remove("submithighlight");
+				}, 500)
+				//increment array when player added
+			playerDone.push(document.getElementById("team").innerText)
+				//increment array for later sorting
+			playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " + document.getElementById("team").innerText)
+			
+			
+			console.log("playerDone = " + playerDone.length)
+			
+			var array3 = playerDone.filter(function(obj) {
+				return playerDone.indexOf(obj) == -1;
+			});
+		
+			// create yet to do player list
+			// arrPlayers less all playerDone entries gives to do 
+			// var cleanArray = originalArray.filter(element => itemsToBeRemoved.every(item => !element.includes(item)));
+			// update players done
+			itemsToBeRemoved.push(playerDone);
+			cleanArray = arrPlayers.filter(element => itemsToBeRemoved.every(item => !element.includes(item)));
+			
+			var not = "not yet recorded (" + cleanArray.length + ")<br>" 
+			for (i = 0; i < cleanArray.length; i++) {
+			     not = not + "<br>" + cleanArray[i] 
+			}
+			document.getElementById("not").innerHTML = not + "<br><br>"
 
-function dropSelected(playerName) {   
-   player = playerName
-   createTeam();
-}
-
-
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-
-function submitForm() {
-   // get the relevant info into a form
-   
-   var z=parseInt(document.getElementById('scoreaaa').innerText)
-   
-   //-- player --
-   document.getElementById("mx1433824128").value = player
-   //-- day --
-   document.getElementById("mx1119360478").value = dday
- 
-   //-- scoretotal --
-   document.getElementById("mx83976721").value = z
-    
-
-   //-- countback --
-   document.getElementById("mx717166862").value = document.getElementById("aaac10").innerText
-   
-   // check data is complete 
-   var checkBeforeSubmit=0
-   var checkBeforeSubmitID=""
-   
-   //-- player --
-   if (document.getElementById("mx1433824128").value == "none") {
-	   checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "player" + "\n"
-   }
-   //-- course --
-   if (document.getElementById("mx1119360478").value == "course") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "course" + "\n"
-   }
-  
-   
-   //-- scoretotal --
-   if (document.getElementById("mx83976721").value == "") {
-       checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "scoretotal" + "\n"
-   }
-   
- 
-   //-- countback --
-   if (document.getElementById("mx717166862").value == "") {
-	   checkBeforeSubmit++
-	   checkBeforeSubmitID=checkBeforeSubmitID + "countback" + "\n"
-   }
-      
-  // submit if all OK
-  if (checkBeforeSubmit === 0) {
-	
-      //===== submit data
-      document.forms[0].submit() 
-
-      // add sound
-      var audio = new Audio('techclip.wav');
-      audio.play()
-
-      // show button highlight
-      document.getElementById("submit").classList.add("submithighlight");
-      setTimeout(function() {document.getElementById("submit").classList.remove("submithighlight");}
-      ,500)
-    
-    //increment array when player added
-    playerDone.push(document.getElementById("team").innerText)
-    //increment array for later sorting
-    playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " +  document.getElementById("team").innerText)
- 
-	var array3 = playerDone.filter(function(obj) { 
-		return playerDone.indexOf(obj) == -1; 
-	});
-/*
-	var not = "not yet recorded (" +  + array3.length + ")<br>" 
-	for (i = 0; i < array3.length; i++) {
-		not = not + "<br>" + array3[i] 
+			var dn = ""
+			playerComplete.sort()
+			playerComplete.reverse()
+			for(j = 0; j < playerComplete.length; j++) {
+				dn = dn + "<br>" + playerComplete[j]
+			}
+			document.getElementById("completed").innerHTML = dn + "<br><br>"
+				// save onscreen info
+			recoverTempData("save")
+				// allow a method to clear local storage
+			if(z == "99") {
+				alert("local storage cleared")
+				localStorage.clear()
+			}
+		} else {
+			alert("not valid so not submitted")
+		}
+		// reset team or player
+		clearTeam()
 	}
 
-	document.getElementById("not").innerHTML = not 
-*/
-	var dn=""
-	playerComplete.sort()
-	playerComplete.reverse()
-   
-	for (j = 0; j < playerComplete.length; j++) {
-		dn = dn + "<br>" + playerComplete[j] 
+	function incrementTest(id) {
+		incPoints = document.getElementById(id).innerText;
+		document.getElementById(id).innerText = ++incPoints;
 	}
 
-	document.getElementById("completed").innerHTML = dn  + "<br><br>"
-
-	// save onscreen info
-	recoverTempData("save")
-
-	// allow a method to clear local storage
-	if (z == "99") {
-		alert("local storage cleared")
-		localStorage.clear()
+	function decrementTest(id) {
+		incPoints = document.getElementById(id).innerText;
+		if(incPoints === "0") {
+			incPoints = 1
+		}
+		document.getElementById(id).innerText = --incPoints;
 	}
 
-    } else {
-	   
-		alert("not valid so not submitted") 
-    }
-  
-    // reset team or player
-    clearTeam()
-  
-} 
-  
-function incrementTest(id) {
-    incPoints = document.getElementById(id).innerText;
-    document.getElementById(id).innerText = ++incPoints;
-} 
-  
-  
-function decrementTest(id) {
-    incPoints = document.getElementById(id).innerText;
-    if (incPoints === "0") {
-	incPoints = 1
-    }
-    document.getElementById(id).innerText = --incPoints;
-}  
-  
-function incrementScore(id) {
-	incPoints = document.getElementById(id).innerText;
-    document.getElementById(id).innerText = ++incPoints;
-
-	// clear storage if 99
-	if (incPoints >= 98) {
-		localStorage.clear()
-		window.location.reload();
+	function incrementScore(id) {
+		incPoints = document.getElementById(id).innerText;
+		document.getElementById(id).innerText = ++incPoints;
+		// clear storage if 99
+		if(incPoints >= 98) {
+			localStorage.clear()
+			window.location.reload();
+		}
 	}
-} 
-    
-function decrementScore(id) {
-	incPoints = document.getElementById(id).innerText;
-	if (incPoints === "0") {
-		incPoints = 1
+
+	function decrementScore(id) {
+		incPoints = document.getElementById(id).innerText;
+		if(incPoints === "0") {
+			incPoints = 1
+		}
+		document.getElementById(id).innerText = --incPoints;
 	}
-    document.getElementById(id).innerText = --incPoints;
-}  
 
-function createTeam() {
-   var el = document.getElementById("team")
-   if (el.innerText == "new team/player") { 
-       el.innerText = player
-   } else {
-       el.innerText = el.innerText + "/" + player
-       player = el.innerText;
-       document.getElementById("addtomenu").innerText = "add " + el.innerText + " to menu"
-   }
-}
+	function createTeam() {
+		var el = document.getElementById("team")
+		if(el.innerText == "new team/player") {
+			el.innerText = player
+		} else {
+			el.innerText = el.innerText + "/" + player
+			player = el.innerText;
+			document.getElementById("addtomenu").innerText = "add " + el.innerText + " to menu"
+		}
+	}
 
-function addTeamToMenu() {
-   temp = document.getElementById("team").innerText
-   menucount ++
-   var select = document.getElementById("playersDropdown");
-   var el = document.createElement("a");
-   el.id = "myLink" + (menucount);
-   el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-   el.setAttribute("href", "#");
-   el.innerText = temp;
-   select.appendChild(el);
-   // show button highlight
-   document.getElementById("addtomenu").classList.add("submithighlight");
-   setTimeout(function() {document.getElementById("addtomenu").classList.remove("submithighlight");}
-   ,500)
+	function addTeamToMenu() {
+		temp = document.getElementById("team").innerText
+		menucount++
+		var select = document.getElementById("playersDropdown");
+		var el = document.createElement("a");
+		el.id = "myLink" + (menucount);
+		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+		el.setAttribute("href", "#");
+		el.innerText = temp;
+		select.appendChild(el);
+		// show button highlight
+		document.getElementById("addtomenu").classList.add("submithighlight");
+		setTimeout(function() {
+			document.getElementById("addtomenu").classList.remove("submithighlight");
+		}, 500)
+	}
 
-}
-
-function clearTeam() {
-   document.getElementById("team").innerText = "new team/player"
-   document.getElementById("addtomenu").innerText = "add to menu"
-   document.getElementById("dropbtn").innerText = "select player for " + course
-   player = "none"
-   // show button highlight
-   document.getElementById("clearteam").classList.add("submithighlight");
-   setTimeout(function() {document.getElementById("clearteam").classList.remove("submithighlight");}
-   ,500)
-
-}
-
-</script>
+	function clearTeam() {
+		document.getElementById("team").innerText = "new team/player"
+		document.getElementById("addtomenu").innerText = "add to menu"
+		document.getElementById("dropbtn").innerText = "select player for " + course
+		player = "none"
+			// show button highlight
+		document.getElementById("clearteam").classList.add("submithighlight");
+		setTimeout(function() {
+			document.getElementById("clearteam").classList.remove("submithighlight");
+		}, 500)
+	}
+	</script>
 </body>
-</html>    
 
-  
-      
+</html>
