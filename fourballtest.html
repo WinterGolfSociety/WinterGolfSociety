@@ -23,7 +23,7 @@
 	}
 	
 	.grid-container-frontscreen > div {
-		font-size: 5vmax;
+		font-size: 3vh;
 		text-align: left;
 	}
 	
@@ -31,19 +31,15 @@
 	.grid-container-popup {
 		display: grid;
 		grid-template-columns: auto auto auto auto auto;
-		width: 94vw;
+		//width: 94vw;
+		padding-right: 10px;
 	}
 	
 	.grid-container-popup > div {
-		font-size: 2vh;
+		font-size: 3vh;
 		text-align: center;
 	}
 	
-	
-	
-	
-	
-		
 	#dropbtn {
 		display: flex;
 		justify-content: center;
@@ -97,6 +93,7 @@
 		scroll-snap-stop: always;
 		font-size: 3vmax;
 	}
+	
 	#firstscreen {
 		-webkit-animation-duration: 1.5s;
 		animation-duration: 1.5s;
@@ -146,7 +143,7 @@
 	}
 	
 	#startscoring {
-	display: none;
+	    display: none;
 	}
 	
 	
@@ -173,112 +170,94 @@
 		border-radius: 5px;
 		border: 1px solid #aaa;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	.grid-container-top {
 		display: grid;
 		grid-template-columns: auto;
 	}
 	
-	.grid-container-top > div {
+	.grid-container-top > div
+	{
 	font-size: 4.5vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		//border: 1px solid gray;
-		border-radius: 5px;
-		height: 10vh;
-		//box-shadow: inset gray 0px 0px 60px -12px;
-		
-		
-		color: white; //dodgerBlue;
-	   background: dodgerBlue; //azure;
-	   border: 1px solid white; //dodgerBlue;
-	   box-shadow: inset blue 0px 0px 60px -12px;
-		
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 5px;
+	height: 10vh;
+	color: white; //dodgerBlue;
+	background: dodgerBlue; //azure;
+	border: 1px solid white; //dodgerBlue;
+	box-shadow: inset blue 0px 0px 60px -12px;	
 	}
 	
-	.grid-container-middle {
-		display: grid;
-		grid-template-columns: auto calc(98vw/3);
+	.grid-container-middle
+	{
+	display: grid;
+	grid-template-columns: auto calc(98vw/3);
 	}
 	
-	.grid-container-middle > div {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		font-size: 3vh;
-		border: 1px solid gainsboro;
-		//border-radius: 5px;
-		height: 10vh;
-		//box-shadow: inset gray 0px 0px 60px -12px; 
+	.grid-container-middle > div
+	{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 3vh;
+	border: 1px solid gainsboro;
+	height: 10vh;
 	}
 	
-	.grid-container-bottom {
-		display: grid;
-		grid-template-columns: calc(98vw/3) auto calc(98vw/3);
+	.grid-container-bottom
+	{
+	display: grid;
+	grid-template-columns: calc(98vw/3) auto calc(98vw/3);
 	}
 	
-	.grid-container-bottom > div {
-		font-size: 5vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		
-		
-		border-radius: 5px;
-		height: 10vh;
-		
+	.grid-container-bottom > div
+	{
+	font-size: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	border-radius: 5px;
+	height: 10vh;	
 	}
 	
 	#p1score,
 	#p2score,
 	#p3score,
-	#p4score {
-		font-size: 5vh;
+	#p4score
+	{
+	font-size: 5vh;
 	}
 	
-	.highlight {
-	    color: black;
-            border: 1px solid black;
-	   box-shadow: inset black 0px 0px 60px -12px;
+	.highlight
+	{
+	color: black;
+        border: 1px solid black;
+	box-shadow: inset black 0px 0px 60px -12px;
 	}
 	
-	.scorelow {
-	   color: white; //dodgerBlue;
-	   background: dodgerBlue; //azure;
-	   border: 1px solid white; //dodgerBlue;
-	   box-shadow: inset blue 0px 0px 60px -12px;
+	.scorelow
+	{
+	color: white; //dodgerBlue;
+	background: dodgerBlue; //azure;
+	border: 1px solid white; //dodgerBlue;
+	box-shadow: inset blue 0px 0px 60px -12px;
 	}
 	
-	.scorehigh {
-	   color: black;
-	   background: white; ////azure;
-	   border: 1px solid black;
-	   box-shadow: inset black 0px 0px 60px -12px;
+	.scorehigh
+	{
+	color: black;
+	background: white; ////azure;
+	border: 1px solid black;
+	box-shadow: inset black 0px 0px 60px -12px;
 	}
 	
-	#info {
+	#info
+	{
 	display: none;
 	position: absolute;
 	top: 1vh;
@@ -286,12 +265,12 @@
 	height: 88vh;
 	width: 88vw;
 	color: white;
-		background-color: dimGray;
-		opacity: 0.95;
-		border-radius:10px;
-		padding-left: 2px;
-		padding-right: 2px;
-		box-shadow: inset black 0px 0px 60px -12px;
+	background-color: dimGray;
+	opacity: 0.95;
+	border-radius:10px;
+	padding-left: 2px;
+	padding-right: 2px;
+	box-shadow: inset black 0px 0px 60px -12px;
 	}
 	
 	
@@ -341,66 +320,31 @@
 				<div class="spacer1"></div>
 			</div>
 			<div class="grid-container-frontscreen">
-				<div></div>
-				<div><button id="dawsonbutton" onclick="chooseCourse(this.id)">Dawson</button></div>
-				<div></div>
+	   <div><button id="dawsonbutton" onclick="chooseCourse(this.id)">Dawson</button></div>
+	   <div><button id="lakesbutton" onclick="chooseCourse(this.id)">Lakes</button></div>
+           <div><button id="oldcoursebutton" onclick="chooseCourse(this.id)">OldCourse</button></div>
 			</div>
-			
-			<div class="grid-container-frontscreen">
-				<div></div>
-				<div><button id="lakesbutton" onclick="chooseCourse(this.id)">Lakes</button></div>
-				<div></div>
-			</div>
-			
-			<div class="grid-container-frontscreen">
-				<div></div>
-				<div><button id="oldcoursebutton" onclick="chooseCourse(this.id)">OldCourse</button></div>
-				<div></div>
-			</div>
-			
-			
-			
-			
+		
 		</div>
 
-         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
 
 	<div id="all">
 		<div class="grid-container-top">
 			<div id="holedetails" onclick="displayInfo()"></div>
 		</div>
+		
 		<div class="grid-container-middle">
-			<div id="p1name" onclick="selected(this.id)">Bryan Maddison</div>
+			<div id="p1name" onclick="selected(this.id)">player 1</div>
 			<div id="p1score" onclick="selected(this.id)">0</div>
-			<div id="p2name" onclick="selected(this.id)">Stephen Alldridge</div>
+			<div id="p2name" onclick="selected(this.id)">player 2</div>
 			<div id="p2score" onclick="selected(this.id)">0</div>
-			<div id="p3name" onclick="selected(this.id)">Joe Fletcher</div>
+			<div id="p3name" onclick="selected(this.id)">player 3</div>
 			<div id="p3score" onclick="selected(this.id)">0</div>
-			<div id="p4name" onclick="selected(this.id)">Dale Aitkenhead</div>
+			<div id="p4name" onclick="selected(this.id)">player 4</div>
 			<div id="p4score" onclick="selected(this.id)">0</div>
 		</div>
+		
 		<div class="grid-container-bottom">
 			<div class="small scorelow" id="score1" onclick="numberScore(this.id)">1</div>
 			<div class="small scorelow" id="score2" onclick="numberScore(this.id)">2</div>
@@ -416,134 +360,134 @@
 			<div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
 		</div>
 	
-	
 	<div id="info" onclick="hideInfo()">
 	<div class="grid-container-popup">
-	     <div id="xh0"></div>
-	     <div id="xp1h0">player 1</div>
-	     <div id="xp2h0">player 2</div>
-	     <div id="xp3h0">player 3</div>
-	     <div id="xp4h0">player 4</div>
+	     <div id="h0"></div>
+	     <div id="p1h0">player 1</div>
+	     <div id="p2h0">player 2</div>
+	     <div id="p3h0">player 3</div>
+	     <div id="p4h0">player 4</div>
 	     
-	     <div id="xh1">1</div>
-	     <div id="xp1h1">-</div>
-	     <div id="xp2h1">-</div>
-	     <div id="xp3h1">-</div>
-	     <div id="xp4h1">-</div>
+	     <div id="h1">1</div>
+	     <div id="p1h1">-</div>
+	     <div id="p2h1">-</div>
+	     <div id="p3h1">-</div>
+	     <div id="p4h1">-</div>
 	     
-	     <div id="xh2">2</div>
-	     <div id="xp1h2">-</div>
-	     <div id="xp2h2">-</div>
-	     <div id="xp3h2">-</div>
-	     <div id="xp4h2">-</div>
+	     <div id="h2">2</div>
+	     <div id="p1h2">-</div>
+	     <div id="p2h2">-</div>
+	     <div id="p3h2">-</div>
+	     <div id="p4h2">-</div>
 	     
-	     <div id="xh3">3</div>
-	     <div id="xp1h3">-</div>
-	     <div id="xp2h3">-</div>
-	     <div id="xp3h3">-</div>
-	     <div id="xp4h3">-</div>
+	     <div id="h3">3</div>
+	     <div id="p1h3">-</div>
+	     <div id="p2h3">-</div>
+	     <div id="p3h3">-</div>
+	     <div id="p4h3">-</div>
 	     
-	     <div id="xh4">4</div>
-	     <div id="xp1h4">-</div>
-	     <div id="xp2h4">-</div>
-	     <div id="xp3h4">-</div>
-	     <div id="xp4h4">-</div>
+	     <div id="h4">4</div>
+	     <div id="p1h4">-</div>
+	     <div id="p2h4">-</div>
+	     <div id="p3h4">-</div>
+	     <div id="p4h4">-</div>
 	     
-	     <div id="xh5">5</div>
-	     <div id="xp1h5">-</div>
-	     <div id="xp2h5">-</div>
-	     <div id="xp3h5">-</div>
-	     <div id="xp4h5">-</div>
+	     <div id="h5">5</div>
+	     <div id="p1h5">-</div>
+	     <div id="p2h5">-</div>
+	     <div id="p3h5">-</div>
+	     <div id="p4h5">-</div>
 	     
-	     <div id="xh6">6</div>
-	     <div id="xp1h6">-</div>
-	     <div id="xp2h6">-</div>
-	     <div id="xp3h6">-</div>
-	     <div id="xp4h6">-</div>	
+	     <div id="h6">6</div>
+	     <div id="p1h6">-</div>
+	     <div id="p2h6">-</div>
+	     <div id="p3h6">-</div>
+	     <div id="p4h6">-</div>	
 	     
-	     <div id="xh7">7</div>
-	     <div id="xp1h7">-</div>
-	     <div id="xp2h7">-</div>
-	     <div id="xp3h7">-</div>
-	     <div id="xp4h7">-</div>
+	     <div id="h7">7</div>
+	     <div id="p1h7">-</div>
+	     <div id="p2h7">-</div>
+	     <div id="p3h7">-</div>
+	     <div id="p4h7">-</div>
 	     
-	     <div id="xh8">8</div>
-	     <div id="xp1h8">-</div>
-	     <div id="xp2h8">-</div>
-	     <div id="xp3h8">-</div>
-	     <div id="xp4h8">-</div>
+	     <div id="h8">8</div>
+	     <div id="p1h8">-</div>
+	     <div id="p2h8">-</div>
+	     <div id="p3h8">-</div>
+	     <div id="p4h8">-</div>
 	     
-	     <div id="xh9">9</div>
-	     <div id="xp1h9">-</div>
-	     <div id="xp2h9">-</div>
-	     <div id="xp3h9">-</div>
-	     <div id="xp4h9">-</div>
+	     <div id="h9">9</div>
+	     <div id="p1h9">-</div>
+	     <div id="p2h9">-</div>
+	     <div id="p3h9">-</div>
+	     <div id="p4h9">-</div>
 	     
-	     <div id="xh10">10</div>
-	     <div id="xp1h10">-</div>
-	     <div id="xp2h10">-</div>
-	     <div id="xp3h10">-</div>
-	     <div id="xp4h10">-</div>
+	     <div id="h10">10</div>
+	     <div id="p1h10">-</div>
+	     <div id="p2h10">-</div>
+	     <div id="p3h10">-</div>
+	     <div id="p4h10">-</div>
 	     
-	     <div id="xh11">11</div>
-	     <div id="xp1h11">-</div>
-	     <div id="xp2h11">-</div>
-	     <div id="xp3h11">-</div>
-	     <div id="xp4h11">-</div>
+	     <div id="h11">11</div>
+	     <div id="p1h11">-</div>
+	     <div id="p2h11">-</div>
+	     <div id="p3h11">-</div>
+	     <div id="p4h11">-</div>
 	     
-	     <div id="xh12">12</div>
-	     <div id="xp1h12">-</div>
-	     <div id="xp2h12">-</div>
-	     <div id="xp3h12">-</div>
-	     <div id="xp4h12">-</div>
+	     <div id="h12">12</div>
+	     <div id="p1h12">-</div>
+	     <div id="p2h12">-</div>
+	     <div id="p3h12">-</div>
+	     <div id="p4h12">-</div>
 	     
-	     <div id="xh13">13</div>
-	     <div id="xp1h13">-</div>
-	     <div id="xp2h13">-</div>
-	     <div id="xp3h13">-</div>
-	     <div id="xp4h13">-</div>
+	     <div id="h13">13</div>
+	     <div id="p1h13">-</div>
+	     <div id="p2h13">-</div>
+	     <div id="p3h13">-</div>
+	     <div id="p4h13">-</div>
 	     
-	     <div id="xh14">14</div>
-	     <div id="xp1h14">-</div>
-	     <div id="xp2h14">-</div>
-	     <div id="xp3h14">-</div>
-	     <div id="xp4h14">-</div>
+	     <div id="h14">14</div>
+	     <div id="p1h14">-</div>
+	     <div id="p2h14">-</div>
+	     <div id="p3h14">-</div>
+	     <div id="p4h14">-</div>
 	     
-	     <div id="xh15">15</div>
-	     <div id="xp1h15">-</div>
-	     <div id="xp2h15">-</div>
-	     <div id="xp3h15">-</div>
-	     <div id="xp4h15">-</div>
+	     <div id="h15">15</div>
+	     <div id="p1h15">-</div>
+	     <div id="p2h15">-</div>
+	     <div id="p3h15">-</div>
+	     <div id="p4h15">-</div>
 	     
-	     <div id="xh16">16</div>
-	     <div id="xp1h16">-</div>
-	     <div id="xp2h16">-</div>
-	     <div id="xp3h16">-</div>
-	     <div id="xp4h16">-</div>
+	     <div id="h16">16</div>
+	     <div id="p1h16">-</div>
+	     <div id="p2h16">-</div>
+	     <div id="p3h16">-</div>
+	     <div id="p4h16">-</div>
 	     
-	     <div id="xh17">17</div>
-	     <div id="xp1h17">-</div>
-	     <div id="xp2h17">-</div>
-	     <div id="xp3h17">-</div>
-	     <div id="xp4h17">-</div>
+	     <div id="h17">17</div>
+	     <div id="p1h17">-</div>
+	     <div id="p2h17">-</div>
+	     <div id="p3h17">-</div>
+	     <div id="p4h17">-</div>
 	     
-	     <div id="xh18">18</div>
-	     <div id="xp1h18">-</div>
-	     <div id="xp2h18">-</div>
-	     <div id="xp3h18">-</div>
-	     <div id="xp4h18">-</div>
+	     <div id="h18">18</div>
+	     <div id="p1h18">-</div>
+	     <div id="p2h18">-</div>
+	     <div id="p3h18">-</div>
+	     <div id="p4h18">-</div>
 	
 	</div>
 	</div>
 	
 	
-	<script>
-	//=================================================================================
-	// this runs on startup or reload
-	// 
-	//=================================================================================
-	var selectedplayer = 1;
-	document.getElementById("p1name").classList.add("highlight");
+<script>
+//=================================================================================
+// this runs on startup or reload
+// 
+//=================================================================================
+// declare global variables
+var selectedplayer = 1;
+document.getElementById("p1name").classList.add("highlight");
 var compday = "no";
 var arrCourse = [];
 var arrComps = [];
@@ -559,14 +503,8 @@ var player     = "select player";
 var comp;
 var compday    = "no";
 var course     = "";
-//var arrComps   = [];
-//var arrPlayers = [];
-//var arrHcps     = [];
 var arrOptions = [];
 var oldArrOptions = [];
-// set up courses with details for calculations etc.	
-
-
 // globals
 var hcplist = "";
 var msglist = "";
@@ -583,17 +521,9 @@ var originalhcp1 = 0;
 var originalhcp2 = 0;
 var originalhcp3 = 0;
 var originalhcp4 = 0;	
-	
-	
-	
-	
-	
-	
-	
-	
-	// set up courses with details for calculations etc.
-	// array ["hole num",par,si]
-	// Lakes
+// set up courses with details for calculations etc.
+// array ["hole num",par,si]
+// Lakes
 	arrLakes = [
 		[0, 0, 0],
 		[1, 4, 15],
@@ -615,8 +545,8 @@ var originalhcp4 = 0;
 		[17, 4, 2],
 		[18, 5, 8]
 	];
-	// array ["hole num",par,si]
-	// Dawson
+// array ["hole num",par,si]
+// Dawson
 	arrDawson = [
 		[0, 0, 0],
 		[1, 5, 13],
@@ -638,8 +568,8 @@ var originalhcp4 = 0;
 		[17, 4, 10],
 		[18, 4, 8]
 	];
-	// array ["hole num",par,si]
-	// OldCourse
+// array ["hole num",par,si]
+// OldCourse
 	arrOldCourse = [
 		[0, 0, 0],
 		[1, 5, 10],
@@ -661,64 +591,32 @@ var originalhcp4 = 0;
 		[17, 4, 3],
 		[18, 5, 17]
 	];
-	whichhole = 1
-	// 1st hole
-	var holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]
-	document.getElementById("holedetails").innerText = holedetails
-	
-	// create set of local storage items	
-	setupScores()
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+whichhole = 1
+// 1st hole
+var holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + ", si " + arrOldCourse[whichhole][2]
+document.getElementById("holedetails").innerText = holedetails
+// create set of local storage items	
+setupScores()
 //===========================
 // this code runs at startup
 //===========================
-// declare global variables
-//var hcp        = "0";
-//var player     = "select player";
-//var comp;
-//var compday    = "no";
-//var course     = "";
-//var arrComps   = [];
-//var arrPlayers = [];
-//var arrHcps     = [];
-//var arrOptions = [];
-//var oldArrOptions = [];
-// set up courses with details for calculations etc.
-// array ["hole num",par,si]
-// Lakes
 
 //==============================================================
 // data has previously been stored so just retrieve it
 //==============================================================
 // retrieve arrays
-// previously downloaded by menu screen
-if("playersarray" in localStorage) {
-	arrPlayers = JSON.parse(localStorage.playersarray);
-}
-if("hcparray" in localStorage) { 
-alert("yes")
-	arrHCPs = JSON.parse(localStorage.hcparray);
-alert(arrHCPs[9])	
-}
-if("compsarray" in localStorage) {
-	arrComps = JSON.parse(localStorage.compsarray);
-}
 
+if("xplayersarray" in localStorage) {
+	arrPlayers = JSON.parse(localStorage.xplayersarray);
+}
+if("xhcparray" in localStorage) { 
 
+	arrHCPs = JSON.parse(localStorage.xhcparray);
 	
-
-
-
+}
+if("xcompsarray" in localStorage) {
+	arrComps = JSON.parse(localStorage.xcompsarray);
+}
 
 startNewDay();
 start();
@@ -726,58 +624,6 @@ start();
 //=============================================================
 // functions - run when called
 //=============================================================  
-
-//=============================================================
-// function start()
-// - initialise everything and do checks etc.
-//=============================================================  
-function xxxstart() {
-	// check for any previous selections
-	// setup local dropdown if not there
-	if("dropdown" in localStorage) {
-		oldArrOptions = JSON.parse(localStorage.dropdown);
-	}
-	// create options array for dropdown 
-	for(var i = 0; i < arrPlayers.length; i++) {
-		x = arrPlayers[i]
-		arrOptions.push([x, 0])
-	}
-	// update Options array with choices info
-	for(var i = 0; i < oldArrOptions.length; i++) {
-		// if there is a value
-		if(oldArrOptions[i][1] > 0) {
-			for(var j = 0; j < arrOptions.length; j++) {
-				// if names match
-				if(arrOptions[j][0] == oldArrOptions[i][0]) {
-					arrOptions[j][1] = oldArrOptions[i][1]
-				}
-			}
-		}
-	}
-	// save dropdown info
-	localStorage.dropdown = JSON.stringify(arrOptions);
-	// bring most commonly selected to the top
-	arrOptions.sort(compareSecondColumn);
-	// create player dropdown
-	var select = document.getElementById("playersDropdown");
-	// this is what is created
-	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-	//
-	for(var i = 0; i < arrOptions.length; i++) {
-		var el = document.createElement("a");
-		el.id = "myLink" + (i);
-		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-		el.setAttribute("href", "#");
-		el.innerText = arrOptions[i][0];
-		select.appendChild(el);
-		if(arrOptions[i][1] > 0) {
-			document.getElementById("myLink" + (i)).style.color = "blue";
-			document.getElementById("myLink" + (i)).style.background = "lightBlue";
-		}
-	}
-	console.log("end of start()")
-} // end function start()
-
 
 function startNewDay() {
 
@@ -830,82 +676,20 @@ function startNewDay() {
    dstored = d1 + "-" + d2
 
    // doublecheck ??    
-   if ("comp" in localStorage) {
+   if ("xcomp" in localStorage) {
    // if its a new comp
-   if (localStorage.comp.indexOf(dateToday) < 0) {
-       localStorage.removeItem("comp");  
-       localStorage.removeItem("course");  
-       localStorage.removeItem("player");  
-       localStorage.removeItem("hcp");  
+   if (localStorage.xcomp.indexOf(dateToday) < 0) {
+       localStorage.removeItem("xcomp");  
+       localStorage.removeItem("xcourse");  
+       localStorage.removeItem("xplayer");  
+       localStorage.removeItem("xhcp");  
     
-       localStorage.setItem("dstored", dstored);
+       localStorage.setItem("xdstored", dstored);
 
    }
    }
-   console.log("end of startNewDay()")
+
 }
-  
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 function showDownloadingWait() {
 	tempt = '<br /><br /> Downloading information ...';
@@ -930,21 +714,15 @@ async function getData() {
 //	showRecoverChoice()
 }
 
-
-
-
-
-
-// already done
-
-
-
 getData()
-	//=============================================================
-	//=============================================================
-	// function start()
-	// - initialise everything and do checks etc.
-	//=============================================================  
+
+
+
+//=============================================================
+//=============================================================
+// function start()
+// - initialise everything and do checks etc.
+//=============================================================  
 function start() {
 	// bring most commonly selected to the top
 	//arrPlayers.sort(compareSecondColumn);
@@ -1026,6 +804,7 @@ function start() {
 	//dateToday = d1 + " " + m;
 	compdate = d1 + " " + m;
 } // end function start()
+
 //=============================================================
 // functions - run when called
 //=============================================================  
@@ -1050,6 +829,7 @@ function resetNames() {
 		select.appendChild(el);
 	}
 }
+
 // name selected, do stuff
 function dropSelected(playerName) {
 	// retrieve dropdown info
@@ -1084,6 +864,7 @@ function toggleDropdown() {
 	// When the user clicks on the button, toggle between hiding and showing the dropdown content
 	document.getElementById("playersDropdown").classList.toggle("show");
 }
+
 //=============================================================
 // function showDownloadingInfoMsg()
 // - show message when downloading player and course info and creating arrays
@@ -1103,27 +884,13 @@ function shortName(nom) {
 }
 
 function body() {
-	var collection = document.getElementsByClassName("player1name");
-	for(i = 0; i < collection.length; i++) {
-		collection[i].innerText = player1name;
-	}
-	var collection = document.getElementsByClassName("player2name");
-	for(i = 0; i < collection.length; i++) {
-		collection[i].innerText = player2name;
-	}
-	var collection = document.getElementsByClassName("player3name");
-	for(i = 0; i < collection.length; i++) {
-		collection[i].innerText = player3name;
-	}
-	var collection = document.getElementsByClassName("player4name");
-	for(i = 0; i < collection.length; i++) {
-		collection[i].innerText = player4name;
-	}
-	// shorten player name
-	//document.getElementById("player1").innerText = player1name;
-	//document.getElementById("player2").innerText = player2name;
-	//document.getElementById("player3").innerText = player3name;
-	//document.getElementById("player4").innerText = player4name;
+	document.getElementById("p1name").innerText = player1name;
+	document.getElementById("p2name").innerText = player2name;
+	document.getElementById("p3name").innerText = player3name;
+	document.getElementById("p4name").innerText = player4name;
+	
+	
+	
 }
 
 
@@ -1181,6 +948,8 @@ function body() {
 	// and move on	
 	//=================================================================================
 	function numberScore(id) {
+	        // id is something like score2
+	        // selectedplayer is global 1, 2, 3, 4
 		if (("1234").indexOf(selectedplayer) > -1) {
 		// id is number button pressed eg. score5
 		temppscore = "p" + selectedplayer + "score"
@@ -1214,7 +983,7 @@ function body() {
 			// move on to next player and highlight
 			selectedplayer++
 			
-			console.log(selectedplayer)
+		
 			
 			if(selectedplayer <= 4) {
 				tempstrokesid = document.getElementById("p" + selectedplayer + "name")
@@ -1306,7 +1075,7 @@ function body() {
 		// do date check here
 		for(var i = 1; i <= 18; i++) {
 			for(var j = 1; j <= 4; j++) {
-				localStorage.setItem("p" + j + "h" + i, "0")
+				localStorage.setItem("xp" + j + "h" + i, "0")
 			}
 		}
 	}
@@ -1320,10 +1089,10 @@ function body() {
 		     document.getElementById("p2score").innerText == "0" &&
 	             document.getElementById("p3score").innerText == "0" &&
 	             document.getElementById("p4score").innerText == "0")) {
-			localStorage.setItem("p1h" + whichhole, document.getElementById("p1score").innerText)
-			localStorage.setItem("p2h" + whichhole, document.getElementById("p2score").innerText)
-			localStorage.setItem("p3h" + whichhole, document.getElementById("p3score").innerText)
-			localStorage.setItem("p4h" + whichhole, document.getElementById("p4score").innerText)
+			localStorage.setItem("xp1h" + whichhole, document.getElementById("p1score").innerText)
+			localStorage.setItem("xp2h" + whichhole, document.getElementById("p2score").innerText)
+			localStorage.setItem("xp3h" + whichhole, document.getElementById("p3score").innerText)
+			localStorage.setItem("xp4h" + whichhole, document.getElementById("p4score").innerText)
 		}
 	}
         //=================================================================================
@@ -1331,16 +1100,16 @@ function body() {
 	// 
 	//=================================================================================
 	function getScores() {
-		document.getElementById("p1score").innerText = localStorage.getItem("p1h" + whichhole)
-		document.getElementById("p2score").innerText = localStorage.getItem("p2h" + whichhole)
-		document.getElementById("p3score").innerText = localStorage.getItem("p3h" + whichhole)
-		document.getElementById("p4score").innerText = localStorage.getItem("p4h" + whichhole)
+		document.getElementById("p1score").innerText = localStorage.getItem("xp1h" + whichhole)
+		document.getElementById("p2score").innerText = localStorage.getItem("xp2h" + whichhole)
+		document.getElementById("p3score").innerText = localStorage.getItem("xp3h" + whichhole)
+		document.getElementById("p4score").innerText = localStorage.getItem("xp4h" + whichhole)
 	}
 	
 	function outputPlayers(msg) {
 	// msg is player name eg "Bryan Maddison"
 	// find HCP
-	alert(arrHCPs)
+
 	var hcp;
 	for(var i = 0, len = arrPlayers.length; i < len; i++) {
 		if(arrPlayers[i] === msg) {
@@ -1563,6 +1332,23 @@ function getScoring() {
 }	
 	
 function displayInfo() {
+// get players, all strokes and points
+document.getElementById("p1h0").innerText = player1name;
+document.getElementById("p2h0").innerText = player2name;
+document.getElementById("p3h0").innerText = player3name;
+document.getElementById("p4h0").innerText = player4name;
+
+for(var i = 1; i <= 18; i++) {
+    document.getElementById("p1h" + i).innerText = localStorage.getItem("xp1h" + i)
+    document.getElementById("p2h" + i).innerText = localStorage.getItem("xp2h" + i)
+    document.getElementById("p3h" + i).innerText = localStorage.getItem("xp3h" + i)
+    document.getElementById("p4h" + i).innerText = localStorage.getItem("xp4h" + i)
+}
+
+
+
+
+// show screen as overlay
 if (document.getElementById("info").style.display !== "block") {
     document.getElementById("info").style.display = "block"
 } else {
