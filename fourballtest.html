@@ -1336,10 +1336,10 @@ function getScoring() {
 	
 function displayInfo() {
 // get players, all strokes and points
-document.getElementById("p1h0").innerText = shortname(player1name);
-document.getElementById("p2h0").innerText = shortname(player2name);
-document.getElementById("p3h0").innerText = shortname(player3name);
-document.getElementById("p4h0").innerText = shortname(player4name);
+document.getElementById("p1h0").innerText = shortName(player1name);
+document.getElementById("p2h0").innerText = shortName(player2name);
+document.getElementById("p3h0").innerText = shortName(player3name);
+document.getElementById("p4h0").innerText = shortName(player4name);
 
 for(var i = 1; i <= 18; i++) {
     document.getElementById("p1h" + i).innerText = localStorage.getItem("xp1h" + i)
