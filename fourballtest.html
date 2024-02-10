@@ -1555,8 +1555,11 @@ function hideInfo() {
 
 function shots() {
         shotsscore = "";
+        shotsscoreTotal = "";
         msgss1 = 0
         msgss2 = 0
+        msgss1saved = 0
+        msgss2saved = 0
         
 	temp1 = 99
 	temp2 = 99
@@ -1564,16 +1567,19 @@ function shots() {
 	temp4 = 99
 
 	temp1 = (player1hcp * 0.9)
+	
 	if(player2hcp !== "no hcp") {
 		temp2 = (player2hcp * 0.9)
 	} else {
 		temp2 = 99
 	}
+	
 	if(player3hcp !== "no hcp") {
 		temp3 = (player3hcp * 0.9)
 	} else {
 		temp3 = 99
 	}
+	
 	if(player4hcp !== "no hcp") {
 		temp4 = (player4hcp * 0.9)
 	} else {
@@ -1604,18 +1610,21 @@ function shots() {
 		            p1xtrashots++
 		        }
 		}
+		
 		if(shots2 >= arrCourse[i][2] && shots2 < 54) {
 			p2xtrashots = 1;
 		        if (shots2 >= (arrCourse[i][2] + 18)) {
 		            p2xtrashots++
 		        }
 		}
+		
 		if(shots3 >= arrCourse[i][2] && shots3 < 54) {
 			p3xtrashots = 1;
 		        if (shots3 >= (arrCourse[i][2] + 18)) {
 		            p3xtrashots++
 		        }
 		}
+		
 		if(shots4 >= arrCourse[i][2] && shots4 < 54) {
 			p4xtrashots = 1;
 		        if (shots4 >= (arrCourse[i][2] + 18)) {
@@ -1635,20 +1644,24 @@ function shots() {
 	           p1shotsscore = 99;
 	           notplayed++ 
 	        }
+	        
 	        if (p2shotsscore == 0) {
 	           p2shotsscore = 99;
 	           notplayed++  
 	        }
+	        
 	        if (p3shotsscore == 0) {
 	           p3shotsscore = 99;
 	           notplayed++  
 	        }
+	        
 	        if (p4shotsscore == 0) {
 	           p4shotsscore = 99;
 	           notplayed++  
 	        }
         // if hole has a score
 	if (notplayed !== 4) {
+	
 	        p1shotsscore = (p1shotsscore - p1xtrashots) 
 	        p2shotsscore = (p2shotsscore - p2xtrashots) 
 	        p3shotsscore = (p3shotsscore - p3xtrashots) 
@@ -1664,14 +1677,17 @@ function shots() {
 	           tempmincount++
 	           t1win++
 	       }
+	       
 	       if (p2shotsscore == tempmin) {
 	           tempmincount++
 	           t1win++
 	       }
+	       
 	       if (p3shotsscore == tempmin) {
 	           tempmincount++
 	           t2win++
 	       }
+	       
 	       if (p4shotsscore == tempmin) {
 	           tempmincount++
 	           t2win++
@@ -1685,12 +1701,14 @@ function shots() {
 	           // halved hole
 	           msg = "halved"
 	       }
+	       
 	       // win
 	       if (t1win > 0 && t2win == 0) {
 	           // t1win hole
 	           msg = t1 + " win"
 	           msgss1++ 
 	       }
+	       
 	       // lose
 	       if (t2win > 0 && t1win == 0) {
 	           // t2win hole
@@ -1701,30 +1719,56 @@ function shots() {
                if (msgss1 == msgss2) {
                   msgss = " (all square)"
                }
+               
                if (msgss1 > msgss2) {
                   msgss = " (" + t1 + " " + (msgss1 - msgss2) + " up)"
                }
+               
                if (msgss2 > msgss1) {
                   msgss = " (" + t2 + " " + (msgss2 - msgss1) + " up)"
                }
  
                // build text lines 
 	       shotsscore = shotsscore + "\n" + "hole " + i + " " + msg + msgss
-
-	   
-	       console.log(i)
-	       if (i == 9) {
-	        console.log(i)
-	       //   shotsscore = shotsscore + "\n" + "----- front 9 score " + msgss
-	       msgss1 = 0;
-	       msgss2 = 0;
-	       shotsscore = shotsscore + "\n-----------" 
-	       
+               shotsscoreTotal = "\nmatch all square"
+               if ((msgss1 + msgss1saved) > (msgss2 + msgss2saved)) {
+                  shotsscoreTotal = "\n" + t1 + " wins match (" + 
+                  (msgss1 - msgss2  + msgss1saved - msgss2saved) + " up)"
 	       }
 	       
+	       if ((msgss2 + msgss2saved) > (msgss1 + msgss1saved)) {
+                  shotsscoreTotal = "\n" + t2 + " wins match (" + 
+                  (msgss2 - msgss1  + msgss2saved - msgss1saved) + " up)"
+	       }
+	       
+	       if (i == 9) {
+	           //   shotsscore = shotsscore + "\n" + "----- front 9 score " + msgss
+	           
+	           msgss1saved = msgss1;
+	           msgss2saved = msgss2;
+	           msgss1 = 0;
+	           msgss2 = 0;
+	           shotsscore = shotsscore + "\n" 
+	           if (msgss !== " (all square)") {
+	           winfront9 = msgss.replace("(","").replace(")","").replace(" ","").replace(" "," wins front 9 (") + ")"
+	           } else {
+	           winfront9 = msgss.replace("(","").replace(")","") + " front 9"
+	           }
+	       }
+	       
+	       if (i == 18) {
+	           if (msgss !== " (all square)") {
+	           winback9 = msgss.replace("(","").replace(")","").replace(" ","").replace(" "," wins back 9 (") + ")"
+	           } else {
+	           winback9 = msgss.replace("(","").replace(")","") + " back 9"
+	           }
+	           //shotsscoreTotal = shotsscoreTotal + "\n" + "hole " + i + " " + msg + msgss
+	           shotsscore = shotsscore + "\n" + shotsscoreTotal + "\n" +
+	           winfront9 + "\n" + winback9
+	           
+	       }
+	        
 	       document.getElementById("x1").innerText = shotsscore
-	       
-	       
 	       
 	}       
 	       
