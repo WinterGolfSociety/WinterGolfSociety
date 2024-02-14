@@ -166,7 +166,7 @@ nav {
     height: 75px;
     z-index: 3;
     text-align: center;
-    border:5px solid white;
+    border:5px solid white;  
 }
 
 #one {
@@ -191,7 +191,6 @@ nav {
 
 section {
     width: 100vw;
- //   height: 100%;
     position: absolute;
       background-color: rgba(66,73,73,0.8); //steelBlue;
 }
@@ -199,7 +198,6 @@ section {
 .start {
     top: 0;
     left: 0;
- //   background-color: rgba(66,73,73,0.8); //steelBlue;
     text-align: center;
 }
 
@@ -264,7 +262,6 @@ h2 {
     color: white;
     font-family: 'Kalam';
     font-size: 40px;
-
 }
 
 .centered {
@@ -281,6 +278,7 @@ h2 {
 		color: white;
 		font-size: 16px;	
 	}
+	
 #highlight {
                 color: #FFFF33;
                 font-size: 16px;	
@@ -351,9 +349,6 @@ h2 {
   
 </nav>
 
-
-
-
 <section class="start">
   <div class="content">
      
@@ -375,12 +370,6 @@ h2 {
    </div>
 </section>
 
-
-
-
-
-
-
 <script>
 	
   var isTop = true;
@@ -396,7 +385,7 @@ h2 {
   
   menuIcon.click(function() {
   if (isTop === true) {
-      $('#nav').animate({ top: '50%', left: '50%' }, 400);
+      $('#nav').animate({ top: '50%', left: '50%' }, 350);
       $('.content').animate({ opacity: '0' }, 700);
       showBubbles();
       isTop = false;
