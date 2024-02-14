@@ -89,10 +89,6 @@ padding-left: 1vw;
    
 </div>
 
-<!--   
-<div class="bluemonth">Tap the icon above to show all events.</div>
--->
-
 <div class="grid-container" id="shortlist"> 
    <div id="latestinfo1" class="bluemonth"></div>
    <div id="latestinfo2" class="bluemonth"></div>
@@ -189,9 +185,6 @@ var arrInfo = [
 ["Fri 22nd","OldCourse","Winter stableford"],
 ["Mon 25th","Closed","??? Winter stableford ???"],
 ["Fri 29th","OldCourse","Winter stableford"],
-
-
-
 
 
 ["January 2024","",""],
@@ -348,16 +341,16 @@ var arrInfo = [
 ]
 
 // set up title bar
-lineFull = '<div class="grid-item gray">Date</div>'
+lineFull  = '<div class="grid-item gray">Date</div>'
 lineFull += '<div class="grid-item gray">Venue</div>'
 lineFull += '<div class="grid-item gray">Details</div>'
 const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var dname = new Date();
-var tempmonth = month[dname.getMonth()];
-var tempdate = dname.getDate()
-currentMonthNumber = dname.getMonth();
-var tempyear = dname.getFullYear()
-var nextyear = 0
+var dname              = new Date();
+var tempmonth          = month[dname.getMonth()];
+var tempdate           = dname.getDate();
+var currentMonthNumber = dname.getMonth();
+var tempyear           = dname.getFullYear();
+var nextyear           = 0;
 
 for(i = 0; i < arrInfo.length; i++) {
         if(arrInfo[i][0].indexOf(tempyear - 1) > -1) {
@@ -434,28 +427,28 @@ for(i = 0; i < arrInfo.length; i++) {
 	}
 	
 	if(arrInfo[i][1] == "" && arrInfo[i][2] == "") {
-		line = '<div class="grid-item bluemonth">' + arrInfo[i][0] + '</div>'
+		line  = '<div class="grid-item bluemonth">' + arrInfo[i][0] + '</div>'
 		line += '<div class="grid-item bluemonth">' + arrInfo[i][1] + '</div>'
 		line += '<div class="grid-item bluemonth">' + arrInfo[i][2] + '</div>'
 		lineFull += line
 	} else {
 		if(older == "yes") {
 			if(i % 2 == 0) {
-				line = '<div class="grid-item older">' + arrInfo[i][0] + '</div>'
+				line  = '<div class="grid-item older">' + arrInfo[i][0] + '</div>'
 				line += '<div class="grid-item older">' + arrInfo[i][1] + '</div>'
 				line += '<div class="grid-item older">' + arrInfo[i][2] + '</div>'
 			} else {
-				line = '<div class="grid-item gray older">' + arrInfo[i][0] + '</div>'
+				line  = '<div class="grid-item gray older">' + arrInfo[i][0] + '</div>'
 				line += '<div class="grid-item gray older">' + arrInfo[i][1] + '</div>'
 				line += '<div class="grid-item gray older">' + arrInfo[i][2] + '</div>'
 			}
 		} else {
 			if(i % 2 == 0) {
-				line = '<div class="grid-item">' + arrInfo[i][0] + '</div>'
+				line  = '<div class="grid-item">' + arrInfo[i][0] + '</div>'
 				line += '<div class="grid-item">' + arrInfo[i][1] + '</div>'
 				line += '<div class="grid-item">' + arrInfo[i][2] + '</div>'
 			} else {
-				line = '<div class="grid-item gray">' + arrInfo[i][0] + '</div>'
+				line  = '<div class="grid-item gray">' + arrInfo[i][0] + '</div>'
 				line += '<div class="grid-item gray">' + arrInfo[i][1] + '</div>'
 				line += '<div class="grid-item gray">' + arrInfo[i][2] + '</div>'
 			}
@@ -476,12 +469,12 @@ lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 document.getElementById("eventlist").innerHTML = lineFull
 
 // do latest set of events
-var lookup = tempmonth + " " + tempyear
+var lookup    = tempmonth + " " + tempyear
 var templist1 = "<br>" + lookup + "<br>"
 var templist2 = "<br><br>"
 var templist3 = "<br><br>"
-var switchon = ""
-var s=0;
+var switchon  = ""
+var s = 0;
 
 // hide full list
 document.getElementById("eventlist").style.display="none";
@@ -503,14 +496,15 @@ for(i = 0; i < arrInfo.length; i++) {
            }
        }
    }
+   
    if (lookup == arrInfo[i][0]) {
        switchon = "yes"
    }
+   
    if (switchon == "yes") {
    
    if (arrInfo[i][2] !== "") {
-   
-   
+     
        if(i % 2 == 0) {
           templist1 += '<a class="grayx">' + arrInfo[i][0] + "</a><br>"
           templist2 += '<a class="grayx">' + arrInfo[i][1] + "</a><br>"
@@ -536,11 +530,11 @@ document.getElementById("latestinfo3").innerHTML = templist3
 
 function swapview() {
 if (document.getElementById("eventlist").style.display == "none") {
-    document.getElementById("eventlist").style.display = "grid";
-    document.getElementById("shortlist").style.display = "none";
+    document.getElementById("eventlist").style.display  = "grid";
+    document.getElementById("shortlist").style.display  = "none";
 } else {
-    document.getElementById("eventlist").style.display = "none";
-    document.getElementById("shortlist").style.display = "grid";
+    document.getElementById("eventlist").style.display  = "none";
+    document.getElementById("shortlist").style.display  = "grid";
 }
 }
 
