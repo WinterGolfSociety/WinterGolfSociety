@@ -5,11 +5,10 @@
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	 <title>Scotland 2024</title>
-        <meta content="Bryan M" name="author" />
-        <link href="scotland.png" rel="icon" type="image/x-icon" />
+	<title>Scotland 2024</title>
+	<meta content="Bryan M" name="author" />
+	<link href="scotland.png" rel="icon" type="image/x-icon" />
 	<link href="scotland2024.png" rel="icon" type="image/x-icon" />
-	  
 	<style>
 	* {
 		box-sizing: border-box;
@@ -163,10 +162,11 @@
 	<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?embedded=true" width="60"></iframe>
 	<div id="completed"></div>
 	<div id="not"></div>
-	<button type="button" class="dropbtn" id="clearls" onclick="clearStorage()">clear local storage</button>
+	<button type="button" class="dropbtn" id="clearls" onclick="clearLocalStorage()">clear local storage</button>
 	<script>
 	// https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url&entry.1433824128=player&entry.1119360478=course&entry.83976721=points&entry.717166862=countback
-	var arrPlayers = []
+	var arrPlayers = [];
+	var arrPlayersCopy = [];
 	var hcp = "22"
 	var player = "none"
 	var course = "course"
@@ -182,9 +182,8 @@
 	var player = "none";
 	var playerDone = []
 	var playerComplete = []
-	var cleanArray = [];
 	itemsToBeRemoved = [];
-		// set course by day of week
+	// set course by day of week
 	var options = {
 		weekday: 'long',
 		day: 'numeric',
@@ -213,6 +212,12 @@
 		course = "Kirkcaldy"
 		document.getElementById("dropbtn").innerText = "select player for " + course
 	}
+	
+	// if its a new day, clear old data
+	if (course !== localStorage.ycourse) {
+	    clearLocalStorage();
+	}
+
 	async function getData() {
 		var dataStream = await fetch("https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/setupcsv")
 		var resultsarray = await dataStream.json();
@@ -223,8 +228,8 @@
 			}
 		}
 		// make a copy of array
-		//arrPlayersCopy = [...arrPlayers];
-		
+		arrPlayersCopy = [...arrPlayers];
+
 		menucount = (i - 1)
 			// create player dropdown
 		var select = document.getElementById("playersDropdown");
@@ -239,6 +244,16 @@
 			el.innerText = arrPlayers[i];
 			select.appendChild(el);
 		}
+		
+		
+		
+		
+		recoverTempData("recover")
+		
+		
+		
+		
+		
 	}
 	getData()
 		// Close the dropdown if the user clicks outside of it
@@ -263,46 +278,70 @@
 		document.getElementById("playersDropdown").classList.toggle("show");
 	}
 	// --- functions --- // 
-	recoverTempData("recover")
-
-	function clearStorage() {
-		localStorage.clear();
-		document.getElementById("completed").innerHTML = "";
-	}
+	//recoverTempData("recover")
 
 	function recoverTempData(what) {
 		// allows the current state of progress to be carried across restarts	
 		// save and restore progress by updating the global variables	
-
 		if(what == "save") {
-			localStorage.setItem("course", course);
-			//localStorage.playerDone = JSON.stringify(playerDone);
-			localStorage.setItem("playerComplete", JSON.stringify(playerComplete));
-			//localStorage.completedEntries = JSON.stringify(completedEntries);
-			
-			localStorage.setItem("cleanArray", JSON.stringify(cleanArray));
-			
-			localStorage.setItem("itemsToBeRemoved", JSON.stringify(itemsToBeRemoved));
-	
+			localStorage.setItem("ycourse", course);
+			localStorage.setItem("yplayerDone", JSON.stringify(playerDone));
+			localStorage.setItem("yplayerComplete", JSON.stringify(playerComplete));
+			localStorage.setItem("yarrPlayersCopy", JSON.stringify(arrPlayersCopy));
 		}
 		if(what == "recover") {
-			if(localStorage.course == course) {
+			if(localStorage.ycourse == course) {
+			playerComplete = JSON.parse(localStorage.yplayerComplete);
+			arrPlayersCopy = JSON.parse(localStorage.yarrPlayersCopy);
+			playerDone = JSON.parse(localStorage.yplayerDone);
+			   var not = "not yet recorded (" + arrPlayersCopy.length + ")<br>"
+			   for(i = 0; i < arrPlayersCopy.length; i++) {
+				not = not + "<br>" + arrPlayersCopy[i]
+			   }
+			   document.getElementById("not").innerHTML = not + "<br><br>"
+			   var dn = ""
+			   playerComplete.sort()
+			   playerComplete.reverse()
+			   for(j = 0; j < playerComplete.length; j++) {
+			       dn = dn + "<br>" + playerComplete[j]
+			   }
+			   document.getElementById("completed").innerHTML = dn + "<br><br>"
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			/*
+			
+			
+			
 				//playerDone = JSON.parse(localStorage.playerDone);
-				playerComplete = JSON.parse(localStorage.playerComplete);
+				playerComplete = JSON.parse(localStorage.yplayerComplete);
 				var dn = ""
 				for(j = 0; j < playerComplete.length; j++) {
 					dn = dn + "<br>" + playerComplete[j]
 				}
 				document.getElementById("completed").innerHTML = dn + "<br><br>"
-		
-				cleanArray = JSON.parse(localStorage.cleanArray);
-				var not = "not yet recorded (" + cleanArray.length + ")<br>" 
-				for (i = 0; i < cleanArray.length; i++) {
-				     not = not + "<br>" + cleanArray[i] 
+				playerDone = JSON.parse(localStorage.yplayerDone);
+				var not = "not yet recorded (" + cleanArray.length + ")<br>"
+				for(i = 0; i < cleanArray.length; i++) {
+					not = not + "<br>" + cleanArray[i]
 				}
-				document.getElementById("not").innerHTML = not 
-				
-				itemsToBeRemoved = JSON.parse(localStorage.itemsToBeRemoved);						
+				document.getElementById("not").innerHTML = not
+				itemsToBeRemoved = JSON.parse(localStorage.yitemsToBeRemoved);
+			
+			*/
+			
+			
 			}
 		} else {
 			//localStorage.clear();
@@ -368,28 +407,17 @@
 				//increment array when player added
 			playerDone.push(document.getElementById("team").innerText)
 				//increment array for later sorting
-			playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " + document.getElementById("team").innerText)
+			playerComplete.push(z + " - " + document.getElementById("aaac10").innerText + " - " + document.getElementById("team").innerText)			
 			
-			
-			console.log("playerDone = " + playerDone.length)
-			
-			var array3 = playerDone.filter(function(obj) {
-				return playerDone.indexOf(obj) == -1;
-			});
-		
-			// create yet to do player list
-			// arrPlayers less all playerDone entries gives to do 
-			// var cleanArray = originalArray.filter(element => itemsToBeRemoved.every(item => !element.includes(item)));
-			// update players done
-			itemsToBeRemoved.push(playerDone);
-			cleanArray = arrPlayers.filter(element => itemsToBeRemoved.every(item => !element.includes(item)));
-			
-			var not = "not yet recorded (" + cleanArray.length + ")<br>" 
-			for (i = 0; i < cleanArray.length; i++) {
-			     not = not + "<br>" + cleanArray[i] 
+			arrPlayersCopy = arrPlayersCopy.filter( function( el ) {
+			return !playerDone.includes( el );
+                        } );
+
+			var not = "not yet recorded (" + arrPlayersCopy.length + ")<br>"
+			for(i = 0; i < arrPlayersCopy.length; i++) {
+				not = not + "<br>" + arrPlayersCopy[i]
 			}
 			document.getElementById("not").innerHTML = not + "<br><br>"
-
 			var dn = ""
 			playerComplete.sort()
 			playerComplete.reverse()
@@ -402,7 +430,7 @@
 				// allow a method to clear local storage
 			if(z == "99") {
 				alert("local storage cleared")
-				localStorage.clear()
+				clearLocalStorage();
 			}
 		} else {
 			alert("not valid so not submitted")
@@ -427,11 +455,6 @@
 	function incrementScore(id) {
 		incPoints = document.getElementById(id).innerText;
 		document.getElementById(id).innerText = ++incPoints;
-		// clear storage if 99
-		if(incPoints >= 98) {
-			localStorage.clear()
-			window.location.reload();
-		}
 	}
 
 	function decrementScore(id) {
@@ -481,6 +504,17 @@
 			document.getElementById("clearteam").classList.remove("submithighlight");
 		}, 500)
 	}
+	
+	//clearLocalStorage()
+        function clearLocalStorage() {
+           // console.log("clearLocalStorage here")
+           Object.keys(localStorage).forEach(function(key){
+           if (key.substring(0,1) == "y") {
+               //console.log(key)
+               localStorage.removeItem(key)
+           }
+        })
+}  
 	</script>
 </body>
 
