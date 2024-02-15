@@ -244,16 +244,7 @@
 			el.innerText = arrPlayers[i];
 			select.appendChild(el);
 		}
-		
-		
-		
-		
-		recoverTempData("recover")
-		
-		
-		
-		
-		
+		recoverTempData("recover")	
 	}
 	getData()
 		// Close the dropdown if the user clicks outside of it
@@ -291,9 +282,15 @@
 		}
 		if(what == "recover") {
 			if(localStorage.ycourse == course) {
-			playerComplete = JSON.parse(localStorage.yplayerComplete);
-			arrPlayersCopy = JSON.parse(localStorage.yarrPlayersCopy);
-			playerDone = JSON.parse(localStorage.yplayerDone);
+			if ("yplayerComplete" in localStorage) {
+			    playerComplete = JSON.parse(localStorage.yplayerComplete);
+			}
+			if ("yarrPlayersCopy" in localStorage) {
+			    arrPlayersCopy = JSON.parse(localStorage.yarrPlayersCopy);
+			}
+			if ("yplayerDone" in localStorage) {
+			    playerDone = JSON.parse(localStorage.yplayerDone);
+			}
 			   var not = "not yet recorded (" + arrPlayersCopy.length + ")<br>"
 			   for(i = 0; i < arrPlayersCopy.length; i++) {
 				not = not + "<br>" + arrPlayersCopy[i]
@@ -306,42 +303,6 @@
 			       dn = dn + "<br>" + playerComplete[j]
 			   }
 			   document.getElementById("completed").innerHTML = dn + "<br><br>"
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			/*
-			
-			
-			
-				//playerDone = JSON.parse(localStorage.playerDone);
-				playerComplete = JSON.parse(localStorage.yplayerComplete);
-				var dn = ""
-				for(j = 0; j < playerComplete.length; j++) {
-					dn = dn + "<br>" + playerComplete[j]
-				}
-				document.getElementById("completed").innerHTML = dn + "<br><br>"
-				playerDone = JSON.parse(localStorage.yplayerDone);
-				var not = "not yet recorded (" + cleanArray.length + ")<br>"
-				for(i = 0; i < cleanArray.length; i++) {
-					not = not + "<br>" + cleanArray[i]
-				}
-				document.getElementById("not").innerHTML = not
-				itemsToBeRemoved = JSON.parse(localStorage.yitemsToBeRemoved);
-			
-			*/
-			
-			
 			}
 		} else {
 			//localStorage.clear();
