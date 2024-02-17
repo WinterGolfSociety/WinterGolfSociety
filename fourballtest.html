@@ -861,10 +861,10 @@ tempplayer2name = y2array[0] + " " + y2array[1].substring(0,1)
 tempplayer3name = y3array[0] + " " + y3array[1].substring(0,1)
 tempplayer4name = y4array[0] + " " + y4array[1].substring(0,1)
 
-	document.getElementById("p1name").innerText = tempplayer1name + ", hcp " + player1hcp + ", shots " + x1;
-	document.getElementById("p2name").innerText = tempplayer2name + ", hcp " + player2hcp + ", shots " + x2;
-	document.getElementById("p3name").innerText = tempplayer3name + ", hcp " + player3hcp + ", shots " + x3;
-	document.getElementById("p4name").innerText = tempplayer4name + ", hcp " + player4hcp + ", shots " + x4;
+	document.getElementById("p1name").innerText = tempplayer1name + " (" + player1hcp + ") " + x1 + " shots";
+	document.getElementById("p2name").innerText = tempplayer2name + " (" + player2hcp + ") " + x2 + " shots";
+	document.getElementById("p3name").innerText = tempplayer3name + " (" + player3hcp + ") " + x3 + " shots";
+	document.getElementById("p4name").innerText = tempplayer4name + " (" + player4hcp + ") " + x4 + " shots";
 }
 //=================================================================================
 // highlight the current player number
