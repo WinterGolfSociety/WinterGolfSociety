@@ -844,10 +844,17 @@ function shortName(nom) {
 }
 
 function body() {
-	document.getElementById("p1name").innerText = player1name;
-	document.getElementById("p2name").innerText = player2name;
-	document.getElementById("p3name").innerText = player3name;
-	document.getElementById("p4name").innerText = player4name;
+
+x = Math.min((player1hcp*0.9), (player2hcp*0.9), (player3hcp*0.9), (player4hcp*0.9))
+x1 = ((player1hcp*0.9) - x).toFixed(0)
+x2 = ((player2hcp*0.9) - x).toFixed(0)
+x3 = ((player3hcp*0.9) - x).toFixed(0)
+x4 = ((player4hcp*0.9) - x).toFixed(0)
+
+	document.getElementById("p1name").innerText = player1name + " " +player1hcp+" "+x1;
+	document.getElementById("p2name").innerText = player2name + " " +player2hcp+" "+x2;
+	document.getElementById("p3name").innerText = player3name + " " +player3hcp+" "+x3;
+	document.getElementById("p4name").innerText = player4name + " " +player4hcp+" "+x4;
 }
 //=================================================================================
 // highlight the current player number
