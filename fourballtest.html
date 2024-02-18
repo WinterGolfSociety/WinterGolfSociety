@@ -18,7 +18,7 @@
          .grid-container-frontscreen {
          display: grid;
          grid-template-columns: auto auto auto;
-         width: 94vw;
+         //width: 94vw;
          }
          .grid-container-frontscreen > div {
          font-size: 3vh;
@@ -281,7 +281,20 @@
       height: 50px;
       cursor: pointer;
     }
-         
+      
+    #popuppanel {
+    background-color: #ddd;
+      font-size: 4vh;
+      display: inline-block;
+      border-radius: 3px;
+      border: 1px solid #aaa;
+      padding: 10px;
+      margin: 20vw;
+      text-align: center;
+      width: 50vw;
+      //height: 50px;
+      cursor: pointer;
+    }     
          
       </style>
    </head>
@@ -593,6 +606,9 @@ if("xplayersarray" in localStorage) {
 if("xhcparray" in localStorage) {
 	arrHCPs = JSON.parse(localStorage.xhcparray);
 }
+
+showDownloadingInfoMsg();
+
 startNewDay();
 //=============================================================
 // functions - run when called
@@ -663,13 +679,6 @@ function startNewDay() {
 	}
 }
 
-function showDownloadingWait() {
-	tempt = '<br /><br /> Downloading information ...';
-	tempt += '<br /><br /><br />';
-	document.getElementById("popuppanel").innerHTML = tempt;
-	document.getElementById("popuppanel").style.display = "block";
-}
-showDownloadingWait()
 async function getData() {
 	var dataStream = 
 	await fetch("https://opensheet.elk.sh/1xeS22CrN3Mdq2nRQLACDBN7iaMSBJ7MM1PX7gikWOJM/sweepcsv")
