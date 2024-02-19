@@ -865,15 +865,10 @@ y2array = player2name.split(" ")
 y3array = player3name.split(" ")
 y4array = player4name.split(" ")
 
-tempplayer1name = y1array[0] + " " + y1array[1].substring(0,1)
-tempplayer2name = y2array[0] + " " + y2array[1].substring(0,1)
-tempplayer3name = y3array[0] + " " + y3array[1].substring(0,1)
-tempplayer4name = y4array[0] + " " + y4array[1].substring(0,1)
-
-	document.getElementById("p1name").innerText = tempplayer1name + " (" + player1hcp + ") " + x1 + " shots";
-	document.getElementById("p2name").innerText = tempplayer2name + " (" + player2hcp + ") " + x2 + " shots";
-	document.getElementById("p3name").innerText = tempplayer3name + " (" + player3hcp + ") " + x3 + " shots";
-	document.getElementById("p4name").innerText = tempplayer4name + " (" + player4hcp + ") " + x4 + " shots";
+document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") " + x1 + " shots";
+document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + x2 + " shots";
+document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + x3 + " shots";
+document.getElementById("p4name").innerText = shortName(player4name) + " (" + player4hcp + ") " + x4 + " shots";
 }
 //=================================================================================
 // highlight the current player number
