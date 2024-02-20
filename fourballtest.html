@@ -284,14 +284,14 @@
       
     #popuppanel {
     background-color: #ddd;
-      font-size: 4vh;
+      font-size: 3vh;
       display: inline-block;
       border-radius: 3px;
       border: 1px solid #aaa;
       padding: 10px;
-      margin: 20vw;
+      margin: 5vw;
       text-align: center;
-      width: 50vw;
+      width: 80vw;
       //height: 50px;
       cursor: pointer;
     }     
@@ -942,6 +942,14 @@ function numberScore(id) {
 // 
 //=================================================================================
 function nextHole() {
+
+
+
+
+
+
+
+
 	saveScores()
 	document.getElementById("scorenext").classList.replace("scorelow", "scorehigh");
 	// delay putting everything back
@@ -953,6 +961,8 @@ function nextHole() {
 	if (whichhole > 18) {
 	    whichhole = 18;
 	}
+	// highlight if shot hole
+	highlightShots();
 	holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + 
 	", si " + arrOldCourse[whichhole][2]
 		// get hole details
@@ -992,6 +1002,8 @@ function prevHole() {
 	if (whichhole < 1) {
 	    whichhole = 1
 	}
+	// highlight if shot hole
+	highlightShots()
 	// get hole details
 	holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + 
 	", si " + arrOldCourse[whichhole][2]
@@ -1648,7 +1660,7 @@ function finishHcpEdit() {
 // choose course dialog for non competition day
 function showRecoverChoice() {
 	if(compdate == localStorage.xcompdate) {
-		tempt = '<br /> Recover saved data or Clear saved data.';
+		tempt = '<br /> Recover or Clear saved data.';
 		tempt += '<br /><br />';
 		tempt += '<button id="id_recoverbtn" onclick="doSomethingRecover()">Recover</button>';
 		tempt += '<button id="id_clearbtn" onclick="doSomethingClear()">Clear</button>';
@@ -1980,6 +1992,53 @@ function clearLocalStorage() {
    })
 }           
    
+function highlightShots() {
+if (player1hcp == "no hcp") {
+    player1hcp = 99;
+}
+if (player2hcp == "no hcp") {
+    player2hcp = 99;
+}
+if (player3hcp == "no hcp") {
+    player3hcp = 99;
+}
+if (player4hcp == "no hcp") {
+    player4hcp = 99;
+}
+x = Math.min((player1hcp*0.9), (player2hcp*0.9), (player3hcp*0.9), (player4hcp*0.9))
+x1 = ((player1hcp*0.9) - x).toFixed(0)
+x2 = ((player2hcp*0.9) - x).toFixed(0)
+x3 = ((player3hcp*0.9) - x).toFixed(0)
+x4 = ((player4hcp*0.9) - x).toFixed(0)
+
+if (x1 >= arrCourse[whichhole][2]) {
+   document.getElementById("p1score").style.background = "cyan";
+} else {
+   document.getElementById("p1score").style.background = "white";
+}
+if (x2 >= arrCourse[whichhole][2]) {
+   document.getElementById("p2score").style.background = "cyan";
+} else {
+   document.getElementById("p2score").style.background = "white";
+}
+if (x3 >= arrCourse[whichhole][2]) {
+   document.getElementById("p3score").style.background = "cyan";
+} else {
+   document.getElementById("p3score").style.background = "white";
+}
+if (x4 >= arrCourse[whichhole][2]) {
+   document.getElementById("p4score").style.background = "cyan";
+} else {
+   document.getElementById("p4score").style.background = "white";
+}
+
+
+}
+
+
+
+
+
 
 
 
