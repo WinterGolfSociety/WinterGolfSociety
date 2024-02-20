@@ -128,6 +128,11 @@
 		font-size: 15px;
 		font-style: italic;
 	}
+	
+	.yellow {
+	color: yellow;
+	}
+	
 	</style>
 </head>
 
@@ -297,35 +302,35 @@
 			// player 1
 			let p1a = "(" + vhcp1 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp1
 			let p1b = vcoursehcp1 + " - " + low1 + " = " + vcoursehcp10
-			let p1c = vcoursehcp1 + " x " + vhcpallowance + "% = " + var1t
+			let p1c = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t
 			let p1d = var1
 			
 			// player 2
 			let p2a = "(" + vhcp2 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp2
 			let p2b = vcoursehcp2 + " - " + low1 + " = " + vcoursehcp20
-			let p2c = vcoursehcp2 + " x " + vhcpallowance + "% = " + var2t
+			let p2c = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t
 			let p2d = var2
 			
 			// player 3
 			let p3a = "(" + vhcp3 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp3
 			let p3b = vcoursehcp3 + " - " + low1 + " = " + vcoursehcp30
-			let p3c = vcoursehcp3 + " x " + vhcpallowance + "% = " + var3t
+			let p3c = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t
 			let p3d = var3
 			
 			// player 4
 			let p4a = "(" + vhcp4 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp1
 			let p4b = vcoursehcp4 + " - " + low1 + " = " + vcoursehcp40
-			let p4c = vcoursehcp4 + " x " + vhcpallowance + "% = " + var4t
+			let p4c = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t
 			let p4d = var4
 			
 			
-			let calctxt = "<br>player 1<br>course hcp calculation<br>" + p1a + "<br>player 1 difference<br>" + p1b + "<br>player 1 strokes with adjustment<br>" + p1c + "<br>rounded strokes = " + p1d
+			let calctxt = "<br><a class='yellow'>player 1</a><br>course hcp calculation<br>" + p1a + "<br><br>player 1 difference<br>" + p1b + "<br><br>player 1 strokes with adjustment<br>" + p1c + "<br><br>rounded strokes = " + p1d
 			calctxt += "<br>"
-			calctxt += "<br>player 2<br>course hcp calculation<br>" + p2a + "<br>player 2 difference<br>" + p2b + "<br>player 2 strokes with adjustment<br>" + p2c + "<br>rounded strokes = " + p2d
+			calctxt += "<br><a class='yellow'>player 2</a><br>course hcp calculation<br>" + p2a + "<br><br>player 2 difference<br>" + p2b + "<br><br>player 2 strokes with adjustment<br>" + p2c + "<br><br>rounded strokes = " + p2d
 			calctxt += "<br>"
-			calctxt += "<br>player 3<br>course hcp calculation<br>" + p3a + "<br>player 3 difference<br>" + p3b + "<br>player 3 strokes with adjustment<br>" + p3c + "<br>rounded strokes = " + p3d
+			calctxt += "<br><a class='yellow'>player 3</a><br>course hcp calculation<br>" + p3a + "<br><br>player 3 difference<br>" + p3b + "<br><br>player 3 strokes with adjustment<br>" + p3c + "<br><br>rounded strokes = " + p3d
 			calctxt += "<br>"
-			calctxt += "<br>player 4<br>course hcp calculation<br>" + p4a + "<br>player 4 difference<br>" + p4b + "<br>player 4 strokes with adjustment<br>" + p4c + "<br>rounded strokes = " + p4d
+			calctxt += "<br><a class='yellow'>player 4</a><br>course hcp calculation<br>" + p4a + "<br><br>player 4 difference<br>" + p4b + "<br><br>player 4 strokes with adjustment<br>" + p4c + "<br><br>rounded strokes = " + p4d
 			calctxt += "<br><br>" + '<p id="xclose">tap to close</p>'
 			document.getElementById("showcalcs").innerHTML = calctxt
 		}
