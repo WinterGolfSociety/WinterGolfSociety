@@ -942,14 +942,6 @@ function numberScore(id) {
 // 
 //=================================================================================
 function nextHole() {
-
-
-
-
-
-
-
-
 	saveScores()
 	document.getElementById("scorenext").classList.replace("scorelow", "scorehigh");
 	// delay putting everything back
@@ -1185,6 +1177,8 @@ function arrDeepCopy(aObject) {
 function getScoring() {
         // update hcps in case they have been edited
         body();
+        // highlight if shot hole
+	highlightShots();
         // set up for correct number of players
         if (player4name == "no player") {
             player4hcp = 99;
