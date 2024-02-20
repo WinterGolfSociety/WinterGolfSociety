@@ -510,10 +510,10 @@ var player1name = "player 1";
 var player2name = "player 2";
 var player3name = "player 3";
 var player4name = "player 4";
-var player1hcp = 99;
-var player2hcp = 99;
-var player3hcp = 99;
-var player4hcp = 99;
+var player1hcp = "no hcp";
+var player2hcp = "no hcp";
+var player3hcp = "no hcp";
+var player4hcp = "no hcp";
 var originalhcp1 = 0;
 var originalhcp2 = 0;
 var originalhcp3 = 0;
@@ -853,7 +853,18 @@ function shortName(nom) {
 }
 
 function body() {
-
+if (player1hcp == "no hcp") {
+    player1hcp = 99;
+}
+if (player2hcp == "no hcp") {
+    player2hcp = 99;
+}
+if (player3hcp == "no hcp") {
+    player3hcp = 99;
+}
+if (player4hcp == "no hcp") {
+    player4hcp = 99;
+}
 x = Math.min((player1hcp*0.9), (player2hcp*0.9), (player3hcp*0.9), (player4hcp*0.9))
 x1 = ((player1hcp*0.9) - x).toFixed(0)
 x2 = ((player2hcp*0.9) - x).toFixed(0)
@@ -1063,7 +1074,7 @@ function outputPlayers(msg) {
 			hcplist += "#" + hcp
 		}
 	}
-	hcplistx = hcplist + "#no hcp#no hcp#no hcp#no hcp#no hcp"
+	hcplistx = hcplist + "#no hcp#no hcp#no hcp#ho hcp#no hcp"
 	arr2 = hcplistx.split("#");
 	player1hcp = arr2[0];
 	player2hcp = arr2[1];
@@ -1160,6 +1171,32 @@ function arrDeepCopy(aObject) {
 }
 
 function getScoring() {
+        // update hcps in case they have been edited
+        body();
+        // set up for correct number of players
+        if (player4name == "no player") {
+            player4hcp = 99;
+            document.getElementById("p4name").style.display = "none";
+            document.getElementById("p4score").style.display = "none"   
+        }
+        if (player3name == "no player") {
+            player3hcp = 99;
+            document.getElementById("p3name").style.display = "none";
+            document.getElementById("p3score").style.display = "none"   
+        }
+        if (player2name == "no player") {
+            player2hcp - 99;
+            document.getElementById("p2name").style.display = "none";
+            document.getElementById("p2score").style.display = "none"   
+        }
+        if (player1name == "no player") {
+            player1hcp = 99;
+            document.getElementById("p1name").style.display = "none";
+            document.getElementById("p1score").style.display = "none"   
+        }
+        
+        
+        
 	document.getElementById("firstscreen").classList.add("fadeOut");
 	setTimeout(() => {
 		document.getElementById("firstscreen").style.display = "none";
@@ -1330,7 +1367,11 @@ function shots() {
 	temp2 = 99
 	temp3 = 99
 	temp4 = 99
-	temp1 = (player1hcp * 0.9)
+	if(player1hcp !== "no hcp") {
+		temp1 = (player1hcp * 0.9)
+	} else {
+		temp1 = 99
+	}
 	if(player2hcp !== "no hcp") {
 		temp2 = (player2hcp * 0.9)
 	} else {
@@ -1551,13 +1592,41 @@ function hcpMinus(id) {
 	temp1 = document.getElementById(id.replace("minus", "hcp")).innerText
 	if(temp1 !== "no hcp") {
 		document.getElementById(id.replace("minus", "hcp")).innerText = parseInt(temp1) - 1;
+	        if (id == "minus1btn") {
+	           player1hcp = parseInt(temp1) - 1;
+	        }
+	        if (id == "minus2btn") {
+	           player2hcp = parseInt(temp1) - 1;
+	        }
+	        if (id == "minus3btn") {
+	           player3hcp = parseInt(temp1) - 1;
+	        }
+	        if (id == "minus4btn") {
+	           player4hcp = parseInt(temp1) - 1;
+	        }
 	}
+	
 }
 
 function hcpPlus(id) {
 	temp1 = document.getElementById(id.replace("plus", "hcp")).innerText
 	if(temp1 !== "no hcp") {
 		document.getElementById(id.replace("plus", "hcp")).innerText = parseInt(temp1) + 1;
+		if (id == "plus1btn") {
+	           player1hcp = parseInt(temp1) + 1;
+	        }
+	        if (id == "plus2btn") {
+	           player2hcp = parseInt(temp1) + 1;
+	        }
+	        if (id == "plus3btn") {
+	           player3hcp = parseInt(temp1) + 1;
+	        }
+	        if (id == "plus4btn") {
+	           player4hcp = parseInt(temp1) + 1;
+	        }
+	        
+	        
+	        console.log(player1hcp)
 	}
 }
 
