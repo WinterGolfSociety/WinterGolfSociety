@@ -519,6 +519,33 @@ var originalhcp2 = 0;
 var originalhcp3 = 0;
 var originalhcp4 = 0;
 var whichhole = 1;
+
+var frontp1 = 0
+var frontp2 = 0
+var frontp3 = 0
+var backp1 = 0
+var backp2 = 0
+var backp3 = 0
+var allp1 = 0
+var allp2 = 0
+var allp3 = 0
+var fronttxt9 = "";
+var backtxt9 = "";
+var alltxt18 = "";
+var frontleaderplayer = "";
+var frontleaderholes = 0;
+var frontwincount = 0;
+var backleaderplayer = "";
+var backleaderholes = 0;
+var backwincount = 0;
+var allleaderplayer = "";
+var allleaderholes = 0;
+var allwincount = 0;
+
+
+
+
+
 // set up courses with details for calculations etc.
 // array ["hole num",par,si]
 // Lakes
@@ -852,6 +879,14 @@ function shortName(nom) {
 	return shortPlayername;
 }
 
+function firstName(nom) {
+s1 = nom.split(" ")
+firstPlayername = s1[0];
+firstPlayername = firstPlayername.replace("Stephen", "Steve")
+firstPlayername = firstPlayername.replace("Malcolm", "Mal")
+return firstPlayername;
+}
+
 function body() {
 if (player1hcp == "no hcp") {
     player1hcp = 99;
@@ -1089,7 +1124,7 @@ function outputPlayers(msg) {
 	} else {
 		if(msglist == "") {
 			msglist = msg;
-			// enable scoring button if player there and ourse chosen
+			// enable scoring button if player there and course chosen
 			if(compcourse !== "none") {
 				document.getElementById("startscoring").style.display = "block";
 			}
@@ -1191,7 +1226,7 @@ function getScoring() {
             document.getElementById("p3score").style.display = "none"   
         }
         if (player2name == "no player") {
-            player2hcp - 99;
+            player2hcp = 99;
             document.getElementById("p2name").style.display = "none";
             document.getElementById("p2score").style.display = "none"   
         }
@@ -1362,6 +1397,501 @@ function pointsCalc(hcp, par, si, score) {
 }
 
 function shots() {
+    if (player1name.indexOf("player") > -1 || player2name.indexOf("player") > -1 || player3name.indexOf("player") > -1 || player4name.indexOf("player") > -1) {
+        // do the 3 ball version
+        //alert("3 ball version")
+        // reset info text 
+        fronttxt9 = ""
+        // reset variables 
+        frontp1 = 0
+        frontp2 = 0
+        frontp3 = 0
+        frontleaderplayer = "";
+        frontleaderholes = 0;
+        frontwincount = 0;
+        // go through holes with a score
+        for(i = 1; i <= 9; i++) {      
+           s1 = localStorage.getItem("xp1h" + i)
+           s2 = localStorage.getItem("xp2h" + i)
+           s3 = localStorage.getItem("xp3h" + i)
+           if (s1 > 0 || s2 > 0 || s3 > 0) {
+             // alert(s1+","+s2+","+s3)
+              shots3playersfront(s1, s2, s3);
+           }
+        }   
+        //reset info text 
+        backtxt9 = ""
+        // reset variables 
+        backp1 = 0
+        backp2 = 0
+        backp3 = 0
+        backleaderplayer = "";
+        backleaderholes = 0;
+        backwincount = 0;
+        // go through holes with a score
+        for(j = 10; j <= 18; j++) {      
+           s1 = localStorage.getItem("xp1h" + j)
+           s2 = localStorage.getItem("xp2h" + j)
+           s3 = localStorage.getItem("xp3h" + j)
+           if (s1 > 0 || s2 > 0 || s3 > 0) {
+             // alert(s1+","+s2+","+s3)
+              shots3playersback(s1, s2, s3);
+           }
+        }   
+        
+        //reset info text 
+        alltxt18 = ""
+        // reset variables 
+        allp1 = 0
+        allp2 = 0
+        allp3 = 0
+        allleaderplayer = "";
+        allleaderholes = 0;
+        allwincount = 0;
+        // go through holes with a score
+        for(k = 1; k <= 18; k++) {      
+           s1 = localStorage.getItem("xp1h" + k)
+           s2 = localStorage.getItem("xp2h" + k)
+           s3 = localStorage.getItem("xp3h" + k)
+           if (s1 > 0 || s2 > 0 || s3 > 0) {
+             // alert(s1+","+s2+","+s3)
+              shots3playersall(s1, s2, s3);
+           }
+        } 
+        
+        
+        
+        
+    } else {
+        // do 4 ball version
+        shots4players();
+    }
+}
+
+function shots3playersfront(p1score, p2score, p3score) {
+// adjust count of winning scores on hole
+var cnt = 0;
+// cope with 0 score
+if (p1score == 0) {
+    p1score = 99;
+}
+if (p2score == 0) {
+    p2score = 99;
+}
+if (p3score == 0) {
+    p3score = 99;
+}
+// who has won hole
+var winner = "";
+
+//alert(p1score + p2score + p3score)
+if ((p1score + p2score + p3score) > 0) {
+   var x = Math.min(p1score, p2score, p3score)
+   // if p1 wins
+   if (p1score == x) {
+      cnt++
+      winner += "p1"
+   }
+   // if p2 wins
+   if (p2score == x) {
+      cnt++
+      winner += "p2"
+   }
+   // if p3 wins
+   if (p3score == x) {
+      cnt++
+      winner += "p3"
+   }   
+}
+
+// if only one winner
+if (cnt == 1) {
+   if (winner == "p1") {
+      if (frontleaderplayer == "" || frontleaderholes == 0) {
+         frontleaderplayer = "p1"
+      }
+      if (frontleaderplayer == "p1") {
+         frontleaderholes++
+      } else {
+         frontleaderholes--
+      }
+   }
+   if (winner == "p2") {
+      if (frontleaderplayer == "" || frontleaderholes == 0) {
+         frontleaderplayer = "p2"
+      }
+      if (frontleaderplayer == "p2") {
+         frontleaderholes++
+      } else {
+         frontleaderholes--
+      }
+   }
+   if (winner == "p3") {
+      if (frontleaderplayer == "" || frontleaderholes == 0) {
+         frontleaderplayer = "p3"
+      }
+      if (frontleaderplayer == "p3") {
+         frontleaderholes++
+      } else {
+         frontleaderholes--
+      }
+   }   
+}
+// if 2 winners
+if (cnt == 2) {
+   if (winner == "p1p2") {
+      if (!(frontleaderplayer == "p1" || frontleaderplayer == "p2")) {
+         frontleaderholes--
+      }
+   }
+   if (winner == "p1p3") {
+      if (!(frontleaderplayer == "p1" || frontleaderplayer == "p3")) {
+         frontleaderholes--
+      }
+   }
+   if (winner == "p2p3") {
+      if (!(frontleaderplayer == "p2" || frontleaderplayer == "p3")) {
+         frontleaderholes--
+      }
+   }   
+}
+// if 3 winners
+if (cnt == 3) {
+   // no change
+}
+
+if (winner.indexOf("p1") > -1) {
+   frontp1++
+}
+if (winner.indexOf("p2") > -1) {
+   frontp2++
+}
+if (winner.indexOf("p3") > -1) {
+   frontp3++
+}
+
+var x = Math.min(frontp1, frontp2, frontp3)
+p1x = (frontp1 - x)
+p2x = (frontp2 - x)
+p3x = (frontp3 - x)
+
+var xx = Math.min(p1x, p2x, p3x)
+p1xx = (p1x - xx)
+p2xx = (p2x - xx)
+p3xx = (p3x - xx)
+
+if (frontleaderholes < 1) {
+   frontleaderholes = 0;
+   frontleaderplayer = "";
+}
+
+// expand names
+xwinner = winner.replaceAll("p1",firstName(player1name)).replaceAll("p2",firstName(player2name)).replaceAll("p3",firstName(player3name))
+
+xfrontleaderplayer = frontleaderplayer.replaceAll("p1",firstName(player1name)).replaceAll("p2",firstName(player2name)).replaceAll("p3",firstName(player3name))
+
+
+//if (whichhole <= 9) {
+   if (frontleaderholes == 0) {
+      fronttxt9 += xwinner + " wins " + xfrontleaderplayer + "  -  all square<br>"
+     // fronttxt9 += winner + " wins " + frontleaderplayer + "  -  all square<br>"
+   } else {
+
+      fronttxt9 += xwinner + " wins " + "  -  " + xfrontleaderplayer + " " + frontleaderholes + " up<br>"
+   }
+//}
+
+document.getElementById("x1").innerHTML = "<br>front 9 holes<br>" + fronttxt9 + "<br>back 9 holes<br>" + backtxt9 + "<br>all 18 holes<br>" + alltxt18 + "<br>"
+
+}
+
+
+ 
+function shots3playersback(p1score, p2score, p3score) {
+// adjust count of winning scores on hole
+var cnt = 0;
+// cope with 0 score
+if (p1score == 0) {
+    p1score = 99;
+}
+if (p2score == 0) {
+    p2score = 99;
+}
+if (p3score == 0) {
+    p3score = 99;
+}
+// who has won hole
+var winner = "";
+
+//alert(p1score + p2score + p3score)
+if ((p1score + p2score + p3score) > 0) {
+   var x = Math.min(p1score, p2score, p3score)
+   // if p1 wins
+   if (p1score == x) {
+      cnt++
+      winner += "p1"
+   }
+   // if p2 wins
+   if (p2score == x) {
+      cnt++
+      winner += "p2"
+   }
+   // if p3 wins
+   if (p3score == x) {
+      cnt++
+      winner += "p3"
+   }   
+}
+
+// if only one winner
+if (cnt == 1) {
+   if (winner == "p1") {
+      if (backleaderplayer == "" || backleaderholes == 0) {
+         backleaderplayer = "p1"
+      }
+      if (backleaderplayer == "p1") {
+         backleaderholes++
+      } else {
+         backleaderholes--
+      }
+   }
+   if (winner == "p2") {
+      if (backleaderplayer == "" || backleaderholes == 0) {
+         backleaderplayer = "p2"
+      }
+      if (backleaderplayer == "p2") {
+         backleaderholes++
+      } else {
+         backleaderholes--
+      }
+   }
+   if (winner == "p3") {
+      if (backleaderplayer == "" || backleaderholes == 0) {
+         backleaderplayer = "p3"
+      }
+      if (backleaderplayer == "p3") {
+         backleaderholes++
+      } else {
+         backleaderholes--
+      }
+   }   
+}
+// if 2 winners
+if (cnt == 2) {
+   if (winner == "p1p2") {
+      if (!(backleaderplayer == "p1" || backleaderplayer == "p2")) {
+         backleaderholes--
+      }
+   }
+   if (winner == "p1p3") {
+      if (!(backleaderplayer == "p1" || backleaderplayer == "p3")) {
+         backleaderholes--
+      }
+   }
+   if (winner == "p2p3") {
+      if (!(backleaderplayer == "p2" || backleaderplayer == "p3")) {
+         backleaderholes--
+      }
+   }   
+}
+// if 3 winners
+if (cnt == 3) {
+   // no change
+}
+
+if (winner.indexOf("p1") > -1) {
+   backp1++
+}
+if (winner.indexOf("p2") > -1) {
+   backp2++
+}
+if (winner.indexOf("p3") > -1) {
+   backp3++
+}
+
+var x = Math.min(backp1, backp2, backp3)
+p1x = (backp1 - x)
+p2x = (backp2 - x)
+p3x = (backp3 - x)
+
+var xx = Math.min(p1x, p2x, p3x)
+p1xx = (p1x - xx)
+p2xx = (p2x - xx)
+p3xx = (p3x - xx)
+
+if (backleaderholes < 1) {
+   backleaderholes = 0;
+   backleaderplayer = "";
+}
+
+// expand names
+xwinner = winner.replaceAll("p1",firstName(player1name)).replaceAll("p2",firstName(player2name)).replaceAll("p3",firstName(player3name))
+
+xbackleaderplayer = backleaderplayer.replaceAll("p1",firstName(player1name)).replaceAll("p2",firstName(player2name)).replaceAll("p3",firstName(player3name))
+
+
+//if (whichhole <= 9) {
+   if (backleaderholes == 0) {
+      backtxt9 += xwinner + " wins " + xbackleaderplayer + "  -  all square<br>"
+   } else {
+
+      backtxt9 += xwinner + " wins " + "  -  " + xbackleaderplayer + " " + backleaderholes + " up<br>"
+   }
+//}
+
+document.getElementById("x1").innerHTML = "<br>front 9 holes<br>" + fronttxt9 + "<br>back 9 holes<br>" + backtxt9 + "<br>all 18 holes<br>" + alltxt18 + "<br>"
+
+}
+
+
+
+function shots3playersall(p1score, p2score, p3score) {
+// adjust count of winning scores on hole
+var cnt = 0;
+// cope with 0 score
+if (p1score == 0) {
+    p1score = 99;
+}
+if (p2score == 0) {
+    p2score = 99;
+}
+if (p3score == 0) {
+    p3score = 99;
+}
+// who has won hole
+var winner = "";
+
+//alert(p1score + p2score + p3score)
+if ((p1score + p2score + p3score) > 0) {
+   var x = Math.min(p1score, p2score, p3score)
+   // if p1 wins
+   if (p1score == x) {
+      cnt++
+      winner += "p1"
+   }
+   // if p2 wins
+   if (p2score == x) {
+      cnt++
+      winner += "p2"
+   }
+   // if p3 wins
+   if (p3score == x) {
+      cnt++
+      winner += "p3"
+   }   
+}
+
+// if only one winner
+if (cnt == 1) {
+   if (winner == "p1") {
+      if (allleaderplayer == "" || allleaderholes == 0) {
+         allleaderplayer = "p1"
+      }
+      if (allleaderplayer == "p1") {
+         allleaderholes++
+      } else {
+         allleaderholes--
+      }
+   }
+   if (winner == "p2") {
+      if (allleaderplayer == "" || allleaderholes == 0) {
+         allleaderplayer = "p2"
+      }
+      if (allleaderplayer == "p2") {
+         allleaderholes++
+      } else {
+         allleaderholes--
+      }
+   }
+   if (winner == "p3") {
+      if (allleaderplayer == "" || allleaderholes == 0) {
+         allleaderplayer = "p3"
+      }
+      if (allleaderplayer == "p3") {
+         allleaderholes++
+      } else {
+         allleaderholes--
+      }
+   }   
+}
+// if 2 winners
+if (cnt == 2) {
+   if (winner == "p1p2") {
+      if (!(allleaderplayer == "p1" || allleaderplayer == "p2")) {
+         allleaderholes--
+      }
+   }
+   if (winner == "p1p3") {
+      if (!(allleaderplayer == "p1" || allleaderplayer == "p3")) {
+         allleaderholes--
+      }
+   }
+   if (winner == "p2p3") {
+      if (!(allleaderplayer == "p2" || allleaderplayer == "p3")) {
+         allleaderholes--
+      }
+   }   
+}
+// if 3 winners
+if (cnt == 3) {
+   // no change
+}
+
+if (winner.indexOf("p1") > -1) {
+   allp1++
+}
+if (winner.indexOf("p2") > -1) {
+   allp2++
+}
+if (winner.indexOf("p3") > -1) {
+   allp3++
+}
+
+var x = Math.min(allp1, allp2, allp3)
+p1x = (allp1 - x)
+p2x = (allp2 - x)
+p3x = (allp3 - x)
+
+var xx = Math.min(p1x, p2x, p3x)
+p1xx = (p1x - xx)
+p2xx = (p2x - xx)
+p3xx = (p3x - xx)
+
+if (allleaderholes < 1) {
+   allleaderholes = 0;
+   allleaderplayer = "";
+}
+
+// expand names
+xwinner = winner.replaceAll("p1",firstName(player1name)).replaceAll("p2",firstName(player2name)).replaceAll("p3",firstName(player3name))
+
+xallleaderplayer = allleaderplayer.replaceAll("p1",firstName(player1name)).replaceAll("p2",firstName(player2name)).replaceAll("p3",firstName(player3name))
+
+
+//if (whichhole <= 9) {
+   if (allleaderholes == 0) {
+      alltxt18 += xwinner + " wins " + xallleaderplayer + "  -  all square<br>"
+   } else {
+
+      alltxt18 += xwinner + " wins " + "  -  " + xallleaderplayer + " " + allleaderholes + " up<br>"
+   }
+//}
+
+document.getElementById("x1").innerHTML = "<br>front 9 holes<br>" + fronttxt9 + "<br>back 9 holes<br>" + backtxt9 + "<br>all 18 holes<br>" + alltxt18 + "<br>"
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function shots4players() {
 	shotsscore = "";
 	shotsscoreTotal = "";
 	msgss1 = 0
