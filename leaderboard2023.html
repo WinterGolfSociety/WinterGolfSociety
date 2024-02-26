@@ -18,7 +18,7 @@
 }
 body {
        color: white;
-      background-color: darkSlateGray;
+      background-color: white; //darkSlateGray;
       font-family: Arial, Helvetica, sans-serif;
      // overflow-y: hidden; 
      padding-left: 20px;
@@ -29,8 +29,8 @@ body {
       display: grid;
       grid-template-columns: 15vw auto 15vw 15vw;
    //   padding-left: 20px;
-   border: 5px solid #E5E4E2;
-   border-radius: 5px;
+   border: 1px solid lightGray; //#E5E4E2;
+   //border-radius: 5px;
     }
    
     .grid-item {
@@ -69,10 +69,11 @@ body {
 #secs {
        font-family: arial;
        font-size: 13px;
-       color: #C3CCCC;
+       color: darkSlateGray; //#C3CCCC;
 }
 
 #notyet {
+color: darkSlateGray;
         padding-left: 10px;
 }
 </style>
@@ -94,7 +95,7 @@ var arrPlayer = []
 var arrPoints = []
 var arrTwos = []
 var arrPlayerOld = [];
-
+var comp = "";
 var dd = new Date();
 var dddate = dd.getDate();
 var ddmonth = dd.getMonth();
@@ -121,7 +122,8 @@ async function getData() {
 			arrPlayer.push(resultsarray[i].player);
 			arrPoints.push(resultsarray[i].points);
 			arrTwos.push(resultsarray[i].twos);
-			comp = resultsarray[i].comp;
+			
+			comp = resultsarray[1].comp;
 		}
 	}
 	// retrieve previous data
@@ -159,6 +161,7 @@ async function getData() {
 		// create HTML
 	        createDisplay(arrPlayer.length)
 		// comp day
+		document.getElementById("top1").innerHTML = "<br>" + comp + "<br><br>"
 		for(var i = 0; i < arrPlayer.length; i++) {
 			// old player 
 			if(arrPlayerOld.indexOf(arrPlayer[i]) > -1) {
@@ -167,7 +170,7 @@ async function getData() {
 		               // light background
 		               bg = '<p style="background:#F8F8FF;color:black;">'
 		           } else {
-		               bg = '<p style="background:#E5E4E2;color:black;">'
+		               bg = '<p style="background:#ECEFEF;color:black;">'
 		           } 
 				displaypos    = bg + arrPos[i]    + "</p>";
 				displayplayer = bg + arrPlayer[i] + "</p>";
@@ -187,7 +190,7 @@ async function getData() {
 		                    // light background
 		                    bg = '<p style="background:#F8F8FF; color:blue;">'
 		                } else {
-		                    bg = '<p style="background:#E5E4E2; color: blue;">'
+		                    bg = '<p style="background:#ECEFEF; color: blue;">'
 		                } 
 				displaypos    = bg + arrPos[i]    + "</p>";
 				displayplayer = bg + arrPlayer[i] + "</p>";
@@ -203,7 +206,7 @@ async function getData() {
 				document.getElementById("twos"   + i).innerHTML = displaytwos
 			}
 		}
-		document.getElementById("notyet").innerHTML = "Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
+		document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
 		document.getElementById("footer").innerHTML = "Updated every 35 seconds.<br>There is a delay before this information is available in 'All results'"
 	} else {
                 createSmallDisplay()
@@ -261,9 +264,10 @@ function createDisplay(num) {
 	el.id = "top1";
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
-	document.getElementById("top1").innerHTML = "&nbsp;"
-	document.getElementById("top1").style.background = "#E5E4E2";
-	document.getElementById("top1").style.color = "cyan";
+	document.getElementById("top1").style.textAlign = "center";
+	document.getElementById("top1").innerHTML = "<br>" + comp + "<br><br>"
+	document.getElementById("top1").style.background = "#ECEFEF";
+	document.getElementById("top1").style.color = "black";
 	
 	var el = document.createElement("div");
 	el.id = "top2";
@@ -311,7 +315,7 @@ function createDisplay(num) {
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("bottom2").innerHTML = "&nbsp;"
-	document.getElementById("bottom2").style.background = "#E5E4E2";
+	document.getElementById("bottom2").style.background = "#ECEFEF";
 	document.getElementById("bottom2").style.color = "cyan";
 	
 	
