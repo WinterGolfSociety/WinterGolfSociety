@@ -1079,11 +1079,21 @@ function setupScores() {
 // 
 //=================================================================================
 function saveScores() {
-	// only save if scores are there
-	if(!(document.getElementById("p1score").innerText == "0" && 
-	     document.getElementById("p2score").innerText == "0" && 
-	     document.getElementById("p3score").innerText == "0" && 
-	     document.getElementById("p4score").innerText == "0")) {
+	// if all 0 tidy up, else, only save if scores are there
+	if (document.getElementById("p1score").innerText == "0" && 
+	    document.getElementById("p2score").innerText == "0" && 
+	    document.getElementById("p3score").innerText == "0" && 
+	    document.getElementById("p4score").innerText == "0") {
+	    // dont save and reset info page value and localStorage
+	    document.getElementById("p1h" + whichhole).innerText = "0/0";
+	    document.getElementById("p2h" + whichhole).innerText = "0/0";
+	    document.getElementById("p3h" + whichhole).innerText = "0/0";
+	    document.getElementById("p4h" + whichhole).innerText = "0/0";
+	    localStorage.setItem("xp1h" + whichhole, "0")
+	    localStorage.setItem("xp2h" + whichhole, "0")
+	    localStorage.setItem("xp3h" + whichhole, "0")
+	    localStorage.setItem("xp4h" + whichhole, "0")
+	} else {      	     
 		localStorage.setItem("xp1h" + whichhole, document.getElementById("p1score").innerText)
 		localStorage.setItem("xp2h" + whichhole, document.getElementById("p2score").innerText)
 		localStorage.setItem("xp3h" + whichhole, document.getElementById("p3score").innerText)
