@@ -295,6 +295,10 @@
       //height: 50px;
       cursor: pointer;
     }     
+    
+    #my-response-iframe, #my-form {
+    display: none;
+    }  
          
       </style>
    </head>
@@ -481,6 +485,51 @@
             <div id="p4ht">-</div>
          </div>
       </div>
+      
+      
+      
+      
+      
+      
+      
+      	
+	
+	<!--
+	invisible nut necessary for submit of data
+	-->
+	
+	 <!-- form to construct data prior to submit -->
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSdqW6j0CDZA8gOpRn3Wew6KNKkeEf1T6w2-f0qKgwacddblkA/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+    <!-- name, hcp, course -->
+    <input id='mx867055232' name='entry.867055232' type='text' value='default'>
+    <input id='mx2105479454' name='entry.2105479454' type='text' value='default'>
+   
+    <input type="submit"> </form>
+  <!-- google iframe inserted here - invisible -->
+  <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdqW6j0CDZA8gOpRn3Wew6KNKkeEf1T6w2-f0qKgwacddblkA/viewform?embedded=true" width="60"></iframe>
+  <br>
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <script>  
 //=================================================================================
 // this runs on startup or reload
@@ -1064,7 +1113,7 @@ function prevHole() {
 //=================================================================================
 function setupScores() {
 	// do date check here
-	console.log((localStorage.xcompdate !== compdate))
+	//console.log((localStorage.xcompdate !== compdate))
 	if(localStorage.xcompdate !== compdate) {
 		for(var i = 1; i <= 18; i++) {
 			for(var j = 1; j <= 4; j++) {
@@ -1137,6 +1186,7 @@ function outputPlayers(msg) {
 	player2hcp = arr2[1];
 	player3hcp = arr2[2];
 	player4hcp = arr2[3];
+	
 	if(msglistcount > 4) {
 		console.log("too many players")
 	} else {
@@ -1228,7 +1278,59 @@ function arrDeepCopy(aObject) {
 }
 
 function getScoring() {
-        // update hcps in case they have been edited
+        // save new hcps
+        // submit new data - asychronous after first so does not cause a delay
+        delay1 = 2000
+        delay2 = 4000
+        delay3 = 6000
+        
+	for(var i = 0, len = arrPlayers.length; i < len; i++) {
+		if(arrPlayers[i] === player1name) {
+			originalhcp1 = arrHCPs[i];
+			if(originalhcp1 !== player1hcp) {
+				document.getElementById('mx867055232').value = player1name;
+				document.getElementById('mx2105479454').value = player1hcp;
+				document.forms[0].submit();
+			}
+		}
+		// delay others
+		if(arrPlayers[i] === player2name) {
+			originalhcp2 = arrHCPs[i];
+			if(originalhcp2 !== player2hcp) {
+				setTimeout(function() {
+					document.getElementById('mx867055232').value = player2name;
+					document.getElementById('mx2105479454').value = player2hcp;
+					document.forms[0].submit();
+				}, delay1);
+			}
+		}
+		if(arrPlayers[i] === player3name) {
+			originalhcp3 = arrHCPs[i];
+			if(originalhcp3 !== player3hcp) {
+				setTimeout(function() {
+					document.getElementById('mx867055232').value = player3name;
+					document.getElementById('mx2105479454').value = player3hcp;
+					document.forms[0].submit();
+				}, delay2);
+			}
+		}
+		if(arrPlayers[i] === player4name) {
+			originalhcp4 = arrHCPs[i];
+			if(originalhcp4 !== player4hcp) {
+				setTimeout(function() {
+					document.getElementById('mx867055232').value = player4name;
+					document.getElementById('mx2105479454').value = player4hcp;
+					document.forms[0].submit();
+				}, delay3);
+			}
+		}
+	}
+
+
+
+
+
+        // update hcps in case they have been edited        
         body();
         // highlight if shot hole
 	highlightShots();
@@ -2180,7 +2282,7 @@ function hcpPlus(id) {
 	        }
 	        
 	        
-	        console.log(player1hcp)
+	        //console.log(player1hcp)
 	}
 }
 
@@ -2525,7 +2627,7 @@ function totalsCalc() {
 }
 //clearLocalStorage()
 function clearLocalStorage() {
-   console.log("clearLocalStorage here")
+   //console.log("clearLocalStorage here")
    Object.keys(localStorage).forEach(function(key){
        if (key.substring(0,1) == "x") {
            //console.log(key)
