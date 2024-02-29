@@ -2323,7 +2323,8 @@ function doSomethingRecover() {
 	// get all the data back and put in right places
 	retrieveAllFromLocalStorage()
 	// setup number of players and proceed
-	getScoring()
+	getScoring();
+	moveToCurrent();
 }
 
 function doSomethingClear() {
@@ -2679,7 +2680,32 @@ if (x4 >= arrCourse[whichhole][2]) {
 
 }
 
+function moveToCurrent() {
+var lastOne = 0;
+var i = 0;
+// go backwards
+for (i = 18; i > 0; i--) {
+    var tempp1txt = document.getElementById("p1h" + i).innerText    
+    var tempp2txt = document.getElementById("p2h" + i).innerText    
+    var tempp3txt = document.getElementById("p3h" + i).innerText    
+    var tempp4txt = document.getElementById("p4h" + i).innerText  
 
+    // find current entry    
+    if (tempp1txt == 0 &&
+        tempp2txt == 0 &&
+        tempp3txt == 0 &&
+        tempp4txt == 0 ) {
+           // cope with increment in nextHole() and movement to previous score
+           lastOne = (i - 2);
+    }
+}
+
+//move to last one
+whichhole = lastOne;
+// get hole details
+nextHole();
+
+}
 
 
 
