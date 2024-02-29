@@ -2681,6 +2681,7 @@ if (x4 >= arrCourse[whichhole][2]) {
 }
 
 function moveToCurrent() {
+
 var lastOne = 0;
 var i = 0;
 // go backwards
@@ -2695,23 +2696,35 @@ for (i = 18; i > 0; i--) {
         tempp2txt == 0 &&
         tempp3txt == 0 &&
         tempp4txt == 0 ) {
-           // cope with increment in nextHole() and movement to previous score
-           lastOne = (i - 2);
+           // cope with movement to previous score
+              lastOne = (i - 1);
     }
 }
 
 //move to last one
 whichhole = lastOne;
 // get hole details
-nextHole();
-
+	// highlight if shot hole
+	highlightShots()
+	// get hole details
+	holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + 
+	", si " + arrOldCourse[whichhole][2]
+	document.getElementById("holedetails").innerText = holedetails
+		// get hole scores
+	document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
+	document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("xp2h" + whichhole);
+	document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("xp3h" + whichhole);
+	document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("xp4h" + whichhole);
+	// change highlight colour
+	document.getElementById("p1name").classList.remove("highlight");
+	document.getElementById("p2name").classList.remove("highlight");
+	document.getElementById("p3name").classList.remove("highlight");
+	document.getElementById("p4name").classList.remove("highlight");
+	selectedplayer = 1
+	document.getElementById("p1name").classList.add("highlight");
+	// retrieve scores   
+	getScores()
 }
-
-
-
-
-
-
 
       </script>
    </body>
