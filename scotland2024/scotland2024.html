@@ -563,29 +563,33 @@ var today = new Date();
 var day = today.getDay();
 // 2 = tuesday
 if (day == 2) {
-   recursiveShake(one, 3, 30)
+    setTimeout(function(){
+       recursiveShake(one, 3, 20)
+    },1000);
 }
 // 3 = wednesday
 if (day == 3) {
-   recursiveShake(two, 3, 30)
+    setTimeout(function(){
+       recursiveShake(two, 3, 20)
+    },1000);
 }
 // 4 = thursday
 if (day == 4) {
-   recursiveShake(three, 3, 30)
+    setTimeout(function(){
+       recursiveShake(three, 3, 20)
+    },1000);
 }
 // 5 = friday
 if (day == 5) {
-   recursiveShake(four, 3, 30)
+    setTimeout(function(){
+       recursiveShake(four, 3, 20)
+    },1000);
 }
 // 1 = monday, 6 = saturday, 7 = sunday
 if (day == 1 || day == 6 || day == 7) {
-setTimeout(function(){
+    setTimeout(function(){
        recursiveShake(five, 3, 20)
     },1000);
-
-
-
-//   recursiveShake(five, 3, 20)
 }
 
 }
