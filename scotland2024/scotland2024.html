@@ -588,7 +588,7 @@ function recursiveShake(jelement, pixel, counter) {
   if (counter > 0) {
     jelement.animate({
       'margin-left': '+='.concat(pixel, 'px')}, 
-      30, 
+      40, 
       recursiveShake(jelement, -pixel, counter - 1)
     );
   }
