@@ -119,6 +119,9 @@
 	#completed {
 		font-size: 2vmax;
 	}
+	#displaycurrentresults {
+	        display: none;
+	}
 	</style>
 	<meta content="score input" name="description">
 	<meta content="Bryan M" name="author">
@@ -162,6 +165,8 @@
 	<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?embedded=true" width="60"></iframe>
 	<div id="completed"></div>
 	<div id="not"></div>
+	<button type="button" class="dropbtn" id="currentresults" onclick="currentResults()">current results</button>
+	<div id="displaycurrentresults"></div>
 	<button type="button" class="dropbtn" id="clearls" onclick="clearLocalStorage()">clear local storage</button>
 	<script>
 	// https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url&entry.1433824128=player&entry.1119360478=course&entry.83976721=points&entry.717166862=countback
@@ -477,6 +482,51 @@
            }
         })
 }  
+
+async function currentResults() {
+	if (document.getElementById("displaycurrentresults").style.display == "block") {
+	   // close
+	   document.getElementById("displaycurrentresults").style.display = "none"
+	
+	} else {
+	
+var list = "";
+var arrResults=[];
+//https://docs.google.com/spreadsheets/d/e/2PACX-1vT2Z_jWLLmXIRQHhx9cPBRq4Z-fH_Kv8afs1eK767DuMsg9xzwV2Gf9j9rhteUUcO5pgCtQASi9URnU/pub?gid=1049006423&single=true&output=csv
+
+
+		var dataStream = await fetch("https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/resultscsv")
+		var resultsarray = await dataStream.json();
+		// get rid of blanks in array by creating new arrays
+		for(var i = 0; i < resultsarray.length; i++) {
+			if(resultsarray[i].player.length > 2) {
+			        if (resultsarray[i].pos < 10) {
+				arrResults.push("0" + resultsarray[i].pos + " - " + 
+				                resultsarray[i].points + " - " + 
+				                resultsarray[i].player);
+				} else {
+				arrResults.push(resultsarray[i].pos + " - " + 
+				                resultsarray[i].points + " - " + 
+				                resultsarray[i].player);
+				}                
+				list += arrResults[i] + "<br>"
+			}
+		}
+		
+		
+		
+	
+
+document.getElementById("displaycurrentresults").innerHTML = list
+document.getElementById("displaycurrentresults").style.display = "block"
+
+}
+
+}
+
+
+
+
 	</script>
 </body>
 
