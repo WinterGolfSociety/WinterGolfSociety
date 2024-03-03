@@ -43,12 +43,12 @@
       color: slategray;
 }
 #title {
-      font-size: 25px;
+      font-size: 5vw;
       padding-left: 20px;
       color: white;
       font-weight: bold;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 2vh;
+      margin-bottom: 2vh;
 }     
 
 .grayx {
@@ -57,25 +57,39 @@ color: lightYellow;
 
 #sub {
 color: white;
-font-size: 3.5vw; //14px;
+font-size: 3vw;
 font-style: italic;
+font-weight: normal;
+border: 3px solid cyan;
 }
 
 #shortlist {
 font-weight: bold;
 padding-left: 1vw;
-padding-top: 25vh;
+//padding-top: 20vmax;
 }
 
 #header {
 position: fixed;
+top: 0;
+left: 0;
 background: dodgerBlue;
 width: 100%;
+height: 20vmax;
+font-size: 5vw;
+padding-left: 20px;
+color: white;
+font-weight: bold;
 }
-#eventlist {
-padding-top: 25vh;
+
+#content {
+padding-top: 20vmax;
 }
-      
+.topgray {
+color: white;
+background: dodgerBlue;
+}     
+  
 </style>
     <link rel="preload" as="image" href="cal.png">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
@@ -85,24 +99,28 @@ padding-top: 25vh;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
+<div id="page">  
 <div id="header">
 
-  <p id="title"><img src="cal.png" alt="cal" onclick="swapview()" width="70" height="70" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events</p><p id="sub">&nbsp;&nbsp;&nbsp;tap icon to toggle between full and partial list</p>
+  <p id="title"><img src="cal.png" alt="cal" onclick="swapview()" width="70px" height="70px" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events
+  <br>
+  <a id="sub">&nbsp;&nbsp;&nbsp;tap icon to toggle between full and partial list</a></p>
 
 </div>
 
+<br>
 
 <div id="content">
 
 <div class="grid-container" id="eventlist">
-  <div class="grid-item gray">Date</div>
-  <div class="grid-item gray">Venue</div>
-  <div class="grid-item gray">Details</div>
-  
+ <!-- <div class="topgray">Date</div>
+  <div class="topgray">Venue</div>
+  <div class="topgray">Details</div>
+
   <div class="grid-item">no entries</div>
   <div class="grid-item"></div>
   <div class="grid-item"></div>  
-   
+    --> 
 </div>
 
 <div class="grid-container" id="shortlist"> 
@@ -112,9 +130,9 @@ padding-top: 25vh;
 </div>
 <div id="bottomspace">
 <br>
-</div>
-</div>
-
+</div> <!-- bottomspace -->
+</div> <!-- content -->
+</div> <!-- page -->
  
 <script>
 var currentMonth = ""
@@ -362,9 +380,9 @@ var arrInfo = [
 ]
 
 // set up title bar
-lineFull  = '<div class="grid-item gray">Date</div>'
-lineFull += '<div class="grid-item gray">Venue</div>'
-lineFull += '<div class="grid-item gray">Details</div>'
+lineFull  = '<div class="grid-item topgray">Date</div>'
+lineFull += '<div class="grid-item topgray">Venue</div>'
+lineFull += '<div class="grid-item topgray">Details</div>'
 const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var dname              = new Date();
 var tempmonth          = month[dname.getMonth()];
@@ -486,7 +504,7 @@ lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
-
+alert(lineFull)
 document.getElementById("eventlist").innerHTML = lineFull
 
 // do latest set of events
