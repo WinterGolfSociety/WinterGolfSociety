@@ -585,8 +585,8 @@ if (day == 5) {
        recursiveShake(four, 3, 20)
     },1000);
 }
-// 1 = monday, 6 = saturday, 7 = sunday
-if (day == 1 || day == 6 || day == 7) {
+// 1 = monday, 6 = saturday, 0 = sunday
+if (day == 1 || day == 6 || day == 0) {
     setTimeout(function(){
        recursiveShake(five, 3, 20)
     },1000);
