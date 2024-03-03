@@ -13,10 +13,6 @@
         font-family: Arial, Helvetica, sans-serif;
         color: black;
         background: dodgerBlue;
-        //padding-left: 1vw;
-        //padding-right: 1vw;
-        //width: 100vw;
-        //height: 99vh;
       }	
 .grid-container {
       display: grid;
@@ -68,9 +64,17 @@ font-style: italic;
 #shortlist {
 font-weight: bold;
 padding-left: 1vw;
+padding-top: 25vh;
 }
 
-
+#header {
+position: fixed;
+background: dodgerBlue;
+width: 100%;
+}
+#eventlist {
+padding-top: 25vh;
+}
       
 </style>
     <link rel="preload" as="image" href="cal.png">
@@ -81,7 +85,14 @@ padding-left: 1vw;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
+<div id="header">
+
   <p id="title"><img src="cal.png" alt="cal" onclick="swapview()" width="70" height="70" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events</p><p id="sub">&nbsp;&nbsp;&nbsp;tap icon to toggle between full and partial list</p>
+
+</div>
+
+
+<div id="content">
 
 <div class="grid-container" id="eventlist">
   <div class="grid-item gray">Date</div>
@@ -99,7 +110,12 @@ padding-left: 1vw;
    <div id="latestinfo2" class="bluemonth"></div>
    <div id="latestinfo3" class="bluemonth"></div>
 </div>
-    
+<div id="bottomspace">
+<br>
+</div>
+</div>
+
+ 
 <script>
 var currentMonth = ""
 var arrInfo = [
@@ -238,7 +254,7 @@ var arrInfo = [
 ["Fri 17th","Lakes","stableford"],
 ["Mon 20th","Dawson","stableford"],
 ["Fri 24th","Lakes","stableford"],
-["Sat 25th","Lakes","Spring Cup"],
+["tba","Stocksfield","Spring Cup"],
 ["Mon 27th","Dawson","stableford"],
 ["Fri 31st","Lakes","stableford"],
 ["Jun 2024","",""],
