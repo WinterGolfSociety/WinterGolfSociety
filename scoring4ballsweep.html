@@ -1482,9 +1482,9 @@ function totalScore() {
 	document.getElementById("p3hf").innerText = p3ih + "/" + p3ip;
 	document.getElementById("p4hf").innerText = p4ih + "/" + p4ip;
 	document.getElementById("p1hb").innerText = p1jh + "/" + p1jp;
-	document.getElementById("p2hb").innerText = p2jh + "/" + p1jp;
-	document.getElementById("p3hb").innerText = p3jh + "/" + p1jp;
-	document.getElementById("p4hb").innerText = p4jh + "/" + p1jp;
+	document.getElementById("p2hb").innerText = p2jh + "/" + p2jp;
+	document.getElementById("p3hb").innerText = p3jh + "/" + p3jp;
+	document.getElementById("p4hb").innerText = p4jh + "/" + p4jp;
 	document.getElementById("p1ht").innerText = p1f + "/" + p1fp;
 	document.getElementById("p2ht").innerText = p2f + "/" + p2fp;
 	document.getElementById("p3ht").innerText = p3f + "/" + p3fp;
@@ -2303,7 +2303,14 @@ function finishHcpEdit() {
 }
 // choose course dialog for non competition day
 function showRecoverChoice() {
-	if(compdate == localStorage.xcompdate) {
+// if there are some scores in ...
+        if (!((localStorage.getItem("xp1h1") == "0") &&
+              (localStorage.getItem("xp2h1") == "0") &&
+              (localStorage.getItem("xp3h1") == "0") &&
+              (localStorage.getItem("xp4h1") == "0") )){
+
+//	if(compdate == localStorage.xcompdate) {
+
 		tempt = '<br /> Recover or Clear saved data.';
 		tempt += '<br /><br />';
 		tempt += '<button id="id_recoverbtn" onclick="doSomethingRecover()">Recover</button>';
