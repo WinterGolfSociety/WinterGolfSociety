@@ -2697,6 +2697,9 @@ function clearLocalStorage() {
 }           
    
 function highlightShots() {
+ if (player1name.indexOf("player") > -1 || player2name.indexOf("player") > -1 || player3name.indexOf("player") > -1 || player4name.indexOf("player") > -1) {
+     // do nothing if 3 ball
+} else { 
 if (player1hcp == "no hcp") {
     player1hcp = 99;
 }
@@ -2736,6 +2739,7 @@ if (x4 >= arrCourse[whichhole][2]) {
    document.getElementById("p4score").style.background = "white";
 }
 
+}
 
 }
 
