@@ -977,9 +977,29 @@ y4array = player4name.split(" ")
         ttemp = " receives " + (player1hcp * -1) + " shots = scratch"
     }
     document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") " + ttemp
-document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + x2 + " shots";
-document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + x3 + " shots";
-document.getElementById("p4name").innerText = shortName(player4name) + " (" + player4hcp + ") " + x4 + " shots";     
+    
+    ttemp = " no adjustment to scratch"
+    if (player2hcp > 0) {
+        ttemp = " loses " + player2hcp + " shots = scratch"
+    } else {
+        ttemp = " receives " + (player2hcp * -1) + " shots = scratch"
+    }
+document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + ttemp
+
+    ttemp = " no adjustment to scratch"
+    if (player3hcp > 0) {
+        ttemp = " loses " + player3hcp + " shots = scratch"
+    } else {
+        ttemp = " receives " + (player3hcp * -1) + " shots = scratch"
+    }
+document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + ttemp
+ttemp = " no adjustment to scratch"
+    if (player4hcp > 0) {
+        ttemp = " loses " + player4hcp + " shots = scratch"
+    } else {
+        ttemp = " receives " + (player4hcp * -1) + " shots = scratch"
+    }
+document.getElementById("p4name").innerText = shortName(player4name) + " (" + player4hcp + ") " + ttemp     
  
 } else { 
 document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") " + x1 + " shots";
