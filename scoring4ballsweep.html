@@ -981,7 +981,8 @@ y4array = player4name.split(" ")
     ttemp = " no adjustment to scratch"
     if (player2hcp > 0) {
         ttemp = " loses " + player2hcp + " shots = scratch"
-    } else {
+    }
+    if (player2hcp < 0) {
         ttemp = " receives " + (player2hcp * -1) + " shots = scratch"
     }
 document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + ttemp
@@ -989,14 +990,16 @@ document.getElementById("p2name").innerText = shortName(player2name) + " (" + pl
     ttemp = " no adjustment to scratch"
     if (player3hcp > 0) {
         ttemp = " loses " + player3hcp + " shots = scratch"
-    } else {
+    }
+    if (player3hcp < 0) {
         ttemp = " receives " + (player3hcp * -1) + " shots = scratch"
     }
 document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + ttemp
-ttemp = " no adjustment to scratch"
+    ttemp = " no adjustment to scratch"
     if (player4hcp > 0) {
         ttemp = " loses " + player4hcp + " shots = scratch"
-    } else {
+    }
+    if (player4hcp < 0) {
         ttemp = " receives " + (player4hcp * -1) + " shots = scratch"
     }
 document.getElementById("p4name").innerText = shortName(player4name) + " (" + player4hcp + ") " + ttemp     
