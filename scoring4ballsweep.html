@@ -11,7 +11,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
       <style>
          body {
-         font-family: Kalam;
+         //font-family: Kalam;
+         font-family: Arial, Helvetica, sans-serif;
          font-size: 3vh;
          }
          /* front screen */
@@ -1491,11 +1492,23 @@ function totalScore() {
 	document.getElementById("p4ht").innerText = p4f + "/" + p4fp;
 }
 // convert scores to stableford points
-function pointsCalc(hcp, par, si, score) {
+function pointsCalc(xhcp, xpar, xsi, xscore) {
+hcp = parseInt(xhcp)
+par = parseInt(xpar)
+si = parseInt(xsi)
+score = parseInt(xscore)
 	allowance = 0;
 	if(score == 0) {
 		return 0;
 	} else {
+	        // cope with minus hcp
+	        if(hcp < 0) {
+	          // 18 plus a minus hcp
+	          if((18 + parseInt(hcp)) < si) {
+			allowance = -1;
+		  }	
+		}
+	
 		// allowance   
 		if(hcp >= si) {
 			allowance = 1;
@@ -1505,7 +1518,7 @@ function pointsCalc(hcp, par, si, score) {
 		}
 		if(hcp >= (36 + si)) {
 			allowance = 3;
-		}
+		}		
 		// points
 		var points = (par + allowance + 2) - score;
 		// remove negative numbers
