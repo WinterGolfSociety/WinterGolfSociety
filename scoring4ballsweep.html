@@ -972,35 +972,35 @@ y4array = player4name.split(" ")
  if (player1name.indexOf("player") > -1 || player2name.indexOf("player") > -1 || player3name.indexOf("player") > -1 || player4name.indexOf("player") > -1) {
     ttemp = " no adjustment to scratch"
     if (player1hcp > 0) {
-        ttemp = " loses " + player1hcp + " shots = scratch"
+        ttemp = " to scratch \nloses " + player1hcp + " shots"
     } else {
-        ttemp = " receives " + (player1hcp * -1) + " shots = scratch"
+        ttemp = " to scratch \nreceives " + (player1hcp * -1) + " shots"
     }
     document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") " + ttemp
     
     ttemp = " no adjustment to scratch"
     if (player2hcp > 0) {
-        ttemp = " loses " + player2hcp + " shots = scratch"
+        ttemp = " to scratch \nloses " + player2hcp + " shots"
     }
     if (player2hcp < 0) {
-        ttemp = " receives " + (player2hcp * -1) + " shots = scratch"
+        ttemp = " to scratch \nreceives " + (player2hcp * -1) + " shots"
     }
 document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + ttemp
 
     ttemp = " no adjustment to scratch"
     if (player3hcp > 0) {
-        ttemp = " loses " + player3hcp + " shots = scratch"
+        ttemp = " to scratch \nloses " + player3hcp + " shots"
     }
     if (player3hcp < 0) {
-        ttemp = " receives " + (player3hcp * -1) + " shots = scratch"
+        ttemp = " to scratch \nreceives " + (player3hcp * -1) + " shots"
     }
 document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + ttemp
     ttemp = " no adjustment to scratch"
     if (player4hcp > 0) {
-        ttemp = " loses " + player4hcp + " shots = scratch"
+        ttemp = " to scratch \nloses " + player4hcp + " shots"
     }
     if (player4hcp < 0) {
-        ttemp = " receives " + (player4hcp * -1) + " shots = scratch"
+        ttemp = " to scratch \nreceives " + (player4hcp * -1) + " shots"
     }
 document.getElementById("p4name").innerText = shortName(player4name) + " (" + player4hcp + ") " + ttemp     
  
