@@ -2304,10 +2304,11 @@ function finishHcpEdit() {
 // choose course dialog for non competition day
 function showRecoverChoice() {
 // if there are some scores in ...
-        if (!((localStorage.getItem("xp1h1") == "0") &&
-              (localStorage.getItem("xp2h1") == "0") &&
-              (localStorage.getItem("xp3h1") == "0") &&
-              (localStorage.getItem("xp4h1") == "0") )){
+var testx = "123456789"
+        if (testx.indexOf(localStorage.getItem("xp1h1")) > -1 ||
+            testx.indexOf(localStorage.getItem("xp2h1")) > -1 ||
+            testx.indexOf(localStorage.getItem("xp3h1")) > -1 ||
+            testx.indexOf(localStorage.getItem("xp4h1")) > -1 ) {
 
 //	if(compdate == localStorage.xcompdate) {
 
