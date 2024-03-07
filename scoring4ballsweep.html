@@ -968,11 +968,26 @@ y1array = player1name.split(" ")
 y2array = player2name.split(" ")
 y3array = player3name.split(" ")
 y4array = player4name.split(" ")
-
+// if 3 ball (or less)
+ if (player1name.indexOf("player") > -1 || player2name.indexOf("player") > -1 || player3name.indexOf("player") > -1 || player4name.indexOf("player") > -1) {
+    ttemp = " no adjustment to scratch"
+    if (player1hcp > 0) {
+        ttemp = " loses " + player1hcp + " shots = scratch"
+    } else {
+        ttemp = " receives " + (player1hcp * -1) + " shots = scratch"
+    }
+    document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") " + ttemp
+document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + x2 + " shots";
+document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + x3 + " shots";
+document.getElementById("p4name").innerText = shortName(player4name) + " (" + player4hcp + ") " + x4 + " shots";     
+ 
+} else { 
 document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") " + x1 + " shots";
 document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + x2 + " shots";
 document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + x3 + " shots";
 document.getElementById("p4name").innerText = shortName(player4name) + " (" + player4hcp + ") " + x4 + " shots";
+}
+
 }
 //=================================================================================
 // highlight the current player number
