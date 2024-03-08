@@ -970,41 +970,15 @@ y3array = player3name.split(" ")
 y4array = player4name.split(" ")
 // if 3 ball (or less)
  if (player1name.indexOf("player") > -1 || player2name.indexOf("player") > -1 || player3name.indexOf("player") > -1 || player4name.indexOf("player") > -1) {
-    ttemp = " to scratch \nno adjustment"
-    if (player1hcp > 0) {
-        ttemp = " to scratch \nloses " + player1hcp + " shots"
-    } else {
-        ttemp = " to scratch \nreceives " + (player1hcp * -1) + " shots"
-    }
-    document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") " + ttemp
     
-    ttemp = " to scratch \nno adjustment"
-    if (player2hcp > 0) {
-        ttemp = " to scratch \nloses " + player2hcp + " shots"
-    }
-    if (player2hcp < 0) {
-        ttemp = " to scratch \nreceives " + (player2hcp * -1) + " shots"
-    }
-document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + ttemp
-
-    ttemp = " to scratch \nno adjustment"
-    if (player3hcp > 0) {
-        ttemp = " to scratch \nloses " + player3hcp + " shots"
-    }
-    if (player3hcp < 0) {
-        ttemp = " to scratch \nreceives " + (player3hcp * -1) + " shots"
-    }
-document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + ttemp
-    ttemp = " to scratch \nno adjustment"
-    if (player4hcp > 0) {
-        ttemp = " to scratch \nloses " + player4hcp + " shots"
-    }
-    if (player4hcp < 0) {
-        ttemp = " to scratch \nreceives " + (player4hcp * -1) + " shots"
-    }
-document.getElementById("p4name").innerText = shortName(player4name) + " (" + player4hcp + ") " + ttemp     
- 
+    document.getElementById("p1name").innerHTML = shortName(player1name) + " (hcp " + player1hcp + " &#8680;" + " 0)"
+    document.getElementById("p2name").innerHTML = shortName(player2name) + " (hcp " + player2hcp + " &#8680;" + " 0)"
+    document.getElementById("p3name").innerHTML = shortName(player3name) + " (hcp " + player3hcp + " &#8680;" + " 0)"
+    document.getElementById("p4name").innerHTML = shortName(player4name) + " (hcp " + player4hcp + " &#8680;" + " 0)"
+    
+   
 } else { 
+// for 4 ball
 document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") " + x1 + " shots";
 document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") " + x2 + " shots";
 document.getElementById("p3name").innerText = shortName(player3name) + " (" + player3hcp + ") " + x3 + " shots";
