@@ -1680,7 +1680,10 @@
           checkBeforeSubmitID += "hcp not set\n"
           err = "yes";
         }
-
+        if (hcp == "?") {
+          checkBeforeSubmitID += "hcp not set\n"
+          err = "yes";
+        }
         if (err == "yes") {
           // error message
           checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
