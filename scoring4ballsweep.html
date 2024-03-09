@@ -674,10 +674,13 @@ window.addEventListener("beforeunload", function (e) {
    e.returnValue = "";
 });
 
+/*
 // 1st hole
 var holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + 
 ", si " + arrOldCourse[whichhole][2]
 document.getElementById("holedetails").innerText = holedetails
+*/
+
 	//===========================
 	// this code runs at startup
 	//===========================
@@ -1059,8 +1062,8 @@ function nextHole() {
 	}
 	// highlight if shot hole
 	highlightShots();
-	holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + 
-	", si " + arrOldCourse[whichhole][2]
+	holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
+	", si " + arrCourse[whichhole][2]
 		// get hole details
 	document.getElementById("holedetails").innerText = holedetails
 		// get hole scores
@@ -1101,8 +1104,8 @@ function prevHole() {
 	// highlight if shot hole
 	highlightShots()
 	// get hole details
-	holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + 
-	", si " + arrOldCourse[whichhole][2]
+	holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
+	", si " + arrCourse[whichhole][2]
 	document.getElementById("holedetails").innerText = holedetails
 		// get hole scores
 	document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
@@ -1272,6 +1275,21 @@ function chooseCourse(id) {
 	}
 	// update button to show course
 	//	document.getElementById("coll0").innerText = "Scores for " + compcourse;
+	
+	
+	
+	
+	
+	// 1st hole
+var holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
+", si " + arrCourse[whichhole][2]
+document.getElementById("holedetails").innerText = holedetails
+	
+	
+	
+	
+	
+	
 }
 // helper function to deep copy array
 function arrDeepCopy(aObject) {
@@ -2743,8 +2761,8 @@ whichhole = lastOne;
 	// highlight if shot hole
 	highlightShots()
 	// get hole details
-	holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + 
-	", si " + arrOldCourse[whichhole][2]
+	holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
+	", si " + arrCourse[whichhole][2]
 	document.getElementById("holedetails").innerText = holedetails
 		// get hole scores
 	document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
