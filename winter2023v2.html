@@ -148,7 +148,8 @@
 	#two,
 	#three,
 	#four,
-	#five {
+	#five,
+	#six {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -192,6 +193,14 @@
 		justify-content: center;
 	}
 	
+	
+	#six {
+		background-color: lightGreen;
+		display: flex;
+		justify-content: center;
+	}
+	
+	
 	section {
 		width: 100vw;
 		height: 100vh;
@@ -223,7 +232,8 @@
 	#twotxt,
 	#threetxt,
 	#fourtxt,
-	#fivetxt {
+	#fivetxt,
+	#sixtxt {
 		margin: auto;
 		font-size: 23px;
 		color: blue;
@@ -265,6 +275,13 @@
 		font-family: 'Kalam';
 	}
 	
+	#sixtxt {
+		margin: auto;
+		font-size: 20px;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
 	#one:active {
 		border: 5px solid salmon;
 	}
@@ -283,6 +300,11 @@
 	
 	#five:active {
 		border: 5px solid cyan;
+	}
+	
+	
+	#six:active {
+		border: 5px solid lightGreen;
 	}
 	
 	nav:active {
@@ -333,9 +355,33 @@
 		//width: 100%;
 	}
 
-	
-	
-	
+	#popuppanel {
+    position: absolute;
+    top: 10vh;
+    left: 30vw;
+    display: none;
+    font-family: 'Kalam';
+    background-color: #ddd;
+    opacity: 0.8;
+      font-size: 3vh;
+      //display: inline-block;
+      border-radius: 10px;
+      border: 1px solid #aaa;
+      padding: 20px;
+      
+      text-align: left; //center;
+     width: 20vw;
+      height: 10vw;
+      cursor: pointer;
+    }     
+	#xdcomp1 {
+//	opacity: 0;
+	 animation: fadeIn 3s; 
+	}
+	@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 	/* marquee CSS */
 	 .marquee {
 	        font-family: Arial, Helvetica, sans-serif;
@@ -420,6 +466,7 @@
 			<div class="bubble" id="three" onclick="doThree();"> <a id="threetxt">Twos</a> </div>
 			<div class="bubble" id="four" onclick="doFour();"> <a id="fourtxt">All results</a> </div>
 			<div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a> </div>
+			<div class="bubble" id="six" onclick="doSix();"> <a id="sixtxt">4ball scoring</a> </div>
 		</nav>
 		<section class="start">
 			<div class="content">
@@ -430,6 +477,12 @@
 			<div>Winter golf</div>
 			
 			</div>
+			
+			
+			
+			<div id="popuppanel"></div>
+			
+			
 			
 			<div class="contentinfo">
 			hcps, score entry, twos, results, leaderboard
@@ -470,6 +523,7 @@
 	var three = $('#three');
 	var four = $('#four');
 	var five = $('#five');
+	var six = $('#six');
 	// menuIcon.click(function() {
 	bubblemenu.click(function() {
 		if(isTop === true) {
@@ -508,7 +562,9 @@
 	        five.animate({
 			opacity: '1'
 		}, 10);
-
+                six.animate({
+			opacity: '1'
+		}, 10);
 		// middle right
 		// right
 		one.animate({
@@ -560,7 +616,16 @@
 		five.animate({
 			left: '-65px'
 		}, 300);
-		
+		 // top right
+		// top
+		six.animate({
+			top: '-65px'
+		}, 300);
+	        // top left
+		// left
+		six.animate({
+			left: '140px'
+		}, 300);
 		
 		menuIsOpen = true;
 		// hide pressbutton
@@ -617,6 +682,13 @@
 			top: '50%'
 		}, 200);
 		five.animate({
+			left: '50%'
+		}, 200);
+		
+		six.animate({
+			top: '50%'
+		}, 200);
+		six.animate({
 			left: '50%'
 		}, 200);
 		
@@ -679,7 +751,13 @@
 		}, 1000);
 	}
 
-
+        function doSix() {
+		// put menu back then move to results page
+		setTimeout(function() {
+		//	window.open("results2023.html", "_blank");
+  window.location.assign("fourballtest.html");
+		}, 1000);
+	}
 //====================================
 // end of menu code
 //====================================
@@ -701,15 +779,23 @@ if (d1 < 10) {
 d2 = dd.getMonth();
 // create log date eg 26-2
 dstored = d1 + "-" + d2;
-if ("dstored" in localStorage) {
-     if (dstored == localStorage.dstored) {
-	afterGetData();
-     } else {
-            getData();
-     }
-} else {
-     getData();
-}
+//if ("dstored" in localStorage) {
+//     if (dstored == localStorage.dstored) {
+	//afterGetData();
+	
+	
+	
+	 getData();
+	
+	
+	
+	
+ //    } else {
+ //       getData();
+ //    }
+//} else {
+  //   getData();
+//}
 
 
 //=====================================
@@ -799,49 +885,90 @@ if ("dstored" in localStorage) {
 // and use in scoreentry
 //=====================================
 async function getData() {
-if (!("dstored" in localStorage && dstored == localStorage.dstored)) {
+
+
+//if (!("dstored" in localStorage && dstored == localStorage.dstored)) {
 	var dataStream = await fetch("https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/setupcsv")
+	
+	
+	
 	var resultsarray = await dataStream.json()	
+	
 	// get rid of blanks in array by creating new arrays
 	for(var i = 0; i < resultsarray.length; i++) {
 		if(resultsarray[i].players.length > 2) {
 			arrPlayers.push(resultsarray[i].players);
 			arrHcp.push(resultsarray[i].hcp);
                         // comps is shorter than players and hcps
-                        // so cobtains empty items that need to be removed
+                        // so contains empty items that need to be removed
 			sparseArrComps.push(resultsarray[i].comps);
 		}
 	}
 	// remove empty items
 	arrComps = sparseArrComps.filter(function (el) {return el != null;});
 
+
+// testing
+        // add value to start of array
+	arrComps.unshift("OldCourse 09 March 2024")
+	localStorage.setItem("compday","yes")
+        console.log(arrComps)
+
+
+
+
+
+
+
+
+
 	// overwrite saved data in localStorage
 	// players
-	localStorage.playersarray = JSON.stringify(arrPlayers);
+	localStorage.wplayersarray = JSON.stringify(arrPlayers);
 	// hcps
-	localStorage.hcparray = JSON.stringify(arrHcp);
+	localStorage.whcparray = JSON.stringify(arrHcp);
 	// comps
-	localStorage.compsarray = JSON.stringify(arrComps);
+	localStorage.wcompsarray = JSON.stringify(arrComps);
 
         // tag date to saved data
         localStorage.dstored = dstored
 
         afterGetData();
        
-} else {
+//} else {
        // recover arrays moved to next function
-       afterGetData();
+ //      afterGetData();
 
-}
+//}
 
 }	
 
 
 function afterGetData() {
 
-	if ("compsarray" in localStorage) {
-	    arrComps = JSON.parse(localStorage.compsarray);
+	if ("wcompsarray" in localStorage) {
+	    arrComps = JSON.parse(localStorage.wcompsarray);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
         getNextComps();
       
