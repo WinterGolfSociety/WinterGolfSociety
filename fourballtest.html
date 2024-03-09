@@ -180,7 +180,7 @@
          color: white;
          background: dodgerBlue;
          border: 1px solid white;
-         box-shadow: inset blue 0px 0px 60px -12px;	
+     //    box-shadow: inset blue 0px 0px 60px -12px;	
          }
          .grid-container-middle
          {
@@ -230,7 +230,7 @@
          color: white;
          background: dodgerBlue;
          border: 1px solid white;
-         box-shadow: inset blue 0px 0px 60px -12px;
+  //       box-shadow: inset blue 0px 0px 60px -12px;
          }
          .scorehigh
          {
@@ -255,7 +255,7 @@
          padding-left: 2px;
          padding-right: 2px;
          padding-bottom: 10px;
-         box-shadow: inset black 0px 0px 60px -12px;
+     //    box-shadow: inset black 0px 0px 60px -12px;
          }
          #p1h0, #p2h0, #p3h0, #p4h0 {
          padding-top: 5px;
@@ -323,6 +323,34 @@
     box-shadow: 10px 10px 25px black;
     }
     
+    #submittxt {
+    display: none;
+
+         position: absolute;
+         top: 5vh;
+         left: 2vw;
+         height: 60vh;
+         width: 40vw;
+
+         color: white;
+         background-color: dimGray;
+         opacity: 0.9;
+         border-radius:10px;
+        // padding-left: 2vw;
+          
+         box-shadow: inset black 0px 0px 60px -12px;
+         
+         
+        
+         }
+    
+    #senddata1 {
+    //object-fit: contain;
+    //padding-left: 5vw;
+             margin: auto;
+             width: 40vw;
+             height: 50vh;
+    }
     #my-response-iframe, #my-form {
     display: none;
     }  
@@ -395,6 +423,10 @@
          <div class="small scorelow" id="score0" onclick="numberScore(this.id)">0</div>
          <div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
       </div>
+      
+      
+      <div id="submittxt"></div>
+      
       <div id="info" onclick="hideInfo()">
          <div id="x1"></div>
          <div class="grid-container-popup">
@@ -619,7 +651,7 @@ var allleaderplayer = "";
 var allleaderholes = 0;
 var allwincount = 0;
 
-
+var submitpressed
 
 
 
@@ -1450,8 +1482,10 @@ function displayInfo() {
 }
 
 function hideInfo() {
-	document.getElementById("info").style.display = "none"
+document.getElementById("info").style.display = "none"
+
 }
+
 // calculated additional totals, countback etc.
 function totalScore() {
 	// front 9 scores
@@ -1966,6 +2000,72 @@ whichhole = lastOne;
 	document.getElementById("p1name").classList.add("highlight");
 	// retrieve scores   
 	getScores()
+}
+
+function submit4() {
+document.getElementById("submittxt").innerHTML = "<p>" + player1name + " data uploading</p><img src='senddata1.gif' id='senddata1'>"
+document.getElementById("submittxt").style.display = "block"
+
+
+       // save new hcps
+        // submit new data - asychronous after first so does not cause a delay
+        delay1 = 2000
+        delay2 = 4000
+        delay3 = 6000
+        delay4 = 8000
+        delay5 = 10000
+//				document.getElementById('mx867055232').value = player1name;
+//				document.getElementById('mx2105479454').value = player1hcp;
+//				document.forms[0].submit();
+
+		// delay others
+
+				setTimeout(function() {
+//					document.getElementById('mx867055232').value = player2name;
+//					document.getElementById('mx2105479454').value = player2hcp;
+//					document.forms[0].submit();
+console.log("2nd player")
+document.getElementById("submittxt").innerHTML = "<p>" + player2name + " data uploading</p><img src='senddata1.gif' id='senddata1'>"
+				}, delay1);
+
+				setTimeout(function() {
+//					document.getElementById('mx867055232').value = player3name;
+//					document.getElementById('mx2105479454').value = player3hcp;
+//					document.forms[0].submit();
+console.log("3rd player")
+document.getElementById("submittxt").innerHTML = "<p>" + player3name + " data uploading</p><img src='senddata1.gif' id='senddata1'>"
+				}, delay2);
+
+				setTimeout(function() {
+//					document.getElementById('mx867055232').value = player4name;
+//					document.getElementById('mx2105479454').value = player4hcp;
+//					document.forms[0].submit();
+console.log("4th player")
+document.getElementById("submittxt").innerHTML = "<p>" + player4name + " data uploading</p><img src='senddata1.gif' id='senddata1'>"
+				}, delay3);
+
+		
+	
+setTimeout(function() {
+//					document.getElementById('mx867055232').value = player4name;
+//					document.getElementById('mx2105479454').value = player4hcp;
+//					document.forms[0].submit();
+console.log("completed")
+document.getElementById("submittxt").innerHTML = "<p>completed data uploading</p><img src='tick1.png' id='senddata1'>"
+				}, delay4);
+
+setTimeout(function() {
+//					document.getElementById('mx867055232').value = player4name;
+//					document.getElementById('mx2105479454').value = player4hcp;
+//					document.forms[0].submit();
+console.log("closing")
+document.getElementById("submittxt").style.display = "none"
+				}, delay5);
+
+
+
+
+
 }
 
       </script>
