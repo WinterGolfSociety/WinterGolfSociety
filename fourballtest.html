@@ -327,18 +327,18 @@
     display: none;
 
          position: absolute;
-         top: 5vh;
-         left: 2vw;
-         height: 40vh;
-         width: 90vw;
+         top: 30vh;
+         left: 30vw;
+         height: 30vh;
+         width: 22vw;
 
          color: white;
          background-color: dimGray;
-         opacity: 0.9;
+    //     opacity: 0.7;
          border-radius:10px;
-        // padding-left: 2vw;
+        padding: 1vh;
           
-         box-shadow: inset black 0px 0px 60px -12px;
+    //     box-shadow: inset black 0px 0px 60px -12px;
          
          
         
@@ -350,6 +350,14 @@
              margin: auto;
              width: 80vw;
              height: 30vh;
+             
+             
+             
+             position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+             
+             
     }
     #my-response-iframe, #my-form {
     display: none;
@@ -2003,7 +2011,7 @@ whichhole = lastOne;
 }
 
 function submit4() {
-document.getElementById("submittxt").innerHTML = "<p>" + player1name + " data uploading</p><img src='senddata1.gif' id='senddata1'>"
+document.getElementById("submittxt").innerHTML = "<div>" + player1name + " data uploading<br><img src='senddata1.gif' id='senddata1' style='height:10vw;width:20vw'></div>"
 document.getElementById("submittxt").style.display = "block"
 
 
@@ -2025,7 +2033,7 @@ document.getElementById("submittxt").style.display = "block"
 //					document.getElementById('mx2105479454').value = player2hcp;
 //					document.forms[0].submit();
 console.log("2nd player")
-document.getElementById("submittxt").innerHTML = "<p>" + player2name + " data uploading</p><img src='senddata1.gif' id='senddata1'>"
+document.getElementById("submittxt").innerHTML = "<div>" + player2name + " data uploading<br><img src='senddata1.gif' id='senddata1' style='height:10vw;width:20vw'></div>"
 				}, delay1);
 
 				setTimeout(function() {
@@ -2033,7 +2041,7 @@ document.getElementById("submittxt").innerHTML = "<p>" + player2name + " data up
 //					document.getElementById('mx2105479454').value = player3hcp;
 //					document.forms[0].submit();
 console.log("3rd player")
-document.getElementById("submittxt").innerHTML = "<p>" + player3name + " data uploading</p><img src='senddata1.gif' id='senddata1'>"
+document.getElementById("submittxt").innerHTML = "<div>" + player3name + " data uploading<br><img src='senddata1.gif' id='senddata1' style='height:10vw;width:20vw'></div>"
 				}, delay2);
 
 				setTimeout(function() {
@@ -2041,7 +2049,7 @@ document.getElementById("submittxt").innerHTML = "<p>" + player3name + " data up
 //					document.getElementById('mx2105479454').value = player4hcp;
 //					document.forms[0].submit();
 console.log("4th player")
-document.getElementById("submittxt").innerHTML = "<p>" + player4name + " data uploading</p><img src='senddata1.gif' id='senddata1'>"
+document.getElementById("submittxt").innerHTML = "<div>" + player4name + " data uploading<br><img src='senddata1.gif' id='senddata1' style='height:10vw;width:20vw'></div>"
 				}, delay3);
 
 		
@@ -2051,7 +2059,8 @@ setTimeout(function() {
 //					document.getElementById('mx2105479454').value = player4hcp;
 //					document.forms[0].submit();
 console.log("completed")
-document.getElementById("submittxt").innerHTML = "<p>completed data uploading</p><img src='tick1.png' id='senddata1' style='height:20vh;width:20vw'>"
+document.getElementById("submittxt").style.backgroundColor = "transparent"; 
+document.getElementById("submittxt").innerHTML = "<div>completed data uploading<br><img src='tick1.png' id='senddata1' style='height:15vw;width:15vw'></div>"
 				}, delay4);
 
 setTimeout(function() {
@@ -2060,6 +2069,7 @@ setTimeout(function() {
 //					document.forms[0].submit();
 console.log("closing")
 document.getElementById("submittxt").style.display = "none"
+document.getElementById("submittxt").style.backgroundColor = "dimGray"; 
 				}, delay5);
 
 
