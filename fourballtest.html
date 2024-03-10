@@ -395,6 +395,7 @@
          </div>
       </div>
       <div id="all">
+      <div id="toblur">
       <div class="grid-container-top">
          <div id="holedetails" onclick="displayInfo()"></div>
       </div>
@@ -422,7 +423,7 @@
          <div class="small scorelow" id="score0" onclick="numberScore(this.id)">0</div>
          <div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
       </div>
-      
+      </div> <!-- toblur -->
       <div id="submittxt1"></div>
       <div id="submittxt"></div>
       
@@ -2002,6 +2003,13 @@ whichhole = lastOne;
 }
 
 function submit4() {
+
+// blur background
+document.getElementById("toblur").style.filter = "blur(4px) grayscale(90%)"; 
+ 
+
+
+
 document.getElementById("submittxt1").innerHTML = player1name + " uploading"
 document.getElementById("submittxt").innerHTML = "<img src='senddata1.gif' id='senddata1' style='height:70%;width:90%'>"
 document.getElementById("submittxt1").style.display = "block"
@@ -2087,6 +2095,16 @@ document.getElementById("submittxt").top = "5%"
 document.getElementById("submittxt1").style.display = "none"
 document.getElementById("submittxt").style.display = "none"
 //document.getElementById("submittxt").style.backgroundColor = "dimGray"; 
+
+
+// unblur background
+document.getElementById("toblur").style.filter = "blur(0px)"; 
+
+
+
+
+
+
 				}, delay5);
 
 
