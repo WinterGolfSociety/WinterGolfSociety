@@ -320,28 +320,30 @@
     
     #submittxt {
          display: none;
-         font-size: 2vh;
+       //  font-size: 2vh;
          position: absolute;
          top: 30%;
          left: 1%;
-         max-height: 60%;
-         width: 93%;
-         color: white;
-         background-color: dodgerBlue; //transparent;
-         border-radius:10px;
-         padding: 1vh;
-         border: 2px solid darkSlateGray;
-         box-shadow: 10px 10px 25px black;
+       //  max-height: 60%;
+        // width: 93%;
+        // color: white;
+         background-color: transparent;
+        // border-radius:10px;
+        // padding: 1vh;
+        // border: 2px solid darkSlateGray;
+       //  box-shadow: 10px 10px 25px black;
          }
     
     #submittxt1 {
+    
+    
          display: none;
          font-size: 3vh;
          position: absolute;
          top: 0;
          left: 1vw;
          color: white;
-         background-color: dodgerBlue;
+         background-color: dodgerBlue; //ForestGreen; //SeaGreen;
          border-radius:10px;
          padding: 4vh 2vh;
          border: 2px solid darkSlateGray;
@@ -349,10 +351,12 @@
          }
         
     #senddata1 {
-             margin: auto;
-             width: 80vw;
-             height: 30vh;
-             }
+         background-color: dodgerBlue;
+         border-radius:10px;
+         padding: 4vh 2vh;
+         border: 2px solid darkSlateGray;
+         box-shadow: 10px 10px 25px black;
+         }
     
     #my-response-iframe, #my-form {
     display: none;
@@ -2016,64 +2020,75 @@ document.getElementById("submittxt1").style.display = "block"
 document.getElementById("submittxt").style.display = "block"
 
 // submit new data - asychronous after first so does not cause a delay
-delay1 = 2000
-delay2 = 4000
-delay3 = 6000
-delay4 = 8000
-delay5 = 10000
+
 // player 1
+if (player1name !== "no player") {
 //				document.getElementById('mx867055232').value = player1name;
 //				document.getElementById('mx2105479454').value = player1hcp;
 //				document.forms[0].submit();
-
+delay2 = 2000
+delay5 = 4000
+delay6 = 6000
+}
 // delay others
 // player 2
+if (player2name !== "no player") {
+delay3 = 4000
+delay5 = 6000
+delay6 = 8000
 setTimeout(function() {
-//					document.getElementById('mx867055232').value = player2name;
-//					document.getElementById('mx2105479454').value = player2hcp;
-//					document.forms[0].submit();
-document.getElementById("submittxt1").innerHTML = player2name + " .. uploading"
-                      }, delay1);
+   //					document.getElementById('mx867055232').value = player2name;
+   //					document.getElementById('mx2105479454').value = player2hcp;
+   //					document.forms[0].submit();
+   document.getElementById("submittxt1").innerHTML = player2name + " .. uploading"
+}, delay2);
+}
+
 // player 3
+if (player3name !== "no player") {
+delay4 = 6000
+delay5 = 8000
+delay6 = 10000
 setTimeout(function() {
-//					document.getElementById('mx867055232').value = player3name;
-//					document.getElementById('mx2105479454').value = player3hcp;
-//					document.forms[0].submit();
-document.getElementById("submittxt1").innerHTML = player3name + " .. uploading"
-                      }, delay2);
+   //					document.getElementById('mx867055232').value = player3name;
+   //					document.getElementById('mx2105479454').value = player3hcp;
+   //					document.forms[0].submit();
+   document.getElementById("submittxt1").innerHTML = player3name + " .. uploading"
+}, delay3);
+}
+
 // player 4
+if (player4name !== "no player") {
+delay5 = 10000
+delay6 = 12000
 setTimeout(function() {
-//					document.getElementById('mx867055232').value = player4name;
-//					document.getElementById('mx2105479454').value = player4hcp;
-//					document.forms[0].submit();
-document.getElementById("submittxt1").innerHTML = player4name + " .. uploading"
-                     }, delay3);
-		
+   //					document.getElementById('mx867055232').value = player4name;
+   //					document.getElementById('mx2105479454').value = player4hcp;
+   //					document.forms[0].submit();
+   document.getElementById("submittxt1").innerHTML = player4name + " .. uploading"
+}, delay4);
+}		
 // completed	
 setTimeout(function() {
-document.getElementById("submittxt1").innerHTML = "completed"
-// change to green tick
-document.getElementById("submittxt").top = "50%"
-document.getElementById("submittxt").top = "20%"  
-document.getElementById("submittxt").style.background = "transparent"; 
-document.getElementById("submittxt").style.border = "none";
-document.getElementById("submittxt").style.boxShadow = "none";
-document.getElementById("submittxt").innerHTML = "<div><img src='tick1.png' id='senddata1' style='height:50vw;width:50vw'></div>"
-                    }, delay4);
+   document.getElementById("submittxt1").innerHTML = "completed"
+   // change to green tick
+   document.getElementById("submittxt").top = "50%"
+   document.getElementById("submittxt").top = "20%"  
+   document.getElementById("submittxt").innerHTML = "<div><img src='tick1.png' id='senddata1' style='height:50vw;width:50vw'></div>"
+}, delay5);
+                    
 // close
 setTimeout(function() {
-// reset to orignal CSS so a resubmit goes through same process
-document.getElementById("submittxt1").style.display = "none"
-document.getElementById("submittxt").style.display = "none"
+   // reset to orignal CSS so a resubmit goes through same process
+   document.getElementById("submittxt1").style.display = "none"
+   document.getElementById("submittxt").style.display = "none"
 
-document.getElementById("submittxt").top = "30%" 
-document.getElementById("submittxt").top = "5%" 
-document.getElementById("submittxt").style.background = "dodgerBlue"; 
-document.getElementById("submittxt").style.border = "2px solid darkSlateGray";
-document.getElementById("submittxt").style.boxShadow = "10px 10px 25px black";
-// unblur background
-document.getElementById("toblur").style.filter = "blur(0px)"; 
-                     }, delay5);
+   document.getElementById("submittxt").top = "30%" 
+   document.getElementById("submittxt").top = "5%" 
+
+   // unblur background and return to menu
+   document.getElementById("toblur").style.filter = "blur(0px)"; 
+}, delay6);
 
 }
 
