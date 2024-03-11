@@ -328,11 +328,10 @@
          width: 94%;
          color: white;
          background-color: dodgerBlue; //transparent;
-         
-         box-shadow: inset white 0px 0px 60px -12px;
-         
          border-radius:10px;
          padding: 1vh;
+         border: 2px solid darkSlateGray;
+         box-shadow: 10px 10px 25px black;
          }
     
     #submittxt1 {
@@ -345,6 +344,8 @@
          background-color: dodgerBlue;
          border-radius:10px;
          padding: 4vh 2vh;
+         border: 2px solid darkSlateGray;
+         box-shadow: 10px 10px 25px black;
          }
         
     #senddata1 {
@@ -2013,7 +2014,7 @@ document.getElementById("toblur").style.filter = "blur(4px) contrast(5%)";
 
 
 
-document.getElementById("submittxt1").innerHTML = player1name + " uploading"
+document.getElementById("submittxt1").innerHTML = player1name + " data uploading"
 document.getElementById("submittxt").innerHTML = "<img src='senddata1.gif' id='senddata1' style='height:70%;width:90%'>"
 document.getElementById("submittxt1").style.display = "block"
 document.getElementById("submittxt").style.display = "block"
@@ -2037,7 +2038,7 @@ document.getElementById("submittxt").style.display = "block"
 //					document.getElementById('mx2105479454').value = player2hcp;
 //					document.forms[0].submit();
 console.log("2nd player")
-document.getElementById("submittxt1").innerHTML = player2name + " uploading"
+document.getElementById("submittxt1").innerHTML = player2name + " data uploading"
 //document.getElementById("submittxt").innerHTML = "<img src='senddata1.gif' id='senddata1' style='height:50%;width:90%'>"
 //document.getElementById("submittxt1").style.display = "block"
 //document.getElementById("submittxt").style.display = "block"
@@ -2050,7 +2051,7 @@ document.getElementById("submittxt1").innerHTML = player2name + " uploading"
 //					document.getElementById('mx2105479454').value = player3hcp;
 //					document.forms[0].submit();
 console.log("3rd player")
-document.getElementById("submittxt1").innerHTML = player3name + " uploading"
+document.getElementById("submittxt1").innerHTML = player3name + " data uploading"
 //document.getElementById("submittxt").innerHTML = "<img src='senddata1.gif' id='senddata1' style='height:50%;width:90%'>"
 //document.getElementById("submittxt1").style.display = "block"
 //document.getElementById("submittxt").style.display = "block"
@@ -2061,7 +2062,7 @@ document.getElementById("submittxt1").innerHTML = player3name + " uploading"
 //					document.getElementById('mx2105479454').value = player4hcp;
 //					document.forms[0].submit();
 console.log("4th player")
-document.getElementById("submittxt1").innerHTML = player4name + " uploading"
+document.getElementById("submittxt1").innerHTML = player4name + " data uploading"
 //document.getElementById("submittxt").innerHTML = "<img src='senddata1.gif' id='senddata1' style='height:50%;width:90%'>"
 //document.getElementById("submittxt1").style.display = "block"
 //document.getElementById("submittxt").style.display = "block"
@@ -2082,10 +2083,12 @@ document.getElementById("submittxt1").innerHTML = "completed"
 //document.getElementById("submittxt").style.display = "block"
 
 
-
+// change to green tick
 document.getElementById("submittxt").top = "50%"
 document.getElementById("submittxt").top = "20%"  
 document.getElementById("submittxt").style.background = "transparent"; 
+document.getElementById("submittxt").style.border = "none";
+document.getElementById("submittxt").style.boxShadow = "none";
 document.getElementById("submittxt").innerHTML = "<div><img src='tick1.png' id='senddata1' style='height:50vw;width:50vw'></div>"
 				}, delay4);
 
@@ -2094,11 +2097,17 @@ setTimeout(function() {
 //					document.getElementById('mx2105479454').value = player4hcp;
 //					document.forms[0].submit();
 console.log("closing")
+// reset to orignal CSS so a resubmit goes through same process
+document.getElementById("submittxt1").style.display = "none"
+document.getElementById("submittxt").style.display = "none"
+
 document.getElementById("submittxt").top = "30%" 
 document.getElementById("submittxt").top = "5%" 
 document.getElementById("submittxt").style.background = "dodgerBlue"; 
-document.getElementById("submittxt1").style.display = "none"
-document.getElementById("submittxt").style.display = "none"
+document.getElementById("submittxt").style.border = "2px solid darkSlateGray";
+document.getElementById("submittxt").style.boxShadow = "10px 10px 25px black";
+
+
 //document.getElementById("submittxt").style.backgroundColor = "dimGray"; 
 
 
