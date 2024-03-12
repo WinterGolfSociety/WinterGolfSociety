@@ -2072,8 +2072,8 @@ setTimeout(function() {
 setTimeout(function() {
    document.getElementById("submittxt1").innerHTML = "completed"
    // change to green tick
-   document.getElementById("submittxt").top = "50%"
-   document.getElementById("submittxt").left = "20%"  
+   document.getElementById("submittxt").style.top = "50%"
+   document.getElementById("submittxt").style.left = "20%"  
    document.getElementById("submittxt").innerHTML = "<div><img src='tick1.png' id='senddata1' style='height:50vw;width:50vw'></div>"
 }, delay5);
                     
@@ -2083,8 +2083,8 @@ setTimeout(function() {
    document.getElementById("submittxt1").style.display = "none"
    document.getElementById("submittxt").style.display = "none"
 
-   document.getElementById("submittxt").top = "30%" 
-   document.getElementById("submittxt").left = "5%" 
+   document.getElementById("submittxt").style.top = "30%" 
+   document.getElementById("submittxt").style.left = "5%" 
 
    // unblur background and return to menu
    document.getElementById("toblur").style.filter = "blur(0px)"; 
