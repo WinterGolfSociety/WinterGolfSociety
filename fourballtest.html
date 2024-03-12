@@ -2016,10 +2016,10 @@ document.getElementById("submittxt").innerHTML = "<img src='senddata1.gif' id='s
 document.getElementById("submittxt1").innerHTML = player1name + " .. uploading"
 // blur background
 document.getElementById("toblur").style.filter = "blur(4px) contrast(5%)"; 
-
+setTimeout(function() {
 document.getElementById("submittxt1").style.display = "block"
 document.getElementById("submittxt").style.display = "block"
-
+}, 100);
 // submit new data - asychronous after first so does not cause a delay
 
 // player 1
