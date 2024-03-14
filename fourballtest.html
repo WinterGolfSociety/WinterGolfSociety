@@ -134,6 +134,20 @@
          background: dodgerBlue;
          border-radius: 5px;
          }
+         
+         #compbutton {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         color: white;
+         height: 10vh;
+         width: 100%;
+         font-size: 3vmax;
+         border: 2px solid silver;
+         background: dodgerBlue;
+         border-radius: 5px;
+         }
+         
          #startscoring {
          display: none;
          }
@@ -395,9 +409,9 @@
                <div class="spacer1"></div>
             </div>
             <div class="grid-container-frontscreen">
-               <div><button id="dawsonbutton" onclick="chooseCourse(this.id)">Dawson</button></div>
-               <div><button id="lakesbutton" onclick="chooseCourse(this.id)">Lakes</button></div>
-               <div><button id="oldcoursebutton" onclick="chooseCourse(this.id)">OldCourse</button></div>
+               <div></div>
+               <div id="compbutton">no competition</div>
+               <div></div>
             </div>
             
          </div>
@@ -735,11 +749,13 @@ arrOldCourse = [
 ];
 
 // prevent accidental closing
-window.addEventListener("beforeunload", function (e) {
+window.addEventListener("beforeunload", stopexit) 
+
+function stopexit(e) {
    // Cancel the event
    e.preventDefault();
    e.returnValue = "";
-});
+};
 
 /*
 // 1st hole
@@ -762,8 +778,8 @@ if("whcparray" in localStorage) {
 	arrHCPs = JSON.parse(localStorage.whcparray);
 }
 
-showDownloadingInfoMsg();
-
+//showDownloadingInfoMsg();
+chooseCourse()
 startNewDay();
 //=============================================================
 // functions - run when called
@@ -817,6 +833,17 @@ function startNewDay() {
 	dateToday = d1 + " " + m;
 	dstored = d1 + "-" + d2
 	compdate = d1 + " " + m;
+
+
+
+if (localStorage.wthisComp.indexOf(dateToday) > -1) {
+document.getElementById("compbutton").innerText = "competition " + localStorage.wthisComp
+} else {
+document.getElementById("compbutton").innerText = "no competition"
+}
+
+
+
 
 //	if(localStorage.wcompdate !== compdate) {
 		// create set of local storage items	
@@ -1267,9 +1294,9 @@ function outputPlayers(msg) {
 		if(msglist == "") {
 			msglist = msg;
 			// enable scoring button if player there and course chosen
-			if(compcourse !== "none") {
+//			if(compcourse !== "none") {
 				document.getElementById("startscoring").style.display = "block";
-			}
+//			}
 		} else {
 			msglist += "#" + msg
 		}
@@ -1310,23 +1337,16 @@ function outputPlayers(msg) {
 	body();
 }
 
-function chooseCourse(id) {
-	document.getElementById("dawsonbutton").style.opacity = "0.3";
-	document.getElementById("lakesbutton").style.opacity = "0.3";
-	document.getElementById("oldcoursebutton").style.opacity = "0.3";
-	document.getElementById(id).style.opacity = "1.0";
-	compcourse = id.replace("button", "");
-	compcourse = compcourse.replace("dawson", "Dawson")
-	compcourse = compcourse.replace("lakes", "Lakes")
-	compcourse = compcourse.replace("oldcourse", "OldCourse")
+function chooseCourse() {
+	
 		// choose course
-	if(compcourse == "Dawson") {
+	if(localStorage.wthisComp.indexOf("Dawson") > -1) {
 		arrCourse = arrDeepCopy(arrDawson);
 	}
-	if(compcourse == "Lakes") {
+	if(localStorage.wthisComp.indexOf("Lakes") > -1) {
 		arrCourse = arrDeepCopy(arrLakes);
 	}
-	if(compcourse == "OldCourse") {
+	if(localStorage.wthisComp.indexOf("OldCourse") > -1) {
 		arrCourse = arrDeepCopy(arrOldCourse);
 	}
 	if(document.getElementById("player4ballplayer").innerText !== "no players have been added") {
@@ -1637,7 +1657,7 @@ var testx = "123456789"
 		document.getElementById("popuppanel").innerHTML = tempt;
 		document.getElementById("popuppanel").style.display = "block";
 	} else {
-		clearLocalStorage()
+//		clearLocalStorage()
 		document.getElementById("popuppanel").style.display = "none";
 	}
 }
@@ -2029,14 +2049,14 @@ if (player1name !== "no player") {
 //				document.forms[0].submit();
 delay2 = 2000
 delay5 = 4000
-delay6 = 6000
+delay6 = 5500
 }
 // delay others
 // player 2
 if (player2name !== "no player") {
 delay3 = 4000
 delay5 = 6000
-delay6 = 8000
+delay6 = 7500
 setTimeout(function() {
    //					document.getElementById('mx867055232').value = player2name;
    //					document.getElementById('mx2105479454').value = player2hcp;
@@ -2049,7 +2069,7 @@ setTimeout(function() {
 if (player3name !== "no player") {
 delay4 = 6000
 delay5 = 8000
-delay6 = 10000
+delay6 = 95000
 setTimeout(function() {
    //					document.getElementById('mx867055232').value = player3name;
    //					document.getElementById('mx2105479454').value = player3hcp;
@@ -2061,7 +2081,7 @@ setTimeout(function() {
 // player 4
 if (player4name !== "no player") {
 delay5 = 10000
-delay6 = 12000
+delay6 = 11500
 setTimeout(function() {
    //					document.getElementById('mx867055232').value = player4name;
    //					document.getElementById('mx2105479454').value = player4hcp;
@@ -2077,6 +2097,19 @@ setTimeout(function() {
    document.getElementById("submittxt").style.left = "20%"  
    document.getElementById("submittxt").innerHTML = "<div><img src='tick1.png' id='senddata1' style='height:50vw;width:50vw'></div>"
 }, delay5);
+ 
+// return to main menu
+setTimeout(function() {
+// reverse the prevent accidental closing
+window.removeEventListener("beforeunload", stopexit)
+history.back()
+//   window.location.assign("winter2023v2.html");
+}, delay6);
+ 
+ 
+ 
+ 
+ 
                     
 // close
 setTimeout(function() {

@@ -846,7 +846,9 @@ dstored = d1 + "-" + d2;
 			
 			if(darr.toString().substring(0,15) == dd.toString().substring(0,15) && dlistcount < 4) {
 				
-				localStorage.setItem("compday","yes")
+				localStorage.setItem("wcompday","yes")
+				
+				localStorage.setItem("wthisComp",arrComps[i]);
 				
 				if (arrComps[i].indexOf("Lakes") > -1) {
 					tempd = '<p style="color:white;">Lakes - competition today</p>';
@@ -911,9 +913,9 @@ async function getData() {
 
 // testing
         // add value to start of array
-	arrComps.unshift("OldCourse 09 March 2024")
-	localStorage.setItem("compday","yes")
-        console.log(arrComps)
+	arrComps.unshift("OldCourse 14 March 2024")
+	localStorage.setItem("wcompday","yes")
+       // console.log(arrComps)
 
 
 
@@ -932,7 +934,7 @@ async function getData() {
 	localStorage.wcompsarray = JSON.stringify(arrComps);
 
         // tag date to saved data
-        localStorage.dstored = dstored
+        localStorage.wdstored = dstored
 
         afterGetData();
        
@@ -941,7 +943,7 @@ async function getData() {
  //      afterGetData();
 
 //}
-alert(localStorage.wplayersarray)
+//alert(localStorage.wplayersarray)
 }	
 
 
