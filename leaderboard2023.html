@@ -76,6 +76,11 @@ body {
 color: darkSlateGray;
         padding-left: 10px;
 }
+#noresults {
+color: dodgerBlue;
+font-size: 5vw;
+}
+
 </style>
 <body>
 <div id="notyet"></div>
@@ -215,7 +220,7 @@ async function getData() {
 		//document.getElementById("footer").innerHTML = '';
 		setTimeout(function() {
 			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 5 seconds"
-		document.getElementById("notyet").innerHTML = '<img src="not-yet.png" height="170px" width="165px"></img>';		
+		document.getElementById("notyet").innerHTML = '<div id="noresults"><br>No results to Display</div>';		
 		}, 200)
 		setTimeout(function() {
 			document.getElementById("nocomp").innerHTML = "<br><br><br>No results to display<br>returning to menu in 4 seconds"
