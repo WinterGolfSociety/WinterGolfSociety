@@ -343,8 +343,20 @@
 	}
 
 	function updatehcp() {
+				
 		// get 4 players hcp's
-		if(document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0) {
+		if(document.getElementById("nhcp1").value > 0 && 
+		   document.getElementById("nhcp2").value > 0 && 
+		   document.getElementById("nhcp3").value > 0 && 
+		   document.getElementById("nhcp4").value > 0) {
+		   
+		   // 4 players hcps entered
+		   document.getElementById("splayinghcp1").style.display = "block";
+		   document.getElementById("splayinghcp2").style.display = "block";
+		   document.getElementById("splayinghcp3").style.display = "block";
+		   document.getElementById("splayinghcp4").style.display = "block";
+		   
+		   
 			let vhcp1 = document.getElementById("nhcp1").value
 			let vhcp2 = document.getElementById("nhcp2").value
 			let vhcp3 = document.getElementById("nhcp3").value
@@ -414,7 +426,16 @@
 			}
 			
 			document.getElementById("splayinghcp4").innerHTML = "Player 4 (" + vhcp4 + ")<br>course hcp = " + vcoursehcp4 + "<br>difference = " + vcoursehcp40 + "<br>after adjustment = " + var4t + "<br><br>gets " + var4 + " " + sss
+		} else {
+		  // less than 4 players hcps entered
+		  document.getElementById("splayinghcp1").style.display = "none";
+		  document.getElementById("splayinghcp2").style.display = "none";
+		  document.getElementById("splayinghcp3").style.display = "none";
+		  document.getElementById("splayinghcp4").style.display = "none";
 		}
+		
+		
+		
 	}
 	</script>
 </body>
