@@ -366,7 +366,7 @@
         
     #senddata1 {
          background-color: dodgerBlue;
-         border-radius:10px;
+         border-radius: 10px;
          padding: 2vh 2vh;
          border: 2px solid darkSlateGray;
          box-shadow: 10px 10px 25px black;
@@ -861,38 +861,12 @@ function startNewDay() {
 		}
 	}
 }
-/*
-async function getData() {
-	var dataStream = 
-	await fetch("https://opensheet.elk.sh/1xeS22CrN3Mdq2nRQLACDBN7iaMSBJ7MM1PX7gikWOJM/sweepcsv")
-	var resultsarray = await dataStream.json();
-	// get rid of blanks in array by creating new arrays
-	for(var i = 0; i < resultsarray.length; i++) {
-		if(resultsarray[i].player.length > 2) {
-			arrPlayers.push(resultsarray[i].player);
-			arrHCPs.push(resultsarray[i].hcp);
-		}
-	}
-	document.getElementById("popuppanel").style.display = "none";
-	start();
-	showRecoverChoice()
-}
-getData()
-*/
-
 
 
 
 document.getElementById("popuppanel").style.display = "none";
 	start();
 	showRecoverChoice()
-
-
-
-
-
-
-
 
 
 
@@ -1062,10 +1036,7 @@ return firstPlayername;
 }
 
 function body() {
-//y1array = player1name.split(" ")
-//y2array = player2name.split(" ")
-//y3array = player3name.split(" ")
-//y4array = player4name.split(" ")
+
 // for 4 ball
 document.getElementById("p1name").innerText = shortName(player1name) + " (" + player1hcp + ") ";
 document.getElementById("p2name").innerText = shortName(player2name) + " (" + player2hcp + ") ";
@@ -2035,7 +2006,8 @@ function submit4() {
 document.getElementById("submittxt").innerHTML = "<img src='senddata1.gif' id='senddata1' style='height:70%;width:90%'>"
 document.getElementById("submittxt1").innerHTML = player1name + " .. uploading"
 // blur background
-document.getElementById("toblur").style.filter = "blur(4px) contrast(5%)"; 
+//document.getElementById("toblur").style.filter = "blur(4px) contrast(5%)"; 
+document.getElementById("toblur").style.filter = "blur(1px) contrast(1%)"; 
 setTimeout(function() {
 document.getElementById("submittxt1").style.display = "block"
 document.getElementById("submittxt").style.display = "block"
@@ -2095,7 +2067,15 @@ setTimeout(function() {
    // change to green tick
    document.getElementById("submittxt").style.top = "50%"
    document.getElementById("submittxt").style.left = "20%"  
+   
+   
+   
+   
+   
    document.getElementById("submittxt").innerHTML = "<div><img src='tick1.png' id='senddata1' style='height:50vw;width:50vw'></div>"
+   
+   document.getElementById("senddata1").style.borderRadius = "50%";
+   
 }, delay5);
  
 // return to main menu
@@ -2119,6 +2099,10 @@ setTimeout(function() {
 
    document.getElementById("submittxt").style.top = "30%" 
    document.getElementById("submittxt").style.left = "5%" 
+
+
+document.getElementById("senddata1").style.borderRadius = "10px";
+
 
    // unblur background and return to menu
    document.getElementById("toblur").style.filter = "blur(0px)"; 
