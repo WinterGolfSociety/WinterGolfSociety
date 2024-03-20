@@ -2,394 +2,441 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="ie=edge" http-equiv="X-UA-Compatible">
 	<meta content="Bryan M" name="author">
-        <title>hcp calc</title>
-        <link href="favicon.ico" rel="icon" type="image/x-icon">
-	<script src="jquery-3.6.0.min.js" type="text/javascript">
-	</script>
+	<title>hcp calc</title>
+	<link href="favicon.ico" rel="icon" type="image/x-icon">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 	<style>
 	body {
-      
-      margin:0px;
-      padding:0px;
-      width:100%;
-      
-      width: 96%;
-      margin-left:2%;
-      margin-right:auto;
-      
+		//margin: 0px;
+		//padding: 0px;
+		//width: 100%;
+		//width: 94vw;
+		//margin-left: 2%;
+		//margin-right: auto;
+		//padding-left: 1vw;
 		height: 100vh;
 		background-color: Gray;
-   	//	background-image: url('golfer-clipart.png');
-   	//	background-repeat: no-repeat;
-   	//	background-size: cover;
- 
- 
- //background-repeat: no-repeat, no-repeat;
- //background-image: url("LHShield.png"), url("golfergray.png");
- //background-blend-mode: overlay;
- //background-position: 50% 50%, left top;//50% 50%, left top;  
-    
- 
- 
 		background-attachment: fixed;
 		font-family: 'arial';
 		color: white;
+		
+		
+		text-align: center;
+		
 	}
 	
 	.stxt {
 		text-align: center;
 		font-size: 30px;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      
-      
-      
-      
 	}
 	
-		
 	h2 {
 		text-align: center;
-      padding-top: 1%;
-      padding-bottom: 1%;
-      		color: white;
-      		font-size: 33px;
+		padding-top: 1%;
+		padding-bottom: 1%;
+		color: white;
+		font-size: 33px;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      border-radius: 10px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
+		border-radius: 10px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
 		box-shadow: 10px 10px 25px black;
-      background-clip: padding-box;
-      //background-color: rgba(255, 255, 255, 0.2);
-      background-color: rgba(0, 0, 0, 0.2);
-      
-      
-      
-      
-      
-      
-      
-      
-      
+		background-clip: padding-box;
+		//background-color: rgba(255, 255, 255, 0.2);
+		background-color: rgba(0, 0, 0, 0.2);
 	}
 	
 	#nslope,
+	#ncr,
+	#npar,
 	#nhcpallowance,
-   	#nhcp1,
-   	#nhcp2,
-   	#nhcp3,
-   	#nhcp4 {
+	#nhcp1,
+	#nhcp2,
+	#nhcp3,
+	#nhcp4 {
 		font-size: 40px;
 		color: white;
-	   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      background-color: dodgerBlue;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		background-color: dodgerBlue;
 		text-align: center;
 		border-radius: 10px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
+		border: 3px solid rgba(255, 255, 255, 0.2);
 		box-shadow: 10px 10px 25px black;
-      background-clip: padding-box;
+		background-clip: padding-box;
 	}
 	
-   .score {
-   	font-size: 30px;
+	.score {
+		font-size: 25px;
 		color: white;
-      background-color: dodgerBlue;
+		background-color: dodgerBlue;
 		text-align: center;
-      border: 3px solid rgba(255, 255, 255, 0.2);
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border: 3px solid rgba(255, 255, 255, 0.2);
 		border-radius: 10px;
 		box-shadow: 10px 10px 25px black;
-      background-clip: padding-box;
-   }
+		background-clip: padding-box;
+	}
 	
-   #splayinghcpcalc,
-   #txt {
+	#splayinghcpcalc,
+	#txt {
 		font-size: 20px;
 		color: white;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
-   
-   #showcalcs {
-      visibility: hidden;
-      font-size: 15px;
-      text-align: left;
-      position: fixed;
-      z-index: 1;
-      padding-top: 10px;
-      padding-left: 10px;
-      padding-bottom: 10px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 150%;
-      overflow: auto;
-      background-color: dodgerBlue;
-      background-color: rgba(0, 0, 0, 0.7);
-   }
-   
-   #buttonshowcalcs {
-     	font-size: 30px;
-      color: white;
-      padding: 10px;
-      background-color: dodgerBlue;
-      text-align: center;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      box-shadow: 10px 10px 25px black; 
-      text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1); 
-      background-clip: padding-box;
-   }
-   
-   #footnote {
-    color: white;
-    font-size: 15px;  
-    font-style: italic;
-    padding-left: 10px;
-   }
-   #xclose  {
-      color:lightgray;
-      text-align: center;
-      font-size: 15px;
-      font-style: italic;
-   }
-   
+	
+	#showcalcs {
+		visibility: hidden;
+		font-size: 13px;
+		text-align: left;
+		position: fixed;
+		z-index: 1;
+		padding-top: 10px;
+		padding-left: 5px;
+		padding-bottom: 5px;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: scroll;
+		background-color: dodgerBlue;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+	
+	#buttonshowcalcs {
+		font-size: 30px;
+		color: white;
+		padding: 10px;
+		background-color: dodgerBlue;
+		text-align: center;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		border-radius: 10px;
+		box-shadow: 10px 10px 25px black;
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+		background-clip: padding-box;
+	}
+	
+	#footnote {
+		color: white;
+		font-size: 15px;
+		font-style: italic;
+		padding-left: 10px;
+	}
+	
+	#xclose {
+		color: lightgray;
+		text-align: center;
+		font-size: 15px;
+		font-style: italic;
+	}
+	
+	.yellow {
+	color: yellow;
+	}
+	
 	</style>
 </head>
 
 <body>
 	<br>
 	<div class="row">
-		<div class="col-md-12  text-center">	
+		<div class="col-md-12  text-center">
 			<h2>Stroke calculations for Pairs Matchplay</h2>
 			<div class="container">
 				<div class="stxt">slope</div>
 				<div class="demo">
 					<input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
-            </div>
+				</div>
 				<br>
 				<br>
-            <div class="stxt">player 1 WHS handicap index</div>
+				
+				
+				
+				<div class="stxt">cr</div>
+				<div class="demo">
+					<input type="number" id="ncr" name="ncr" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcp()">
+				</div>
+				<br>
+				<br>
+				
+				
+				
+				<div class="stxt">par</div>
+				<div class="demo">
+					<input type="number" id="npar" name="npar" min="60" max="80" maxlength="2" step="1" oninput="updatehcp()">
+				</div>
+				<br>
+				<br>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<div class="stxt">player 1 WHS handicap index</div>
 				<div class="demo">
 					<input type="number" id="nhcp1" name="nhcp1" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-            </div>
-            <br>
+				</div>
 				<br>
-            <div class="stxt">player 2 WHS handicap index</div>
-            <div class="demo">
+				<br>
+				<div class="stxt">player 2 WHS handicap index</div>
+				<div class="demo">
 					<input type="number" id="nhcp2" name="nhcp2" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-            </div>
-            <br>
+				</div>
 				<br>
-            <div class="stxt">player 3 WHS handicap index</div>
-            <div class="demo">
+				<br>
+				<div class="stxt">player 3 WHS handicap index</div>
+				<div class="demo">
 					<input type="number" id="nhcp3" name="nhcp3" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-            </div>
-            <br>
+				</div>
 				<br>
-            <div class="stxt">player 4 WHS handicap index</div>
-            <div class="demo">
+				<br>
+				<div class="stxt">player 4 WHS handicap index</div>
+				<div class="demo">
 					<input type="number" id="nhcp4" name="nhcp4" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-            </div>  
-	      </div>			
-			<br> 
-         <div class="demo">
-         <!-- modal calculations -->   
-         <div class="showcalcs" id="showcalcs" onclick="calcclose()">
-         </div>
-         </div>      
-         <br>
-         <div id="txt">
-            <br><br>
-            <div id="splayinghcp1" class="score">player 1<br>course hcp<br>playing hcp<br>strokes</div>
-            <br>
-            <div id="splayinghcp2" class="score">player 2<br>course hcp<br>playing hcp<br>strokes</div>
-            <br>
-            <div id="splayinghcp3" class="score">player 3<br>course hcp<br>playing hcp<br>strokes</div>
-            <br>
-            <div id="splayinghcp4" class="score">player 4<br>course hcp<br>playing hcp<br>strokes</div>
-            <br>
-         </div>
-         <br>
-         <br>
-         <button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
+				</div>
+			</div>
+			<br>
+			<div class="demo">
+				<!-- modal calculations -->
+				<div class="showcalcs" id="showcalcs" onclick="calcclose()">
+				</div>
+			</div>
+			<br>
+			<div id="txt">
+				<br>
+				<br>
+				<div id="splayinghcp1" class="score">player 1
+					<br>course hcp
+					<br>playing hcp
+					<br>strokes
+				</div>
+				<br>
+				<div id="splayinghcp2" class="score">player 2
+					<br>course hcp
+					<br>playing hcp
+					<br>strokes
+				</div>
+				<br>
+				<div id="splayinghcp3" class="score">player 3
+					<br>course hcp
+					<br>playing hcp
+					<br>strokes
+				</div>
+				<br>
+				<div id="splayinghcp4" class="score">player 4
+					<br>course hcp
+					<br>playing hcp
+					<br>strokes
+				</div>
+				<br>
+			</div>
+			<br>
+			<br>
+			<button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
 		</div>
 	</div>
 	<br>
 	<br>
 	<br>
 	<br>
-   <p id="footnote">Calculation method from:</p>
-   <p id="footnote">R&A Rules of Handicapping</p>
-   <p id="footnote">APPENDIX C Interpretations:</p>
-   <p id="footnote">C/2 - Examples of how to allocate strokes in handicap competitions when handicap allowances apply.</p>
-   <p id="footnote">extract from appendix C:</p>
-   <p id="footnote">In general, after handicap allowances have been applied in match play formats, the player with the lowest Playing Handicap plays off zero strokes relative to the other player(s).  The other player(s) receive(s) the difference between their own Playing Handicap and that of the player with the lowest Playing Handicap.</p>
+	Calculation method from: R&A Rules of Handicapping - Effective 2024
+	<br><br>
+	Rule 6: Course Handicap and Playing Handicap Calculation
+	<br><br>
+	Course Handicap = Handicap Index x (Slope Rating / 113) + (Course Rating – par)
+	<br><br>
+        Playing Handicap = Course Handicap x handicap allowance.
+        <br><br>
+        The result is then rounded to the nearest whole number. (Rule 6.1 and 6.2, Rules of Handicapping)
+        <br>
+        <br>
 	<br>
 	<br>
 	<script>
-    
-   function calcclose() {
-      document.getElementById("showcalcs").style.visibility = "hidden";
-   } 
-    
-   function showcalcs() {
-     
-      if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
-      
-      document.getElementById("showcalcs").style.visibility = "visible";
-      
-      let vhcp1 = document.getElementById("nhcp1").value
-      let vhcp2 = document.getElementById("nhcp2").value
-      let vhcp3 = document.getElementById("nhcp3").value
-      let vhcp4 = document.getElementById("nhcp4").value
-    
-      // get globals
-      let vhcpallowance = 90
-      let vslope = document.getElementById("nslope").value
-   
-      let vcoursehcp1 = vhcp1 * (vslope/113)
-      let vcoursehcp2 = vhcp2 * (vslope/113)
-      let vcoursehcp3 = vhcp3 * (vslope/113)
-      let vcoursehcp4 = vhcp4 * (vslope/113)
-     
-      let vcoursehcp10 = vcoursehcp1.toFixed(0);
-      let vcoursehcp20 = vcoursehcp2.toFixed(0);
-      let vcoursehcp30 = vcoursehcp3.toFixed(0);
-      let vcoursehcp40 = vcoursehcp4.toFixed(0);
-          
-      let var1t = (vhcpallowance/100)*vcoursehcp10
-      let var2t = (vhcpallowance/100)*vcoursehcp20
-      let var3t = (vhcpallowance/100)*vcoursehcp30
-      let var4t = (vhcpallowance/100)*vcoursehcp40
-      
-      var1 = var1t.toFixed(0)
-      var2 = var2t.toFixed(0)
-      var3 = var3t.toFixed(0)
-      var4 = var4t.toFixed(0)
-     
-     
-     let b = Math.min(var1, var2, var3, var4);
-     
-     // player 1
-     let p1a = vhcp1 + " x " + vslope + "/113 = " + vcoursehcp1.toFixed(2) + " = " + vcoursehcp10
-     let p1b = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t.toFixed(2) + " = " + var1
-     let p1c = " = " + var1 + " - " + b + " = " + (var1 - b )
-     
-     // player 2
-     let p2a = vhcp2 + " x " + vslope + "/113 = " + vcoursehcp2.toFixed(2) + " = " + vcoursehcp20
-     let p2b = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t.toFixed(2) + " = " + var2
-     let p2c = " = " + var2 + " - " + b + " = " + (var2 - b )
-     
-     // player 3
-     let p3a = vhcp3 + " x " + vslope + "/113 = " + vcoursehcp3.toFixed(2) + " = " + vcoursehcp30
-     let p3b = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t.toFixed(2) + " = " + var3
-     let p3c = " = " + var3 + " - " + b + " = " + (var3 - b )
-     
-     // player 4
-     let p4a = vhcp4 + " x " + vslope + "/113 = " + vcoursehcp4.toFixed(2) + " = " + vcoursehcp40
-     let p4b = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t.toFixed(2) + " = " + var4
-     let p4c = " = " + var4 + " - " + b + " = " + (var4 - b )
-     
-     let calctxt = "<br>player 1 course hcp<br>" + p1a + "<br>player 1 playing hcp<br>" + p1b + "<br>player 1 strokes" + p1c
-     
-     calctxt += "<br>"
-     
-     calctxt += "<br>player 2 course hcp<br>" + p2a + "<br>player 2 playing hcp<br>" + p2b + "<br>player 2 strokes" + p2c
-     
-     calctxt += "<br>"
-      
-     calctxt += "<br>player 3 course hcp<br>" + p3a + "<br>player 3 playing hcp<br>" + p3b + "<br>player 3 strokes" + p3c
-     
-     calctxt += "<br>"
-     
-     calctxt += "<br>player 4 course hcp<br>" + p4a + "<br>player 4 playing hcp<br>" + p4b + "<br>player 4 strokes" + p4c
-     
-     calctxt += "<br><br>" + '<p id="xclose">tap to close</p>'
-      
-      
-      
-      document.getElementById("showcalcs").innerHTML = calctxt  
-      
-   }
- 
-   
-     
-   } 
-   
-    
-   function updatehcp() {
+	function calcclose() {
+		document.getElementById("showcalcs").style.visibility = "hidden";
+	}
+
+	function showcalcs() {
+		if(document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0) {
+			document.getElementById("showcalcs").style.visibility = "visible";
+			let vhcp1 = document.getElementById("nhcp1").value
+			let vhcp2 = document.getElementById("nhcp2").value
+			let vhcp3 = document.getElementById("nhcp3").value
+			let vhcp4 = document.getElementById("nhcp4").value
+				// get globals
+			let vhcpallowance = 90
+			let vslope = document.getElementById("nslope").value
+			let ncr = document.getElementById("ncr").value
+			let npar = document.getElementById("npar").value
+			let vcoursehcp1 = (vhcp1 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp2 = (vhcp2 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp3 = (vhcp3 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp4 = (vhcp4 * (vslope / 113)) + (ncr - npar)
+			// get differences in course hcps
+			let low1 = Math.min(vcoursehcp1, vcoursehcp2, vcoursehcp3, vcoursehcp4);
+			
+			let vcoursehcp10 = (vcoursehcp1 - low1);
+			let vcoursehcp20 = (vcoursehcp2 - low1);
+			let vcoursehcp30 = (vcoursehcp3 - low1);
+			let vcoursehcp40 = (vcoursehcp4 - low1);
+			
+			// apply allowance to differences
+			let var1t = (vhcpallowance / 100) * vcoursehcp10
+			let var2t = (vhcpallowance / 100) * vcoursehcp20
+			let var3t = (vhcpallowance / 100) * vcoursehcp30
+			let var4t = (vhcpallowance / 100) * vcoursehcp40
+			
+			// round to whole number of strokes
+			let var1 = var1t.toFixed(0)
+			let var2 = var2t.toFixed(0)
+			let var3 = var3t.toFixed(0)
+			let var4 = var4t.toFixed(0)
+			
+			// player 1
+			let p1a = "(" + vhcp1 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp1
+			let p1b = vcoursehcp1 + " - " + low1 + " = " + vcoursehcp10
+			let p1c = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t
+			let p1d = var1
+			
+			// player 2
+			let p2a = "(" + vhcp2 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp2
+			let p2b = vcoursehcp2 + " - " + low1 + " = " + vcoursehcp20
+			let p2c = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t
+			let p2d = var2
+			
+			// player 3
+			let p3a = "(" + vhcp3 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp3
+			let p3b = vcoursehcp3 + " - " + low1 + " = " + vcoursehcp30
+			let p3c = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t
+			let p3d = var3
+			
+			// player 4
+			let p4a = "(" + vhcp4 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp1
+			let p4b = vcoursehcp4 + " - " + low1 + " = " + vcoursehcp40
+			let p4c = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t
+			let p4d = var4
+			
+			
+			let calctxt = "<br><a class='yellow'>player 1</a><br>course hcp calculation<br>" + p1a + "<br><br>player 1 difference<br>" + p1b + "<br><br>player 1 with adjustment applied<br>" + p1c + "<br><br>rounded strokes = " + p1d
+			calctxt += "<br>"
+			calctxt += "<br><a class='yellow'>player 2</a><br>course hcp calculation<br>" + p2a + "<br><br>player 2 difference<br>" + p2b + "<br><br>player 2 with adjustment applied<br>" + p2c + "<br><br>rounded strokes = " + p2d
+			calctxt += "<br>"
+			calctxt += "<br><a class='yellow'>player 3</a><br>course hcp calculation<br>" + p3a + "<br><br>player 3 difference<br>" + p3b + "<br><br>player 3 with adjustment applied<br>" + p3c + "<br><br>rounded strokes = " + p3d
+			calctxt += "<br>"
+			calctxt += "<br><a class='yellow'>player 4</a><br>course hcp calculation<br>" + p4a + "<br><br>player 4 difference<br>" + p4b + "<br><br>player 4 with adjustment applied<br>" + p4c + "<br><br>rounded strokes = " + p4d
+			calctxt += "<br><br>" + '<p id="xclose">tap to close</p>'
+			document.getElementById("showcalcs").innerHTML = calctxt
+		}
+	}
+
+	function updatehcp() {
+				
 		// get 4 players hcp's
-      if (document.getElementById("nhcp1").value > 0 && document.getElementById("nhcp2").value > 0 && document.getElementById("nhcp3").value > 0 && document.getElementById("nhcp4").value > 0 ) { 
-      
-      let vhcp1 = document.getElementById("nhcp1").value
-      let vhcp2 = document.getElementById("nhcp2").value
-      let vhcp3 = document.getElementById("nhcp3").value
-      let vhcp4 = document.getElementById("nhcp4").value
-    
-      // get globals
-      let vhcpallowance = 90
-      let vslope = document.getElementById("nslope").value
-   
-      let vcoursehcp1 = vhcp1 * (vslope/113)
-      let vcoursehcp2 = vhcp2 * (vslope/113)
-      let vcoursehcp3 = vhcp3 * (vslope/113)
-      let vcoursehcp4 = vhcp4 * (vslope/113)
-     
-      let vcoursehcp10 = vcoursehcp1.toFixed(0);
-      let vcoursehcp20 = vcoursehcp2.toFixed(0);
-      let vcoursehcp30 = vcoursehcp3.toFixed(0);
-      let vcoursehcp40 = vcoursehcp4.toFixed(0);
-          
-      let var1t = (vhcpallowance/100)*vcoursehcp10
-      let var2t = (vhcpallowance/100)*vcoursehcp20
-      let var3t = (vhcpallowance/100)*vcoursehcp30
-      let var4t = (vhcpallowance/100)*vcoursehcp40
-      
-      let var1 = var1t.toFixed(0)
-      let var2 = var2t.toFixed(0)
-      let var3 = var3t.toFixed(0)
-      let var4 = var4t.toFixed(0)
-     
-      //calc differences
-      let b = Math.min(var1, var2, var3, var4);
-      if ((var1 - b) == 1) {
-         var sss = "stroke"
-      } else { 
-         var sss = "strokes" 
-      }
-      document.getElementById("splayinghcp1").innerHTML = "Player 1 (" + vhcp1 + ")<br>course hcp = " + vcoursehcp10 + "<br>playing hcp = " + var1 + "<br>gets " + (var1 - b) + " " + sss
-      if ((var2 - b) == 1) {
-         var sss = "stroke"
-      } else { 
-         var sss = "strokes" 
-      }
-      document.getElementById("splayinghcp2").innerHTML = "Player 2 (" + vhcp2 + ")<br>course hcp = " + vcoursehcp20 + "<br>playing hcp = " + var2 + "<br>gets " + (var2 - b) + " " + sss
-      if ((var3 - b) == 1) {
-         var sss = "stroke"
-      } else { 
-         var sss = "strokes" 
-      }
-      document.getElementById("splayinghcp3").innerHTML = "Player 3 (" + vhcp3 + ")<br>course hcp = " + vcoursehcp30 + "<br>playing hcp = " + var3 + "<br>gets " + (var3 - b) + " " + sss
-      if ((var4 - b) == 1) {
-         var sss = "stroke"
-      } else { 
-         var sss = "strokes" 
-      }
-      document.getElementById("splayinghcp4").innerHTML = "Player 4 (" + vhcp4 + ")<br>course hcp = " + vcoursehcp40 + "<br>playing hcp = " + var4 + "<br>gets " + (var4 - b) + " " + sss
-   }
-   
-   }
+		if(document.getElementById("nhcp1").value > 0 && 
+		   document.getElementById("nhcp2").value > 0 && 
+		   document.getElementById("nhcp3").value > 0 && 
+		   document.getElementById("nhcp4").value > 0) {
+		   
+		   // 4 players hcps entered
+		   document.getElementById("splayinghcp1").style.display = "block";
+		   document.getElementById("splayinghcp2").style.display = "block";
+		   document.getElementById("splayinghcp3").style.display = "block";
+		   document.getElementById("splayinghcp4").style.display = "block";
+		   
+		   
+			let vhcp1 = document.getElementById("nhcp1").value
+			let vhcp2 = document.getElementById("nhcp2").value
+			let vhcp3 = document.getElementById("nhcp3").value
+			let vhcp4 = document.getElementById("nhcp4").value
+				// get globals
+			let vhcpallowance = 90
+			let vslope = document.getElementById("nslope").value
+			let ncr = document.getElementById("ncr").value
+			let npar = document.getElementById("npar").value
+			let vcoursehcp1 = (vhcp1 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp2 = (vhcp2 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp3 = (vhcp3 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp4 = (vhcp4 * (vslope / 113)) + (ncr - npar)
+			// get differences in course hcps
+			let low1 = Math.min(vcoursehcp1, vcoursehcp2, vcoursehcp3, vcoursehcp4);
+			
+			let vcoursehcp10 = (vcoursehcp1 - low1);
+			let vcoursehcp20 = (vcoursehcp2 - low1);
+			let vcoursehcp30 = (vcoursehcp3 - low1);
+			let vcoursehcp40 = (vcoursehcp4 - low1);
+						
+			if((vcoursehcp10) == 1) {
+				var sss = "stroke"
+			} else {
+				var sss = "strokes"
+			}
+			// apply allowance to differences
+			let var1t = (vhcpallowance / 100) * vcoursehcp10
+			let var2t = (vhcpallowance / 100) * vcoursehcp20
+			let var3t = (vhcpallowance / 100) * vcoursehcp30
+			let var4t = (vhcpallowance / 100) * vcoursehcp40
+			
+			// round to whole number of strokes
+			let var1 = var1t.toFixed(0)
+			let var2 = var2t.toFixed(0)
+			let var3 = var3t.toFixed(0)
+			let var4 = var4t.toFixed(0)
+			
+			if(var1 == 1) {
+				var sss = "stroke"
+			} else {
+				var sss = "strokes"
+			}
+
+			document.getElementById("splayinghcp1").innerHTML = "Player 1 (" + vhcp1 + ")<br>course hcp = " + vcoursehcp1 + "<br>difference = " + vcoursehcp10 + "<br>after adjustment = " + var1t + "<br><br>gets " + var1 + " " + sss
+
+			if(var2 == 1) {
+				var sss = "stroke"
+			} else {
+				var sss = "strokes"
+			}
+		
+			document.getElementById("splayinghcp2").innerHTML = "Player 2 (" + vhcp2 + ")<br>course hcp = " + vcoursehcp2 + "<br>difference = " + vcoursehcp20 + "<br>after adjustment = " + var2t + "<br><br>gets " + var2 + " " + sss
+			
+			if(var3 == 1) {
+				var sss = "stroke"
+			} else {
+				var sss = "strokes"
+			}
+			
+			document.getElementById("splayinghcp3").innerHTML = "Player 3 (" + vhcp3 + ")<br>course hcp = " + vcoursehcp3 + "<br>difference = " + vcoursehcp30 + "<br>after adjustment = " + var3t + "<br><br>gets " + var3 + " " + sss
+			
+			if(var4 == 1) {
+				var sss = "stroke"
+			} else {
+				var sss = "strokes"
+			}
+			
+			document.getElementById("splayinghcp4").innerHTML = "Player 4 (" + vhcp4 + ")<br>course hcp = " + vcoursehcp4 + "<br>difference = " + vcoursehcp40 + "<br>after adjustment = " + var4t + "<br><br>gets " + var4 + " " + sss
+		} else {
+		  // less than 4 players hcps entered
+		  document.getElementById("splayinghcp1").style.display = "none";
+		  document.getElementById("splayinghcp2").style.display = "none";
+		  document.getElementById("splayinghcp3").style.display = "none";
+		  document.getElementById("splayinghcp4").style.display = "none";
+		}
+		
+		
+		
+	}
 	</script>
 </body>
 
