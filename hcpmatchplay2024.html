@@ -281,10 +281,10 @@
 			let vslope = document.getElementById("nslope").value
 			let ncr = document.getElementById("ncr").value
 			let npar = document.getElementById("npar").value
-			let vcoursehcp1 = (vhcp1 * (vslope / 113)) - (ncr - npar)
-			let vcoursehcp2 = (vhcp2 * (vslope / 113)) - (ncr - npar)
-			let vcoursehcp3 = (vhcp3 * (vslope / 113)) - (ncr - npar)
-			let vcoursehcp4 = (vhcp4 * (vslope / 113)) - (ncr - npar)
+			let vcoursehcp1 = (vhcp1 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp2 = (vhcp2 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp3 = (vhcp3 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp4 = (vhcp4 * (vslope / 113)) + (ncr - npar)
 			// get differences in course hcps
 			let low1 = Math.min(vcoursehcp1, vcoursehcp2, vcoursehcp3, vcoursehcp4);
 			
@@ -366,10 +366,10 @@
 			let vslope = document.getElementById("nslope").value
 			let ncr = document.getElementById("ncr").value
 			let npar = document.getElementById("npar").value
-			let vcoursehcp1 = (vhcp1 * (vslope / 113)) - (ncr - npar)
-			let vcoursehcp2 = (vhcp2 * (vslope / 113)) - (ncr - npar)
-			let vcoursehcp3 = (vhcp3 * (vslope / 113)) - (ncr - npar)
-			let vcoursehcp4 = (vhcp4 * (vslope / 113)) - (ncr - npar)
+			let vcoursehcp1 = (vhcp1 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp2 = (vhcp2 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp3 = (vhcp3 * (vslope / 113)) + (ncr - npar)
+			let vcoursehcp4 = (vhcp4 * (vslope / 113)) + (ncr - npar)
 			// get differences in course hcps
 			let low1 = Math.min(vcoursehcp1, vcoursehcp2, vcoursehcp3, vcoursehcp4);
 			
