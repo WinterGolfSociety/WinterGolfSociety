@@ -883,7 +883,10 @@
 
 		}
 		if (dlist.indexOf("29 March") > -1) {
-		   dlist = dlist + "Winter Competitions end after this";
+		   dlist = dlist + "<a style='color:cyan;'>Winter Competitions end after this.<br>" +
+		                   "Normal competitions start again with<br>" +
+		                   "Tuesday stableford on the Dawson.<br>" +
+		                   "Scores to be entered through BRS</a>"
 		}
 		document.getElementById("xdcomp1").innerHTML = dlist;
 	}
