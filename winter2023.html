@@ -406,6 +406,19 @@
 	
 
 	/* end of marque CSS */
+	
+	#flash {
+	  animation: blinker 3s linear infinite;
+	}
+	
+	
+        @keyframes blinker {
+        50% {
+            //opacity: 0.2;
+            font-weight: bold;
+            }
+        }
+	
 </style>
 
 	<body>
@@ -521,7 +534,8 @@
       "OldCourse 18 March 2024",
       "OldCourse 22 March 2024",
       "OldCourse 25 March 2024",
-      "Dawson 29 March 2024"
+      "Dawson 29 March 2024",
+      "Dawson 02 April 2024"
     ];
     
     /*
@@ -873,7 +887,7 @@
 				dlistcount++;
 			}
 
-			if(darr > dd && dlistcount < 3) {
+			if(darr > dd && dlistcount < 1) {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
 				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
 				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
@@ -883,10 +897,10 @@
 
 		}
 		if (dlist.indexOf("29 March") > -1) {
-		   dlist = dlist + "<a style='color:cyan;'>Winter Competitions end after this.<br>" +
-		                   "Normal competitions start again with<br>" +
-		                   "Tuesday stableford on the Dawson.<br>" +
-		                   "Scores to be entered through BRS</a>"
+		   dlist = dlist + "<a style='color:cyan;'>Addendum: Extra Dawson competition.<br>" +
+		                   "Normal competitions postponed until further notice<br></a>" +
+          "<a id='flash' style='color:cyan;'>" + "Tuesday stableford on the Dawson (winter tees).<br>" + "</a>" +
+		                   "<a style='color:cyan;'>Scores to be entered through the Winter app</a>"
 		}
 		document.getElementById("xdcomp1").innerHTML = dlist;
 	}
