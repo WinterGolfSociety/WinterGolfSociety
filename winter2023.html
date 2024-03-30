@@ -535,7 +535,11 @@
       "OldCourse 22 March 2024",
       "OldCourse 25 March 2024",
       "Dawson 29 March 2024",
-      "Dawson 02 April 2024"
+      "Dawson 02 April 2024",
+      "Dawson 05 April 2024",
+      "Lakes 08 April 2024",
+      "Dawson 12 April 2024"
+      
     ];
     
     /*
@@ -875,35 +879,49 @@
 			if(darr.toString().substring(0,15) == dd.toString().substring(0,15) && dlistcount < 3) {
 				//alert(darr.toString().substring(0,15) + "   " + dd.toString().substring(0,15));
 				if (arrComps[i].indexOf("Lakes") > -1) {
-					tempd = '<p style="color:white;">Lakes - competition today</p>';
+					tempd = '<p style="color:white;">addition: Lakes - competition today</p>';
 				}
 				if (arrComps[i].indexOf("Dawson") > -1) {
-					tempd = '<p style="color:white;">Dawson - competition today</p>';
+					tempd = '<p style="color:white;">addition: Dawson - competition today</p>';
 				}
 				if (arrComps[i].indexOf("OldCourse") > -1) {
-					tempd = '<p style="color:white;">OldCourse - competition today</p>';
+					tempd = '<p style="color:white;">addition: OldCourse - competition today</p>';
 				}	
 				dlist = dlist + tempd;
 				dlistcount++;
 			}
 
-			if(darr > dd && dlistcount < 1) {
-				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
-				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
-				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
-				dlist = dlist + tempd + "<br>";
+	//		if(darr > dd && dlistcount < 1) {
+	//			tempd = arrComps[i].replace("Lakes ", "addition: Lakes - " + d + " ");
+	//			tempd = tempd.replace("Dawson ", "addition: Dawson - " + d + " ");
+	//			tempd = tempd.replace("OldCourse ", "addition: OldCourse - " + d + " ");
+	//			dlist = dlist + tempd + "<br>";
+	//			dlistcount++;
+	//		}
+
+
+
+
+                        if(darr > dd && dlistcount < 3) {
+				tempdx = arrComps[i].replace("Lakes ", "addition: Lakes - " + d + " ");
+				tempdx = tempdx.replace("Dawson ", "addition: Dawson - " + d + " ");
+				tempdx = tempdx.replace("OldCourse ", "addition: OldCourse - " + d + " ");
+				dlist = dlist + tempdx + "<br>";
 				dlistcount++;
 			}
 
+
+
+
+
+
 		}
 		//if (dlist.indexOf("29 March") > -1) {
-		if (dlist.indexOf("Dawson - competition today") > -1) {
-		   dlist = dlist + "<a style='color:cyan; opacity:0.6'>Addendum: Extra winter competitions<br>" +
-		                   "due to normal play being postponed.<br></a>" +
-          "<a id='flash' style='color:cyan;'>" + "Tuesday 2nd stableford on the Dawson<br>" +
-                                                 "Friday 5th stableford on the Dawson<br>" +
-		                   "Enter scores through the Winter app</a>"
-		}
+//		if (dlist.indexOf("02 Dawson") > -1 || dlist.indexOf(" - competition today") > -1) {
+		   dlist = dlist + "<a style='color:cyan;'>These are additional winter competitions<br>" +
+		                   "due to normal play being postponed.<br>" +
+          	                   "Enter scores through the Winter app.</a>"
+//		}
 		document.getElementById("xdcomp1").innerHTML = dlist;
 	}
 	getNextComps();
