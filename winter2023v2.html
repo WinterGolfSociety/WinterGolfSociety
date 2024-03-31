@@ -50,12 +50,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		background-color: transparent;
-		z-index: 99;
-		
-		
-		
-		
-		
+		z-index: 99;	
 	}
 	
 	.square_menu_icon:focus {
@@ -138,12 +133,7 @@
 		height: 75px;
 		z-index: 4;
 		border: 5px solid white;
-		
-		
-		
-
-       box-shadow: 10px 10px 25px black;
-
+                box-shadow: 10px 10px 25px black;
 	}
 	
 	.bubble_menu {
@@ -156,6 +146,14 @@
 		height: 75px;
 		z-index: 4;
 		cursor: pointer;
+		
+		
+		
+		border-radius: 5px;
+		border: 5px solid white;
+		
+		
+		
 	}
 	
 	#one,
@@ -175,21 +173,10 @@
 		text-align: center;
 		border: 5px solid white;
 		cursor: pointer;
-		
-		
-			
-	//	 border: 2px solid darkSlateGray;
- //        box-shadow: 10px 10px 25px black;
-	
-		
-		
-		
-		
 	}
 	
 	#one {
 		background-color: salmon;
-		//background-image: linear-gradient(to bottom right, salmon, silver, salmon);
 		display: flex;
 		justify-content: center;
 	}
@@ -316,28 +303,28 @@
 	}
 	
 	#one:active {
-		border: 5px solid salmon;
+		border: 5px solid white; //salmon;
 	}
 	
 	#two:active {
-		border: 5px solid darkKhaki;
+		border: 5px solid white; //darkKhaki;
 	}
 	
 	#three:active {
-		border: 5px solid orchid;
+		border: 5px solid white; //orchid;
 	}
 	
 	#four:active {
-		border: 5px solid lightSteelBlue;
+		border: 5px solid white; //lightSteelBlue;
 	}
 	
 	#five:active {
-		border: 5px solid cyan;
+		border: 5px solid white; //cyan;
 	}
 	
 	
 	#six:active {
-		border: 5px solid lightGreen;
+		border: 5px solid white; //lightGreen;
 	}
 	
 	nav:active {
@@ -495,34 +482,28 @@
 	
 	
 	@-webkit-keyframes blob { 
-  0%   { border-radius: 999px 999px; }
-  5%   { border-radius: 999px 200px; }
-  22%  { border-radius: 400px 999px; }
-  34%  { border-radius: 999px 700px; }
-  48%  { border-radius: 700px 999px; }
-  70%  { border-radius: 999px 999px; }
-  85%  { border-radius: 850px 999px; }
-  100% { border-radius: 999px 999px; }
+  0%   { width: 65px;	height: 65px; }
+  20%  { width: 65px;	height: 95px; }
+  40%  { width: 85px;	height: 65px; }
+  60%  { width: 65px;	height: 75px; }
+  80%  { width: 75px;	height: 65px; }
+  100% { width: 65px;	height: 65px; }  
 }
 @-moz-keyframes    blob { 
-  0%   { border-radius: 999px 999px; }
-  5%   { border-radius: 999px 200px; }
-  22%  { border-radius: 400px 999px; }
-  34%  { border-radius: 999px 700px; }
-  48%  { border-radius: 700px 999px; }
-  70%  { border-radius: 999px 999px; }
-  85%  { border-radius: 850px 999px; }
-  100% { border-radius: 999px 999px; } 
+  0%   { width: 65px;	height: 65px; }
+  20%  { width: 65px;	height: 95px; }
+  40%  { width: 85px;	height: 65px; }
+  60%  { width: 65px;	height: 75px; }
+  80%  { width: 75px;	height: 65px; }
+  100% { width: 65px;	height: 65px; }  
 }
 @-o-keyframes      blob { 
-  0%   { border-radius: 999px 999px; }
-  5%   { border-radius: 999px 200px; }
-  22%  { border-radius: 400px 999px; }
-  34%  { border-radius: 999px 700px; }
-  48%  { border-radius: 700px 999px; }
-  70%  { border-radius: 999px 999px; }
-  85%  { border-radius: 850px 999px; }
-  100% { border-radius: 999px 999px; }
+  0%   { width: 65px;	height: 65px; }
+  20%  { width: 65px;	height: 95px; }
+  40%  { width: 85px;	height: 65px; }
+  60%  { width: 65px;	height: 75px; }
+  80%  { width: 75px;	height: 65px; }
+  100% { width: 65px;	height: 65px; }  
 }
 @keyframes         blob { 
   0%   { width: 65px;	height: 65px; }
@@ -533,16 +514,7 @@
   100% { width: 65px;	height: 65px; }  
 }
 	
-@keyframes         xxxblob { 
-  0%   { width: 65px;	height: 65px; }
-  5%   { width: 65px;	height: 95px; }
-  22%  { width: 85px;	height: 65px; }
-  34%  { width: 65px;	height: 75px; }
-  48%  { width: 75px;	height: 65px; }
-  70%  { width: 65px;	height: 65px; }
-  85%  { width: 70px;	height: 65px; }
-  100% { width: 65px;	height: 65px; }  
-}
+
 	
 	
 	
@@ -666,22 +638,22 @@
 	
 		one.animate({
 			opacity: '1'
-		}, 10);
+		}, 100);
 		two.animate({
 			opacity: '1'
-		}, 10);
+		}, 100);
 		three.animate({
 			opacity: '1'
-		}, 10);
+		}, 100);
 		four.animate({
 			opacity: '1'
-		}, 10);
+		}, 100);
 	        five.animate({
 			opacity: '1'
-		}, 10);
+		}, 100);
                 six.animate({
 			opacity: '1'
-		}, 10);
+		}, 100);
 		
 // Returns a random integer from 200 to 700:
 //Math.floor(Math.random() * 700) + 200;		
