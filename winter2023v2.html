@@ -189,6 +189,7 @@
 	
 	#one {
 		background-color: salmon;
+		//background-image: linear-gradient(to bottom right, salmon, silver, salmon);
 		display: flex;
 		justify-content: center;
 	}
@@ -479,6 +480,67 @@
 	
 	
 	/* end of marque CSS */
+	
+	
+	
+
+.blob {
+  -webkit-animation: blob 1s linear;
+  -moz-animation:    blob 1s linear;
+  -o-animation:      blob 1s linear;
+  animation:         blob 1s linear;
+}
+
+
+	
+	
+	@-webkit-keyframes blob { 
+  0%   { border-radius: 999px 999px; }
+  5%   { border-radius: 999px 200px; }
+  22%  { border-radius: 400px 999px; }
+  34%  { border-radius: 999px 700px; }
+  48%  { border-radius: 700px 999px; }
+  70%  { border-radius: 999px 999px; }
+  85%  { border-radius: 850px 999px; }
+  100% { border-radius: 999px 999px; }
+}
+@-moz-keyframes    blob { 
+  0%   { border-radius: 999px 999px; }
+  5%   { border-radius: 999px 200px; }
+  22%  { border-radius: 400px 999px; }
+  34%  { border-radius: 999px 700px; }
+  48%  { border-radius: 700px 999px; }
+  70%  { border-radius: 999px 999px; }
+  85%  { border-radius: 850px 999px; }
+  100% { border-radius: 999px 999px; } 
+}
+@-o-keyframes      blob { 
+  0%   { border-radius: 999px 999px; }
+  5%   { border-radius: 999px 200px; }
+  22%  { border-radius: 400px 999px; }
+  34%  { border-radius: 999px 700px; }
+  48%  { border-radius: 700px 999px; }
+  70%  { border-radius: 999px 999px; }
+  85%  { border-radius: 850px 999px; }
+  100% { border-radius: 999px 999px; }
+}
+@keyframes         blob { 
+  0%   { width: 65px;	height: 65px; }
+  5%   { width: 65px;	height: 95px; }
+  22%  { width: 85px;	height: 65px; }
+  34%  { width: 65px;	height: 75px; }
+  48%  { width: 75px;	height: 65px; }
+  70%  { width: 65px;	height: 65px; }
+  85%  { width: 70px;	height: 65px; }
+  100% { width: 65px;	height: 65px; }  
+}
+	
+	
+	
+	
+	
+	
+	
 </style>
 
 	<body>
@@ -612,6 +674,66 @@
                 six.animate({
 			opacity: '1'
 		}, 10);
+		
+// Returns a random integer from 200 to 700:
+//Math.floor(Math.random() * 700) + 200;		
+		
+setTimeout(function() {
+   one.addClass('blob');
+  }, Math.floor(Math.random() * 500) + 100, function() {
+    // Animation complete.
+  })
+  
+ setTimeout(function() {
+   two.addClass('blob');
+  }, Math.floor(Math.random() * 500) + 100, function() {
+    // Animation complete.
+  })
+  
+  setTimeout(function() {
+   three.addClass('blob');
+  }, Math.floor(Math.random() * 500) + 100, function() {
+    // Animation complete.
+  }) 
+  
+  setTimeout(function() {
+   four.addClass('blob');
+  }, Math.floor(Math.random() * 500) + 100, function() {
+    // Animation complete.
+  })
+  
+ setTimeout(function() {
+   five.addClass('blob');
+  }, Math.floor(Math.random() * 500) + 100, function() {
+    // Animation complete.
+  })
+  
+  setTimeout(function() {
+   six.addClass('blob');
+  }, Math.floor(Math.random() * 500) + 100, function() {
+    // Animation complete.
+  }) 
+
+  
+  
+  
+  
+setTimeout(function() {
+   one.removeClass('blob');
+   two.removeClass('blob');
+   three.removeClass('blob');
+   four.removeClass('blob');
+   five.removeClass('blob');
+   six.removeClass('blob');
+  }, 2000, function() {
+    // Animation complete.
+  })
+		
+		
+		
+		
+		
+		
 		// middle right
 		// right
 		one.animate({
@@ -675,6 +797,20 @@
 		}, 300);
 		
 		menuIsOpen = true;
+		
+		
+		
+		
+		
+		
+		
+		
+			
+		
+		
+		
+		
+		
 		// hide pressbutton
 		$("#pressbutton").html("");
 	}
@@ -755,7 +891,21 @@
 		
 		menuIsOpen = false;
 		isTop = true;
+
+
+
+
+//one.addClass('blob');
+
+
+
+
 	}
+	
+	
+	
+	
+	
 	$('.bubble').click(function() {
 		menuIcon.removeClass('is-active');
 		
@@ -769,6 +919,11 @@
 		}, 500);
 		isTop = true;
 	});
+
+
+
+
+
 
 	function doOne() {
 		// put menu back then move to hcp page
