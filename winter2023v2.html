@@ -502,7 +502,7 @@
   -webkit-animation: blob 1s linear;
   -moz-animation:    blob 1s linear;
   -o-animation:      blob 1s linear;
-  animation:         blob 1s linear;
+  animation:         blob 0.5s linear;
 }
 
 
@@ -524,9 +524,9 @@
   100% { width: 65px;	height: 65px; }  
 }
 @keyframes         blob { 
-   0%   { width: 65px;	height: 65px; }
-  50%  { width: 85px;	height: 85px; }
-  100% { width: 65px;	height: 65px; }  
+//   0%   { width: 65px;	height: 65px; }
+  50%  { width: 85px;	height: 85px;)}
+  100% { width: 65px;	height: 65px;)}  
 }
 	
 
@@ -639,7 +639,12 @@
 	//
 
 
-	
+	one.css('opacity', '0.0');
+	two.css('opacity', '0.0');
+	three.css('opacity', '0.0');
+	four.css('opacity', '0.0');
+	five.css('opacity', '0.0');
+	six.css('opacity', '0.0');
 	
 	
 		menuIcon.addClass('is-active');
@@ -748,33 +753,33 @@ setTimeout(function() {
 		// right
 		one.animate({
 			top: '37px', left: '140px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 500);	
+		}, Math.floor(Math.random() * 500) + 800);	
 
 		// bottom middle
 		// bottom	
 		two.animate({
 			top: '140px', left: '37px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 500);
+		}, Math.floor(Math.random() * 500) + 800);
 		// middle left
                 // top
 		three.animate({
 			top: '37px', left: '-65px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 500);
+		}, Math.floor(Math.random() * 500) + 800);
 		// top middle
 		// top
 		four.animate({
 			top: '-65px', left: '37px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 500);
+		}, Math.floor(Math.random() * 500) + 800);
 		 // top left
 		// top
 		five.animate({
 			top: '-65px', left: '-65px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 500);
+		}, Math.floor(Math.random() * 500) + 800);
 		 // top right
 		// top
 		six.animate({
 			top: '-65px', left: '140px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 500);
+		}, Math.floor(Math.random() * 500) + 800);
 		
 		menuIsOpen = true;
 		
