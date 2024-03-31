@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	<style>
+	
 	* {
 		margin: 0;
 		padding: 0;
@@ -507,10 +508,9 @@
 }
 @keyframes         blob { 
   0%   { width: 65px;	height: 65px; }
-  20%  { width: 65px;	height: 95px; }
-  40%  { width: 85px;	height: 65px; }
-  60%  { width: 65px;	height: 75px; }
-  80%  { width: 75px;	height: 65px; }
+  20%  { width: 65px;	height: 95px; transform: rotate(-5deg);}
+  50%  { width: 65px;	height: 65px; }
+  80%  { width: 85px;	height: 65px; transform: rotate(+5deg);}
   100% { width: 65px;	height: 65px; }  
 }
 	
@@ -660,37 +660,37 @@
 		
 setTimeout(function() {
    one.addClass('blob');
-  }, Math.floor(Math.random() * 500) + 100, function() {
+  }, Math.floor(Math.random() * 700) + 100, function() {
     // Animation complete.
   })
   
  setTimeout(function() {
    two.addClass('blob');
-  }, Math.floor(Math.random() * 500) + 100, function() {
+  }, Math.floor(Math.random() * 700) + 100, function() {
     // Animation complete.
   })
   
   setTimeout(function() {
    three.addClass('blob');
-  }, Math.floor(Math.random() * 500) + 100, function() {
+  }, Math.floor(Math.random() * 700) + 100, function() {
     // Animation complete.
   }) 
   
   setTimeout(function() {
    four.addClass('blob');
-  }, Math.floor(Math.random() * 500) + 100, function() {
+  }, Math.floor(Math.random() * 700) + 100, function() {
     // Animation complete.
   })
   
  setTimeout(function() {
    five.addClass('blob');
-  }, Math.floor(Math.random() * 500) + 100, function() {
+  }, Math.floor(Math.random() * 700) + 100, function() {
     // Animation complete.
   })
   
   setTimeout(function() {
    six.addClass('blob');
-  }, Math.floor(Math.random() * 500) + 100, function() {
+  }, Math.floor(Math.random() * 700) + 100, function() {
     // Animation complete.
   }) 
 
