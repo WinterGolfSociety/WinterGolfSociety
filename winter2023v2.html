@@ -483,35 +483,24 @@
 	
 	
 	@-webkit-keyframes blob { 
-  0%   { width: 65px;	height: 65px; }
-  20%  { width: 65px;	height: 95px; }
-  40%  { width: 85px;	height: 65px; }
-  60%  { width: 65px;	height: 75px; }
-  80%  { width: 75px;	height: 65px; }
+   0%   { width: 65px;	height: 65px; }
+  50%  { width: 85px;	height: 85px; }
   100% { width: 65px;	height: 65px; }  
 }
 @-moz-keyframes    blob { 
   0%   { width: 65px;	height: 65px; }
-  20%  { width: 65px;	height: 95px; }
-  40%  { width: 85px;	height: 65px; }
-  60%  { width: 65px;	height: 75px; }
-  80%  { width: 75px;	height: 65px; }
+  50%  { width: 85px;	height: 85px; }
   100% { width: 65px;	height: 65px; }  
 }
 @-o-keyframes      blob { 
-  0%   { width: 65px;	height: 65px; }
-  20%  { width: 65px;	height: 95px; }
-  40%  { width: 85px;	height: 65px; }
-  60%  { width: 65px;	height: 75px; }
-  80%  { width: 75px;	height: 65px; }
+   0%   { width: 65px;	height: 65px; }
+  50%  { width: 85px;	height: 85px; }
   100% { width: 65px;	height: 65px; }  
 }
 @keyframes         blob { 
- // 0%   { width: 65px;	height: 65px; }
-  20%  { transform: rotate(+2deg);}
- // 50%  { width: 65px;	height: 65px; }
-  80%  { transform: rotate(-2deg);}
- // 100% { width: 65px;	height: 65px; }  
+   0%   { width: 65px;	height: 65px; }
+  50%  { width: 85px;	height: 85px; }
+  100% { width: 65px;	height: 65px; }  
 }
 	
 
@@ -621,6 +610,12 @@
 	});
 
 	function showBubbles() {
+	//
+
+
+	
+	
+	
 		menuIcon.addClass('is-active');
 	
 	
@@ -699,6 +694,10 @@ setTimeout(function() {
   
   
 setTimeout(function() {
+
+
+
+
    one.removeClass('blob');
    two.removeClass('blob');
    three.removeClass('blob');
@@ -717,64 +716,34 @@ setTimeout(function() {
 		// middle right
 		// right
 		one.animate({
-			top: '37px'
-		}, 300);	
-		// middle right
-		// right
-		one.animate({
-			left: '140px'
-		}, 300);
-		
+			top: '37px', left: '140px', opacity: '1'
+		}, Math.floor(Math.random() * 100) + 100);	
+
 		// bottom middle
 		// bottom	
 		two.animate({
-			top: '140px'
-		}, 300);
-		// bottom middle
-		// left	
-		two.animate({
-			left: '37px'
-		}, 300);
+			top: '140px', left: '37px', opacity: '1'
+		}, Math.floor(Math.random() * 100) + 100);
 		// middle left
                 // top
 		three.animate({
-			top: '37px'
-		}, 300);
-		// middle left
-                // left
-		three.animate({
-			left: '-65px'
-		}, 300);
+			top: '37px', left: '-65px', opacity: '1'
+		}, Math.floor(Math.random() * 100) + 100);
 		// top middle
 		// top
 		four.animate({
-			top: '-65px'
-		}, 300);
-		// top middle
-		// middle
-		four.animate({
-			left: '37px'
-		}, 300);
+			top: '-65px', left: '37px', opacity: '1'
+		}, Math.floor(Math.random() * 100) + 100);
 		 // top left
 		// top
 		five.animate({
-			top: '-65px'
-		}, 300);
-	        // top left
-		// left
-		five.animate({
-			left: '-65px'
-		}, 300);
+			top: '-65px', left: '-65px', opacity: '1'
+		}, Math.floor(Math.random() * 100) + 100);
 		 // top right
 		// top
 		six.animate({
-			top: '-65px'
-		}, 300);
-	        // top left
-		// left
-		six.animate({
-			left: '140px'
-		}, 300);
+			top: '-65px', left: '140px', opacity: '1'
+		}, Math.floor(Math.random() * 100) + 100);
 		
 		menuIsOpen = true;
 		
