@@ -51,6 +51,11 @@
 		transform: translate(-50%, -50%);
 		background-color: transparent;
 		z-index: 99;
+		
+		
+		
+		
+		
 	}
 	
 	.square_menu_icon:focus {
@@ -133,6 +138,12 @@
 		height: 75px;
 		z-index: 4;
 		border: 5px solid white;
+		
+		
+		
+
+       box-shadow: 10px 10px 25px black;
+
 	}
 	
 	.bubble_menu {
@@ -164,6 +175,16 @@
 		text-align: center;
 		border: 5px solid white;
 		cursor: pointer;
+		
+		
+			
+	//	 border: 2px solid darkSlateGray;
+ //        box-shadow: 10px 10px 25px black;
+	
+		
+		
+		
+		
 	}
 	
 	#one {
@@ -202,6 +223,13 @@
 		display: flex;
 		justify-content: center;
 	}
+	
+	
+	.shadow {
+	box-shadow: 10px 10px 25px black;
+	}
+	
+	
 	
 	
 	section {
@@ -551,6 +579,20 @@
 
 	function showBubbles() {
 		menuIcon.addClass('is-active');
+	
+	
+		one.addClass('shadow');
+	        two.addClass('shadow');
+	        three.addClass('shadow');
+	        four.addClass('shadow');
+	        five.addClass('shadow');
+	        six.addClass('shadow');
+	        
+	
+	
+	
+	
+	
 		one.animate({
 			opacity: '1'
 		}, 10);
@@ -640,6 +682,20 @@
 		// add 500ms delay to change X to hamburger
 		setTimeout(function() {
 			menuIcon.removeClass('is-active');
+			
+			
+			
+		one.removeClass('shadow');
+	        two.removeClass('shadow');
+	        three.removeClass('shadow');
+	        four.removeClass('shadow');
+	        five.removeClass('shadow');
+	        six.removeClass('shadow');
+	        
+	
+			
+			
+			
 		}, 500);
 		setTimeout(function() {
 			// move x icon back to hamburger
@@ -701,6 +757,7 @@
 	}
 	$('.bubble').click(function() {
 		menuIcon.removeClass('is-active');
+		
 		hideBubbles();
 		// change 400, 500 to 900, 500
 		setTimeout(function() {
