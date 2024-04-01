@@ -13,8 +13,18 @@
       
       
       html, body {
-  height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
+  //height: 100dvh;
+  //  height: calc(var(--dvh, 1dvh) * 100);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100% !important;
+  
+  
+  
+  
+  
 }
       
       
@@ -24,7 +34,7 @@
          body {
          //font-family: Kalam;
          font-family: Arial, Helvetica, sans-serif;
-         font-size: 3vh;
+         font-size: 3dvh;
          overflow: hidden;
 		//background-color: darkSlateGray;
 		background-image: url("image2.png");
@@ -41,7 +51,7 @@
          
          }
          .grid-container-frontscreen > div {
-         font-size: 3vh;
+         font-size: 3dvh;
          text-align: left;
          }
          /* front screen */
@@ -52,7 +62,7 @@
          padding-right: 10px;
          }
          .grid-container-popup > div {
-         font-size: 3vh;
+         font-size: 3dvh;
          text-align: center;
          }
          .grid-container-mini {
@@ -69,7 +79,7 @@
          justify-content: center;
          align-items: center;
          color: white;
-         height: calc(var(--vh, 1vh) * 15); //20vh;
+         height: 20dvh;
          font-size: 3vmax;
          border: 2px solid silver;
          background: dodgerBlue;
@@ -93,7 +103,7 @@
          z-index: 1;
          border-radius: 5px;
          box-shadow: 10px 10px 25px black;
-         max-height: 60vh;
+         max-height: 60dvh;
          }
          .dropdown-content a {
          color: gray;
@@ -109,7 +119,7 @@
          grid-template-columns: repeat(6, [col] auto);
          background-color: rgb(0, 0, 20);
          color: white;
-        height: calc(var(--vh, 1vh) * 100);
+        height: 100dvh;
          align-items: center;
          justify-items: center;
          scroll-snap-align: start;
@@ -126,7 +136,7 @@
          display: none;
          
          
-         height: calc(var(--vh, 1vh) * 100);
+         height: 100dvh;
          
          
          
@@ -212,12 +222,12 @@
          
          
          .spacer1 {
-         height: 5vh;
+         height: 5dvh;
          }
          #edithcps, #dawsonbutton, #lakesbutton, #oldcoursebutton, #finishbutton {
          color: white;
          width: 100%;
-         height: calc(var(--vh, 1vh) * 15); //15vh;
+         height: 15dvh;
          font-size: 3vmax;
          border: 2px solid silver;
          background: dodgerBlue;
@@ -229,7 +239,7 @@
          justify-content: center;
          align-items: center;
          color: white;
-         //height: 10vh;
+         //height: 10dvh;
          width: 100%;
          font-size: 3vmax;
          border: 2px solid silver;
@@ -241,7 +251,7 @@
          display: none;
          color: white;
          //width: 100%;
-         height: calc(var(--vh, 1vh) * 15); //15vh;
+         height: 15dvh;
          font-size: 3vmax;
          
             background: dodgerBlue;
@@ -261,21 +271,21 @@
          
          }
          #hcp1btn, #hcp2btn, #hcp3btn, #hcp4btn {
-         font-size: 3vh;
+         font-size: 3dvh;
          color: black;
          background-color: silver;
          border-radius: 5px;
          border: 1px solid #aaa;
          }
          #minus1btn, #minus2btn, #minus3btn, #minus4btn {
-         font-size: 8vh;
+         font-size: 8dvh;
          color: dodgerBlue;
          background-color: silver;
          border-radius: 5px;
          border: 1px solid #aaa;
          }
          #plus1btn, #plus2btn, #plus3btn, #plus4btn {
-         font-size: 8vh;
+         font-size: 8dvh;
          color: dodgerBlue;
          background-color: silver;
          border-radius: 5px;
@@ -293,13 +303,13 @@
          }
          .grid-container-top > div
          {
-         font-size: 4.5vh;
+         font-size: 4.5dvh;
          display: flex;
          justify-content: center;
          align-items: center;
          text-align: center;
          border-radius: 5px;
-         height: calc(var(--vh, 1vh) * 10); //10vh;
+         height: 10dvh;
          color: white;
          background: dodgerBlue;
          border: 5px solid white;
@@ -322,11 +332,11 @@
          justify-content: center;
          align-items: center;
          text-align: center;
-         font-size: 2.7vh; //2.5vh;
+         font-size: 2.7dvh; //2.5dvh;
           //border-radius: 2px;
           border: 1px solid white;
          //box-shadow: inset white 0px 0px 60px -12px;
-         height: 10vh;
+         height: 10dvh;
          }
          .grid-container-bottom
          {
@@ -346,20 +356,20 @@
          }
          .grid-container-bottom > div
          {
-         font-size: 5vh;
+         font-size: 5dvh;
          display: flex;
          justify-content: center;
          align-items: center;
          text-align: center;
          border-radius: 5px;
-         height: 10vh;	
+         height: 10dvh;	
          }
          #p1score,
          #p2score,
          #p3score,
          #p4score
          {
-         font-size: 5vh;
+         font-size: 5dvh;
         
          }
          .highlight
@@ -387,9 +397,9 @@
          display: none;
          overflow: auto;
          position: absolute;
-         top: 1vh;
+         top: 1dvh;
          left: 2vw;
-         height: 125vh;
+         height: 125dvh;
          width: 97vw;
          color: white;
          background-color: dimGray;
@@ -402,12 +412,12 @@
          }
          #p1h0, #p2h0, #p3h0, #p4h0 {
          padding-top: 5px;
-         font-size: 2vh;
+         font-size: 2dvh;
          padding-bottom: 5px;
          }
          #x1 {
         // color: yellow;
-        // font-size: 2vh;
+        // font-size: 2dvh;
          
         
          
@@ -418,7 +428,7 @@
          #id_recoverbtn,
     #id_clearbtn {
       background-color: #ccc;
-      font-size: 4vh;
+      font-size: 4dvh;
       display: inline-block;
       border-radius: 3px;
       border: 1px solid #aaa;
@@ -432,7 +442,7 @@
       
     #popuppanel {
     background-color: #ddd;
-      font-size: 3vh;
+      font-size: 3dvh;
       display: inline-block;
       border-radius: 3px;
       border: 1px solid #aaa;
@@ -446,11 +456,11 @@
     
     #submit {
     position: fixed;
-    bottom: 1vh;
+    bottom: 1dvh;
     left: 5vw;
     color: white;
     background: dodgerBlue;
-     font-size: 5vh;
+     font-size: 5dvh;
       display: inline-block;
       border-radius: 10px;
       border: 2px solid darkSlateGray;
@@ -463,7 +473,7 @@
     
     #submittxt {
          display: none;
-       //  font-size: 2vh;
+       //  font-size: 2dvh;
          position: absolute;
          top: 30%;
          left: 1%;
@@ -472,7 +482,7 @@
         // color: white;
          background-color: transparent;
         // border-radius:10px;
-        // padding: 1vh;
+        // padding: 1dvh;
         // border: 2px solid darkSlateGray;
        //  box-shadow: 10px 10px 25px black;
          }
@@ -481,14 +491,14 @@
     
     
          display: none;
-         font-size: 3vh;
+         font-size: 3dvh;
          position: absolute;
          top: 0;
          left: 1vw;
          color: white;
          background-color: dodgerBlue; //ForestGreen; //SeaGreen;
          border-radius:10px;
-         padding: 4vh 2vh;
+         padding: 4dvh 2dvh;
          border: 2px solid darkSlateGray;
          box-shadow: 10px 10px 25px black;
          }
@@ -496,7 +506,7 @@
     #senddata1 {
          background-color: dodgerBlue;
          border-radius: 10px;
-         padding: 2vh 2vh;
+         padding: 2dvh 2dvh;
          border: 2px solid darkSlateGray;
          box-shadow: 10px 10px 25px black;
          }
@@ -525,7 +535,7 @@
          } 
          
         .spacer1 {
-        height: 1vh;
+        height: 1dvh;
         } 
          
       </style>
@@ -603,7 +613,7 @@
          <div class="small scorelow" id="score7" onclick="numberScore(this.id)">7</div>
          <div class="small scorelow" id="score8" onclick="numberScore(this.id)">8</div>
          <div class="small scorelow" id="score9" onclick="numberScore(this.id)">9</div>
-         <div class="small scorelow" id="scoreprev" onclick="prevHole()">prev</div>
+         <div class="small scorelow" id="scoreprev" onclick="predvhole()">prev</div>
          <div class="small scorelow" id="score0" onclick="numberScore(this.id)">0</div>
          <div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
       </div>
@@ -787,7 +797,7 @@
 
 
 const resizeOps = () => {
-    document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
+    document.documentElement.style.setProperty("--dvh", window.innerHeight * 0.01 + "px");
   };
 
   resizeOps();
@@ -1339,7 +1349,7 @@ function nextHole() {
 // move to the previous hole
 //
 //=================================================================================
-function prevHole() {
+function predvhole() {
 	saveScores()
 	document.getElementById("scoreprev").classList.replace("scorelow", "scorehigh");
 	// delay putting everything back
