@@ -503,7 +503,7 @@ for(i = 0; i < arrInfo.length; i++) {
 			older = "no"
 		}
 	}
-	
+
 	if(arrInfo[i][1] == "" && arrInfo[i][2] == "") {
 		line  = '<div class="grid-item bluemonth">' + arrInfo[i][0] + '</div>'
 		line += '<div class="grid-item bluemonth">' + arrInfo[i][1] + '</div>'
@@ -531,9 +531,17 @@ for(i = 0; i < arrInfo.length; i++) {
 				line += '<div class="grid-item gray older">' + arrInfo[i][2] + '</div>'
 			}
 			
-                        templist1 += '<div class="olderx">' + arrInfo[i][0] + "<br></div>"
-                        templist2 += '<div class="olderx">' + arrInfo[i][1] + "<br></div>"
-                        templist3 += '<div class="olderx">' + arrInfo[i][2] + "<br></div>"	
+			
+			
+			if (switchon == "yes") {
+                           if (ss < 3) {
+                              templist1 += '<div class="olderx">' + arrInfo[i][0] + "<br></div>"
+                              templist2 += '<div class="olderx">' + arrInfo[i][1] + "<br></div>"
+                              templist3 += '<div class="olderx">' + arrInfo[i][2] + "<br></div>"	
+			   }
+			}
+			
+			
 						
 		} else {
 			if(i % 2 == 0) {
