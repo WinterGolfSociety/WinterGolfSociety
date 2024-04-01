@@ -25,7 +25,9 @@
          display: grid;
          grid-template-columns: auto auto auto;
          //width: 94vw;
-         color: cyan; //dodgerBlue; //silver;
+         color: white; //dodgerBlue; //silver;
+         
+         
          }
          .grid-container-frontscreen > div {
          font-size: 3vh;
@@ -213,6 +215,12 @@
          }
          .grid-container-middle > div
          {
+         
+         
+         color: white;
+         
+         
+         
          display: flex;
          justify-content: center;
          align-items: center;
@@ -255,7 +263,7 @@
          }
          .highlight
          {
-         color: black;
+         color: white; //black;
          border: 1px solid black;
          box-shadow: inset black 0px 0px 60px -12px;
          }
@@ -268,7 +276,7 @@
          }
          .scorehigh
          {
-         color: black;
+         color: white; //black;
          background: white;
          border: 1px solid black;
          box-shadow: inset black 0px 0px 60px -12px;
@@ -395,6 +403,15 @@
     #my-response-iframe, #my-form {
     display: none;
     }  
+        
+        #shaded {
+        background: dodgerBlue;
+         //opacity: 0.8;
+           border-radius: 5px;
+           border: 5px solid white;
+         box-shadow: 10px 10px 25px black;
+         padding: 5px;
+        }
          
       </style>
    </head>
@@ -406,7 +423,7 @@
             <div class="spacer1"></div>
             <div id="popuppanel"></div>
             
-            <div class="grid-container-frontscreen">
+            <div class="grid-container-frontscreen" id="shaded">
                <div id="player4ballplayer">no players have been added</div>
                <div id="player4ballname"></div>
                <div id="player4ballhcp"></div>
