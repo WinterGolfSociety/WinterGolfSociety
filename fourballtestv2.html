@@ -2,7 +2,7 @@
 <html>
    <head>
       <meta charset="UTF-8">
-      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
       <meta content="ie=edge" http-equiv="X-UA-Compatible">
       <title>4score</title>
        <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
@@ -10,6 +10,17 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
       <style>
+      
+      
+      html, body {
+  height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+      
+      
+      
+      
+      
          body {
          //font-family: Kalam;
          font-family: Arial, Helvetica, sans-serif;
@@ -58,7 +69,7 @@
          justify-content: center;
          align-items: center;
          color: white;
-         height: 20vh;
+         height: calc(var(--vh, 1vh) * 20); //20vh;
          font-size: 3vmax;
          border: 2px solid silver;
          background: dodgerBlue;
@@ -98,7 +109,7 @@
          grid-template-columns: repeat(6, [col] auto);
          background-color: rgb(0, 0, 20);
          color: white;
-         height: 100vmax;
+        height: calc(var(--vh, 1vh) * 100);
          align-items: center;
          justify-items: center;
          scroll-snap-align: start;
@@ -140,7 +151,7 @@
          #edithcps, #startscoring, #dawsonbutton, #lakesbutton, #oldcoursebutton, #finishbutton {
          color: white;
          width: 100%;
-         height: 15vh;
+         height: calc(var(--vh, 1vh) * 15); //15vh;
          font-size: 3vmax;
          border: 2px solid silver;
          background: dodgerBlue;
@@ -202,10 +213,10 @@
          align-items: center;
          text-align: center;
          border-radius: 5px;
-         height: 10vh;
+         height: calc(var(--vh, 1vh) * 10); //10vh;
          color: white;
          background: dodgerBlue;
-         border: 1px solid white;
+         border: 5px solid white;
      //    box-shadow: inset blue 0px 0px 60px -12px;	
          }
          .grid-container-middle
@@ -217,7 +228,7 @@
          {
          
           background: dodgerBlue;
-         color: yellow; //white;
+         color: white;
         opacity: 0.9;
          //font-weight: bold;
          
@@ -226,7 +237,9 @@
          align-items: center;
          text-align: center;
          font-size: 2.7vh; //2.5vh;
-         border: 1px solid gainsboro;
+          //border-radius: 2px;
+          border: 1px solid white;
+         //box-shadow: inset white 0px 0px 60px -12px;
          height: 10vh;
          }
          .grid-container-bottom
@@ -261,6 +274,7 @@
          #p4score
          {
          font-size: 5vh;
+        
          }
          .highlight
          {
@@ -405,10 +419,10 @@
     display: none;
     }  
         
-        #shaded {
+        #shadedxxx {
         background: dodgerBlue;
          //opacity: 0.8;
-           border-radius: 5px;
+           border-radius: px;
            border: 5px solid white;
          box-shadow: 10px 10px 25px black;
          padding: 5px;
@@ -419,12 +433,14 @@
          .small {
          background: darkSlateGray;
           border-radius: 2px;
-          //border: 5px solid white;
-         box-shadow: inset gray 0px 0px 60px -12px;
+          border: 2px solid black;
+         box-shadow: inset black 0px 0px 60px -12px;
          opacity: 0.9;
          } 
          
-         
+        .spacer1 {
+        height: 1vh;
+        } 
          
       </style>
    </head>
@@ -471,6 +487,9 @@
       <div class="grid-container-top">
          <div id="holedetails" onclick="displayInfo()"></div>
       </div>
+      
+      <div class="spacer1"></div>
+      
       <div class="grid-container-middle">
          <div id="p1name" onclick="selected(this.id)">player 1</div>
          <div id="p1score" onclick="selected(this.id)">0</div>
@@ -481,6 +500,9 @@
          <div id="p4name" onclick="selected(this.id)">player 4</div>
          <div id="p4score" onclick="selected(this.id)">0</div>
       </div>
+      
+      <div class="spacer1"></div>
+      
       <div class="grid-container-bottom">
          <div class="small scorelow" id="score1" onclick="numberScore(this.id)">1</div>
          <div class="small scorelow" id="score2" onclick="numberScore(this.id)">2</div>
@@ -667,6 +689,35 @@
 // this runs on startup or reload
 // 
 //=================================================================================
+
+
+
+
+
+
+
+const resizeOps = () => {
+    document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
+  };
+
+  resizeOps();
+  window.addEventListener("resize", resizeOps);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // declare global variables
 var selectedplayer = 1;
 // hilight first player entry
