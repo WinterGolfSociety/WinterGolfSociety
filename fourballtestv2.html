@@ -69,7 +69,7 @@
          justify-content: center;
          align-items: center;
          color: white;
-         height: calc(var(--vh, 1vh) * 20); //20vh;
+         height: calc(var(--vh, 1vh) * 15); //20vh;
          font-size: 3vmax;
          border: 2px solid silver;
          background: dodgerBlue;
@@ -124,6 +124,10 @@
          }
          #all {
          display: none;
+         -webkit-animation-duration: 1.5s;
+         animation-duration: 1.5s;
+         -webkit-animation-fill-mode: both;
+         animation-fill-mode: both;
          }
          @-webkit-keyframes fadeOut {
          0% {
@@ -145,10 +149,64 @@
          -webkit-animation-name: fadeOut;
          animation-name: fadeOut;
          }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         @-webkit-keyframes fadeIn {
+         0% {
+         opacity: 0;
+         }
+         100% {
+         opacity: 1;
+         }
+         }
+         @keyframes fadeIn {
+         0% {
+         opacity: 0;
+         }
+         100% {
+         opacity: 1;
+         }
+         }
+         .fadeIn {
+         -webkit-animation-name: fadeIn;
+         animation-name: fadeIn;
+         }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
          .spacer1 {
          height: 5vh;
          }
-         #edithcps, #startscoring, #dawsonbutton, #lakesbutton, #oldcoursebutton, #finishbutton {
+         #edithcps, #dawsonbutton, #lakesbutton, #oldcoursebutton, #finishbutton {
          color: white;
          width: 100%;
          height: calc(var(--vh, 1vh) * 15); //15vh;
@@ -173,6 +231,26 @@
          
          #startscoring {
          display: none;
+         color: white;
+         //width: 100%;
+         height: calc(var(--vh, 1vh) * 15); //15vh;
+         font-size: 3vmax;
+         
+            background: dodgerBlue;
+         //opacity: 0.8;
+           border-radius: 5px;
+           border: 5px solid white;
+         box-shadow: 10px 10px 25px black;
+         padding: 5px;
+         text-align: center;
+         
+         
+         
+         
+         
+         
+         
+         
          }
          #hcp1btn, #hcp2btn, #hcp3btn, #hcp4btn {
          font-size: 3vh;
@@ -419,10 +497,10 @@
     display: none;
     }  
         
-        #shadedxxx {
+        #shaded {
         background: dodgerBlue;
          //opacity: 0.8;
-           border-radius: px;
+           border-radius: 5px;
            border: 5px solid white;
          box-shadow: 10px 10px 25px black;
          padding: 5px;
@@ -462,24 +540,28 @@
                <div class="spacer1"></div>
                <div class="spacer1"></div>
             </div>
+            <!--
             <div class="grid-container-frontscreen">
                <div></div>
-               <div>
-                  <button  id="startscoring" onclick="getScoring()">start scoring</button>
-               </div>
+            -->   
+               <div  id="startscoring" onclick="getScoring()">start scoring</div>
+            -->
+            <!--   
                <div></div>
             </div>
+            -->
             <div class="grid-container-frontscreen">
                <div class="spacer1"></div>
                <div class="spacer1"></div>
                <div class="spacer1"></div>
             </div>
+            <!--
             <div class="grid-container-frontscreen">
                <div></div>
                <div id="compbutton">no competition</div>
                <div></div>
             </div>
-            
+            -->
          </div>
       </div>
       <div id="all">
@@ -938,10 +1020,12 @@ function startNewDay() {
 
 
         if (localStorage.wthisComp.indexOf(dateToday) > -1) {
-           document.getElementById("compbutton").innerHTML = localStorage.wthisComp
-        } else {
-           document.getElementById("compbutton").innerHTML = "no competition"
-        }
+           document.getElementById("startscoring").innerHTML = "start scoring<br>" + localStorage.wthisComp
+        } 
+        
+        //else {
+        //   document.getElementById("compbutton").innerHTML = "no competition"
+        //}
 
 
 
@@ -1421,7 +1505,7 @@ function chooseCourse() {
 	if(localStorage.wthisComp.indexOf("OldCourse") > -1) {
 		arrCourse = arrDeepCopy(arrOldCourse);
 	}
-	if(document.getElementById("player4ballplayer").innerText !== "no players have been added") {
+	if(document.getElementById("player4ballplayer").innerText.indexOf("no players have been added") < 0) {
 		document.getElementById("startscoring").style.display = "block";
 	}
 	// update button to show course
@@ -1471,7 +1555,7 @@ function getScoring() {
 			if(originalhcp1 !== player1hcp) {
 				document.getElementById('mx867055232').value = player1name;
 				document.getElementById('mx2105479454').value = player1hcp;
-				document.forms[0].submit();
+//				document.forms[0].submit();
 			}
 		}
 		// delay others
@@ -1481,7 +1565,7 @@ function getScoring() {
 				setTimeout(function() {
 					document.getElementById('mx867055232').value = player2name;
 					document.getElementById('mx2105479454').value = player2hcp;
-					document.forms[0].submit();
+//					document.forms[0].submit();
 				}, delay1);
 			}
 		}
@@ -1491,7 +1575,7 @@ function getScoring() {
 				setTimeout(function() {
 					document.getElementById('mx867055232').value = player3name;
 					document.getElementById('mx2105479454').value = player3hcp;
-					document.forms[0].submit();
+//					document.forms[0].submit();
 				}, delay2);
 			}
 		}
@@ -1501,7 +1585,7 @@ function getScoring() {
 				setTimeout(function() {
 					document.getElementById('mx867055232').value = player4name;
 					document.getElementById('mx2105479454').value = player4hcp;
-					document.forms[0].submit();
+//					document.forms[0].submit();
 				}, delay3);
 			}
 		}
@@ -1542,8 +1626,23 @@ function getScoring() {
 	document.getElementById("firstscreen").classList.add("fadeOut");
 	setTimeout(() => {
 		document.getElementById("firstscreen").style.display = "none";
+		//document.getElementById("all").style.display = "initial"
+		document.getElementById("all").classList.add("fadeIn");
 	}, "1000");
-	document.getElementById("all").style.display = "initial"
+	
+	
+	
+	
+	
+	setTimeout(() => {
+		document.getElementById("all").style.display = "initial";
+		//document.getElementById("all").style.display = "initial"
+	}, "2000");
+	
+	
+	
+	
+	//document.getElementById("all").style.display = "initial"
 		// set up for correct number of players
 		// initial save of data
 	saveAllToLocalStorage()
