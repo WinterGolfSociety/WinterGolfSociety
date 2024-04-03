@@ -592,7 +592,7 @@ justify-content: center;
  
 <div class="grid-container3">
 
-   <div class="icon1">icon</div>
+   <div class="icon1" id="icon1">icon</div>
    <div class="icon2">icon</div>
    <div class="icon3">icon</div>
    <div class="icon4">icon</div>
@@ -625,7 +625,7 @@ window.addEventListener('resize', () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
-/*
+
 function openFullScreen() {
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
@@ -635,11 +635,40 @@ function openFullScreen() {
     elem.msRequestFullscreen();
   }
 }
-var elem = document.getElementById("fullscreen");
+var elem = document.getElementById("icon1");
 openFullScreen()
-*/
 
 
+window.addEventListener("load", startup, false);
+
+
+
+
+
+function startup() {
+  // Get the reference to video
+  const video = document.getElementById("fullscreen");
+
+  // On pressing ENTER call toggleFullScreen method
+  document.addEventListener("keypress", function(e) {
+    if (e.key === 'f') {
+      toggleFullScreen(video);
+    }
+  }, false);
+}
+
+function toggleFullScreen(video) {
+  if (!document.fullscreenElement) {
+    // If the document is not in full screen mode
+    // make the video full screen
+    video.requestFullscreen();
+  } else {
+    // Otherwise exit the full screen
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
+}
 
 
 </script>
