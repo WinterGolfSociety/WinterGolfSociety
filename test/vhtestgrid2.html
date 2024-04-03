@@ -215,14 +215,12 @@ window.addEventListener('resize', () => {
 });
 */
 
+
+debounce()
+
 window.addEventListener('resize', () => {
-  // We execute the same script as before
   debounce();
 });
-
-
-
-
 
 var timer
 
@@ -230,7 +228,8 @@ function debounce() {
   clearTimeout(timer)
   timer = setTimeout(() => {
     let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+    // set new vh value to allow new screen size
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, 500)
 }
 
