@@ -17,254 +17,100 @@ box-sizing: border-box;
 font-family: Arial, Helvetica, sans-serif;
 }  
 
+#resultsmsg {
+position: fixed;
+top: 30vh;
+left: 30vw;
+border: 5px solid white;
+border-radius: 5px;
+background: dodgerBlue;
+padding: 5px;
+text-align: center;
+width: 10vw;
+height: 10vh; 
+box-shadow: 10px 10px 25px black;
+animation: scale 8s;
+}
+
+@keyframes scale {
+  0%    { transform: scale(0); }
+  40%   { transform: scale(1.1); }
+  50%   { transform: scale(1); }
+  60%   { transform: scale(1.1); }
+  100%  { transform: scale(0); }
+}
+
 html,
 body {
   height: 100%;
+  background: gray;
 }
 
-/* set up grid */
-
-.holeinfo {
-grid-area: holeinfo;
-border: 1px solid white;
+/* HTML: <div class="tooltip">This is a Speech Bubble with a solid coloration and with border radius </div> */
+.tooltip {
+position: absolute;
+top: 30vh;
+left: 30vw;
+  color: blue;
+  font-size: 18px;
+  max-width: 28ch;
+  text-align: center;
+  animation: scale 10s;
+  
 }
 
-.player1 {
-grid-area: player1;
-border: 1px solid white;
+.tooltip { 
+  --b: 3em; /* tail dimension */
+
+  --p: 16%;  /* main position (0%:left 100%:right) */
+  --r: 1.2em; /* the radius */
+
+  padding: 1em;
+  border-radius: var(--r) var(--r) min(var(--r),100% - var(--p) - var(--b)/4) min(var(--r),var(--p) - var(--b)/4)/var(--r);
+  background: ivory; /* the main color */
+  position: relative;
+}
+.tooltip:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: clamp(var(--b)/-2,var(--p) - 3*var(--b)/4,100% - var(--b));
+  width: var(--b);
+  aspect-ratio: 1;
+  background: inherit;
+  --g:#000 calc(100% - 1px),#0000;
+  -webkit-mask: 
+    radial-gradient(circle closest-side at 12% 88%,var(--g)),
+    radial-gradient(20% 20% at 52% 55%,var(--g)),
+    radial-gradient(25% 25% at 75% 0,var(--g));
 }
 
-.player2 {
-grid-area: player2;
-border: 1px solid white;
-}
 
-.player3 {
-grid-area: player3;
-border: 1px solid white;
-}
 
-.player4 {
-grid-area: player4;
-border: 1px solid white;
-}
 
-.score1 {
-grid-area: score1;
-border: 1px solid white;
-}
 
-.score2 {
-grid-area: score2;
-border: 1px solid white;
-}
 
-.score3 {
-grid-area: score3;
-border: 1px solid white;
-}
 
-.score4 {
-grid-area: score4;
-border: 1px solid white;
-}
 
-.keypad1 {
-grid-area: keypad1;
-border: 1px solid white;
-background: gray;
-}
 
-.keypad2 {
-grid-area: keypad2;
-border: 1px solid white;
-background: gray;
-}
 
-.keypad3 {
-grid-area: keypad3;
-border: 1px solid white;
-background: gray;
-}
 
-.keypad4 {
-grid-area: keypad4;
-border: 1px solid white;
-background: gray;
-}
-
-.keypad5 {
-grid-area: keypad5;
-border: 1px solid white;
-background: gray;
-}
-
-.keypad6 {
-grid-area: keypad6;
-border: 1px solid white;
-background: gray;
-}
-
-.keypad7 {
-grid-area: keypad7;
-border: 1px solid white;
-background: gray;
-}
-
-.keypad8 {
-grid-area: keypad8;
-border: 1px solid white;
-background: gray;
-}
-
-.keypad9 {
-grid-area: keypad9;
-border: 1px solid white;
-background: gray;
-}
-
-.keypadprev {
-grid-area: keypadprev;
-border: 1px solid white;
-background: gray;
-}
-
-.keypad0 {
-grid-area: keypad0;
-border: 1px solid white;
-background: gray;
-}
-
-.keypadnext {
-grid-area: keypadnext;
-border: 1px solid white;
-background: gray;
-}
-.grid-container {
-display: grid;
- grid-template-areas:
-    'holeinfo  holeinfo  holeinfo  holeinfo  holeinfo holeinfo'
-    'player1   player1   player1   player1   score1  score1'
-    'player2   player2   player2   player2   score2  score2'
-    'player3   player3   player3   player3   score3  score3'
-    'player4   player4   player4   player4   score4  score4'
-    'keypad1   keypad1   keypad2   keypad2   keypad3 keypad3'
-    'keypad4   keypad4   keypad5   keypad5   keypad6 keypad6'
-    'keypad7   keypad7   keypad8   keypad8   keypad9 keypad9'
-    'keypadprev   keypadprev   keypad0   keypad0   keypadnext keypadnext';
-color: white;
-background: dodgerBlue;
-}
-
-.grid-container > div {
-font-size: 1vh;
-display: flex;
-align-items: center;
-justify-content: center;
-height: calc(var(--vh, 1vh) * (100 / 9));
-min-height: 50px;
-border: 1px solid white;
-}
-
-#xx {
-font-size: 5vh;
-}
 
 
 </style>
 <body>
-
-
- <div class="grid-container" id="xx">
-
-  <div class="holeinfo" id="holeinfo">holeinfo</div>
-  <div class="player1">player1</div>
-  <div class="score1">score1</div>  
- <div class="player2">player2</div>
-  <div class="score2">score2</div>  
-  <div class="player3">player3</div>
-  <div class="score3">score3</div>  
- <div class="player4">player4</div>
-  <div class="score4">score4</div>  
-  <div class="keypad1">keypad1</div>
-  <div class="keypad2">keypad2</div>
-  <div class="keypad3">keypad3</div>
-  <div class="keypad4">keypad4</div>
-  <div class="keypad5">keypad5</div>
-  <div class="keypad6">keypad6</div>
-  <div class="keypad7">keypad7</div>
-   <div class="keypad8">keypad8</div>
-   <div class="keypad9">keypad9</div>
-   <div class="keypadprev">keypadprev</div>
-   <div class="keypad0">keypad0</div>
-   <div class="keypadnext">keypadnext</div>
-
-</div>
+<!--
+   <div class="resultsmsgx" id="resultsmsgx">no results to display</div>
+-->
+<div class="tooltip">no results to display,<br>so closing.</div>
 
 
 
 
 
 <script>
-//let vh = window.innerHeight * 0.01;
-//document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-
-// set a measurement unit that works
-// across different devices/browsers
-// create "--vh"
-// We listen to the resize event
-/*
-window.addEventListener('resize', () => {
-  // We execute the same script as before
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
-*/
-
-
-//debounce()
-
-//window.addEventListener('resize', () => {
-//  debounce();
-//});
-/*
-var timer
-
-function debounce() {
-  clearTimeout(timer)
-  timer = setTimeout(() => {
-    let vh = window.innerHeight * 0.01;
-    // set new vh value to allow new screen size
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-    alert(${vh}px)
-    location.reload()
-  }, 500)
-}
-
-
-
-var touchRegionElement = document.getElementById('xx');
-var outputElement = document.getElementById('holeinfo');
-
-var initialX, initialY, initialTime;
-
-touchRegionElement.addEventListener('touchstart', function(e) {
-   initialX = e.touches[0].clientX;
-   initialY = e.touches[0].clientY;
-   initialTime = new Date();
-});
-
-touchRegionElement.addEventListener('touchend', function(e) {
-   var deltaX = e.changedTouches[0].clientX - initialX;
-   var deltaY = Math.abs(e.changedTouches[0].clientY - initialY);
-   var deltaTime = new Date() - initialTime;
-
-   if (deltaX !== 0 && deltaY !== 0 && deltaTime !== 0) {
-       debounce()
-   }
-   
-});
+setTimeout(function() {history.back();},9500)
 
 
 
@@ -272,7 +118,11 @@ touchRegionElement.addEventListener('touchend', function(e) {
 
 
 
-*/
+
+
+
+
+
 
 
 
