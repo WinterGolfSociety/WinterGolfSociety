@@ -168,9 +168,9 @@ border: 1px solid white;
 <body>
 
 
- <div class="grid-container">
+ <div class="grid-container" id="xx">
 
-  <div class="holeinfo">holeinfo</div>
+  <div class="holeinfo" id="holeinfo">holeinfo</div>
   <div class="player1">player1</div>
   <div class="score1">score1</div>  
  <div class="player2">player2</div>
@@ -216,11 +216,11 @@ window.addEventListener('resize', () => {
 */
 
 
-debounce()
+//debounce()
 
-window.addEventListener('resize', () => {
-  debounce();
-});
+//window.addEventListener('resize', () => {
+//  debounce();
+//});
 
 var timer
 
@@ -232,6 +232,28 @@ function debounce() {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, 500)
 }
+
+
+
+var touchRegionElement = document.getElementById('xx');
+var outputElement = document.getElementById('holeinfo');
+
+function showTouchPoints(e) {
+   outputElement.innerText = e.touches.length;
+}
+
+touchRegionElement.addEventListener('touchstart', showTouchPoints);
+touchRegionElement.addEventListener('touchmove', showTouchPoints);
+touchRegionElement.addEventListener('touchend', showTouchPoints);
+
+
+
+
+
+
+
+
+
 
 
 
