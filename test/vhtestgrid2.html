@@ -240,14 +240,28 @@ function debounce() {
 var touchRegionElement = document.getElementById('xx');
 var outputElement = document.getElementById('holeinfo');
 
-function showTouchPoints(e) {
-   outputElement.innerText = e.touches.length;
-}
+var initialX, initialY, initialTime;
 
-touchRegionElement.addEventListener('touchstart', showTouchPoints);
-touchRegionElement.addEventListener('touchmove', showTouchPoints);
-touchRegionElement.addEventListener('touchend', showTouchPoints);
+touchRegionElement.addEventListener('touchstart', function(e) {
+   initialX = e.touches[0].clientX;
+   initialY = e.touches[0].clientY;
+   initialTime = new Date();
+});
 
+touchRegionElement.addEventListener('touchend', function(e) {
+   var deltaX = e.changedTouches[0].clientX - initialX;
+   var deltaY = Math.abs(e.changedTouches[0].clientY - initialY);
+   var deltaTime = new Date() - initialTime;
+
+   if (deltaX <= -30 && deltaY <= 100 && deltaTime <= 300) {
+      outputElement.innerText = 'Swipe-left detected';
+      outputElement.style.color = 'green';
+   }
+   else {
+      outputElement.innerText = 'Not a swipe-left';
+      outputElement.style.color = 'red';
+   }
+});
 
 
 
