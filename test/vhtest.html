@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta name="theme-color" content=dodgerBlue>
+    <link href="eventsicon.png" rel="icon" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="eventsicon.png"/>
+    <title>schedule</title>
+<style>
+
+     
+* { 
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}  
+
+
+.layout-above-the-fold {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  background: yellow;
+}
+
+.logo {
+height: calc(var(--vh, 1vh) * 20);
+background: red;
+font-size: 20vh;
+ }
+.hero { 
+height: calc(var(--vh, 1vh) * 30);
+background: green;
+font-size: 30vh;
+ }
+.footer { 
+height: calc(var(--vh, 1vh) * 40);
+background: blue;
+font-size: 40vh;
+ }
+
+</style>
+<body>
+<div class="layout-above-the-fold">
+
+   <div class="logo">size 1</div>
+      <div class="hero">size 2</div>
+         <div class="footer">size 3</div>
+      
+      
+
+  
+
+</div>
+
+
+
+<script>
+//let vh = window.innerHeight * 0.01;
+//document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+
+// We listen to the resize event
+window.addEventListener('resize', () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
