@@ -253,14 +253,10 @@ touchRegionElement.addEventListener('touchend', function(e) {
    var deltaY = Math.abs(e.changedTouches[0].clientY - initialY);
    var deltaTime = new Date() - initialTime;
 
-   if (deltaX <= -30 && deltaY <= 100 && deltaTime <= 300) {
-      outputElement.innerText = 'Swipe-left detected';
-      outputElement.style.color = 'green';
+   if (deltaX !== 0 && deltaY !== 0 && deltaTime !== 0) {
+       outputElement.style.background = 'green';
    }
-   else {
-      outputElement.innerText = 'Not a swipe-left';
-      outputElement.style.color = 'red';
-   }
+   
 });
 
 
