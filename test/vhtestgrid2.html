@@ -254,7 +254,7 @@ touchRegionElement.addEventListener('touchend', function(e) {
    var deltaTime = new Date() - initialTime;
 
    if (deltaX !== 0 && deltaY !== 0 && deltaTime !== 0) {
-       outputElement.style.background = 'green';
+       debounce()
    }
    
 });
