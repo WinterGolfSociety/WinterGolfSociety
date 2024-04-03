@@ -1,0 +1,12 @@
+{
+  "name": "test",
+  "start_url": "https://wintergolfsociety.github.io/WinterGolfSociety/test/vhtestgrid3.html",
+  "icons": [
+    {
+      "src": "test.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone"
+}
