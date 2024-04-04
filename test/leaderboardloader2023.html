@@ -37,7 +37,18 @@ body {
     font-size: 18px;
     color: black;
     font-family: 'Kalam';
+     animation: fade 2.1s;
     }
+    
+    @keyframes fade {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+    }
+    
+    
+    
+    
+    
  .barbottom {
     position:absolute;
     bottom:0;
@@ -87,6 +98,9 @@ document.getElementById("barId").innerText = "Results - Winter 2023";
 
 */
  
+
+
+
  		setTimeout(function() {
 	//		window.open("leaderboard2023.html", "_blank");
  	window.location.assign("leaderboard2023v2.html");
