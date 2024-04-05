@@ -536,6 +536,137 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+/* tooltip stuff */	
+	
+/* HTML: <div class="tooltip">This is a Speech Bubble with a solid coloration and with border radius </div> */
+.tooltip {
+  position: absolute;
+  top: 3vh;
+  left: 50vw;
+  color: blue;
+  font-size: 18px;
+  max-width: 20ch;
+  text-align: center;
+  //animation: scale 3s;
+  display: none;
+  
+}
+
+
+@keyframes scale {
+  0%    { opacity: 1; }
+  100%  { opacity: 0; display: "none"}
+}
+
+.tooltip { 
+  --b: 3em; /* tail dimension */
+  --p: 16%;  /* main position (0%:left 100%:right) */
+  --r: 1.5em; /* the radius */
+
+  padding: 1em;
+  border-radius: var(--r) var(--r) min(var(--r),100% - var(--p) - var(--b)/4) min(var(--r),var(--p) - var(--b)/4)/var(--r);
+  background: lightGray; /* the main color */
+  position: relative;
+}
+
+.tooltip:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: clamp(var(--b)/-2,var(--p) - 3*var(--b)/4,100% - var(--b));
+  width: var(--b);
+  aspect-ratio: 1;
+  background: inherit;
+  
+  --g:#000 calc(100% - 1px),#0000;
+  
+  -webkit-mask: 
+    radial-gradient(circle closest-side at 12% 88%,var(--g)),
+    radial-gradient(20% 20% at 52% 55%,var(--g)),
+    radial-gradient(25% 25% at 75% 0,var(--g));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </style>
 
 	<body>
@@ -545,7 +676,7 @@
 		<div class="marquee"><p>Note: some stroke indexes have changed on the Old Course.</p></div>
 		
 	-->
-	
+	<div class="tooltip" id="tooltip"></div>
 	
 		<nav id="nav">
 			<div class="bubble_menu" id="icon">
@@ -1156,10 +1287,10 @@ function afterGetData() {
 	
 	
 	
+	document.getElementById("tooltip").innerHTML = "Information<br>downloaded"
+	document.getElementById("tooltip").style.display = "block";
 	
-	
-	
-	
+	setTimeout(function() {document.getElementById("tooltip").style.display = "none";},3000)
 	
 	
 	
