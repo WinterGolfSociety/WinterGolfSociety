@@ -72,32 +72,24 @@ body {
        color: darkSlateGray; //#C3CCCC;
 }
 
-#notyet, #nocomp {
+#topmsg {
 color: darkSlateGray;
         padding-left: 10px;
 }
+
 #noresults {
 color: dodgerBlue;
 font-size: 20vw;
 }
 
-
-
-
-
-
-
-
-
-
 /* HTML: <div class="tooltip">This is a Speech Bubble with a solid coloration and with border radius </div> */
 .tooltip {
-position: absolute;
-top: 30vh;
-left: 10vw;
+  position: absolute;
+  top: 30vh;
+  left: 10vw;
   color: blue;
   font-size: 18px;
-  max-width: 20ch; // 28ch;
+  max-width: 20ch;
   text-align: center;
   animation: scale 7s;
   
@@ -116,13 +108,12 @@ left: 10vw;
 
 .tooltip { 
   --b: 3em; /* tail dimension */
-
   --p: 16%;  /* main position (0%:left 100%:right) */
   --r: 1.5em; /* the radius */
 
   padding: 1em;
   border-radius: var(--r) var(--r) min(var(--r),100% - var(--p) - var(--b)/4) min(var(--r),var(--p) - var(--b)/4)/var(--r);
-  background: lightGray; //ivory; /* the main color */
+  background: lightGray; /* the main color */
   position: relative;
 }
 
@@ -134,7 +125,9 @@ left: 10vw;
   width: var(--b);
   aspect-ratio: 1;
   background: inherit;
+  
   --g:#000 calc(100% - 1px),#0000;
+  
   -webkit-mask: 
     radial-gradient(circle closest-side at 12% 88%,var(--g)),
     radial-gradient(20% 20% at 52% 55%,var(--g)),
@@ -151,7 +144,7 @@ left: 10vw;
 
 </style>
 <body>
-<div id="notyet"></div>
+<div id="topmsg"></div>
 
  <div id="leaderlist">
 
@@ -162,7 +155,7 @@ left: 10vw;
 </body>
 <script>
 
-//document.getElementById("notyet").innerHTML = "Checking for leaderboard info ...<br>";
+//document.getElementById("topmsg").innerHTML = "Checking for leaderboard info ...<br>";
 var arrPos = []
 var arrPlayer = []
 var arrPoints = []
@@ -287,7 +280,7 @@ async function getData() {
 				document.getElementById("twos"   + i).innerHTML = displaytwos
 			}
 		}
-		document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
+		document.getElementById("topmsg").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
 		document.getElementById("footer").innerHTML = "Updated every 35 seconds.<br>There is a delay before this information is available in 'All results'"
 	} else {
                 createSmallDisplay()
@@ -306,7 +299,7 @@ function createSmallDisplay() {
 	select.appendChild(el);
 	// not a comp day or no results
 	el.innerHTML = "no results to display,<br>returning to menu."
-	document.getElementById("notyet").innerHTML = "";
+	document.getElementById("topmsg").innerHTML = "";
 	setTimeout(function() {history.go(-2);},7000)
 
 }
