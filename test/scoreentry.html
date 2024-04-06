@@ -765,13 +765,7 @@
     width="60"></iframe>
 
   <script>
-  
-  
-  
-  
-  
-  
-  
+   
   const resizeOps = () => {
     document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
   };
@@ -795,9 +789,10 @@
 // declare global variables
 var hcp        = "0";
 var player     = "select player";
-var comp;
-var compday    = "no";
+var todayscomp = "";
+var dateToday = "";
 var course     = "";
+
 var arrComps   = [];
 var arrPlayers = [];
 var arrHcps     = [];
@@ -878,15 +873,26 @@ arrOldCourse = [
 //==============================================================
 // retrieve arrays
 // previously downloaded by menu screen
-if("playersarray" in localStorage) {
-	arrPlayers = JSON.parse(localStorage.playersarray);
+if("wwplayersarray" in localStorage) {
+	arrPlayers = JSON.parse(localStorage.wwplayersarray);
 }
-if("hcparray" in localStorage) {
-	arrHcps = JSON.parse(localStorage.hcparray);
+if("wwhcparray" in localStorage) {
+	arrHcps = JSON.parse(localStorage.wwhcparray);
 }
-if("compsarray" in localStorage) {
-	arrComps = JSON.parse(localStorage.compsarray);
+//if("compsarray" in localStorage) {
+//	arrComps = JSON.parse(localStorage.wwcompsarray);
+//}
+
+// retrieve competition
+if("wwtodayscomp" in localStorage) {
+	todayscomp = localStorage.wwtodayscomp;
+        // global comp
+        temp = todayscomp.split(" ")
+        comp = temp[0];
 }
+
+
+
 
 
 
@@ -896,59 +902,6 @@ start();
 //=============================================================
 // functions - run when called
 //=============================================================  
-
-//=============================================================
-// function start()
-// - initialise everything and do checks etc.
-//=============================================================  
-function start() {
-	// check for any previous selections
-	// setup local dropdown if not there
-	if("dropdown" in localStorage) {
-		oldArrOptions = JSON.parse(localStorage.dropdown);
-	}
-	// create options array for dropdown 
-	for(var i = 0; i < arrPlayers.length; i++) {
-		x = arrPlayers[i]
-		arrOptions.push([x, 0])
-	}
-	// update Options array with choices info
-	for(var i = 0; i < oldArrOptions.length; i++) {
-		// if there is a value
-		if(oldArrOptions[i][1] > 0) {
-			for(var j = 0; j < arrOptions.length; j++) {
-				// if names match
-				if(arrOptions[j][0] == oldArrOptions[i][0]) {
-					arrOptions[j][1] = oldArrOptions[i][1]
-				}
-			}
-		}
-	}
-	// save dropdown info
-	localStorage.dropdown = JSON.stringify(arrOptions);
-	// bring most commonly selected to the top
-	arrOptions.sort(compareSecondColumn);
-	// create player dropdown
-	var select = document.getElementById("playersDropdown");
-	// this is what is created
-	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-	//
-	for(var i = 0; i < arrOptions.length; i++) {
-		var el = document.createElement("a");
-		el.id = "myLink" + (i);
-		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-		el.setAttribute("href", "#");
-		el.innerText = arrOptions[i][0];
-		select.appendChild(el);
-		if(arrOptions[i][1] > 0) {
-			document.getElementById("myLink" + (i)).style.color = "blue";
-			document.getElementById("myLink" + (i)).style.background = "lightBlue";
-		}
-	}
-	console.log("end of start()")
-} // end function start()
-
-
 function startNewDay() {
 
    // get todays date eg 26 June
@@ -997,24 +950,78 @@ function startNewDay() {
       m = "December";
    }
    dateToday = d1 + " " + m;
-   dstored = d1 + "-" + d2
-
-   // doublecheck ??    
-   if ("comp" in localStorage) {
-   // if its a new comp
-   if (localStorage.comp.indexOf(dateToday) < 0) {
-       localStorage.removeItem("comp");  
-       localStorage.removeItem("course");  
-       localStorage.removeItem("player");  
-       localStorage.removeItem("hcp");  
+  
+   // if its not todays comp
+   if (todayscomp.indexOf(dateToday) < 0) {
+          //localStorage.removeItem("comp");  
+          //localStorage.removeItem("course");  
+          localStorage.removeItem("player");  
+          localStorage.removeItem("hcp");  
     
-       localStorage.setItem("dstored", dstored);
+    // .... do a tidy up of scores etc.
+    
+    
+          //localStorage.setItem("dstored", dstored);
 
    }
-   }
+   
+   
    console.log("end of startNewDay()")
 }
   
+
+//=============================================================
+// function start()
+// - initialise everything and do checks etc.
+//=============================================================  
+function start() {
+	// check for any previous selections
+	// setup local dropdown if not there
+	if("wwdropdown" in localStorage) {
+		oldArrOptions = JSON.parse(localStorage.wwdropdown);
+	}
+	// create options array for dropdown 
+	for(var i = 0; i < arrPlayers.length; i++) {
+		x = arrPlayers[i]
+		arrOptions.push([x, 0])
+	}
+	// update Options array with choices info
+	for(var i = 0; i < oldArrOptions.length; i++) {
+		// if there is a value
+		if(oldArrOptions[i][1] > 0) {
+			for(var j = 0; j < arrOptions.length; j++) {
+				// if names match
+				if(arrOptions[j][0] == oldArrOptions[i][0]) {
+					arrOptions[j][1] = oldArrOptions[i][1]
+				}
+			}
+		}
+	}
+	// save dropdown info
+	localStorage.wwdropdown = JSON.stringify(arrOptions);
+	// bring most commonly selected to the top
+	arrOptions.sort(compareSecondColumn);
+	// create player dropdown
+	var select = document.getElementById("playersDropdown");
+	// this is what is created
+	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+	//
+	for(var i = 0; i < arrOptions.length; i++) {
+		var el = document.createElement("a");
+		el.id = "myLink" + (i);
+		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+		el.setAttribute("href", "#");
+		el.innerText = arrOptions[i][0];
+		select.appendChild(el);
+		if(arrOptions[i][1] > 0) {
+			document.getElementById("myLink" + (i)).style.color = "blue";
+			document.getElementById("myLink" + (i)).style.background = "lightBlue";
+		}
+	}
+	console.log("end of start()")
+} // end function start()
+
+
 
 
 //=====================================================
@@ -1038,59 +1045,12 @@ window.onclick = function(event) {
 
 
 
-// get todays date eg 26 June
-dd = new Date();
-// get date number and format it
-d1 = dd.getDate();
-if(d1 < 10) {
-	d1 = "0" + d1;
-}
-// get month and format it
-d2 = dd.getMonth();
-if(d2 == 0) {
-	m = "January";
-}
-if(d2 == 1) {
-	m = "February";
-}
-if(d2 == 2) {
-	m = "March";
-}
-if(d2 == 3) {
-	m = "April";
-}
-if(d2 == 4) {
-	m = "May";
-}
-if(d2 == 5) {
-	m = "June";
-}
-if(d2 == 6) {
-	m = "July";
-}
-if(d2 == 7) {
-	m = "August";
-}
-if(d2 == 8) {
-	m = "September";
-}
-if(d2 == 9) {
-	m = "October";
-}
-if(d2 == 10) {
-	m = "November";
-}
-if(d2 == 11) {
-	m = "December";
-}
-dateToday = d1 + " " + m;
-
 //=============================================
 // recover data if dates match
 // this allows data to be kept over refreshes
 //=============================================
-if("comp" in localStorage) {
-	if(localStorage.comp.indexOf(dateToday) > -1) {
+if("wwtodayscomp" in localStorage) {
+	if(todayscomp.indexOf(dateToday) > -1) {
 		// recover
 		recoverFromLocalStorage();
 	}
@@ -1099,45 +1059,27 @@ if("comp" in localStorage) {
 //=======================================================================
 // see if it is a compday and if so find comp and course from array list
 //=======================================================================
-for(i = 0; i < arrComps.length; i++) {
-	// if today - eg. "22 June" in arrComps list then compday = "yes"
-	if(arrComps[i].indexOf(d1 + " " + m) > -1) {
-		compday = "yes";
-		comp = arrComps[i];
-		
-		if(arrComps[i].indexOf("Lakes") > -1) {
-			// global course
-			course = "Lakes";
-			// localStorage course
-			localStorage.course = "Lakes";
-		}
-		if(arrComps[i].indexOf("Dawson") > -1) {
-			// global course
-			course = "Dawson";
-			// localStorage course
-			localStorage.course = "Dawson";
-		}
-		if(arrComps[i].indexOf("OldCourse") > -1) {
-			// global course
-			course = "OldCourse";
-			// localStorage course
-			localStorage.course = "OldCourse";
-		}
-	}
+if(todayscomp.indexOf("Lakes") > -1) {
+   // global course
+   course = "Lakes";
 }
 
-if(compday == "yes") {
-	localStorage.comp = comp;
+if(todayscomp.indexOf("Dawson") > -1) {
+   // global course
+   course = "Dawson";
 }
 
-
+if(todayscomp.indexOf("OldCourse") > -1) {
+   // global course
+   course = "OldCourse";
+}
 
 // show comp info message for 3 seconds
 if("comp" in localStorage) {
 	showCompMessage();
 }
 
-   console.log("end 3")
+
 
 
 
@@ -1156,7 +1098,7 @@ function resetNames() {
 	}
 	// update local storage
 	//=====LocalStorage.dropdown====================
-	localStorage.dropdown = JSON.stringify(arrOptions);
+	localStorage.wwdropdown = JSON.stringify(arrOptions);
 	//==============================================
 	// create player dropdown
 	var select = document.getElementById("playersDropdown");
@@ -1218,7 +1160,7 @@ function dropSelected(playerName) {
 			var tc = parseInt(arrOptions[temppos][1]) + 1;
 			arrOptions[temppos][1] = tc;
 			// store new order
-			localStorage.dropdown = JSON.stringify(arrOptions);
+			localStorage.wwdropdown = JSON.stringify(arrOptions);
 			
 			// global player
 			player = playerName;
@@ -1228,8 +1170,8 @@ function dropSelected(playerName) {
 		// replace hcp buttom number is in doGetHCP()
 				
 		// update localStorage
-		localStorage.player = player;
-		localStorage.hcp = hcp;
+		localStorage.wwplayer = player;
+		localStorage.wwhcp = hcp;
 		
 		// close dropdown
 		var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -1253,7 +1195,7 @@ function toggleDropdown() {
 
 		// When the user clicks on the button, toggle between hiding and showing the dropdown content
 	document.getElementById("playersDropdown").classList.toggle("show");
-	   console.log("end ")
+	
 }
 
 
@@ -1269,12 +1211,12 @@ var touchendX = 0;
 // do stuff when swiped
 function checkDirection() {
 	if(touchendX < touchstartX) {
-		if(localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
+		//if(localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
 			// prevent some false messages
-			if((touchstartX - touchendX) > 100) {
-				showSetPlayerMessage();
-			}
-		}
+		//	if((touchstartX - touchendX) > 100) {
+		//		showSetPlayerMessage();
+		//	}
+		//}
 	}
 }
 document.addEventListener('touchstart', e => {
@@ -1389,7 +1331,27 @@ function submitForm() {
 		} else {
 			//===== submit data ==========
 			//============================
-			document.forms[0].submit();
+//			document.forms[0].submit();
+
+
+
+
+
+
+alert("submit")
+
+
+
+
+
+
+
+
+
+
+
+
+
 			//============================
 			// hide icons to allow tick etc.
 			document.getElementById('limg').style.visibility = "hidden";
@@ -1409,7 +1371,7 @@ function submitForm() {
 			}, 6500);
 			// return to main menu
 			setTimeout(function() {
-				window.location.assign("winter2023.html");
+				history.go(-1);
 			}, 7500);
 		}
 	}
@@ -1448,7 +1410,7 @@ function incrementScore(id) {
 	totalScore();
 	// update local storage
 	//=====LocalStorage.holes===========================================
-	localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
+	localStorage.setItem("wwhole" + id.replace("numscore", ""), incScore);
 	//==================================================================
 }
 ///=============================================================
@@ -1491,10 +1453,10 @@ function decrementScore(id) {
 	// update local storage
 	// if incScore = "hole 1" etc., remove key from localStorage
 	if(document.getElementById(id).innerText.indexOf("hole") > -1) {
-		localStorage.removeItem("hole" + id.replace("numscore", ""));
+		localStorage.removeItem("wwhole" + id.replace("numscore", ""));
 	} else {
 		//=====LocalStorage.holes===========================================
-		localStorage.setItem("hole" + id.replace("numscore", ""), incScore);
+		localStorage.setItem("wwhole" + id.replace("numscore", ""), incScore);
 		//==================================================================
 	}
 }
@@ -1640,15 +1602,15 @@ function togglecontrast() {
 function recoverFromLocalStorage() {
 	// put other values back
 	// player
-	if(("player") in localStorage) {
-		document.getElementById("dropbtn").innerText = localStorage.getItem("player");
+	if(("wwplayer") in localStorage) {
+		document.getElementById("dropbtn").innerText = localStorage.getItem("wwplayer");
 	} else {
 		document.getElementById("dropbtn").innerText = "select player";
 	}
 	player = document.getElementById("dropbtn").innerText;
 	// hcp
-	if(("hcp") in localStorage) {
-		document.getElementById("numhcp").innerText = localStorage.getItem("hcp");
+	if(("wwhcp") in localStorage) {
+		document.getElementById("numhcp").innerText = localStorage.getItem("wwhcp");
 		document.getElementById("numhcp").style.fontSize = "5vmax";
 		// make hcp visible
 		document.getElementById("hcpwrapper").style.visibility = "visible";
@@ -1657,16 +1619,16 @@ function recoverFromLocalStorage() {
 		document.getElementById("numhcp").innerText = "?";
 	}
 	hcp = document.getElementById("numhcp").innerText;
-	if("comp" in localStorage) {
+	if("wwtodayscomp" in localStorage) {
 		//=====LocalStorage.comp============
-		comp = localStorage.getItem("comp");
+		todayscomp = localStorage.getItem("wwtodayscomp");
 		//==================================
 	}
-	if("course" in localStorage) {
-		//=====LocalStorage.course==============
-		course = localStorage.getItem("course");
+	//if("course" in localStorage) {
+	//	//=====LocalStorage.course==============
+	//	course = localStorage.getItem("course");
 		//======================================
-	}
+	//}
 	//	recalc points etc.
 	for(var i = 1; i <= 18; i++) {
 		// put values for holes back
@@ -1694,8 +1656,8 @@ function recoverFromLocalStorage() {
 			par = arrOldCourse[i][1];
 			si = arrOldCourse[i][2];
 		}
-		if(("hole" + i) in localStorage) {
-			document.getElementById("p" + i).innerText = pointsCalc(hcp, par, si, localStorage.getItem("hole" + i));
+		if(("wwhole" + i) in localStorage) {
+			document.getElementById("p" + i).innerText = pointsCalc(hcp, par, si, localStorage.getItem("wwhole" + i));
 		} else {
 			document.getElementById("p" + i).innerText = "0";
 		}
@@ -1714,10 +1676,10 @@ function recoverFromLocalStorage() {
 // - wipe saved local storage but not player list
 //=============================================================  
 function clearCache() {
-	localStorage.removeItem("player");
-	localStorage.removeItem("hcp");
-	localStorage.removeItem("comp");
-	localStorage.removeItem("course");
+	localStorage.removeItem("wwplayer");
+	localStorage.removeItem("wwhcp");
+	localStorage.removeItem("wwtodayscomp");
+	//localStorage.removeItem("course");
 	for(var i = 1; i <= 18; i++) {
 		localStorage.removeItem("hole" + i);
 	}
