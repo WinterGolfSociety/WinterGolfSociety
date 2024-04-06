@@ -1055,9 +1055,9 @@ setTimeout(function() {
   
   if (localStorage.compday == "yes") {
   
-  	window.location.assign("scoreentryloader.html");
+  	window.location.assign("scoreentry.html");
   } else {
-  alert("no comp message")
+  //alert("no comp message")
   }	
 	}
 
@@ -1285,6 +1285,9 @@ function afterGetData() {
 	if ("wcompsarray" in localStorage) {
 	    arrComps = JSON.parse(localStorage.wcompsarray);
 	}
+	
+	// put marker or use a one thats there in local storage fo the day
+	// seems to work ok as is
 	
 	
 	// speech tooltip
