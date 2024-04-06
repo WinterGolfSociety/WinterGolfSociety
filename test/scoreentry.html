@@ -1626,10 +1626,10 @@ function recoverFromLocalStorage() {
 	//	recalc points etc.
 	for(var i = 1; i <= 18; i++) {
 		// put values for holes back
-		if(("hole" + i) in localStorage) {
-			document.getElementById("numscore" + i).innerText = localStorage.getItem("hole" + i);
+		if(("wwhole" + i) in localStorage) {
+			document.getElementById("numscore" + i).innerText = localStorage.getItem("wwhole" + i);
 			document.getElementById("numscore" + i).style.fontSize = "5vmax";
-			document.getElementById("h" + i).innerText = localStorage.getItem("hole" + i);
+			document.getElementById("h" + i).innerText = localStorage.getItem("wwhole" + i);
 		} else {
 			// change to hole1 etc and change font size
 			document.getElementById("h" + i).innerText = "0";
