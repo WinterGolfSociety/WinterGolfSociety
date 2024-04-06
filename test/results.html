@@ -87,8 +87,8 @@ body {
 <script>
 
 function iframeLoaded() {
-   document.getElementById("myiframe").style.display="block"
-   //setTimeout(function() {document.getElementById("myiframe").style.display="block"},100)
+// seems to be too quick for some browsers so use setTimeout
+setTimeout(function() {document.getElementById("myiframe").style.display="inline"},0)
 }
 
 </script>
