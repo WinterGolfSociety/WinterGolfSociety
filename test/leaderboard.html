@@ -7,6 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
       <title>winter</title>
       <meta content="Bryan M" name="author" />
+      <meta name="theme-color" content="white">
       <link href="favicon.ico" rel="icon" type="image/x-icon" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
@@ -18,30 +19,25 @@
 }
 body {
        color: white;
-      background-color: white; //darkSlateGray;
+      background-color: white;
       font-family: Arial, Helvetica, sans-serif;
-     // overflow-y: hidden; 
-     padding-left: 20px;
-     padding-right: 20px;
-}
+      padding-left: 20px;
+      padding-right: 20px;
+      }
  
     .grid-container {
       display: grid;
       grid-template-columns: 15vw auto 15vw 15vw;
-   //   padding-left: 20px;
-   border: 1px solid lightGray; //#E5E4E2;
-   //border-radius: 5px;
+      border: 1px solid lightGray;
     }
    
     .grid-item {
-     // padding: 2px;
       font-family: arial;
       font-size: 15px; //2vmin;
       text-align: left;
     }
     
    .grid-item-pos {
-  //    padding: 2px;
       font-family: arial;
       font-size: 15px; //2vmin;
       text-align: center;
@@ -50,7 +46,6 @@ body {
      .grid-item-top {
         display: grid;
         grid-column: 1 / 5;
-        //padding: 2px;
         font-family: arial;
         font-size: 15px; //2vmin;
         text-align: left;           
@@ -58,7 +53,6 @@ body {
    
    .grid-item, .grid-item-pos, .grid-container, #footer, #top1, #top2, #bottom1, #bottom2 {
       animation: fadein 3s linear forwards;
-      //animation-delay: 2s;
    }
 
    @keyframes fadein{
@@ -69,17 +63,17 @@ body {
 #secs {
        font-family: arial;
        font-size: 13px;
-       color: darkSlateGray; //#C3CCCC;
+       color: darkSlateGray;
 }
 
 #topmsg {
-color: darkSlateGray;
+        color: darkSlateGray;
         padding-left: 10px;
 }
 
 #noresults {
-color: dodgerBlue;
-font-size: 20vw;
+           color: dodgerBlue;
+           font-size: 20vw;
 }
 
 /* HTML: <div class="tooltip">This is a Speech Bubble with a solid coloration and with border radius </div> */
@@ -92,10 +86,8 @@ font-size: 20vw;
   font-size: 18px;
   max-width: 20ch;
   text-align: center;
-  animation: scale 6s;
-  
+  animation: scale 6s; 
 }
-
 
 @keyframes scale {
   0%    { transform: scale(0); }
@@ -134,14 +126,6 @@ font-size: 20vw;
     radial-gradient(20% 20% at 52% 55%,var(--g)),
     radial-gradient(25% 25% at 75% 0,var(--g));
 }
-
-
-
-
-
-
-
-
 
 </style>
 <body>
@@ -182,12 +166,7 @@ function waittime(ms) {
 }
 
 async function getData() {
-
-        // keep message on screen for at least 1 second
-   //     await waittime(1000);
-
-	var dataStream = await fetch("https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard"
-)
+	var dataStream = await fetch("https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard")
 	
 	var resultsarray = await dataStream.json();
 	// get rid of blanks in array by creating new arrays
@@ -207,10 +186,6 @@ async function getData() {
 	}
 	// overwrite saved data
 	localStorage.lbarray = JSON.stringify(arrPlayer);
-		//if (arrPlayer.length == arrPlayerOld.length) { // no change
-		//console.log("same")
-		//} else { // change
-	//var numberofresults = resultsarray.length;
 	var displaypos
 	var displayplayer
 	var displaypoints
@@ -230,7 +205,7 @@ async function getData() {
 		ddseconds = "0" + ddseconds
 	}
 	arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-		// create HTML
+        // create HTML
 	//createDisplay(arrPlayer.length)
 	if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
 		// create HTML
@@ -284,8 +259,7 @@ async function getData() {
 		document.getElementById("topmsg").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
 		document.getElementById("footer").innerHTML = "Updated every 35 seconds.<br>There is a delay before this information is available in 'All results'"
 	} else {
-                createSmallDisplay()
-		
+                createSmallDisplay()	
 	}
 }
 
@@ -295,14 +269,12 @@ function createSmallDisplay() {
 	select.classList.remove("grid-container")
 	select.innerHTML = "";
 	var el = document.createElement("div");
-	//el.id = "tooltip";
 	el.classList.add("tooltip")
 	select.appendChild(el);
 	// not a comp day or no results
 	el.innerHTML = "no results to display,<br>returning to menu."
 	document.getElementById("topmsg").innerHTML = "";
 	setTimeout(function() {history.go(-1);},6000)
-
 }
 
 function createDisplay(num) {
@@ -315,8 +287,6 @@ function createDisplay(num) {
 	el.id = "comp";
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
-	
-	
 	var el = document.createElement("div");
 	el.id = "top1";
 	el.setAttribute("class", "grid-item-top");
@@ -354,9 +324,6 @@ function createDisplay(num) {
 		select.appendChild(el);
 	}
 	// create footer 
-	
-	
-	
 	if (arrPlayer.length % 2 !== 0) {
 	var el = document.createElement("div");
 	el.id = "bottom1";
