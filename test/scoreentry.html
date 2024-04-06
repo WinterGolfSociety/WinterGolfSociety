@@ -888,7 +888,7 @@ if("wwtodayscomp" in localStorage) {
 	todayscomp = localStorage.wwtodayscomp;
         // global comp
         temp = todayscomp.split(" ")
-        comp = temp[0];
+        course = temp[0];
 }
 
 
@@ -1057,27 +1057,9 @@ if("wwtodayscomp" in localStorage) {
 }
 
 //=======================================================================
-// see if it is a compday and if so find comp and course from array list
+// see if it is a comp day and if so find comp and course from array list
 //=======================================================================
-if(todayscomp.indexOf("Lakes") > -1) {
-   // global course
-   course = "Lakes";
-}
 
-if(todayscomp.indexOf("Dawson") > -1) {
-   // global course
-   course = "Dawson";
-}
-
-if(todayscomp.indexOf("OldCourse") > -1) {
-   // global course
-   course = "OldCourse";
-}
-
-// show comp info message for 3 seconds
-if("comp" in localStorage) {
-	showCompMessage();
-}
 
 
 
@@ -1142,6 +1124,12 @@ function dropSelected(playerName) {
 		for(var k = 0; k < arrPlayers.length; k++) {
                     if(arrPlayers[k] == playerName) {
                        hcp = arrHcps[k]
+                       
+                       
+                       console.log("hcp = " + hcp)
+                       
+                       
+                       
 		    }
 		}
 		// find player in options list
