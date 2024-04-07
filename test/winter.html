@@ -514,19 +514,19 @@
   100% { width: 75px;	height: 75px;)}   
 }
 @-moz-keyframes    blob { 
-  0%   { width: 65px;	height: 65px; }
-  50%  { width: 85px;	height: 85px; }
-  100% { width: 75px;	height: 75px;)}   
+   0%   { width: 85px;	height: 85px;}
+  50%  { width: 95px;	height: 95px;}
+  100% { width: 75px;	height: 75px;}     
 }
 @-o-keyframes      blob { 
-   0%   { width: 65px;	height: 65px; }
-  50%  { width: 85px;	height: 85px; }
-  100% { width: 75px;	height: 75px;)} 
+   0%   { width: 85px;	height: 85px;}
+  50%  { width: 95px;	height: 95px;}
+  100% { width: 75px;	height: 75px;}  
 }
 @keyframes         blob { 
-//   0%   { width: 65px;	height: 65px; }
-  50%  { width: 85px;	height: 85px;)}
-  100% { width: 75px;	height: 75px;)}  
+   0%   { width: 85px;	height: 85px;}
+  50%  { width: 95px;	height: 95px;}
+  100% { width: 75px;	height: 75px;}  
 }
 	
 
@@ -784,9 +784,7 @@
 	five.css('opacity', '0.0');
 	six.css('opacity', '0.0');
 	
-	
 		menuIcon.addClass('is-active');
-	
 	
 		one.addClass('shadow');
 	        two.addClass('shadow');
@@ -794,83 +792,76 @@
 	        four.addClass('shadow');
 	        five.addClass('shadow');
 	        six.addClass('shadow');
-	        
-	        
-	        
-	        //one.css("opacity", "0");
-		
-	        
-  	
-	
-	
-	/*
-	
+
+t1 = Math.floor(Math.random() * 1000) + 100
+t2 = Math.floor(Math.random() * 1000) + 100
+t3 = Math.floor(Math.random() * 1000) + 100
+t4 = Math.floor(Math.random() * 1000) + 100
+t5 = Math.floor(Math.random() * 1000) + 100
+t6 = Math.floor(Math.random() * 1000) + 100
+console.log(t1)
+console.log(t2)
+console.log(t3)
+console.log(t4)
+console.log(t5)
+console.log(t6)
+		// middle right
+		// right
 		one.animate({
-			opacity: '1'
-		}, 100);
+			top: '37px', left: '140px', opacity: '1'
+		}, t1);	
+
+		// bottom middle
+		// bottom	
 		two.animate({
-			opacity: '1'
-		}, 100);
+			top: '140px', left: '37px', opacity: '1'
+		}, t2);
+		// middle left
+                // top
 		three.animate({
-			opacity: '1'
-		}, 100);
+			top: '37px', left: '-65px', opacity: '1'
+		}, t3);
+		// top middle
+		// top
 		four.animate({
-			opacity: '1'
-		}, 100);
-	        five.animate({
-			opacity: '1'
-		}, 100);
-                six.animate({
-			opacity: '1'
-		}, 100);
-	*/	
-// Returns a random integer from 200 to 700:
-//Math.floor(Math.random() * 700) + 200;		
+			top: '-65px', left: '37px', opacity: '1'
+		}, t4);
+		 // top left
+		// top
+		five.animate({
+			top: '-65px', left: '-65px', opacity: '1'
+		}, t5);
+		 // top right
+		// top
+		six.animate({
+			top: '-65px', left: '140px', opacity: '1'
+		}, t6);
 		
 setTimeout(function() {
    one.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  })
+  }, t1)
   
  setTimeout(function() {
    two.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  })
+  }, t2)
   
   setTimeout(function() {
    three.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  }) 
+  }, t3) 
   
   setTimeout(function() {
    four.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  })
+  }, t4)
   
  setTimeout(function() {
    five.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  })
+  }, t5)
   
   setTimeout(function() {
    six.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  }) 
+  }, t6) 
 
-  
-  
-  
-  
 setTimeout(function() {
-
-
-
 
    one.removeClass('blob');
    two.removeClass('blob');
@@ -882,56 +873,7 @@ setTimeout(function() {
     // Animation complete.
   })
 		
-		
-		
-		
-		
-		
-		// middle right
-		// right
-		one.animate({
-			top: '37px', left: '140px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 800);	
-
-		// bottom middle
-		// bottom	
-		two.animate({
-			top: '140px', left: '37px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 800);
-		// middle left
-                // top
-		three.animate({
-			top: '37px', left: '-65px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 800);
-		// top middle
-		// top
-		four.animate({
-			top: '-65px', left: '37px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 800);
-		 // top left
-		// top
-		five.animate({
-			top: '-65px', left: '-65px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 800);
-		 // top right
-		// top
-		six.animate({
-			top: '-65px', left: '140px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 800);
-		
-		menuIsOpen = true;
-		
-		
-		
-		
-		
-		
-		
-		
-			
-		
-		
-		
+menuIsOpen = true;
 		
 		
 		// hide pressbutton
