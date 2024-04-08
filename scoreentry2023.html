@@ -1171,6 +1171,7 @@
       ['Richard Hedley', 0],
       ['Barry Henderson', 0],
       ['Clive Herbert', 0],
+      ['Jim Herron', 0],
       ['David Hersey', 0],
       ['Ken Heslop', 0],
       ['Barry Hill', 0],
@@ -1224,7 +1225,7 @@
       var options = JSON.parse(localStorage.dropdown);
       // see if different number of items
       if (options.length !== master.length) {
-        notsame = true;
+        notsame = true;       
       } else {
         // Comparing each element of your array
         for (var i = 0; i < options.length; i++) {
@@ -1236,7 +1237,7 @@
       }
     };
 
-
+console.log("notsame = " + notsame)
     // if different
     if (notsame) {
       // option is original, master is new
