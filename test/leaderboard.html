@@ -220,10 +220,10 @@ async function getData() {
 			if(arrPlayerOld.indexOf(arrPlayer[i]) > -1) {
 			   // odd number 
                            if (i % 2 !== 0) {
+		               bg = '<p style="background:#ECEFEF;color:black;">'
+		           } else {
 		               // light background
 		               bg = '<p style="background:#F8F8FF;color:black;">'
-		           } else {
-		               bg = '<p style="background:#ECEFEF;color:black;">'
 		           } 
 				displaypos    = bg + arrPos[i]    + "</p>";
 				displayplayer = bg + arrPlayer[i] + "</p>";
@@ -240,10 +240,10 @@ async function getData() {
 			} else {
 				// new player
 				if (i % 2 !== 0) {
-		                    // light background
-		                    bg = '<p style="background:#F8F8FF; color:blue;">'
-		                } else {
 		                    bg = '<p style="background:#ECEFEF; color: blue;">'
+		                } else {
+		                    // light background
+		                    bg = '<p style="background:#F8F8FF; color:blue;">'   
 		                } 
 				displaypos    = bg + arrPos[i]    + "</p>";
 				displayplayer = bg + arrPlayer[i] + "</p>";
@@ -299,14 +299,14 @@ function createDisplay(num) {
 	document.getElementById("top1").style.background = "lightGray";
 	document.getElementById("top1").style.color = "blue";
 	
-	var el = document.createElement("div");
+/*	var el = document.createElement("div");
 	el.id = "top2";
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("top2").innerHTML = "&nbsp;"
 	document.getElementById("top2").style.background = "#F8F8FF";
 	document.getElementById("top2").style.color = "cyan";
-	
+*/	
 	// create the right number of holders
 	for(var i = 0; i < num; i++) {
 		var el = document.createElement("div");
@@ -342,7 +342,7 @@ function createDisplay(num) {
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("bottom2").innerHTML = "&nbsp;"
-	document.getElementById("bottom2").style.background = "#ECEFEF";
+	document.getElementById("bottom2").style.background = "#F8F8FF";
 	document.getElementById("bottom2").style.color = "cyan";
 	
 	
@@ -351,7 +351,7 @@ function createDisplay(num) {
 	el.setAttribute("class", "grid-item-top");
 	select.appendChild(el);
 	document.getElementById("footer").innerHTML = "&nbsp;"
-	document.getElementById("footer").style.background = "#F8F8FF";
+	document.getElementById("footer").style.background = "#ECEFEF";
 	document.getElementById("footer").style.color = "darkSlateGray";
 	document.getElementById("footer").style.fontStyle = "italic";
 	
