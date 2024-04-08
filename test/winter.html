@@ -1283,6 +1283,7 @@ function afterGetData() {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
 				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
 				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
+				tempd = tempd.slice(0,-5)
 				dlist = dlist + tempd + "<br>";
 				dlistcount++;
 			}
