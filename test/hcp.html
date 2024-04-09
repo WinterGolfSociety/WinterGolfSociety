@@ -1,69 +1,66 @@
-    
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-      <title>winter</title>
-      <meta content="Bryan M" name="author" />
-      <link href="favicon.ico" rel="icon" type="image/x-icon" />
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-<style>
 
-* {
-    margin: 0;
-    padding: 0;
-}
-body {
-    overflow: hidden;
-    background-color: white;
-}
-
-.holder {
-    width: 100vw;
-    height:100vh;
-    position:relative;
-    overflow: hidden;  
-}
-
-#myiframe {
-   display: none;
-}
-
-.bar {
-    position: absolute;
-    top: 1;
-    left: 1;
-    width:100%;
-    height:100%;
-    background-color: white;
-    text-align: center;
-    font-size: 18px;
-    color: black;
-    font-family: 'Kalam';
-    }
-    
-#blueball {
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   width: 300px;
-   height: 300px;
-   border-radius: 50%; /* makes the background colour tone less obvious */
-   filter: contrast(200%); /* tones down the tinted background */
-}
-
-</style>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>winter</title>
+	<meta content="Bryan M" name="author" />
+	<link href="favicon.ico" rel="icon" type="image/x-icon" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	
+	body {
+		overflow: hidden;
+		background-color: white;
+	}
+	
+	.holder {
+		width: 100vw;
+		height: 100vh;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	#myiframe {
+		display: none;
+	}
+	
+	.bar {
+		position: absolute;
+		top: 1;
+		left: 1;
+		width: 100%;
+		height: 100%;
+		background-color: white;
+		text-align: center;
+		font-size: 18px;
+		color: black;
+		font-family: 'Kalam';
+	}
+	
+	#blueball {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		/* makes the background colour tone less obvious */
+		filter: contrast(200%);
+		/* tones down the tinted background */
+	}
+	</style>
 </head>
-<body>
-<div class="holder">
 
-<iframe
-  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pubhtml?gid=1210420478&single=true&chrome=false"
-  id="myiframe" 
-  onload="iframeLoaded()"
-  style="
+<body>
+	<div class="holder">
+		<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5UUmQIocKfgsPnXGZZW-kBqNNEgOIm8r4Wdn9wOWqAXHht-1iZCPSDcalB0bhAIUUR5Me7fBufma_/pubhtml?gid=1210420478&single=true&chrome=false" id="myiframe" onload="iframeLoaded()" style="
     position: fixed;
     top: 0px;
     bottom: 0px;
@@ -75,27 +72,19 @@ body {
     overflow: hidden;
     z-index: 999999;
     height: 100%;
-  ">
-</iframe>
-
-<div class="bar" id="bar">Checking for hcp info ...<br><br>
-   <img id="blueball" src="loading.gif">
-</div>
-
-</div>
-
-<script>
-
-function iframeLoaded() {
-// seems to be too quick for some browsers so use setTimeout
-setTimeout(function() {document.getElementById("myiframe").style.display="inline"},0)
-}
-
-</script>
-
+  "> </iframe>
+		<div class="bar" id="bar">Checking for hcp info ...
+			<br>
+			<br> <img id="blueball" src="loading.gif"> </div>
+	</div>
+	<script>
+	function iframeLoaded() {
+		// seems to be too quick for some browsers so use setTimeout
+		setTimeout(function() {
+			document.getElementById("myiframe").style.display = "inline"
+		}, 0)
+	}
+	</script>
 </body>
 
 </html>
-
-
-

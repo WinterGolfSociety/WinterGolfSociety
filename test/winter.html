@@ -8,28 +8,27 @@
 	<meta content="Bryan M" name="author" />
 	<meta name="theme-color" content="rebeccaPurple">
 	<link href="wintericon.png" rel="icon" type="image/x-icon" />
-	<link rel="apple-touch-icon" sizes="180x180" href="wintericon.png"/>
+	<link rel="apple-touch-icon" sizes="180x180" href="wintericon.png" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	<style>
-	
 	* {
 		margin: 0;
 		padding: 0;
 	}
+	
 	html {
-	    min-height: 100%;
-
+		min-height: 100%;
 	}
 	
 	body {
 		overflow: hidden;
 		background-color: rebeccaPurple;
 		/* linear-gradient syntax */
-                //background: linear-gradient(rebeccaPurple, darkSlateBlue);
-                background: linear-gradient(rebeccaPurple, blue);
-        }
+		//background: linear-gradient(rebeccaPurple, darkSlateBlue);
+		background: linear-gradient(rebeccaPurple, blue);
+	}
 	
 	::-webkit-scrollbar {
 		display: none;
@@ -55,7 +54,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		background-color: transparent;
-		z-index: 99;	
+		z-index: 99;
 	}
 	
 	.square_menu_icon:focus {
@@ -138,7 +137,7 @@
 		height: 75px;
 		z-index: 4;
 		border: 5px solid white;
-                box-shadow: 10px 10px 25px black;
+		box-shadow: 10px 10px 25px black;
 	}
 	
 	.bubble_menu {
@@ -151,14 +150,8 @@
 		height: 75px;
 		z-index: 4;
 		cursor: pointer;
-		
-		
-		
 		border-radius: 5px;
 		border: 5px solid white;
-		
-		
-		
 	}
 	
 	#one,
@@ -178,21 +171,7 @@
 		text-align: center;
 		border: 5px solid white;
 		cursor: pointer;
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		opacity: 0.0;
-		
-		
-		
-		
-		
 	}
 	
 	#one {
@@ -225,46 +204,23 @@
 		justify-content: center;
 	}
 	
-	
 	#six {
 		background-color: lightGreen;
 		display: flex;
 		justify-content: center;
 	}
 	
-	
 	.shadow {
-//	border: 5px solid white;
-	box-shadow: 10px 10px 25px black;
-	
-	
-	
-	
-	
-	
-	opacity: 0.0;
-	
-	
-	
-	
+		//	border: 5px solid white;
+		box-shadow: 10px 10px 25px black;
+		opacity: 0.0;
 	}
-	
-	
-	
 	
 	section {
 		width: 100vw;
 		height: 100vh;
 		position: absolute;
-        }		
-		
-		
-		
-		
-		
-		
-		
-	
+	}
 	
 	.startxxx {
 		top: 0;
@@ -361,7 +317,6 @@
 		border: 5px solid white; //cyan;
 	}
 	
-	
 	#six:active {
 		border: 5px solid white; //lightGreen;
 	}
@@ -382,7 +337,7 @@
 		height: 2vh;
 		color: white;
 		font-size: 18px;
-		float:left;
+		float: left;
 	}
 	
 	#scheduled {
@@ -402,295 +357,243 @@
 		transform: scale(5);
 	}
 	
-	.spacer1  {
-	        height: 3vh;
+	.spacer1 {
+		height: 3vh;
 	}
 	
 	.contentinfo {
-	font-family: 'Kalam';
+		font-family: 'Kalam';
 		color: white;
 		font-size: 12px;
-		
 		//width: 100%;
 	}
-
+	
 	#popuppanel {
-    position: absolute;
-    top: 10vh;
-    left: 30vw;
-    display: none;
-    font-family: 'Kalam';
-    background-color: #ddd;
-    opacity: 0.8;
-      font-size: 3vh;
-      //display: inline-block;
-      border-radius: 10px;
-      border: 1px solid #aaa;
-      padding: 20px;
-      
-      text-align: left; //center;
-     width: 20vw;
-      height: 10vw;
-      cursor: pointer;
-    }     
-	#xdcomp1, #qrcode {
-//	opacity: 0;
-	 animation: fadeIn 5s; 
- //animation-delay: 1s;
+		position: absolute;
+		top: 10vh;
+		left: 30vw;
+		display: none;
+		font-family: 'Kalam';
+		background-color: #ddd;
+		opacity: 0.8;
+		font-size: 3vh;
+		//display: inline-block;
+		border-radius: 10px;
+		border: 1px solid #aaa;
+		padding: 20px;
+		text-align: left; //center;
+		width: 20vw;
+		height: 10vw;
+		cursor: pointer;
 	}
+	
+	#xdcomp1,
+	#qrcode {
+		//	opacity: 0;
+		animation: fadeIn 5s;
+		//animation-delay: 1s;
+	}
+	
 	@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 	/* marquee CSS */
-	 .marquee {
-	        font-family: Arial, Helvetica, sans-serif;
-	        font-size: 14px;
-	        font-style: italic;
-                height: 40px;
-                overflow: hidden;
-                position: relative;
-                background: darkSlateGray;
-                color: white;
-                //border: 1px solid white;
-            }
-            
-            .marquee p {
-                color: yellow;
-                font-weight: 400;
-                position: absolute;
-                width: 150%;
-                height: 100%;
-                margin: 0;
-                line-height: 40px;
-                text-align: center;
-                -moz-transform: translateX(100%);
-                -webkit-transform: translateX(100%);
-                transform: translateX(100%);
-                -moz-animation: scroll-left 2s linear 1;
-                -webkit-animation: scroll-left 2s linear 1;
-                animation: scroll-left 10s linear 1;
-                animation-delay: -3s;
-            }
-            
-            @-moz-keyframes scroll-left {
-                0% {
-                    -moz-transform: translateX(100%);
-                }
-                100% {
-                    -moz-transform: translateX(-100%);
-                }
-            }
-            
-            @-webkit-keyframes scroll-left {
-                0% {
-                    -webkit-transform: translateX(100%);
-                }
-                100% {
-                    -webkit-transform: translateX(-100%);
-                }
-            }
-            
-            @keyframes scroll-left {
-                0% {
-                    -moz-transform: translateX(100%);
-                    -webkit-transform: translateX(100%);
-                    transform: translateX(100%);
-                }
-                100% {
-                    -moz-transform: translateX(-100%);
-                    -webkit-transform: translateX(-100%);
-                    transform: translateX(-100%);
-                }
-            }
 	
+	.marquee {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 14px;
+		font-style: italic;
+		height: 40px;
+		overflow: hidden;
+		position: relative;
+		background: darkSlateGray;
+		color: white;
+		//border: 1px solid white;
+	}
 	
+	.marquee p {
+		color: yellow;
+		font-weight: 400;
+		position: absolute;
+		width: 150%;
+		height: 100%;
+		margin: 0;
+		line-height: 40px;
+		text-align: center;
+		-moz-transform: translateX(100%);
+		-webkit-transform: translateX(100%);
+		transform: translateX(100%);
+		-moz-animation: scroll-left 2s linear 1;
+		-webkit-animation: scroll-left 2s linear 1;
+		animation: scroll-left 10s linear 1;
+		animation-delay: -3s;
+	}
+	
+	@-moz-keyframes scroll-left {
+		0% {
+			-moz-transform: translateX(100%);
+		}
+		100% {
+			-moz-transform: translateX(-100%);
+		}
+	}
+	
+	@-webkit-keyframes scroll-left {
+		0% {
+			-webkit-transform: translateX(100%);
+		}
+		100% {
+			-webkit-transform: translateX(-100%);
+		}
+	}
+	
+	@keyframes scroll-left {
+		0% {
+			-moz-transform: translateX(100%);
+			-webkit-transform: translateX(100%);
+			transform: translateX(100%);
+		}
+		100% {
+			-moz-transform: translateX(-100%);
+			-webkit-transform: translateX(-100%);
+			transform: translateX(-100%);
+		}
+	}
 	/* end of marque CSS */
 	
+	.blob {
+		-webkit-animation: blob 1s linear;
+		-moz-animation: blob 1s linear;
+		-o-animation: blob 1s linear;
+		animation: blob 0.5s linear;
+	}
 	
+	@-webkit-keyframes blob {
+		0% {
+			width: 65px;
+			height: 65px;
+		}
+		50% {
+			width: 85px;
+			height: 85px;
+		}
+		100% {
+			width: 75px;
+			height: 75px;
+			)
+		}
+	}
 	
-
-.blob {
-  -webkit-animation: blob 1s linear;
-  -moz-animation:    blob 1s linear;
-  -o-animation:      blob 1s linear;
-  animation:         blob 0.5s linear;
-}
-
-
+	@-moz-keyframes blob {
+		0% {
+			width: 65px;
+			height: 65px;
+		}
+		50% {
+			width: 85px;
+			height: 85px;
+		}
+		100% {
+			width: 75px;
+			height: 75px;
+			)
+		}
+	}
 	
+	@-o-keyframes blob {
+		0% {
+			width: 65px;
+			height: 65px;
+		}
+		50% {
+			width: 85px;
+			height: 85px;
+		}
+		100% {
+			width: 75px;
+			height: 75px;
+			)
+		}
+	}
 	
-	@-webkit-keyframes blob { 
-   0%   { width: 65px;	height: 65px; }
-  50%  { width: 85px;	height: 85px; }
-  100% { width: 75px;	height: 75px;)}   
-}
-@-moz-keyframes    blob { 
-  0%   { width: 65px;	height: 65px; }
-  50%  { width: 85px;	height: 85px; }
-  100% { width: 75px;	height: 75px;)}   
-}
-@-o-keyframes      blob { 
-   0%   { width: 65px;	height: 65px; }
-  50%  { width: 85px;	height: 85px; }
-  100% { width: 75px;	height: 75px;)} 
-}
-@keyframes         blob { 
-//   0%   { width: 65px;	height: 65px; }
-  50%  { width: 85px;	height: 85px;)}
-  100% { width: 75px;	height: 75px;)}  
-}
+	@keyframes blob {
+		//   0%   { width: 65px;	height: 65px; }
+		50% {
+			width: 85px;
+			height: 85px;
+			)
+		}
+		100% {
+			width: 75px;
+			height: 75px;
+			)
+		}
+	}
+	/* tooltip stuff */
+	/* HTML: <div class="tooltip">This is a Speech Bubble with a solid coloration and with border radius </div> */
 	
-
+	.tooltip {
+		position: absolute;
+		top: 3vh;
+		left: 50vw;
+		color: blue;
+		font-family: 'Kalam';
+		font-size: 12px;
+		max-width: 10ch;
+		text-align: center;
+		//animation: scale 3s;
+		display: none;
+	}
 	
+	@keyframes scale {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+			display: "none"
+		}
+	}
 	
+	.tooltip {
+		--b: 3em;
+		/* tail dimension */
+		--p: 16%;
+		/* main position (0%:left 100%:right) */
+		--r: 1.5em;
+		/* the radius */
+		padding: 1em;
+		border-radius: var(--r) var(--r) min(var(--r), 100% - var(--p) - var(--b)/4) min(var(--r), var(--p) - var(--b)/4)/var(--r);
+		background: lightGray;
+		/* the main color */
+		position: relative;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-/* tooltip stuff */	
-	
-/* HTML: <div class="tooltip">This is a Speech Bubble with a solid coloration and with border radius </div> */
-.tooltip {
-  position: absolute;
-  top: 3vh;
-  left: 50vw;
-  color: blue;
-  font-family: 'Kalam';
-  font-size: 12px;
-  max-width: 10ch;
-  text-align: center;
-  //animation: scale 3s;
-  display: none;
-  
-}
-
-
-@keyframes scale {
-  0%    { opacity: 1; }
-  100%  { opacity: 0; display: "none"}
-}
-
-.tooltip { 
-  --b: 3em; /* tail dimension */
-  --p: 16%;  /* main position (0%:left 100%:right) */
-  --r: 1.5em; /* the radius */
-
-  padding: 1em;
-  border-radius: var(--r) var(--r) min(var(--r),100% - var(--p) - var(--b)/4) min(var(--r),var(--p) - var(--b)/4)/var(--r);
-  background: lightGray; /* the main color */
-  position: relative;
-}
-
-.tooltip:before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: clamp(var(--b)/-2,var(--p) - 3*var(--b)/4,100% - var(--b));
-  width: var(--b);
-  aspect-ratio: 1;
-  background: inherit;
-  
-  --g:#000 calc(100% - 1px),#0000;
-  
-  -webkit-mask: 
-    radial-gradient(circle closest-side at 12% 88%,var(--g)),
-    radial-gradient(20% 20% at 52% 55%,var(--g)),
-    radial-gradient(25% 25% at 75% 0,var(--g));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-</style>
+	.tooltip:before {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: clamp(var(--b)/-2, var(--p) - 3*var(--b)/4, 100% - var(--b));
+		width: var(--b);
+		aspect-ratio: 1;
+		background: inherit;
+		--g: #000 calc(100% - 1px), #0000;
+		-webkit-mask: radial-gradient(circle closest-side at 12% 88%, var(--g)), radial-gradient(20% 20% at 52% 55%, var(--g)), radial-gradient(25% 25% at 75% 0, var(--g));
+	}
+	</style>
 
 	<body>
-	
-	<!-- remove when not required 100% is about 40 characters 
+		<!-- remove when not required 100% is about 40 characters 
 		
 		<div class="marquee"><p>Note: some stroke indexes have changed on the Old Course.</p></div>
 		
 	-->
-	<div class="tooltip" id="tooltip"></div>
-	
+		<div class="tooltip" id="tooltip"></div>
 		<nav id="nav">
 			<div class="bubble_menu" id="icon">
 				<button class="square_menu_icon square_menu_icon-X"> <span></span> </button>
@@ -704,57 +607,35 @@
 		</nav>
 		<section class="start">
 			<div class="content">
-			
-			<div class="title">
-			<div class="pretitle">Longhirst seniors</div>
-			<div class="spacer1"></div>
-			<div>Winter golf</div>
-			
+				<div class="title">
+					<div class="pretitle">Longhirst seniors</div>
+					<div class="spacer1"></div>
+					<div>Winter golf</div>
+				</div>
+				<div id="popuppanel"></div>
+				<div class="contentinfo"> hcps, score entry, twos, results, leaderboard </div>
+				<br>
+				<br>
+				<div class="datescontent"> <a class="dates" id="scheduled">scheduled ...</a>
+					<br>
+					<br> <a class="dates" id="xdcomp1">searching for competitions ...</a> </div>
+				<br>
+				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrseniors.png" alt="qr"> </div>
 			</div>
-			
-			
-			
-			<div id="popuppanel"></div>
-			
-			
-			
-			<div class="contentinfo">
-			hcps, score entry, twos, results, leaderboard
-			</div>
-				
-			<br>
-			<br>
-			<div class="datescontent">
-			<a class="dates" id="scheduled">scheduled ...</a>
-			<br><br>
-			<a class="dates" id="xdcomp1">searching for competitions ...</a>
-			</div>
-                        <br>
-			
-			<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrseniors.png" alt="qr"> </div>
-			</div>
-			
 		</section>
 	</body>
 	<script>
-
-    // global arrays
-    var arrPlayers = []
-    var arrHcps = []
-    var arrComps = []
-    
-    var todayscomp = ""
-    
-    
-    
-    var compday = "no"  
-    var sparseArrComps = []
-    
-    var arrPlayersOld = []
-    var arrHcpOld = []
-
-        // menu code
-        var isTop = true;
+	// global arrays
+	var arrPlayers = []
+	var arrHcps = []
+	var arrComps = []
+	var todayscomp = ""
+	var compday = "no"
+	var sparseArrComps = []
+	var arrPlayersOld = []
+	var arrHcpOld = []
+		// menu code
+	var isTop = true;
 	var menuIsOpen = false;
 	var menuIcon = $('.square_menu_icon');
 	var bubblemenu = $('.bubble_menu');
@@ -786,166 +667,106 @@
 	});
 
 	function showBubbles() {
-	//
-
-
-	one.css('opacity', '0.0');
-	two.css('opacity', '0.0');
-	three.css('opacity', '0.0');
-	four.css('opacity', '0.0');
-	five.css('opacity', '0.0');
-	six.css('opacity', '0.0');
-	
-	
+		//
+		one.css('opacity', '0.0');
+		two.css('opacity', '0.0');
+		three.css('opacity', '0.0');
+		four.css('opacity', '0.0');
+		five.css('opacity', '0.0');
+		six.css('opacity', '0.0');
 		menuIcon.addClass('is-active');
-	
-	
 		one.addClass('shadow');
-	        two.addClass('shadow');
-	        three.addClass('shadow');
-	        four.addClass('shadow');
-	        five.addClass('shadow');
-	        six.addClass('shadow');
-	        
-	        
-	        
-	        //one.css("opacity", "0");
-		
-	        
-  	
-	
-	
-	/*
-	
+		two.addClass('shadow');
+		three.addClass('shadow');
+		four.addClass('shadow');
+		five.addClass('shadow');
+		six.addClass('shadow');
+
+		// Returns a random integer from 200 to 700:
+		//Math.floor(Math.random() * 700) + 200;		
+		setTimeout(function() {
+			one.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			two.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			three.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			four.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			five.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			six.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+				one.removeClass('blob');
+				two.removeClass('blob');
+				three.removeClass('blob');
+				four.removeClass('blob');
+				five.removeClass('blob');
+				six.removeClass('blob');
+			}, 2000, function() {
+				// Animation complete.
+			})
+			// middle right
+			// right
 		one.animate({
+			top: '37px',
+			left: '140px',
 			opacity: '1'
-		}, 100);
-		two.animate({
-			opacity: '1'
-		}, 100);
-		three.animate({
-			opacity: '1'
-		}, 100);
-		four.animate({
-			opacity: '1'
-		}, 100);
-	        five.animate({
-			opacity: '1'
-		}, 100);
-                six.animate({
-			opacity: '1'
-		}, 100);
-	*/	
-// Returns a random integer from 200 to 700:
-//Math.floor(Math.random() * 700) + 200;		
-		
-setTimeout(function() {
-   one.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  })
-  
- setTimeout(function() {
-   two.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  })
-  
-  setTimeout(function() {
-   three.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  }) 
-  
-  setTimeout(function() {
-   four.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  })
-  
- setTimeout(function() {
-   five.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  })
-  
-  setTimeout(function() {
-   six.addClass('blob');
-  }, Math.floor(Math.random() * 700) + 100, function() {
-    // Animation complete.
-  }) 
-
-  
-  
-  
-  
-setTimeout(function() {
-
-
-
-
-   one.removeClass('blob');
-   two.removeClass('blob');
-   three.removeClass('blob');
-   four.removeClass('blob');
-   five.removeClass('blob');
-   six.removeClass('blob');
-  }, 2000, function() {
-    // Animation complete.
-  })
-		
-		
-		
-		
-		
-		
-		// middle right
-		// right
-		one.animate({
-			top: '37px', left: '140px', opacity: '1'
-		}, Math.floor(Math.random() * 500) + 800);	
-
+		}, Math.floor(Math.random() * 500) + 800);
 		// bottom middle
 		// bottom	
 		two.animate({
-			top: '140px', left: '37px', opacity: '1'
+			top: '140px',
+			left: '37px',
+			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 800);
 		// middle left
-                // top
+		// top
 		three.animate({
-			top: '37px', left: '-65px', opacity: '1'
+			top: '37px',
+			left: '-65px',
+			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 800);
 		// top middle
 		// top
 		four.animate({
-			top: '-65px', left: '37px', opacity: '1'
+			top: '-65px',
+			left: '37px',
+			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 800);
-		 // top left
+		// top left
 		// top
 		five.animate({
-			top: '-65px', left: '-65px', opacity: '1'
+			top: '-65px',
+			left: '-65px',
+			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 800);
-		 // top right
+		// top right
 		// top
 		six.animate({
-			top: '-65px', left: '140px', opacity: '1'
+			top: '-65px',
+			left: '140px',
+			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 800);
-		
 		menuIsOpen = true;
-		
-		
-		
-		
-		
-		
-		
-		
-			
-		
-		
-		
-		
-		
 		// hide pressbutton
 		$("#pressbutton").html("");
 	}
@@ -954,20 +775,12 @@ setTimeout(function() {
 		// add 500ms delay to change X to hamburger
 		setTimeout(function() {
 			menuIcon.removeClass('is-active');
-			
-			
-			
-		one.removeClass('shadow');
-	        two.removeClass('shadow');
-	        three.removeClass('shadow');
-	        four.removeClass('shadow');
-	        five.removeClass('shadow');
-	        six.removeClass('shadow');
-	        
-	
-			
-			
-			
+			one.removeClass('shadow');
+			two.removeClass('shadow');
+			three.removeClass('shadow');
+			four.removeClass('shadow');
+			five.removeClass('shadow');
+			six.removeClass('shadow');
 		}, 500);
 		setTimeout(function() {
 			// move x icon back to hamburger
@@ -981,69 +794,48 @@ setTimeout(function() {
 			}, 1500);
 		}, 400);
 		// move menu items
-		
 		one.animate({
 			top: '50%'
 		}, 200);
 		one.animate({
 			left: '50%'
 		}, 200);
-		
 		two.animate({
 			top: '50%'
 		}, 200);
 		two.animate({
 			left: '50%'
 		}, 200);
-		
 		three.animate({
 			top: '50%'
 		}, 200);
 		three.animate({
 			left: '50%'
 		}, 200);
-		
 		four.animate({
 			top: '50%'
 		}, 200);
 		four.animate({
 			left: '50%'
 		}, 200);
-		
 		five.animate({
 			top: '50%'
 		}, 200);
 		five.animate({
 			left: '50%'
 		}, 200);
-		
 		six.animate({
 			top: '50%'
 		}, 200);
 		six.animate({
 			left: '50%'
 		}, 200);
-		
 		menuIsOpen = false;
 		isTop = true;
-
-
-
-
-//one.addClass('blob');
-
-
-
-
+		//one.addClass('blob');
 	}
-	
-	
-	
-	
-	
 	$('.bubble').click(function() {
 		menuIcon.removeClass('is-active');
-		
 		hideBubbles();
 		// change 400, 500 to 900, 500
 		setTimeout(function() {
@@ -1055,193 +847,162 @@ setTimeout(function() {
 		isTop = true;
 	});
 
-
-
-
-
-
 	function doOne() {
 		// put menu back then move to hcp page
 		setTimeout(function() {
-//			window.open("hcp2023.html", "_blank");
-	window.location.assign("hcp.html");
+			//			window.open("hcp2023.html", "_blank");
+			window.location.assign("hcp.html");
 		}, 1000);
 	}
 
 	function doTwo() {
 		// put menu back then move to score entry page
-  
-  if (localStorage.wwtodayscomp) {
-  
-  	window.location.assign("scoreentry.html");
-  } else {
-  alert("no comp message")
-  }	
+		if(localStorage.wwtodayscomp) {
+			window.location.assign("scoreentry.html");
+		} else {
+			alert("no comp message")
+		}
 	}
 
 	function doThree() {
 		// put menu back then move to twos page
 		setTimeout(function() {
-	//		window.open("twos2023.html", "_blank");
- window.location.assign("twos.html");
+			window.location.assign("twos.html");
 		}, 1000);
 	}
 
 	function doFour() {
 		// put menu back then move to results page
 		setTimeout(function() {
-		//	window.open("results2023.html", "_blank");
-  window.location.assign("results.html");
+			window.location.assign("results.html");
 		}, 1000);
 	}
 
 	function doFive() {
 		// put menu back then move to results page
 		setTimeout(function() {
-		//	window.open("results2023.html", "_blank");
-  window.location.assign("leaderboard.html");
+			window.location.assign("leaderboard.html");
 		}, 1000);
 	}
 
-        function doSix() {
+	function doSix() {
 		// put menu back then move to results page
 		setTimeout(function() {
-		//	window.open("results2023.html", "_blank");
-  window.location.assign("fourballtestv2.html");
+			window.location.assign("fourballtestv2.html");
 		}, 1000);
 	}
-//====================================
-// end of menu code
-//====================================
-
-
-
-
-
-//====================================
-// runs on start or refresh
-//====================================
-// see if a new download is necessary
-// get todays date eg 26
-dd = new Date();
-// get date number and format it
-d1 = dd.getDate();
-if (d1 < 10) {
-    d1 = "0" + d1;
-}
-// get todays month number eg 2
-d2 = dd.getMonth();
-
-arrMonths = [
-            ["January"],
-            ["February"],
-            ["March"],
-            ["April"],
-            ["May"],
-            ["June"],
-            ["July"],
-            ["August"],
-            ["September"],
-            ["October"],
-            ["November"],
-            ["December"]
-            ]; 
-            
-// check to see if a comp exists in localStorage
-if ("wwtodayscomp" in localStorage) {
-   // if today is not the same as localStorage.wwtodayscomp then get the new data
-   if (localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
-      // retrieve data from local storage
-      // overwrite data arrays from localStorage
-      // players
-      arrPlayers = JSON.parse(localStorage.wwplayersarray);
-      // hcps
-      arrHcps = JSON.parse(localStorage.wwhcpsarray);
-      // comps
-      arrComps = JSON.parse(localStorage.wwcompsarray);
-      afterGetData()
-   } else {
-      // just get some new data
-      getData();
-   }
-}
-	
-
-	
-//=====================================
-// get data and create arrays
-// store in localStorage for retrieval
-// and use in scoreentry
-//=====================================
-async function getData() {
-	var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
-	var resultsarray = await dataStream.json()	
-	// get rid of blanks in array by creating new arrays
-	for(var i = 0; i < resultsarray.length; i++) {
-		if(resultsarray[i].players.length > 2) {
-			arrPlayers.push(resultsarray[i].players);
-			arrHcps.push(resultsarray[i].hcp);
-                        // comps is shorter than players and hcps
-                        // so contains empty items that need to be removed
-			sparseArrComps.push(resultsarray[i].comps);
+	//====================================
+	// end of menu code
+	//====================================
+	//====================================
+	// runs on start or refresh
+	//====================================
+	// see if a new download is necessary
+	// get todays date eg 26
+	dd = new Date();
+	// get date number and format it
+	d1 = dd.getDate();
+	if(d1 < 10) {
+		d1 = "0" + d1;
+	}
+	// get todays month number eg 2
+	d2 = dd.getMonth();
+	arrMonths = [
+		["January"],
+		["February"],
+		["March"],
+		["April"],
+		["May"],
+		["June"],
+		["July"],
+		["August"],
+		["September"],
+		["October"],
+		["November"],
+		["December"]
+	];
+	// check to see if a comp exists in localStorage
+	if("wwtodayscomp" in localStorage) {
+		// if today is not the same as localStorage.wwtodayscomp then get the new data
+		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
+			// retrieve data from local storage
+			// overwrite data arrays from localStorage
+			// players
+			arrPlayers = JSON.parse(localStorage.wwplayersarray);
+			// hcps
+			arrHcps = JSON.parse(localStorage.wwhcpsarray);
+			// comps
+			arrComps = JSON.parse(localStorage.wwcompsarray);
+			afterGetData()
+		} else {
+			// just get some new data
+			getData();
 		}
 	}
-	// remove empty items
-	arrComps = sparseArrComps.filter(function (el) {return el != null;});
-
-        // speech tooltip
-	document.getElementById("tooltip").innerHTML = "Data link<br>established."
-	document.getElementById("tooltip").style.display = "block";
-	
-	setTimeout(function() {document.getElementById("tooltip").style.display = "none";},3000)
-
-	// overwrite saved data arrays in localStorage
-	// players
-	localStorage.wwplayersarray = JSON.stringify(arrPlayers);
-	// hcps
-	localStorage.wwhcpsarray = JSON.stringify(arrHcps);
-        // comps
-	localStorage.wwcompsarray = JSON.stringify(arrComps);
-        afterGetData();
-}
-	
-
-function afterGetData() {
-	if ("wwtodayscomp" in localStorage) {
-	    todayscomp = localStorage.wwtodayscomp;
+	//=====================================
+	// get data and create arrays
+	// store in localStorage for retrieval
+	// and use in scoreentry
+	//=====================================
+	async function getData() {
+		var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
+		var resultsarray = await dataStream.json()
+			// get rid of blanks in array by creating new arrays
+		for(var i = 0; i < resultsarray.length; i++) {
+			if(resultsarray[i].players.length > 2) {
+				arrPlayers.push(resultsarray[i].players);
+				arrHcps.push(resultsarray[i].hcp);
+				// comps is shorter than players and hcps
+				// so contains empty items that need to be removed
+				sparseArrComps.push(resultsarray[i].comps);
+			}
+		}
+		// remove empty items
+		arrComps = sparseArrComps.filter(function(el) {
+			return el != null;
+		});
+		// speech tooltip
+		document.getElementById("tooltip").innerHTML = "Data link<br>established."
+		document.getElementById("tooltip").style.display = "block";
+		setTimeout(function() {
+				document.getElementById("tooltip").style.display = "none";
+			}, 3000)
+			// overwrite saved data arrays in localStorage
+			// players
+		localStorage.wwplayersarray = JSON.stringify(arrPlayers);
+		// hcps
+		localStorage.wwhcpsarray = JSON.stringify(arrHcps);
+		// comps
+		localStorage.wwcompsarray = JSON.stringify(arrComps);
+		afterGetData();
 	}
-	
-        getNextComps();
-      
-}	
-	
-//=====================================
-// functions
-//=====================================
-        // get list of next comps
+
+	function afterGetData() {
+		if("wwtodayscomp" in localStorage) {
+			todayscomp = localStorage.wwtodayscomp;
+		}
+		getNextComps();
+	}
+	//=====================================
+	// functions
+	//=====================================
+	// get list of next comps
 	function getNextComps() {
 		dd = new Date(); /* today */
 		dlist = "";
 		dlistcount = 0;
-		
 		console.log(arrComps.length)
-		
 		for(i = 0; i < arrComps.length; i++) {
-				
 			temptest = arrComps[i].replace("Lakes ", "");
 			temptest = temptest.replace("Dawson ", "");
 			temptest = temptest.replace("OldCourse ", "");
-
 			// should give something like: 03 June 2023
-			
 			darr = new Date(temptest);
 			d1 = darr.getDate();
 			if(d1 < 10) {
 				d1 = "0" + d1;
 			}
-
 			d4 = darr.getDay();
-		
 			if(d4 == 0) {
 				d = "Sunday";
 			}
@@ -1263,49 +1024,38 @@ function afterGetData() {
 			if(d4 == 6) {
 				d = "Saturday";
 			}
-			
-			if(darr.toString().substring(0,15) == dd.toString().substring(0,15) && dlistcount < 4) {
-console.log("set item = " + arrComps[i])				
-				// competition today				
-				localStorage.setItem("wwtodayscomp",arrComps[i]);
-				
-				if (arrComps[i].indexOf("Lakes") > -1) {
+			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
+				console.log("set item = " + arrComps[i])
+					// competition today				
+				localStorage.setItem("wwtodayscomp", arrComps[i]);
+				if(arrComps[i].indexOf("Lakes") > -1) {
 					tempd = '<p style="color:white;">Lakes - competition today</p>';
 				}
-				if (arrComps[i].indexOf("Dawson") > -1) {
+				if(arrComps[i].indexOf("Dawson") > -1) {
 					tempd = '<p style="color:white;">Dawson - competition today</p>';
 				}
-				if (arrComps[i].indexOf("OldCourse") > -1) {
+				if(arrComps[i].indexOf("OldCourse") > -1) {
 					tempd = '<p style="color:white;">OldCourse - competition today</p>';
-				}	
+				}
 				dlist = dlist + tempd;
 				dlistcount++;
 			}
-
 			if(darr > dd && dlistcount < 4) {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
 				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
 				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
-				tempd = tempd.slice(0,-5)
+				tempd = tempd.slice(0, -5)
 				dlist = dlist + tempd + "<br>";
 				dlistcount++;
 			}
-
 		}
 		document.getElementById("xdcomp1").innerHTML = dlist;
 	}
-	
-// resize QRcode
-function enlarge() {
-   document.getElementById('img').classList.toggle("half");
-}
-	
-
-
-
-	
-</script>
-</body>
+	// resize QRcode
+	function enlarge() {
+		document.getElementById('img').classList.toggle("half");
+	}
+	</script>
+	</body>
 
 </html>
-
