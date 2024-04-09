@@ -991,7 +991,6 @@
 		dd = new Date(); /* today */
 		dlist = "";
 		dlistcount = 0;
-		console.log(arrComps.length)
 		for(i = 0; i < arrComps.length; i++) {
 			temptest = arrComps[i].replace("Lakes ", "");
 			temptest = temptest.replace("Dawson ", "");
@@ -1025,7 +1024,6 @@
 				d = "Saturday";
 			}
 			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
-				console.log("set item = " + arrComps[i])
 					// competition today				
 				localStorage.setItem("wwtodayscomp", arrComps[i]);
 				if(arrComps[i].indexOf("Lakes") > -1) {
