@@ -203,7 +203,7 @@
          }
          
          // if its a new day, clear old data
-         if (course !== localStorage.ycourse) {
+         if (course !== localStorage.yycourse) {
              clearLocalStorage();
          }
          
@@ -264,21 +264,21 @@
          	// allows the current state of progress to be carried across restarts	
          	// save and restore progress by updating the global variables	
          	if(what == "save") {
-         		localStorage.setItem("ycourse", course);
-         		localStorage.setItem("yplayerDone", JSON.stringify(playerDone));
-         		localStorage.setItem("yplayerComplete", JSON.stringify(playerComplete));
-         		localStorage.setItem("yarrPlayersCopy", JSON.stringify(arrPlayersCopy));
+         		localStorage.setItem("yycourse", course);
+         		localStorage.setItem("yyplayerDone", JSON.stringify(playerDone));
+         		localStorage.setItem("yyplayerComplete", JSON.stringify(playerComplete));
+         		localStorage.setItem("yyarrPlayersCopy", JSON.stringify(arrPlayersCopy));
          	}
          	if(what == "recover") {
-         		if(localStorage.ycourse == course) {
+         		if(localStorage.yycourse == course) {
          		if ("yplayerComplete" in localStorage) {
-         		    playerComplete = JSON.parse(localStorage.yplayerComplete);
+         		    playerComplete = JSON.parse(localStorage.yyplayerComplete);
          		}
          		if ("yarrPlayersCopy" in localStorage) {
-         		    arrPlayersCopy = JSON.parse(localStorage.yarrPlayersCopy);
+         		    arrPlayersCopy = JSON.parse(localStorage.yyarrPlayersCopy);
          		}
          		if ("yplayerDone" in localStorage) {
-         		    playerDone = JSON.parse(localStorage.yplayerDone);
+         		    playerDone = JSON.parse(localStorage.yyplayerDone);
          		}
          		   var not = "not yet recorded (" + arrPlayersCopy.length + ")<br>"
          		   for(i = 0; i < arrPlayersCopy.length; i++) {
@@ -459,7 +459,7 @@
                 function clearLocalStorage() {
                    // console.log("clearLocalStorage here")
                    Object.keys(localStorage).forEach(function(key){
-                   if (key.substring(0,1) == "y") {
+                   if (key.substring(0,2) == "yy") {
                        //console.log(key)
                        localStorage.removeItem(key)
                    }
