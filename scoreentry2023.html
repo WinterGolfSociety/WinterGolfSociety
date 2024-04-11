@@ -991,6 +991,35 @@
       [17, 4, 2],
       [18, 5, 8]
     ];
+    
+    arrLakesRed = [
+      [0, 0, 0],
+      [1, 4, 15],
+      [2, 4, 1],
+      [3, 5, 3],
+      [4, 4, 5],
+      [5, 3, 17],
+      [6, 3, 9],
+      [7, 4, 11],
+      [8, 4, 7],
+      [9, 4, 13],
+      [10, 3, 16],
+      [11, 4, 18],
+      [12, 4, 4],
+      [13, 4, 12],
+      [14, 3, 14],
+      [15, 3, 10],
+      [16, 5, 6],
+      [17, 4, 2],
+      [18, 5, 8]
+    ];
+    
+    
+    
+    
+    
+    
+    
     // array ["hole num",par,si]
     // Dawson
     arrDawson = [
@@ -1014,6 +1043,31 @@
       [17, 4, 10],
       [18, 4, 8]
     ];
+    
+    arrDawsonRed = [
+      [0, 0, 0],
+      [1, 5, 7],
+      [2, 4, 5],
+      [3, 3, 17],
+      [4, 4, 3],
+      [5, 4, 1],
+      [6, 5, 9],
+      [7, 4, 15],
+      [8, 4, 13],
+      [9, 5, 11],
+      [10, 4, 10],
+      [11, 5, 4],
+      [12, 3, 18],
+      [13, 4, 2],
+      [14, 4, 14],
+      [15, 4, 8],
+      [16, 3, 16],
+      [17, 4, 12],
+      [18, 4, 6]
+    ];
+    
+    
+    
     // array ["hole num",par,si]
     // OldCourse
     arrOldCourse = [
@@ -1172,6 +1226,7 @@
       ['Barry Henderson', 0],
       ['Clive Herbert', 0],
       ['Jim Herron', 0],
+      ['Sharon Herron',0],
       ['David Hersey', 0],
       ['Ken Heslop', 0],
       ['Barry Hill', 0],
@@ -1280,7 +1335,7 @@ console.log("notsame = " + notsame)
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
+          var openDropdown = dropdowns[i];Lakes
           if (openDropdown.classList.contains('show')) {
             openDropdown.classList.remove('show');
           }
@@ -1773,10 +1828,20 @@ console.log("notsame = " + notsame)
       if (course == "Lakes") {
         par = arrLakes[id.replace("numscore", "")][1];
         si = arrLakes[id.replace("numscore", "")][2];
+        // temp fix for ladies
+        if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+           par = arrLakesRed[id.replace("numscore", "")][1];
+           si = arrLakesRed[id.replace("numscore", "")][2];    
+        }      
       }
       if (course == "Dawson") {
         par = arrDawson[id.replace("numscore", "")][1];
         si = arrDawson[id.replace("numscore", "")][2];
+        // temp fix for ladies
+        if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+           par = arrDawsonRed[id.replace("numscore", "")][1];
+           si = arrDawsonRed[id.replace("numscore", "")][2];    
+        } 
       }
       if (course == "OldCourse") {
         par = arrOldCourse[id.replace("numscore", "")][1];
@@ -1858,10 +1923,20 @@ console.log("notsame = " + notsame)
         if (course == "Lakes") {
           par = arrLakes[id.replace("numscore", "")][1];
           si = arrLakes[id.replace("numscore", "")][2];
+          // temp fix for ladies
+          if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+           par = arrLakesRed[id.replace("numscore", "")][1];
+           si = arrLakesRed[id.replace("numscore", "")][2];    
+        } 
         }
         if (course == "Dawson") {
           par = arrDawson[id.replace("numscore", "")][1];
           si = arrDawson[id.replace("numscore", "")][2];
+          // temp fix for ladies
+          if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+           par = arrDawsonRed[id.replace("numscore", "")][1];
+           si = arrDawsonRed[id.replace("numscore", "")][2];    
+        } 
         }
         if (course == "OldCourse") {
           par = arrOldCourse[id.replace("numscore", "")][1];
@@ -2014,10 +2089,20 @@ console.log("notsame = " + notsame)
         if (course == "Lakes") {
           temppar = arrLakes[i][1];
           tempsi = arrLakes[i][2];
+          // temp fix for ladies
+          if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+           temppar = arrLakesRed[id.replace("numscore", "")][1];
+           tempsi = arrLakesRed[id.replace("numscore", "")][2];    
+        } 
         } 
         if (course == "Dawson") {
           temppar = arrDawson[i][1];
           tempsi = arrDawson[i][2];
+          // temp fix for ladies
+          if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+           temppar = arrDawsonRed[id.replace("numscore", "")][1];
+           tempsi = arrDawsonRed[id.replace("numscore", "")][2];    
+        } 
         }
         if (course == "OldCourse") {
           temppar = arrOldCourse[i][1];
@@ -2146,10 +2231,20 @@ console.log("notsame = " + notsame)
         if (course == "Lakes") {
           par = arrLakes[i][1];
           si = arrLakes[i][2];
+          // temp fix for ladies
+          if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+           par = arrLakesRed[id.replace("numscore", "")][1];
+           si = arrLakesRed[id.replace("numscore", "")][2];    
+        } 
         } 
         if (course == "Dawson") {
           par = arrDawson[i][1];
           si = arrDawson[i][2];
+          // temp fix for ladies
+          if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+           par = arrDawsonRed[id.replace("numscore", "")][1];
+           si = arrDawsonRed[id.replace("numscore", "")][2];    
+        } 
         }
         if (course == "OldCourse") {
           par = arrOldCourse[i][1];
@@ -2420,6 +2515,26 @@ console.log("notsame = " + notsame)
                  }
             } 
         }
+        // temp fix for ladies
+        // Ladies version off red tees
+        if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+        cctxt = ""
+        cctxt = player + ", Lakes, " + hcp + " hcp"
+        for (var i = 1; i <= 18; i++) {
+             if (hcp >= (arrLakesRed[i][2] + 18)) {
+                 cctxt += '<span class="cyanhole"><b><br>hole ' + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] +
+                 ", si " + '<span class="circle2">' + arrLakesRed[i][2] + "</span></b></span>"
+             } else {
+                 if (hcp >= arrLakesRed[i][2]) {
+                     cctxt += "<b><br>hole " + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si " +
+                              '<span class="circle1">' + arrLakesRed[i][2] + "</span></b>"
+                 } else {
+                     cctxt += '<span class="nocircle1">' + "<br>hole " + arrLakesRed[i][0] + ", par " + 
+                              arrLakesRed[i][1] + ", si  " + arrLakesRed[i][2] + "</span>"
+                 }
+            } 
+        }
+        }
       }  
       
       if (course == "Dawson") {
@@ -2437,6 +2552,25 @@ console.log("notsame = " + notsame)
                               arrDawson[i][1] + ", si  " + arrDawson[i][2] + "</span>"
                  }
             } 
+        }
+        // temp fix for ladies
+        // Ladies version off Red tees
+        if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
+        cctxt = ""
+        for (var i = 1; i <= 18; i++) {
+             if (hcp >= (arrDawsonRed[i][2] + 18)) {
+                 cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] +
+                 ", si " + '<span class="circle2">' + arrDawsonRed[i][2] + "</span></b></span>"
+             } else {
+                 if (hcp >= arrDawsonRed[i][2]) {
+                     cctxt += "<b><br>hole " + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si " +
+                              '<span class="circle1">' + arrDawsonRed[i][2] + "</span></b>"
+                 } else {
+                     cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawsonRed[i][0] + ", par " + 
+                              arrDawsonRed[i][1] + ", si  " + arrDawsonRed[i][2] + "</span>"
+                 }
+            } 
+        }
         }
       }
       
