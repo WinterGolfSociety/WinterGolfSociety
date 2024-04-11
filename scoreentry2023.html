@@ -1335,7 +1335,7 @@ console.log("notsame = " + notsame)
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];Lakes
+          var openDropdown = dropdowns[i];
           if (openDropdown.classList.contains('show')) {
             openDropdown.classList.remove('show');
           }
@@ -2557,6 +2557,7 @@ console.log("notsame = " + notsame)
         // Ladies version off Red tees
         if (player.indexOf("Sharon") > -1 || player.indexOf("Sandra") > -1) {
         cctxt = ""
+        cctxt = player + ", Dawson, " + hcp + " hcp"
         for (var i = 1; i <= 18; i++) {
              if (hcp >= (arrDawsonRed[i][2] + 18)) {
                  cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] +
