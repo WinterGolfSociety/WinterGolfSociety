@@ -632,6 +632,8 @@
 	var todayscomp = ""
 	var compday = "no"
 	var sparseArrComps = []
+	var sparseArrPlayers = []
+	var sparseArrHcps = []
 	var arrPlayersOld = []
 	var arrHcpOld = []
 		// menu code
@@ -953,17 +955,34 @@
 			// get rid of blanks in array by creating new arrays
 		for(var i = 0; i < resultsarray.length; i++) {
 			if(resultsarray[i].players.length > 2) {
-				arrPlayers.push(resultsarray[i].players);
-				arrHcps.push(resultsarray[i].hcp);
-				// comps is shorter than players and hcps
+			        // comps now contains modified comps
+				// comps is usualy a different length to players and hcps
 				// so contains empty items that need to be removed
+				sparseArrPlayers.push(resultsarray[i].players);
+				sparseArrHcps.push(resultsarray[i].hcp);
 				sparseArrComps.push(resultsarray[i].comps);
 			}
 		}
+		
+		
+		// add "reset list" option to bottom
+		sparseArrPlayers.push("reset list")
 		// remove empty items
+		arrPlayers = sparseArrPlayers.filter(function(el) {
+			return el != null;
+		});
+		arrHcps = sparseArrHcps.filter(function(el) {
+			return el != null;
+		});
 		arrComps = sparseArrComps.filter(function(el) {
 			return el != null;
 		});
+		
+		// get rid of arrays no longer used
+		sparseArrComps = [];
+	        sparseArrPlayers = [];
+	        sparseArrHcps = [];
+		
 		// speech tooltip
 		document.getElementById("tooltip").innerHTML = "Data link<br>established."
 		document.getElementById("tooltip").style.display = "block";
