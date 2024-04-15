@@ -428,10 +428,10 @@
 		-moz-transform: translateX(100%);
 		-webkit-transform: translateX(100%);
 		transform: translateX(100%);
-		-moz-animation: scroll-left 2s linear 1;
-		-webkit-animation: scroll-left 2s linear 1;
-		animation: scroll-left 10s linear 1;
-		animation-delay: -3s;
+		-moz-animation: scroll-left 15s linear 1;
+		-webkit-animation: scroll-left 15s linear 1;
+		animation: scroll-left 15s linear 1;
+		//animation-delay: -3s;
 	}
 	
 	@-moz-keyframes scroll-left {
@@ -467,17 +467,13 @@
 	/* end of marque CSS */
 	
 	.blob {
-		-webkit-animation: blob 1s linear;
-		-moz-animation: blob 1s linear;
-		-o-animation: blob 1s linear;
+		-webkit-animation: blob 0.5s linear;
+		-moz-animation: blob 0.5s linear;
+		-o-animation: blob 0.5s linear;
 		animation: blob 0.5s linear;
 	}
 	
 	@-webkit-keyframes blob {
-		0% {
-			width: 65px;
-			height: 65px;
-		}
 		50% {
 			width: 85px;
 			height: 85px;
@@ -490,10 +486,6 @@
 	}
 	
 	@-moz-keyframes blob {
-		0% {
-			width: 65px;
-			height: 65px;
-		}
 		50% {
 			width: 85px;
 			height: 85px;
@@ -506,10 +498,6 @@
 	}
 	
 	@-o-keyframes blob {
-		0% {
-			width: 65px;
-			height: 65px;
-		}
 		50% {
 			width: 85px;
 			height: 85px;
@@ -522,7 +510,6 @@
 	}
 	
 	@keyframes blob {
-		//   0%   { width: 65px;	height: 65px; }
 		50% {
 			width: 85px;
 			height: 85px;
