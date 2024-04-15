@@ -585,102 +585,6 @@
 		--g: #000 calc(100% - 1px), #0000;
 		-webkit-mask: radial-gradient(circle closest-side at 12% 88%, var(--g)), radial-gradient(20% 20% at 52% 55%, var(--g)), radial-gradient(25% 25% at 75% 0, var(--g));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  background: #222;
-  height: 100vh;
-}
-
-p {
-  height: 300px;
-  width: 300px;
-  position: relative;
-  animation: effect 8s linear infinite;
-}
-
-@keyframes effect {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-span {
-  position: absolute;
-  left: 50%;
-  transform-origin: 0px 150px;
-  transform-style: flat;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  //text-transform: uppercase;
-  font-weight: 900;
-  color: #fff;
-}/*# sourceMappingURL=index.css.map */	
-	
-	
-
-
-
-
-
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    background: #222;
-    height: 100vh;
-}
-p{
-    height: 60px;
-    width: 60px;
-    position: relative;
-    animation: effect 8s linear infinite;
-    padding-right: 100px;
-}
-
-@keyframes effect {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}
-span{
-    position: absolute;
-    left: 50%;
-    transform-origin: 0px 30px;
-    //transform-style: flat;
-    font-family: monospace, monospace;
-    //font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-transform: lowercase;
-    //font-weight: 900;
-    font-size: 11px;
-    color: #fff;
-}	
-	
-	
-	
-	
-	
-	
-	
 	</style>
 
 	<body>
@@ -704,22 +608,8 @@ span{
 		<section class="start">
 			<div class="content">
 				<div class="title">
-				
-				
-				
-				
-				
-<p id="text"></p>
-				
-				
-				
-				
-				<!--
 					<div class="pretitle">Longhirst seniors society</div>
 					<div class="spacer1"></div>
-				-->	
-					
-					
 					<div>Winter golf</div>
 				</div>
 				<div id="popuppanel"></div>
@@ -734,48 +624,6 @@ span{
 		</section>
 	</body>
 	<script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	 const str = "Longhirst seniors society";
-        const text = document.getElementById("text");
-        window.onload = function(){
-            for (let i = 0; i < str.length; i++) {
-                let span = document.createElement('span');
-                span.innerHTML = str[i] 
-                text.appendChild(span);
-                console.log(str[i])
-                span.style.transform = `rotate(${11*i}deg)`;
-            }
-        }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// global arrays
 	var arrPlayers = []
 	var arrHcps = []
