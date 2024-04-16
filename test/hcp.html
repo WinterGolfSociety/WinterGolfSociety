@@ -121,7 +121,7 @@
     z-index: 999999;
     height: 100%;
   "> </iframe>
-<div class="barx" id="barx">Checking for hcp info ...<br><br>
+<div class="barx" id="barx"><a id="msg">Checking for hcp info ...</a><br><br>
    <div class="progress">
         <div class="color"></div>
    </div>
@@ -131,6 +131,7 @@
 	function iframeLoaded() {
 		// seems to be too quick for some browsers so use setTimeout
 //		setTimeout(function() {
+document.getElementById("msg").innerHTML = "Checking for hcp info - OK";
 			document.getElementById("myiframe").style.display = "inline"
 //		}, 0)
 	}
