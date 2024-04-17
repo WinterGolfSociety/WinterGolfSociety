@@ -609,11 +609,11 @@
 	
 	
 	#warning {
-	visibility: none;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
-	background:red;
+	background:green;
 	width: 100px;
 	height: 100px;
 	}
@@ -688,14 +688,14 @@ window.addEventListener(orientationEvent, function() {
     {
       //document.getElementById('portrait').style.display = '';
       //document.getElementById('landscape').style.display = 'none';
-      document.getElementById("warning").style.visibility = "none";
+      document.getElementById("warning").style.display = "none";
     }
     else if(window.orientation==90)
     {
       //document.getElementById('portrait').style.display = 'none';
       //document.getElementById('landscape').style.display = '';
       //alert("needs portrait")
-      document.getElementById("warning").style.visibility = "";
+      document.getElementById("warning").style.display = "block";
     }
 }, false);
 	
