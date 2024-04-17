@@ -23,20 +23,11 @@
 	}
 	
 	body {
-	
-	overflow: auto;
-	
-		//overflow: hidden;
+	        overflow: hidden;
 		/* linear-gradient syntax */
 		background: indigo;
 		background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
                 background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-		
-		//overflow:visible
-		
-		
-		
 	}
 	
 	::-webkit-scrollbar {
@@ -617,7 +608,13 @@
 	
 	
 	
-	
+	#warning {
+	visibility: none;
+	position: absolute;
+	top: 10;
+	left 10;
+	background:red;
+	}
 	
 	
 	
@@ -632,6 +629,11 @@
 		<div class="marquee"><p>Note: some stroke indexes have changed on the Old Course.</p></div>
 		
 	-->
+		
+		
+		
+		<div id="warning"></div>
+		
 		
 		<nav id="nav">
 			<div class="bubble_menu" id="icon">
@@ -684,12 +686,14 @@ window.addEventListener(orientationEvent, function() {
     {
       //document.getElementById('portrait').style.display = '';
       //document.getElementById('landscape').style.display = 'none';
+      document.getElementById("warning").style.visibility = "none";
     }
     else if(window.orientation==90)
     {
       //document.getElementById('portrait').style.display = 'none';
       //document.getElementById('landscape').style.display = '';
-      alert("needs portrait")
+      //alert("needs portrait")
+      document.getElementById("warning").style.visibility = "visible";
     }
 }, false);
 	
