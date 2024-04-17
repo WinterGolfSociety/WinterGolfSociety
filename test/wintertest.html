@@ -692,15 +692,10 @@ var supportsOrientationChange = "onorientationchange" in window,
 window.addEventListener(orientationEvent, function() {
     if(window.orientation==0)
     {
-      //document.getElementById('portrait').style.display = '';
-      //document.getElementById('landscape').style.display = 'none';
-      document.getElementById("warning").style.display = "none";
+    document.getElementById("warning").style.display = "none";
     }
-    else if(window.orientation==90)
+    else if(window.orientation==90 || window.orientation==270)
     {
-      //document.getElementById('portrait').style.display = 'none';
-      //document.getElementById('landscape').style.display = '';
-      //alert("needs portrait")
      document.getElementById("warning").style.display = "block";
     }
 }, false);
