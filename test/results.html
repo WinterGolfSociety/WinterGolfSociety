@@ -31,15 +31,30 @@ body {
    display: none;
 }
 	
+#msg {
+   position: absolute;
+   top: 20%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   text-align: center;
+   font-size: 22px;
+   color: dodgerBlue;
+   font-family: 'Kalam';
+}	
+	
 .barx{
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-    font-size: 22px;
-    color: dodgerBlue;
-    font-family: 'Kalam';
+    //position: absolute;
+    //top: 20%;
+    //left: 50%;
+    //transform: translate(-50%,-50%);
+    //text-align: center;
+    //font-size: 22px;
+    //color: dodgerBlue;
+    //font-family: 'Kalam';
+    
+      top: calc(50% - 5px);
+  left: calc(50% - 5px);
+  position: absolute !important;
 }
 
 /* Loader with three blocks */
@@ -112,8 +127,8 @@ body {
     height: 100%;
   ">
 </iframe>
-
-<div class="barx" id="barx"><a id="msg">Checking for results info ...</a><br><br>
+<a id="msg">Checking for results info ...</a>
+<div class="barx" id="barx">
   <div class="loader-fb"></div>  
 </div>
 
