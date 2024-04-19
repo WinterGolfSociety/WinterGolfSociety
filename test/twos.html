@@ -96,19 +96,7 @@ body {
 
 <body>
 	<div class="holder">
-		<iframe src=" https://docs.google.com/spreadsheets/d/e/2PACX-1vTTSLM778KovPiE1nStUDKqtnq-dCml2VN73HDr1Fq-NQ7QMCXYXgNTPUjPNdi4ctjcVYqGt_8hArm9/pubhtml?gid=1266484079&single=true&chrome=false" id="myiframe" onload="iframeLoaded()" style="
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    width: 100%;
-    border: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    z-index: 999999;
-    height: 100%;
-  "> </iframe>
+
 <a id="msg">Checking for two's info ...</a>
 <div class="barx" id="barx">
   <div class="loader-fb"></div>  
@@ -117,14 +105,7 @@ body {
 </div>
 
 <script>
-
-function iframeLoaded() {
-// seems to be too quick for some browsers so use setTimeout
-document.getElementById("msg").innerHTML = "Loading two's info";
-setTimeout(function() {
-document.getElementById("myiframe").style.display="inline"
-},500)
-}
+window.location.assign("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTSLM778KovPiE1nStUDKqtnq-dCml2VN73HDr1Fq-NQ7QMCXYXgNTPUjPNdi4ctjcVYqGt_8hArm9/pubhtml?gid=1266484079&single=true&chrome=false")
 	</script>
 </body>
 
