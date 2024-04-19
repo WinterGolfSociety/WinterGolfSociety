@@ -907,9 +907,9 @@
 
 
                         if(darr > dd && dlistcount < 3) {
-				tempdx = arrComps[i].replace("Lakes ", "addition: Lakes - " + d + " ");
-				tempdx = tempdx.replace("Dawson ", "addition: Dawson - " + d + " ");
-				tempdx = tempdx.replace("OldCourse ", "addition: OldCourse - " + d + " ");
+				tempdx = arrComps[i].replace("Lakes ", "probably: Lakes - " + d + " ");
+				tempdx = tempdx.replace("Dawson ", "probably: Dawson - " + d + " ");
+				tempdx = tempdx.replace("OldCourse ", "probably: OldCourse - " + d + " ");
 				dlist = dlist + tempdx + "<br>";
 				dlistcount++;
 			}
@@ -923,7 +923,7 @@
 		//if (dlist.indexOf("29 March") > -1) {
 //		if (dlist.indexOf("02 Dawson") > -1 || dlist.indexOf(" - competition today") > -1) {
 		   dlist = dlist + "<a style='color:cyan;'>These are additional winter competitions<br>" +
-		                   "due to normal play being postponed.</a>"
+		                   "that go ahead until normal play begins.</a>"
 //		}
 		document.getElementById("xdcomp1").innerHTML = dlist;
 	}
