@@ -32,30 +32,16 @@ body {
 }
 	
 #msg {
-   //position: absolute;
-   //top: 20%;
-   //left: 50%;
-   //transform: translate(-50%,-50%);
-   //text-align: center;
    font-size: 22px;
    color: dodgerBlue;
    font-family: 'Kalam';
-padding: 20px;
+   padding: 20px;
 }	
 	
 .barx{
-    //position: absolute;
-    //top: 20%;
-    //left: 50%;
-    //transform: translate(-50%,-50%);
-    //text-align: center;
-    //font-size: 22px;
-    //color: dodgerBlue;
-    //font-family: 'Kalam';
-    
       top: calc(30% - 5px);
-  left: calc(50% - 5px);
-  position: absolute !important;
+      left: calc(50% - 5px);
+      position: absolute !important;
 }
 
 /* Loader with three blocks */
@@ -142,7 +128,7 @@ function iframeLoaded() {
 document.getElementById("msg").innerHTML = "Loading results info";
 setTimeout(function() {
 document.getElementById("myiframe").style.display="inline"
-},500)
+},1500)
 }
 
 </script>
