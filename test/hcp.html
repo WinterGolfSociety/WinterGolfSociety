@@ -10,101 +10,86 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	<style>
-	* {
-		margin: 0;
-		padding: 0;
-	}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    overflow: hidden;
+    background-color: white;
+}
+
+.holder {
+    width: 100vw;
+    height:100vh;
+    position:relative;
+    overflow: hidden;  
+}
+
+#myiframe {
+   display: none;
+}
 	
-	body {
-		overflow: hidden;
-		background-color: white;
-	}
-	
-	.holder {
-		width: 100vw;
-		height: 100vh;
-		position: relative;
-		overflow: hidden;
-	}
-	
-	#myiframe {
-		display: none;
-	}
-	
-	.bar {
-		position: absolute;
-		top: 1;
-		left: 1;
-		width: 100%;
-		height: 100%;
-		background-color: white;
-		text-align: center;
-		font-size: 18px;
-		color: black;
-		font-family: 'Kalam';
-	}
-	
-	#blueball {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		width: 150px;
-		height: 400px;
-		//border-radius: 50%;
-		/* makes the background colour tone less obvious */
-		//filter: contrast(200%);
-		/* tones down the tinted background */
-	}
-	
+#msg {
+   font-size: 22px;
+   color: dodgerBlue;
+   font-family: 'Kalam';
+   padding: 20px;
+}	
 	
 .barx{
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
-    font-size: 22px;
-    color: dodgerBlue;
-    font-family: 'Kalam';
+      top: calc(30% - 5px);
+      left: calc(50% - 5px);
+      position: absolute !important;
 }
 
-.progress{
-    position: relative;
-    height: 20px;
-    width: 80vw;
-    border: 10px solid MediumSpringGreen;
-    border-radius: 25px;
-    background: dodgerBlue; 
-}
-.progress .color{
-    position: absolute;
-    background-color: blue;
-    width: 0px;
-    height: 20px;
-    border-radius: 25px;
-    animation: progres 5s infinite linear;
-       
+/* Loader with three blocks */
+.loader-fb, .loader-fb:before, .loader-fb:after {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 50px;
+  background-color: rgba(215,230,240,0.9);
+  border: 1px solid rgb(215,230,240);
+  z-index: 100000;
+  content: ' ';
+  margin-left: -5px;
+  margin-right: -9px;
 }
 
+.loader-fb:before {
+  top: -11px;
+  left: -100%;
+  animation: loading-fb .8s cubic-bezier(.4,.5,.6,1) infinite;
+}
+.loader-fb {
+  animation: loading-fb-main .8s cubic-bezier(.4,.5,.6,1) .2s infinite;
+}
+.loader-fb:after {
+  top: -11px;
+  right: -100%;
+  margin-top: 50%;
+  animation: loading-fb .8s cubic-bezier(.4,.5,.6,1) .4s infinite;
+}
 
-@keyframes progres{
-    0%{
-      width: 0%;
-    }
-    25%{
-        width: 50%;
-    }
-    50%{
-        width: 75%;
-    }
-    75%{
-        width: 85%;
-    }
-    100%{
-        width: 100%;
-    }
-};
+@keyframes loading-fb {
+  from {
+    transform: scaleY(1.4);
+    background-color: rgba(55,114,171,0.9);
+    border: 1px solid rgb(55,114,171);
+  }
+}
 
+@keyframes loading-fb-main {
+  from {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: -10px;
+    background-color: rgba(55,114,171,0.9);
+    border: 1px solid rgb(55,114,171);
+  }
+}
 
 	</style>
 </head>
@@ -124,14 +109,16 @@
     z-index: 999999;
     height: 100%;
   "> </iframe>
-<div class="barx" id="barx"><a id="msg">Checking for hcp info ...</a><br><br>
-   <div class="progress">
-        <div class="color"></div>
-   </div>
+<a id="msg">Checking for hcp info ...</a>
+<div class="barx" id="barx">
+  <div class="loader-fb"></div>  
 </div>
+
 </div>
-	<script>
-	function iframeLoaded() {
+
+<script>
+
+function iframeLoaded() {
 // seems to be too quick for some browsers so use setTimeout
 document.getElementById("msg").innerHTML = "Loading hcp info";
 setTimeout(function() {
