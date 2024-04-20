@@ -6,9 +6,9 @@
   "display": "minimal-ui",
   "icons": [
       {
-    "src": "winter.svg",
+    "src": "/test/winter.svg",
     "sizes": "any"
   }
   ],
-  "start_url": "/winter.html"
+  "start_url": "/test/winter.html"
 }
