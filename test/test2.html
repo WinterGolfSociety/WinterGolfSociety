@@ -47,7 +47,7 @@ animation: move 10s;
 </style>
 <body>
 <div id="xxx">
-
+here
 </div>
 
 
@@ -57,7 +57,7 @@ $.ajax({
   url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTSLM778KovPiE1nStUDKqtnq-dCml2VN73HDr1Fq-NQ7QMCXYXgNTPUjPNdi4ctjcVYqGt_8hArm9/pubhtml?gid=612102443&single=true&chrome=false",
   cache: false,
   success: function(html){
-    document.getElementById("xxx"),innerHYML = html;
+    document.getElementById("xxx").innerHTML = html;
   }
 })
 </script>
