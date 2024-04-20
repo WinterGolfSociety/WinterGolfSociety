@@ -251,7 +251,7 @@
 	.title {
 		color: white;
 		font-family: 'Kalam';
-		font-size: 12vmin;
+		font-size: 14vmin;
 		font-weight: bold;
 		margin-top: 160px;
 		height: 30vmin;
@@ -348,9 +348,8 @@
 	.pretitle {
 		font-family: 'Kalam';
 		transform: rotate(-5deg);
-		height: 2vh;
 		color: white;
-		font-size: 3vmin;
+		font-size: 6vmin;
 		float: left;		
 	}
 	
@@ -378,6 +377,7 @@
 	.spacer1 {
 		height: 5vmin;
 	}
+	
 	.contentinfo {
 		font-family: 'Kalam';
 		color: white;
@@ -385,24 +385,7 @@
 		//width: 100%;
 	}
 	
-	#xxxpopuppanel {
-		position: absolute;
-		top: 10vh;
-		left: 30vw;
-		display: none;
-		font-family: 'Kalam';
-		background-color: #ddd;
-		opacity: 0.8;
-		font-size: 9vmin;
-		//display: inline-block;
-		border-radius: 10px;
-		border: 1px solid #aaa;
-		padding: 20px;
-		text-align: left; //center;
-		width: 20vw;
-		height: 10vw;
-		cursor: pointer;
-	}
+	
 	
 	#xdcomp1,
 	#qrcode {
@@ -619,10 +602,10 @@
 					<div class="spacer1"></div>
 					<div>Winter golf</div>
 				</div>
-				<div id="popuppanel"></div>
-				<div class="contentinfo"> hcps, score entry, twos, results, leaderboard </div>
-				<br>
-				<div class="datescontent"> <a class="dates" id="scheduled">scheduled ...</a>
+			
+				<div class="contentinfo"> hcps, score entry, twos, results, leaderboard</div>
+				<div id="spacer2"></div>
+				<div class="datescontent"> <p class="dates" id="scheduled">scheduled ...</p>
 					<br>
 					<br> <a class="dates" id="xdcomp1">searching for competitions ...</a> </div>
 				<br>
@@ -737,13 +720,13 @@
 			// right
 		one.animate({
 			top: '0vmin',
-			left: '27vmin',
+			left: '28vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// bottom middle
 		// bottom	
 		two.animate({
-			top: '27vmin',
+			top: '28vmin',
 			left: '0',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
@@ -751,28 +734,28 @@
 		// top
 		three.animate({
 			top: '0',
-			left: '-27vmin',
+			left: '-28vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top middle
 		// top
 		four.animate({
-			top: '-27vmin',
-			left: '-27vmin',
+			top: '-28vmin',
+			left: '-28vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top left
 		// top
 		five.animate({
-			top: '-27vmin',
+			top: '-28vmin',
 			left: '0',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top right
 		// top
 		six.animate({
-			top: '-27vmin',
-			left: '27vmin',
+			top: '-28vmin',
+			left: '28vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		menuIsOpen = true;
