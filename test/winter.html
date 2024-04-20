@@ -36,6 +36,12 @@
 	}
 	
 	body {
+	
+	
+	
+	min-height: 100%;
+	
+	
 		overflow: hidden;
 		/* linear-gradient syntax */
 		background: indigo;
@@ -185,7 +191,7 @@
 		height: 21vmin; //76px; //65px;
 		z-index: 3;
 		text-align: center;
-		border: 1vmin solid white;
+		border: 1vh solid white;
 		cursor: pointer;
 		opacity: 0.0;
 	}
@@ -234,7 +240,7 @@
 	
 	section {
 		width: 100vw;
-		height: 100vh;
+		height: 65vh;
 		position: absolute;
 	}
 	
@@ -246,18 +252,18 @@
 	
 	.content {
 		width: 90%;
-		height: 100vh;
+		height: 65vh;
 		opacity: 1;
-		margin: 27vmin auto;
+		margin: 18vh auto;
 	}
 	
 	.title {
 		color: white;
 		font-family: 'Kalam';
-		font-size: 14vmin;
+		font-size: 8vh;
 		font-weight: bold;
-		margin-top: 160px;
-		height: 30vmin;
+		margin-top: 29vh;
+		height: 20vh;
 	}
 	
 	#onetxt,
@@ -267,49 +273,49 @@
 	#fivetxt,
 	#sixtxt {
 		margin: auto;
-		font-size: 7vmin;
+		font-size: 5vh;
 		color: blue;
 		font-family: 'Kalam';
 	}
 	
 	#onetxt {
 		margin: auto;
-		font-size: 7vmin;
+		font-size: 3vh;
 		color: blue;
 		font-family: 'Kalam';
 	}
 	
 	#twotxt {
 		margin: auto;
-		font-size: 7vmin;
+		font-size: 3vh;
 		color: blue;
 		font-family: 'Kalam';
 	}
 	
 	#threetxt {
 		margin: auto;
-		font-size: 7vmin;
+		font-size: 3vh;
 		color: blue;
 		font-family: 'Kalam';
 	}
 	
 	#fourtxt {
 		margin: auto;
-		font-size: 7vmin;
+		font-size: 3vh;
 		color: blue;
 		font-family: 'Kalam';
 	}
 	
 	#fivetxt {
 		margin: auto;
-		font-size: 7vmin;
+		font-size: 3vh;
 		color: blue;
 		font-family: 'Kalam';
 	}
 	
 	#sixtxt {
 		margin: auto;
-		font-size: 7vmin;
+		font-size: 3vh;
 		color: blue;
 		font-family: 'Kalam';
 	}
@@ -345,14 +351,14 @@
 	.dates {
 		font-family: 'Kalam';
 		color: darkGray;
-		font-size: 4.5vmin;
+		font-size: 3vh;
 	}
 	
 	.pretitle {
 		font-family: 'Kalam';
 		transform: rotate(-5deg);
 		color: white;
-		font-size: 6vmin;
+		font-size: 3vh;
 		float: left;		
 	}
 	
@@ -374,17 +380,17 @@
 	}
 	
 	.spacer0 {
-		height: 10vmin;
+		height: 7vh;
 	}
 	
 	.spacer1 {
-		height: 5vmin;
+		height: 5vh;
 	}
 	
 	.contentinfo {
 		font-family: 'Kalam';
 		color: white;
-		font-size: 3vmin;
+		font-size: 2vh;
 		//width: 100%;
 	}
 	
@@ -603,6 +609,7 @@
 					<div class="spacer0"><div>
 					<div class="pretitle">Longhirst seniors society</div>
 					<div class="spacer1"></div>
+					
 					<div>Winter golf</div>
 				</div>
 			
@@ -618,6 +625,15 @@
 		<div class="tooltip" id="tooltip"></div>
 	</body>
 	<script>
+	
+   document.documentElement.style.setProperty('--ratio', `${window.innerHeight/window.innerWidth}`)
+	console.log(`${window.innerHeight/window.innerWidth}`)
+	
+	
+	
+	
+	
+	
 	// global arrays
 	var arrPlayers = []
 	var arrHcps = []
