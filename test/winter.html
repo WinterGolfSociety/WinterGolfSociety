@@ -14,7 +14,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	
 	
-	<link rel="manifest" href="/manifestwinter.json">     
+	<link rel="manifest" href="WinterGolfSociety/manifestwinter.json">     
         <meta name="msapplication-TileColor" content="indigo">
         <meta name="msapplication-TileImage" content="winter.svg">
         <meta name="theme-color" content="indigo"> 
@@ -70,17 +70,17 @@
 		z-index: 99;
 	}
 	
-	.square_menu_icon:focus {
+	.xxxsquare_menu_icon:focus {
 		outline: none;
 	}
 	
 	.square_menu_icon span {
 		display: block;
 		position: absolute;
-		top: 15px;
+		top: 2vmin; //15px;
 		left: 0;
 		right: 0;
-		height: 7px;
+		height: 1vmin; //7px;
 		background: #fff;
 	}
 	
@@ -90,17 +90,17 @@
 		display: block;
 		left: 0;
 		width: 100%;
-		height: 7px;
+		height: 1vmin; //7px;
 		background-color: #fff;
 		content: "";
 	}
 	
 	.square_menu_icon span:before {
-		top: -14px;
+		top: -2vmin; //-14px;
 	}
 	
 	.square_menu_icon span:after {
-		bottom: -14px;
+		bottom: -2vmin; //-14px;
 	}
 	
 	.square_menu_icon-X span {
@@ -488,48 +488,48 @@
 	
 	@-webkit-keyframes blob {
 		50% {
-			width: 1.5vmin;
-			height: 1.5vmin;
+			width: 15vmin;
+			height: 15vmin;
 		}
 		100% {
-			width: 1.4vmin;
-			height: 1.4vmin;
+			width: 14vmin;
+			height: 14vmin;
 			)
 		}
 	}
 	
 	@-moz-keyframes blob {
 		50% {
-			width: 1.5vmin;
-			height: 1.5vmin;
+			width: 15vmin;
+			height: 15vmin;
 		}
 		100% {
-			width: 1.4vmin;
-			height: 1.4vmin;
+			width: 14vmin;
+			height: 14vmin;
 			)
 		}
 	}
 	
 	@-o-keyframes blob {
 		50% {
-			width: 1.5vmin;
-			height: 1.5vmin;
+			width: 15vmin;
+			height: 15vmin;
 		}
 		100% {
-			width: 1.4vmin;
-			height: 1.4vmin;
+			width: 14vmin;
+			height: 14vmin;
 			)
 		}
 	}
 	
 	@keyframes blob {
 		50% {
-			width: 1.5vmin;
-			height: 1.5vmin;
+			width: 15vmin;
+			height: 15vmin;
 		}
 		100% {
-			width: 1.4vmin;
-			height: 1.4vmin;
+			width: 14vmin;
+			height: 14vmin;
 			)
 		}
 	}
@@ -730,43 +730,43 @@
 			// middle right
 			// right
 		one.animate({
-			top: '37px',
-			left: '140px',
+			top: '0vmin',
+			left: '18vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// bottom middle
 		// bottom	
 		two.animate({
-			top: '140px',
-			left: '37px',
+			top: '18vmin',
+			left: '0',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// middle left
 		// top
 		three.animate({
-			top: '37px',
-			left: '-65px',
+			top: '0',
+			left: '-18vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top middle
 		// top
 		four.animate({
-			top: '-65px',
-			left: '37px',
+			top: '-18vmin',
+			left: '-18vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top left
 		// top
 		five.animate({
-			top: '-65px',
-			left: '-65px',
+			top: '-18vmin',
+			left: '0',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top right
 		// top
 		six.animate({
-			top: '-65px',
-			left: '140px',
+			top: '-18vmin',
+			left: '18vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		menuIsOpen = true;
@@ -797,43 +797,47 @@
 			}, 1500);
 		}, 400);
 		// move menu items
+		//one.animate({
+		//	top: '57%',
+		//	left: '50%'
+		//}, 200);
+		
+		
+		
 		one.animate({
-			top: '50%'
-		}, 200);
-		one.animate({
-			left: '50%'
-		}, 200);
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
 		two.animate({
-			top: '50%'
-		}, 200);
-		two.animate({
-			left: '50%'
-		}, 200);
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
 		three.animate({
-			top: '50%'
-		}, 200);
-		three.animate({
-			left: '50%'
-		}, 200);
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
 		four.animate({
-			top: '50%'
-		}, 200);
-		four.animate({
-			left: '50%'
-		}, 200);
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
 		five.animate({
-			top: '50%'
-		}, 200);
-		five.animate({
-			left: '50%'
-		}, 200);
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
 		six.animate({
-			top: '50%'
-		}, 200);
-		six.animate({
-			left: '50%'
-		}, 200);
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
+		
+
 		menuIsOpen = false;
+		
 		isTop = true;
 		//one.addClass('blob');
 	}
