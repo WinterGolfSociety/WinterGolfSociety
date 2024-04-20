@@ -40,13 +40,7 @@
 		/* linear-gradient syntax */
 		background: indigo;
 		background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-		
-		
-		
-		
-		
+                background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
 	}
 	
 	::-webkit-scrollbar {
@@ -59,8 +53,8 @@
 		overflow: hidden;
 		margin: 0;
 		padding: 0;
-		width: 45px;
-		height: 45px;
+		width: 8vmin; //45px;
+		height: 8vmin; //45px;
 		font-size: 0;
 		text-indent: -9999px;
 		appearance: none;
@@ -148,12 +142,12 @@
 	
 	nav {
 		position: absolute;
-		top: 80px; //100px;
-		left: 80px; //100px;
+		top: 10vmin; //80px; //100px;
+		left: 10vmin; //80px; //100px;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
-		width: 75px;
-		height: 75px;
+	//	width: 10vmin; //75px;
+	//	height: 10vmin; //75px;
 		z-index: 4;
 		border: 5px solid white;
 		box-shadow: 10px 10px 25px black;
@@ -165,8 +159,8 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		background-color: dodgerBlue;
-		width: 75px;
-		height: 75px;
+		width: 14vmin; //75px;
+		height: 14vmin; //75px;
 		z-index: 4;
 		cursor: pointer;
 		border-radius: 5px;
@@ -184,8 +178,8 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
-		width: 75px; //65px;
-		height: 76px; //65px;
+		width: 14vmin; //75px; //65px;
+		height: 14vmin; //76px; //65px;
 		z-index: 3;
 		text-align: center;
 		border: 5px solid white;
@@ -257,7 +251,7 @@
 	.title {
 		color: white;
 		font-family: 'Kalam';
-		font-size: 40px;
+		font-size: 4vw;
 		font-weight: bold;
 		margin-top: 160px;
 	}
@@ -347,7 +341,7 @@
 	.dates {
 		font-family: 'Kalam';
 		color: darkGray;
-		font-size: 18px;
+		font-size: 1.5vw;
 	}
 	
 	.pretitle {
@@ -355,7 +349,7 @@
 		transform: rotate(-5deg);
 		height: 2vh;
 		color: white;
-		font-size: 18px;
+		font-size: 1vw;
 		float: left;
 	}
 	
@@ -383,7 +377,7 @@
 	.contentinfo {
 		font-family: 'Kalam';
 		color: white;
-		font-size: 12px;
+		font-size: 1vw;
 		//width: 100%;
 	}
 	
@@ -494,49 +488,48 @@
 	
 	@-webkit-keyframes blob {
 		50% {
-			width: 85px;
-			height: 85px;
+			width: 1.5vmin;
+			height: 1.5vmin;
 		}
 		100% {
-			width: 75px;
-			height: 75px;
+			width: 1.4vmin;
+			height: 1.4vmin;
 			)
 		}
 	}
 	
 	@-moz-keyframes blob {
 		50% {
-			width: 85px;
-			height: 85px;
+			width: 1.5vmin;
+			height: 1.5vmin;
 		}
 		100% {
-			width: 75px;
-			height: 75px;
+			width: 1.4vmin;
+			height: 1.4vmin;
 			)
 		}
 	}
 	
 	@-o-keyframes blob {
 		50% {
-			width: 85px;
-			height: 85px;
+			width: 1.5vmin;
+			height: 1.5vmin;
 		}
 		100% {
-			width: 75px;
-			height: 75px;
+			width: 1.4vmin;
+			height: 1.4vmin;
 			)
 		}
 	}
 	
 	@keyframes blob {
 		50% {
-			width: 85px;
-			height: 85px;
-			)
+			width: 1.5vmin;
+			height: 1.5vmin;
 		}
 		100% {
-			width: 75px;
-			height: 75px;
+			width: 1.4vmin;
+			height: 1.4vmin;
 			)
 		}
 	}
@@ -795,8 +788,8 @@
 		setTimeout(function() {
 			// move x icon back to hamburger
 			$('#nav').animate({
-				top: '80px',
-				left: '80px'
+				top: '10vmin',
+				left: '10vmin'
 			}, 400);
 			// fade background title
 			$('.content').animate({
@@ -850,8 +843,8 @@
 		// change 400, 500 to 900, 500
 		setTimeout(function() {
 			$('#nav').animate({
-				top: '80px',
-				left: '80px'
+				top: '10vmin',
+				left: '10vmin'
 			}, 900);
 		}, 500);
 		isTop = true;
