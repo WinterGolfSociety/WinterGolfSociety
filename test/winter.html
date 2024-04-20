@@ -14,7 +14,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	
 	
-	<link rel="manifest" href="WinterGolfSociety/manifestwinter.json">     
+	<link rel="manifest" href="/manifestwinter.json">     
         <meta name="msapplication-TileColor" content="indigo">
         <meta name="msapplication-TileImage" content="winter.svg">
         <meta name="theme-color" content="indigo"> 
@@ -53,8 +53,8 @@
 		overflow: hidden;
 		margin: 0;
 		padding: 0;
-		width: 8vmin; //45px;
-		height: 8vmin; //45px;
+		width: 16vmin; //45px;
+		height: 16vmin; //45px;
 		font-size: 0;
 		text-indent: -9999px;
 		appearance: none;
@@ -77,10 +77,10 @@
 	.square_menu_icon span {
 		display: block;
 		position: absolute;
-		top: 2vmin; //15px;
+		top: 4vmin; //15px;
 		left: 0;
 		right: 0;
-		height: 1vmin; //7px;
+		height: 2vmin; //7px;
 		background: #fff;
 	}
 	
@@ -90,17 +90,17 @@
 		display: block;
 		left: 0;
 		width: 100%;
-		height: 1vmin; //7px;
+		height: 2vmin; //7px;
 		background-color: #fff;
 		content: "";
 	}
 	
 	.square_menu_icon span:before {
-		top: -2vmin; //-14px;
+		top: -4vmin; //-14px;
 	}
 	
 	.square_menu_icon span:after {
-		bottom: -2vmin; //-14px;
+		bottom: -4vmin; //-14px;
 	}
 	
 	.square_menu_icon-X span {
@@ -146,8 +146,8 @@
 		left: 10vmin; //80px; //100px;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
-	//	width: 10vmin; //75px;
-	//	height: 10vmin; //75px;
+	//	width: 20vmin; //75px;
+	//	height: 20vmin; //75px;
 		z-index: 4;
 		border: 5px solid white;
 		box-shadow: 10px 10px 25px black;
@@ -159,8 +159,8 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		background-color: dodgerBlue;
-		width: 14vmin; //75px;
-		height: 14vmin; //75px;
+		width: 28vmin; //75px;
+		height: 28vmin; //75px;
 		z-index: 4;
 		cursor: pointer;
 		border-radius: 5px;
@@ -178,8 +178,8 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
-		width: 14vmin; //75px; //65px;
-		height: 14vmin; //76px; //65px;
+		width: 28vmin; //75px; //65px;
+		height: 28vmin; //76px; //65px;
 		z-index: 3;
 		text-align: center;
 		border: 5px solid white;
@@ -488,48 +488,48 @@
 	
 	@-webkit-keyframes blob {
 		50% {
-			width: 15vmin;
-			height: 15vmin;
+			width: 30vmin;
+			height: 30vmin;
 		}
 		100% {
-			width: 14vmin;
-			height: 14vmin;
+			width: 28vmin;
+			height: 28vmin;
 			)
 		}
 	}
 	
 	@-moz-keyframes blob {
 		50% {
-			width: 15vmin;
-			height: 15vmin;
+			width: 20vmin;
+			height: 20vmin;
 		}
 		100% {
-			width: 14vmin;
-			height: 14vmin;
+			width: 28vmin;
+			height: 28vmin;
 			)
 		}
 	}
 	
 	@-o-keyframes blob {
 		50% {
-			width: 15vmin;
-			height: 15vmin;
+			width: 30vmin;
+			height: 30vmin;
 		}
 		100% {
-			width: 14vmin;
-			height: 14vmin;
+			width: 28vmin;
+			height: 28vmin;
 			)
 		}
 	}
 	
 	@keyframes blob {
 		50% {
-			width: 15vmin;
-			height: 15vmin;
+			width: 30vmin;
+			height: 30vmin;
 		}
 		100% {
-			width: 14vmin;
-			height: 14vmin;
+			width: 28vmin;
+			height: 28vmin;
 			)
 		}
 	}
@@ -731,13 +731,13 @@
 			// right
 		one.animate({
 			top: '0vmin',
-			left: '18vmin',
+			left: '36vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// bottom middle
 		// bottom	
 		two.animate({
-			top: '18vmin',
+			top: '36vmin',
 			left: '0',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
@@ -745,28 +745,28 @@
 		// top
 		three.animate({
 			top: '0',
-			left: '-18vmin',
+			left: '-36vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top middle
 		// top
 		four.animate({
-			top: '-18vmin',
-			left: '-18vmin',
+			top: '-36vmin',
+			left: '-36vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top left
 		// top
 		five.animate({
-			top: '-18vmin',
+			top: '-36vmin',
 			left: '0',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top right
 		// top
 		six.animate({
-			top: '-18vmin',
-			left: '18vmin',
+			top: '-36vmin',
+			left: '36vmin',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		menuIsOpen = true;
