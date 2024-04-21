@@ -194,7 +194,7 @@
 		height: 21vmin; //76px; //65px;
 		z-index: 3;
 		text-align: center;
-		border: 1vh solid white;
+		border: 1vmin solid white;
 		cursor: pointer;
 		opacity: 0.0;
 	}
@@ -463,8 +463,8 @@
 	
 	@-moz-keyframes blob {
 		50% {
-			width: 15vmin;
-			height: 15vmin;
+			width: 22.5vmin;
+			height: 22.5vmin;
 		}
 		100% {
 			width: 21vmin;
@@ -504,7 +504,7 @@
 	/* grid */
 	
 	
-	.bubble_menu {
+	.xbubble_menu {
 grid-area: three;
 //box-shadow: inset 0 0 2px black;
 //border: 1px solid cyan;
@@ -967,13 +967,6 @@ min-height: 5vmax;
 			}, 1500);
 		}, 400);
 		// move menu items
-		//one.animate({
-		//	top: '57%',
-		//	left: '50%'
-		//}, 200);
-		
-		
-		
 		one.animate({
 			top: '0vmin',
 			left: '0vmin',
@@ -1011,6 +1004,8 @@ min-height: 5vmax;
 		isTop = true;
 		//one.addClass('blob');
 	}
+	
+	
 	$('.bubble').click(function() {
 		menuIcon.removeClass('is-active');
 		hideBubbles();
@@ -1023,6 +1018,7 @@ min-height: 5vmax;
 		}, 500);
 		isTop = true;
 	});
+	
 
 	function doOne() {
 		// put menu back then move to hcp page
