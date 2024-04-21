@@ -41,63 +41,37 @@ body {
       position: absolute !important;
 }
 
-/* Loader with three blocks */
-.loader-fb, .loader-fb:before, .loader-fb:after {
-  position: relative;
-  display: inline-block;
-  width: 20px;
-  height: 50px;
-  background-color: rgba(215,230,240,0.9);
-  border: 1px solid rgb(215,230,240);
-  z-index: 100000;
-  content: ' ';
-  margin-left: -5px;
-  margin-right: -9px;
-}
+.loader{
+font-family: 'Kalam';
+position: absolute;
+left: 40%;
+top: 30%;
 
-.loader-fb:before {
-  top: -11px;
-  left: -100%;
-  animation: loading-fb .8s cubic-bezier(.4,.5,.6,1) infinite;
-}
-.loader-fb {
-  animation: loading-fb-main .8s cubic-bezier(.4,.5,.6,1) .2s infinite;
-}
-.loader-fb:after {
-  top: -11px;
-  right: -100%;
-  margin-top: 50%;
-  animation: loading-fb .8s cubic-bezier(.4,.5,.6,1) .4s infinite;
-}
-
-@keyframes loading-fb {
-  from {
-    transform: scaleY(1.4);
-    background-color: rgba(55,114,171,0.9);
-    border: 1px solid rgb(55,114,171);
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: dodgerBlue;
+    animation: smokeOut 1s ease-in-out infinite alternate;
+    text-shadow: 0 0 1px dodgerBlue;
   }
-}
-
-@keyframes loading-fb-main {
-  from {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: -10px;
-    background-color: rgba(55,114,171,0.9);
-    border: 1px solid rgb(55,114,171);
+  .loader:before {
+    content: "Loading ...";
   }
-}
+
+  @keyframes smokeOut {
+    
+    100% {
+      opacity: 0.08;
+      filter: blur(5px);
+      letter-spacing: 4px;
+    }
+  }
 
 </style>
 </head>
 <body>
 <div class="holder">
-
-<a id="msg">Checking for results info ...</a>
-<div class="barx" id="barx">
-  <div class="loader-fb"></div>  
-</div>
-
+<div class="loader"></div>
 </div>
 
 <script>
