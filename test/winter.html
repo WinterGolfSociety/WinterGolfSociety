@@ -472,21 +472,29 @@ font-size: 3vh;
 .griditem5 {
 grid-area: g5;
 }
-
+.griditem6 {
+grid-area: g6;
+}
+.griditem7 {
+grid-area: g7;
+}
+.griditem8 {
+grid-area: g8;
+}
 .dates {
 font-family: 'Kalam';
 color: darkGray;
 font-size: 3vh;
 }
 
-.griditem6 {
-grid-area: g6;
+.griditem9 {
+grid-area: g9;
 }
 
 .qrcode {
 padding: 2vh;
 }
-#xdcomp1,#qrcode {
+#xdcomp1, #xdcomp2, #xdcomp3, #xdcomp4, #qrcode {
 animation: fadeIn 3s;
 }
 @keyframes fadeIn {
@@ -507,7 +515,10 @@ grid-template-areas:
 'g3 g3 g3'
 'g4 .  . '
 'g5 g5 g5'
-'.  .  g6';
+'g6 g6 g6'
+'g7 g7 g7'
+'g8 g8 g8'
+'.  .  g9';
 margin-top: 20vh; /* allow room for menu button */
 }
 
@@ -515,7 +526,7 @@ margin-top: 20vh; /* allow room for menu button */
 display: flex;
 align-items: center;
 justify-content: center;
-min-height: 5vmax;
+//min-height: 5vmax;
 }
 
 	
@@ -586,7 +597,10 @@ background: inherit;
                          <div class="griditem3 contentinfo">hcps, score entry, twos, results, leaderboard</div>  
                          <div class="griditem4 scheduled">scheduled ...</div>
                          <div class="griditem5 dates" id="xdcomp1">searching for competitions ...</div>
-                         <div class="griditem6 qrcode" id="qrcode">
+                         <div class="griditem6 dates" id="xdcomp2"></div>
+                         <div class="griditem7 dates" id="xdcomp3"></div>
+                         <div class="griditem8 dates" id="xdcomp4"></div>
+                         <div class="griditem9 qrcode" id="qrcode">
                             <img id="img" onclick="enlarge(this.id);"
                               style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" 
                               src="qrwinter.png" alt="qr">
@@ -876,7 +890,7 @@ background: inherit;
 	}
 	//====================================
 	// end of menu code
-	//====================================
+	//====================================<a style="color:white;">Lakes - competition today<br></a>Dawson - Friday 26 April<br>Lakes - Monday 29 April<br>
 	//====================================
 	// runs on start or refresh
 	//====================================
@@ -991,6 +1005,7 @@ background: inherit;
 	//=====================================
 	// get list of next comps
 	function getNextComps() {
+	arrTemp = [];
 		dd = new Date(); /* today */
 		dlist = "";
 		dlistcount = 0;
@@ -1038,19 +1053,24 @@ background: inherit;
 				if(arrComps[i].indexOf("OldCourse") > -1) {
 					tempd = '<p style="color:white;">OldCourse - competition today</p>';
 				}
-				dlist = dlist + tempd;
+				arrTemp.push(tempd);
 				dlistcount++;
 			}
 			if(darr > dd && dlistcount < 4) {
-				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
-				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
-				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
+				tempd = arrComps[i].replace("Lakes ", "<p>Lakes - " + d + " ");
+				tempd = tempd.replace("Dawson ", "<p>Dawson - " + d + " ");
+				tempd = tempd.replace("OldCourse ", "<p>OldCourse - " + d + " ");
 				tempd = tempd.slice(0, -5)
-				dlist = dlist + tempd + "<br>";
+				arrTemp.push(tempd + "</p>");
 				dlistcount++;
 			}
 		}
-		document.getElementById("xdcomp1").innerHTML = dlist;
+		//console.log(arrTemp.length)
+		k = 0
+		for(j = 0; j < arrTemp.length; j++) {
+		    k++
+		    document.getElementById("xdcomp" + k).innerHTML = arrTemp[j];		    
+		}    
 	}
 	// resize QRcode
 	function enlarge() {
