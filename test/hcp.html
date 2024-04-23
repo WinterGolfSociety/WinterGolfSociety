@@ -41,29 +41,32 @@ body {
       position: absolute !important;
 }
 
-.loader{
-    font-family: 'Kalam';
+.loader {font-family: 'Kalam';
     position: absolute;
     left: 10%;
     top: 30%;
-    font-size: 6vh;
+    font-size: 8vh;
     font-weight: bold;
-    letter-spacing: 2px;
-    color: blue;
-    animation: smokeOut 1s ease-in-out infinite alternate;
-    text-shadow: 0 0 1px blue;
-  }
-  .loader:before {
-    content: "Loading ...";
-  }
+  width: fit-content;
+  font-weight: bold;
+  background: radial-gradient(circle closest-side,#000 94%,#0000) right/calc(160%) 100%;
+  animation: l24 1s infinite alternate linear;
+  
+}
+.loader::before {
+  content: "  Loading...  ";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side,#fff 94%,#000);
+  -webkit-background-clip:text;
+          background-clip:text;
+}
 
-  @keyframes smokeOut {
-    100% {
-      opacity: 0.08;
-      filter: blur(5px);
-      letter-spacing: 4px;
-    }
-  }
+@keyframes l24{
+  100%{background-position: left}
+}
+
 
 </style>
 </head>
@@ -73,7 +76,11 @@ body {
 </div>
 
 <script>
+// async to let "loading" run
+async function start() {
 window.location.assign("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTSLM778KovPiE1nStUDKqtnq-dCml2VN73HDr1Fq-NQ7QMCXYXgNTPUjPNdi4ctjcVYqGt_8hArm9/pubhtml?gid=1210420478&single=true&chrome=false")
+}
+start();
 </script>
 </body>
 
