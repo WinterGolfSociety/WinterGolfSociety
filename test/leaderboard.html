@@ -109,6 +109,10 @@ var ddmonth = dd.getMonth();
 
 
 function start() {
+dd = new Date();
+dddate = dd.getDate();
+ddmonth = dd.getMonth();
+
 document.getElementById("notyet").innerHTML = "<br>Leaderboard ... <a style='color:blue;'>updating</a><br><br>"
 arrPos = []
 arrPlayer = []
@@ -248,7 +252,7 @@ async function getData() {
 			}
 		}
 		console.log(ddhours + " " + ddminutes + " " + ddseconds)
-		document.getElementById("notyet").innerHTML = "<br>Leaderboard for today's comp.<br><br>";
+		document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
 		document.getElementById("footer").innerHTML = "Updated every 35 seconds.<br>There is a delay before this information is available in 'All results'"
 	} else {
                 createSmallDisplay()
