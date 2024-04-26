@@ -109,6 +109,11 @@ var ddmonth = dd.getMonth();
 
 
 function start() {
+dd = new Date();
+dddate = dd.getDate();
+ddmonth = dd.getMonth();
+
+
 document.getElementById("notyet").innerHTML = "<br>Leaderboard ... <a style='color:blue;'>updating</a><br><br>"
 arrPos = []
 arrPlayer = []
