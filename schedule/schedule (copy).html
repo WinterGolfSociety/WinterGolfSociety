@@ -3,18 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1">
-    <link rel="manifest" href="/site.webmanifest?v=1">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=1" color="#1e90ff">
-    <link rel="shortcut icon" href="/favicon.ico?v=1">
-    <meta name="apple-mobile-web-app-title" content="Schedule">
-    <meta name="application-name" content="Schedule">
-    <meta name="msapplication-TileColor" content="#1e90ff">
-    <meta name="theme-color" content="#1e90ff">
-    
-    
+    <meta name="theme-color" content=dodgerBlue>
+    <link href="eventsicon.png" rel="icon" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="eventsicon.png"/>
     <title>schedule</title>
 <style>
     body {
@@ -22,21 +13,19 @@
         font-family: Arial, Helvetica, sans-serif;
         color: black;
         background: dodgerBlue;
-        margin: 1vw;
+        //padding-left: 1vw;
+        //padding-right: 1vw;
+        //width: 100vw;
+        //height: 99vh;
       }	
-
 .grid-container {
       display: grid;
       grid-template-columns: auto auto auto;
-      column-gap: 0px;
-      row-gap: 0px;
-      padding-left: 2px;
-      padding-right: 2px;
 }
 .grid-item {
       background-color: rgba(255, 255, 255, 0.85);
       padding: 2px; //20px;
-      font-size: 3.5vw; //14px;
+      font-size: 14px;
       text-align: left;
 }
 
@@ -46,30 +35,24 @@
 
 .bluemonth {
       background-color: dodgerBlue;
-      color: white; //rgba(255, 255, 255, 0.8);
-      font-size: 3.5vw; //14px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
       
-    //  padding-left: 1vw;
+      padding-left: 1vw;
 }
 
 .older {
       text-decoration: line-through;
       text-decoration-thickness: 2px;
-      color: blue; //slategray;
-}
-.olderx {
-      text-decoration: line-through;
-      text-decoration-thickness: 2px;
-      color: Cyan;
+      color: slategray;
 }
 #title {
-      font-size: 7vw;
-   //   padding-left: 1vw;
+      font-size: 25px;
+      padding-left: 20px;
       color: white;
       font-weight: bold;
-      margin-top: 2vh;
-      //margin-bottom: 2vh;
-      width: 97vw;
+      margin-top: 10px;
+      margin-bottom: 10px;
 }     
 
 .grayx {
@@ -78,49 +61,17 @@ color: lightYellow;
 
 #sub {
 color: white;
-font-size: 3vw;
+font-size: 14px;
 font-style: italic;
-font-weight: normal;
 }
 
 #shortlist {
 font-weight: bold;
-//padding-left: 1vw;
-//padding-top: 20vmax;
-}
-
-#header {
-position: fixed;
-top: 1;
-left: 1;
-background: dodgerBlue;
-width: 95%; //90vw; //100%;
-height: 19vmax;
-font-size: 5vw;
 padding-left: 1vw;
-color: white;
-font-weight: bold;
-
-
-
-border-radius:5px;
- //        padding: 4vh 2vh;
-         border: 2px solid darkSlateGray;
-         box-shadow: 10px 10px 25px black;
-
-
-
 }
 
-#content {
-padding-top: 20vmax;
-//width: 98vw;
-}
-.topgray {
-color: white;
-background: dodgerBlue;
-}     
-  
+
+      
 </style>
     <link rel="preload" as="image" href="cal.png">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
@@ -130,21 +81,17 @@ background: dodgerBlue;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
-<div id="page">  
-<div id="header">
-
-  <p id="title"><img src="cal.png" alt="cal" onclick="swapview()" width="70px" height="70px" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events
-  <br>
-  <a id="sub">&nbsp;&nbsp;&nbsp;tap icon to toggle between full and partial list</a></p>
-
-</div>
-
-<br>
-
-<div id="content">
+  <p id="title"><img src="cal.png" alt="cal" onclick="swapview()" width="70" height="70" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events</p><p id="sub">&nbsp;&nbsp;&nbsp;tap icon to toggle between full and partial list</p>
 
 <div class="grid-container" id="eventlist">
- <!-- created by script --> 
+  <div class="grid-item gray">Date</div>
+  <div class="grid-item gray">Venue</div>
+  <div class="grid-item gray">Details</div>
+  
+  <div class="grid-item">no entries</div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>  
+   
 </div>
 
 <div class="grid-container" id="shortlist"> 
@@ -152,16 +99,10 @@ background: dodgerBlue;
    <div id="latestinfo2" class="bluemonth"></div>
    <div id="latestinfo3" class="bluemonth"></div>
 </div>
-<div id="bottomspace">
-<br>
-</div> <!-- bottomspace -->
-</div> <!-- content -->
-</div> <!-- page -->
- 
+    
 <script>
 var currentMonth = ""
 var arrInfo = [
-/*
 ["Apr 2023","",""],      
 ["Mon 3rd","Dawson","Captains Drive In stableford"],
 ["Tue 11th","Dawson","Team Game 4BBB"],
@@ -249,6 +190,8 @@ var arrInfo = [
 ["Fri 22nd","OldCourse","Winter stableford"],
 ["Mon 25th","Closed","??? Winter stableford ???"],
 ["Fri 29th","OldCourse","Winter stableford"],
+
+
 ["Jan 2024","",""],
 ["Fri 5th","OldCourse","Winter stableford"],
 ["Mon 8th","OldCourse","Winter stableford"],
@@ -267,7 +210,6 @@ var arrInfo = [
 ["Mon 19th","OldCourse","Winter stableford"],
 ["Fri 23rd","OldCourse","Winter stableford"],
 ["Mon 26th","OldCourse","Winter stableford"],
-*/
 ["Mar 2024","",""],      
 ["Fri 1st","OldCourse","Winter stableford"],
 ["Mon 4th","OldCourse","Winter stableford"],
@@ -277,90 +219,72 @@ var arrInfo = [
 ["Mon 18th","OldCourse","Winter stableford"],
 ["Fri 22nd","OldCourse","Winter stableford"],
 ["Mon 25th","OldCourse","Winter stableford"],
-["Fri 29th","Dawson","Winter stableford"],
+["Fri 29th","OldCourse","Winter stableford"],
 ["Apr 2024","",""],
-["Tue 2nd","Dawson","stableford"],
+["Tue 2nd","Dawson","Team game proposed"],
 ["Fri 5th","Dawson","stableford"],
 ["Mon 8th","Lakes","Captains Drive In"],
-["Wed 10th","away","Warkworth friendly 9:30"],
 ["Fri 12th","Dawson","stableford"],
-["Mon 15th","Lakes","LT1 medal 3balls"],
+["Mon 15th","Lakes","stableford"],
 ["Fri 19th","Dawson","stableford"],
 ["Mon 22nd","Lakes","stableford"],
-["Thu 25th","Dawson","Morpeth friendly 9:45"],
 ["Fri 26th","Dawson","stableford"],
 ["Mon 29th","Lakes","stableford"],
 ["May 2024","",""],
-["Thu 2nd","away","South Shields friendly 9:30"],
 ["Fri 3rd","Lakes","stableford"],
-["Tue 7th","Lakes","Tony's 80th stableford"],
+["Mon 6th","Dawson","Team game proposed"],
 ["Fri 10th","Lakes","stableford"],
-["Mon 13th","Dawson","LT2 medal 3balls"],
-["Tue 14th","Dawson","Blyth friendly 9:45"],
+["Mon 13th","Dawson","stableford"],
 ["Fri 17th","Lakes","stableford"],
 ["Mon 20th","Dawson","stableford"],
-["Tue 21st","away","Blyth friendly 10:00"],
-["Thu 23rd","Stocksfield","Spring Cup"],
 ["Fri 24th","Lakes","stableford"],
-["Tue 28th","Lakes","stableford"],
-["Thu 30th","away","Morpeth friendly 10:00"],
+["tba","Stocksfield","Spring Cup"],
+["Mon 27th","Dawson","stableford"],
 ["Fri 31st","Lakes","stableford"],
 ["Jun 2024","",""],
-["Mon 3rd","Lakes","4 club stableford"],
-["Wed 5th","Dawson","Warkworth friendly 9:30"],
+["Mon 3rd","Lakes","Team game proposed"],
 ["Fri 7th","Dawson","stableford"],
-["Mon 10th","Lakes","LT3 medal 3balls"],
-["Thu 13th","away","Foxton friendly 10:00"],
+["Mon 10th","Lakes","stableford"],
 ["Fri 14th","Dawson","stableford"],
 ["Mon 17th","Lakes","stableford"],
 ["Fri 21th","Dawson","stableford"],
 ["Mon 24th","Lakes","stableford"],
-["Thu 27th","Lakes","HGP friendly 9:30"],
 ["Fri 28th","Dawson","stableford"],
 ["Jul 2024","",""],
-["Mon 1st","Dawson","Traffic Lights"],
-["Thu 4th","away","HGP friendly 9:30"],
+["Mon 1st","Dawson","Team game proposed"],
 ["Fri 5th","Lakes","stableford"],
 ["Mon 8th","Dawson","stableford"],
 ["Fri 12th","Lakes","stableford"],
 ["Mon 15th","Dawson","stableford"],
-["Wed 17th","Dawson","South Shields friendly 9:30"],
 ["Fri 19th","Lakes","stableford"],
 ["Mon 22nd","Dawson","stableford"],
 ["Wed 24th","Sharpley","Summer Cup"],
 ["Fri 26th","Lakes","stableford"],
-["Mon 29th","Dawson","LT4 & CC1 medal 3balls"],
-["Tue 30th","away","Newbiggin friendly 10:00"],
+["Mon 29th","Dawson","stableford"],
 ["Aug 2024","",""],
 ["Fri 2nd","Dawson","stableford"],
-["Mon 5th","away","Rothbury friendly 10:00"],
-["Tue 6th","Lakes","Team best 1 from ??"],
+["Mon 5th","Lakes","Team game proposed"],
 ["Fri 9th","Dawson","stableford"],
-["Mon 12th","Lakes","LT5 & CC2 medal 3balls"],
-["Tue 13th","Dawson","Newbiggin friendly 9:30"],
+["Mon 12th","Lakes","stableford"],
 ["Fri 16th","Dawson","stableford"],
-["Mon 19th","Lakes","Invitation Day 4BBB"],
+["Mon 19th","Lakes","stableford"],
 ["Fri 23th","Dawson","stableford"],
-["Tue 27th","Lakes","stableford"],
-["Thu 29th","Lakes","Bellingham friendly 11:00"],
+["Mon 26th","Lakes","stableford"],
 ["Fri 30th","Dawson","stableford"],
 ["Sep 2024","",""],
-["Mon 2nd","Dawson","Team 1-2-3"],
+["Mon 2nd","Dawson","Team game proposed"],
 ["Tue 3rd","Burntisland","Scotland trip"],
 ["Wed 4th","Dunnikier","Scotland trip"],
-["Thu 5th","away","Bellingham friendly 11:00"],
 ["Thu 5th","Thornton","Scotland trip"],
 ["Fri 6th","Kirkcaldy","Scotland trip"],
 ["Fri 6th","Lakes","stableford"],
-["Mon 9th","Dawson","LT6 medal 3balls"],
-["Tue 10th","Lakes","Men vs Ladies TBD"],
+["Mon 9th","Dawson","stableford"],
 ["Fri 13th","Lakes","stableford"],
 ["Mon 16th","Dawson","stableford"],
-["Mon 16th","Dawson","Rothbury friendly 9:45"],
 ["Fri 20th","Lakes","stableford"],
 ["Mon 23rd","Dawson","stableford"],
 ["Tue 24th","Ravensworth","Autumn Cup"],
-["Mon 30th","Dawson","LT7 medal 3balls"],
+["Fri 30th","Lakes","stableford"],
 ["Oct 2024","",""],
 ["Fri 4th","OldCourse","Winter stableford"],
 ["Mon 7th","OldCourse","Winter stableford"],
@@ -422,9 +346,9 @@ var arrInfo = [
 ]
 
 // set up title bar
-lineFull  = '<div class="grid-item topgray">Date</div>'
-lineFull += '<div class="grid-item topgray">Venue</div>'
-lineFull += '<div class="grid-item topgray">Details</div>'
+lineFull  = '<div class="grid-item gray">Date</div>'
+lineFull += '<div class="grid-item gray">Venue</div>'
+lineFull += '<div class="grid-item gray">Details</div>'
 const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var dname              = new Date();
 var tempmonth          = month[dname.getMonth()];
@@ -432,14 +356,6 @@ var tempdate           = dname.getDate();
 var currentMonthNumber = dname.getMonth();
 var tempyear           = dname.getFullYear();
 var nextyear           = 0;
-// do latest set of events
-var lookup    = tempmonth.substring(0,3) + " " + tempyear
-var templist1 = "<br>" + lookup + "<br>"
-var templist2 = "<br><br>"
-var templist3 = "<br><br>"
-var switchon  = ""
-var s = 0;
-var ss = 0;
 
 for(i = 0; i < arrInfo.length; i++) {
         if(arrInfo[i][0].indexOf(tempyear - 1) > -1) {
@@ -499,6 +415,8 @@ for(i = 0; i < arrInfo.length; i++) {
 	var older = "no";
 	if(currentMonthNumber > (oldMonthNumber + nextyear)) {
 		older = "yes";
+	} else {
+		older = "no";
 	}
 	
 	// do this months
@@ -512,22 +430,12 @@ for(i = 0; i < arrInfo.length; i++) {
 			older = "no"
 		}
 	}
-
+	
 	if(arrInfo[i][1] == "" && arrInfo[i][2] == "") {
 		line  = '<div class="grid-item bluemonth">' + arrInfo[i][0] + '</div>'
 		line += '<div class="grid-item bluemonth">' + arrInfo[i][1] + '</div>'
 		line += '<div class="grid-item bluemonth">' + arrInfo[i][2] + '</div>'
 		lineFull += line
-		
-	        if (lookup == arrInfo[i][0]) {
-                    switchon = "yes"
-                    
-                }		
-		
-	        if (switchon == "yes") {
-	           ss++
-		}	
-			
 	} else {
 		if(older == "yes") {
 			if(i % 2 == 0) {
@@ -539,19 +447,6 @@ for(i = 0; i < arrInfo.length; i++) {
 				line += '<div class="grid-item gray older">' + arrInfo[i][1] + '</div>'
 				line += '<div class="grid-item gray older">' + arrInfo[i][2] + '</div>'
 			}
-			
-			
-			
-			if (switchon == "yes") {
-                           if (ss < 3) {
-                              templist1 += '<div class="olderx">' + arrInfo[i][0] + "<br></div>"
-                              templist2 += '<div class="olderx">' + arrInfo[i][1] + "<br></div>"
-                              templist3 += '<div class="olderx">' + arrInfo[i][2] + "<br></div>"	
-			   }
-			}
-			
-			
-						
 		} else {
 			if(i % 2 == 0) {
 				line  = '<div class="grid-item">' + arrInfo[i][0] + '</div>'
@@ -562,40 +457,10 @@ for(i = 0; i < arrInfo.length; i++) {
 				line += '<div class="grid-item gray">' + arrInfo[i][1] + '</div>'
 				line += '<div class="grid-item gray">' + arrInfo[i][2] + '</div>'
 			}
-   
-                        if (switchon == "yes") {
-                           if (ss < 3) {	
-	                      templist1 += '<div>' + arrInfo[i][0] + "<br></div>"
-                              templist2 += '<div>' + arrInfo[i][1] + "<br></div>"
-                              templist3 += '<div>' + arrInfo[i][2] + "<br></div>"
-		           } 
-		        }	
 		}
 		lineFull += line
 	}
-
-        if (lookup !== arrInfo[i][0] &&  arrInfo[i][1] == "" && arrInfo[i][2] == "") {
-           if (switchon == "yes") {
-              s++
-              if (s > 1) {
-                 switchon = ""
-              } else {
-                 templist1 += "<br>" + arrInfo[i][0] + "<br>"
-                 templist2 += "<br><br>"
-                 templist3 += "<br><br>"
-           
-                 templist1 += "<br>Date<br><br>"
-                 templist2 += "<br>Venue<br><br>"
-                 templist3 += "<br>Details<br><br>"
-             }
-           }
-        }
-        if (lookup == arrInfo[i][0]) {
-           templist1 += "<br>Date<br><br>"
-           templist2 += "<br>Venue<br><br>"
-           templist3 += "<br>Details<br><br>"
-        }
-}  // end of for
+}
 
 //footer
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
@@ -606,15 +471,67 @@ lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
 
+document.getElementById("eventlist").innerHTML = lineFull
+
+// do latest set of events
+var lookup    = tempmonth.substring(0,3) + " " + tempyear
+var templist1 = "<br>" + lookup + "<br>"
+var templist2 = "<br><br>"
+var templist3 = "<br><br>"
+var switchon  = ""
+var s = 0;
+
 // hide full list
 document.getElementById("eventlist").style.display="none";
 
-document.getElementById("eventlist").innerHTML = lineFull
-
+for(i = 0; i < arrInfo.length; i++) {
+   if (lookup !== arrInfo[i][0] &&  arrInfo[i][1] == "" && arrInfo[i][2] == "") {
+       if (switchon == "yes") {
+           s++
+           if (s > 1) {
+               switchon = ""
+           } else {
+              templist1 += "<br>" + arrInfo[i][0] + "<br>"
+              templist2 += "<br><br>"
+              templist3 += "<br><br>"
+           
+              templist1 += "<br>Date<br><br>"
+              templist2 += "<br>Venue<br><br>"
+              templist3 += "<br>Event<br><br>"
+           }
+       }
+   }
+   
+   if (lookup == arrInfo[i][0]) {
+       switchon = "yes"
+   }
+   
+   if (switchon == "yes") {
+   
+   if (arrInfo[i][2] !== "") {
+     
+       if(i % 2 == 0) {
+          templist1 += '<a class="grayx">' + arrInfo[i][0] + "</a><br>"
+          templist2 += '<a class="grayx">' + arrInfo[i][1] + "</a><br>"
+          templist3 += '<a class="grayx">' + arrInfo[i][2] + "</a><br>"
+       } else {
+          templist1 += arrInfo[i][0] + "<br>"
+          templist2 += arrInfo[i][1] + "<br>"
+          templist3 += arrInfo[i][2] + "<br>"
+       }
+   
+   }    
+   
+   }
+   if (lookup == arrInfo[i][0]) {
+       templist1 += "<br>Date<br><br>"
+       templist2 += "<br>Venue<br><br>"
+       templist3 += "<br>Event<br><br>"
+   }
+}
 document.getElementById("latestinfo1").innerHTML = templist1
 document.getElementById("latestinfo2").innerHTML = templist2
 document.getElementById("latestinfo3").innerHTML = templist3
-
 
 function swapview() {
 if (document.getElementById("eventlist").style.display == "none") {
