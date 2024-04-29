@@ -547,6 +547,24 @@
     ];
     
     /*
+    
+    
+    ,
+    "Lakes 03 May 2024",
+    "Dawson 06 May 2024",
+    "Lakes 10 May 2024",
+    "Dawson 13 May 2024",
+    "Lakes 17 May 2024",
+    "Dawson 20 May 2024",
+    "Lakes 24 May 2024",
+    "Dawson 27 May 2024",
+    "Lakes 31 May 2024"
+    
+    */
+    
+    
+    
+    /*
     "Dawson 01 January 2024",
       "Lakes 05 January 2024",
       "Dawson 08 January 2024",
@@ -679,6 +697,22 @@
 		}, 300);
 		
 		
+		// disable 2 buttons
+		two.animate({
+				opacity: '0.25'
+			}, 800);
+		
+		five.animate({
+				opacity: '0.25'
+			}, 800);
+		
+		
+		
+		
+		
+		
+		
+		
 		menuIsOpen = true;
 		// hide pressbutton
 		$("#pressbutton").html("");
@@ -764,15 +798,17 @@
 	function doTwo() {
 		// put menu back then move to score entry page
   
+ 
   /*
-		setTimeout(function() {
-	//		window.open("scoreentry2023.html", "_blank");
- 	window.location.assign("scoreentry2023.html");
-		}, 1000);
-  */
-  
   	window.location.assign("scoreentryloader2023.html");
 	}
+	
+  */
+  // now disabled	
+	
+	}
+	
+	
 
 	function doThree() {
 		// put menu back then move to twos page
@@ -791,11 +827,13 @@
 	}
 
 	function doFive() {
-		// put menu back then move to results page
+/*
 		setTimeout(function() {
-		//	window.open("results2023.html", "_blank");
   window.location.assign("leaderboardloader2023.html");
 		}, 1000);
+
+*/
+// now disabled
 	}
 
 
@@ -922,14 +960,14 @@
 		}
 		
 		
-		dlist = dlist + "-- no more events are scheduled --<br>"
+		dlist = "-- no further events are scheduled --<br>"
 		
 		
 		
 		//if (dlist.indexOf("29 March") > -1) {
 //		if (dlist.indexOf("02 Dawson") > -1 || dlist.indexOf(" - competition today") > -1) {
-		   dlist = dlist + "<a style='color:cyan;'>These are additional winter competitions<br>" +
-		                   "that will take place until normal play begins.</a>"
+		   dlist = dlist + "<a style='color:cyan;'>Winter competitions played<br>" +
+		                   "2nd October 2023 - 29th April 2024.</a>"
 //		}
 
 
