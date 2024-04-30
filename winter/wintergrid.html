@@ -43,6 +43,14 @@
 		
 	}
 	
+	
+	body { position: fixed; height: 100% }
+	
+	
+	
+	
+	
+	
 	::-webkit-scrollbar {
 		display: none;
 	}
@@ -642,7 +650,7 @@ background: inherit;
    //	console.log(`${window.innerHeight/window.innerWidth}`)
 	
 	
-	
+	(typeof window.outerHeight != 'undefined')?Math.max(window.outerHeight, $(window).height()):$(window).height()
 	
 	
 	
