@@ -29,15 +29,18 @@
 	html {
 		min-height: 100%;
 		background: red;
+		/* linear-gradient syntax */
+		background: indigo;
+		background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
+		
+		
 	}
 	
 	body {
                 min-height: 100%;
 		//overflow: hidden;
-		/* linear-gradient syntax */
-		background: indigo;
-		background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
+		
 	}
 	
 	::-webkit-scrollbar {
@@ -1072,16 +1075,7 @@ background: inherit;
 	
 	
 	
-<script type="text/javascript">
- if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('service-worker.js')
-      .then(function(reg){
-        console.log("Yes, it did.");
-     }).catch(function(err) {
-        console.log("No it didn't. This happened:", err)
-    });
- }
+
 </script>
 	
 	
