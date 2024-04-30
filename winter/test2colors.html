@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+  
+  <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	
+	<meta content="Bryan M" name="author" />
+	
+	<link href="wintericon.png" rel="icon" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="180x180" href="wintericon.png" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	
+	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+	
+	
+	   
+        <meta name="msapplication-TileColor" content="indigo">
+        <meta name="msapplication-TileImage" content="winter.svg">
+        <meta name="theme-color" content="indigo"> 
+  
+  
+
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
     <style>
@@ -8,6 +28,259 @@
         padding: 0;
         margin: 0;
       }
+      
+      /* menu */
+      .square_menu_icon {
+		display: block;
+		position: absolute;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		width: 12vmin;
+		height: 12vmin;
+		font-size: 0;
+		text-indent: -9999px;
+		appearance: none;
+		box-shadow: none;
+		border-radius: none;
+		border: none;
+		cursor: pointer;
+		transition: background 0.3s;
+		top: 57%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: transparent;
+		z-index: 99;
+	}
+	
+	.xxxsquare_menu_icon:focus {
+		outline: none;
+	}
+	
+	.square_menu_icon span {
+		display: block;
+		position: absolute;
+		top: 4vmin;
+		left: 0;
+		right: 0;
+		height: 1.5vmin;
+		background: white;
+	}
+	
+	.square_menu_icon span:before,
+	.square_menu_icon span:after {
+		position: absolute;
+		display: block;
+		left: 0;
+		width: 100%;
+		height: 1.5vmin;
+		background-color: white;
+		content: "";
+	}
+	
+	.square_menu_icon span:before {
+		top: -4vmin;
+	}
+	
+	.square_menu_icon span:after {
+		bottom: -4vmin;
+	}
+	
+	.square_menu_icon-X span {
+		transition: background 0s 0.3s;
+	}
+	
+	.square_menu_icon-X span:before,
+	.square_menu_icon-X span:after {
+		transition-duration: 0.3s, 0.3s;
+		transition-delay: 0.3s, 0s;
+	}
+	
+	.square_menu_icon-X span:before {
+		transition-property: top, transform;
+	}
+	
+	.square_menu_icon-X span:after {
+		transition-property: bottom, transform;
+	}
+	
+	.square_menu_icon-X.is-active span {
+		background: none;
+	}
+	
+	.square_menu_icon-X.is-active span:before {
+		top: 0;
+		transform: rotate(45deg);
+	}
+	
+	.square_menu_icon-X.is-active span:after {
+		bottom: 0;
+		transform: rotate(-45deg);
+	}
+	
+	.square_menu_icon-X.is-active span:before,
+	.square_menu_icon-X.is-active span:after {
+		transition-delay: 0s, 0.3s;
+	}
+	
+	nav {
+		position: absolute;
+		top: 15vmin;
+		left: 15vmin;
+		transform: translate(-50%, -50%);
+		border-radius: 5px;
+		z-index: 4;
+		border: 1vmin solid white;
+		box-shadow: 10px 10px 25px black;
+	}
+	
+	.bubble_menu {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: dodgerBlue;
+		width: 21vmin;
+		height: 21vmin;
+		z-index: 4;
+		cursor: pointer;
+		border-radius: 5px;
+		border: 1vmin solid white;
+		box-shadow: 10px 10px 25px black;
+	}
+	
+	#one,
+	#two,
+	#three,
+	#four,
+	#five,
+	#six {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 5px;
+		width: 21vmin;
+		height: 21vmin;
+		z-index: 3;
+		text-align: center;
+		border: 1vmin solid white;
+		cursor: pointer;
+		opacity: 0.0;
+	}
+	
+	#one {
+		background-color: salmon;
+		display: flex;
+		justify-content: center;
+	}
+	
+	#two {
+		background-color: darkKhaki;
+		display: flex;
+		justify-content: center;
+	}
+	
+	#three {
+		background-color: orchid;
+		display: flex;
+		justify-content: center;
+	}
+	
+	#four {
+		background-color: lightSteelBlue;
+		display: flex;
+		justify-content: center;
+	}
+	
+	#five {
+		background-color: cyan;
+		display: flex;
+		justify-content: center;
+	}
+	
+	#six {
+		background-color: lightGreen;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.shadow {
+		box-shadow: 10px 10px 25px black;
+		opacity: 0.0;
+	}
+	
+	section {
+		//width: 100vw;
+		//height: 65vh;
+		//position: absolute;
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	#onetxt,
+	#twotxt,
+	#threetxt,
+	#fourtxt,
+	#fivetxt,
+	#sixtxt {
+		margin: auto;
+		font-size: 3.5vh;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
+	#one:active {
+		border: 1vmin solid white; //salmon;
+	}
+	
+	#two:active {
+		border: 1vmin solid white; //darkKhaki;
+	}
+	
+	#three:active {
+		border: 1vmin solid white; //orchid;
+	}
+	
+	#four:active {
+		border: 1vmin solid white; //lightSteelBlue;
+	}
+	
+	#five:active {
+		border: 1vmin solid white; //cyan;
+	}
+	
+	#six:active {
+		border: 1vmin solid white; //lightGreen;
+	}
+	
+	nav:active {
+		border: 1vmin solid white; //dodgerBlue;
+	}
+	
+	
+/* end of menu */
+
       .container {
         position: fixed;
         top: 0;
@@ -18,25 +291,407 @@
       }
 
       .child {
-        height: 50%;
+//        height: 10%;
         width: inherit;
       }
 
+/* 27 5 12 5 5 46 */
+
       .child-one {
-        background: red;
+       height: 27%; 
+       background: cyan;
       }
 
       .child-two {
-        background: blue;
+       //background: red;
+        font-family: 'Kalam';
+       transform: rotate(-5deg);
+       color: white;
+       font-size: 3vh;
+       //float: left;
+       height: 5%;	
+       //width: 50%;
+       text-align: center;
       }
+      
+      .child-three {
+  
+        background: green;
+        color: white;
+        font-family: 'Kalam';
+        font-size: 8vh;
+        font-weight: bold;
+        height: 12%;
+        text-align: center;
+      }
+
+      .child-four {
+        background: gray;
+        color: white;
+        font-family: 'Kalam';
+        font-size: 75%; //2vh;
+        height: 5%;
+        text-align: center;
+      }
+      
+      .child-five {
+        background: red;
+        font-family: 'Kalam';
+        font-size: 100%; //2vh;
+        height: 5%;
+        text-align: left;
+        padding-left: 10%;
+      }
+
+      .child-six {
+        background: yellow;
+        font-family: 'Kalam';
+        font-size: 100%; //2vh;
+        height: 30%;
+        text-align: center;
+      }
+      
+      .child-seven {
+        background: green;
+        height: 17%;
+      }
+/*
+      .child-eight {
+        background: blue;
+        height: 10%;
+      }
+      
+      .child-nine {
+        background: red;
+        height: 10%;
+      }
+
+      .child-ten {
+        background: blue;
+        height: 10%;
+      }
+  */    
+
+      
+      
+      
+      
+      
     </style>
   </head>
 
   <body>
     <div class="container">
-      <div class="child child-one"></div>
-      <div class="child child-two"></div>
+      <div class="child child-one">
+      
+      
+      <!-- menu -->
+		<nav id="nav">
+			<div class="bubble_menu" id="icon">
+				<button class="square_menu_icon square_menu_icon-X"> <span></span> </button>
+			</div>
+			<div class="bubble" id="one" onclick="doOne();"> <a id="onetxt">HCPs</a> </div>
+			<div class="bubble" id="two" onclick="doTwo();"> <a id="twotxt">Score entry</a> </div>
+			<div class="bubble" id="three" onclick="doThree();"> <a id="threetxt">Twos</a> </div>
+			<div class="bubble" id="four" onclick="doFour();"> <a id="fourtxt">All results</a> </div>
+			<div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a> </div>
+			<div class="bubble" id="six" onclick="doSix();"> <a id="sixtxt">4ball scoring</a> </div>
+		</nav>
+		<!-- end of menu -->
+      
+      
+      
+      </div>
+      <div class="child child-two">Longhirst seniors society</div>
+       <div class="child child-three">Winter golf</div>
+      <div class="child child-four">hcps, score entry, twos, results, leaderboard</div>
+       <div class="child child-five">scheduled ...</div>
+      <div class="child child-six dates" id="xdcomp1">searching for competitions ...</div>
+       <div class="child child-seven qrcode"  id="qrcode"><img id="img" onclick="enlarge(this.id);"
+                              style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" 
+                              src="qrwinter.png" alt="qr">
+       </div>
     </div>
     <!-- <script src="./src/index.js" /> -->
+    <script>
+    
+	
+	// global arrays
+	var arrPlayers = []
+	var arrHcps = []
+	var arrComps = []
+	var todayscomp = ""
+	var compday = "no"
+	var sparseArrComps = []
+	var sparseArrPlayers = []
+	var sparseArrHcps = []
+	var arrPlayersOld = []
+	var arrHcpOld = []
+		// menu code
+	var isTop = true;
+	var menuIsOpen = false;
+	var menuIcon = $('.square_menu_icon');
+	var bubblemenu = $('.bubble_menu');
+	var one = $('#one');
+	var two = $('#two');
+	var three = $('#three');
+	var four = $('#four');
+	var five = $('#five');
+	var six = $('#six');
+	// menuIcon.click(function() {
+	bubblemenu.click(function() {
+		if(isTop === true) {
+			$('#nav').animate({
+				top: '50%',
+				left: '50%'
+			}, 400);
+			$('.content').animate({
+				opacity: '0'
+			}, 700);
+			showBubbles();
+			isTop = false;
+		} else {
+			if(menuIsOpen === false) {
+				showBubbles();
+			} else {
+				hideBubbles();
+			}
+		}
+	});
+
+	function showBubbles() {
+		//
+		one.css('opacity', '0.0');
+		two.css('opacity', '0.0');
+		three.css('opacity', '0.0');
+		four.css('opacity', '0.0');
+		five.css('opacity', '0.0');
+		six.css('opacity', '0.0');
+		menuIcon.addClass('is-active');
+		one.addClass('shadow');
+		two.addClass('shadow');
+		three.addClass('shadow');
+		four.addClass('shadow');
+		five.addClass('shadow');
+		six.addClass('shadow');
+
+		// Returns a random integer from 200 to 700:
+		//Math.floor(Math.random() * 700) + 200;		
+		setTimeout(function() {
+			one.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			two.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			three.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			four.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			five.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+			six.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		setTimeout(function() {
+				one.removeClass('blob');
+				two.removeClass('blob');
+				three.removeClass('blob');
+				four.removeClass('blob');
+				five.removeClass('blob');
+				six.removeClass('blob');
+			}, 2000, function() {
+				// Animation complete.
+			})
+			// middle right
+			// right
+		one.animate({
+			top: '0vmin',
+			left: '30vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 400);
+		// bottom middle
+		// bottom	
+		two.animate({
+			top: '30vmin',
+			left: '0',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 400);
+		// middle left
+		// top
+		three.animate({
+			top: '0',
+			left: '-30vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 400);
+		// top middle
+		// top
+		four.animate({
+			top: '-30vmin',
+			left: '-30vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 400);
+		// top left
+		// top
+		five.animate({
+			top: '-30vmin',
+			left: '0',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 400);
+		// top right
+		// top
+		six.animate({
+			top: '-30vmin',
+			left: '30vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 400);
+		menuIsOpen = true;
+		// hide pressbutton
+		$("#pressbutton").html("");
+	}
+
+	function hideBubbles() {
+		// add 500ms delay to change X to hamburger
+		setTimeout(function() {
+			menuIcon.removeClass('is-active');
+			one.removeClass('shadow');
+			two.removeClass('shadow');
+			three.removeClass('shadow');
+			four.removeClass('shadow');
+			five.removeClass('shadow');
+			six.removeClass('shadow');
+		}, 500);
+		setTimeout(function() {
+			// move x icon back to hamburger
+			$('#nav').animate({
+				top: '15vmin',
+				left: '15vmin'
+			}, 400);
+			// fade background title
+			$('.content').animate({
+				opacity: '1'
+			}, 1500);
+		}, 400);
+		// move menu items
+		one.animate({
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
+		two.animate({
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
+		three.animate({
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
+		four.animate({
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
+		five.animate({
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
+		six.animate({
+			top: '0vmin',
+			left: '0vmin',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 200);
+		
+
+		menuIsOpen = false;
+		
+		isTop = true;
+		//one.addClass('blob');
+	}
+	
+	
+	$('.bubble').click(function() {
+		menuIcon.removeClass('is-active');
+		hideBubbles();
+		// change 400, 500 to 900, 500
+		setTimeout(function() {
+			$('#nav').animate({
+				top: '15vmin',
+				left: '15vmin'
+			}, 900);
+		}, 500);
+		isTop = true;
+	});
+	
+
+	function doOne() {
+		// put menu back then move to hcp page
+		setTimeout(function() {
+			//			window.open("hcp2023.html", "_blank");
+			window.location.assign("hcp.html");
+		}, 1000);
+	}
+
+	function doTwo() {
+		// put menu back then move to score entry page
+		if(localStorage.wwtodayscomp) {
+			window.location.assign("scoreentry.html");
+		} else {
+			alert("no comp message")
+		}
+	}
+
+	function doThree() {
+		// put menu back then move to twos page
+		setTimeout(function() {
+			window.location.assign("twos.html");
+		}, 1000);
+	}
+
+	function doFour() {
+		// put menu back then move to results page
+		setTimeout(function() {
+			window.location.assign("results.html");
+		}, 1000);
+	}
+
+	function doFive() {
+		// put menu back then move to results page
+		setTimeout(function() {
+			window.location.assign("leaderboard.html");
+		}, 1000);
+	}
+
+	function doSix() {
+		// put menu back then move to results page
+		setTimeout(function() {
+			window.location.assign("fourballtestv2.html");
+		}, 1000);
+	}
+    
+    </script>
+    
+    
+    
+    
+    
+    
+    
   </body>
 </html>
