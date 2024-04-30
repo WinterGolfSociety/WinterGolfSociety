@@ -51,9 +51,18 @@
 		background-color: rgba(0, 0, 0, 0.2);
 	}
 	
-	#nslope,
-	#ncr,
-	#npar,
+	#nslope1,
+	#nslope2,
+	#nslope3,
+	#nslope4,
+	#ncr1,
+	#ncr2,
+	#ncr3,
+	#ncr4,
+	#npar1,
+	#npar2,
+	#npar3,
+	#npar4,
 	#nhcpallowance,
 	#nhcp1,
 	#nhcp2,
@@ -69,6 +78,42 @@
 		box-shadow: 10px 10px 25px black;
 		background-clip: padding-box;
 	}
+	
+	
+	
+	#nslope2,
+	#ncr2,
+	#npar2,
+	#nhcp2 {
+	background-color: mediumSeaGreen;
+	
+	}
+	
+	
+	
+	#nslope3,
+	#ncr3,
+	#npar3,
+	#nhcp3 {
+	background-color: indianRed;
+	
+	}
+	
+	
+	
+	
+	#nslope4,
+	#ncr4,
+	#npar4,
+	#nhcp4 {
+	background-color: rebeccaPurple;
+	
+	}
+	
+	
+	
+	
+	
 	
 	.score {
 		font-size: 25px;
@@ -148,57 +193,69 @@
 		<div class="col-md-12  text-center">
 			<h2>Stroke calculations for Pairs Matchplay</h2>
 			<div class="container">
-				<div class="stxt">slope</div>
-				<div class="demo">
-					<input type="number" id="nslope" name="nslope" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
-				</div>
-				<br>
-				<br>
-				
-				
-				
-				<div class="stxt">cr</div>
-				<div class="demo">
-					<input type="number" id="ncr" name="ncr" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcp()">
-				</div>
-				<br>
-				<br>
-				
-				
-				
-				<div class="stxt">par</div>
-				<div class="demo">
-					<input type="number" id="npar" name="npar" min="60" max="80" maxlength="2" step="1" oninput="updatehcp()">
-				</div>
-				<br>
-				<br>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+			
 				
 				<div class="stxt">player 1 WHS handicap index</div>
 				<div class="demo">
 					<input type="number" id="nhcp1" name="nhcp1" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
 				</div>
 				<br>
+				<div class="stxt">slope</div>
+				<div class="demo">
+					<input type="number" id="nslope1" name="nslope1" min="100" max="150" maxlength="3" step="1" oninput="updatehcpMaster()">
+				</div>
+				<br>
+				<div class="stxt">cr</div>
+				<div class="demo">
+					<input type="number" id="ncr1" name="ncr1" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcpMaster()">
+				</div>
+				<br>
+				<div class="stxt">par</div>
+				<div class="demo">
+					<input type="number" id="npar1" name="npar1" min="60" max="80" maxlength="2" step="1" oninput="updatehcpMaster()">
+				</div>
+				<br>
+				
 				<br>
 				<div class="stxt">player 2 WHS handicap index</div>
 				<div class="demo">
 					<input type="number" id="nhcp2" name="nhcp2" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
 				</div>
 				<br>
+				<div class="stxt">slope</div>
+				<div class="demo">
+					<input type="number" id="nslope2" name="nslope2" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
+				</div>
+				<br>
+				<div class="stxt">cr</div>
+				<div class="demo">
+					<input type="number" id="ncr2" name="ncr2" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcp()">
+				</div>
+				<br>
+				<div class="stxt">par</div>
+				<div class="demo">
+					<input type="number" id="npar2" name="npar2" min="60" max="80" maxlength="2" step="1" oninput="updatehcp()">
+				</div>
+				<br>
 				<br>
 				<div class="stxt">player 3 WHS handicap index</div>
 				<div class="demo">
 					<input type="number" id="nhcp3" name="nhcp3" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
+				</div>
+				<br>
+				<div class="stxt">slope</div>
+				<div class="demo">
+					<input type="number" id="nslope3" name="nslope3" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
+				</div>
+				<br>
+				<div class="stxt">cr</div>
+				<div class="demo">
+					<input type="number" id="ncr3" name="ncr3" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcp()">
+				</div>
+				<br>
+				<div class="stxt">par</div>
+				<div class="demo">
+					<input type="number" id="npar3" name="npar3" min="60" max="80" maxlength="2" step="1" oninput="updatehcp()">
 				</div>
 				<br>
 				<br>
@@ -208,6 +265,22 @@
 				</div>
 			</div>
 			<br>
+				<div class="stxt">slope</div>
+				<div class="demo">
+					<input type="number" id="nslope4" name="nslope4" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()">
+				</div>
+				<br>
+				<div class="stxt">cr</div>
+				<div class="demo">
+					<input type="number" id="ncr4" name="ncr4" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcp()">
+				</div>
+				<br>
+				<div class="stxt">par</div>
+				<div class="demo">
+					<input type="number" id="npar4" name="npar4" min="60" max="80" maxlength="2" step="1" oninput="updatehcp()">
+				</div>
+				<br>
+				<br>
 			<div class="demo">
 				<!-- modal calculations -->
 				<div class="showcalcs" id="showcalcs" onclick="calcclose()">
@@ -215,7 +288,7 @@
 			</div>
 			<br>
 			<div id="txt">
-				<br>
+			
 				<br>
 				<div id="splayinghcp1" class="score">player 1
 					<br>course hcp
@@ -242,8 +315,8 @@
 				</div>
 				<br>
 			</div>
-			<br>
-			<br>
+		
+		
 			<button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
 		</div>
 	</div>
@@ -260,7 +333,14 @@
         Playing Handicap = Course Handicap x handicap allowance.
         <br><br>
         The result is then rounded to the nearest whole number. (Rule 6.1 and 6.2, Rules of Handicapping)
-        <br>
+        <br><br>
+        Section 6.2b
+        <br><br>
+        (ii) Stroke Play and Match Play formats (where results are recorded relative to par).
+        <br><br>
+        As a player’s net (or gross) status versus par for the round is compared directly against that of every other player, <b>no additional strokes are added</b> to the standard calculation of the Playing Handicap when the par is different between tees.
+        <br><br>
+This means that when two players are competing from different tees with a different par, the hole is considered halved or the score remains even if both players record a par on that hole. This is because the score on the hole is recorded relative to par rather than as the number of gross or net scores.
         <br>
 	<br>
 	<br>
@@ -278,13 +358,26 @@
 			let vhcp4 = document.getElementById("nhcp4").value
 				// get globals
 			let vhcpallowance = 90
-			let vslope = document.getElementById("nslope").value
-			let ncr = document.getElementById("ncr").value
-			let npar = document.getElementById("npar").value
-			let vcoursehcp1 = (vhcp1 * (vslope / 113)) + (ncr - npar)
-			let vcoursehcp2 = (vhcp2 * (vslope / 113)) + (ncr - npar)
-			let vcoursehcp3 = (vhcp3 * (vslope / 113)) + (ncr - npar)
-			let vcoursehcp4 = (vhcp4 * (vslope / 113)) + (ncr - npar)
+						
+			let vslope1 = document.getElementById("nslope1").value
+			let vslope2 = document.getElementById("nslope2").value
+			let vslope3 = document.getElementById("nslope3").value
+			let vslope4 = document.getElementById("nslope4").value
+			
+			let ncr1 = document.getElementById("ncr1").value
+			let ncr2 = document.getElementById("ncr2").value
+			let ncr3 = document.getElementById("ncr3").value
+			let ncr4 = document.getElementById("ncr4").value
+			
+			let npar1 = document.getElementById("npar1").value
+			let npar2 = document.getElementById("npar2").value
+			let npar3 = document.getElementById("npar3").value
+			let npar4 = document.getElementById("npar4").value
+						
+			let vcoursehcp1 = (vhcp1 * (vslope1 / 113)) + (ncr1 - npar1)
+			let vcoursehcp2 = (vhcp2 * (vslope2 / 113)) + (ncr2 - npar2)
+			let vcoursehcp3 = (vhcp3 * (vslope3 / 113)) + (ncr3 - npar3)
+			let vcoursehcp4 = (vhcp4 * (vslope4 / 113)) + (ncr4 - npar4)
 			// get differences in course hcps
 			let low1 = Math.min(vcoursehcp1, vcoursehcp2, vcoursehcp3, vcoursehcp4);
 			
@@ -306,25 +399,25 @@
 			let var4 = var4t.toFixed(0)
 			
 			// player 1
-			let p1a = "(" + vhcp1 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp1
+			let p1a = "(" + vhcp1 + " x " + vslope1 + "/113) + (" + ncr1 + " - " + npar1 + ") = " + vcoursehcp1
 			let p1b = vcoursehcp1 + " - " + low1 + " = " + vcoursehcp10
 			let p1c = vcoursehcp10 + " x " + vhcpallowance + "% = " + var1t
 			let p1d = var1
 			
 			// player 2
-			let p2a = "(" + vhcp2 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp2
+			let p2a = "(" + vhcp2 + " x " + vslope2 + "/113) + (" + ncr2 + " - " + npar2 + ") = " + vcoursehcp2
 			let p2b = vcoursehcp2 + " - " + low1 + " = " + vcoursehcp20
 			let p2c = vcoursehcp20 + " x " + vhcpallowance + "% = " + var2t
 			let p2d = var2
 			
 			// player 3
-			let p3a = "(" + vhcp3 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp3
+			let p3a = "(" + vhcp3 + " x " + vslope3 + "/113) + (" + ncr3 + " - " + npar3 + ") = " + vcoursehcp3
 			let p3b = vcoursehcp3 + " - " + low1 + " = " + vcoursehcp30
 			let p3c = vcoursehcp30 + " x " + vhcpallowance + "% = " + var3t
 			let p3d = var3
 			
 			// player 4
-			let p4a = "(" + vhcp4 + " x " + vslope + "/113) + (" + ncr + " - " + npar + ") = " + vcoursehcp1
+			let p4a = "(" + vhcp4 + " x " + vslope4 + "/113) + (" + ncr4 + " - " + npar4 + ") = " + vcoursehcp1
 			let p4b = vcoursehcp4 + " - " + low1 + " = " + vcoursehcp40
 			let p4c = vcoursehcp40 + " x " + vhcpallowance + "% = " + var4t
 			let p4d = var4
@@ -341,6 +434,45 @@
 			document.getElementById("showcalcs").innerHTML = calctxt
 		}
 	}
+
+
+
+
+
+
+
+
+function updatehcpMaster() {
+document.getElementById("nslope2").value = document.getElementById("nslope1").value
+document.getElementById("ncr2").value = document.getElementById("ncr1").value
+document.getElementById("npar2").value = document.getElementById("npar1").value
+
+document.getElementById("nslope3").value = document.getElementById("nslope1").value
+document.getElementById("ncr3").value = document.getElementById("ncr1").value
+document.getElementById("npar3").value = document.getElementById("npar1").value
+
+document.getElementById("nslope4").value = document.getElementById("nslope1").value
+document.getElementById("ncr4").value = document.getElementById("ncr1").value
+document.getElementById("npar4").value = document.getElementById("npar1").value
+
+
+updatehcp();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	function updatehcp() {
 				
@@ -363,13 +495,25 @@
 			let vhcp4 = document.getElementById("nhcp4").value
 				// get globals
 			let vhcpallowance = 90
-			let vslope = document.getElementById("nslope").value
-			let ncr = document.getElementById("ncr").value
-			let npar = document.getElementById("npar").value
-			let vcoursehcp1 = (vhcp1 * (vslope / 113)) + (ncr - npar)
-			let vcoursehcp2 = (vhcp2 * (vslope / 113)) + (ncr - npar)
-			let vcoursehcp3 = (vhcp3 * (vslope / 113)) + (ncr - npar)
-			let vcoursehcp4 = (vhcp4 * (vslope / 113)) + (ncr - npar)
+			let vslope1 = document.getElementById("nslope1").value
+			let vslope2 = document.getElementById("nslope2").value
+			let vslope3 = document.getElementById("nslope3").value
+			let vslope4 = document.getElementById("nslope4").value
+			
+			let ncr1 = document.getElementById("ncr1").value
+			let ncr2 = document.getElementById("ncr2").value
+			let ncr3 = document.getElementById("ncr3").value
+			let ncr4 = document.getElementById("ncr4").value
+			
+			let npar1 = document.getElementById("npar1").value
+			let npar2 = document.getElementById("npar2").value
+			let npar3 = document.getElementById("npar3").value
+			let npar4 = document.getElementById("npar4").value
+			
+			let vcoursehcp1 = (vhcp1 * (vslope1 / 113)) + (ncr1 - npar1)
+			let vcoursehcp2 = (vhcp2 * (vslope2 / 113)) + (ncr2 - npar2)
+			let vcoursehcp3 = (vhcp3 * (vslope3 / 113)) + (ncr3 - npar3)
+			let vcoursehcp4 = (vhcp4 * (vslope4 / 113)) + (ncr4 - npar4)
 			// get differences in course hcps
 			let low1 = Math.min(vcoursehcp1, vcoursehcp2, vcoursehcp3, vcoursehcp4);
 			
