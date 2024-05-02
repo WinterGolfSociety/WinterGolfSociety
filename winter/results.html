@@ -83,19 +83,17 @@ window.location.assign("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTSLM77
 }
 start();
    
-   
-   
-      document.onreadystatechange = function () {
-         if (document.readyState !== "complete") {
-            document.querySelector("body").style.visibility = "hidden";
-            document.getElementById("loader").style.visibility = "visible";
-         } else {
-            //setTimeout(() => {
-               document.getElementById("loader").style.display ="none";
-               document.querySelector("body").style.visibility = "visible";
-            //}, 1000)
-         }
-      };
+document.onreadystatechange = function () {
+   if (document.readyState !== "complete") {
+       document.querySelector("body").style.visibility = "hidden";
+       document.getElementById("loader").style.visibility = "visible";
+   } else {
+       //setTimeout(() => {
+       document.getElementById("loader").style.display ="none";
+       document.querySelector("body").style.visibility = "visible";
+       //}, 1000)
+   }
+};
 </script>
 </body>
 </html>
