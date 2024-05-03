@@ -297,12 +297,7 @@
         
         
         
-        
-        
-      max-height: 150%;  
-overflow: auto;  
-        
-        
+    
         
         
         
@@ -438,13 +433,31 @@ background: inherit;
 }
    
       
-      
+ 
+	#warning {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: indigo;
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+	text-align: center;
+	color: white;
+	padding-top: 40vh;
+	font-size: 6vh;
+	font-family: 'Kalam';
+	}     
       
     </style>
   </head>
 
   <body>
     <div class="container">
+    
+    <div id="warning">Not available in landscape orientation</div>
+    
       <div class="child child-one">
       
       
@@ -485,6 +498,41 @@ background: inherit;
     
     </div> <!-- content -->
     <script>
+    
+    
+    
+    	// Detect whether device supports orientationchange event, otherwise fall back to
+// the resize event.
+var supportsOrientationChange = "onorientationchange" in window,
+    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+window.addEventListener(orientationEvent, function() {
+    if(window.orientation==0)
+    {
+    document.getElementById("warning").style.display = "none";
+    }
+    else if(window.orientation==90 || window.orientation==-90)
+    {
+     document.getElementById("warning").style.display = "block";
+    }
+}, false);
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 	
 	// global arrays
