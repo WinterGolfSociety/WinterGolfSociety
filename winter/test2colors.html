@@ -296,7 +296,15 @@
         
         
         
-        
+        #img { position: fixed;
+               right: 5%;
+               bottom: 5%;
+		transition-duration: 0.4s;
+	}
+	
+	#img.half {
+		transform: scale(5) translateY(-100%);
+	}
     
         
         
@@ -480,23 +488,27 @@ background: inherit;
       </div>
       <div class="content">
       
-      <div class="child child-two">Longhirst seniors society</div>
-       <div class="child child-three">Winter golf</div>
-      <div class="child child-four">hcps, score entry, twos, results, leaderboard</div>
-       <div class="child child-five">scheduled ...</div>
+         <div class="child child-two">Longhirst seniors society</div>
+         <div class="child child-three">Winter golf</div>
+         <div class="child child-four">hcps, score entry, twos, results, leaderboard</div>
+         <div class="child child-five">scheduled ...</div>
        
-      <div class="child child-six" id="xdcomp1">searching for competitions ...</div>
-      <div class="child child-six" id="xdcomp2"></div>
-      <div class="child child-six" id="xdcomp3"></div>
-      <div class="child child-six" id="xdcomp4"></div>
+         <div class="child child-six" id="xdcomp1">searching for competitions ...</div>
+         <div class="child child-six" id="xdcomp2"></div>
+         <div class="child child-six" id="xdcomp3"></div>
+         <div class="child child-six" id="xdcomp4"></div>
             
-       <div class="child child-seven qrcode"  id="qrcode"><img id="img" onclick="enlarge(this.id);"
-                              style="padding-right: 20px; float: right; padding-top: 20px; border: 0; height: 30px; width: 30px;" 
-                              src="qrwinter.png" alt="qr">
-       </div>
-    </div>
-    
+         <div class="child child-seven qrcode"  id="qrcode">
+         <img id="img" 
+              onclick="enlarge(this.id);"
+              style="padding-right: 20px; float: right; padding-top: 20px; border: 0; height: 30px; width: 30px;" 
+              src="qrwinter.png" 
+              alt="qr">
+         </div>
+       
     </div> <!-- content -->
+    
+    </div> <!-- container -->
     <script>
     
     
@@ -890,9 +902,8 @@ window.addEventListener(orientationEvent, function() {
 		["December"]
 	];
 	// check to see if a comp exists in localStorage
-	if("wwtodayscomp" in localStorage) {
-		// if today is not the same as localStorage.wwtodayscomp then get the new data
-		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
+	// if today is not the same as localStorage.wwtodayscomp then get the new data
+	if("wwtodayscomp" in localStorage && localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
 			// retrieve data from local storage
 			// overwrite data arrays from localStorage
 			// players
@@ -902,10 +913,6 @@ window.addEventListener(orientationEvent, function() {
 			// comps
 			arrComps = JSON.parse(localStorage.wwcompsarray);
 			afterGetData()
-		} else {
-		        // just get some new data
-			getData();
-		}
         } else {
 			// just get some new data
 			getData();
@@ -922,8 +929,8 @@ window.addEventListener(orientationEvent, function() {
 		for(var i = 0; i < resultsarray.length; i++) {
 			if(resultsarray[i].players.length > 2) {
 			        // comps now contains modified comps
-				// comps is usualy a different length to players and hcps
-				// so contains empty items that need to be removed
+				// comps, players and hcps can be different length
+				// so may contain empty items that need to be removed
 				sparseArrPlayers.push(resultsarray[i].players);
 				sparseArrHcps.push(resultsarray[i].hcp);
 				sparseArrComps.push(resultsarray[i].comps);
