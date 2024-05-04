@@ -14,7 +14,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 	<style>
-	html,
+	
 
 	
 	* {
@@ -37,12 +37,13 @@
 	
 	body {
 		font-family: Arial, Helvetica, sans-serif;
-		//background: rgb(0, 0, 20);
+		background: green;
 		//padding-left: 0;
 		//padding-right: 0;
 		//overflow-x: hidden;
 		//overflow-y: auto;
 		font-weight: 400;
+		height: 100%;
 	}
 	
 	.three-page-container {
@@ -52,6 +53,7 @@
 		//overflow-x: auto;
 		scroll-snap-type: x mandatory;
 		-webkit-overflow-scrolling: touch;
+		height: 100%;
 	}
 	
 	.wrapper {
@@ -68,38 +70,24 @@
 	
 		
 	.padnumber {
-		//display: grid;
-		//place-items: center;
-		//border-style: none none solid none;
-		/* t, r, b, l */
-		//border-color: rgb(30, 130, 255);
 		white-space: nowrap;
 		background: dodgerBlue;
 		padding-left: 10%;
 		padding-right: 10%;
+		font-size: 100%;
 	}
 	
 	.padplus {
-		//display: grid;
-		//place-items: center end;
-		//border-style: none solid solid none;
-		/* t, r, b, l */
-		//border-color: rgb(30, 130, 255);
 		background: dodgerBlue;
-		padding-right: 1%;
-		
+		padding-right: 1%;	
 	}
 	
 	.padminus {
-		//display: grid;
-		//place-items: center start;
-		//border-style: none none solid solid;
-		/* t, r, b, l */
-		//border-color: rgb(30, 130, 255);
 		background: dodgerBlue;
+		padding-left: 1%;
 	}
 	
-	.hole {
+	.zzzzzzzhole {
 		width: 98vw;
 		height: 100%;
 		display: flex;
@@ -111,17 +99,20 @@
 	.holesinfotop {
 		color: white;
 		width: calc(100% / 6);
-		font-size: 80%;
+		font-size: 100%; //80%;
+		height: 100%;
 	}
 	
 	.holesinfoout {
 		color: lime;
 		width: calc(100% / 6);
+		height: 100%;
 	}
 	
 	.holesinfoback {
 		color: cyan;
 		width: calc(100% / 6);
+		height: 100%;
 	}
 	
 	.holesinfo {
@@ -148,38 +139,27 @@
 	
 	
 	
-	.xxxxxxbar {
-		width: 100vw;
-		height: 11vmax;
+	
+	
+	#dropbtn {
+                font-size: 100%;
+		background: dodgerBlue;
+	        box-shadow: inset 0 0 5px 5px lime;	
+		height: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 	
-	.xxxborder {
-		border: 1px white solid;
-	}
-	
-	#dropbtn {
-		font-size: 4.5vh;
-	//	border-style: solid solid solid solid;
-		/* t, r, b, l */
-	//	border-color: rgb(30, 130, 255);
-		background: dodgerBlue;
-	box-shadow: inset 0 0 5px silver;	
-	//	       padding-top: 1vh;
-       //padding-bottom: 1vh;
-		height: 100%;
-		
-		
-	}
-	
-	#hcpwrapper,
+	.hcp,
 	#submit {
-		border-style: solid solid solid solid;
-		/* t, r, b, l */
-		border-color: rgb(30, 130, 255);
 		background: dodgerBlue;
+		box-shadow: inset 0 0 5px 5px lime;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 100%;
 	}
 	
 	.numx {
@@ -189,10 +169,11 @@
 	}
 	
 	.footer {
-		padding: 5%;
-		
+		padding: 1%;
+		background-color: black;
 		//justify-content: center;
 		//align-items: center;
+		height: 100%;
 	}
 	
 	.xwrapperforscoring {
@@ -382,7 +363,7 @@
 	
 	
 	.hcp , .submit{
-		font-size: 4.5vh;
+		font-size: 100%;
 		background: dodgerBlue;
 		height: 100%;
 		
@@ -414,29 +395,29 @@
 //          border: 1px solid white;
 //      }
 
-/* 25 5 12 5 5 6 16 26 */
+/* 10 60 10 10 10 */
 
       .child-one {
        height: 10%; 
-       text-align: center;
+       //text-align: center;
       }
-
+      
+      /* hole info at top*/
       .child-two {
         display: flex;
         font-family: 'Kalam';
         color: white;
-        //font-size: 75%;
-        height: calc(60% / 13); 	
+        height: calc(80% / 13); 	
         text-align: center;
       }
       
+      /* holes */
       .child-three {
         display: flex;
         color: white;
         font-family: 'Kalam';
-        //font-size: 75%;
         font-weight: bold;
-        height: calc(60% / 13); 
+        height: calc(80% / 13); 
         text-align: center;
       }
        /* totals countback */
@@ -444,13 +425,9 @@
         display: flex;
         color: white;
         font-family: 'Kalam';
-        //font-size: 75%; //2vh;
-        height: calc(60% / 13); 
-
+        font-weight: bold;
+        height: calc(80% / 13); 
         text-align: center;
-        
-      
-        
       }
       
       /* icons */
@@ -458,12 +435,18 @@
         display: flex;
         color: white;
         font-family: 'Kalam';
-        //font-size: 75%; //2vh;
         height: 10%; 
-
+ border: 5px solid cyan;
         text-align: center;
-        
       }
+    
+    
+    
+    
+    
+    
+    
+    
     
 
       /* scoring */
@@ -471,14 +454,13 @@
         display: flex;
         color: white;
         font-family: 'Kalam';
-        //font-size: 75%; //2vh;
-        height: calc(100% / 9); 
+        height: calc(100% / 19); 
         text-align: center;
         border: 1px solid yellow;
         width: 100%;
       }
 	
-	
+/* end of child containers */	
 	
 	
 	
@@ -649,9 +631,7 @@
 			
 			
 			<div class="countbackinfo" id="cback">countback 9=18, 6=11, 3=6, 1=2</div>
-		
-		
-		
+
 	</div>
 		
 	<div class="child child-one">	
@@ -667,14 +647,16 @@
 	</div>
 	
 	<div class="child-five">
+	
+			<div class="footer" id="limg"> <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="height: 3vh;"> </div>
+			
+			<div class="footer" id="mimgl"> <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 3vh;"> </div>
 			
 			
-			<div class="footer" id="limg"> <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="height: 20%;"> </div>
-<!--			
-			<div class="footer" id="mimgl"> <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 5%;"> </div>
-			<div class="footer" id="mimgr"> <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 5%;"> </div>
-			<div class="footer" id="rimg"> <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="height: 5%;"> </div>
--->			
+			
+			<div class="footer" id="mimgr"> <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 3vh;"> </div>
+			<div class="footer" id="rimg"> <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="height: 3vh;"> </div>
+			
 	
 	</div>
 	
@@ -806,64 +788,101 @@
 
 
 
-  
+   <!-- score input pages -->
    <div class="wrapperforscoring" id="scoringback9">
-   
-   
-<div class="child2 child-six">
-   <div class="padminus" onclick='decrementScore("numscore10")'>
-      <img src="minusw.png" alt="-" style="height: 20px; opacity: 0.6;">
+
+<div class="child-six">
+   <div class="padminus" onclick='decrementScore("numscore1")'>
+      <img src="minusw.png" alt="-" style="height: 40px; opacity: 0.6;">
    </div>
-   <div class="padnumber" id="numscore1" onclick="showHole(this.id)">hole 10</div>
-   <div class="padplus" onclick='incrementScore("numscore10")'>
-      <img src="plusw.png" alt="+" style="height: 20px; opacity: 0.6;">
+   <div class="padnumber" id="numscore1" onclick="showHole(this.id)">hole 1</div>
+   <div class="padplus" onclick='incrementScore("numscore1")'>
+      <img src="plusw.png" alt="+" style="height: 40px; opacity: 0.6;">
    </div>
 </div>   
 
 
 
-   
-   
-   
-   
-   
-   
-   
-   <div class="padminus" onclick='decrementScore("numscore10")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore10" onclick="showHole(this.id)">hole 10</div>
-			<div class="padplus" onclick='incrementScore("numscore10")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padminus" onclick='decrementScore("numscore11")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore11" onclick="showHole(this.id)">hole 11</div>
-			<div class="padplus" onclick='incrementScore("numscore11")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padminus" onclick='decrementScore("numscore12")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore12" onclick="showHole(this.id)">hole 12</div>
-			<div class="padplus" onclick='incrementScore("numscore12")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padminus" onclick='decrementScore("numscore13")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore13" onclick="showHole(this.id)">hole 13</div>
-			<div class="padplus" onclick='incrementScore("numscore13")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padminus" onclick='decrementScore("numscore14")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore14" onclick="showHole(this.id)">hole 14</div>
-			<div class="padplus" onclick='incrementScore("numscore14")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padminus" onclick='decrementScore("numscore15")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore15" onclick="showHole(this.id)">hole 15</div>
-			<div class="padplus" onclick='incrementScore("numscore15")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padminus" onclick='decrementScore("numscore16")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore16" onclick="showHole(this.id)">hole 16</div>
-			<div class="padplus" onclick='incrementScore("numscore16")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padminus" onclick='decrementScore("numscore17")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore17" onclick="showHole(this.id)">hole 17</div>
-			<div class="padplus" onclick='incrementScore("numscore17")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padminus" onclick='decrementScore("numscore18")'> <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-			<div class="padnumber" id="numscore18" onclick="showHole(this.id)">hole 18</div>
-			<div class="padplus" onclick='incrementScore("numscore18")'> <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;"> </div>
-		</div>
+<div class="child-six">   
+   <div class="padminus" onclick='decrementScore("numscore2")'>
+      <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+   <div class="padnumber" id="numscore2" onclick="showHole(this.id)">hole 2</div>
+   <div class="padplus" onclick='incrementScore("numscore2")'>
+      <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+</div>   
+ 
+<div class="child-six">   
+   <div class="padminus" onclick='decrementScore("numscore3")'>
+      <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+   <div class="padnumber" id="numscore3" onclick="showHole(this.id)">hole 3</div>
+   <div class="padplus" onclick='incrementScore("numscore3")'>
+      <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+</div>
 
+<div class="child-six">   	
+   <div class="padminus" onclick='decrementScore("numscore4")'>
+      <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+   <div class="padnumber" id="numscore4" onclick="showHole(this.id)">hole 4</div>
+   <div class="padplus" onclick='incrementScore("numscore4")'>
+      <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+</div>
 
+<div class="child-six">   
+   <div class="padminus" onclick='decrementScore("numscore5")'>
+      <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+   <div class="padnumber" id="numscore5" onclick="showHole(this.id)">hole 5</div>
+   <div class="padplus" onclick='incrementScore("numscore5")'>
+      <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+</div>
+	
+<div class="child-six">   
+   <div class="padminus" onclick='decrementScore("numscore6")'>
+      <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+   <div class="padnumber" id="numscore6" onclick="showHole(this.id)">hole 6</div>
+   <div class="padplus" onclick='incrementScore("numscore6")'>
+      <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+</div>	
+   <div class="child-six">   
+   <div class="padminus" onclick='decrementScore("numscore7")'>
+      <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+   <div class="padnumber" id="numscore7" onclick="showHole(this.id)">hole 7</div>
+   <div class="padplus" onclick='incrementScore("numscore7")'>
+      <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+</div>
+<div class="child-six">   
+   <div class="padminus" onclick='decrementScore("numscore8")'>
+      <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+   <div class="padnumber" id="numscore8" onclick="showHole(this.id)">hole 8</div>
+   <div class="padplus" onclick='incrementScore("numscore8")'>
+      <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+</div>
 
+<div class="child-six">   
+   <div class="padminus" onclick='decrementScore("numscore9")'>
+      <img src="minusw.png" alt="-" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+   <div class="padnumber" id="numscore9" onclick="showHole(this.id)">hole 9</div>
+   <div class="padplus" onclick='incrementScore("numscore9")'>
+      <img src="plusw.png" alt="+" style="height: 40px; width: 40px; opacity: 0.6;">
+   </div>
+</div>
 
+</div> <!-- wrapper -->
 
-
-	</div>
 	<!-- form to construct data prior to submit -->
 	<form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
 		<!-- name, hcp, course -->
