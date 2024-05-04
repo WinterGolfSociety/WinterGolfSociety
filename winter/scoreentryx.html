@@ -21,8 +21,12 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+		
 	}
 
+html {
+height: 100%;
+}
 
 	/* hide all scrollbars when not using PC */
 	/* Hide scrollbar for Chrome, Safari and Opera */
@@ -309,7 +313,7 @@
 	}
 	/* popup box related */
 	
-	#submit_popuppanel {
+	#xsubmit_popuppanel {
 		display: none;
 		color: white;
 		background-color: #eee;
@@ -325,7 +329,7 @@
 		text-align: center;
 	}
 	
-	#popuppanel {
+	#xpopuppanel {
 		display: none;
 		color: black;
 		background-color: #eee;
@@ -342,8 +346,8 @@
 		font-size: 2vmax;
 	}
 	
-	#popuppanel button,
-	#submit_popuppanel button {
+	#xpopuppanel button,
+	#xsubmit_popuppanel button {
 		background-color: #ccc;
 		display: inline-block;
 		border-radius: 3px;
@@ -354,7 +358,7 @@
 		font-size: 2vmax;
 	}
 	
-	#popuppanel .button:hover {
+	#xpopuppanel .button:hover {
 		background-color: #ddd;
 	}
 	
@@ -407,7 +411,7 @@
         display: flex;
         font-family: 'Kalam';
         color: white;
-        height: calc(80% / 13); 	
+        height: calc(60% / 13); 	
         text-align: center;
       }
       
@@ -417,7 +421,7 @@
         color: white;
         font-family: 'Kalam';
         font-weight: bold;
-        height: calc(80% / 13); 
+        height: calc(60% / 13); 
         text-align: center;
       }
        /* totals countback */
@@ -426,7 +430,7 @@
         color: white;
         font-family: 'Kalam';
         font-weight: bold;
-        height: calc(80% / 13); 
+        height: calc(60% / 13); 
         text-align: center;
       }
       
@@ -454,7 +458,7 @@
         display: flex;
         color: white;
         font-family: 'Kalam';
-        height: calc(100% / 19); 
+        height: calc(100% / 9); 
         text-align: center;
         border: 1px solid yellow;
         width: 100%;
@@ -655,7 +659,7 @@
 			
 			
 			<div class="footer" id="mimgr"> <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 3vh;"> </div>
-			<div class="footer" id="rimg"> <img src="contrastwhite.png" alt="contrast" onclick="togglecontrast()" style="height: 3vh;"> </div>
+			
 			
 	
 	</div>
@@ -681,7 +685,7 @@
 
 
 <!-- score input pages -->
-<div class="wrapper wrapperforscoring" id="zscoringfront9">
+<div class="wrapper" id="zscoringfront9">
 
 
 
@@ -788,8 +792,8 @@
 
 
 
-   <!-- score input pages -->
-   <div class="wrapperforscoring" id="scoringback9">
+<!-- score input pages -->
+<div class="wrapper wrapperforscoring" id="scoringback9">
 
 <div class="child-six">
    <div class="padminus" onclick='decrementScore("numscore1")'>
@@ -883,6 +887,9 @@
 
 </div> <!-- wrapper -->
 
+</div>
+	
+	
 	<!-- form to construct data prior to submit -->
 	<form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
 		<!-- name, hcp, course -->
@@ -945,7 +952,6 @@
 	
 	
 	
-	</div>
 	
 	
 	
@@ -1837,29 +1843,7 @@ function recalcScores() {
 	}
 	totalScore();
 }
-//=============================================================
-// function toggleContrast()
-// - switches to and from high contrast mode
-//=============================================================  
-function togglecontrast() {
-	var elements = document.getElementsByClassName('wrapperforscoring'); // get all elements
-	// toggle blue and dodgerBlue
-	if(elements[0].style.backgroundColor !== "blue") {
-		elements[0].style.backgroundColor = "blue"
-		elements[1].style.backgroundColor = "blue"
-		document.getElementById("dropbtn").style.backgroundColor = "blue"
-		document.getElementById("hcpwrapper").style.backgroundColor = "blue"
-		document.getElementById("submit").style.backgroundColor = "blue"
-		document.body.style.fontWeight = "700";
-	} else {
-		elements[0].style.backgroundColor = "dodgerBlue"
-		elements[1].style.backgroundColor = "dodgerBlue"
-		document.getElementById("dropbtn").style.backgroundColor = "dodgerBlue"
-		document.getElementById("hcpwrapper").style.backgroundColor = "dodgerBlue"
-		document.getElementById("submit").style.backgroundColor = "dodgerBlue"
-		document.body.style.fontWeight = "400";
-	}
-}
+
 //=============================================================
 // function recoverFromLocalStorage()
 // - retrieves locally saved temp data to retain integrity over refreshes
