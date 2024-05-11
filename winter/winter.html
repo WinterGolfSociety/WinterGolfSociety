@@ -6,20 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<title>winter</title>
 	<meta content="Bryan M" name="author" />
-	
+	<meta name="theme-color" content="indigo">
 	<link href="wintericon.png" rel="icon" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="wintericon.png" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-	
-	
-	<link rel="manifest" href="/WinterGolfSociety/manifestwinter.json">     
-        <meta name="msapplication-TileColor" content="indigo">
-        <meta name="msapplication-TileImage" content="winter.svg">
-        <meta name="theme-color" content="indigo"> 
-	
-
 	<style>
 	* {
 		margin: 0;
@@ -31,12 +23,11 @@
 	}
 	
 	body {
-                min-height: 100%;
-		overflow: hidden;
+	        overflow: hidden;
 		/* linear-gradient syntax */
 		background: indigo;
 		background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */	
+                background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
 	
 	::-webkit-scrollbar {
@@ -49,8 +40,8 @@
 		overflow: hidden;
 		margin: 0;
 		padding: 0;
-		width: 12vmin;
-		height: 12vmin;
+		width: 45px;
+		height: 45px;
 		font-size: 0;
 		text-indent: -9999px;
 		appearance: none;
@@ -66,18 +57,18 @@
 		z-index: 99;
 	}
 	
-	.xxxsquare_menu_icon:focus {
+	.square_menu_icon:focus {
 		outline: none;
 	}
 	
 	.square_menu_icon span {
 		display: block;
 		position: absolute;
-		top: 4vmin;
+		top: 15px;
 		left: 0;
 		right: 0;
-		height: 1.5vmin;
-		background: white;
+		height: 7px;
+		background: #fff;
 	}
 	
 	.square_menu_icon span:before,
@@ -86,17 +77,17 @@
 		display: block;
 		left: 0;
 		width: 100%;
-		height: 1.5vmin;
-		background-color: white;
+		height: 7px;
+		background-color: #fff;
 		content: "";
 	}
 	
 	.square_menu_icon span:before {
-		top: -4vmin;
+		top: -14px;
 	}
 	
 	.square_menu_icon span:after {
-		bottom: -4vmin;
+		bottom: -14px;
 	}
 	
 	.square_menu_icon-X span {
@@ -138,12 +129,14 @@
 	
 	nav {
 		position: absolute;
-		top: 15vmin;
-		left: 15vmin;
+		top: 80px; //100px;
+		left: 80px; //100px;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
+		width: 75px;
+		height: 75px;
 		z-index: 4;
-		border: 1vmin solid white;
+		border: 5px solid white;
 		box-shadow: 10px 10px 25px black;
 	}
 	
@@ -153,13 +146,12 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		background-color: dodgerBlue;
-		width: 21vmin;
-		height: 21vmin;
+		width: 75px;
+		height: 75px;
 		z-index: 4;
 		cursor: pointer;
 		border-radius: 5px;
-		border: 1vmin solid white;
-		box-shadow: 10px 10px 25px black;
+		border: 5px solid white;
 	}
 	
 	#one,
@@ -173,11 +165,11 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		border-radius: 5px;
-		width: 21vmin;
-		height: 21vmin;
+		width: 75px; //65px;
+		height: 76px; //65px;
 		z-index: 3;
 		text-align: center;
-		border: 1vmin solid white;
+		border: 5px solid white;
 		cursor: pointer;
 		opacity: 0.0;
 	}
@@ -219,14 +211,36 @@
 	}
 	
 	.shadow {
+		//	border: 5px solid white;
 		box-shadow: 10px 10px 25px black;
 		opacity: 0.0;
 	}
 	
 	section {
 		width: 100vw;
-		height: 65vh;
+		height: 100vh;
 		position: absolute;
+	}
+	
+	.startxxx {
+		top: 0;
+		left: 0;
+		text-align: center;
+	}
+	
+	.content {
+		width: 90%;
+		height: 100vh;
+		opacity: 1;
+		margin: 0 auto;
+	}
+	
+	.title {
+		color: white;
+		font-family: 'Kalam';
+		font-size: 40px;
+		font-weight: bold;
+		margin-top: 160px;
 	}
 	
 	#onetxt,
@@ -236,50 +250,103 @@
 	#fivetxt,
 	#sixtxt {
 		margin: auto;
-		font-size: 3.5vh;
+		font-size: 25px;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
+	#onetxt {
+		margin: auto;
+		font-size: 30px;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
+	#twotxt {
+		margin: auto;
+		font-size: 25px;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
+	#threetxt {
+		margin: auto;
+		font-size: 30px;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
+	#fourtxt {
+		margin: auto;
+		font-size: 25px;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
+	#fivetxt {
+		margin: auto;
+		font-size: 23px;
+		color: blue;
+		font-family: 'Kalam';
+	}
+	
+	#sixtxt {
+		margin: auto;
+		font-size: 23px;
 		color: blue;
 		font-family: 'Kalam';
 	}
 	
 	#one:active {
-		border: 1vmin solid white; //salmon;
+		border: 5px solid white; //salmon;
 	}
 	
 	#two:active {
-		border: 1vmin solid white; //darkKhaki;
+		border: 5px solid white; //darkKhaki;
 	}
 	
 	#three:active {
-		border: 1vmin solid white; //orchid;
+		border: 5px solid white; //orchid;
 	}
 	
 	#four:active {
-		border: 1vmin solid white; //lightSteelBlue;
+		border: 5px solid white; //lightSteelBlue;
 	}
 	
 	#five:active {
-		border: 1vmin solid white; //cyan;
+		border: 5px solid white; //cyan;
 	}
 	
 	#six:active {
-		border: 1vmin solid white; //lightGreen;
+		border: 5px solid white; //lightGreen;
 	}
 	
 	nav:active {
-		border: 1vmin solid white; //dodgerBlue;
+		border: 5px solid white; //dodgerBlue;
 	}
 	
+	.dates {
+		font-family: 'Kalam';
+		color: darkGray;
+		font-size: 18px;
+	}
 	
-	
-
+	.pretitle {
+		font-family: 'Kalam';
+		transform: rotate(-5deg);
+		height: 2vh;
+		color: white;
+		font-size: 18px;
+		float: left;
+	}
 	
 	#scheduled {
 		float: left;
 	}
 	
-	#xdcomp1 {
+	#dcomp1 {
 		float: left;
-		padding left: 15vmin;
+		padding left: 5vw;
 	}
 	
 	#img {
@@ -290,7 +357,51 @@
 		transform: scale(5) translateY(-100%);
 	}
 	
+	.spacer1 {
+		height: 4vh;
+	}
 	
+	.contentinfo {
+		font-family: 'Kalam';
+		color: white;
+		font-size: 12px;
+		//width: 100%;
+	}
+	
+	#popuppanel {
+		position: absolute;
+		top: 10vh;
+		left: 30vw;
+		display: none;
+		font-family: 'Kalam';
+		background-color: #ddd;
+		opacity: 0.8;
+		font-size: 3vh;
+		//display: inline-block;
+		border-radius: 10px;
+		border: 1px solid #aaa;
+		padding: 20px;
+		text-align: left; //center;
+		width: 20vw;
+		height: 10vw;
+		cursor: pointer;
+	}
+	
+	#xdcomp1,
+	#qrcode {
+		//	opacity: 0;
+		animation: fadeIn 3s;
+		//animation-delay: 1s;
+	}
+	
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 	/* marquee CSS */
 	
 	.marquee {
@@ -355,11 +466,6 @@
 	}
 	/* end of marque CSS */
 	
-
-
-
-
-
 	.blob {
 		-webkit-animation: blob 0.5s linear;
 		-moz-animation: blob 0.5s linear;
@@ -369,204 +475,160 @@
 	
 	@-webkit-keyframes blob {
 		50% {
-			width: 22.5vmin;
-			height: 22.5vmin;
+			width: 85px;
+			height: 85px;
 		}
 		100% {
-			width: 21vmin;
-			height: 21vmin;
+			width: 75px;
+			height: 75px;
 			)
 		}
 	}
 	
 	@-moz-keyframes blob {
 		50% {
-			width: 22.5vmin;
-			height: 22.5vmin;
+			width: 85px;
+			height: 85px;
 		}
 		100% {
-			width: 21vmin;
-			height: 21vmin;
+			width: 75px;
+			height: 75px;
 			)
 		}
 	}
 	
 	@-o-keyframes blob {
 		50% {
-			width: 22.5vmin;
-			height: 22.5vmin;
+			width: 85px;
+			height: 85px;
 		}
 		100% {
-			width: 21vmin;
-			height: 21vmin;
+			width: 75px;
+			height: 75px;
 			)
 		}
 	}
 	
 	@keyframes blob {
 		50% {
-			width: 22.5vmin;
-			height: 22.5vmin;
-		}
-		100% {
-			width: 21vmin;
-			height: 21vmin;
+			width: 85px;
+			height: 85px;
 			)
 		}
+		100% {
+			width: 75px;
+			height: 75px;
+			)
+		}
+	}
+	/* tooltip stuff */
+	/* HTML: <div class="tooltip">This is a Speech Bubble with a solid coloration and with border radius </div> */
+	
+	.tooltip {
+		position: absolute;
+		top: 3vh;
+		left: 50vw;
+		color: blue;
+		font-family: 'Kalam';
+		font-size: 12px;
+		max-width: 10ch;
+		text-align: center;
+		//animation: scale 3s;
+		display: none;
+		
+		
+	}
+	
+	@keyframes scale {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+			display: "none"
+		}
+	}
+	
+	.tooltip {
+		--b: 3em;
+		/* tail dimension */
+		--p: 16%;
+		/* main position (0%:left 100%:right) */
+		--r: 1.5em;
+		/* the radius */
+		padding: 1em;
+		border-radius: var(--r) var(--r) min(var(--r), 100% - var(--p) - var(--b)/4) min(var(--r), var(--p) - var(--b)/4)/var(--r);
+		background: lightGray;
+		/* the main color */
+		position: relative;
+	}
+	
+	.tooltip:before {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: clamp(var(--b)/-2, var(--p) - 3*var(--b)/4, 100% - var(--b));
+		width: var(--b);
+		aspect-ratio: 1;
+		background: inherit;
+		--g: #000 calc(100% - 1px), #0000;
+		-webkit-mask: radial-gradient(circle closest-side at 12% 88%, var(--g)), radial-gradient(20% 20% at 52% 55%, var(--g)), radial-gradient(25% 25% at 75% 0, var(--g));
 	}
 	
 	
 	
 	
 	
-	/* grid */
 	
 	
-.griditem1 {
-grid-area: g1;
-}
-
-.pretitle {
-font-family: 'Kalam';
-transform: rotate(-5deg);
-color: white;
-font-size: 3vh;
-float: left;		
-}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	
-.griditem2 {
-grid-area: g2;
-}
-
-.title {
-color: white;
-font-family: 'Kalam';
-font-size: 8vh;
-font-weight: bold;
-}
-
-
-.griditem3 {
-grid-area: g3;
-}
-
-.contentinfo {
-font-family: 'Kalam';
-color: white;
-font-size: 2vh;
-}
-
-
-.griditem4 {
-grid-area: g4;
-}
-
-.scheduled {
-font-family: 'Kalam';
-color: darkGray;
-font-size: 3vh;
-}
-
-
-.griditem5 {
-grid-area: g5;
-}
-.griditem6 {
-grid-area: g6;
-}
-.griditem7 {
-grid-area: g7;
-}
-.griditem8 {
-grid-area: g8;
-}
-.dates {
-font-family: 'Kalam';
-color: darkGray;
-font-size: 3vh;
-}
-
-.griditem9 {
-grid-area: g9;
-}
-
-.qrcode {
-padding: 2vh;
-}
-#xdcomp1, #xdcomp2, #xdcomp3, #xdcomp4, #qrcode {
-animation: fadeIn 3s;
-}
-@keyframes fadeIn {
-0% {
-opacity: 0;
-}
-100% {
-opacity: 1;
-}
-}
-
-
-.grid-container {
-display: grid;
-grid-template-areas:
-'g1 g1 . '
-'g2 g2 g2'
-'g3 g3 g3'
-'g4 .  . '
-'g5 g5 g5'
-'g6 g6 g6'
-'g7 g7 g7'
-'g8 g8 g8'
-'.  .  g9';
-margin-top: 20vh; /* allow room for menu button */
-}
-
-.grid-container > div {
-display: flex;
-align-items: center;
-justify-content: center;
-//min-height: 5vmax;
-}
-
 	
-/* tooltip stuff */
-/* This is a Speech Bubble with a solid coloration and with border radius */
 	
-.tooltip {
-position: absolute;
-top: 3vh;
-left: 50vw;
-color: blue;
-font-family: 'Kalam';
-font-size: 12px;
-max-width: 10ch;
-text-align: center;
-display: none;
-}
 	
-.tooltip {
---b: 3em; /* tail dimension */
---p: 16%; /* main position (0%:left 100%:right) */
---r: 1.5em; /* the radius */
-padding: 1em;
-border-radius: var(--r) var(--r) min(var(--r), 100% - var(--p) - var(--b)/4) min(var(--r), var(--p) - var(--b)/4)/var(--r);
-background: lightGray; /* the main color */
-position: relative;
-}
 	
-.tooltip:before {
-content: "";
-position: absolute;
-top: 100%;
-left: clamp(var(--b)/-2, var(--p) - 3*var(--b)/4, 100% - var(--b));
-width: var(--b);
-aspect-ratio: 1;
-background: inherit;
---g: #000 calc(100% - 1px), #0000;
--webkit-mask: radial-gradient(circle closest-side at 12% 88%, var(--g)), radial-gradient(20% 20% at 52% 55%, var(--g)), radial-gradient(25% 25% at 75% 0, var(--g));
-}
-
+	
+	
+	
+	
+	#warning {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: indigo;
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+	text-align: center;
+	color: white;
+	padding-top: 40vh;
+	font-size: 6vh;
+	font-family: 'Kalam';
+	}
+	
+	
+	
+	
+	
+	
 	</style>
 
 	<body>
@@ -575,7 +637,12 @@ background: inherit;
 		<div class="marquee"><p>Note: some stroke indexes have changed on the Old Course.</p></div>
 		
 	-->
-		<!-- menu -->
+		
+		
+		
+		<div id="warning">Not available in landscape orientation</div>
+		
+		
 		<nav id="nav">
 			<div class="bubble_menu" id="icon">
 				<button class="square_menu_icon square_menu_icon-X"> <span></span> </button>
@@ -587,33 +654,61 @@ background: inherit;
 			<div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a> </div>
 			<div class="bubble" id="six" onclick="doSix();"> <a id="sixtxt">4ball scoring</a> </div>
 		</nav>
-		<!-- end of menu -->	
-		
 		<section class="start">
-		   <div class="content">
-		      <div class="grid-container">
-                         <div class="griditem1 pretitle">Longhirst seniors society</div>
-                         <div class="griditem2 title">Winter golf</div>
-                         <div class="griditem3 contentinfo">hcps, score entry, twos, results, leaderboard</div>  
-                         <div class="griditem4 scheduled">scheduled ...</div>
-                         <div class="griditem5 dates" id="xdcomp1">searching for competitions ...</div>
-                         <div class="griditem6 dates" id="xdcomp2"></div>
-                         <div class="griditem7 dates" id="xdcomp3"></div>
-                         <div class="griditem8 dates" id="xdcomp4"></div>
-                         <div class="griditem9 qrcode" id="qrcode">
-                            <img id="img" onclick="enlarge(this.id);"
-                              style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" 
-                              src="qrwinter.png" alt="qr">
-                         </div>
-                     </div>		  
-		</div>        
-	    </section>
-	    <div class="tooltip" id="tooltip"></div>
+			<div class="content">
+				<div class="title">
+					<div class="pretitle">Longhirst seniors society</div>
+					<div class="spacer1"></div>
+					<div>Winter golf</div>
+				</div>
+				<div id="popuppanel"></div>
+				<div class="contentinfo"> hcps, score entry, twos, results, leaderboard </div>
+				<br>
+				<div class="datescontent"> <a class="dates" id="scheduled">scheduled ...</a>
+					<br>
+					<br> <a class="dates" id="xdcomp1">searching for competitions ...</a> </div>
+				<br>
+				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrwinter.png" alt="qr"> </div>
+			</div>
+		</section>
+		<div class="tooltip" id="tooltip"></div>
 	</body>
 	<script>
 	
-   //document.documentElement.style.setProperty('--ratio', `${window.innerHeight/window.innerWidth}`)
-   //	console.log(`${window.innerHeight/window.innerWidth}`)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// Detect whether device supports orientationchange event, otherwise fall back to
+// the resize event.
+var supportsOrientationChange = "onorientationchange" in window,
+    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+window.addEventListener(orientationEvent, function() {
+    if(window.orientation==0)
+    {
+    document.getElementById("warning").style.display = "none";
+    }
+    else if(window.orientation==90 || window.orientation==-90)
+    {
+     document.getElementById("warning").style.display = "block";
+    }
+}, false);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -724,45 +819,73 @@ background: inherit;
 			// middle right
 			// right
 		one.animate({
-			top: '0vmin',
-			left: '30vmin',
+			top: '37px',
+			left: '140px',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// bottom middle
 		// bottom	
 		two.animate({
-			top: '30vmin',
-			left: '0',
+			top: '140px',
+			left: '37px',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// middle left
 		// top
 		three.animate({
-			top: '0',
-			left: '-30vmin',
+			top: '37px',
+			left: '-65px',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top middle
 		// top
 		four.animate({
-			top: '-30vmin',
-			left: '-30vmin',
+			top: '-65px',
+			left: '37px',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top left
 		// top
 		five.animate({
-			top: '-30vmin',
-			left: '0',
+			top: '-65px',
+			left: '-65px',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
 		// top right
 		// top
 		six.animate({
-			top: '-30vmin',
-			left: '30vmin',
+			top: '-65px',
+			left: '140px',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
+		
+		
+		
+		
+		
+		
+		// disable 2 buttons
+		two.animate({
+				opacity: '0.2'
+			}, 800);
+		
+		five.animate({
+				opacity: '0.2'
+			}, 800);
+		
+		six.animate({
+				opacity: '0.2'
+			}, 800);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		menuIsOpen = true;
 		// hide pressbutton
 		$("#pressbutton").html("");
@@ -782,8 +905,8 @@ background: inherit;
 		setTimeout(function() {
 			// move x icon back to hamburger
 			$('#nav').animate({
-				top: '15vmin',
-				left: '15vmin'
+				top: '80px',
+				left: '80px'
 			}, 400);
 			// fade background title
 			$('.content').animate({
@@ -792,57 +915,57 @@ background: inherit;
 		}, 400);
 		// move menu items
 		one.animate({
-			top: '0vmin',
-			left: '0vmin',
-			opacity: '1'
-		}, Math.floor(Math.random() * 500) + 200);
+			top: '50%'
+		}, 200);
+		one.animate({
+			left: '50%'
+		}, 200);
 		two.animate({
-			top: '0vmin',
-			left: '0vmin',
-			opacity: '1'
-		}, Math.floor(Math.random() * 500) + 200);
+			top: '50%'
+		}, 200);
+		two.animate({
+			left: '50%'
+		}, 200);
 		three.animate({
-			top: '0vmin',
-			left: '0vmin',
-			opacity: '1'
-		}, Math.floor(Math.random() * 500) + 200);
+			top: '50%'
+		}, 200);
+		three.animate({
+			left: '50%'
+		}, 200);
 		four.animate({
-			top: '0vmin',
-			left: '0vmin',
-			opacity: '1'
-		}, Math.floor(Math.random() * 500) + 200);
+			top: '50%'
+		}, 200);
+		four.animate({
+			left: '50%'
+		}, 200);
 		five.animate({
-			top: '0vmin',
-			left: '0vmin',
-			opacity: '1'
-		}, Math.floor(Math.random() * 500) + 200);
+			top: '50%'
+		}, 200);
+		five.animate({
+			left: '50%'
+		}, 200);
 		six.animate({
-			top: '0vmin',
-			left: '0vmin',
-			opacity: '1'
-		}, Math.floor(Math.random() * 500) + 200);
-		
-
+			top: '50%'
+		}, 200);
+		six.animate({
+			left: '50%'
+		}, 200);
 		menuIsOpen = false;
-		
 		isTop = true;
 		//one.addClass('blob');
 	}
-	
-	
 	$('.bubble').click(function() {
 		menuIcon.removeClass('is-active');
 		hideBubbles();
 		// change 400, 500 to 900, 500
 		setTimeout(function() {
 			$('#nav').animate({
-				top: '15vmin',
-				left: '15vmin'
+				top: '80px',
+				left: '80px'
 			}, 900);
 		}, 500);
 		isTop = true;
 	});
-	
 
 	function doOne() {
 		// put menu back then move to hcp page
@@ -853,6 +976,17 @@ background: inherit;
 	}
 
 	function doTwo() {
+	
+	
+	// if compday then allow input, else disable
+	
+	
+	
+	
+	
+	
+	
+	
 		// put menu back then move to score entry page
 		if(localStorage.wwtodayscomp) {
 			window.location.assign("scoreentry.html");
@@ -876,6 +1010,17 @@ background: inherit;
 	}
 
 	function doFive() {
+		
+	
+	// if compday then allow display, else disable
+	
+	
+	
+	
+	
+	
+	
+	
 		// put menu back then move to results page
 		setTimeout(function() {
 			window.location.assign("leaderboard.html");
@@ -883,6 +1028,17 @@ background: inherit;
 	}
 
 	function doSix() {
+		
+	
+	// if compday then allow input, else disable
+	
+	
+	
+	
+	
+	
+	
+	
 		// put menu back then move to results page
 		setTimeout(function() {
 			window.location.assign("fourballtestv2.html");
@@ -890,7 +1046,7 @@ background: inherit;
 	}
 	//====================================
 	// end of menu code
-	//====================================<a style="color:white;">Lakes - competition today<br></a>Dawson - Friday 26 April<br>Lakes - Monday 29 April<br>
+	//====================================
 	//====================================
 	// runs on start or refresh
 	//====================================
@@ -1005,7 +1161,6 @@ background: inherit;
 	//=====================================
 	// get list of next comps
 	function getNextComps() {
-	arrTemp = [];
 		dd = new Date(); /* today */
 		dlist = "";
 		dlistcount = 0;
@@ -1053,61 +1208,25 @@ background: inherit;
 				if(arrComps[i].indexOf("OldCourse") > -1) {
 					tempd = '<p style="color:white;">OldCourse - competition today</p>';
 				}
-				arrTemp.push(tempd);
+				dlist = dlist + tempd;
 				dlistcount++;
 			}
 			if(darr > dd && dlistcount < 4) {
-				tempd = arrComps[i].replace("Lakes ", "<p>Lakes - " + d + " ");
-				tempd = tempd.replace("Dawson ", "<p>Dawson - " + d + " ");
-				tempd = tempd.replace("OldCourse ", "<p>OldCourse - " + d + " ");
+				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
+				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
+				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
 				tempd = tempd.slice(0, -5)
-				arrTemp.push(tempd + "</p>");
+				dlist = dlist + tempd + "<br>";
 				dlistcount++;
 			}
 		}
-		//console.log(arrTemp.length)
-		k = 0
-		for(j = 0; j < arrTemp.length; j++) {
-		    k++
-		    document.getElementById("xdcomp" + k).innerHTML = arrTemp[j];		    
-		}    
+		document.getElementById("xdcomp1").innerHTML = dlist;
 	}
 	// resize QRcode
 	function enlarge() {
 		document.getElementById('img').classList.toggle("half");
 	}
 	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<script type="text/javascript">
- if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('service-worker.js')
-      .then(function(reg){
-        console.log("Yes, it did.");
-     }).catch(function(err) {
-        console.log("No it didn't. This happened:", err)
-    });
- }
-</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	</body>
 
 </html>
