@@ -60,12 +60,13 @@ body {
 
 <script>
 document.onreadystatechange = function () {
+console.log(document.readyState)
    if (document.readyState !== "complete") {
        document.querySelector("body").style.visibility = "hidden";
-       document.getElementById("loader").style.visibility = "visible";
+       document.getElementById("loading").style.visibility = "visible";
    } else {
        //setTimeout(() => {
-       document.getElementById("loader").style.display ="none";
+       document.getElementById("loading").style.visibility ="none";
        document.querySelector("body").style.visibility = "visible";
        //}, 1000)
    }
@@ -74,6 +75,7 @@ document.onreadystatechange = function () {
 function start() {
 window.location.assign("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTSLM778KovPiE1nStUDKqtnq-dCml2VN73HDr1Fq-NQ7QMCXYXgNTPUjPNdi4ctjcVYqGt_8hArm9/pubhtml?gid=1266484079&single=true&chrome=false")
 }
+
 start();
 
 </script>
