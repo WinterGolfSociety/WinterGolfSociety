@@ -36,7 +36,7 @@
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 	
-	h2 {
+	h2, .dropbtn {
 		text-align: center;
 		padding-top: 1%;
 		padding-bottom: 1%;
@@ -47,7 +47,7 @@
 		border: 3px solid rgba(255, 255, 255, 0.2);
 		box-shadow: 10px 10px 25px black;
 		background-clip: padding-box;
-		//background-color: rgba(255, 255, 255, 0.2);
+		font-weight: bold;
 		background-color: rgba(0, 0, 0, 0.2);
 	}
 	
@@ -172,10 +172,94 @@
 	color: yellow;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		overflow: auto;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+		border-radius: 3px;
+		box-shadow: 10px 10px 25px black;
+		max-height: 80vh;
+	}
+	
+	.dropdown-content a {
+	font-family: Arial, Helvetica, sans-serif;
+		color: gray;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+		font-size: 5vh;
+	}
+	
+	.show {
+		display: block;
+	}
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	</style>
 </head>
 
 <body>
+
+
+
+
+
+<div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select course</div>
+<div id="playersDropdown" class="dropdown-content"> 
+<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Dawson</a>
+<a id="myLink2" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Lakes</a>
+<a id="myLink3" href="#" onclick='dropSelected(this.innerText);return false;'>Foxton</a>
+<a id="myLink4" href="#" onclick='dropSelected(this.innerText);return false;'>High Gosforth Park</a>
+<a id="myLink5" href="#" onclick='dropSelected(this.innerText);return false;'>Morpeth</a>
+<a id="myLink6" href="#" onclick='dropSelected(this.innerText);return false;'>Newbiggin</a>
+<a id="myLink7" href="#" onclick='dropSelected(this.innerText);return false;'>Rothbury</a>
+<a id="myLink8" href="#" onclick='dropSelected(this.innerText);return false;'>Bellingham</a>
+<a id="myLink9" href="#" onclick='dropSelected(this.innerText);return false;'>Not Defined</a>
+
+<!--
+
+<a id="myLink9" href="#" onclick='dropSelected(this.innerText);return false;'>Ray</a>
+<a id="myLink10" href="#" onclick='dropSelected(this.innerText);return false;'>Gus</a>
+-->
+</div>
+
+
+
+
+
+
+
+
 	<br>
 	<div class="row">
 		<div class="col-md-12  text-center">
@@ -333,6 +417,45 @@ This means that when two players are competing from different tees with a differ
 	<br>
 	<br>
 	<script>
+	
+	
+	
+	
+	
+	
+	
+	
+	var slope;
+	var cr;
+	var par;
+	
+	// name, slope, cr, par
+	arrCourses = [
+	["Longhirst Dawson", 120, 71.1, 73],
+	["Longhirst Lakes", 116, 67.6, 70],
+	["Foxton", 129, 69.9, 71],
+	["High Gosforth Park", 118, 69.5, 71],
+	["Morpeth", 120, 68.7, 71],
+	["Newbiggin", 130, 70.9, 72],
+	["Rothbury", 124, 68.1, 71],
+	["Bellingham", 127, 69.2, 70],
+	["Not Defined", 0, 0, 0]
+	]
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	function calcclose() {
 		document.getElementById("showcalcs").style.visibility = "hidden";
 	}
@@ -569,6 +692,125 @@ updatehcp();
 		
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+// dropdown
+//=============================================================
+// function toggleDropdown()
+// - show player name choices
+//=============================================================  
+function toggleDropdown() {
+	// When the user clicks on the button, toggle between hiding and showing the dropdown content
+	document.getElementById("playersDropdown").classList.toggle("show");
+}
+//=====================================================
+// Close the dropdown if the user clicks outside of it
+//=====================================================
+window.onclick = function(event) {
+	if(!event.target.matches('.dropbtn')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for(i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if(openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			}
+		}
+	}
+};
+//===========================
+// name selected, do stuff
+//===========================
+function dropSelected(course) {
+	console.log("course " + course)
+		// retrieve player and hcp info
+		for(var k = 0; k < arrCourses.length; k++) {
+		
+			if(arrCourses[k][0] == course) {
+				console.log("arrCourse = " + arrCourses[k])
+				slope = arrCourses[k][1];
+				cr = arrCourses[k][2];
+				par = arrCourses[k][3];
+				
+				//console.log("slope " + slope)
+				//console.log("cr " + cr)
+				//console.log("par " + par)
+				
+				document.getElementById("nslope1").value = arrCourses[k][1];
+				document.getElementById("ncr1").value = arrCourses[k][2];
+				document.getElementById("npar1").value = arrCourses[k][3];
+				
+				document.getElementById("nslope2").value = arrCourses[k][1];
+				document.getElementById("ncr2").value = arrCourses[k][2];
+				document.getElementById("npar2").value = arrCourses[k][3];
+				
+				document.getElementById("nslope3").value = arrCourses[k][1];
+				document.getElementById("ncr3").value = arrCourses[k][2];
+				document.getElementById("npar3").value = arrCourses[k][3];
+				
+				document.getElementById("nslope4").value = arrCourses[k][1];
+				document.getElementById("ncr4").value = arrCourses[k][2];
+				document.getElementById("npar4").value = arrCourses[k][3];
+				
+				
+			}
+		}
+	
+			// global player
+			//player = playerName;
+			// replace player button name
+		document.getElementById("dropbtn").innerText = course;
+		// replace button text
+		
+		
+		// close dropdown
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for(i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if(openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			}
+		}
+	
+	
+}
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	</script>
 </body>
 
