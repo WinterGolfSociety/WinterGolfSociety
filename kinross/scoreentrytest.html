@@ -199,7 +199,7 @@ height: 1vh;
 }
 
 #inputlist {
-font-size: 2vh;
+font-size: 3vh;
 color: cyan;
 }
 
@@ -496,7 +496,7 @@ arrCourse = [
 ]
 
 }
-console.log("here")
+
 
 // dropdown
 //=============================================================
@@ -532,9 +532,6 @@ function dropSelected(playerName) {
 			if(arrPlayers[k] == playerName) {
 				hcp = arrHcps[k];
 				player = arrPlayers[k];
-				console.log("arrPlayers = " + arrPlayers[k])
-				console.log("hcpar = " + arrHcps[k])
-				console.log("hcp = " + hcp)
 			}
 		}
 		// find player in options list
@@ -875,7 +872,7 @@ document.getElementById("score18").innerText);
 
 
 inputlist += player + " " + totalpoints + "<br>"
-document.getElmentById("inputlist").innerHTML = inputlist
+document.getElementById("inputlist").innerHTML = inputlist
 
 
 
@@ -927,7 +924,6 @@ async function getData() {
 		var dataStream = await fetch("https://opensheet.elk.sh/15qcwJy_qzGnqKrre_Z3NUs38Nt1S9sfgkT6H9uZNIxQ/hcps")
 		var resultsarray = await dataStream.json()
 		
-		console.log(resultsarray.length)
 		
 			// get rid of blanks in array by creating new arrays
 		for(var i = 0; i < resultsarray.length; i++) {
