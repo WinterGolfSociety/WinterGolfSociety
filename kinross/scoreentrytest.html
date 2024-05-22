@@ -197,6 +197,12 @@ height: 3vh;
 background: dodgerBlue;
 height: 1vh;
 }
+
+#inputlist {
+font-size: 2vh;
+color: cyan;
+}
+
 </style>
 
 </head>
@@ -317,7 +323,7 @@ height: 1vh;
 <div class="submit" onclick="submitForm()">Submit</div>
 <div id="spacer2"></div>
 <br><br>
-
+<div id="inputlist"></div>
 </div>
 
 
@@ -407,6 +413,7 @@ var today = new Date();
 var day = today.getDay();
 var player="";
 var hcp="";
+var inputlist="";
 var arrdow=["none","Monday","Tuesday","Wednesday","Thursday"]
 var dow=arrdow[day];
 // 1 = monday
@@ -865,6 +872,12 @@ document.getElementById("score18").innerText);
 //============================
 //			document.forms[0].submit();
 alert("submit")
+
+
+inputlist += player + " " + totalpoints + "<br>"
+document.getElmentById("inputlist").innerHTML = inputlist
+
+
 
 
  //===== submit data
