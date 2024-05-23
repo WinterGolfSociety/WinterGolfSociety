@@ -490,34 +490,23 @@ border-radius: 5px;
 
 
 .score {
-font-size: 4vh;
- display: inline-block; 
+font-size: 5vh;
+display: inline-block; 
 width: 20%;
 height: 10vh;
 line-height: 10vh;
-padding-left: 5%;
-padding-right: 5%;
+//padding-left: 5%;
+//padding-right: 5%;
 border: 2px solid Gray;
 text-align: center;
 font-family: Arial, Helvetica, sans-serif;
 border-radius: 5px;
+
+color: green;
+
 }
 	
-	.circlehole {
-		font-family: 'Kalam';
-		border-radius: 50%;
-		background: black;
-		border: 3px solid cyan;
-		color: cyan;
-		text-align: center;
-		font-size: 3vh;
-		//font-weight: bold;
-		width: 10%;
-                height: 10vh;
-		margin-left: 5%;
-		margin-right: 5%;
-	
-	}
+
 	
 	</style>
 </head>
@@ -1547,10 +1536,10 @@ function submitForm() {
 function incrementScore(id) {
 	incScore = document.getElementById(id).innerText;
 	if(incScore.indexOf("(") > -1) {
-		//document.getElementById(id).style.fontSize = "2vmax";
+		document.getElementById(id).style.color = "white";
 		incScore = 0;
-	}
-	
+	} 
+		
 	document.getElementById(id).innerText = ++incScore;
 	document.getElementById(id.replace("numscore", "h")).innerText = incScore;
 	// find points for ladies and men
@@ -1601,9 +1590,11 @@ function decrementScore(id) {
 		//document.getElementById(id).style.fontSize = "2vmax";
 		holenum = id.replace("numscore", "");
 		document.getElementById(id).innerText = "(" + holenum + ")";
+		document.getElementById(id).style.color = "green";
 	} else {
 		if(incScore.indexOf("(") > -1) {
 			incScore = 0;
+			document.getElementById(id).style.color = "white";
 		} else {
 		        --incScore
 		}
