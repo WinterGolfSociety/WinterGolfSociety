@@ -1754,7 +1754,7 @@ function recalcScores() {
 	// for ladies red tees (useRedTees = true)
 	if(useRedTees) {
 		for(i = 1; i <= 18; i++) {
-			tempscore = document.getElementById("score" + i).innerText;
+			tempscore = document.getElementById("numscore" + i).innerText;
 			if(tempscore.indexOf("hole") > -1) {
 				tempscore = "0";
 			}
@@ -1777,8 +1777,8 @@ function recalcScores() {
 	} else {
 		// for men yellow tees
 		for(i = 1; i <= 18; i++) {
-			tempscore = document.getElementById("score" + i).innerText;
-			if(tempscore.indexOf("hole") > -1) {
+			tempscore = document.getElementById("numscore" + i).innerText;
+			if(tempscore.indexOf("(") > -1) {
 				tempscore = "0";
 			}
 			if(course == "Lakes") {
@@ -1848,13 +1848,13 @@ function recoverFromLocalStorage() {
 	for(var i = 1; i <= 18; i++) {
 		// put values for holes back
 		if(("wwhole" + i) in localStorage) {
-			document.getElementById("score" + i).innerText = localStorage.getItem("wwhole" + i);
-			document.getElementById("score" + i).style.fontSize = "5vmax";
+			document.getElementById("numscore" + i).innerText = localStorage.getItem("wwhole" + i);
+			document.getElementById("numscore" + i).style.fontSize = "5vmax";
 			document.getElementById("h" + i).innerText = localStorage.getItem("wwhole" + i);
 		} else {
 			// change to hole1 etc and change font size
 			document.getElementById("h" + i).innerText = "0";
-			document.getElementById("score" + i).innerText = "hole " + i;
+			document.getElementById("numscore" + i).innerText = "hole " + i;
 		}
 	}
 	// ladies red tees	
@@ -1985,17 +1985,17 @@ function showHole(id) {
 	// only do it if number is obscuring hole number
 	if(tempsaved.indexOf("hole") == -1) {
 		// change to hole1 etc.
-		tempe.innerText = id.replace("score", "hole ");
+		tempe.innerText = id.replace("numscore", "(") + ")";
 		tempe.style.color = "lime";
 		// disable click
 		for(var i = 1; i <= 18; i++) {
-			document.getElementById("score" + i).style.pointerEvents = 'none';
+			document.getElementById("numscore" + i).style.pointerEvents = 'none';
 		}
 		// put info back
 		setTimeout(function() {
 			// re-enable click
 			for(var i = 1; i <= 18; i++) {
-				document.getElementById("score" + i).style.pointerEvents = '';
+				document.getElementById("numscore" + i).style.pointerEvents = '';
 			}
 			tempe.style.color = "white";
 			tempe.innerText = tempsaved;
