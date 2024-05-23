@@ -366,7 +366,7 @@ width: 100%;
 	
 	
 	.hcp , .submit{
-		font-size: 100%;
+		font-size: 80%;
 		color: white;
 		background: black;
 		height: 100%;
@@ -385,7 +385,18 @@ width: 100%;
 	
 	
 	
-	
+	.midway {
+		font-size: 80%;
+		color: white;
+		background: black;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid white;
+		border-radius: 5px;
+		height: 5%;
+	}
 	
 	
 	
@@ -474,6 +485,7 @@ width: 100%;
         
         flex-grow: 1;
         padding: 1vh 0;
+        border-radius: 5px;
       }
     
     
@@ -534,7 +546,7 @@ background: black;
 }	
 	
 #scoringback9 {
-background: blue;
+background: black;
  height: calc(100% / 3);
 }	
 	
@@ -760,7 +772,7 @@ border-radius: 5px;
 
 
 
-
+<div class="midway">above scoring bit here</div>
 
 
 <!-- score input pages -->
@@ -770,11 +782,9 @@ border-radius: 5px;
 
 <div class="child-six">
    <div class="minus" onclick='decrementScore("numscore1")'>-</div>
-   <div class="score" id="numscore1" onclick="showHole(this.id)">hole 1</div>
+   <div class="score circle2" id="numscore1" onclick="showHole(this.id)">1</div>
    <div class="plus" onclick='incrementScore("numscore1")'>+</div>
 </div>   
-
-
 
 <div class="child-six">   
    <div class="minus" onclick='decrementScore("numscore2")'>-</div>
@@ -828,6 +838,8 @@ border-radius: 5px;
 
 
 
+<div class="midway">front 9 details here</div>
+ 
 
 
 
@@ -895,7 +907,10 @@ border-radius: 5px;
 </div> <!-- wrapper -->
 
 
-	
+
+<div class="midway">back 9 details here</div>
+ 
+<div class="midway">empty space here</div>	
 	
 	<!-- form to construct data prior to submit -->
 	<form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
