@@ -365,7 +365,18 @@ width: 100%;
        height: 10%; 
        font-size: 5vh;
        border: 2px solid Gray;
-       border-radius: 5px;
+       border-radi.circle2 {
+		font-family: 'Kalam';
+		border-radius: 50%;
+		padding-left: 10px;
+		padding-right: 10px;
+		background: black;
+		border: 4px solid cyan;
+		color: cyan;
+		text-align: center;
+		font-size: 3vmax;
+		font-weight: bold;
+	}us: 5px;
       }
       
       /* hole info at top*/
@@ -492,7 +503,21 @@ font-family: Arial, Helvetica, sans-serif;
 border-radius: 5px;
 }
 	
+	.circlehole {
+		font-family: 'Kalam';
+		border-radius: 50%;
+		background: black;
+		border: 3px solid cyan;
+		color: cyan;
+		text-align: center;
+		font-size: 3vh;
+		//font-weight: bold;
+		width: 10%;
+                height: 10vh;
+		margin-left: 5%;
+		margin-right: 5%;
 	
+	}
 	
 	</style>
 </head>
@@ -693,25 +718,25 @@ border-radius: 5px;
 
 <div class="child-six">
    <div class="minus" onclick='decrementScore("numscore1")'>-</div>
-   <div class="score circle2" id="numscore1" onclick="showHole(this.id)">1</div>
+   <div class="score circlehole" id="numscore1" onclick="showHole(this.id)">1</div>
    <div class="plus" onclick='incrementScore("numscore1")'>+</div>
 </div>   
 
 <div class="child-six">   
    <div class="minus" onclick='decrementScore("numscore2")'>-</div>
-   <div class="score" id="numscore2" onclick="showHole(this.id)">hole 2</div>
+   <div class="score circlehole" id="numscore2" onclick="showHole(this.id)">2</div>
    <div class="plus" onclick='incrementScore("numscore2")'>+</div>
 </div>   
  
 <div class="child-six">   
    <div class="minus" onclick='decrementScore("numscore3")'>-</div>
-   <div class="score" id="numscore3" onclick="showHole(this.id)">hole 3</div>
+   <div class="score circlehole" id="numscore3" onclick="showHole(this.id)">3</div>
    <div class="plus" onclick='incrementScore("numscore3")'>+</div>
 </div>
 
 <div class="child-six">   	
    <div class="minus" onclick='decrementScore("numscore4")'>-</div>
-   <div class="score" id="numscore4" onclick="showHole(this.id)">hole 4</div>
+   <div class="score circlehole" id="numscore4" onclick="showHole(this.id)">14</div>
    <div class="plus" onclick='incrementScore("numscore4")'>+</div>
 </div>
 
