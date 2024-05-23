@@ -331,9 +331,6 @@ font-family: Arial, Helvetica, sans-serif;
 
 
 
-﻿
-
-
 
 
 	
@@ -392,9 +389,6 @@ font-family: Arial, Helvetica, sans-serif;
 	
 	
 	
-﻿
-
-
 	
 
 
@@ -411,9 +405,6 @@ font-family: Arial, Helvetica, sans-serif;
 onselectstart = (e) => {
   e.preventDefault()
 }
-﻿
-
-
 
 var arrPlayers=[];
 var arrHcps=[];
@@ -427,9 +418,6 @@ var inputlist="";
 var arrdow=["none","Monday","Tuesday","Wednesday","Thursday"]
 var dow=arrdow[day];
 // 1 = monday
-﻿
-
-
 if (day == 1) {
 //pitreavie
 arrCourse = [
@@ -452,9 +440,6 @@ arrCourse = [
 [16,3,9],
 [17,4,3],
 [18,4,11]
-﻿
-
-
 ]
 
 }
@@ -471,9 +456,6 @@ arrCourse = [
 [5,4,15],
 [6,4,3],
 [7,4,11],
-﻿
-
-
 [8,4,5],
 [9,4,1],
 [10,4,10],
@@ -496,9 +478,6 @@ arrCourse = [
 [0,0,0],
 [1,4,11],
 [2,4,17],
-﻿
-
-
 [3,3,5],
 [4,5,7],
 [5,5,13],
@@ -524,10 +503,7 @@ arrCourse = [
 //=============================================================
 // function toggleDropdown()
 // - show player name choices
-//===========================
-﻿
-
-==================================  
+//=============================================================  
 function toggleDropdown() {
 	// When the user clicks on the button, toggle between hiding and showing the dropdown content
 	document.getElementById("playersDropdown").classList.toggle("show");
@@ -553,10 +529,7 @@ window.onclick = function(event) {
 function dropSelected(playerName) {
 	
 		// retrieve player and hcp info
-		for(var k = 
-﻿
-
-0; k < arrPlayers.length; k++) {
+		for(var k = 0; k < arrPlayers.length; k++) {
 			if(arrPlayers[k] == playerName) {
 				hcp = arrHcps[k];
 				player = arrPlayers[k];
@@ -636,9 +609,6 @@ function dropSelected(playerName) {
 7,,
 8,,
 9,,
-﻿
-
-
 10,,
 11,,
 12,,
@@ -706,10 +676,7 @@ incScore = document.getElementById(id).innerText;
 if (incScore > 0) {
 	document.getElementById(id).innerText = --incScore;
 	//if (pitreavie) {
-	//par = arrCourse[i
-﻿
-
-d.replace("score", "")][1];
+	//par = arrCourse[id.replace("score", "")][1];
 	//si  = arrCourse[id.replace("score", "")][2];
 	
 }	
@@ -921,43 +888,10 @@ document.getElementById("submit").style.background = "blue";
 setTimeout(function() {document.getElementById("submit").style.background = "dodgerBlue"},3000)
 
 
-
-
-/*
-
-
-				//============================
-				// hide icons to allow tick etc.
-			document.getElementById('limg').style.visibility = "hidden";
-			document.getElementById('rimg').style.visibility = "hidden";
-			document.getElementById('mimgl').style.visibility = "hidden";
-			document.getElementById('mimgr').style.visibility = "hidden";
-			// hide button
-			document.getElementById("submit").style.visibility = "visible";
-			// allow some time for submit then give a completion message
-			// keep user interested by showing icons ???
-			// show sending icon
-			document.getElementById('submit').innerText = "";
-			// show empty text which is placeholder for image
-			document.getElementById('submit').innerHTML = '<img src="uploada.png" style="height: 100px; width: 100px;">'
-			setTimeout(function() {
-				document.getElementById('submit').innerHTML = '<img src="tick1.png" style="height: 100px; width: 100px;">'
-			}, 6500);
-			// return to main menu
-			setTimeout(function() {
-				history.go(-1);
-			}, 7500);
-		}
-*/	
 }
 
 
-//=====================================
-// get data and create arrays
-// store in localStorage for retrieval
-// and use in scoreentry
-//=====================================
-// https://docs.google.com/spreadsheets/d/e/2PACX-1vQ0QigtzL48xPZJGDdfNAw2JGj62ekN8GVQtMpSNhyn8W7_KGVNx18QQOnRFQnq6WUoOi-LyRkiwPWZ/pub?gid=33644943&single=true&output=csv
+
 async function getData() {
 		var dataStream = await fetch("https://opensheet.elk.sh/15qcwJy_qzGnqKrre_Z3NUs38Nt1S9sfgkT6H9uZNIxQ/hcps")
 		var resultsarray = await dataStream.json()
