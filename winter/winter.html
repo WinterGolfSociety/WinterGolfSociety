@@ -988,11 +988,11 @@ window.addEventListener(orientationEvent, function() {
 	
 	
 		// put menu back then move to score entry page
-		if(localStorage.wwtodayscomp) {
-			window.location.assign("scoreentry.html");
-		} else {
-			alert("no comp message")
-		}
+//		if(localStorage.wwtodayscomp) {
+			window.location.assign("scoreentryx.html");
+//		} else {
+//			alert("no comp message")
+//		}
 	}
 
 	function doThree() {
@@ -1128,6 +1128,29 @@ window.addEventListener(orientationEvent, function() {
 		arrComps = sparseArrComps.filter(function(el) {
 			return el != null;
 		});
+
+
+
+
+
+
+
+
+arrComps.push("Lakes 23 May 2024")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
 		// get rid of arrays no longer used
 		sparseArrComps = [];
