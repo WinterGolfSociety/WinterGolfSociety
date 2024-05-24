@@ -661,8 +661,8 @@ color: green;
 	</div>
 	
 	<div class="child child-one">	
-	<div class="submit">
-	   <div id="submit" onclick="submitForm()">submit</div>
+	<div class="submit" onclick="submitForm()">
+	   <div id="submit">submit</div>
 	</div>
 	</div>
 	
@@ -1795,13 +1795,15 @@ function recoverFromLocalStorage() {
 		// put values for holes back
 		if(("wwhole" + i) in localStorage) {
 			document.getElementById("numscore" + i).innerText = localStorage.getItem("wwhole" + i);
-			document.getElementById("numscore" + i).style.fontSize = "5vmax";
+			//document.getElementById("numscore" + i).style.fontSize = "5vmax";
 			document.getElementById("h" + i).innerText = localStorage.getItem("wwhole" + i);
+			document.getElementById("numscore" + i).style.color = "white";
 		} else {
-			// change to hole1 etc and change font size
+			// change to (1) etc
 			document.getElementById("h" + i).innerText = "0";
 			document.getElementById("numscore" + i).innerText = "(" + i + ")";
 		}
+		
 	}
 	// ladies red tees	
 	if(useRedTees) {
@@ -1849,11 +1851,13 @@ function recoverFromLocalStorage() {
 		}
 	}
 	// reset global variables
+/*
 	for(var i = 1; i <= arrPlayers.length; i++) {
 		if(arrPlayers[i] == player) {
 			hcp = arrHcps[i]
 		}
 	}
+*/
 	totalScore();
 }
 //=============================================================
