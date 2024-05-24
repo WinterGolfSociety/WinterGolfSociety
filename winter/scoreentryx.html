@@ -920,11 +920,12 @@ window.addEventListener("resize", resizeOps);
 // declare global variables
 var hcp = "0";
 var player = "select player";
-var todayscomp = "Lakes 13 May 2024";   /* testing */
+var todayscomp = "";
 var dateToday = "";
-var course = "Lakes";    /* testing */
+var course = "";
 var arrComps = [];
 var arrPlayers = [];
+var arrLadies = []
 var arrHcps = [];
 var arrOptions = [];
 var oldArrOptions = [];
@@ -932,10 +933,10 @@ var arrDawson = [];
 var arrDawsonRed = [];
 var arrLakes = [];
 var arrLakesRed = [];
-var arrOldCOurse = [];
+var arrOldCourse = [];
 var arrOldCourseRed = [];
 var useRedTees = false;
-var arrLadies = ["Sharon Herron", "Sandra Sav"]
+
 	//==============================================================
 	// data has previously been stored so just retrieve it
 	//==============================================================
@@ -953,14 +954,7 @@ if("wwhcpsarray" in localStorage) {
 // retrieve competition
 if("wwtodayscomp" in localStorage) {
 
-
 	todayscomp = localStorage.wwtodayscomp; 
-
-
-
-
-
-
 	// global comp
 	temp = todayscomp.split(" ")
 	course = temp[0];
@@ -1377,31 +1371,7 @@ function toggleDropdown() {
 	// When the user clicks on the button, toggle between hiding and showing the dropdown content
 	document.getElementById("playersDropdown").classList.toggle("show");
 }
-//=============================================================
-// function checkDirection()
-// - look after swipes etc.
-// global keep track of swipes
-//=============================================================  
-var touchstartX = 0;
-var touchendX = 0;
-// do stuff when swiped
-function checkDirection() {
-	if(touchendX < touchstartX) {
-		//if(localStorage.getItem("player") == null || localStorage.getItem("hcp") == null) {
-		// prevent some false messages
-		//	if((touchstartX - touchendX) > 100) {
-		//		showSetPlayerMessage();
-		//	}
-		//}
-	}
-}
-document.addEventListener('touchstart', e => {
-	touchstartX = e.changedTouches[0].screenX;
-});
-document.addEventListener('touchend', e => {
-	touchendX = e.changedTouches[0].screenX;
-	checkDirection();
-});
+
 //=============================================================
 // function submitForm()
 // - send info from HTML form to google form
@@ -1571,7 +1541,6 @@ function incrementScore(id) {
 	        }
 	}
 	
-	
 	document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
 	totalScore();
 	// update local storage
@@ -1597,8 +1566,7 @@ function decrementScore(id) {
 			document.getElementById(id).style.color = "white";
 		} else {
 		        --incScore
-		}
-		
+		}	
 		document.getElementById(id).innerText = incScore;
 		document.getElementById(id.replace("numscore", "h")).innerText = incScore;
 		// find points for ladies and men
@@ -1717,11 +1685,7 @@ function pointsCalc(hcp, par, si, score) {
 //=============================================================  
 function doGetHCP() {
 	// show hcp on screen
-	//document.getElementById("hcpwrapper").style.visibility = "visible";
-	// change hcp on any player change
-	//document.getElementById("numhcp").innerHTML = '<img src="throbber.gif" width=50 height=50>'
-	//document.getElementById("numhcp").innerHTML = "";
-	//document.getElementById("numhcp").style.fontSize = "5vmax";
+
 	document.getElementById("numhcp").innerText = hcp;
 	// recalc scores to cope with any new lookup
 	// set useRedTees false if man
@@ -1731,7 +1695,6 @@ function doGetHCP() {
 		if(player == arrLadies[i]) {
 			// set useRedTees true if lady
 			useRedTees = true;
-			//console.log(useRedTees + " " + arrLadies[i])
 		}
 	}
 	recalcScores();
@@ -1808,10 +1771,7 @@ function recoverFromLocalStorage() {
 	// hcp
 	if(("wwhcp") in localStorage) {
 		document.getElementById("numhcp").innerText = localStorage.getItem("wwhcp");
-		document.getElementById("numhcp").style.fontSize = "5vmax";
-		// make hcp visible
-		document.getElementById("hcpwrapper").style.visibility = "visible";
-		// make submit visible
+		//document.getElementById("numhcp").style.fontSize = "5vmax";
 	} else {
 		document.getElementById("numhcp").innerText = "?";
 	}
@@ -1830,11 +1790,6 @@ function recoverFromLocalStorage() {
 			useRedTees = true;
 		}
 	}
-	//if("course" in localStorage) {
-	//	//=====LocalStorage.course==============
-	//	course = localStorage.getItem("course");
-	//======================================
-	//}
 	//	recalc points etc.
 	for(var i = 1; i <= 18; i++) {
 		// put values for holes back
@@ -1845,7 +1800,7 @@ function recoverFromLocalStorage() {
 		} else {
 			// change to hole1 etc and change font size
 			document.getElementById("h" + i).innerText = "0";
-			document.getElementById("numscore" + i).innerText = "hole " + i;
+			document.getElementById("numscore" + i).innerText = "(" + i + ")";
 		}
 	}
 	// ladies red tees	
