@@ -122,7 +122,17 @@ padding-top: 20vmax;
 color: white;
 background: dodgerBlue;
 }     
-  
+  /* Hidden state */ 
+.header-hidden { 
+  transform: translateY(-100%); 
+  transition: transform 0.3s ease; 
+} 
+ 
+/* Visible state */ 
+.header-visible { 
+  transform: translateY(0); 
+  transition: transform 0.3s ease; 
+} 
 </style>
     <link rel="preload" as="image" href="cal.png">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
@@ -133,13 +143,16 @@ background: dodgerBlue;
   </head>
   <body>
 <div id="page">  
-<div id="header">
+
+
+
+<header id="header" class="header-visible"> 
 
   <p id="title"><img src="cal.png" alt="cal" onclick="swapview()" width="70px" height="70px" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events
   <br>
   <a id="sub">&nbsp;&nbsp;&nbsp;tap icon to toggle between full and partial list</a></p>
 
-</div>
+</header>
 
 <br>
 
@@ -422,6 +435,37 @@ var arrInfo = [
 ["Fri 28th","OldCourse","Winter stableford"],
 ["Mon 31st","OldCourse","Winter stableford"]
 ]
+
+
+var prevScrollPos = window.pageYOffset; 
+ 
+window.onscroll = function() { 
+  var currentScrollPos = window.pageYOffset; 
+ 
+  // Scroll down 
+  if (prevScrollPos < currentScrollPos) { 
+    document.getElementById("header").classList.add("header-hidden"); 
+    document.getElementById("header").classList.remove("header-visible"); 
+  }  
+  // Scroll up 
+  else { 
+    document.getElementById("header").classList.add("header-visible"); 
+    document.getElementById("header").classList.remove("header-hidden"); 
+  } 
+ 
+  prevScrollPos = currentScrollPos; 
+}; 
+
+
+
+
+
+
+
+
+
+
+
 
 // set up title bar
 lineFull  = '<div class="grid-item topgray">Date</div>'
