@@ -716,16 +716,18 @@ window.addEventListener(orientationEvent, function() {
 	
 	
 	// global arrays
-	var arrPlayers = []
-	var arrHcps = []
-	var arrComps = []
+	var arrPlayers = [];
+	var arrLadies = [];
+	var arrHcps = [];
+	var arrComps = [];
 	var todayscomp = ""
 	var compday = "no"
-	var sparseArrComps = []
-	var sparseArrPlayers = []
-	var sparseArrHcps = []
-	var arrPlayersOld = []
-	var arrHcpOld = []
+	var sparseArrComps = [];
+	var sparseArrPlayers = [];
+	var sparseArrLadies = [];
+	var sparseArrHcps = [];
+	var arrPlayersOld = [];
+	var arrHcpOld = [];
 		// menu code
 	var isTop = true;
 	var menuIsOpen = false;
@@ -1082,6 +1084,8 @@ window.addEventListener(orientationEvent, function() {
 			// overwrite data arrays from localStorage
 			// players
 			arrPlayers = JSON.parse(localStorage.wwplayersarray);
+			// ladies
+			arrLadies = JSON.parse(localStorage.wwladiesarray);
 			// hcps
 			arrHcps = JSON.parse(localStorage.wwhcpsarray);
 			// comps
@@ -1101,61 +1105,33 @@ window.addEventListener(orientationEvent, function() {
 	// and use in scoreentry
 	//=====================================
 	async function getData() {
+
 		var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
 		var resultsarray = await dataStream.json()
-			// get rid of blanks in array by creating new arrays
-		for(var i = 0; i < resultsarray.length; i++) {
-			if(resultsarray[i].players.length > 2) {
-			        // comps now contains modified comps
-				// comps is usualy a different length to players and hcps
-				// so contains empty items that need to be removed
-				sparseArrPlayers.push(resultsarray[i].players);
-				sparseArrHcps.push(resultsarray[i].hcp);
-				sparseArrComps.push(resultsarray[i].comps);
-			}
-		}
+// split into separate arrays
+arrLadies = resultsarray.map(d => d.ladies);
+arrPlayers = resultsarray.map(d => d.players);
+arrComps = resultsarray.map(d => d.comps);		
+arrHcps = resultsarray.map(d => d.hcps);		
+
+// add "reset list" option to bottom
+arrPlayers.push("reset list")
+
+// today for testing
+arrComps.push("Lakes 24 May 2024")
+
+// remove null items
+arrLadies = arrLadies.filter(function(el) {return el != null;})
+arrPlayers = arrPlayers.filter(function(el) {return el != null;})
+arrComps = arrComps.filter(function(el) {return el != null;})
+arrHcps = arrHcps.filter(function(el) {return el != null;})
+
+// remove empty items
+arrLadies = arrLadies.filter(function(el) {return el != "";})
+arrPlayers = arrPlayers.filter(function(el) {return el != "";})
+arrComps = arrComps.filter(function(el) {return el != "";})
+arrHcps = arrHcps.filter(function(el) {return el != "";})
 		
-		
-		// add "reset list" option to bottom
-		sparseArrPlayers.push("reset list")
-		// remove empty items
-		arrPlayers = sparseArrPlayers.filter(function(el) {
-			return el != null;
-		});
-		arrHcps = sparseArrHcps.filter(function(el) {
-			return el != null;
-		});
-		arrComps = sparseArrComps.filter(function(el) {
-			return el != null;
-		});
-
-
-
-
-
-
-
-
-arrComps.push("Lakes 23 May 2024")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		// get rid of arrays no longer used
-		sparseArrComps = [];
-	        sparseArrPlayers = [];
-	        sparseArrHcps = [];
 		
 		// speech tooltip
 		document.getElementById("tooltip").innerHTML = "Data link<br>established."
@@ -1166,6 +1142,8 @@ arrComps.push("Lakes 23 May 2024")
 			// overwrite saved data arrays in localStorage
 			// players
 		localStorage.wwplayersarray = JSON.stringify(arrPlayers);
+		// ladies
+		localStorage.wwladiesarray = JSON.stringify(arrLadies);
 		// hcps
 		localStorage.wwhcpsarray = JSON.stringify(arrHcps);
 		// comps
@@ -1188,6 +1166,9 @@ arrComps.push("Lakes 23 May 2024")
 		dlist = "";
 		dlistcount = 0;
 		for(i = 0; i < arrComps.length; i++) {
+		
+		
+		
 			temptest = arrComps[i].replace("Lakes ", "");
 			temptest = temptest.replace("Dawson ", "");
 			temptest = temptest.replace("OldCourse ", "");
