@@ -8,6 +8,7 @@
 	<meta name="theme-color" content="rgb(0,0,20)">
 	<title>winter 2023</title>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 	<meta content="score input" name="description">
 	<meta content="Bryan M" name="author">
 	<link href="wintericon.png" rel="icon" type="image/x-icon">
@@ -499,10 +500,12 @@ line-height: 10vh;
 //padding-right: 5%;
 border: 2px solid Gray;
 text-align: center;
-font-family: Arial, Helvetica, sans-serif;
+font-family: Roboto; //Arial, Helvetica, sans-serif;
+font-weight: 100;
+
 border-radius: 5px;
 
-color: green;
+color: #3D3C3A; //green;
 
 }
 	
@@ -1563,7 +1566,7 @@ function decrementScore(id) {
 		//document.getElementById(id).style.fontSize = "2vmax";
 		holenum = id.replace("numscore", "");
 		document.getElementById(id).innerText = "(" + holenum + ")";
-		document.getElementById(id).style.color = "green";
+		document.getElementById(id).style.color = "#3D3C3A"; //"green";
 	} else {
 		if(incScore.indexOf("(") > -1) {
 			incScore = 0;
