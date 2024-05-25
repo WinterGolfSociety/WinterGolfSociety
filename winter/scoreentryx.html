@@ -384,7 +384,7 @@ width: 100%;
         display: flex;
         font-family: 'Kalam';
         color: white;
-       height: calc(60% / 13); 	
+       height: calc(100% / 13); //calc(60% / 13); 
         text-align: center;
         flex-grow: 1;
       }
@@ -395,7 +395,7 @@ width: 100%;
         color: white;
         font-family: 'Kalam';
         font-weight: bold;
-        max-height: calc(60% / 13); 
+        height: calc(100% / 13); //calc(60% / 13); 
         text-align: center;
         flex-grow: 1;
       }
@@ -405,7 +405,7 @@ width: 100%;
         color: white;
         font-family: 'Kalam';
         font-weight: bold;
-        max-height: calc(60% / 13); 
+        height: calc(100% / 13); //calc(60% / 13); 
         text-align: center;
         flex-grow: 1;
       }
@@ -506,7 +506,11 @@ color: green;
 
 }
 	
+#bb {
+height: 60%;
+//border: 2px solid lime;
 
+}
 	
 	</style>
 </head>
@@ -514,12 +518,12 @@ color: green;
 <body>
 	
 	   <div class="wrapper" id="frontpage">
-		
+	
 	      <div class="child child-one">
 	         <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player</div>
 	         <div id="playersDropdown" class="dropdown-content"> </div>
 	     </div>
-		
+<div id="bb">			
 	     <div class="child child-two">
 		<div class="holesinfotop">hole</div>
 		<div class="holesinfotop">score</div>
@@ -653,7 +657,7 @@ color: green;
 			<div class="countbackinfo" id="cback">countback 9=18, 6=11, 3=6, 1=2</div>
 
 	</div>
-		
+</div> <!-- id=bb -->		
 	<div class="child child-one">	
 	<div class="hcp">
 	   <span>playing</span> <span class="numx" id="numhcp">?</span> <span>handicap</span>
