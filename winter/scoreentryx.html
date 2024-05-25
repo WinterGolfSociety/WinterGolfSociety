@@ -497,7 +497,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 border-radius: 5px;
 
-color: #3D3C3A; //green;
+color: #4D4D4F; //green;
 
 }
 	
@@ -649,7 +649,7 @@ height: 60%;
 	<div class="child child-four">
 			
 			
-			<div class="countbackinfo" id="cback">countback 9=18, 6=11, 3=6, 1=2</div>
+			<div class="countbackinfo" id="cback">countback 9=0, 6=0, 3=0, 1=0</div>
 
 	</div>
 </div> <!-- id=bb -->		
@@ -908,11 +908,7 @@ height: 60%;
 	
 	
 	<script>
-const resizeOps = () => {
-	document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
-};
-resizeOps();
-window.addEventListener("resize", resizeOps);
+	
 //===========================
 // this code runs at startup
 //===========================
@@ -941,42 +937,52 @@ var useRedTees = false;
 	//==============================================================
 	// retrieve arrays
 	// previously downloaded by menu screen
-if("wwplayersarray" in localStorage) {
-	arrPlayers = JSON.parse(localStorage.wwplayersarray);
-}
-if("wwhcpsarray" in localStorage) {
-	arrHcps = JSON.parse(localStorage.wwhcpsarray);
-}
-//if("compsarray" in localStorage) {
-//	arrComps = JSON.parse(localStorage.wwcompsarray);
-//}
-// retrieve competition
-if("wwtodayscomp" in localStorage) {
-
-	todayscomp = localStorage.wwtodayscomp; 
-	// global comp
-	temp = todayscomp.split(" ")
-	course = temp[0];
-	// set up course arrays here, one for men and one for ladies
-	// saves on the number of arrays being used
-	if(course == "Dawson") {
+        if("wwplayersarray" in localStorage) {
+	     arrPlayers = JSON.parse(localStorage.wwplayersarray);
+        }
+        if("wwhcpsarray" in localStorage) {
+	     arrHcps = JSON.parse(localStorage.wwhcpsarray);
+        }
+        // dont need comps now
+        //if("compsarray" in localStorage) {
+        //	arrComps = JSON.parse(localStorage.wwcompsarray);
+        //}
+        // retrieve competition
+        if("wwtodayscomp" in localStorage) {
+            todayscomp = localStorage.wwtodayscomp; 
+	    // global comp
+	    temp = todayscomp.split(" ")
+	    course = temp[0];
+	    // set up course arrays here, one for men and one for ladies
+	    // saves on the number of arrays being used
+	    if(course == "Dawson") {
 		// set up arrDawson
 		// set up arrDawsonRed
 		setupDawsonCourse()
-	}
-	if(course == "Lakes") {
+	    }
+	    if(course == "Lakes") {
 		// set up arrLakes
 		// set up arrLakesRed
 		setupLakesCourse()
-	}
-	if(course == "OldCourse") {
+	    }
+	    if(course == "OldCourse") {
 		// set up arrOldCourse
 		// set up arrOldCourseRed
 		setupOldCourseCourse()
-	}
+	    }
 }
+
+
 startNewDay();
+
+
+
+
 start();
+
+
+
+
 //=============================================================
 // functions - run when called
 //=============================================================  
@@ -1176,15 +1182,31 @@ function startNewDay() {
 		m = "December";
 	}
 	dateToday = d1 + " " + m;
-	// if its not todays comp
+	// if its a new comp start over by tidying previous data
 	if(todayscomp.indexOf(dateToday) < 0) {
-		//localStorage.removeItem("comp");  
-		//localStorage.removeItem("course");  
-		localStorage.removeItem("player");
-		localStorage.removeItem("hcp");
+	//	localStorage.removeItem("player");
+	//	localStorage.removeItem("hcp");
 		// .... do a tidy up of scores etc.
-		//localStorage.setItem("dstored", dstored);
-	}
+		
+	        for(var i=0; i<localStorage.length; i++) {
+                    var key = localStorage.key(i);
+                    console.log(key)
+                    console.log(key.substr(0, 2))
+                    // only do local storage for this app
+                    if (key.substr(0, 2) == "ww") {
+                        // remove hole scores
+                        if (key.substr(0, 6) == "wwhole") { 
+                            console.log("delete " + key);
+                            localStorage.removeItem(key);
+                        } 
+                        // remove previous player info
+                        if (key == "wwplayer" || key == "wwhcp") { 
+                            console.log("delete " + key);
+                            localStorage.removeItem(key);
+                        }
+                    }
+                }    
+        }
 
 }
 //=============================================================
@@ -1359,6 +1381,10 @@ function dropSelected(playerName) {
 				openDropdown.classList.remove('show');
 			}
 		}
+		
+		console.log("here 1")
+		
+		
 		doGetHCP();
 	}
 }
@@ -1559,7 +1585,7 @@ function decrementScore(id) {
 		//document.getElementById(id).style.fontSize = "2vmax";
 		holenum = id.replace("numscore", "");
 		document.getElementById(id).innerText = holenum;
-		document.getElementById(id).style.color = "#3D3C3A";
+		document.getElementById(id).style.color = "#4D4D4F";
 	} else {
 		// cope with a hole number displayed
 	        if(document.getElementById(id).style.color !== "white") {
@@ -1603,13 +1629,13 @@ function decrementScore(id) {
 	}
 	totalScore();
 	// update local storage
-	// if incScore = "hole 1" etc., remove key from localStorage
-	if(document.getElementById(id).innerText.indexOf("(") > -1) {
-		localStorage.removeItem("wwhole" + id.replace("numscore", ""));
-	} else {
-		//=====LocalStorage.holes===========================================
+	// if incScore = hole "1" etc., remove key from localStorage
+	if(document.getElementById(id).style.color == "white") {
+	        //=====LocalStorage.holes===========================================
 		localStorage.setItem("wwhole" + id.replace("numscore", ""), incScore);
 		//==================================================================
+	} else {
+		localStorage.removeItem("wwhole" + id.replace("numscore", ""));
 	}
 }
 //=============================================================
@@ -1686,7 +1712,7 @@ function pointsCalc(hcp, par, si, score) {
 //=============================================================  
 function doGetHCP() {
 	// show hcp on screen
-
+console.log("here 1")
 	document.getElementById("numhcp").innerText = hcp;
 	// recalc scores to cope with any new lookup
 	// set useRedTees false if man
@@ -1698,6 +1724,7 @@ function doGetHCP() {
 			useRedTees = true;
 		}
 	}
+	console.log("here 2")
 	recalcScores();
 }
 //=============================================================
@@ -1706,14 +1733,15 @@ function doGetHCP() {
 // - need 2 options, red and yellow tees
 //=============================================================
 function recalcScores() {
+console.log("here 3")
 	// for ladies red tees (useRedTees = true)
 	if(useRedTees) {
 		for(i = 1; i <= 18; i++) {
-		if (document.getElementById("numscore" + i).style.color == "white") {
 			tempscore = document.getElementById("numscore" + i).innerText;
-			if(tempscore.indexOf("hole") > -1) {
-				tempscore = "0";
-			}
+	                // if no score, only hole number		    
+                        if (document.getElementById("numscore" + i).style.color !== "white") {
+                            tempscore = 0;
+                        }
 			if(course == "Lakes") {
 				temppar = arrLakesRed[i][1];
 				tempsi = arrLakesRed[i][2];
@@ -1730,18 +1758,17 @@ function recalcScores() {
 			document.getElementById("h" + i).innerText = tempscore;
 			document.getElementById("p" + i).innerText = temppoints;
 	
-	                totalScore();
-	
+	                
 		}
-		}
+		totalscore()
 	} else {
 		// for men yellow tees
 		for(i = 1; i <= 18; i++) {
-		if (document.getElementById("numscore" + i).style.color == "white") {
-			tempscore = document.getElementById("numscore" + i).innerText;
-			if(tempscore.indexOf("(") > -1) {
-				tempscore = "0";
-			}
+		        tempscore = document.getElementById("numscore" + i).innerText;
+	                // if no score, only hole number		    
+                        if (document.getElementById("numscore" + i).style.color !== "white") {
+                            tempscore = 0;
+                        }
 			if(course == "Lakes") {
 				temppar = arrLakes[i][1];
 				tempsi = arrLakes[i][2];
@@ -1757,12 +1784,12 @@ function recalcScores() {
 			temppoints = pointsCalc(hcp, temppar, tempsi, tempscore);
 			document.getElementById("h" + i).innerText = tempscore;
 			document.getElementById("p" + i).innerText = temppoints;
+	console.log("here 4")		
 			
-			totalScore();
 		}
-		}
+		totalScore();
 	}
-	//totalScore();
+console.log("here 5")
 }
 
 //=============================================================
@@ -1811,7 +1838,8 @@ function recoverFromLocalStorage() {
 		} else {
 			// change to (1) etc
 			document.getElementById("h" + i).innerText = "0";
-			document.getElementById("numscore" + i).innerText = "(" + i + ")";
+			document.getElementById("numscore" + i).innerText = i;
+			document.getElementById("numscore" + i).style.color = "#4D4D4F";
 		}
 		
 	}
@@ -1875,15 +1903,18 @@ function recoverFromLocalStorage() {
 // - wipe saved local storage but not player list
 //=============================================================  
 function clearCache() {
+
 	localStorage.removeItem("wwplayer");
 	localStorage.removeItem("wwhcp");
 	localStorage.removeItem("wwtodayscomp");
 	//localStorage.removeItem("course");
 	for(var i = 1; i <= 18; i++) {
-		localStorage.removeItem("hole" + i);
+		//localStorage.removeItem("hole" + i);
 	}
+	
 	recoverFromLocalStorage();
 	location.reload();
+	
 }
 //=============================================================
 // function showCompMessage()
