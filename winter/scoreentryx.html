@@ -1729,6 +1729,9 @@ function recalcScores() {
 			temppoints = pointsCalc(hcp, temppar, tempsi, tempscore);
 			document.getElementById("h" + i).innerText = tempscore;
 			document.getElementById("p" + i).innerText = temppoints;
+	
+	                totalScore();
+	
 		}
 		}
 	} else {
@@ -1754,10 +1757,12 @@ function recalcScores() {
 			temppoints = pointsCalc(hcp, temppar, tempsi, tempscore);
 			document.getElementById("h" + i).innerText = tempscore;
 			document.getElementById("p" + i).innerText = temppoints;
+			
+			totalScore();
 		}
 		}
 	}
-	totalScore();
+	//totalScore();
 }
 
 //=============================================================
