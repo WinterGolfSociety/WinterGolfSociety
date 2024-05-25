@@ -1939,8 +1939,9 @@ function showIncompleteSubmitData(msg) {
 function showHole(id) {
 	tempe = document.getElementById(id);
 	tempsaved = tempe.innerText;
+	tempsavedcolor = tempe.style.color;
 	// only do it if number is obscuring hole number
-	if(tempsaved.indexOf("hole") == -1) {
+	//if(tempsaved.indexOf("(") == -1) {
 		// change to hole1 etc.
 		tempe.innerText = id.replace("numscore", "(") + ")";
 		tempe.style.color = "lime";
@@ -1954,10 +1955,10 @@ function showHole(id) {
 			for(var i = 1; i <= 18; i++) {
 				document.getElementById("numscore" + i).style.pointerEvents = '';
 			}
-			tempe.style.color = "white";
+			tempe.style.color = tempsavedcolor;
 			tempe.innerText = tempsaved;
 		}, 500);
-	}
+	//}
 }
 //=============================================================
 //=============================================================
