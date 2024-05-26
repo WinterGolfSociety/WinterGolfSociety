@@ -533,6 +533,7 @@
 		color: blue;
 		font-family: 'Kalam';
 		font-size: 18px;
+		font-weight: 500;
 		max-width: 10ch;
 		text-align: center;
 		animation: scale 2s;
@@ -1120,7 +1121,7 @@ window.addEventListener(orientationEvent, function() {
                 arrHcps = arrHcps.filter(function(el) {return el != "";})
 				
 		// speech tooltip
-		document.getElementById("tooltip").innerHTML = "New data<br>aquired."
+		document.getElementById("tooltip").innerHTML = "New data aquired."
 		document.getElementById("tooltip").style.display = "block";
 		setTimeout(function() {
 				document.getElementById("tooltip").style.display = "none";
@@ -1219,7 +1220,7 @@ window.addEventListener(orientationEvent, function() {
 	
 	function noCompMsg() {
 	// speech tooltip
-		document.getElementById("tooltip").innerHTML = "No Competition<br>today."
+		document.getElementById("tooltip").innerHTML = "No Competition today."
 		document.getElementById("tooltip").style.display = "block";
 		setTimeout(function() {
 				document.getElementById("tooltip").style.display = "none";
