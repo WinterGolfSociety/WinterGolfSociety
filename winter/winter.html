@@ -531,7 +531,7 @@
 		left: 50vw;
 		color: blue;
 		font-family: 'Kalam';
-		font-size: 12px;
+		font-size: 15px;
 		max-width: 10ch;
 		text-align: center;
 		//animation: scale 3s;
@@ -1213,8 +1213,11 @@ window.addEventListener(orientationEvent, function() {
 	}
 	
 	function noCompMsg() {
-	document.getElementById('popuppanel').innerHTML = "No Comp<br>today";
-	document.getElementById('popuppanel').style.display = "block";
+	     document.getElementById('popuppanel').innerHTML = "No Comp<br>today";
+	     document.getElementById('popuppanel').style.display = "block";
+	     setTimeout(function() {
+	          document.getElementById("popuppanel").style.display = "none";
+	     }, 3000)
 	}
 	
 	
