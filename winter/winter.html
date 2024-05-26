@@ -1233,7 +1233,7 @@ window.addEventListener(orientationEvent, function() {
 
         onlongtouch = function(){
              //document.querySelector("#img").innerHTML = "Hello";
-             alert("hello")
+             resetAll()
         }
 
         // prevent img menu
@@ -1250,7 +1250,15 @@ window.addEventListener(orientationEvent, function() {
 
 	
 	
-	
+	function resetAll() {
+  var txt;
+  if (confirm("Are you sure you wish to reset ?")) {
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  //document.getElementById("demo").innerHTML = txt;
+}
 	
 	
 	
