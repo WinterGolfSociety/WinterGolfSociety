@@ -1251,14 +1251,12 @@ window.addEventListener(orientationEvent, function() {
 	
 	
 	function resetAll() {
-  var txt;
-  if (confirm("Are you sure you wish to reset ?")) {
-    txt = "You pressed OK!";
-  } else {
-    txt = "You pressed Cancel!";
-  }
-  //document.getElementById("demo").innerHTML = txt;
-}
+            if (confirm("Are you sure you wish to reset ?")) {
+                localStorage.clear;
+                location.reload();
+            }
+        }
+
 	
 	
 	
