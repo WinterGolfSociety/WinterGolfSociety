@@ -1214,11 +1214,22 @@ window.addEventListener(orientationEvent, function() {
 	}
 	
 	function noCompMsg() {
+	// speech tooltip
+		document.getElementById("tooltip").innerHTML = "No Competition<br>today."
+		document.getElementById("tooltip").style.display = "block";
+		setTimeout(function() {
+				document.getElementById("tooltip").style.display = "none";
+			}, 3000)
+			
+	/*
+	
 	     document.getElementById('popuppanel').innerHTML = "No Competition<br>today";
 	     document.getElementById('popuppanel').style.display = "block";
 	     setTimeout(function() {
 	          document.getElementById("popuppanel").style.display = "none";
 	     }, 3000)
+	     
+	*/
 	}
 	
 	
