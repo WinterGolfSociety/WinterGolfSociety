@@ -577,7 +577,15 @@
 	
 	
 	
-	
+	#nocompmsg {
+	position: absolute:
+	left: 10vw:
+	top: 10vh;
+	width: 20vw;
+	height: 20vh;
+	background: dodgerBlue;
+	color: white;
+	}
 	
 	
 	
@@ -638,6 +646,8 @@
 		
 	-->
 		
+		
+		<div id="nocompmsg"></div>
 		
 		
 		<div id="warning">Not available in landscape orientation</div>
@@ -984,6 +994,8 @@ window.addEventListener(orientationEvent, function() {
 		// put menu back then move to score entry page
 		window.location.assign("scoreentryx.html");
 		}, 1000);		
+             } else {
+                noCompMsg();
              }
 	}
 
@@ -1208,6 +1220,12 @@ window.addEventListener(orientationEvent, function() {
 		document.getElementById('img').classList.toggle("half");
 	}
 	
+	function noCompMsg() {
+	document.getElementById('nocompmsg').innerHTML = "No Comp<br>today";
+	}
+	
+	
+	
 	//===========================================
 	// detect a longpress to allow "secret" reset
 	// use QR #img
@@ -1252,7 +1270,7 @@ window.addEventListener(orientationEvent, function() {
 	
 	function resetAll() {
             if (confirm("Are you sure you wish to reset ?")) {
-                localStorage.clear;
+                localStorage.clear();
                 location.reload();
             }
         }
