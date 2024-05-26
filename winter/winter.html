@@ -1237,10 +1237,10 @@ window.addEventListener(orientationEvent, function() {
         }
 
         // prevent img menu
-        var prevent = document.querySelector("#img");
-            prevent.onselectstart = function(){
-                 return false;
-            };
+        document.addEventListener('contextmenu', event => {
+             event.preventDefault()
+        })
+
         
         
         document.addEventListener("DOMContentLoaded", function(){
