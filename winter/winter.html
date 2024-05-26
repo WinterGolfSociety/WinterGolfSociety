@@ -865,8 +865,8 @@ window.addEventListener(orientationEvent, function() {
 		
 		
 		
-		
-		// disable 2 buttons
+		if (compday == "no") {
+		// disable 3 buttons
 		two.animate({
 				opacity: '0.2'
 			}, 800);
@@ -878,7 +878,7 @@ window.addEventListener(orientationEvent, function() {
 		six.animate({
 				opacity: '0.2'
 			}, 800);
-		
+		}
 		
 		
 		
@@ -978,23 +978,13 @@ window.addEventListener(orientationEvent, function() {
 	}
 
 	function doTwo() {
-	
-	
-	// if compday then allow input, else disable
-	
-	
-	
-	
-	
-	
-	
-	
+             // if compday then allow input, else disable
+             if (compday == "yes") {
+                 setTimeout(function() {
 		// put menu back then move to score entry page
-//		if(localStorage.wwtodayscomp) {
-			window.location.assign("scoreentryx.html");
-//		} else {
-//			alert("no comp message")
-//		}
+		window.location.assign("scoreentryx.html");
+		}, 1000);		
+             }
 	}
 
 	function doThree() {
@@ -1012,39 +1002,23 @@ window.addEventListener(orientationEvent, function() {
 	}
 
 	function doFive() {
-		
-	
-	// if compday then allow display, else disable
-	
-	
-	
-	
-	
-	
-	
-	
+	     // if compday then allow display, else disable
+             if (compday == "yes") {	
 		// put menu back then move to results page
 		setTimeout(function() {
 			window.location.assign("leaderboard.html");
 		}, 1000);
-	}
-
+	     }
+        }
+        
 	function doSix() {
-		
-	
-	// if compday then allow input, else disable
-	
-	
-	
-	
-	
-	
-	
-	
+	     // if compday then allow input, else disable
+	     if (compday == "yes") {
 		// put menu back then move to results page
 		setTimeout(function() {
 			window.location.assign("fourballtestv2.html");
 		}, 1000);
+	     }
 	}
 	//====================================
 	// end of menu code
@@ -1093,6 +1067,7 @@ window.addEventListener(orientationEvent, function() {
 			
 			// update todayscomp if today in wwtodayscomp
 			todayscomp = localStorage.wwtodayscomp;
+			compday = "yes"
 		        getNextComps();
 		} else {
 		        // if a different date just get some new data
@@ -1203,6 +1178,7 @@ window.addEventListener(orientationEvent, function() {
 				// now do for new data				
 				localStorage.setItem("wwtodayscomp", arrComps[i]);
 				todayscomp = arrComps[i];
+				compday = "yes"
 				
 				if(arrComps[i].indexOf("Lakes") > -1) {
 					tempd = '<p style="color:white;">Lakes - competition today</p>';
@@ -1231,6 +1207,51 @@ window.addEventListener(orientationEvent, function() {
 	function enlarge() {
 		document.getElementById('img').classList.toggle("half");
 	}
+	
+	//===========================================
+	// detect a longpress to allow "secret" reset
+	// use QR #img
+	//===========================================
+	let onlongtouch = false;
+        let timer = false;
+        let duration = 3000;
+
+        function touchStart(){
+             if (!timer) {
+                  timer = setTimeout(onlongtouch, duration);
+             }
+        }
+
+
+        function touchEnd(){
+             if (timer) {
+                 clearTimeout(timer)
+                 timer = false;
+             }
+        }
+
+
+        onlongtouch = function(){
+             //document.querySelector("#img").innerHTML = "Hello";
+             alert("hello")
+        }
+
+        document.addEventListener("DOMContentLoaded", function(){
+             document.querySelector("#img").addEventListener("touchstart", touchStart);
+             document.querySelector("#img").addEventListener("touchend", touchEnd);
+        })
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	</script>
 	</body>
 
