@@ -51,10 +51,10 @@
 		border: 2px solid blue;
 		font-family: Arial, Helvetica, sans-serif;
 		border-radius: 10px;
-		width: 75%;
+		width: 65%;
 	}
 	
-	.poppars {
+	.poppars, .popzeros {
 	        text-align: center;
 	        font-size: 5vh;
 	        font-family: Arial, Helvetica, sans-serif;
@@ -177,6 +177,11 @@
 		height: 1vh;
 	}
 	
+	#spacer3 {
+		background: dodgerBlue;
+		height: 1vh;
+		width: 100vw;
+	}
 	#inputlist {
 		font-size: 4vh;
 		color: cyan;
@@ -189,6 +194,8 @@
 	<div class="holder1">
 		<div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player</div>
 		<div onclick="populatepars()" class="poppars">P</div>
+		<div onclick="populatezeros()" class="popzeros">0</div>
+		<div id="spacer3">&nbsp;</div>
 		<div id="playersDropdown" class="dropdown-content"> <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Dale</a> <a id="myLink2" href="#" onclick='dropSelected(this.innerText);return false;'>Stephen</a> <a id="myLink3" href="#" onclick='dropSelected(this.innerText);return false;'>Andy</a> <a id="myLink4" href="#" onclick='dropSelected(this.innerText);return false;'>John</a> <a id="myLink5" href="#" onclick='dropSelected(this.innerText);return false;'>Joe</a> <a id="myLink6" href="#" onclick='dropSelected(this.innerText);return false;'>Barry</a> <a id="myLink7" href="#" onclick='dropSelected(this.innerText);return false;'>Tom</a> <a id="myLink8" href="#" onclick='dropSelected(this.innerText);return false;'>Bryan</a> <a id="myLink9" href="#" onclick='dropSelected(this.innerText);return false;'>Ray</a> <a id="myLink10" href="#" onclick='dropSelected(this.innerText);return false;'>Gus</a> </div>
 	</div>
 	<div id="spacer1"></div>
@@ -646,7 +653,11 @@
 		}
 	}
 	
-	
+	function populatezeros() {
+		for(var i = 1; i <= 18; i++) {
+			document.getElementById("score" + i).innerText = "0";
+		}
+	}
 	</script>
 </body>
 
