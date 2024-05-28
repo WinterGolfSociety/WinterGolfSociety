@@ -25,20 +25,20 @@
       	body {
       	    font-family: Arial, Helvetica, sans-serif;
       	    font-size: 3vh;
+      	    background: black;
+      	    height: 100%;
+      	    width: 100%;
       	}
       	/* dropdown */
       	
-      	#dropbtn {
-      	    display: flex;
-      	    justify-content: center;
-      	    align-items: center;
-      	    color: white;
-      	    height: 20vh;
-      	    font-size: 3vmax;
-      	    border: 2px solid silver;
-      	    background: dodgerBlue;
-      	    border-radius: 5px;
-      	}
+ #dropbtn {
+    color: white;
+    background: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
       	
       	.dropdown {
       	    position: relative;
@@ -70,6 +70,8 @@
       	/* end of dropdown */
       	
       	#firstscreen {
+      	height: 100%;
+      	width: 100%;
       	    background: black;
       	    color: white;
       	    -webkit-animation-duration: 1.5s;
@@ -165,7 +167,7 @@
       	}
       	
       	#info {
-    //  	    display: none;
+      	    display: none;
       	    overflow: auto;
       	    position: absolute;
       	    top: 0;
@@ -218,14 +220,25 @@
       	/* */
       	
       	.child-one {
+
+    height: 10%;
+    font-size: 5vh;
+    border: 2px solid Gray;
+    border-radius: 5px;
+}
+      
+      	
+      	.child-two {
       	    display: flex;
       	    color: white;
+      	    background: black;
       	    font-family: 'Kalam';
-      	    font-weight: bold;
-      	    height: calc(100% / 9);
+      	    //font-weight: bold;
+      	    height: 100%;
       	    text-align: center;
       	    flex-grow: 1;
       	}
+      	
    /* holes */
 
 .child-three {
@@ -346,56 +359,68 @@ width: calc(100% / 5);
 text-align: center;
 }
 
+#player4ballplayer {
+width: 30%;
+padding: 1vw;
+//border: 3px solid cyan;
+}
+
+#player4ballname {
+width: 55%;
+padding: 1vw;
+//border: 3px solid cyan;
+}
+ 
+ 
+#player4ballhcp {
+width: 15%;
+padding: 1vw;
+//border: 3px solid cyan;
+}
 
 
+
+
+
+
+
+.child2 {
+display: flex;
+//border: 3px solid cyan;
+//background: cyan;
+}
       </style>
    </head>
    <body>
    <!-- initial setup screen -->
       <div id="firstscreen">
       
-         
          <div class="child-one">
             <div onclick="toggleDropdown()" class="dropbtn" id="dropbtn">tap to add player 1</div>
             <div id="playersDropdown" class="dropdown-content"></div>
-            <div class="spacer1"></div>
          </div>  
           
          <div class="child2">
-               <div id="player4ballplayer">no players have been added</div>
-               <div id="player4ballname"></div>
+               <div id="player4ballplayer"></div>
+               <div id="player4ballname">&lt;empty&gt;<br>&lt;empty&gt;<br>&lt;empty&gt;<br>&lt;empty&gt;</div>
                <div id="player4ballhcp"></div>
          </div>
         
-         <div class="child3">
-               <div class="spacer1"></div>
-               <div class="spacer1"></div>
-               <div class="spacer1"></div>
-        </div>
+         <div class="child-one">
         
-        <div class="child4">
-               <div></div>
                <div>
                   <button  id="startscoring" onclick="getScoring()">start scoring</button>
                </div>
-               <div></div>
+          
        </div>
-       
-       <div class="child5">
-               <div class="spacer1"></div>
-               <div class="spacer1"></div>
-               <div class="spacer1"></div>
-      </div>
-            
-            
-      
+
       </div>
       
       <!-- scoring screen -->
       <div id="all">
       
       <div class="child-six">
-         <div id="holedetails" onclick="displayInfo()">hhsrtjsjtyk</div>
+         <div id="holedetails" onclick="displayInfo()">hole 1 par si etc.</div>
       </div>
       
       <div class="child-seven">
@@ -684,10 +709,10 @@ var player1name = "player 1";
 var player2name = "player 2";
 var player3name = "player 3";
 var player4name = "player 4";
-var player1hcp = "no hcp";
-var player2hcp = "no hcp";
-var player3hcp = "no hcp";
-var player4hcp = "no hcp";
+var player1hcp = "?";
+var player2hcp = "?";
+var player3hcp = "?";
+var player4hcp = "?";
 var originalhcp1 = 0;
 var originalhcp2 = 0;
 var originalhcp3 = 0;
@@ -1073,16 +1098,16 @@ return firstPlayername;
 }
 
 function body() {
-if (player1hcp == "no hcp") {
+if (player1hcp == "?") {
     player1hcp = 99;
 }
-if (player2hcp == "no hcp") {
+if (player2hcp == "?") {
     player2hcp = 99;
 }
-if (player3hcp == "no hcp") {
+if (player3hcp == "?") {
     player3hcp = 99;
 }
-if (player4hcp == "no hcp") {
+if (player4hcp == "?") {
     player4hcp = 99;
 }
 x = Math.min((player1hcp*0.9), (player2hcp*0.9), (player3hcp*0.9), (player4hcp*0.9))
@@ -1313,7 +1338,7 @@ function outputPlayers(msg) {
 			hcplist += "#" + hcp
 		}
 	}
-	hcplistx = hcplist + "#no hcp#no hcp#no hcp#ho hcp#no hcp"
+	hcplistx = hcplist + "#?#?#?#ho hcp#?"
 	arr2 = hcplistx.split("#");
 	player1hcp = arr2[0];
 	player2hcp = arr2[1];
