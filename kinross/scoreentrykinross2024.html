@@ -548,8 +548,8 @@
 		document.getElementById("dropbtn").innerText = player + " " + hcp;
 		// replace hcp buttom number is in doGetHCP()
 		// update localStorage
-		localStorage.wwplayer = player;
-		localStorage.wwhcp = hcp;
+		//localStorage.wwplayer = player;
+		//localStorage.wwhcp = hcp;
 		// close dropdown
 		var dropdowns = document.getElementsByClassName("dropdown-content");
 		var i;
@@ -626,7 +626,10 @@
 			totalpoints += pointsCalc(hcp, arrCourse[i][1], arrCourse[i][2], document.getElementById("score" + i).innerText);
 			if(arrCourse[i][1] == 3) {
 				totalpar3 += parseInt(pointsCalc(hcp, arrCourse[i][1], arrCourse[i][2], document.getElementById("score" + i).innerText));
+				console.log("------------" + totalpar3)
+				
 			}
+			console.log(totalpoints)
 		}
 		document.getElementById('mx1433824128').value = player;
 		document.getElementById('mx1119360478').value = dow;
