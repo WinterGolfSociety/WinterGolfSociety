@@ -396,7 +396,7 @@ h2 {
   
   menuIcon.click(function() {
   if (isTop === true) {
-      $('#nav').animate({ top: '50%', left: '50%' }, 400);
+      $('#nav').animate({ top: '50%', left: '50%' }, 500);
       $('.content').animate({ opacity: '0' }, 700);
       showBubbles();
       isTop = false;
@@ -417,7 +417,7 @@ h2 {
     three.animate({ opacity: '1' }, 10);
     four.animate( { opacity: '1' }, 10);
     five.animate( { opacity: '1' }, 10);
-    
+    /*
     one.animate(  { left: '140px' }, 110);
     two.animate(  {  top: '140px' }, 200);
     five.animate( {  top: '-50px' }, 200);
@@ -430,6 +430,23 @@ h2 {
     three.animate({ left: '-55px' }, 100);
     four.animate( { left: '-20px' }, 350);
     one.animate(  {  top: '55px'  }, 350);
+*/
+
+    one.animate(  { left: '140px' }, 210);
+    two.animate(  {  top: '140px' }, 300);
+    five.animate( {  top: '-50px' }, 300);
+    one.animate(  { left: '130px' }, 200);
+    three.animate({ left: '-65px' }, 350);
+    two.animate(  {  top: '135px' }, 310);
+    five.animate( { left: '90px'  }, 300);
+    three.animate({  top: '60px'  }, 200);  
+    four.animate( {  top: '-45px' }, 350);
+    three.animate({ left: '-55px' }, 200);
+    four.animate( { left: '-20px' }, 450);
+    one.animate(  {  top: '55px'  }, 450);
+
+
+
 
     menuIsOpen = true;
   }
