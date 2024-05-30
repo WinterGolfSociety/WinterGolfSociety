@@ -843,11 +843,18 @@
 			[18, 5, 17]
 		];
 		// prevent accidental closing
-		window.addEventListener("beforeunload", function(e) {
+		
+		function(eventl) {
 			// Cancel the event
 			e.preventDefault();
 			e.returnValue = "";
-		});
+		}
+		
+		window.addEventListener("beforeunload",eventl)
+		
+
+		
+		
 		// 1st hole
 		var holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2]
 		document.getElementById("holedetails").innerText = holedetails
@@ -2403,7 +2410,8 @@
 			setTimeout(function() {
 				document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">'
 			}, 6500);
-			
+			// remove the accidental "trap"
+			window.removeEventListener("beforeunload",eventl)
 			// return to main menu
 			setTimeout(function() {
 			history.go(-1);
