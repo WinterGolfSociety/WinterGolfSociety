@@ -1,969 +1,1046 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="UTF-8">
-      <meta content="width=device-width, initial-scale=1.0" name="viewport">
-      <meta content="ie=edge" http-equiv="X-UA-Compatible">
-      <title>4score</title>
-       <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-      <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-      <style>
- 
-     	* {
-      	    margin: 0;
-      	    padding: 0;
-      	    box-sizing: border-box;
-      	}
-      	
-      	html {
-      	    height: 100%;
-      	    width: 100%;
-      	}
-      	
-      	body {
-      	    font-family: Arial, Helvetica, sans-serif;
-      	    font-size: 3vh;
-      	    background: black;
-      	    height: 100%;
-      	    width: 100%;
-      	}
-      	/* dropdown */
-      	
- #dropbtn {
-    color: white;
-    background: black;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid Gray;
-}
-      	
-      	.dropdown {
-      	    position: relative;
-      	    display: inline-block;
-      	}
-      	
-      	.dropdown-content {
-      	    display: none;
-      	    position: absolute;
-      	    background-color: white;
-      	    min-width: 160px;
-      	    overflow: auto;
-      	    z-index: 1;
-      	    border-radius: 5px;
-      	    box-shadow: 10px 10px 25px black;
-      	    max-height: 60vh;
-      	}
-      	
-      	.dropdown-content a {
-      	    color: gray;
-      	    padding: 10px 16px;
-      	    text-decoration: none;
-      	    display: block;
-      	}
-      	
-      	.show {
-      	    display: block;
-      	}
-      	/* end of dropdown */
-      	
-      	#firstscreen {
-      	height: 100%;
-      	width: 100%;
-      	    background: black;
-      	    color: white;
-      	    -webkit-animation-duration: 1.5s;
-      	    animation-duration: 1.5s;
-      	    -webkit-animation-fill-mode: both;
-      	    animation-fill-mode: both;
-      	}
-      	/* scoring screen */
-      	
-      	#all {
-      	    display: none;
-      	}
-      	/* fade out/in between screens */
-      	
-      	@-webkit-keyframes fadeOut {
-      	    0% {
-      	        opacity: 1;
-      	    }
-      	    100% {
-      	        opacity: 0;
-      	    }
-      	}
-      	
-      	@keyframes fadeOut {
-      	    0% {
-      	        opacity: 1;
-      	    }
-      	    100% {
-      	        opacity: 0;
-      	    }
-      	}
-      	
-      	.fadeOut {
-      	    -webkit-animation-name: fadeOut;
-      	    animation-name: fadeOut;
-      	}
-      	
-      	.spacer1 {
-      	    height: 5vh;
-      	}
-      	/* start scoring button */
-      	
-      	#startscoring {
-      	    color: white;
-      	    width: 100%;
-      	    height: 15vh;
-      	    font-size: 3vmax;
-      	    border: 2px solid silver;
-      	    background: dodgerBlue;
-      	    border-radius: 5px;
-      	}
-      	
-      	#startscoring {
-      	    //display: none;
-      	}
-      	/* highlights selected player */
-      	
-      	.highlight {
-      	    color: cyan;
-      	    //border: 1px solid black;
-      	    box-shadow: inset white 0px 0px 60px -12px;
-      	}
-      	
-      	.scorelow {
-      	    font-size: 4vh;
-      	    color: lime;
-      	    display: inline-block;
-      	    width: 40%;
-      	    height: 10vh;
-      	    line-height: 10vh;
-      	    padding-left: 5%;
-      	    padding-right: 5%;
-      	    border: 1px solid Gray;
-      	    text-align: center;
-      	    font-family: Arial, Helvetica, sans-serif;
-      	    border-radius: 5px;
-      	}
-      	/* highlights keyboard score pressed */
-      	
-      	.scorehigh {
-      	    font-size: 4vh;
-      	    color: cyan;
-      	    display: inline-block;
-      	    width: 40%;
-      	    height: 10vh;
-      	    line-height: 10vh;
-      	    padding-left: 5%;
-      	    padding-right: 5%;
-      	    border: 5px solid Gray;
-      	    text-align: center;
-      	    font-family: Arial, Helvetica, sans-serif;
-      	    border-radius: 5px;
-      	    box-shadow: inset white 0px 0px 60px -12px;
-      	}
-      	
-      	#info {
-      	    display: none;
-      	    overflow: auto;
-      	    position: absolute;
-      	    top: 0;
-      	    left: 0;
-      	    height: 100%;
-      	    width: 100%;
-      	    color: white;
-      	    background-color: black; //dimGray;
-      	    //opacity: 0.95;
-      	    //border-radius: 10px;
-      	    padding-left: 1px;
-      	    padding-right: 1px;
-      	    padding-bottom: 1px;
-      	    //box-shadow: inset black 0px 0px 60px -12px;
-      	}
-      	
-      	#p1h0,
-      	#p2h0,
-      	#p3h0,
-      	#p4h0 {
-      	    padding-top: 5px;
-      	    font-size: 2vh;
-      	    padding-bottom: 5px;
-      	}
-      	
-      	#x1 {
-      	    color: yellow;
-      	    font-size: 2vh;
-      	}
-      	
-      	#popuppanel {
-      	    background-color: #ddd;
-      	    font-size: 3vh;
-      	    display: inline-block;
-      	    border-radius: 3px;
-      	    border: 1px solid #aaa;
-      	    padding: 10px;
-      	    margin: 5vw;
-      	    text-align: center;
-      	    width: 80vw;
-      	    //height: 50px;
-      	    cursor: pointer;
-      	}
-      	/* hide forms */
-      	
-      	#my-response-iframe,
-      	#my-form {
-      	    display: none;
-      	}
-      	/* */
-      	
-      	.child-one {
 
-    height: 10%;
-    font-size: 5vh;
-    border: 2px solid Gray;
-    border-radius: 5px;
-}
-      
-      	
-      	.child-two {
-      	    display: flex;
-      	    color: white;
-      	    background: black;
-      	    font-family: 'Kalam';
-      	    //font-weight: bold;
-      	    height: 100%;
-      	    text-align: center;
-      	    flex-grow: 1;
-      	}
-      	
-   /* holes */
-
-.child-three {
-    display: flex;
-    color: white;
-    font-family: 'Kalam';
-    font-weight: bold;
-    height: calc(100% / 22);
-    text-align: center;
-    flex-grow: 1;
-}
-   	
-      	.child-six {
-      	    display: flex;
-      	    background: black;
-      	    color: white;
-      	    font-family: 'Kalam';
-      	    height: calc(100% / 9);
-      	    text-align: center;
-      	    width: 100%;
-      	}
-      	
-      	.child-seven {
-      	    display: flex;
-      	    background: black;
-      	    color: white;
-      	    font-family: 'Kalam';
-      	    height: calc(100% / 9);
-      	    text-align: center;
-      	    width: 100%;
-      	}
-      	
-      	.child-eight {
-      	    display: flex;
-      	    background: black;
-      	    color: white;
-      	    font-family: 'Kalam';
-      	    height: calc(100% / 9);
-      	    text-align: center;
-      	    width: 100%;
-      	}
-      	/* player names */
-      	
-      	#p1name,
-      	#p2name,
-      	#p3name,
-      	#p4name {
-      	    font-size: 4vh;
-      	    display: inline-block;
-      	    width: calc(100% / 3 * 2);
-      	    height: 100%; //calc(100% / 9);
-      	    line-height: 10vh;
-      	    padding-left: 5%;
-      	    padding-right: 5%;
-      	    border: 1px solid Gray;
-      	    text-align: center;
-      	    font-family: Arial, Helvetica, sans-serif;
-      	    border-radius: 5px;
-      	}
-      	/* player scores */
-      	
-      	#p1score,
-      	#p2score,
-      	#p3score,
-      	#p4score {
-      	    font-size: 4vh;
-      	    display: inline-block;
-      	    width: calc(100% / 3);
-      	    height: 100%; //calc(100% / 9);
-      	    line-height: 10vh;
-      	    padding-left: 5%;
-      	    padding-right: 5%;
-      	    border: 1px solid Gray;
-      	    text-align: center;
-      	    font-family: Arial, Helvetica, sans-serif;
-      	    border-radius: 5px;
-      	}
-      	/* default "keyboard" */
-      	
-      	.small {
-      	    font-size: 4vh;
-      	    display: inline-block;
-      	    width: calc(100% / 3);
-      	    height: 10vh;
-      	    line-height: 10vh;
-      	    padding-left: 5%;
-      	    padding-right: 5%;
-      	    border: 1px solid Gray;
-      	    text-align: center;
-      	    font-family: Arial, Helvetica, sans-serif;
-      	    border-radius: 5px;
-      	}
-      	/* banner hole details */
-      	
-      	#holedetails {
-      	    color: white;
-      	    background: black;
-      	    font-size: 4vh;
-      	    display: inline-block;
-      	    width: 100%;
-      	    height: calc(100% / 9);
-      	    line-height: 10vh;
-      	    padding-left: 5%;
-      	    padding-right: 5%;
-      	    border: 1px solid Gray;
-      	    text-align: center;
-      	    font-family: Arial, Helvetica, sans-serif;
-      	    border-radius: 5px;
-      	}
- 
-   #bb {
-    height: 60%;
-}
-
-
-.box1 {
-width: calc(100% / 5);
-text-align: center;
-}
-
-.box1c {
-color: lime;
-width: calc(100% / 5);
-text-align: center;
-}
-
-#player4ballplayer {
-width: 30%;
-padding: 1vw;
-//border: 3px solid cyan;
-}
-
-#player4ballname {
-width: 55%;
-padding: 1vw;
-//border: 3px solid cyan;
-}
- 
- 
-#player4ballhcp {
-width: 15%;
-padding: 1vw;
-//border: 3px solid cyan;
-}
-
-
-
-
-
-
-
-.child2 {
-display: flex;
-//border: 3px solid cyan;
-//background: cyan;
-}
-      </style>
-   </head>
-   <body>
-   <!-- initial setup screen -->
-      <div id="firstscreen">
-      
-         <div class="child-one">
-            <div onclick="toggleDropdown()" class="dropbtn" id="dropbtn">tap to add player 1</div>
-            <div id="playersDropdown" class="dropdown-content"></div>
-         </div>  
-          
-         <div class="child2">
-               <div id="player4ballplayer"></div>
-               <div id="player4ballname">&lt;empty&gt;<br>&lt;empty&gt;<br>&lt;empty&gt;<br>&lt;empty&gt;</div>
-               <div id="player4ballhcp"></div>
-         </div>
-        
-         <div class="child-one">
-        
-               <div>
-                  <button  id="startscoring" onclick="getScoring()">start scoring</button>
-               </div>
-          
-       </div>
-
-      </div>
-      
-      <!-- scoring screen -->
-      <div id="all">
-      
-      <div class="child-six" onclick="displayInfo()">
-         <div id="holedetails">hole 1 par si etc.</div>
-      </div>
-      
-      <div class="child-seven">
-         <div id="p1name" onclick="selected(this.id)">player 1</div>
-         <div id="p1score" onclick="selected(this.id)">0</div>
-       </div>
-      <div class="child-seven">
-         <div id="p2name" onclick="selected(this.id)">player 2</div>
-         <div id="p2score" onclick="selected(this.id)">0</div>
-     </div>
-      <div class="child-seven">
-         <div id="p3name" onclick="selected(this.id)">player 3</div>
-         <div id="p3score" onclick="selected(this.id)">0</div>
-     </div>
-     <div class="child-seven">
-         <div id="p4name" onclick="selected(this.id)">player 4</div>
-         <div id="p4score" onclick="selected(this.id)">0</div>
-      </div>
-      
-      
-      
-      
-      
-      
-      
-      <div class="child-eight">
-         <div class="small scorelow" id="score1" onclick="numberScore(this.id)">1</div>
-         <div class="small scorelow" id="score2" onclick="numberScore(this.id)">2</div>
-         <div class="small scorelow" id="score3" onclick="numberScore(this.id)">3</div>
-      </div> 
-      <div class="child-eight">
-         <div class="small scorelow" id="score4" onclick="numberScore(this.id)">4</div>
-         <div class="small scorelow" id="score5" onclick="numberScore(this.id)">5</div>
-         <div class="small scorelow" id="score6" onclick="numberScore(this.id)">6</div>
-      </div> 
-      <div class="child-eight">
-         <div class="small scorelow" id="score7" onclick="numberScore(this.id)">7</div>
-         <div class="small scorelow" id="score8" onclick="numberScore(this.id)">8</div>
-         <div class="small scorelow" id="score9" onclick="numberScore(this.id)">9</div>
-      </div>
-      <div class="child-eight">
-         <div class="small scorelow" id="scoreprev" onclick="prevHole()">prev</div>
-         <div class="small scorelow" id="score0" onclick="numberScore(this.id)">0</div>
-         <div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
-     </div>
-      
-      
- 
-   
-   
-   
-   
-   
-   
-   
-   
-      
-      <div id="info" onclick="hideInfo()">
-         <div id="x1"></div>
-         <div class="child-three">
-            <div id="h0" class="box1c">hole</div>
-            <div id="p1h0" class="box1c">player 1</div>
-            <div id="p2h0" class="box1c">player 2</div>
-            <div id="p3h0" class="box1c">player 3</div>
-            <div id="p4h0" class="box1c">player 4</div>
-         </div>
-         <div class="child-three">
-            <div id="h1" class="box1">1</div>
-            <div id="p1h1" class="box1">-</div>
-            <div id="p2h1" class="box1">-</div>
-            <div id="p3h1" class="box1">-</div>
-            <div id="p4h1" class="box1">-</div>
-         </div>
-         <div class="child-three">   
-            <div id="h2" class="box1">2</div>
-            <div id="p1h2" class="box1">-</div>
-            <div id="p2h2" class="box1">-</div>
-            <div id="p3h2" class="box1">-</div>
-            <div id="p4h2" class="box1">-</div>
-         </div>
-         <div class="child-three">
-            <div id="h3" class="box1">3</div>
-            <div id="p1h3" class="box1">-</div>
-            <div id="p2h3" class="box1">-</div>
-            <div id="p3h3" class="box1">-</div>
-            <div id="p4h3" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h4" class="box1">4</div>
-            <div id="p1h4" class="box1">-</div>
-            <div id="p2h4" class="box1">-</div>
-            <div id="p3h4" class="box1">-</div>
-            <div id="p4h4" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h5" class="box1">5</div>
-            <div id="p1h5" class="box1">-</div>
-            <div id="p2h5" class="box1">-</div>
-            <div id="p3h5" class="box1">-</div>
-            <div id="p4h5" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h6" class="box1">6</div>
-            <div id="p1h6" class="box1">-</div>
-            <div id="p2h6" class="box1">-</div>
-            <div id="p3h6" class="box1">-</div>
-            <div id="p4h6" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h7" class="box1">7</div>
-            <div id="p1h7" class="box1">-</div>
-            <div id="p2h7" class="box1">-</div>
-            <div id="p3h7" class="box1">-</div>
-            <div id="p4h7" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h8" class="box1">8</div>
-            <div id="p1h8" class="box1">-</div>
-            <div id="p2h8" class="box1">-</div>
-            <div id="p3h8" class="box1">-</div>
-            <div id="p4h8" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h9" class="box1">9</div>
-            <div id="p1h9" class="box1">-</div>
-            <div id="p2h9" class="box1">-</div>
-            <div id="p3h9" class="box1">-</div>
-            <div id="p4h9" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="front" class="box1c">front</div>
-            <div id="p1hf" class="box1c">-</div>
-            <div id="p2hf" class="box1c">-</div>
-            <div id="p3hf" class="box1c">-</div>
-            <div id="p4hf" class="box1c">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h10" class="box1">10</div>
-            <div id="p1h10" class="box1">-</div>
-            <div id="p2h10" class="box1">-</div>
-            <div id="p3h10" class="box1">-</div>
-            <div id="p4h10" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h11" class="box1">11</div>
-            <div id="p1h11" class="box1">-</div>
-            <div id="p2h11" class="box1">-</div>
-            <div id="p3h11" class="box1">-</div>
-            <div id="p4h11" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h12" class="box1">12</div>
-            <div id="p1h12" class="box1">-</div>
-            <div id="p2h12" class="box1">-</div>
-            <div id="p3h12" class="box1">-</div>
-            <div id="p4h12" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h13" class="box1">13</div>
-            <div id="p1h13" class="box1">-</div>
-            <div id="p2h13" class="box1">-</div>
-            <div id="p3h13" class="box1">-</div>
-            <div id="p4h13" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h14" class="box1">14</div>
-            <div id="p1h14" class="box1">-</div>
-            <div id="p2h14" class="box1">-</div>
-            <div id="p3h14" class="box1">-</div>
-            <div id="p4h14" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h15" class="box1">15</div>
-            <div id="p1h15" class="box1">-</div>
-            <div id="p2h15" class="box1">-</div>
-            <div id="p3h15" class="box1">-</div>
-            <div id="p4h15" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h16" class="box1">16</div>
-            <div id="p1h16" class="box1">-</div>
-            <div id="p2h16" class="box1">-</div>
-            <div id="p3h16" class="box1">-</div>
-            <div id="p4h16" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h17" class="box1">17</div>
-            <div id="p1h17" class="box1">-</div>
-            <div id="p2h17" class="box1">-</div>
-            <div id="p3h17" class="box1">-</div>
-            <div id="p4h17" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="h18" class="box1">18</div>
-            <div id="p1h18" class="box1">-</div>
-            <div id="p2h18" class="box1">-</div>
-            <div id="p3h18" class="box1">-</div>
-            <div id="p4h18" class="box1">-</div>
-            </div>
-         <div class="child-three">
-            <div id="back" class="box1c">back</div>
-            <div id="p1hb" class="box1c">-</div>
-            <div id="p2hb" class="box1c">-</div>
-            <div id="p3hb" class="box1c">-</div>
-            <div id="p4hb" class="box1c">-</div>
-            </div>
-         <div class="child-three">
-            <div id="total" class="box1c">total</div>
-            <div id="p1ht" class="box1c">-</div>
-            <div id="p2ht" class="box1c">-</div>
-            <div id="p3ht" class="box1c">-</div>
-            <div id="p4ht" class="box1c">-</div>
-         </div>
-      </div>
-      
-      
-      
-      
-      
-      
-      
-      	
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>4score</title>
+	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 	
-	<!--
+	html {
+		height: 100%;
+		width: 100%;
+	}
+	
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 3vh;
+		background: black;
+		height: 100%;
+		width: 100%;
+	}
+	/* dropdown */
+	
+	#dropbtn {
+		color: white;
+		background: black;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid Gray;
+	}
+	
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: white;
+		min-width: 160px;
+		overflow: auto;
+		z-index: 1;
+		border-radius: 5px;
+		box-shadow: 10px 10px 25px black;
+		max-height: 60vh;
+	}
+	
+	.dropdown-content a {
+		color: gray;
+		padding: 10px 16px;
+		text-decoration: none;
+		display: block;
+	}
+	
+	.show {
+		display: block;
+	}
+	/* end of dropdown */
+	
+	#firstscreen {
+		height: 100%;
+		width: 100%;
+		background: black;
+		color: white;
+		-webkit-animation-duration: 1.5s;
+		animation-duration: 1.5s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	/* scoring screen */
+	
+	#all {
+		display: none;
+	}
+	/* fade out/in between screens */
+	
+	@-webkit-keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	
+	.fadeOut {
+		-webkit-animation-name: fadeOut;
+		animation-name: fadeOut;
+	}
+	
+	.spacer1 {
+		height: 5vh;
+	}
+	/* start scoring button */
+	
+	#startscoring {
+		color: white;
+		width: 100%;
+		height: 15vh;
+		font-size: 3vmax;
+		border: 2px solid silver;
+		background: dodgerBlue;
+		border-radius: 5px;
+	}
+	
+	#startscoring {
+		//display: none;
+	}
+	/* highlights selected player */
+	
+	.highlight {
+		color: cyan;
+		//border: 1px solid black;
+		box-shadow: inset white 0px 0px 60px -12px;
+	}
+	
+	.scorelow {
+		font-size: 4vh;
+		color: lime;
+		display: inline-block;
+		width: 40%;
+		height: 10vh;
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	/* highlights keyboard score pressed */
+	
+	.scorehigh {
+		font-size: 4vh;
+		color: cyan;
+		display: inline-block;
+		width: 40%;
+		height: 10vh;
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 5px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+		box-shadow: inset white 0px 0px 60px -12px;
+	}
+	
+	#info {
+		display: none;
+		overflow: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		color: white;
+		background-color: black; //dimGray;
+		//opacity: 0.95;
+		//border-radius: 10px;
+		padding-left: 1px;
+		padding-right: 1px;
+		padding-bottom: 1px;
+		//box-shadow: inset black 0px 0px 60px -12px;
+	}
+	
+	#p1h0,
+	#p2h0,
+	#p3h0,
+	#p4h0 {
+		padding-top: 5px;
+		font-size: 2vh;
+		padding-bottom: 5px;
+	}
+	
+	#x1 {
+		color: yellow;
+		font-size: 2vh;
+	}
+	
+	#popuppanel {
+		background-color: #ddd;
+		font-size: 3vh;
+		display: inline-block;
+		border-radius: 3px;
+		border: 1px solid #aaa;
+		padding: 10px;
+		margin: 5vw;
+		text-align: center;
+		width: 80vw;
+		//height: 50px;
+		cursor: pointer;
+	}
+	/* hide forms */
+	
+	#my-response-iframe,
+	#my-form {
+		display: none;
+	}
+	/* */
+	
+	.child-one {
+		height: 10%;
+		font-size: 5vh;
+		border: 2px solid Gray;
+		border-radius: 5px;
+	}
+	
+	.child-two {
+		display: flex;
+		color: white;
+		background: black;
+		font-family: 'Kalam';
+		//font-weight: bold;
+		height: 100%;
+		text-align: center;
+		flex-grow: 1;
+	}
+	/* holes */
+	
+	.child-three {
+		display: flex;
+		color: white;
+		font-family: 'Kalam';
+		font-weight: bold;
+		height: calc(100% / 22);
+		text-align: center;
+		flex-grow: 1;
+	}
+	
+	.child-six {
+		display: flex;
+		background: black;
+		color: white;
+		font-family: 'Kalam';
+		height: calc(100% / 9);
+		text-align: center;
+		width: 100%;
+	}
+	
+	.child-seven {
+		display: flex;
+		background: black;
+		color: white;
+		font-family: 'Kalam';
+		height: calc(100% / 9);
+		text-align: center;
+		width: 100%;
+	}
+	
+	.child-eight {
+		display: flex;
+		background: black;
+		color: white;
+		font-family: 'Kalam';
+		height: calc(100% / 9);
+		text-align: center;
+		width: 100%;
+	}
+	/* player names */
+	
+	#p1name,
+	#p2name,
+	#p3name,
+	#p4name {
+		font-size: 4vh;
+		display: inline-block;
+		width: calc(100% / 3 * 2);
+		height: 100%; //calc(100% / 9);
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	/* player scores */
+	
+	#p1score,
+	#p2score,
+	#p3score,
+	#p4score {
+		font-size: 4vh;
+		display: inline-block;
+		width: calc(100% / 3);
+		height: 100%; //calc(100% / 9);
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	/* default "keyboard" */
+	
+	.small {
+		font-size: 4vh;
+		display: inline-block;
+		width: calc(100% / 3);
+		height: 10vh;
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	/* banner hole details */
+	
+	#holedetails {
+		color: white;
+		background: black;
+		font-size: 4vh;
+		display: inline-block;
+		width: 100%;
+		height: calc(100% / 9);
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	
+	#bb {
+		height: 60%;
+	}
+	
+	.box1 {
+		width: calc(100% / 5);
+		text-align: center;
+	}
+	
+	.box1c {
+		color: lime;
+		width: calc(100% / 5);
+		text-align: center;
+	}
+	
+	#player4ballplayer {
+		width: 30%;
+		padding: 1vw;
+		//border: 3px solid cyan;
+	}
+	
+	#player4ballname {
+		width: 55%;
+		padding: 1vw;
+		//border: 3px solid cyan;
+	}
+	
+	#player4ballhcp {
+		width: 15%;
+		padding: 1vw;
+		//border: 3px solid cyan;
+	}
+	
+	.submit {
+		font-size: 100%;
+		color: white;
+		background: dodgerBlue;
+		height: 100%;
+		line-height: 10vh;
+		text-align: center;
+	}
+	
+	.child2 {
+		display: flex;
+		//border: 3px solid cyan;
+		//background: cyan;
+	}
+	
+	#blackout {
+		display: none;
+		background: rgba(13, 13, 13, 255); //black;
+		height: 100vh;
+		width: 100vw;
+		position: absolute;
+		top: 0;
+		left: 0;
+		//display: flex;
+  justify-content: center;
+  padding-top: 30%;
+
+	}
+	
+	#sending {
+		position: relative;
+		background: black;
+	
+   
+
+	}
+	
+	#done {
+		position: relative;
+		background: black;
+
+ 
+
+	}
+	</style>
+</head>
+
+<body>
+	<!-- initial setup screen -->
+	<div id="firstscreen">
+		<div class="child-one">
+			<div onclick="toggleDropdown()" class="dropbtn" id="dropbtn">tap to add player 1</div>
+			<div id="playersDropdown" class="dropdown-content"></div>
+		</div>
+		<div class="child2">
+			<div id="player4ballplayer"></div>
+			<div id="player4ballname">&lt;empty&gt;
+				<br>&lt;empty&gt;
+				<br>&lt;empty&gt;
+				<br>&lt;empty&gt;</div>
+			<div id="player4ballhcp"></div>
+		</div>
+		<div class="child-one">
+			<div>
+				<button id="startscoring" onclick="getScoring()">start scoring</button>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	<div id="blackout"></div>
+	
+	
+	
+	
+	
+	<!-- scoring screen -->
+	<div id="all">
+		<div class="child-six" onclick="displayInfo()">
+			<div id="holedetails">hole 1 par si etc.</div>
+		</div>
+		<div class="child-seven">
+			<div id="p1name" onclick="selected(this.id)">player 1</div>
+			<div id="p1score" onclick="selected(this.id)">0</div>
+		</div>
+		<div class="child-seven">
+			<div id="p2name" onclick="selected(this.id)">player 2</div>
+			<div id="p2score" onclick="selected(this.id)">0</div>
+		</div>
+		<div class="child-seven">
+			<div id="p3name" onclick="selected(this.id)">player 3</div>
+			<div id="p3score" onclick="selected(this.id)">0</div>
+		</div>
+		<div class="child-seven">
+			<div id="p4name" onclick="selected(this.id)">player 4</div>
+			<div id="p4score" onclick="selected(this.id)">0</div>
+		</div>
+		<div class="child-eight">
+			<div class="small scorelow" id="score1" onclick="numberScore(this.id)">1</div>
+			<div class="small scorelow" id="score2" onclick="numberScore(this.id)">2</div>
+			<div class="small scorelow" id="score3" onclick="numberScore(this.id)">3</div>
+		</div>
+		<div class="child-eight">
+			<div class="small scorelow" id="score4" onclick="numberScore(this.id)">4</div>
+			<div class="small scorelow" id="score5" onclick="numberScore(this.id)">5</div>
+			<div class="small scorelow" id="score6" onclick="numberScore(this.id)">6</div>
+		</div>
+		<div class="child-eight">
+			<div class="small scorelow" id="score7" onclick="numberScore(this.id)">7</div>
+			<div class="small scorelow" id="score8" onclick="numberScore(this.id)">8</div>
+			<div class="small scorelow" id="score9" onclick="numberScore(this.id)">9</div>
+		</div>
+		<div class="child-eight">
+			<div class="small scorelow" id="scoreprev" onclick="prevHole()">prev</div>
+			<div class="small scorelow" id="score0" onclick="numberScore(this.id)">0</div>
+			<div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		<div id="info" onclick="hideInfo()">
+			<div id="x1"></div>
+			<div class="child-three">
+				<div id="h0" class="box1c">hole</div>
+				<div id="p1h0" class="box1c">player 1</div>
+				<div id="p2h0" class="box1c">player 2</div>
+				<div id="p3h0" class="box1c">player 3</div>
+				<div id="p4h0" class="box1c">player 4</div>
+			</div>
+			<div class="child-three">
+				<div id="h1" class="box1">1</div>
+				<div id="p1h1" class="box1">-</div>
+				<div id="p2h1" class="box1">-</div>
+				<div id="p3h1" class="box1">-</div>
+				<div id="p4h1" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h2" class="box1">2</div>
+				<div id="p1h2" class="box1">-</div>
+				<div id="p2h2" class="box1">-</div>
+				<div id="p3h2" class="box1">-</div>
+				<div id="p4h2" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h3" class="box1">3</div>
+				<div id="p1h3" class="box1">-</div>
+				<div id="p2h3" class="box1">-</div>
+				<div id="p3h3" class="box1">-</div>
+				<div id="p4h3" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h4" class="box1">4</div>
+				<div id="p1h4" class="box1">-</div>
+				<div id="p2h4" class="box1">-</div>
+				<div id="p3h4" class="box1">-</div>
+				<div id="p4h4" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h5" class="box1">5</div>
+				<div id="p1h5" class="box1">-</div>
+				<div id="p2h5" class="box1">-</div>
+				<div id="p3h5" class="box1">-</div>
+				<div id="p4h5" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h6" class="box1">6</div>
+				<div id="p1h6" class="box1">-</div>
+				<div id="p2h6" class="box1">-</div>
+				<div id="p3h6" class="box1">-</div>
+				<div id="p4h6" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h7" class="box1">7</div>
+				<div id="p1h7" class="box1">-</div>
+				<div id="p2h7" class="box1">-</div>
+				<div id="p3h7" class="box1">-</div>
+				<div id="p4h7" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h8" class="box1">8</div>
+				<div id="p1h8" class="box1">-</div>
+				<div id="p2h8" class="box1">-</div>
+				<div id="p3h8" class="box1">-</div>
+				<div id="p4h8" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h9" class="box1">9</div>
+				<div id="p1h9" class="box1">-</div>
+				<div id="p2h9" class="box1">-</div>
+				<div id="p3h9" class="box1">-</div>
+				<div id="p4h9" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="front" class="box1c">front</div>
+				<div id="p1hf" class="box1c">-</div>
+				<div id="p2hf" class="box1c">-</div>
+				<div id="p3hf" class="box1c">-</div>
+				<div id="p4hf" class="box1c">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h10" class="box1">10</div>
+				<div id="p1h10" class="box1">-</div>
+				<div id="p2h10" class="box1">-</div>
+				<div id="p3h10" class="box1">-</div>
+				<div id="p4h10" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h11" class="box1">11</div>
+				<div id="p1h11" class="box1">-</div>
+				<div id="p2h11" class="box1">-</div>
+				<div id="p3h11" class="box1">-</div>
+				<div id="p4h11" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h12" class="box1">12</div>
+				<div id="p1h12" class="box1">-</div>
+				<div id="p2h12" class="box1">-</div>
+				<div id="p3h12" class="box1">-</div>
+				<div id="p4h12" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h13" class="box1">13</div>
+				<div id="p1h13" class="box1">-</div>
+				<div id="p2h13" class="box1">-</div>
+				<div id="p3h13" class="box1">-</div>
+				<div id="p4h13" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h14" class="box1">14</div>
+				<div id="p1h14" class="box1">-</div>
+				<div id="p2h14" class="box1">-</div>
+				<div id="p3h14" class="box1">-</div>
+				<div id="p4h14" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h15" class="box1">15</div>
+				<div id="p1h15" class="box1">-</div>
+				<div id="p2h15" class="box1">-</div>
+				<div id="p3h15" class="box1">-</div>
+				<div id="p4h15" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h16" class="box1">16</div>
+				<div id="p1h16" class="box1">-</div>
+				<div id="p2h16" class="box1">-</div>
+				<div id="p3h16" class="box1">-</div>
+				<div id="p4h16" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h17" class="box1">17</div>
+				<div id="p1h17" class="box1">-</div>
+				<div id="p2h17" class="box1">-</div>
+				<div id="p3h17" class="box1">-</div>
+				<div id="p4h17" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="h18" class="box1">18</div>
+				<div id="p1h18" class="box1">-</div>
+				<div id="p2h18" class="box1">-</div>
+				<div id="p3h18" class="box1">-</div>
+				<div id="p4h18" class="box1">-</div>
+			</div>
+			<div class="child-three">
+				<div id="back" class="box1c">back</div>
+				<div id="p1hb" class="box1c">-</div>
+				<div id="p2hb" class="box1c">-</div>
+				<div id="p3hb" class="box1c">-</div>
+				<div id="p4hb" class="box1c">-</div>
+			</div>
+			<div class="child-three">
+				<div id="total" class="box1c">total</div>
+				<div id="p1ht" class="box1c">-</div>
+				<div id="p2ht" class="box1c">-</div>
+				<div id="p3ht" class="box1c">-</div>
+				<div id="p4ht" class="box1c">-</div>
+			</div>
+		</div>
+		<div class="child-one">
+			<div class="submit" onclick="submitForm()">
+				<div id="submit">submit</div>
+			</div>
+		</div>
+		
+		<!--
 	invisible but necessary for submit of data
 	-->
-	
-	 <!-- form to construct data prior to submit -->
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLSdqW6j0CDZA8gOpRn3Wew6KNKkeEf1T6w2-f0qKgwacddblkA/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
-    <!-- name, hcp, course -->
-    <input id='mx867055232' name='entry.867055232' type='text' value='default'>
-    <input id='mx2105479454' name='entry.2105479454' type='text' value='default'>
-   
-    <input type="submit"> </form>
-  <!-- google iframe inserted here - invisible -->
-  <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdqW6j0CDZA8gOpRn3Wew6KNKkeEf1T6w2-f0qKgwacddblkA/viewform?embedded=true" width="60"></iframe>
-  <br>
-  
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <script>  
-//=================================================================================
-// this runs on startup or reload
-// 
-//=================================================================================
-// declare global variables
-var selectedplayer = 1;
-// hilight first player entry
-document.getElementById("p1name").classList.add("highlight");
-var arrCourse = [];
-var arrHCPs = [];
-var arrPlayers = [];
-var compcourse = "none";
-var compdate = "";
-var shotsscore = "";
-var currenthole = 0;
-// declare global variables
-var hcp = "0";
-var player = "select player";
-var comp;
-var course = "OldCourse";
-var arrOptions = [];
-var hcplist = "";
-var msglist = "";
-var msglistcount = 0;
-var player1name = "player 1";
-var player2name = "player 2";
-var player3name = "player 3";
-var player4name = "player 4";
-var player1hcp = "?";
-var player2hcp = "?";
-var player3hcp = "?";
-var player4hcp = "?";
-var originalhcp1 = 0;
-var originalhcp2 = 0;
-var originalhcp3 = 0;
-var originalhcp4 = 0;
-var whichhole = 1;
-
-var frontp1 = 0
-var frontp2 = 0
-var frontp3 = 0
-var backp1 = 0
-var backp2 = 0
-var backp3 = 0
-var allp1 = 0
-var allp2 = 0
-var allp3 = 0
-var fronttxt9 = "";
-var backtxt9 = "";
-var alltxt18 = "";
-var frontleaderplayer = "";
-var frontleaderholes = 0;
-var frontwincount = 0;
-var backleaderplayer = "";
-var backleaderholes = 0;
-var backwincount = 0;
-var allleaderplayer = "";
-var allleaderholes = 0;
-var allwincount = 0;
-
-
-
-
-
-// set up courses with details for calculations etc.
-// array ["hole num",par,si]
-// Lakes
-arrCourse = [
-	[0, 0, 0],
-	[1, 4, 15],
-	[2, 4, 7],
-	[3, 5, 3],
-	[4, 4, 1],
-	[5, 3, 17],
-	[6, 3, 11],
-	[7, 4, 9],
-	[8, 4, 5],
-	[9, 4, 13],
-	[10, 3, 16],
-	[11, 4, 18],
-	[12, 4, 10],
-	[13, 4, 6],
-	[14, 3, 14],
-	[15, 3, 4],
-	[16, 5, 12],
-	[17, 4, 2],
-	[18, 5, 8]
-];
-// array ["hole num",par,si]
-// Dawson
-arrDawson = [
-	[0, 0, 0],
-	[1, 5, 13],
-	[2, 4, 15],
-	[3, 3, 17],
-	[4, 4, 3],
-	[5, 4, 1],
-	[6, 5, 11],
-	[7, 4, 7],
-	[8, 4, 9],
-	[9, 5, 5],
-	[10, 4, 16],
-	[11, 5, 14],
-	[12, 3, 18],
-	[13, 4, 2],
-	[14, 4, 4],
-	[15, 4, 12],
-	[16, 3, 6],
-	[17, 4, 10],
-	[18, 4, 8]
-];
-// array ["hole num",par,si]
-// OldCourse
-arrOldCourse = [
-	[0, 0, 0],
-	[1, 5, 10],
-	[2, 4, 6],
-	[3, 3, 18],
-	[4, 5, 4],
-	[5, 3, 16],
-	[6, 4, 2],
-	[7, 4, 14],
-	[8, 4, 8],
-	[9, 4, 12],
-	[10, 4, 5],
-	[11, 3, 13],
-	[12, 4, 15],
-	[13, 4, 1],
-	[14, 5, 7],
-	[15, 3, 11],
-	[16, 5, 9],
-	[17, 4, 3],
-	[18, 5, 17]
-];
-
-// prevent accidental closing
-window.addEventListener("beforeunload", function (e) {
-   // Cancel the event
-   e.preventDefault();
-   e.returnValue = "";
-});
-
-
-// 1st hole
-var holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
-", si " + arrCourse[whichhole][2]
-document.getElementById("holedetails").innerText = holedetails
-
-
-	//===========================
-	// this code runs at startup
-	//===========================
-	//==============================================================
-	// data has previously been stored so just retrieve it
-	//==============================================================
-	// retrieve arrays
-if("xplayersarray" in localStorage) {
-	arrPlayers = JSON.parse(localStorage.xplayersarray);
-}
-if("xhcparray" in localStorage) {
-	arrHCPs = JSON.parse(localStorage.xhcparray);
-}
-
-//showDownloadingInfoMsg();
-
-startNewDay();
-//=============================================================
-// functions - run when called
-//=============================================================  
-function startNewDay() {
-	// get todays date eg 26 June
-	dd = new Date();
-	// get date number and format it
-	d1 = dd.getDate();
-	if(d1 < 10) {
-		d1 = "0" + d1;
-	}
-	// get month and format it
-	d2 = dd.getMonth();
-	if(d2 == 0) {
-		m = "January";
-	}
-	if(d2 == 1) {
-		m = "February";
-	}
-	if(d2 == 2) {
-		m = "March";
-	}
-	if(d2 == 3) {
-		m = "April";
-	}
-	if(d2 == 4) {
-		m = "May";
-	}
-	if(d2 == 5) {
-		m = "June";
-	}
-	if(d2 == 6) {
-		m = "July";
-	}
-	if(d2 == 7) {
-		m = "August";
-	}
-	if(d2 == 8) {
-		m = "September";
-	}
-	if(d2 == 9) {
-		m = "October";
-	}
-	if(d2 == 10) {
-		m = "November";
-	}
-	if(d2 == 11) {
-		m = "December";
-	}
-	dateToday = d1 + " " + m;
-	dstored = d1 + "-" + d2
-	compdate = d1 + " " + m;
-	if(localStorage.xcompdate !== compdate) {
-		// create set of local storage items	
-		setupScores()
-	}
-	// doublecheck ??    
-	if("xcomp" in localStorage) {
-		// if its a new comp
-		if(localStorage.xcomp.indexOf(dateToday) < 0) {
-			localStorage.removeItem("xcomp");
-			localStorage.removeItem("xcourse");
-			localStorage.removeItem("xplayer");
-			localStorage.removeItem("xhcp");
-			localStorage.setItem("xdstored", dstored);
+		<!-- form to construct data prior to submit -->
+		<form action="https://docs.google.com/forms/d/e/1FAIpQLSdqW6j0CDZA8gOpRn3Wew6KNKkeEf1T6w2-f0qKgwacddblkA/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+			<!-- name, hcp, course -->
+			<input id='mx867055232' name='entry.867055232' type='text' value='default'>
+			<input id='mx2105479454' name='entry.2105479454' type='text' value='default'>
+			<input type="submit"> </form>
+		<!-- google iframe inserted here - invisible -->
+		<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdqW6j0CDZA8gOpRn3Wew6KNKkeEf1T6w2-f0qKgwacddblkA/viewform?embedded=true" width="60"></iframe>
+		<br>
+		<script>
+		//=================================================================================
+		// this runs on startup or reload
+		// 
+		//=================================================================================
+		// declare global variables
+		var selectedplayer = 1;
+		// hilight first player entry
+		document.getElementById("p1name").classList.add("highlight");
+		var arrCourse = [];
+		var arrHCPs = [];
+		var arrPlayers = [];
+		var compcourse = "none";
+		var compdate = "";
+		var shotsscore = "";
+		var currenthole = 0;
+		// declare global variables
+		var hcp = "0";
+		var player = "select player";
+		var comp;
+		var course = "OldCourse";
+		var arrOptions = [];
+		var hcplist = "";
+		var msglist = "";
+		var msglistcount = 0;
+		var player1name = "player 1";
+		var player2name = "player 2";
+		var player3name = "player 3";
+		var player4name = "player 4";
+		var player1hcp = "?";
+		var player2hcp = "?";
+		var player3hcp = "?";
+		var player4hcp = "?";
+		var originalhcp1 = 0;
+		var originalhcp2 = 0;
+		var originalhcp3 = 0;
+		var originalhcp4 = 0;
+		var whichhole = 1;
+		var frontp1 = 0
+		var frontp2 = 0
+		var frontp3 = 0
+		var backp1 = 0
+		var backp2 = 0
+		var backp3 = 0
+		var allp1 = 0
+		var allp2 = 0
+		var allp3 = 0
+		var fronttxt9 = "";
+		var backtxt9 = "";
+		var alltxt18 = "";
+		var frontleaderplayer = "";
+		var frontleaderholes = 0;
+		var frontwincount = 0;
+		var backleaderplayer = "";
+		var backleaderholes = 0;
+		var backwincount = 0;
+		var allleaderplayer = "";
+		var allleaderholes = 0;
+		var allwincount = 0;
+		// set up courses with details for calculations etc.
+		// array ["hole num",par,si]
+		// Lakes
+		arrCourse = [
+			[0, 0, 0],
+			[1, 4, 15],
+			[2, 4, 7],
+			[3, 5, 3],
+			[4, 4, 1],
+			[5, 3, 17],
+			[6, 3, 11],
+			[7, 4, 9],
+			[8, 4, 5],
+			[9, 4, 13],
+			[10, 3, 16],
+			[11, 4, 18],
+			[12, 4, 10],
+			[13, 4, 6],
+			[14, 3, 14],
+			[15, 3, 4],
+			[16, 5, 12],
+			[17, 4, 2],
+			[18, 5, 8]
+		];
+		// array ["hole num",par,si]
+		// Dawson
+		arrDawson = [
+			[0, 0, 0],
+			[1, 5, 13],
+			[2, 4, 15],
+			[3, 3, 17],
+			[4, 4, 3],
+			[5, 4, 1],
+			[6, 5, 11],
+			[7, 4, 7],
+			[8, 4, 9],
+			[9, 5, 5],
+			[10, 4, 16],
+			[11, 5, 14],
+			[12, 3, 18],
+			[13, 4, 2],
+			[14, 4, 4],
+			[15, 4, 12],
+			[16, 3, 6],
+			[17, 4, 10],
+			[18, 4, 8]
+		];
+		// array ["hole num",par,si]
+		// OldCourse
+		arrOldCourse = [
+			[0, 0, 0],
+			[1, 5, 10],
+			[2, 4, 6],
+			[3, 3, 18],
+			[4, 5, 4],
+			[5, 3, 16],
+			[6, 4, 2],
+			[7, 4, 14],
+			[8, 4, 8],
+			[9, 4, 12],
+			[10, 4, 5],
+			[11, 3, 13],
+			[12, 4, 15],
+			[13, 4, 1],
+			[14, 5, 7],
+			[15, 3, 11],
+			[16, 5, 9],
+			[17, 4, 3],
+			[18, 5, 17]
+		];
+		// prevent accidental closing
+		window.addEventListener("beforeunload", function(e) {
+			// Cancel the event
+			e.preventDefault();
+			e.returnValue = "";
+		});
+		// 1st hole
+		var holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2]
+		document.getElementById("holedetails").innerText = holedetails
+			//===========================
+			// this code runs at startup
+			//===========================
+			//==============================================================
+			// data has previously been stored so just retrieve it
+			//==============================================================
+			// retrieve arrays
+		if("xplayersarray" in localStorage) {
+			arrPlayers = JSON.parse(localStorage.xplayersarray);
 		}
-	}
-}
-
-async function getData() {
-	var dataStream = 
-	await fetch("https://opensheet.elk.sh/1xeS22CrN3Mdq2nRQLACDBN7iaMSBJ7MM1PX7gikWOJM/sweepcsv")
-	var resultsarray = await dataStream.json();
-	// get rid of blanks in array by creating new arrays
-	for(var i = 0; i < resultsarray.length; i++) {
-		if(resultsarray[i].player.length > 2) {
-			arrPlayers.push(resultsarray[i].player);
-			arrHCPs.push(resultsarray[i].hcp);
+		if("xhcparray" in localStorage) {
+			arrHCPs = JSON.parse(localStorage.xhcparray);
 		}
-	}
-	//document.getElementById("popuppanel").style.display = "none";
-	start();
-	showRecoverChoice()
-}
-getData()
-	//=============================================================
-	//=============================================================
-	// function start()
-	// - initialise everything and do checks etc.
-	//=============================================================  
-function start() {
-	// bring most commonly selected to the top
-	//arrPlayers.sort(compareSecondColumn);
-	// create player dropdown
-	var select = document.getElementById("playersDropdown");
-	// this is what is created
-	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-	//
-	for(var i = 0; i < arrPlayers.length; i++) {
-		var el = document.createElement("a");
-		el.id = "myLink" + (i);
-		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-		el.setAttribute("href", "#");
-		el.innerText = arrPlayers[i];
-		select.appendChild(el);
-	}
-	// Close the dropdown if the user clicks outside of it
-	window.onclick = function(event) {
-		if(!event.target.matches('.dropbtn')) {
+		//showDownloadingInfoMsg();
+		startNewDay();
+		//=============================================================
+		// functions - run when called
+		//=============================================================  
+		function startNewDay() {
+			// get todays date eg 26 June
+			dd = new Date();
+			// get date number and format it
+			d1 = dd.getDate();
+			if(d1 < 10) {
+				d1 = "0" + d1;
+			}
+			// get month and format it
+			d2 = dd.getMonth();
+			if(d2 == 0) {
+				m = "January";
+			}
+			if(d2 == 1) {
+				m = "February";
+			}
+			if(d2 == 2) {
+				m = "March";
+			}
+			if(d2 == 3) {
+				m = "April";
+			}
+			if(d2 == 4) {
+				m = "May";
+			}
+			if(d2 == 5) {
+				m = "June";
+			}
+			if(d2 == 6) {
+				m = "July";
+			}
+			if(d2 == 7) {
+				m = "August";
+			}
+			if(d2 == 8) {
+				m = "September";
+			}
+			if(d2 == 9) {
+				m = "October";
+			}
+			if(d2 == 10) {
+				m = "November";
+			}
+			if(d2 == 11) {
+				m = "December";
+			}
+			dateToday = d1 + " " + m;
+			dstored = d1 + "-" + d2
+			compdate = d1 + " " + m;
+			if(localStorage.xcompdate !== compdate) {
+				// create set of local storage items	
+				setupScores()
+			}
+			// doublecheck ??    
+			if("xcomp" in localStorage) {
+				// if its a new comp
+				if(localStorage.xcomp.indexOf(dateToday) < 0) {
+					localStorage.removeItem("xcomp");
+					localStorage.removeItem("xcourse");
+					localStorage.removeItem("xplayer");
+					localStorage.removeItem("xhcp");
+					localStorage.setItem("xdstored", dstored);
+				}
+			}
+		}
+		async function getData() {
+			var dataStream = await fetch("https://opensheet.elk.sh/1xeS22CrN3Mdq2nRQLACDBN7iaMSBJ7MM1PX7gikWOJM/sweepcsv")
+			var resultsarray = await dataStream.json();
+			// get rid of blanks in array by creating new arrays
+			for(var i = 0; i < resultsarray.length; i++) {
+				if(resultsarray[i].player.length > 2) {
+					arrPlayers.push(resultsarray[i].player);
+					arrHCPs.push(resultsarray[i].hcp);
+				}
+			}
+			//document.getElementById("popuppanel").style.display = "none";
+			start();
+			showRecoverChoice()
+		}
+		getData()
+			//=============================================================
+			//=============================================================
+			// function start()
+			// - initialise everything and do checks etc.
+			//=============================================================  
+		function start() {
+			// bring most commonly selected to the top
+			//arrPlayers.sort(compareSecondColumn);
+			// create player dropdown
+			var select = document.getElementById("playersDropdown");
+			// this is what is created
+			//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+			//
+			for(var i = 0; i < arrPlayers.length; i++) {
+				var el = document.createElement("a");
+				el.id = "myLink" + (i);
+				el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+				el.setAttribute("href", "#");
+				el.innerText = arrPlayers[i];
+				select.appendChild(el);
+			}
+			// Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+				if(!event.target.matches('.dropbtn')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for(i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if(openDropdown.classList.contains('show')) {
+							openDropdown.classList.remove('show');
+						}
+					}
+				}
+			};
+			// get todays date eg 26 June
+			dd = new Date();
+			// get date number and format it
+			d1 = dd.getDate();
+			if(d1 < 10) {
+				d1 = "0" + d1;
+			}
+			// get month and format it
+			d2 = dd.getMonth();
+			if(d2 == 0) {
+				m = "January";
+			}
+			if(d2 == 1) {
+				m = "February";
+			}
+			if(d2 == 2) {
+				m = "March";
+			}
+			if(d2 == 3) {
+				m = "April";
+			}
+			if(d2 == 4) {
+				m = "May";
+			}
+			if(d2 == 5) {
+				m = "June";
+			}
+			if(d2 == 6) {
+				m = "July";
+			}
+			if(d2 == 7) {
+				m = "August";
+			}
+			if(d2 == 8) {
+				m = "September";
+			}
+			if(d2 == 9) {
+				m = "October";
+			}
+			if(d2 == 10) {
+				m = "November";
+			}
+			if(d2 == 11) {
+				m = "December";
+			}
+			compdate = d1 + " " + m;
+		} // end function start()
+		//=============================================================
+		// functions - run when called
+		//=============================================================  
+		//=============================================================
+		// function resetNames()
+		// - gets rid of "selected" names
+		//=============================================================  
+		function resetNames() {
+			// create player dropdown
+			var select = document.getElementById("playersDropdown");
+			// empty names
+			select.innerHTML = "";
+			// redo list for menu
+			// <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+			//
+			for(var i = 0; i < arrPlayers.length; i++) {
+				var el = document.createElement("a");
+				el.id = "myLink" + (i + 1);
+				el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+				el.setAttribute("href", "#");
+				el.innerText = arrPlayers[i];
+				select.appendChild(el);
+			}
+		}
+		// name selected, do stuff
+		function dropSelected(playerName) {
+			console.log("here 1")
+				// retrieve dropdown info
+			for(var k = 0; k < arrPlayers.length; k++) {
+				if(arrPlayers[k] == playerName) {
+					found = true;
+					pos = k;
+				}
+			}
+			// change color on selection
+			document.getElementById("myLink" + pos.toString()).style.color = "blue";
+			document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
+			// update player choice
+			player = document.getElementById("myLink" + pos.toString()).innerText;
+			outputPlayers(player)
+				// close dropdown
 			var dropdowns = document.getElementsByClassName("dropdown-content");
 			var i;
 			for(i = 0; i < dropdowns.length; i++) {
@@ -973,1223 +1050,1197 @@ function start() {
 				}
 			}
 		}
-	};
-	// get todays date eg 26 June
-	dd = new Date();
-	// get date number and format it
-	d1 = dd.getDate();
-	if(d1 < 10) {
-		d1 = "0" + d1;
-	}
-	// get month and format it
-	d2 = dd.getMonth();
-	if(d2 == 0) {
-		m = "January";
-	}
-	if(d2 == 1) {
-		m = "February";
-	}
-	if(d2 == 2) {
-		m = "March";
-	}
-	if(d2 == 3) {
-		m = "April";
-	}
-	if(d2 == 4) {
-		m = "May";
-	}
-	if(d2 == 5) {
-		m = "June";
-	}
-	if(d2 == 6) {
-		m = "July";
-	}
-	if(d2 == 7) {
-		m = "August";
-	}
-	if(d2 == 8) {
-		m = "September";
-	}
-	if(d2 == 9) {
-		m = "October";
-	}
-	if(d2 == 10) {
-		m = "November";
-	}
-	if(d2 == 11) {
-		m = "December";
-	}
-	compdate = d1 + " " + m;
-} // end function start()
-//=============================================================
-// functions - run when called
-//=============================================================  
-//=============================================================
-// function resetNames()
-// - gets rid of "selected" names
-//=============================================================  
-function resetNames() {
-	// create player dropdown
-	var select = document.getElementById("playersDropdown");
-	// empty names
-	select.innerHTML = "";
-	// redo list for menu
-	// <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-	//
-	for(var i = 0; i < arrPlayers.length; i++) {
-		var el = document.createElement("a");
-		el.id = "myLink" + (i + 1);
-		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-		el.setAttribute("href", "#");
-		el.innerText = arrPlayers[i];
-		select.appendChild(el);
-	}
-}
-// name selected, do stuff
-function dropSelected(playerName) {
-
-console.log("here 1")
-	// retrieve dropdown info
-	for(var k = 0; k < arrPlayers.length; k++) {
-		if(arrPlayers[k] == playerName) {
-			found = true;
-			pos = k;
+		//=============================================================
+		// function toggleDropdown()
+		// - show player name choices
+		//=============================================================  
+		function toggleDropdown() {
+			// When the user clicks on the button, toggle between hiding and showing the dropdown content
+			document.getElementById("playersDropdown").classList.toggle("show");
 		}
-	}
-	// change color on selection
-	document.getElementById("myLink" + pos.toString()).style.color = "blue";
-	document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
-	// update player choice
-	player = document.getElementById("myLink" + pos.toString()).innerText;
-	outputPlayers(player)
-		// close dropdown
-	var dropdowns = document.getElementsByClassName("dropdown-content");
-	var i;
-	for(i = 0; i < dropdowns.length; i++) {
-		var openDropdown = dropdowns[i];
-		if(openDropdown.classList.contains('show')) {
-			openDropdown.classList.remove('show');
+		//=============================================================
+		// function showDownloadingInfoMsg()
+		// - show message when downloading player and course info and creating arrays
+		//=============================================================  
+		function showDownloadingInfoMsg() {}
+
+		function shortName(nom) {
+			// shorten player name
+			s1 = nom.split(" ")
+			shortPlayername = s1[0] + " " + s1[1].substring(0, 1);
+			shortPlayername = shortPlayername.replace("Stephen", "Steve")
+			shortPlayername = shortPlayername.replace("Malcolm", "Mal")
+			return shortPlayername;
 		}
-	}
-}
-//=============================================================
-// function toggleDropdown()
-// - show player name choices
-//=============================================================  
-function toggleDropdown() {
-	// When the user clicks on the button, toggle between hiding and showing the dropdown content
-	document.getElementById("playersDropdown").classList.toggle("show");
-}
-//=============================================================
-// function showDownloadingInfoMsg()
-// - show message when downloading player and course info and creating arrays
-//=============================================================  
-function showDownloadingInfoMsg() {
 
-}
+		function firstName(nom) {
+			s1 = nom.split(" ")
+			firstPlayername = s1[0];
+			firstPlayername = firstPlayername.replace("Stephen", "Steve")
+			firstPlayername = firstPlayername.replace("Malcolm", "Mal")
+			return firstPlayername;
+		}
 
-function shortName(nom) {
-	// shorten player name
-	s1 = nom.split(" ")
-	shortPlayername = s1[0] + " " + s1[1].substring(0, 1);
-	shortPlayername = shortPlayername.replace("Stephen", "Steve")
-	shortPlayername = shortPlayername.replace("Malcolm", "Mal")
-	return shortPlayername;
-}
-
-function firstName(nom) {
-s1 = nom.split(" ")
-firstPlayername = s1[0];
-firstPlayername = firstPlayername.replace("Stephen", "Steve")
-firstPlayername = firstPlayername.replace("Malcolm", "Mal")
-return firstPlayername;
-}
-
-function body() {
-if (player1hcp == "?") {
-    player1hcp = 99;
-}
-if (player2hcp == "?") {
-    player2hcp = 99;
-}
-if (player3hcp == "?") {
-    player3hcp = 99;
-}
-if (player4hcp == "?") {
-    player4hcp = 99;
-}
-x = Math.min((player1hcp*0.9), (player2hcp*0.9), (player3hcp*0.9), (player4hcp*0.9))
-x1 = ((player1hcp*0.9) - x).toFixed(0)
-x2 = ((player2hcp*0.9) - x).toFixed(0)
-x3 = ((player3hcp*0.9) - x).toFixed(0)
-x4 = ((player4hcp*0.9) - x).toFixed(0)
-
-y1array = player1name.split(" ")
-y2array = player2name.split(" ")
-y3array = player3name.split(" ")
-y4array = player4name.split(" ")
-// if 3 ball (or less)
- 
-    
-    document.getElementById("p1name").innerHTML = shortName(player1name)
-    document.getElementById("p2name").innerHTML = shortName(player2name)
-    document.getElementById("p3name").innerHTML = shortName(player3name)
-    document.getElementById("p4name").innerHTML = shortName(player4name)
-   
-
-
-}
-//=================================================================================
-// highlight the current player number
-// 
-//=================================================================================	
-function selected(id) {
-	// reset all player names
-	document.getElementById("p1name").classList.remove("highlight");
-	document.getElementById("p2name").classList.remove("highlight");
-	document.getElementById("p3name").classList.remove("highlight");
-	document.getElementById("p4name").classList.remove("highlight");
-	// highlight selected
-	selectedplayer = id.replace("score", "").replace("name", "").replace("p", "")
-	document.getElementById("p" + selectedplayer + "name").classList.add("highlight");
-}
-//=================================================================================
-// put score in the selected player
-// and move on	
-//=================================================================================
-function numberScore(id) {
-	// id is something like score2
-	// selectedplayer is global 1, 2, 3, 4
-	if(("1234").indexOf(selectedplayer) > -1) {
-		// id is number button pressed eg. score5
-		temppscore = "p" + selectedplayer + "score"
-		temppname = "p" + selectedplayer + "name"
-			// highlight number button for a brief time
-		tempid = document.getElementById(id)
-		temppscoreid = document.getElementById(temppscore)
-		temppnameid = document.getElementById(temppname)
-			// do number button
-		tempid.classList.replace("scorelow", "scorehigh");
-		// do score entered
-		temppscoreid.classList.add("highlight");
-		// do player name
-		temppnameid.classList.add("highlight");
-		// delay putting everything back
-		setTimeout(() => {
-			// put number button back
-			tempid.classList.replace("scorehigh", "scorelow");
-			// put score back
-			temppscoreid.classList.remove("highlight");
-			// put player name back
-			temppnameid.classList.remove("highlight");
-			// update score
-			document.getElementById(temppscore).innerText = id.replace("score", "")
-				// move on to next player and highlight
-			selectedplayer++
-			if(selectedplayer <= 4) {
-				tempstrokesid = document.getElementById("p" + selectedplayer + "name")
-				tempstrokesid.classList.add("highlight");
+		function body() {
+			if(player1hcp == "?") {
+				player1hcp = 99;
+			}
+			if(player2hcp == "?") {
+				player2hcp = 99;
+			}
+			if(player3hcp == "?") {
+				player3hcp = 99;
+			}
+			if(player4hcp == "?") {
+				player4hcp = 99;
+			}
+			x = Math.min((player1hcp * 0.9), (player2hcp * 0.9), (player3hcp * 0.9), (player4hcp * 0.9))
+			x1 = ((player1hcp * 0.9) - x).toFixed(0)
+			x2 = ((player2hcp * 0.9) - x).toFixed(0)
+			x3 = ((player3hcp * 0.9) - x).toFixed(0)
+			x4 = ((player4hcp * 0.9) - x).toFixed(0)
+			y1array = player1name.split(" ")
+			y2array = player2name.split(" ")
+			y3array = player3name.split(" ")
+			y4array = player4name.split(" ")
+				// if 3 ball (or less)
+			document.getElementById("p1name").innerHTML = shortName(player1name)
+			document.getElementById("p2name").innerHTML = shortName(player2name)
+			document.getElementById("p3name").innerHTML = shortName(player3name)
+			document.getElementById("p4name").innerHTML = shortName(player4name)
+		}
+		//=================================================================================
+		// highlight the current player number
+		// 
+		//=================================================================================	
+		function selected(id) {
+			// reset all player names
+			document.getElementById("p1name").classList.remove("highlight");
+			document.getElementById("p2name").classList.remove("highlight");
+			document.getElementById("p3name").classList.remove("highlight");
+			document.getElementById("p4name").classList.remove("highlight");
+			// highlight selected
+			selectedplayer = id.replace("score", "").replace("name", "").replace("p", "")
+			document.getElementById("p" + selectedplayer + "name").classList.add("highlight");
+		}
+		//=================================================================================
+		// put score in the selected player
+		// and move on	
+		//=================================================================================
+		function numberScore(id) {
+			// id is something like score2
+			// selectedplayer is global 1, 2, 3, 4
+			if(("1234").indexOf(selectedplayer) > -1) {
+				// id is number button pressed eg. score5
+				temppscore = "p" + selectedplayer + "score"
+				temppname = "p" + selectedplayer + "name"
+					// highlight number button for a brief time
+				tempid = document.getElementById(id)
+				temppscoreid = document.getElementById(temppscore)
+				temppnameid = document.getElementById(temppname)
+					// do number button
+				tempid.classList.replace("scorelow", "scorehigh");
+				// do score entered
+				temppscoreid.classList.add("highlight");
+				// do player name
+				temppnameid.classList.add("highlight");
+				// delay putting everything back
+				setTimeout(() => {
+					// put number button back
+					tempid.classList.replace("scorehigh", "scorelow");
+					// put score back
+					temppscoreid.classList.remove("highlight");
+					// put player name back
+					temppnameid.classList.remove("highlight");
+					// update score
+					document.getElementById(temppscore).innerText = id.replace("score", "")
+						// move on to next player and highlight
+					selectedplayer++
+					if(selectedplayer <= 4) {
+						tempstrokesid = document.getElementById("p" + selectedplayer + "name")
+						tempstrokesid.classList.add("highlight");
+					} else {
+						selectedplayer = 0
+					}
+				}, "200");
+			}
+		}
+		//=================================================================================
+		// move to next hole
+		// 
+		//=================================================================================
+		function nextHole() {
+			saveScores()
+			document.getElementById("scorenext").classList.replace("scorelow", "scorehigh");
+			// delay putting everything back
+			setTimeout(() => {
+				// put number button back
+				document.getElementById("scorenext").classList.replace("scorehigh", "scorelow");
+			}, "250");
+			whichhole++
+			if(whichhole > 18) {
+				whichhole = 18;
+			}
+			// highlight if shot hole
+			highlightShots();
+			holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2]
+				// get hole details
+			document.getElementById("holedetails").innerText = holedetails
+				// get hole scores
+			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
+			document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("xp2h" + whichhole);
+			document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("xp3h" + whichhole);
+			document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("xp4h" + whichhole);
+			// reset all player name backgrounds
+			document.getElementById("p1name").classList.remove("highlight");
+			document.getElementById("p2name").classList.remove("highlight");
+			document.getElementById("p3name").classList.remove("highlight");
+			document.getElementById("p4name").classList.remove("highlight");
+			document.getElementById("p1score").innerText = "0"
+			document.getElementById("p2score").innerText = "0"
+			document.getElementById("p3score").innerText = "0"
+			document.getElementById("p4score").innerText = "0"
+			selectedplayer = 1
+			document.getElementById("p1name").classList.add("highlight");
+			// get scores  
+			getScores()
+		}
+		//=================================================================================
+		// move to the previous hole
+		//
+		//=================================================================================
+		function prevHole() {
+			saveScores()
+			document.getElementById("scoreprev").classList.replace("scorelow", "scorehigh");
+			// delay putting everything back
+			setTimeout(() => {
+				// put number button back
+				document.getElementById("scoreprev").classList.replace("scorehigh", "scorelow");
+			}, "250");
+			whichhole--
+			if(whichhole < 1) {
+				whichhole = 1
+			}
+			// highlight if shot hole
+			highlightShots()
+				// get hole details
+			holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2]
+			document.getElementById("holedetails").innerText = holedetails
+				// get hole scores
+			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
+			document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("xp2h" + whichhole);
+			document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("xp3h" + whichhole);
+			document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("xp4h" + whichhole);
+			// change highlight colour
+			document.getElementById("p1name").classList.remove("highlight");
+			document.getElementById("p2name").classList.remove("highlight");
+			document.getElementById("p3name").classList.remove("highlight");
+			document.getElementById("p4name").classList.remove("highlight");
+			selectedplayer = 1
+			document.getElementById("p1name").classList.add("highlight");
+			// retrieve scores   
+			getScores()
+		}
+		//=================================================================================
+		// create an empty set of local storage score containers
+		// and move on	
+		//=================================================================================
+		function setupScores() {
+			// do date check here
+			//console.log((localStorage.xcompdate !== compdate))
+			if(localStorage.xcompdate !== compdate) {
+				for(var i = 1; i <= 18; i++) {
+					for(var j = 1; j <= 4; j++) {
+						localStorage.setItem("xp" + j + "h" + i, "0")
+					}
+				}
+				localStorage.xcompdate = compdate;
+			}
+		}
+		//=================================================================================
+		// save scores for a single page to local storage
+		// 
+		//=================================================================================
+		function saveScores() {
+			// if all 0 tidy up, else, only save if scores are there
+			if(document.getElementById("p1score").innerText == "0" && document.getElementById("p2score").innerText == "0" && document.getElementById("p3score").innerText == "0" && document.getElementById("p4score").innerText == "0") {
+				// dont save and reset info page value and localStorage
+				document.getElementById("p1h" + whichhole).innerText = "0/0";
+				document.getElementById("p2h" + whichhole).innerText = "0/0";
+				document.getElementById("p3h" + whichhole).innerText = "0/0";
+				document.getElementById("p4h" + whichhole).innerText = "0/0";
+				localStorage.setItem("xp1h" + whichhole, "0")
+				localStorage.setItem("xp2h" + whichhole, "0")
+				localStorage.setItem("xp3h" + whichhole, "0")
+				localStorage.setItem("xp4h" + whichhole, "0")
 			} else {
-				selectedplayer = 0
-			}
-		}, "200");
-	}
-}
-//=================================================================================
-// move to next hole
-// 
-//=================================================================================
-function nextHole() {
-	saveScores()
-	document.getElementById("scorenext").classList.replace("scorelow", "scorehigh");
-	// delay putting everything back
-	setTimeout(() => {
-		// put number button back
-		document.getElementById("scorenext").classList.replace("scorehigh", "scorelow");
-	}, "250");
-	whichhole++
-	if (whichhole > 18) {
-	    whichhole = 18;
-	}
-	// highlight if shot hole
-	highlightShots();
-	holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
-	", si " + arrCourse[whichhole][2]
-		// get hole details
-	document.getElementById("holedetails").innerText = holedetails
-		// get hole scores
-	document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
-	document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("xp2h" + whichhole);
-	document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("xp3h" + whichhole);
-	document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("xp4h" + whichhole);
-	// reset all player name backgrounds
-	document.getElementById("p1name").classList.remove("highlight");
-	document.getElementById("p2name").classList.remove("highlight");
-	document.getElementById("p3name").classList.remove("highlight");
-	document.getElementById("p4name").classList.remove("highlight");
-	document.getElementById("p1score").innerText = "0"
-	document.getElementById("p2score").innerText = "0"
-	document.getElementById("p3score").innerText = "0"
-	document.getElementById("p4score").innerText = "0"
-	selectedplayer = 1
-	document.getElementById("p1name").classList.add("highlight");
-	// get scores  
-	getScores()
-}
-//=================================================================================
-// move to the previous hole
-//
-//=================================================================================
-function prevHole() {
-	saveScores()
-	document.getElementById("scoreprev").classList.replace("scorelow", "scorehigh");
-	// delay putting everything back
-	setTimeout(() => {
-		// put number button back
-		document.getElementById("scoreprev").classList.replace("scorehigh", "scorelow");
-	}, "250");
-	whichhole--
-	if (whichhole < 1) {
-	    whichhole = 1
-	}
-	// highlight if shot hole
-	highlightShots()
-	// get hole details
-	holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
-	", si " + arrCourse[whichhole][2]
-	document.getElementById("holedetails").innerText = holedetails
-		// get hole scores
-	document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
-	document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("xp2h" + whichhole);
-	document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("xp3h" + whichhole);
-	document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("xp4h" + whichhole);
-	// change highlight colour
-	document.getElementById("p1name").classList.remove("highlight");
-	document.getElementById("p2name").classList.remove("highlight");
-	document.getElementById("p3name").classList.remove("highlight");
-	document.getElementById("p4name").classList.remove("highlight");
-	selectedplayer = 1
-	document.getElementById("p1name").classList.add("highlight");
-	// retrieve scores   
-	getScores()
-}
-//=================================================================================
-// create an empty set of local storage score containers
-// and move on	
-//=================================================================================
-function setupScores() {
-	// do date check here
-	//console.log((localStorage.xcompdate !== compdate))
-	if(localStorage.xcompdate !== compdate) {
-		for(var i = 1; i <= 18; i++) {
-			for(var j = 1; j <= 4; j++) {
-				localStorage.setItem("xp" + j + "h" + i, "0")
+				localStorage.setItem("xp1h" + whichhole, document.getElementById("p1score").innerText)
+				localStorage.setItem("xp2h" + whichhole, document.getElementById("p2score").innerText)
+				localStorage.setItem("xp3h" + whichhole, document.getElementById("p3score").innerText)
+				localStorage.setItem("xp4h" + whichhole, document.getElementById("p4score").innerText)
 			}
 		}
-		localStorage.xcompdate = compdate;
-	}
-}
-//=================================================================================
-// save scores for a single page to local storage
-// 
-//=================================================================================
-function saveScores() {
-	// if all 0 tidy up, else, only save if scores are there
-	if (document.getElementById("p1score").innerText == "0" && 
-	    document.getElementById("p2score").innerText == "0" && 
-	    document.getElementById("p3score").innerText == "0" && 
-	    document.getElementById("p4score").innerText == "0") {
-	    // dont save and reset info page value and localStorage
-	    document.getElementById("p1h" + whichhole).innerText = "0/0";
-	    document.getElementById("p2h" + whichhole).innerText = "0/0";
-	    document.getElementById("p3h" + whichhole).innerText = "0/0";
-	    document.getElementById("p4h" + whichhole).innerText = "0/0";
-	    localStorage.setItem("xp1h" + whichhole, "0")
-	    localStorage.setItem("xp2h" + whichhole, "0")
-	    localStorage.setItem("xp3h" + whichhole, "0")
-	    localStorage.setItem("xp4h" + whichhole, "0")
-	} else {      	     
-		localStorage.setItem("xp1h" + whichhole, document.getElementById("p1score").innerText)
-		localStorage.setItem("xp2h" + whichhole, document.getElementById("p2score").innerText)
-		localStorage.setItem("xp3h" + whichhole, document.getElementById("p3score").innerText)
-		localStorage.setItem("xp4h" + whichhole, document.getElementById("p4score").innerText)
-	}
-}
-//=================================================================================
-// get scores for a single page from local storage
-// 
-//=================================================================================
-function getScores() {
-	document.getElementById("p1score").innerText = localStorage.getItem("xp1h" + whichhole)
-	document.getElementById("p2score").innerText = localStorage.getItem("xp2h" + whichhole)
-	document.getElementById("p3score").innerText = localStorage.getItem("xp3h" + whichhole)
-	document.getElementById("p4score").innerText = localStorage.getItem("xp4h" + whichhole)
-}
+		//=================================================================================
+		// get scores for a single page from local storage
+		// 
+		//=================================================================================
+		function getScores() {
+			document.getElementById("p1score").innerText = localStorage.getItem("xp1h" + whichhole)
+			document.getElementById("p2score").innerText = localStorage.getItem("xp2h" + whichhole)
+			document.getElementById("p3score").innerText = localStorage.getItem("xp3h" + whichhole)
+			document.getElementById("p4score").innerText = localStorage.getItem("xp4h" + whichhole)
+		}
 
-function outputPlayers(msg) {
-	// msg is player name eg "Bryan Maddison"
-	// find HCP
-	var hcp;
-	for(var i = 0, len = arrPlayers.length; i < len; i++) {
-		if(arrPlayers[i] === msg) {
-			hcp = arrHCPs[i];
-			break;
-		}
-	}
-	msglistcount++
-	if(msglistcount > 4) {
-		console.log("too many players")
-	} else {
-		if(hcplist == "") {
-			hcplist = hcp;
-		} else {
-			hcplist += "#" + hcp
-		}
-	}
-	hcplistx = hcplist + "#?#?#?#ho hcp#?"
-	arr2 = hcplistx.split("#");
-	player1hcp = arr2[0];
-	player2hcp = arr2[1];
-	player3hcp = arr2[2];
-	player4hcp = arr2[3];
-	
-	if(msglistcount > 4) {
-		console.log("too many players")
-	} else {
-		if(msglist == "") {
-			msglist = msg;
-			// enable scoring button if player there and course chosen
-			if(compcourse !== "none") {
-				document.getElementById("startscoring").style.display = "block";
+		function outputPlayers(msg) {
+			// msg is player name eg "Bryan Maddison"
+			// find HCP
+			var hcp;
+			for(var i = 0, len = arrPlayers.length; i < len; i++) {
+				if(arrPlayers[i] === msg) {
+					hcp = arrHCPs[i];
+					break;
+				}
 			}
-		} else {
-			msglist += "#" + msg
+			msglistcount++
+			if(msglistcount > 4) {
+				console.log("too many players")
+			} else {
+				if(hcplist == "") {
+					hcplist = hcp;
+				} else {
+					hcplist += "#" + hcp
+				}
+			}
+			hcplistx = hcplist + "#?#?#?#ho hcp#?"
+			arr2 = hcplistx.split("#");
+			player1hcp = arr2[0];
+			player2hcp = arr2[1];
+			player3hcp = arr2[2];
+			player4hcp = arr2[3];
+			if(msglistcount > 4) {
+				console.log("too many players")
+			} else {
+				if(msglist == "") {
+					msglist = msg;
+					// enable scoring button if player there and course chosen
+					if(compcourse !== "none") {
+						document.getElementById("startscoring").style.display = "block";
+					}
+				} else {
+					msglist += "#" + msg
+				}
+			}
+			msglistx = msglist + "#no player#no player#no player#no player#no player"
+			arr1 = msglistx.split("#");
+			newmsglistplayer = "Player 1:" + "<br>" + "Player 2:" + "<br>" + "Player 3:" + "<br>" + "Player 4:"
+			newmsglistname = arr1[0] + "<br>" + arr1[1] + "<br>" + arr1[2] + "<br>" + arr1[3]
+			newmsglisthcp = player1hcp + "<br>" + player2hcp + "<br>" + player3hcp + "<br>" + player4hcp
+			newmsglist = "Player 1: " + arr1[0] + "<br>" + "Player 2: " + arr1[1] + "<br>" + "Player 3: " + arr1[2] + "<br>" + "Player 4: " + arr1[3]
+			document.getElementById("player4ballplayer").innerHTML = newmsglistplayer
+			document.getElementById("player4ballname").innerHTML = newmsglistname
+			document.getElementById("player4ballhcp").innerHTML = newmsglisthcp
+				// add players names
+			player1name = arr1[0]
+			player2name = arr1[1]
+			player3name = arr1[2]
+			player4name = arr1[3]
+			if(arr1[3] == "no player") {
+				txt = "tap to add player 4"
+			}
+			if(arr1[2] == "no player") {
+				txt = "tap to add player 3"
+			}
+			if(arr1[1] == "no player") {
+				txt = "tap to add player 2"
+			}
+			if(arr1[0] == "no player") {
+				txt = "tap to add player 1"
+			}
+			document.getElementById("dropbtn").innerText = txt;
+			// just close it now
+			if(arr1[3] !== "no player") {
+				// hide button
+				document.getElementById("dropbtn").style.display = "none";
+			}
+			body();
 		}
-	}
-	msglistx = msglist + "#no player#no player#no player#no player#no player"
-	arr1 = msglistx.split("#");
-	newmsglistplayer = "Player 1:" + "<br>" + "Player 2:" + "<br>" + "Player 3:" + "<br>" + "Player 4:"
-	newmsglistname = arr1[0] + "<br>" + arr1[1] + "<br>" + arr1[2] + "<br>" + arr1[3]
-	newmsglisthcp = player1hcp + "<br>" + player2hcp + "<br>" + player3hcp + "<br>" + player4hcp
-	newmsglist = "Player 1: " + arr1[0] + "<br>" + "Player 2: " + arr1[1] + "<br>" + "Player 3: " + 
-	arr1[2] + "<br>" + "Player 4: " + arr1[3]
-	document.getElementById("player4ballplayer").innerHTML = newmsglistplayer
-	document.getElementById("player4ballname").innerHTML = newmsglistname
-	document.getElementById("player4ballhcp").innerHTML = newmsglisthcp
-		// add players names
-	player1name = arr1[0]
-	player2name = arr1[1]
-	player3name = arr1[2]
-	player4name = arr1[3]
-	if(arr1[3] == "no player") {
-		txt = "tap to add player 4"
-	}
-	if(arr1[2] == "no player") {
-		txt = "tap to add player 3"
-	}
-	if(arr1[1] == "no player") {
-		txt = "tap to add player 2"
-	}
-	if(arr1[0] == "no player") {
-		txt = "tap to add player 1"
-	}
-	document.getElementById("dropbtn").innerText = txt;
-	// just close it now
-	if(arr1[3] !== "no player") {
-		// hide button
-		document.getElementById("dropbtn").style.display = "none";
-	}
-	body();
-}
-
-
-// helper function to deep copy array
-function arrDeepCopy(aObject) {
-	// deep copy array
-	// Prevent undefined objects
-	// if (!aObject) return aObject;
-	var bObject = Array.isArray(aObject) ? [] : {};
-	var value;
-	for(const key in aObject) {
-		// Prevent self-references to parent object
-		// if (Object.is(aObject[key], aObject)) continue;
-		value = aObject[key];
-		bObject[key] = (typeof value === "object") ? arrDeepCopy(value) : value;
-	}
-	return bObject;
-}
-
-function getScoring() {
-        // save new hcps
-        // submit new data - asychronous after first so does not cause a delay
-        delay1 = 2000
-        delay2 = 4000
-        delay3 = 6000
-        
-	
-
-
-
-
-        
-        // set up for correct number of players
-        if (player4name == "no player") {
-            player4hcp = 99;
-            document.getElementById("p4name").style.display = "none";
-            document.getElementById("p4score").style.display = "none"   
-        }
-        if (player3name == "no player") {
-            player3hcp = 99;
-            document.getElementById("p3name").style.display = "none";
-            document.getElementById("p3score").style.display = "none"   
-        }
-        if (player2name == "no player") {
-            player2hcp = 99;
-            document.getElementById("p2name").style.display = "none";
-            document.getElementById("p2score").style.display = "none"   
-        }
-        if (player1name == "no player") {
-            player1hcp = 99;
-            document.getElementById("p1name").style.display = "none";
-            document.getElementById("p1score").style.display = "none"   
-        }
-        
-        
-        
-	document.getElementById("firstscreen").classList.add("fadeOut");
-	setTimeout(() => {
-		document.getElementById("firstscreen").style.display = "none";
-	}, "1000");
-	document.getElementById("all").style.display = "initial"
-		// set up for correct number of players
-		// initial save of data
-	saveAllToLocalStorage()
-}
-
-function displayInfo() {
-	saveScores();
-	//saveAllToLocalStorage()
-	// get players, all strokes and points
-	document.getElementById("p1h0").innerText = shortName(player1name);
-	document.getElementById("p2h0").innerText = shortName(player2name);
-	document.getElementById("p3h0").innerText = shortName(player3name);
-	document.getElementById("p4h0").innerText = shortName(player4name);
-	for(var i = 1; i <= 18; i++) {
-		temp = localStorage.getItem("xp1h" + i)
-		document.getElementById("p1h" + i).innerText = temp + "/" + 
-		pointsCalc(player1hcp, arrCourse[i][1], arrCourse[i][2], temp)
-		temp = localStorage.getItem("xp2h" + i)
-		document.getElementById("p2h" + i).innerText = temp + "/" + 
-		pointsCalc(player2hcp, arrCourse[i][1], arrCourse[i][2], temp)
-		temp = localStorage.getItem("xp3h" + i)
-		document.getElementById("p3h" + i).innerText = temp + "/" + 
-		pointsCalc(player3hcp, arrCourse[i][1], arrCourse[i][2], temp)
-		temp = localStorage.getItem("xp4h" + i)
-		document.getElementById("p4h" + i).innerText = temp + "/" + 
-		pointsCalc(player4hcp, arrCourse[i][1], arrCourse[i][2], temp)
-	}
-	totalScore()
-	//shots()
-		// show screen as overlay
-	if(document.getElementById("info").style.display !== "block") {
-		document.getElementById("info").style.display = "block"
-	} else {
-		document.getElementById("info").style.display = "none"
-	}
-}
-
-function hideInfo() {
-	document.getElementById("info").style.display = "none"
-}
-// calculated additional totals, countback etc.
-function totalScore() {
-	// front 9 scores
-	var p1ih = 0;
-	var p2ih = 0;
-	var p3ih = 0;
-	var p4ih = 0;
-	// front 9 points
-	var p1ip = 0;
-	var p2ip = 0;
-	var p3ip = 0;
-	var p4ip = 0;
-	// back 9 scores
-	var p1jh = 0;
-	var p2jh = 0;
-	var p3jh = 0;
-	var p4jh = 0;
-	// back 9 points
-	var p1jp = 0;
-	var p2jp = 0;
-	var p3jp = 0;
-	var p4jp = 0;
-	// totals
-	var p1f = 0;
-	var p1b = 0;
-	var p1t = 0;
-	var p2f = 0;
-	var p2b = 0;
-	var p2t = 0;
-	var p3f = 0;
-	var p3b = 0;
-	var p3t = 0;
-	var p4f = 0;
-	var p4b = 0;
-	var p4t = 0;
-	// do scores and points
-	for(i = 1; i <= 9; i++) {
-		//const [name, street, unit, city, state, zip] = input.split("/");
-		var [tempp1ih, tempp1ip] = document.getElementById("p1h" + i).innerText.split("/");
-		var [tempp2ih, tempp2ip] = document.getElementById("p2h" + i).innerText.split("/");
-		var [tempp3ih, tempp3ip] = document.getElementById("p3h" + i).innerText.split("/");
-		var [tempp4ih, tempp4ip] = document.getElementById("p4h" + i).innerText.split("/");
-		p1ih += parseInt(tempp1ih)
-		p2ih += parseInt(tempp2ih)
-		p3ih += parseInt(tempp3ih)
-		p4ih += parseInt(tempp4ih)
-		p1ip += parseInt(tempp1ip)
-		p2ip += parseInt(tempp2ip)
-		p3ip += parseInt(tempp3ip)
-		p4ip += parseInt(tempp4ip)
-	}
-	for(j = 10; j <= 18; j++) {
-		//const [name, street, unit, city, state, zip] = input.split("/");
-		var [tempp1jh, tempp1jp] = document.getElementById("p1h" + j).innerText.split("/");
-		var [tempp2jh, tempp2jp] = document.getElementById("p2h" + j).innerText.split("/");
-		var [tempp3jh, tempp3jp] = document.getElementById("p3h" + j).innerText.split("/");
-		var [tempp4jh, tempp4jp] = document.getElementById("p4h" + j).innerText.split("/");
-		p1jh += parseInt(tempp1jh)
-		p2jh += parseInt(tempp2jh)
-		p3jh += parseInt(tempp3jh)
-		p4jh += parseInt(tempp4jh)
-		p1jp += parseInt(tempp1jp)
-		p2jp += parseInt(tempp2jp)
-		p3jp += parseInt(tempp3jp)
-		p4jp += parseInt(tempp4jp)
-	}
-	p1f = p1ih + p1jh;
-	p2f = p2ih + p2jh;
-	p3f = p3ih + p3jh;
-	p4f = p4ih + p4jh;
-	p1fp = p1ip + p1jp;
-	p2fp = p2ip + p2jp;
-	p3fp = p3ip + p3jp;
-	p4fp = p4ip + p4jp;
-	document.getElementById("p1hf").innerText = p1ih + "/" + p1ip;
-	document.getElementById("p2hf").innerText = p2ih + "/" + p2ip;
-	document.getElementById("p3hf").innerText = p3ih + "/" + p3ip;
-	document.getElementById("p4hf").innerText = p4ih + "/" + p4ip;
-	document.getElementById("p1hb").innerText = p1jh + "/" + p1jp;
-	document.getElementById("p2hb").innerText = p2jh + "/" + p2jp;
-	document.getElementById("p3hb").innerText = p3jh + "/" + p3jp;
-	document.getElementById("p4hb").innerText = p4jh + "/" + p4jp;
-	document.getElementById("p1ht").innerText = p1f + "/" + p1fp;
-	document.getElementById("p2ht").innerText = p2f + "/" + p2fp;
-	document.getElementById("p3ht").innerText = p3f + "/" + p3fp;
-	document.getElementById("p4ht").innerText = p4f + "/" + p4fp;
-}
-// convert scores to stableford points
-function pointsCalc(xhcp, xpar, xsi, xscore) {
-hcp = parseInt(xhcp)
-par = parseInt(xpar)
-si = parseInt(xsi)
-score = parseInt(xscore)
-	allowance = 0;
-	if(score == 0) {
-		return 0;
-	} else {
-	        // cope with minus hcp
-	        if(hcp < 0) {
-	          // 18 plus a minus hcp
-	          if((18 + parseInt(hcp)) < si) {
-			allowance = -1;
-		  }	
+		// helper function to deep copy array
+		function arrDeepCopy(aObject) {
+			// deep copy array
+			// Prevent undefined objects
+			// if (!aObject) return aObject;
+			var bObject = Array.isArray(aObject) ? [] : {};
+			var value;
+			for(const key in aObject) {
+				// Prevent self-references to parent object
+				// if (Object.is(aObject[key], aObject)) continue;
+				value = aObject[key];
+				bObject[key] = (typeof value === "object") ? arrDeepCopy(value) : value;
+			}
+			return bObject;
 		}
-	
-		// allowance   
-		if(hcp >= si) {
-			allowance = 1;
-		}
-		if(hcp >= (18 + si)) {
-			allowance = 2;
-		}
-		if(hcp >= (36 + si)) {
-			allowance = 3;
-		}		
-		// points
-		var points = (par + allowance + 2) - score;
-		// remove negative numbers
-		if(points < 0) {
-			points = 0;
-		}
-		return points;
-	}
-}
 
-
-
-// choose course dialog for non competition day
-function showRecoverChoice() {
-// if there are some scores in ...
-var testx = "123456789"
-        if (testx.indexOf(localStorage.getItem("xp1h1")) > -1 ||
-            testx.indexOf(localStorage.getItem("xp2h1")) > -1 ||
-            testx.indexOf(localStorage.getItem("xp3h1")) > -1 ||
-            testx.indexOf(localStorage.getItem("xp4h1")) > -1 ) {
-
-//	if(compdate == localStorage.xcompdate) {
-
-		tempt = '<br /> Recover or Clear saved data.';
-		tempt += '<br /><br />';
-		tempt += '<button id="id_recoverbtn" onclick="doSomethingRecover()">Recover</button>';
-		tempt += '<button id="id_clearbtn" onclick="doSomethingClear()">Clear</button>';
-		document.getElementById("popuppanel").innerHTML = tempt;
-		document.getElementById("popuppanel").style.display = "block";
-	} else {
-		clearLocalStorage()
-		document.getElementById("popuppanel").style.display = "none";
-	}
-}
-
-function doSomethingRecover() {
-	//  compdate = localStorage.date4ball
-	// etc.
-	document.getElementById("popuppanel").style.display = "none";
-	// get all the data back and put in right places
-	retrieveAllFromLocalStorage()
-	// setup number of players and proceed
-	getScoring();
-	moveToCurrent();
-}
-
-function doSomethingClear() {
-	document.getElementById("popuppanel").style.display = "none";
-	clearLocalStorage();
-}
-
-function saveAllToLocalStorage() {
-	// save player names
-	localStorage.setItem("xplayer1name", player1name)
-	localStorage.setItem("xplayer2name", player2name)
-	localStorage.setItem("xplayer3name", player3name)
-	localStorage.setItem("xplayer4name", player4name)
-	// save player hcps
-	localStorage.setItem("xplayer1hcp", player1hcp)
-	localStorage.setItem("xplayer2hcp", player2hcp)
-	localStorage.setItem("xplayer3hcp", player3hcp)
-	localStorage.setItem("xplayer4hcp", player4hcp)
-	// save course
-	localStorage.setItem("xcompcourse", compcourse)
-	// save date
-	localStorage.setItem("xcompdate", compdate)
-	// save all scores and points
-	var temp1 = "";
-	for(i = 1; i <= 18; i++) {
-		j = 1;
-		temp1 = document.getElementById("p1h" + i).innerText
-		if(temp1.indexOf("/") > -1) {
-			temp1array = temp1.split("/")
-			localStorage.setItem("xp1h" + i, temp1array[0])
-		} else {
-			localStorage.setItem("xp1h" + i, "0")
+		function getScoring() {
+			// save new hcps
+			// submit new data - asychronous after first so does not cause a delay
+			delay1 = 2000
+			delay2 = 4000
+			delay3 = 6000
+				// set up for correct number of players
+			if(player4name == "no player") {
+				player4hcp = 99;
+				document.getElementById("p4name").style.display = "none";
+				document.getElementById("p4score").style.display = "none"
+			}
+			if(player3name == "no player") {
+				player3hcp = 99;
+				document.getElementById("p3name").style.display = "none";
+				document.getElementById("p3score").style.display = "none"
+			}
+			if(player2name == "no player") {
+				player2hcp = 99;
+				document.getElementById("p2name").style.display = "none";
+				document.getElementById("p2score").style.display = "none"
+			}
+			if(player1name == "no player") {
+				player1hcp = 99;
+				document.getElementById("p1name").style.display = "none";
+				document.getElementById("p1score").style.display = "none"
+			}
+			document.getElementById("firstscreen").classList.add("fadeOut");
+			setTimeout(() => {
+				document.getElementById("firstscreen").style.display = "none";
+			}, "1000");
+			document.getElementById("all").style.display = "initial"
+				// set up for correct number of players
+				// initial save of data
+			saveAllToLocalStorage()
 		}
-		temp1 = document.getElementById("p2h" + i).innerText
-		if(temp1.indexOf("/") > -1) {
-			temp1array = temp1.split("/")
-			localStorage.setItem("xp2h" + i, temp1array[0])
-		} else {
-			localStorage.setItem("xp2h" + i, "0")
-		}
-		temp1 = document.getElementById("p3h" + i).innerText
-		if(temp1.indexOf("/") > -1) {
-			temp1array = temp1.split("/")
-			localStorage.setItem("xp3h" + i, temp1array[0])
-		} else {
-			localStorage.setItem("xp3h" + i, "0")
-		}
-		temp1 = document.getElementById("p4h" + i).innerText
-		if(temp1.indexOf("/") > -1) {
-			temp1array = temp1.split("/")
-			localStorage.setItem("xp4h" + i, temp1array[0])
-		} else {
-			localStorage.setItem("xp4h" + i, "0")
-		}
-	}
-	// save totals
-	// front 9
-	temp1 = document.getElementById("p1hf").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp1hf", temp1array[0])
-	} else {
-		localStorage.setItem("xp1hf", "0")
-	}
-	temp1 = document.getElementById("p2hf").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp2hf", temp1array[0])
-	} else {
-		localStorage.setItem("xp2hf", "0")
-	}
-	temp1 = document.getElementById("p3hf").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp3hf", temp1array[0])
-	} else {
-		localStorage.setItem("xp3hf", "0")
-	}
-	temp1 = document.getElementById("p4hf").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp4hf", temp1array[0])
-	} else {
-		localStorage.setItem("xp4hf", "0")
-	}
-	// back 9
-	temp1 = document.getElementById("p1hb").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp1hb", temp1array[0])
-	} else {
-		localStorage.setItem("xp1hb", "0")
-	}
-	temp1 = document.getElementById("p2hb").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp2hb", temp1array[0])
-	} else {
-		localStorage.setItem("xp2hb", "0")
-	}
-	temp1 = document.getElementById("p3hb").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp3hb", temp1array[0])
-	} else {
-		localStorage.setItem("xp3hb", "0")
-	}
-	temp1 = document.getElementById("p4hb").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp4hb", temp1array[0])
-	} else {
-		localStorage.setItem("xp4hb", "0")
-	}
-	// total
-	temp1 = document.getElementById("p1ht").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp1ht", temp1array[0])
-	} else {
-		localStorage.setItem("xp1ht", "0")
-	}
-	temp1 = document.getElementById("p2ht").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp2ht", temp1array[0])
-	} else {
-		localStorage.setItem("xp2ht", "0")
-	}
-	temp1 = document.getElementById("p3ht").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp3ht", temp1array[0])
-	} else {
-		localStorage.setItem("xp3ht", "0")
-	}
-	temp1 = document.getElementById("p4ht").innerText
-	if(temp1.indexOf("/") > -1) {
-		temp1array = temp1.split("/")
-		localStorage.setItem("xp4ht", temp1array[0])
-	} else {
-		localStorage.setItem("xp4ht", "0")
-	}
-}
 
-function retrieveAllFromLocalStorage() {
-	compcourse = course;
-	// get date and comp
-	compdate = localStorage.getItem("xcompdate");
-	compcourse = localStorage.getItem("xcompcourse");
-	// get course details
-	if(compcourse == "Dawson") {
-		arrCourse = arrDeepCopy(arrDawson);
-	}
-	if(compcourse == "Lakes") {
-		arrCourse = arrDeepCopy(arrLakes);
-	}
-	if(compcourse == "OldCourse") {
-		arrCourse = arrDeepCopy(arrOldCourse);
-	}
-	// recover players names and hcps
-	player1name = localStorage.getItem("xplayer1name");
-	player2name = localStorage.getItem("xplayer2name");
-	player3name = localStorage.getItem("xplayer3name");
-	player4name = localStorage.getItem("xplayer4name");
-	player1hcp = localStorage.getItem("xplayer1hcp");
-	player2hcp = localStorage.getItem("xplayer2hcp");
-	player3hcp = localStorage.getItem("xplayer3hcp");
-	player4hcp = localStorage.getItem("xplayer4hcp");
-	// do shortnames etc.
-	body();
-	// recover scores, points etc
-	for(i = 1; i <= 18; i++) {
-		// Recorded scores
-		temp1 = localStorage.getItem("xp1h" + i);
-		if(temp1 !== "0") {
-			temp2 = pointsCalc(arrCourse[1], arrCourse[2], player1hcp, temp1);
-			document.getElementById("p1h" + i).innerText = temp1 + "/" + temp2;
-		} else {
-			document.getElementById("p1h" + i).innerText = "0";
+		function displayInfo() {
+			saveScores();
+			//saveAllToLocalStorage()
+			// get players, all strokes and points
+			document.getElementById("p1h0").innerText = shortName(player1name);
+			document.getElementById("p2h0").innerText = shortName(player2name);
+			document.getElementById("p3h0").innerText = shortName(player3name);
+			document.getElementById("p4h0").innerText = shortName(player4name);
+			for(var i = 1; i <= 18; i++) {
+				temp = localStorage.getItem("xp1h" + i)
+				document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrCourse[i][1], arrCourse[i][2], temp)
+				temp = localStorage.getItem("xp2h" + i)
+				document.getElementById("p2h" + i).innerText = temp + "/" + pointsCalc(player2hcp, arrCourse[i][1], arrCourse[i][2], temp)
+				temp = localStorage.getItem("xp3h" + i)
+				document.getElementById("p3h" + i).innerText = temp + "/" + pointsCalc(player3hcp, arrCourse[i][1], arrCourse[i][2], temp)
+				temp = localStorage.getItem("xp4h" + i)
+				document.getElementById("p4h" + i).innerText = temp + "/" + pointsCalc(player4hcp, arrCourse[i][1], arrCourse[i][2], temp)
+			}
+			totalScore()
+				//shots()
+				// show screen as overlay
+			if(document.getElementById("info").style.display !== "block") {
+				document.getElementById("info").style.display = "block"
+			} else {
+				document.getElementById("info").style.display = "none"
+			}
 		}
-		// Recorded scores
-		temp1 = localStorage.getItem("xp2h" + i);
-		if(temp1 !== "0") {
-			temp2 = pointsCalc(arrCourse[1], arrCourse[2], player2hcp, temp1);
-			document.getElementById("p2h" + i).innerText = temp1 + "/" + temp2;
-		} else {
-			document.getElementById("p2h" + i).innerText = "0";
-		}
-		// Recorded scores
-		temp1 = localStorage.getItem("xp3h" + i);
-		if(temp1 !== "0") {
-			temp2 = pointsCalc(arrCourse[1], arrCourse[2], player3hcp, temp1);
-			document.getElementById("p3h" + i).innerText = temp1 + "/" + temp2;
-		} else {
-			document.getElementById("p3h" + i).innerText = "0";
-		}
-		// Recorded scores
-		temp1 = localStorage.getItem("xp4h" + i);
-		if(temp1 !== "0") {
-			temp2 = pointsCalc(arrCourse[1], arrCourse[2], player4hcp, temp1);
-			document.getElementById("p4h" + i).innerText = temp1 + "/" + temp2;
-		} else {
-			document.getElementById("p4h" + i).innerText = "0";
-		}
-		// do scores for first hole
-		document.getElementById("p1score").innerText = localStorage.getItem("xp1h1");
-		document.getElementById("p2score").innerText = localStorage.getItem("xp2h1");
-		document.getElementById("p3score").innerText = localStorage.getItem("xp3h1");
-		document.getElementById("p4score").innerText = localStorage.getItem("xp4h1");
-	}
-	// redo totals
-	totalsCalc()
-}
 
-function totalsCalc() {
-	p1front = 0
-	p2front = 0
-	p3front = 0
-	p4front = 0
-	p1frontpoints = 0
-	p2frontpoints = 0
-	p3frontpoints = 0
-	p4frontpoints = 0
-	p1back = 0
-	p2back = 0
-	p3back = 0
-	p4back = 0
-	p1backpoints = 0
-	p2backpoints = 0
-	p3backpoints = 0
-	p4backpoints = 0
-	for(var i = 1; i <= 9; i++) {
-		var tempp1txt = document.getElementById("p1h" + i).innerText
-		if(!(tempp1txt == "0")) {
-			tempp1 = tempp1txt.split("/");
-			p1front += parseInt(tempp1[0])
-			p1frontpoints += parseInt(tempp1[1])
+		function hideInfo() {
+			document.getElementById("info").style.display = "none"
 		}
-		var tempp2txt = document.getElementById("p2h" + i).innerText
-		if(!(tempp2txt == "0")) {
-			tempp2 = tempp2txt.split("/");
-			p2front += parseInt(tempp2[0])
-			p2frontpoints += parseInt(tempp2[1])
+		// calculated additional totals, countback etc.
+		function totalScore() {
+			// front 9 scores
+			var p1ih = 0;
+			var p2ih = 0;
+			var p3ih = 0;
+			var p4ih = 0;
+			// front 9 points
+			var p1ip = 0;
+			var p2ip = 0;
+			var p3ip = 0;
+			var p4ip = 0;
+			// back 9 scores
+			var p1jh = 0;
+			var p2jh = 0;
+			var p3jh = 0;
+			var p4jh = 0;
+			// back 9 points
+			var p1jp = 0;
+			var p2jp = 0;
+			var p3jp = 0;
+			var p4jp = 0;
+			// totals
+			var p1f = 0;
+			var p1b = 0;
+			var p1t = 0;
+			var p2f = 0;
+			var p2b = 0;
+			var p2t = 0;
+			var p3f = 0;
+			var p3b = 0;
+			var p3t = 0;
+			var p4f = 0;
+			var p4b = 0;
+			var p4t = 0;
+			// do scores and points
+			for(i = 1; i <= 9; i++) {
+				//const [name, street, unit, city, state, zip] = input.split("/");
+				var [tempp1ih, tempp1ip] = document.getElementById("p1h" + i).innerText.split("/");
+				var [tempp2ih, tempp2ip] = document.getElementById("p2h" + i).innerText.split("/");
+				var [tempp3ih, tempp3ip] = document.getElementById("p3h" + i).innerText.split("/");
+				var [tempp4ih, tempp4ip] = document.getElementById("p4h" + i).innerText.split("/");
+				p1ih += parseInt(tempp1ih)
+				p2ih += parseInt(tempp2ih)
+				p3ih += parseInt(tempp3ih)
+				p4ih += parseInt(tempp4ih)
+				p1ip += parseInt(tempp1ip)
+				p2ip += parseInt(tempp2ip)
+				p3ip += parseInt(tempp3ip)
+				p4ip += parseInt(tempp4ip)
+			}
+			for(j = 10; j <= 18; j++) {
+				//const [name, street, unit, city, state, zip] = input.split("/");
+				var [tempp1jh, tempp1jp] = document.getElementById("p1h" + j).innerText.split("/");
+				var [tempp2jh, tempp2jp] = document.getElementById("p2h" + j).innerText.split("/");
+				var [tempp3jh, tempp3jp] = document.getElementById("p3h" + j).innerText.split("/");
+				var [tempp4jh, tempp4jp] = document.getElementById("p4h" + j).innerText.split("/");
+				p1jh += parseInt(tempp1jh)
+				p2jh += parseInt(tempp2jh)
+				p3jh += parseInt(tempp3jh)
+				p4jh += parseInt(tempp4jh)
+				p1jp += parseInt(tempp1jp)
+				p2jp += parseInt(tempp2jp)
+				p3jp += parseInt(tempp3jp)
+				p4jp += parseInt(tempp4jp)
+			}
+			p1f = p1ih + p1jh;
+			p2f = p2ih + p2jh;
+			p3f = p3ih + p3jh;
+			p4f = p4ih + p4jh;
+			p1fp = p1ip + p1jp;
+			p2fp = p2ip + p2jp;
+			p3fp = p3ip + p3jp;
+			p4fp = p4ip + p4jp;
+			document.getElementById("p1hf").innerText = p1ih + "/" + p1ip;
+			document.getElementById("p2hf").innerText = p2ih + "/" + p2ip;
+			document.getElementById("p3hf").innerText = p3ih + "/" + p3ip;
+			document.getElementById("p4hf").innerText = p4ih + "/" + p4ip;
+			document.getElementById("p1hb").innerText = p1jh + "/" + p1jp;
+			document.getElementById("p2hb").innerText = p2jh + "/" + p2jp;
+			document.getElementById("p3hb").innerText = p3jh + "/" + p3jp;
+			document.getElementById("p4hb").innerText = p4jh + "/" + p4jp;
+			document.getElementById("p1ht").innerText = p1f + "/" + p1fp;
+			document.getElementById("p2ht").innerText = p2f + "/" + p2fp;
+			document.getElementById("p3ht").innerText = p3f + "/" + p3fp;
+			document.getElementById("p4ht").innerText = p4f + "/" + p4fp;
 		}
-		var tempp3txt = document.getElementById("p3h" + i).innerText
-		if(!(tempp3txt == "0")) {
-			tempp3 = tempp3txt.split("/");
-			p3front += parseInt(tempp3[0])
-			p3frontpoints += parseInt(tempp3[1])
+		// convert scores to stableford points
+		function pointsCalc(xhcp, xpar, xsi, xscore) {
+			hcp = parseInt(xhcp)
+			par = parseInt(xpar)
+			si = parseInt(xsi)
+			score = parseInt(xscore)
+			allowance = 0;
+			if(score == 0) {
+				return 0;
+			} else {
+				// cope with minus hcp
+				if(hcp < 0) {
+					// 18 plus a minus hcp
+					if((18 + parseInt(hcp)) < si) {
+						allowance = -1;
+					}
+				}
+				// allowance   
+				if(hcp >= si) {
+					allowance = 1;
+				}
+				if(hcp >= (18 + si)) {
+					allowance = 2;
+				}
+				if(hcp >= (36 + si)) {
+					allowance = 3;
+				}
+				// points
+				var points = (par + allowance + 2) - score;
+				// remove negative numbers
+				if(points < 0) {
+					points = 0;
+				}
+				return points;
+			}
 		}
-		var tempp4txt = document.getElementById("p4h" + i).innerText
-		if(!(tempp4txt == "0")) {
-			tempp4 = tempp4txt.split("/");
-			p4front += parseInt(tempp4[0])
-			p4frontpoints += parseInt(tempp4[1])
+		// choose course dialog for non competition day
+		function showRecoverChoice() {
+			// if there are some scores in ...
+			var testx = "123456789"
+			if(testx.indexOf(localStorage.getItem("xp1h1")) > -1 || testx.indexOf(localStorage.getItem("xp2h1")) > -1 || testx.indexOf(localStorage.getItem("xp3h1")) > -1 || testx.indexOf(localStorage.getItem("xp4h1")) > -1) {
+				//	if(compdate == localStorage.xcompdate) {
+				tempt = '<br /> Recover or Clear saved data.';
+				tempt += '<br /><br />';
+				tempt += '<button id="id_recoverbtn" onclick="doSomethingRecover()">Recover</button>';
+				tempt += '<button id="id_clearbtn" onclick="doSomethingClear()">Clear</button>';
+				document.getElementById("popuppanel").innerHTML = tempt;
+				document.getElementById("popuppanel").style.display = "block";
+			} else {
+				clearLocalStorage()
+				document.getElementById("popuppanel").style.display = "none";
+			}
 		}
-	}
-	for(var i = 10; i <= 18; i++) {
-		var tempp1txt = document.getElementById("p1h" + i).innerText
-		if(!(tempp1txt == "0")) {
-			tempp1 = tempp1txt.split("/");
-			p1back += parseInt(tempp1[0])
-			p1backpoints += parseInt(tempp1[1])
+
+		function doSomethingRecover() {
+			//  compdate = localStorage.date4ball
+			// etc.
+			document.getElementById("popuppanel").style.display = "none";
+			// get all the data back and put in right places
+			retrieveAllFromLocalStorage()
+				// setup number of players and proceed
+			getScoring();
+			moveToCurrent();
 		}
-		var tempp2txt = document.getElementById("p2h" + i).innerText
-		if(!(tempp2txt == "0")) {
-			tempp2 = tempp2txt.split("/");
-			p2back += parseInt(tempp2[0])
-			p2backpoints += parseInt(tempp2[1])
+
+		function doSomethingClear() {
+			document.getElementById("popuppanel").style.display = "none";
+			clearLocalStorage();
 		}
-		var tempp3txt = document.getElementById("p3h" + i).innerText
-		if(!(tempp3txt == "0")) {
-			tempp3 = tempp3txt.split("/");
-			p3back += parseInt(tempp3[0])
-			p3backpoints += parseInt(tempp3[1])
+
+		function saveAllToLocalStorage() {
+			// save player names
+			localStorage.setItem("xplayer1name", player1name)
+			localStorage.setItem("xplayer2name", player2name)
+			localStorage.setItem("xplayer3name", player3name)
+			localStorage.setItem("xplayer4name", player4name)
+				// save player hcps
+			localStorage.setItem("xplayer1hcp", player1hcp)
+			localStorage.setItem("xplayer2hcp", player2hcp)
+			localStorage.setItem("xplayer3hcp", player3hcp)
+			localStorage.setItem("xplayer4hcp", player4hcp)
+				// save course
+			localStorage.setItem("xcompcourse", compcourse)
+				// save date
+			localStorage.setItem("xcompdate", compdate)
+				// save all scores and points
+			var temp1 = "";
+			for(i = 1; i <= 18; i++) {
+				j = 1;
+				temp1 = document.getElementById("p1h" + i).innerText
+				if(temp1.indexOf("/") > -1) {
+					temp1array = temp1.split("/")
+					localStorage.setItem("xp1h" + i, temp1array[0])
+				} else {
+					localStorage.setItem("xp1h" + i, "0")
+				}
+				temp1 = document.getElementById("p2h" + i).innerText
+				if(temp1.indexOf("/") > -1) {
+					temp1array = temp1.split("/")
+					localStorage.setItem("xp2h" + i, temp1array[0])
+				} else {
+					localStorage.setItem("xp2h" + i, "0")
+				}
+				temp1 = document.getElementById("p3h" + i).innerText
+				if(temp1.indexOf("/") > -1) {
+					temp1array = temp1.split("/")
+					localStorage.setItem("xp3h" + i, temp1array[0])
+				} else {
+					localStorage.setItem("xp3h" + i, "0")
+				}
+				temp1 = document.getElementById("p4h" + i).innerText
+				if(temp1.indexOf("/") > -1) {
+					temp1array = temp1.split("/")
+					localStorage.setItem("xp4h" + i, temp1array[0])
+				} else {
+					localStorage.setItem("xp4h" + i, "0")
+				}
+			}
+			// save totals
+			// front 9
+			temp1 = document.getElementById("p1hf").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp1hf", temp1array[0])
+			} else {
+				localStorage.setItem("xp1hf", "0")
+			}
+			temp1 = document.getElementById("p2hf").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp2hf", temp1array[0])
+			} else {
+				localStorage.setItem("xp2hf", "0")
+			}
+			temp1 = document.getElementById("p3hf").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp3hf", temp1array[0])
+			} else {
+				localStorage.setItem("xp3hf", "0")
+			}
+			temp1 = document.getElementById("p4hf").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp4hf", temp1array[0])
+			} else {
+				localStorage.setItem("xp4hf", "0")
+			}
+			// back 9
+			temp1 = document.getElementById("p1hb").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp1hb", temp1array[0])
+			} else {
+				localStorage.setItem("xp1hb", "0")
+			}
+			temp1 = document.getElementById("p2hb").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp2hb", temp1array[0])
+			} else {
+				localStorage.setItem("xp2hb", "0")
+			}
+			temp1 = document.getElementById("p3hb").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp3hb", temp1array[0])
+			} else {
+				localStorage.setItem("xp3hb", "0")
+			}
+			temp1 = document.getElementById("p4hb").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp4hb", temp1array[0])
+			} else {
+				localStorage.setItem("xp4hb", "0")
+			}
+			// total
+			temp1 = document.getElementById("p1ht").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp1ht", temp1array[0])
+			} else {
+				localStorage.setItem("xp1ht", "0")
+			}
+			temp1 = document.getElementById("p2ht").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp2ht", temp1array[0])
+			} else {
+				localStorage.setItem("xp2ht", "0")
+			}
+			temp1 = document.getElementById("p3ht").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp3ht", temp1array[0])
+			} else {
+				localStorage.setItem("xp3ht", "0")
+			}
+			temp1 = document.getElementById("p4ht").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("xp4ht", temp1array[0])
+			} else {
+				localStorage.setItem("xp4ht", "0")
+			}
 		}
-		var tempp4txt = document.getElementById("p4h" + i).innerText
-		if(!(tempp4txt == "0")) {
-			tempp4 = tempp4txt.split("/");
-			p4back += parseInt(tempp4[0])
-			p4backpoints += parseInt(tempp4[1])
+
+		function retrieveAllFromLocalStorage() {
+			compcourse = course;
+			// get date and comp
+			compdate = localStorage.getItem("xcompdate");
+			compcourse = localStorage.getItem("xcompcourse");
+			// get course details
+			if(compcourse == "Dawson") {
+				arrCourse = arrDeepCopy(arrDawson);
+			}
+			if(compcourse == "Lakes") {
+				arrCourse = arrDeepCopy(arrLakes);
+			}
+			if(compcourse == "OldCourse") {
+				arrCourse = arrDeepCopy(arrOldCourse);
+			}
+			// recover players names and hcps
+			player1name = localStorage.getItem("xplayer1name");
+			player2name = localStorage.getItem("xplayer2name");
+			player3name = localStorage.getItem("xplayer3name");
+			player4name = localStorage.getItem("xplayer4name");
+			player1hcp = localStorage.getItem("xplayer1hcp");
+			player2hcp = localStorage.getItem("xplayer2hcp");
+			player3hcp = localStorage.getItem("xplayer3hcp");
+			player4hcp = localStorage.getItem("xplayer4hcp");
+			// do shortnames etc.
+			body();
+			// recover scores, points etc
+			for(i = 1; i <= 18; i++) {
+				// Recorded scores
+				temp1 = localStorage.getItem("xp1h" + i);
+				if(temp1 !== "0") {
+					temp2 = pointsCalc(arrCourse[1], arrCourse[2], player1hcp, temp1);
+					document.getElementById("p1h" + i).innerText = temp1 + "/" + temp2;
+				} else {
+					document.getElementById("p1h" + i).innerText = "0";
+				}
+				// Recorded scores
+				temp1 = localStorage.getItem("xp2h" + i);
+				if(temp1 !== "0") {
+					temp2 = pointsCalc(arrCourse[1], arrCourse[2], player2hcp, temp1);
+					document.getElementById("p2h" + i).innerText = temp1 + "/" + temp2;
+				} else {
+					document.getElementById("p2h" + i).innerText = "0";
+				}
+				// Recorded scores
+				temp1 = localStorage.getItem("xp3h" + i);
+				if(temp1 !== "0") {
+					temp2 = pointsCalc(arrCourse[1], arrCourse[2], player3hcp, temp1);
+					document.getElementById("p3h" + i).innerText = temp1 + "/" + temp2;
+				} else {
+					document.getElementById("p3h" + i).innerText = "0";
+				}
+				// Recorded scores
+				temp1 = localStorage.getItem("xp4h" + i);
+				if(temp1 !== "0") {
+					temp2 = pointsCalc(arrCourse[1], arrCourse[2], player4hcp, temp1);
+					document.getElementById("p4h" + i).innerText = temp1 + "/" + temp2;
+				} else {
+					document.getElementById("p4h" + i).innerText = "0";
+				}
+				// do scores for first hole
+				document.getElementById("p1score").innerText = localStorage.getItem("xp1h1");
+				document.getElementById("p2score").innerText = localStorage.getItem("xp2h1");
+				document.getElementById("p3score").innerText = localStorage.getItem("xp3h1");
+				document.getElementById("p4score").innerText = localStorage.getItem("xp4h1");
+			}
+			// redo totals
+			totalsCalc()
 		}
-	}
-	document.getElementById("p1hf").innerText = p1front.toString() + "/" + p1frontpoints.toString();
-	document.getElementById("p2hf").innerText = p2front.toString() + "/" + p2frontpoints.toString();
-	document.getElementById("p3hf").innerText = p3front.toString() + "/" + p3frontpoints.toString();
-	document.getElementById("p4hf").innerText = p4front.toString() + "/" + p4frontpoints.toString();
-	document.getElementById("p1hb").innerText = p1back.toString() + "/" + p1backpoints.toString();
-	document.getElementById("p2hb").innerText = p2back.toString() + "/" + p2backpoints.toString();
-	document.getElementById("p3hb").innerText = p3back.toString() + "/" + p3backpoints.toString();
-	document.getElementById("p4hb").innerText = p4back.toString() + "/" + p4backpoints.toString();
-	document.getElementById("p1ht").innerText = (p1front + p1back).toString() + "/" + 
-	(p1frontpoints + p1backpoints).toString();
-	document.getElementById("p2ht").innerText = (p2front + p2back).toString() + "/" + 
-	(p2frontpoints + p2backpoints).toString();
-	document.getElementById("p3ht").innerText = (p3front + p3back).toString() + "/" + 
-	(p3frontpoints + p3backpoints).toString();
-	document.getElementById("p4ht").innerText = (p4front + p4back).toString() + "/" + 
-	(p4frontpoints + p4backpoints).toString();
-}
-//clearLocalStorage()
-function clearLocalStorage() {
-   //console.log("clearLocalStorage here")
-   Object.keys(localStorage).forEach(function(key){
-       if (key.substring(0,1) == "x") {
-           //console.log(key)
-           localStorage.removeItem(key)
-       }
-   })
-}           
-   
-function highlightShots() {
-}
 
-function moveToCurrent() {
-
-var lastOne = 0;
-var i = 0;
-// go backwards
-for (i = 18; i > 0; i--) {
-    var tempp1txt = document.getElementById("p1h" + i).innerText    
-    var tempp2txt = document.getElementById("p2h" + i).innerText    
-    var tempp3txt = document.getElementById("p3h" + i).innerText    
-    var tempp4txt = document.getElementById("p4h" + i).innerText  
-
-    // find current entry    
-    if (tempp1txt == 0 &&
-        tempp2txt == 0 &&
-        tempp3txt == 0 &&
-        tempp4txt == 0 ) {
-           // cope with movement to previous score
-           //   lastOne = (i - 1);
-           lastOne = i;
-    }
-}
-
-//move to last one
-whichhole = lastOne;
-// get hole details
-	// highlight if shot hole
-	highlightShots()
-	// get hole details
-	holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
-	", si " + arrCourse[whichhole][2]
-	document.getElementById("holedetails").innerText = holedetails
-		// get hole scores
-	document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
-	document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("xp2h" + whichhole);
-	document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("xp3h" + whichhole);
-	document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("xp4h" + whichhole);
-	// change highlight colour
-	document.getElementById("p1name").classList.remove("highlight");
-	document.getElementById("p2name").classList.remove("highlight");
-	document.getElementById("p3name").classList.remove("highlight");
-	document.getElementById("p4name").classList.remove("highlight");
-	selectedplayer = 1
-	document.getElementById("p1name").classList.add("highlight");
-	// retrieve scores   
-	getScores()
-}
-
-function displayInfo() {
-	saveScores();
-	//saveAllToLocalStorage()
-	// get players, all strokes and points
-	document.getElementById("p1h0").innerText = shortName(player1name);
-	document.getElementById("p2h0").innerText = shortName(player2name);
-	document.getElementById("p3h0").innerText = shortName(player3name);
-	document.getElementById("p4h0").innerText = shortName(player4name);
-	for(var i = 1; i <= 18; i++) {
-		temp = localStorage.getItem("xp1h" + i)
-		document.getElementById("p1h" + i).innerText = temp + "/" + 
-		pointsCalc(player1hcp, arrCourse[i][1], arrCourse[i][2], temp)
-		temp = localStorage.getItem("xp2h" + i)
-		document.getElementById("p2h" + i).innerText = temp + "/" + 
-		pointsCalc(player2hcp, arrCourse[i][1], arrCourse[i][2], temp)
-		temp = localStorage.getItem("xp3h" + i)
-		document.getElementById("p3h" + i).innerText = temp + "/" + 
-		pointsCalc(player3hcp, arrCourse[i][1], arrCourse[i][2], temp)
-		temp = localStorage.getItem("xp4h" + i)
-		document.getElementById("p4h" + i).innerText = temp + "/" + 
-		pointsCalc(player4hcp, arrCourse[i][1], arrCourse[i][2], temp)
-	}
-	totalScore()
-	//shots()
-		// show screen as overlay
-	if(document.getElementById("info").style.display !== "block") {
-		document.getElementById("info").style.display = "block"
-	} else {
-		document.getElementById("info").style.display = "none"
-	}
-}
-
-function hideInfo() {
-	document.getElementById("info").style.display = "none"
-}
-// calculated additional totals, countback etc.
-function totalScore() {
-	// front 9 scores
-	var p1ih = 0;
-	var p2ih = 0;
-	var p3ih = 0;
-	var p4ih = 0;
-	// front 9 points
-	var p1ip = 0;
-	var p2ip = 0;
-	var p3ip = 0;
-	var p4ip = 0;
-	// back 9 scores
-	var p1jh = 0;
-	var p2jh = 0;
-	var p3jh = 0;
-	var p4jh = 0;
-	// back 9 points
-	var p1jp = 0;
-	var p2jp = 0;
-	var p3jp = 0;
-	var p4jp = 0;
-	// totals
-	var p1f = 0;
-	var p1b = 0;
-	var p1t = 0;
-	var p2f = 0;
-	var p2b = 0;
-	var p2t = 0;
-	var p3f = 0;
-	var p3b = 0;
-	var p3t = 0;
-	var p4f = 0;
-	var p4b = 0;
-	var p4t = 0;
-	// do scores and points
-	for(i = 1; i <= 9; i++) {
-		//const [name, street, unit, city, state, zip] = input.split("/");
-		var [tempp1ih, tempp1ip] = document.getElementById("p1h" + i).innerText.split("/");
-		var [tempp2ih, tempp2ip] = document.getElementById("p2h" + i).innerText.split("/");
-		var [tempp3ih, tempp3ip] = document.getElementById("p3h" + i).innerText.split("/");
-		var [tempp4ih, tempp4ip] = document.getElementById("p4h" + i).innerText.split("/");
-		p1ih += parseInt(tempp1ih)
-		p2ih += parseInt(tempp2ih)
-		p3ih += parseInt(tempp3ih)
-		p4ih += parseInt(tempp4ih)
-		p1ip += parseInt(tempp1ip)
-		p2ip += parseInt(tempp2ip)
-		p3ip += parseInt(tempp3ip)
-		p4ip += parseInt(tempp4ip)
-	}
-	for(j = 10; j <= 18; j++) {
-		//const [name, street, unit, city, state, zip] = input.split("/");
-		var [tempp1jh, tempp1jp] = document.getElementById("p1h" + j).innerText.split("/");
-		var [tempp2jh, tempp2jp] = document.getElementById("p2h" + j).innerText.split("/");
-		var [tempp3jh, tempp3jp] = document.getElementById("p3h" + j).innerText.split("/");
-		var [tempp4jh, tempp4jp] = document.getElementById("p4h" + j).innerText.split("/");
-		p1jh += parseInt(tempp1jh)
-		p2jh += parseInt(tempp2jh)
-		p3jh += parseInt(tempp3jh)
-		p4jh += parseInt(tempp4jh)
-		p1jp += parseInt(tempp1jp)
-		p2jp += parseInt(tempp2jp)
-		p3jp += parseInt(tempp3jp)
-		p4jp += parseInt(tempp4jp)
-	}
-	p1f = p1ih + p1jh;
-	p2f = p2ih + p2jh;
-	p3f = p3ih + p3jh;
-	p4f = p4ih + p4jh;
-	p1fp = p1ip + p1jp;
-	p2fp = p2ip + p2jp;
-	p3fp = p3ip + p3jp;
-	p4fp = p4ip + p4jp;
-	document.getElementById("p1hf").innerText = p1ih + "/" + p1ip;
-	document.getElementById("p2hf").innerText = p2ih + "/" + p2ip;
-	document.getElementById("p3hf").innerText = p3ih + "/" + p3ip;
-	document.getElementById("p4hf").innerText = p4ih + "/" + p4ip;
-	document.getElementById("p1hb").innerText = p1jh + "/" + p1jp;
-	document.getElementById("p2hb").innerText = p2jh + "/" + p2jp;
-	document.getElementById("p3hb").innerText = p3jh + "/" + p3jp;
-	document.getElementById("p4hb").innerText = p4jh + "/" + p4jp;
-	document.getElementById("p1ht").innerText = p1f + "/" + p1fp;
-	document.getElementById("p2ht").innerText = p2f + "/" + p2fp;
-	document.getElementById("p3ht").innerText = p3f + "/" + p3fp;
-	document.getElementById("p4ht").innerText = p4f + "/" + p4fp;
-}
-// convert scores to stableford points
-function pointsCalc(xhcp, xpar, xsi, xscore) {
-hcp = parseInt(xhcp)
-par = parseInt(xpar)
-si = parseInt(xsi)
-score = parseInt(xscore)
-	allowance = 0;
-	if(score == 0) {
-		return 0;
-	} else {
-	        // cope with minus hcp
-	        if(hcp < 0) {
-	          // 18 plus a minus hcp
-	          if((18 + parseInt(hcp)) < si) {
-			allowance = -1;
-		  }	
+		function totalsCalc() {
+			p1front = 0
+			p2front = 0
+			p3front = 0
+			p4front = 0
+			p1frontpoints = 0
+			p2frontpoints = 0
+			p3frontpoints = 0
+			p4frontpoints = 0
+			p1back = 0
+			p2back = 0
+			p3back = 0
+			p4back = 0
+			p1backpoints = 0
+			p2backpoints = 0
+			p3backpoints = 0
+			p4backpoints = 0
+			for(var i = 1; i <= 9; i++) {
+				var tempp1txt = document.getElementById("p1h" + i).innerText
+				if(!(tempp1txt == "0")) {
+					tempp1 = tempp1txt.split("/");
+					p1front += parseInt(tempp1[0])
+					p1frontpoints += parseInt(tempp1[1])
+				}
+				var tempp2txt = document.getElementById("p2h" + i).innerText
+				if(!(tempp2txt == "0")) {
+					tempp2 = tempp2txt.split("/");
+					p2front += parseInt(tempp2[0])
+					p2frontpoints += parseInt(tempp2[1])
+				}
+				var tempp3txt = document.getElementById("p3h" + i).innerText
+				if(!(tempp3txt == "0")) {
+					tempp3 = tempp3txt.split("/");
+					p3front += parseInt(tempp3[0])
+					p3frontpoints += parseInt(tempp3[1])
+				}
+				var tempp4txt = document.getElementById("p4h" + i).innerText
+				if(!(tempp4txt == "0")) {
+					tempp4 = tempp4txt.split("/");
+					p4front += parseInt(tempp4[0])
+					p4frontpoints += parseInt(tempp4[1])
+				}
+			}
+			for(var i = 10; i <= 18; i++) {
+				var tempp1txt = document.getElementById("p1h" + i).innerText
+				if(!(tempp1txt == "0")) {
+					tempp1 = tempp1txt.split("/");
+					p1back += parseInt(tempp1[0])
+					p1backpoints += parseInt(tempp1[1])
+				}
+				var tempp2txt = document.getElementById("p2h" + i).innerText
+				if(!(tempp2txt == "0")) {
+					tempp2 = tempp2txt.split("/");
+					p2back += parseInt(tempp2[0])
+					p2backpoints += parseInt(tempp2[1])
+				}
+				var tempp3txt = document.getElementById("p3h" + i).innerText
+				if(!(tempp3txt == "0")) {
+					tempp3 = tempp3txt.split("/");
+					p3back += parseInt(tempp3[0])
+					p3backpoints += parseInt(tempp3[1])
+				}
+				var tempp4txt = document.getElementById("p4h" + i).innerText
+				if(!(tempp4txt == "0")) {
+					tempp4 = tempp4txt.split("/");
+					p4back += parseInt(tempp4[0])
+					p4backpoints += parseInt(tempp4[1])
+				}
+			}
+			document.getElementById("p1hf").innerText = p1front.toString() + "/" + p1frontpoints.toString();
+			document.getElementById("p2hf").innerText = p2front.toString() + "/" + p2frontpoints.toString();
+			document.getElementById("p3hf").innerText = p3front.toString() + "/" + p3frontpoints.toString();
+			document.getElementById("p4hf").innerText = p4front.toString() + "/" + p4frontpoints.toString();
+			document.getElementById("p1hb").innerText = p1back.toString() + "/" + p1backpoints.toString();
+			document.getElementById("p2hb").innerText = p2back.toString() + "/" + p2backpoints.toString();
+			document.getElementById("p3hb").innerText = p3back.toString() + "/" + p3backpoints.toString();
+			document.getElementById("p4hb").innerText = p4back.toString() + "/" + p4backpoints.toString();
+			document.getElementById("p1ht").innerText = (p1front + p1back).toString() + "/" + (p1frontpoints + p1backpoints).toString();
+			document.getElementById("p2ht").innerText = (p2front + p2back).toString() + "/" + (p2frontpoints + p2backpoints).toString();
+			document.getElementById("p3ht").innerText = (p3front + p3back).toString() + "/" + (p3frontpoints + p3backpoints).toString();
+			document.getElementById("p4ht").innerText = (p4front + p4back).toString() + "/" + (p4frontpoints + p4backpoints).toString();
 		}
-	
-		// allowance   
-		if(hcp >= si) {
-			allowance = 1;
+		//clearLocalStorage()
+		function clearLocalStorage() {
+			//console.log("clearLocalStorage here")
+			Object.keys(localStorage).forEach(function(key) {
+				if(key.substring(0, 1) == "x") {
+					//console.log(key)
+					localStorage.removeItem(key)
+				}
+			})
 		}
-		if(hcp >= (18 + si)) {
-			allowance = 2;
+
+		function highlightShots() {}
+
+		function moveToCurrent() {
+			var lastOne = 0;
+			var i = 0;
+			// go backwards
+			for(i = 18; i > 0; i--) {
+				var tempp1txt = document.getElementById("p1h" + i).innerText
+				var tempp2txt = document.getElementById("p2h" + i).innerText
+				var tempp3txt = document.getElementById("p3h" + i).innerText
+				var tempp4txt = document.getElementById("p4h" + i).innerText
+					// find current entry    
+				if(tempp1txt == 0 && tempp2txt == 0 && tempp3txt == 0 && tempp4txt == 0) {
+					// cope with movement to previous score
+					//   lastOne = (i - 1);
+					lastOne = i;
+				}
+			}
+			//move to last one
+			whichhole = lastOne;
+			// get hole details
+			// highlight if shot hole
+			highlightShots()
+				// get hole details
+			holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2]
+			document.getElementById("holedetails").innerText = holedetails
+				// get hole scores
+			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("xp1h" + whichhole);
+			document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("xp2h" + whichhole);
+			document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("xp3h" + whichhole);
+			document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("xp4h" + whichhole);
+			// change highlight colour
+			document.getElementById("p1name").classList.remove("highlight");
+			document.getElementById("p2name").classList.remove("highlight");
+			document.getElementById("p3name").classList.remove("highlight");
+			document.getElementById("p4name").classList.remove("highlight");
+			selectedplayer = 1
+			document.getElementById("p1name").classList.add("highlight");
+			// retrieve scores   
+			getScores()
 		}
-		if(hcp >= (36 + si)) {
-			allowance = 3;
-		}		
-		// points
-		var points = (par + allowance + 2) - score;
-		// remove negative numbers
-		if(points < 0) {
-			points = 0;
+
+		function displayInfo() {
+			saveScores();
+			//saveAllToLocalStorage()
+			// get players, all strokes and points
+			document.getElementById("p1h0").innerText = shortName(player1name);
+			document.getElementById("p2h0").innerText = shortName(player2name);
+			document.getElementById("p3h0").innerText = shortName(player3name);
+			document.getElementById("p4h0").innerText = shortName(player4name);
+			for(var i = 1; i <= 18; i++) {
+				temp = localStorage.getItem("xp1h" + i)
+				document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrCourse[i][1], arrCourse[i][2], temp)
+				temp = localStorage.getItem("xp2h" + i)
+				document.getElementById("p2h" + i).innerText = temp + "/" + pointsCalc(player2hcp, arrCourse[i][1], arrCourse[i][2], temp)
+				temp = localStorage.getItem("xp3h" + i)
+				document.getElementById("p3h" + i).innerText = temp + "/" + pointsCalc(player3hcp, arrCourse[i][1], arrCourse[i][2], temp)
+				temp = localStorage.getItem("xp4h" + i)
+				document.getElementById("p4h" + i).innerText = temp + "/" + pointsCalc(player4hcp, arrCourse[i][1], arrCourse[i][2], temp)
+			}
+			totalScore()
+				//shots()
+				// show screen as overlay
+			if(document.getElementById("info").style.display !== "block") {
+				document.getElementById("info").style.display = "block"
+			} else {
+				document.getElementById("info").style.display = "none"
+			}
 		}
-		return points;
-	}
-}
 
+		function hideInfo() {
+			document.getElementById("info").style.display = "none"
+		}
+		// calculated additional totals, countback etc.
+		function totalScore() {
+			// front 9 scores
+			var p1ih = 0;
+			var p2ih = 0;
+			var p3ih = 0;
+			var p4ih = 0;
+			// front 9 points
+			var p1ip = 0;
+			var p2ip = 0;
+			var p3ip = 0;
+			var p4ip = 0;
+			// back 9 scores
+			var p1jh = 0;
+			var p2jh = 0;
+			var p3jh = 0;
+			var p4jh = 0;
+			// back 9 points
+			var p1jp = 0;
+			var p2jp = 0;
+			var p3jp = 0;
+			var p4jp = 0;
+			// totals
+			var p1f = 0;
+			var p1b = 0;
+			var p1t = 0;
+			var p2f = 0;
+			var p2b = 0;
+			var p2t = 0;
+			var p3f = 0;
+			var p3b = 0;
+			var p3t = 0;
+			var p4f = 0;
+			var p4b = 0;
+			var p4t = 0;
+			// do scores and points
+			for(i = 1; i <= 9; i++) {
+				//const [name, street, unit, city, state, zip] = input.split("/");
+				var [tempp1ih, tempp1ip] = document.getElementById("p1h" + i).innerText.split("/");
+				var [tempp2ih, tempp2ip] = document.getElementById("p2h" + i).innerText.split("/");
+				var [tempp3ih, tempp3ip] = document.getElementById("p3h" + i).innerText.split("/");
+				var [tempp4ih, tempp4ip] = document.getElementById("p4h" + i).innerText.split("/");
+				p1ih += parseInt(tempp1ih)
+				p2ih += parseInt(tempp2ih)
+				p3ih += parseInt(tempp3ih)
+				p4ih += parseInt(tempp4ih)
+				p1ip += parseInt(tempp1ip)
+				p2ip += parseInt(tempp2ip)
+				p3ip += parseInt(tempp3ip)
+				p4ip += parseInt(tempp4ip)
+			}
+			for(j = 10; j <= 18; j++) {
+				//const [name, street, unit, city, state, zip] = input.split("/");
+				var [tempp1jh, tempp1jp] = document.getElementById("p1h" + j).innerText.split("/");
+				var [tempp2jh, tempp2jp] = document.getElementById("p2h" + j).innerText.split("/");
+				var [tempp3jh, tempp3jp] = document.getElementById("p3h" + j).innerText.split("/");
+				var [tempp4jh, tempp4jp] = document.getElementById("p4h" + j).innerText.split("/");
+				p1jh += parseInt(tempp1jh)
+				p2jh += parseInt(tempp2jh)
+				p3jh += parseInt(tempp3jh)
+				p4jh += parseInt(tempp4jh)
+				p1jp += parseInt(tempp1jp)
+				p2jp += parseInt(tempp2jp)
+				p3jp += parseInt(tempp3jp)
+				p4jp += parseInt(tempp4jp)
+			}
+			p1f = p1ih + p1jh;
+			p2f = p2ih + p2jh;
+			p3f = p3ih + p3jh;
+			p4f = p4ih + p4jh;
+			p1fp = p1ip + p1jp;
+			p2fp = p2ip + p2jp;
+			p3fp = p3ip + p3jp;
+			p4fp = p4ip + p4jp;
+			document.getElementById("p1hf").innerText = p1ih + "/" + p1ip;
+			document.getElementById("p2hf").innerText = p2ih + "/" + p2ip;
+			document.getElementById("p3hf").innerText = p3ih + "/" + p3ip;
+			document.getElementById("p4hf").innerText = p4ih + "/" + p4ip;
+			document.getElementById("p1hb").innerText = p1jh + "/" + p1jp;
+			document.getElementById("p2hb").innerText = p2jh + "/" + p2jp;
+			document.getElementById("p3hb").innerText = p3jh + "/" + p3jp;
+			document.getElementById("p4hb").innerText = p4jh + "/" + p4jp;
+			document.getElementById("p1ht").innerText = p1f + "/" + p1fp;
+			document.getElementById("p2ht").innerText = p2f + "/" + p2fp;
+			document.getElementById("p3ht").innerText = p3f + "/" + p3fp;
+			document.getElementById("p4ht").innerText = p4f + "/" + p4fp;
+		}
+		// convert scores to stableford points
+		function pointsCalc(xhcp, xpar, xsi, xscore) {
+			hcp = parseInt(xhcp)
+			par = parseInt(xpar)
+			si = parseInt(xsi)
+			score = parseInt(xscore)
+			allowance = 0;
+			if(score == 0) {
+				return 0;
+			} else {
+				// cope with minus hcp
+				if(hcp < 0) {
+					// 18 plus a minus hcp
+					if((18 + parseInt(hcp)) < si) {
+						allowance = -1;
+					}
+				}
+				// allowance   
+				if(hcp >= si) {
+					allowance = 1;
+				}
+				if(hcp >= (18 + si)) {
+					allowance = 2;
+				}
+				if(hcp >= (36 + si)) {
+					allowance = 3;
+				}
+				// points
+				var points = (par + allowance + 2) - score;
+				// remove negative numbers
+				if(points < 0) {
+					points = 0;
+				}
+				return points;
+			}
+		}
+		//=============================================================
+		// function submitForm()
+		// - send info from HTML form to google form
+		//=============================================================  
+		function submitForm() {
+			// get the relevant info into a form
+			// dont allow submit for an incorrect day
+			/*	if(compday == "yes") {
+					document.getElementById('mx474474348').value = player;
+					document.getElementById('mx2131369517').value = comp;
+					document.getElementById('mx477101370').value = hcp;
+					document.getElementById('mx1980297491').value = document.getElementById("h1").innerText;
+					document.getElementById('mx463832232').value = document.getElementById("h2").innerText;
+					document.getElementById('mx205704642').value = document.getElementById("h3").innerText;
+					document.getElementById('mx278278589').value = document.getElementById("h4").innerText;
+					document.getElementById('mx949547387').value = document.getElementById("h5").innerText;
+					document.getElementById('mx703011397').value = document.getElementById("h6").innerText;
+					document.getElementById('mx1460583253').value = document.getElementById("h7").innerText;
+					document.getElementById('mx462940045').value = document.getElementById("h8").innerText;
+					document.getElementById('mx477691508').value = document.getElementById("h9").innerText;
+					document.getElementById('mx413249407').value = document.getElementById("h10").innerText;
+					document.getElementById('mx108900453').value = document.getElementById("h11").innerText;
+					document.getElementById('mx1841236411').value = document.getElementById("h12").innerText;
+					document.getElementById('mx1864644918').value = document.getElementById("h13").innerText;
+					document.getElementById('mx1538428689').value = document.getElementById("h14").innerText;
+					document.getElementById('mx1449918213').value = document.getElementById("h15").innerText;
+					document.getElementById('mx38761817').value = document.getElementById("h16").innerText;
+					document.getElementById('mx247392471').value = document.getElementById("h17").innerText;
+					document.getElementById('mx741809181').value = document.getElementById("h18").innerText;
+					document.getElementById('mx1362729237').value = document.getElementById("p1").innerText;
+					document.getElementById('mx1372983908').value = document.getElementById("p2").innerText;
+					document.getElementById('mx2002196917').value = document.getElementById("p3").innerText;
+					document.getElementById('mx640802794').value = document.getElementById("p4").innerText;
+					document.getElementById('mx2076656246').value = document.getElementById("p5").innerText;
+					document.getElementById('mx486346919').value = document.getElementById("p6").innerText;
+					document.getElementById('mx1918313229').value = document.getElementById("p7").innerText;
+					document.getElementById('mx638821').value = document.getElementById("p8").innerText;
+					document.getElementById('mx737099688').value = document.getElementById("p9").innerText;
+					document.getElementById('mx488827232').value = document.getElementById("p10").innerText;
+					document.getElementById('mx1203421487').value = document.getElementById("p11").innerText;
+					document.getElementById('mx979421831').value = document.getElementById("p12").innerText;
+					document.getElementById('mx929858153').value = document.getElementById("p13").innerText;
+					document.getElementById('mx1330487443').value = document.getElementById("p14").innerText;
+					document.getElementById('mx940496448').value = document.getElementById("p15").innerText;
+					document.getElementById('mx1127168348').value = document.getElementById("p16").innerText;
+					document.getElementById('mx638332104').value = document.getElementById("p17").innerText;
+					document.getElementById('mx1626319908').value = document.getElementById("p18").innerText;
+					document.getElementById('mx362674948').value = document.getElementById("pfront").innerText;
+					document.getElementById('mx544180710').value = document.getElementById("pback").innerText;
+					document.getElementById('mx893562950').value = document.getElementById("ptotal").innerText;
+					//document.getElementById('mx335596501').value = document.getElementById("cback9");
+					document.getElementById('mx335596501').value = document.getElementById("pback").innerText;
+					tempcb6 = 0;
+					tempcb6 += parseInt(document.getElementById("p18").innerText);
+					tempcb6 += parseInt(document.getElementById("p17").innerText);
+					tempcb6 += parseInt(document.getElementById("p16").innerText);
+					tempcb6 += parseInt(document.getElementById("p15").innerText);
+					tempcb6 += parseInt(document.getElementById("p14").innerText);
+					tempcb6 += parseInt(document.getElementById("p13").innerText);
+					tempcb3 = 0;
+					tempcb3 += parseInt(document.getElementById("p18").innerText);
+					tempcb3 += parseInt(document.getElementById("p17").innerText);
+					tempcb3 += parseInt(document.getElementById("p16").innerText);
+					document.getElementById('mx1453506389').value = tempcb6;
+					document.getElementById('mx1045870519').value = tempcb3;
+					document.getElementById('mx683300283').value = document.getElementById("p18").innerText;
+					//temp2 = 0;
+					twoscount = 0;
+					// check data is complete 
+					checkBeforeSubmitID = "\n";
+					err = "no";
+					for(ii = 1; ii <= 18; ii++) {
+						if(document.getElementById("h" + ii).innerText == "2") {
+							twoscount++;
+						}
+						// check for no score entered
+						if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
+							if(checkBeforeSubmitID.length < 50) {
+								checkBeforeSubmitID += "hole " + ii + " not scored\n";
+								err = "yes";
+							}
+						}
+					}
+					document.getElementById('mx967906330').value = twoscount.toString();
+					document.getElementById('mx789190149').value = comp + player;
+					if(player == "select player") {
+						checkBeforeSubmitID += "player not set\n"
+						err = "yes";
+					}
+					if(hcp == "0") {
+						checkBeforeSubmitID += "hcp not set\n"
+						err = "yes";
+					}
+					if(err == "yes") {
+						// error message
+						checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
+						showIncompleteSubmitData(checkBeforeSubmitID);
+					} else {
+						//===== submit data ==========
+						//============================
+						//			document.forms[0].submit();
+						alert("submit")
+							//============================
+							// hide icons to allow tick etc.
+						document.getElementById('limg').style.visibility = "hidden";
+						document.getElementById('rimg').style.visibility = "hidden";
+						document.getElementById('mimgl').style.visibility = "hidden";
+						document.getElementById('mimgr').style.visibility = "hidden";
+						// hide button
+						document.getElementById("submit").style.visibility = "visible";
+						// allow some time for submit then give a completion message
+						// keep user interested by showing icons ???
+						// show sending icon
+						document.getElementById('submit').innerText = "";
+						// show empty text which is placeholder for image
+						document.getElementById('submit').innerHTML = '<img src="uploada.png" style="height: 100px; width: 100px;">'
+						setTimeout(function() {
+							document.getElementById('submit').innerHTML = '<img src="tick1.png" style="height: 100px; width: 100px;">'
+						}, 6500);
+						// return to main menu
+						setTimeout(function() {
+							history.go(-1);
+						}, 7500);
+					}
+				}
+				
+				
+			*/
+			document.getElementById("info").style.display = "none";
+			document.getElementById("all").style.display = "none";
+			document.getElementById("submit").style.display = "none";
+			document.getElementById("blackout").style.display = "flex";
+			console.log("here")
+			document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
+			setTimeout(function() {
+				document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">'
+			}, 6500);
+		}
+		</script>
+</body>
 
-
-
-
-
-      </script>
-   </body>
 </html>
-
-
-
