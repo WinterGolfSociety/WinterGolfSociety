@@ -453,6 +453,9 @@
 		}
 	}
 	
+	img {
+    display: block;
+}
 		
 	</style>
 </head>
@@ -2266,7 +2269,7 @@
 			console.log("here")
 			document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
 			setTimeout(function() {
-				document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">tap icon to close'
+				document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;"><span class="caption">Tap icon to close</span>'
 				
 			}, 6500);
 		}
