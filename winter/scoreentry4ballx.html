@@ -38,6 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid Gray;
 }
       	
       	.dropdown {
@@ -137,6 +138,7 @@
       	
       	.scorelow {
       	    font-size: 4vh;
+      	    color: lime;
       	    display: inline-block;
       	    width: 40%;
       	    height: 10vh;
@@ -359,6 +361,12 @@ width: calc(100% / 5);
 text-align: center;
 }
 
+.box1c {
+color: lime;
+width: calc(100% / 5);
+text-align: center;
+}
+
 #player4ballplayer {
 width: 30%;
 padding: 1vw;
@@ -419,8 +427,8 @@ display: flex;
       <!-- scoring screen -->
       <div id="all">
       
-      <div class="child-six">
-         <div id="holedetails" onclick="displayInfo()">hole 1 par si etc.</div>
+      <div class="child-six" onclick="displayInfo()">
+         <div id="holedetails">hole 1 par si etc.</div>
       </div>
       
       <div class="child-seven">
@@ -481,11 +489,11 @@ display: flex;
       <div id="info" onclick="hideInfo()">
          <div id="x1"></div>
          <div class="child-three">
-            <div id="h0" class="box1">hole</div>
-            <div id="p1h0" class="box1">player 1</div>
-            <div id="p2h0" class="box1">player 2</div>
-            <div id="p3h0" class="box1">player 3</div>
-            <div id="p4h0" class="box1">player 4</div>
+            <div id="h0" class="box1c">hole</div>
+            <div id="p1h0" class="box1c">player 1</div>
+            <div id="p2h0" class="box1c">player 2</div>
+            <div id="p3h0" class="box1c">player 3</div>
+            <div id="p4h0" class="box1c">player 4</div>
          </div>
          <div class="child-three">
             <div id="h1" class="box1">1</div>
@@ -551,11 +559,11 @@ display: flex;
             <div id="p4h9" class="box1">-</div>
             </div>
          <div class="child-three">
-            <div id="front" class="box1">front</div>
-            <div id="p1hf" class="box1">-</div>
-            <div id="p2hf" class="box1">-</div>
-            <div id="p3hf" class="box1">-</div>
-            <div id="p4hf" class="box1">-</div>
+            <div id="front" class="box1c">front</div>
+            <div id="p1hf" class="box1c">-</div>
+            <div id="p2hf" class="box1c">-</div>
+            <div id="p3hf" class="box1c">-</div>
+            <div id="p4hf" class="box1c">-</div>
             </div>
          <div class="child-three">
             <div id="h10" class="box1">10</div>
@@ -621,18 +629,18 @@ display: flex;
             <div id="p4h18" class="box1">-</div>
             </div>
          <div class="child-three">
-            <div id="back" class="box1">back</div>
-            <div id="p1hb" class="box1">-</div>
-            <div id="p2hb" class="box1">-</div>
-            <div id="p3hb" class="box1">-</div>
-            <div id="p4hb" class="box1">-</div>
+            <div id="back" class="box1c">back</div>
+            <div id="p1hb" class="box1c">-</div>
+            <div id="p2hb" class="box1c">-</div>
+            <div id="p3hb" class="box1c">-</div>
+            <div id="p4hb" class="box1c">-</div>
             </div>
          <div class="child-three">
-            <div id="total" class="box1">total</div>
-            <div id="p1ht" class="box1">-</div>
-            <div id="p2ht" class="box1">-</div>
-            <div id="p3ht" class="box1">-</div>
-            <div id="p4ht" class="box1">-</div>
+            <div id="total" class="box1c">total</div>
+            <div id="p1ht" class="box1c">-</div>
+            <div id="p2ht" class="box1c">-</div>
+            <div id="p3ht" class="box1c">-</div>
+            <div id="p4ht" class="box1c">-</div>
          </div>
       </div>
       
@@ -645,7 +653,7 @@ display: flex;
       	
 	
 	<!--
-	invisible nut necessary for submit of data
+	invisible but necessary for submit of data
 	-->
 	
 	 <!-- form to construct data prior to submit -->
@@ -823,12 +831,12 @@ window.addEventListener("beforeunload", function (e) {
    e.returnValue = "";
 });
 
-/*
+
 // 1st hole
-var holedetails = "hole " + arrOldCourse[whichhole][0] + ", par " + arrOldCourse[whichhole][1] + 
-", si " + arrOldCourse[whichhole][2]
+var holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + 
+", si " + arrCourse[whichhole][2]
 document.getElementById("holedetails").innerText = holedetails
-*/
+
 
 	//===========================
 	// this code runs at startup
