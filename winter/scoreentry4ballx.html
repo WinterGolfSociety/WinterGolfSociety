@@ -453,7 +453,126 @@
 		}
 	}
 	
+/* icons */
 
+.child-five {
+    display: flex;
+    color: white;
+    font-family: 'Kalam';
+    background: green;
+    height: 10%;
+    flex-grow: 1;
+}
+
+.footer {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#showcoursecard {
+    visibility: hidden;
+    font-family: 'Kalam';
+    font-size: 3vmax;
+    color: white;
+    text-align: left;
+    position: fixed;
+    z-index: 1;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* for icon related pages */
+
+#showrules {
+    visibility: hidden;
+    font-family: 'Kalam';
+    font-size: 3vmax;
+    color: white;
+    text-align: left;
+    position: fixed;
+    z-index: 1;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#showcoursecard {
+    visibility: hidden;
+    font-family: 'Kalam';
+    font-size: 3vmax;
+    color: white;
+    text-align: left;
+    position: fixed;
+    z-index: 1;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.circle1 {
+    font-family: 'Kalam';
+    border-radius: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: black;
+    border: 3px solid white;
+    color: white;
+    text-align: center;
+    font-size: 3vmax;
+}
+
+.circle2 {
+    font-family: 'Kalam';
+    border-radius: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: black;
+    border: 4px solid cyan;
+    color: cyan;
+    text-align: center;
+    font-size: 3vmax;
+    font-weight: bold;
+}
+
+.nocircle1 {
+    font-family: 'Kalam';
+    padding-left: 10px;
+    padding-right: 10px;
+    color: lightBlue;
+    text-align: center;
+    font-size: 3vmax;
+}
+
+.cyanhole {
+    color: cyan;
+    font-family: 'Kalam';
+}
 		
 	</style>
 </head>
@@ -701,6 +820,63 @@
 			</div>
 		</div>
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			<div class="child-five">
+	
+			<div class="footer" id="limg"> <img src="resetwhite.png" alt="cache" onclick="clearCache()" style="height: 4vh;"> </div>
+			
+			<div class="footer" id="mimgl"> <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 4vh;"> </div>
+			
+			
+			
+			<div class="footer" id="mimgr"> <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 4vh;"> </div>
+			
+			
+	
+	</div>
+	
+
+
+
+
+
+	
+<!-- coursecard strokes and rules -->
+<div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
+<div class="showrules" id="showrules" onclick="rclose()"></div>
+
+
+	
+
+
+<div id="popuppanel"></div>		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		<!--
 	invisible but necessary for submit of data
 	-->
@@ -772,6 +948,11 @@
 		var allleaderplayer = "";
 		var allleaderholes = 0;
 		var allwincount = 0;
+		
+		
+		var useRedTees = false;
+		
+		
 		// set up courses with details for calculations etc.
 		// array ["hole num",par,si]
 		// Lakes
@@ -846,8 +1027,8 @@
 		
 		function eventl() {
 			// Cancel the event
-			e.preventDefault();
-			e.returnValue = "";
+			event.preventDefault();
+			event.returnValue = "";
 		}
 		
 		window.addEventListener("beforeunload",eventl)
@@ -2363,6 +2544,236 @@
 			history.go(-1);
 			}, 9500);
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//=============================================================
+// function showcoursecard()
+// - shows course card info
+//=============================================================  
+function showcoursecard() {
+        var cctxt=""
+	var abort = "no";
+	var aborttxt = "\nStrokes unavailable\nbecause:\n\n";
+	if(!(hcp > 0)) {
+		abort = "yes";
+		aborttxt += "\nhcp not found\n"
+	}
+	aborttxt
+	if(player == "select player") {
+		abort = "yes"
+		aborttxt += "\nplayer not found\n"
+	}
+	if(!(course == "Lakes" || course == "Dawson" || course == "OldCourse")) {
+		abort = "yes"
+		aborttxt += "\ncourse not found\n"
+	}
+	if(abort == "yes") {
+		document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
+		document.getElementById("popuppanel").style.display = "block";
+		setTimeout(function() {
+			document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 4 seconds"
+		}, 1000)
+		setTimeout(function() {
+			document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 3 seconds"
+		}, 2000)
+		setTimeout(function() {
+			document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 2 seconds"
+		}, 3000)
+		setTimeout(function() {
+			document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 1 second"
+		}, 4000)
+		setTimeout(function() {
+			document.getElementById("popuppanel").innerText = ""
+			document.getElementById("popuppanel").style.display = "none"
+		}, 5000);
+	} else {
+		// if lady red tees		
+		if(useRedTees) {
+			cctxt = ""
+			if(course == "Lakes") {
+				cctxt = player + ", Lakes, " + hcp + " hcp"
+				for(var i = 1; i <= 18; i++) {
+					if(hcp >= (arrLakesRed[i][2] + 18)) {
+						cctxt += '<span class="cyanhole"><b><br>hole ' + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si " + '<span class="circle2">' + arrLakesRed[i][2] + "</span></b></span>"
+					} else {
+						if(hcp >= arrLakesRed[i][2]) {
+							cctxt += "<b><br>hole " + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si " + '<span class="circle1">' + arrLakesRed[i][2] + "</span></b>"
+						} else {
+							cctxt += '<span class="nocircle1">' + "<br>hole " + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si  " + arrLakesRed[i][2] + "</span>"
+						}
+					}
+				}
+			}
+			if(course == "Dawson") {
+				cctxt = player + ", Dawson, " + hcp + " hcp"
+				for(var i = 1; i <= 18; i++) {
+					if(hcp >= (arrDawsonRed[i][2] + 18)) {
+						cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si " + '<span class="circle2">' + arrDawsonRed[i][2] + "</span></b></span>"
+					} else {
+						if(hcp >= arrDawsonRed[i][2]) {
+							cctxt += "<b><br>hole " + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si " + '<span class="circle1">' + arrDawsonRed[i][2] + "</span></b>"
+						} else {
+							cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si  " + arrDawsonRed[i][2] + "</span>"
+						}
+					}
+				}
+			}
+			if(course == "OldCourse") {
+				cctxt = player + ", OldCourse, " + hcp + " hcp"
+				for(var i = 1; i <= 18; i++) {
+					if(hcp >= (arrOldCourseRed[i][2] + 18)) {
+						cctxt += '<span class="cyanhole"><b><br>hole ' + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si " + '<span class="circle2">' + arrOldCourseRed[i][2] + "</span></b></span>"
+					} else {
+						if(hcp >= arrOldCourseRed[i][2]) {
+							cctxt += "<b><br>hole " + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si " + '<span class="circle1">' + arrOldCourseRed[i][2] + "</span></b>"
+						} else {
+							cctxt += '<span class="nocircle1">' + "<br>hole " + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si  " + arrOldCourseRed[i][2] + "</span>"
+						}
+					}
+				}
+			}
+		} else {
+			// men use yellow tees
+			cctxt = ""
+			if(course == "Lakes") {
+				cctxt = player + ", Lakes, " + hcp + " hcp"
+				for(var i = 1; i <= 18; i++) {
+					if(hcp >= (arrLakes[i][2] + 18)) {
+						cctxt += '<span class="cyanhole"><b><br>hole ' + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + '<span class="circle2">' + arrLakes[i][2] + "</span></b></span>"
+					} else {
+						if(hcp >= arrLakes[i][2]) {
+							cctxt += "<b><br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + '<span class="circle1">' + arrLakes[i][2] + "</span></b>"
+						} else {
+							cctxt += '<span class="nocircle1">' + "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si  " + arrLakes[i][2] + "</span>"
+						}
+					}
+				}
+			}
+			if(course == "Dawson") {
+				cctxt = player + ", Dawson, " + hcp + " hcp"
+				for(var i = 1; i <= 18; i++) {
+					if(hcp >= (arrDawson[i][2] + 18)) {
+						cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " + '<span class="circle2">' + arrDawson[i][2] + "</span></b></span>"
+					} else {
+						if(hcp >= arrDawson[i][2]) {
+							cctxt += "<b><br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " + '<span class="circle1">' + arrDawson[i][2] + "</span></b>"
+						} else {
+							cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si  " + arrDawson[i][2] + "</span>"
+						}
+					}
+				}
+			}
+			if(course == "OldCourse") {
+				cctxt = player + ", OldCourse, " + hcp + " hcp"
+				for(var i = 1; i <= 18; i++) {
+					if(hcp >= (arrOldCourse[i][2] + 18)) {
+						cctxt += '<span class="cyanhole"><b><br>hole ' + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " + '<span class="circle2">' + arrOldCourse[i][2] + "</span></b></span>"
+					} else {
+						if(hcp >= arrOldCourse[i][2]) {
+							cctxt += "<b><br>hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " + '<span class="circle1">' + arrOldCourse[i][2] + "</span></b>"
+						} else {
+							cctxt += '<span class="nocircle1">' + "<br>hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si  " + arrOldCourse[i][2] + "</span>"
+						}
+					}
+				}
+			}
+		}
+	}
+	cctxt += "<br>"
+	cctxt += "<br> . . . tap to close."
+	cctxt += "<br><br><br><br>"
+	document.getElementById("showcoursecard").innerHTML = cctxt;
+	document.getElementById("showcoursecard").style.visibility = "visible";
+}
+//=============================================================
+// function rclose()
+// - closes rules info
+//=============================================================  
+function rclose() {
+	document.getElementById("showrules").style.visibility = "hidden";
+}
+//=============================================================
+// function showrules()
+// - display rules
+//=============================================================
+function showrules() {
+	const d = new Date();
+	var month = d.getMonth();
+	//rules from email 25th September
+	var rulestxt = '<span class="cyanhole"><b>From Oct 1st to Oct 31st inclusive</b><br></b></span>'
+	rulestxt += '<br>'
+	rulestxt += '1. Preferred lies on Fairway and Fringes of Greens (Mark your ball, lift clean and place within 6 inches. No nearer the hole)<br><br>'
+	rulestxt += '2. Semi Rough (Mark your ball, lift Clean and Replace)<br><br>'
+	rulestxt += '3. Rough (Play the ball as it lies)<br><br>'
+	rulestxt += '4. Casual Water (Nearest point of relief no nearer the hole) 1 club length from that point, drop the ball. If your ball is in the rough and in casual water, nearest point of relief no nearer the hole, one club length from that point, drop the ball. The ball may be cleaned if taking relief from casual water in the rough.<br><br>'
+	rulestxt += '<span class="cyanhole"><b>November 1st to 31st March 2025</b><br></b></span>'
+	rulestxt += '<br>'
+	rulestxt += 'As above with additions'
+	rulestxt += '<br><br>'
+	rulestxt += "1. The Seniors Section will be keeping all Par 5's as Par 5's."
+	rulestxt += '<br><br>'
+	rulestxt += "2. Bounce boards, mats and tees may be used on Fairways and Fringes of Greens. These are not to be used in 'Semi Rough' or 'Rough Areas'."
+	rulestxt += '<br><br>'
+	rulestxt += '3. Semi rough will be lift clean and replace. Rough will be (play as it lies)'
+	rulestxt += '<br><br>'
+	rulestxt += '4. Drivers are not to be used on bounce boards, mats or tees after the initial tee shot, they can, however, be used from the grass.'
+	rulestxt += '<br><br>'
+	rulestxt += "5. Bunkers will be 'pick rake and place' Unless otherwise stated on the whiteboard at registration."
+	rulestxt += "<br><br>"
+	rulestxt += "<br> . . . tap to close."
+	rulestxt += "<br><br><br><br>"
+	document.getElementById("showrules").innerHTML = rulestxt;
+	document.getElementById("showrules").style.visibility = "visible";
+}		
+//=============================================================
+// function ccclose()
+// - closes scorecard
+//=============================================================  
+function ccclose() {
+	document.getElementById("showcoursecard").style.visibility = "hidden";
+}		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		</script>
 </body>
 

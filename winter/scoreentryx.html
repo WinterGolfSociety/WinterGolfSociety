@@ -16,496 +16,526 @@
 	<style>
 	
 
-	
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		
-	}
-
-html {
-height: 300%;
-width: 100%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-	/* hide all scrollbars when not using PC */
-	/* Hide scrollbar for Chrome, Safari and Opera */
-	/* *::-webkit-scrollbar { */
-	/*  display: none;          */
-	/*  } */
-	/* Hide scrollbar for IE, Edge and Firefox */
-	/*  * { */
-	/*  -ms-overflow-style: none;   IE and Edge */
-	/*  scrollbar-width: none;   Firefox */
-	/*  } */
-	
-	body {
-		font-family: Arial, Helvetica, sans-serif;
-		background: black;
-		
-		font-weight: 400;
-		height: 100%;
-		width: 100%;
-	}
-	
+html {
+    height: 300%;
+    width: 100%;
+}
 
-	
-	
-	
-	.holesinfotop {
-		color: white;
-		width: calc(100% / 6);
-		font-size: 100%; //80%;
-		height: 100%;
-	}
-	
-	.holesinfoout {
-		color: lime;
-		width: calc(100% / 6);
-		height: 100%;
-	}
-	
-	.holesinfoback {
-		color: cyan;
-		width: calc(100% / 6);
-		height: 100%;
-	}
-	
-	.holesinfo {
-		color: yellow;
-		width: calc(100% / 4);
-		height: 100%;
-		text-align: left;
-		padding-left: 2%;
-	}
-	
-	.countbackinfo {
-		color: yellow;
-		width: 100%;
-		height: 100%;
-		text-align: left;
-		padding-left: 2%;	
-	}
-	
-	
-	
-	
-	
-	#dropbtn {
-         
-                color: white;
-		background: black;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		//border: 2px solid Gray;
-		//border-radius: 5px;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	.footer {
-		//padding-top: 1vh;
-		//padding-bottom: 1vh;
-		background-color: black;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-		width: 100%;
-	}
-	
-	
-	/* dropdown */
-	
-	.dropdown {
-		position: relative;
-		display: inline-block;
-	}
-	
-	.dropdown-content {
-		display: none;
-		position: absolute;
-		background-color: black; //whiteSmoke;
-		min-width: 160px;
-		overflow: auto;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-		z-index: 1;
-		border-radius: 5px;
-		box-shadow: 10px 10px 25px black;
-		max-height: 90vh;
-	}
-	
-	.dropdown-content a {
-		color: black; //gray;
-		font-size: 4vh;
-		background: whiteSmoke;
-		padding: 12px 16px;
-		text-decoration: none;
-		display: block;
-		border: 1px solid gray; //lightBlue; //#EEEEEE;
-		border-radius: 5px;
-	}
-	
-	.show {
-		display: block;
-	}
-	/* end of dropdown */
-	/* hide forms */
-	
-	#my-form,
-	#my-response-iframe {
-		display: none;
-		height: 20px;
-		width: 60px;
-	}
-	/* for icon related pages */
-	
-	#showrules {
-		visibility: hidden;
-		font-family: 'Kalam';
-		font-size: 3vmax;
-		color: white;
-		text-align: left;
-		position: fixed;
-		z-index: 1;
-		padding-top: 10px;
-		padding-left: 10px;
-		padding-right: 5px;
-		padding-bottom: 10px;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: auto;
-		background-color: dodgerBlue;
-		background-color: rgba(0, 0, 0, 0.7);
-	}
-	
-	#showcoursecard {
-		visibility: hidden;
-		font-family: 'Kalam';
-		font-size: 3vmax;
-		color: white;
-		text-align: left;
-		position: fixed;
-		z-index: 1;
-		padding-top: 10px;
-		padding-left: 10px;
-		padding-right: 5px;
-		padding-bottom: 10px;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: auto;
-		background-color: dodgerBlue;
-		background-color: rgba(0, 0, 0, 0.7);
-	}
-	
-	.circle1 {
-		font-family: 'Kalam';
-		border-radius: 50%;
-		padding-left: 10px;
-		padding-right: 10px;
-		background: black;
-		border: 3px solid white;
-		color: white;
-		text-align: center;
-		font-size: 3vmax;
-	}
-	
-	.circle2 {
-		font-family: 'Kalam';
-		border-radius: 50%;
-		padding-left: 10px;
-		padding-right: 10px;
-		background: black;
-		border: 4px solid cyan;
-		color: cyan;
-		text-align: center;
-		font-size: 3vmax;
-		font-weight: bold;
-	}
-	
-	.nocircle1 {
-		font-family: 'Kalam';
-		padding-left: 10px;
-		padding-right: 10px;
-		color: lightBlue;
-		text-align: center;
-		font-size: 3vmax;
-	}
-	
-	.cyanhole {
-		color: cyan;
-		font-family: 'Kalam';
-	}
-	/* popup box related */
-	
-	#xsubmit_popuppanel {
-		display: none;
-		color: white;
-		background-color: #eee;
-		border-radius: 5px;
-		border: 1px solid #aaa;
-		position: fixed;
-		width: 90vw;
-		margin-left: 5vw;
-		margin-top: 20vh;
-		padding: 10px 10px 10px;
-		/* t lr b */
-		box-sizing: border-box;
-		text-align: center;
-	}
-	
-	#xpopuppanel {
-		display: none;
-		color: black;
-		background-color: #eee;
-		border-radius: 5px;
-		border: 1px solid #aaa;
-		position: fixed;
-		height: fit-content;
-		width: 80%;
-		padding: 6px;
-		box-sizing: border-box;
-		text-align: center;
-		left: 10%;
-		top: 10%;
-		font-size: 2vmax;
-	}
-	
-	#xpopuppanel button,
-	#xsubmit_popuppanel button {
-		background-color: #ccc;
-		display: inline-block;
-		border-radius: 3px;
-		border: 1px solid #aaa;
-		padding: 20px;
-		text-align: center;
-		cursor: pointer;
-		font-size: 2vmax;
-	}
-	
-	#xpopuppanel .button:hover {
-		background-color: #ddd;
-	}
-	
-	
-	
-	
-	
-	.hcp , .submit{
-		font-size: 80%;
-		color: white;
-		background: black;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		//border: 2px solid Gray;
-		//border-radius: 5px;
-	}
-	
-	.submit {
-	font-size: 100%;
-		color: white;
-		background: dodgerBlue;
-	}
-	
-	
-	
-	.midway {
-		font-size: 80%;
-		color: white;
-		background: black;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: 2px solid Gray;
-		border-radius: 5px;
-		height: 5%;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	.child {
-        width: 100%;
-        background: black;
 
-      }
-	
-	
-	
-	
-	
-	
+/* hide all scrollbars when not using PC */
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+
+/* *::-webkit-scrollbar { */
+
+
+/*  display: none;          */
+
+
+/*  } */
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+
+/*  * { */
+
+
+/*  -ms-overflow-style: none;   IE and Edge */
+
+
+/*  scrollbar-width: none;   Firefox */
+
+
+/*  } */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: black;
+    font-weight: 400;
+    height: 100%;
+    width: 100%;
+}
+
+.holesinfotop {
+    color: white;
+    width: calc(100% / 6);
+    font-size: 100%;;
+    height: 100%;
+}
+
+.holesinfoout {
+    color: lime;
+    width: calc(100% / 6);
+    height: 100%;
+}
+
+.holesinfoback {
+    color: cyan;
+    width: calc(100% / 6);
+    height: 100%;
+}
+
+.holesinfo {
+    color: yellow;
+    width: calc(100% / 4);
+    height: 100%;
+    text-align: left;
+    padding-left: 2%;
+}
+
+.countbackinfo {
+    color: yellow;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    padding-left: 2%;
+}
+
+#dropbtn {
+    color: white;
+    background: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* dropdown */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    overflow: auto;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 10px 10px 25px black;
+    max-height: 90vh;
+}
+
+.dropdown-content a {
+    color: black;
+    font-size: 4vh;
+    background: whiteSmoke;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.show {
+    display: block;
+}
+
+
+/* end of dropdown */
+
+
+/* hide forms */
+
+#my-form,
+#my-response-iframe {
+    display: none;
+    height: 20px;
+    width: 60px;
+}
+
+
+/* for icon related pages */
+
+#showrules {
+    visibility: hidden;
+    font-family: 'Kalam';
+    font-size: 3vmax;
+    color: white;
+    text-align: left;
+    position: fixed;
+    z-index: 1;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#showcoursecard {
+    visibility: hidden;
+    font-family: 'Kalam';
+    font-size: 3vmax;
+    color: white;
+    text-align: left;
+    position: fixed;
+    z-index: 1;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.circle1 {
+    font-family: 'Kalam';
+    border-radius: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: black;
+    border: 3px solid white;
+    color: white;
+    text-align: center;
+    font-size: 3vmax;
+}
+
+.circle2 {
+    font-family: 'Kalam';
+    border-radius: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: black;
+    border: 4px solid cyan;
+    color: cyan;
+    text-align: center;
+    font-size: 3vmax;
+    font-weight: bold;
+}
+
+.nocircle1 {
+    font-family: 'Kalam';
+    padding-left: 10px;
+    padding-right: 10px;
+    color: lightBlue;
+    text-align: center;
+    font-size: 3vmax;
+}
+
+.cyanhole {
+    color: cyan;
+    font-family: 'Kalam';
+}
+
+
+/* popup box related */
+
+#xsubmit_popuppanel {
+    display: none;
+    color: white;
+    background-color: #eee;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    position: fixed;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-top: 20vh;
+    padding: 10px 10px 10px;
+    /* t lr b */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#xpopuppanel {
+    display: none;
+    color: black;
+    background-color: #eee;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    position: fixed;
+    height: fit-content;
+    width: 80%;
+    padding: 6px;
+    text-align: center;
+    left: 10%;
+    top: 10%;
+    font-size: 2vmax;
+}
+
+#xpopuppanel button,
+#xsubmit_popuppanel button {
+    background-color: #ccc;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 2vmax;
+}
+
+#xpopuppanel .button:hover {
+    background-color: #ddd;
+}
+
+.hcp,
+.submit {
+    font-size: 80%;
+    color: white;
+    background: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit {
+    font-size: 100%;
+    color: white;
+    background: dodgerBlue;
+}
+
+.midway {
+    font-size: 80%;
+    color: white;
+    background: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid Gray;
+    border-radius: 5px;
+    height: 5%;
+}
+
+.child {
+    width: 100%;
+    background: black;
+}
 
 
 /* 10 60 10 10 10 */
-/* dropbtn, hcp, submit */
-      .child-one {
-       height: 10%; 
-       font-size: 5vh;
-       border: 2px solid Gray;
-       border-radius: 5px;
-      }
-      
-      /* hole info at top*/
-      .child-two {
-        display: flex;
-        font-family: 'Kalam';
-        color: white;
-       height: calc(100% / 13); //calc(60% / 13); 
-        text-align: center;
-        flex-grow: 1;
-      }
-      
-      /* holes */
-      .child-three {
-        display: flex;
-        color: white;
-        font-family: 'Kalam';
-        font-weight: bold;
-        height: calc(100% / 13); //calc(60% / 13); 
-        text-align: center;
-        flex-grow: 1;
-      }
-       /* totals countback */
-      .child-four {
-        display: flex;
-        color: white;
-        font-family: 'Kalam';
-        font-weight: bold;
-        height: calc(100% / 13); //calc(60% / 13); 
-        text-align: center;
-        flex-grow: 1;
-      }
-      
-      /* icons */
-      .child-five {
-        display: flex;
-        color: white;
-        font-family: 'Kalam';
-        //max-height: 10%; 
-        background: green;
-        height: 10%;
-        
- //border: 2px solid Gray;
-        //text-align: center;
-        flex-grow: 1;
-        //padding: 1vh 0;
-//        border-radius: 5px;
-      }
-    
 
-      /* scoring */
-      .child-six {
-        display: flex;
-        color: white;
-        font-family: 'Kalam';
-        height: calc(100% / 9); 
-        text-align: center;
-        width: 100%;
-        //border: 2px solid Gray;
-	//	border-radius: 5px;
-      }
-	
-/* end of child containers */	
-	
-	
-	
-	
-	.htestcircle {
-  border-radius: 25px;
-  font-size: 100%;
-  color: silver;
-  text-align: center;
-  background: black;
-   box-shadow: inset 0 0 5px silver;
+
+/* dropbtn, hcp, submit */
+
+.child-one {
+    height: 10%;
+    font-size: 5vh;
+    border: 2px solid Gray;
+    border-radius: 5px;
+}
+
+
+/* hole info at top*/
+
+.child-two {
+    display: flex;
+    font-family: 'Kalam';
+    color: white;
+    height: calc(100% / 13);
+    text-align: center;
+    flex-grow: 1;
+}
+
+
+/* holes */
+
+.child-three {
+    display: flex;
+    color: white;
+    font-family: 'Kalam';
+    font-weight: bold;
+    height: calc(100% / 13);
+    text-align: center;
+    flex-grow: 1;
+}
+
+
+/* totals countback */
+
+.child-four {
+    display: flex;
+    color: white;
+    font-family: 'Kalam';
+    font-weight: bold;
+    height: calc(100% / 13);
+    text-align: center;
+    flex-grow: 1;
+}
+
+
+/* icons */
+
+.child-five {
+    display: flex;
+    color: white;
+    font-family: 'Kalam';
+    background: green;
+    height: 10%;
+    flex-grow: 1;
+}
+
+
+/* scoring */
+
+.child-six {
+    display: flex;
+    color: white;
+    font-family: 'Kalam';
+    height: calc(100% / 9);
+    text-align: center;
+    width: 100%;
+}
+
+
+/* end of child containers */
+
+.htestcircle {
+    border-radius: 25px;
+    font-size: 100%;
+    color: silver;
+    text-align: center;
+    background: black;
+    box-shadow: inset 0 0 5px silver;
 }
 
 #frontpage {
-background: black;
+    background: black;
     height: calc(100% / 3);
 }
-	
+
 #scoringfront9 {
-background: black;
+    background: black;
     height: calc(100% / 3);
-}	
-	
-#scoringback9 {
-background: black;
- height: calc(100% / 3);
-}	
-	
-.numx {
-		padding-left: 7vmax;
-		padding-right: 7vmax;
-		font-size: 4vmax;
-	}
-
-.minus, .plus {
-font-size: 7vh;
- display: inline-block; 
-width: 40%;
-height: 10vh;
-line-height: 10vh;
-padding-left: 5%;
-padding-right: 5%;
-border: 1px solid Gray;
-text-align: center;
-font-family: Arial, Helvetica, sans-serif;
-border-radius: 5px;
 }
 
+#scoringback9 {
+    background: black;
+    height: calc(100% / 3);
+}
+
+.numx {
+    padding-left: 7vmax;
+    padding-right: 7vmax;
+    font-size: 4vmax;
+}
+
+.minus,
+.plus {
+    font-size: 7vh;
+    display: inline-block;
+    width: 40%;
+    height: 10vh;
+    line-height: 10vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    border: 1px solid Gray;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+}
 
 .score {
-font-size: 5vh;
-display: inline-block; 
-width: 20%;
-height: 10vh;
-line-height: 10vh;
-//padding-left: 5%;
-//padding-right: 5%;
-border: 1px solid Gray;
-text-align: center;
-font-family: Arial, Helvetica, sans-serif;
-
-
-border-radius: 5px;
-
-color: #4D4D4F; //green;
-
+    font-size: 5vh;
+    display: inline-block;
+    width: 20%;
+    height: 10vh;
+    line-height: 10vh;
+    border: 1px solid Gray;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    color: #4D4D4F;
 }
-	
+
 #bb {
-height: 60%;
-//border: 2px solid lime;
-
+    height: 60%;
 }
+
+
+	#blackout {
+		display: none;
+		color: white;
+		font-size: 2vh;
+		background: rgba(13, 13, 13, 255); //black;
+		height: 100vh;
+		width: 100vw;
+		position: absolute;
+		top: 0;
+		left: 0;
+		//display: flex;
+  justify-content: center;
+  padding-top: 40%;
+
+	}
+	
+	#sending {
+		position: relative;
+		background: black;
+	
+   
+
+	}
+	
+	#done {
+		position: relative;
+		background: black;
+
+ -webkit-animation-name: fadeIn;
+		animation-name: fadeIn;
+		-webkit-animation-duration: 1.5s;
+		animation-duration: 1.5s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+
+	}
+	
+	/* fade out/in between screens */
+	
+	@-webkit-keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	
+
+
+
+
 	
 	</style>
 </head>
@@ -514,12 +544,12 @@ height: 60%;
 	
 	   <div class="wrapper" id="frontpage">
 	
-	      <div class="child child-one">
+	      <div class="child-one">
 	         <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player</div>
 	         <div id="playersDropdown" class="dropdown-content"> </div>
 	     </div>
 <div id="bb">			
-	     <div class="child child-two">
+	     <div class="child-two">
 		<div class="holesinfotop">hole</div>
 		<div class="holesinfotop">score</div>
 		<div class="holesinfotop">points</div>
@@ -529,7 +559,7 @@ height: 60%;
 	     </div>
 	      	 
 		 
-             <div class="child child-three">
+             <div class="child-three">
          
                <div class="holesinfoout htestcircle">1</div>
                <div class="holesinfoout" id="h1">0</div>
@@ -540,7 +570,7 @@ height: 60%;
          
             </div>
          
-            <div class="child child-three">  
+            <div class="child-three">  
        
                <div class="holesinfoout htestcircle">2</div>
                <div class="holesinfoout" id="h2">0</div>
@@ -551,7 +581,7 @@ height: 60%;
 	
 	    </div>
 			
-	    <div class="child child-three">	
+	    <div class="child-three">	
 			
 			<div class="holesinfoout htestcircle">3</div>
 			<div class="holesinfoout" id="h3">0</div>
@@ -562,7 +592,7 @@ height: 60%;
 		
 	</div>	
 		
-	<div class="child child-three">
+	<div class="child-three">
 	
 			<div class="holesinfoout htestcircle">4</div>
 			<div class="holesinfoout" id="h4">0</div>
@@ -573,7 +603,7 @@ height: 60%;
 	
 	</div>	
 		
-	<div class="child child-three">
+	<div class="child-three">
 		
 			<div class="holesinfoout htestcircle">5</div>
 			<div class="holesinfoout" id="h5">0</div>
@@ -584,7 +614,7 @@ height: 60%;
 		
 	</div>	
 		
-	<div class="child child-three">	
+	<div class="child-three">	
 		
 			<div class="holesinfoout htestcircle">6</div>
 			<div class="holesinfoout" id="h6">0</div>
@@ -595,7 +625,7 @@ height: 60%;
 		
 	</div>	
 		
-	<div class="child child-three">
+	<div class="child-three">
 	
 			<div class="holesinfoout htestcircle">7</div>
 			<div class="holesinfoout" id="h7">0</div>
@@ -606,7 +636,7 @@ height: 60%;
 		
 	</div>	
 		
-	<div class="child child-three">
+	<div class="child-three">
 		
 			<div class="holesinfoout htestcircle">8</div>
 			<div class="holesinfoout" id="h8">0</div>
@@ -617,7 +647,7 @@ height: 60%;
 		
 	</div>	
 		
-	<div class="child child-three">
+	<div class="child-three">
 		
 			<div class="holesinfoout htestcircle">9</div>
 			<div class="holesinfoout" id="h9">0</div>
@@ -627,7 +657,7 @@ height: 60%;
 			<div class="holesinfoback" id="p18">0</div>
 	</div>	
 		
-	<div class="child child-three">
+	<div class="child-three">
 		
 			<div class="holesinfoout">front</div>
 			<div class="holesinfoout" id="hfront">0</div>
@@ -638,7 +668,7 @@ height: 60%;
 		
 	</div>	
 		
-	<div class="child child-four">
+	<div class="child-four">
 		
 			<div class="holesinfo">score</div>
 			<div class="holesinfo" id="htotal">00</div>
@@ -646,20 +676,20 @@ height: 60%;
 			<div class="holesinfo" id="ptotal">00</div>
 	</div>
 	
-	<div class="child child-four">
+	<div class="child-four">
 			
 			
 			<div class="countbackinfo" id="cback">countback 9=0, 6=0, 3=0, 1=0</div>
 
 	</div>
 </div> <!-- id=bb -->		
-	<div class="child child-one">	
+	<div class="child-one">	
 	<div class="hcp">
 	   <span>playing</span> <span class="numx" id="numhcp">?</span> <span>handicap</span>
 	</div>	
 	</div>
 	
-	<div class="child child-one">	
+	<div class="child-one">	
 	<div class="submit" onclick="submitForm()">
 	   <div id="submit">submit</div>
 	</div>
@@ -695,8 +725,11 @@ height: 60%;
 
 
 
+	<div id="blackout"></div>
+	
+	
 
-<div class="midway">above scoring bit here</div>
+<div class="midway" id="midwayfront9">above scoring bit here</div>
 
 
 <!-- score input pages -->
@@ -762,7 +795,7 @@ height: 60%;
 
 
 
-<div class="midway">front 9 details here</div>
+<div class="midway" id="midwayback9">front 9 details here</div>
  
 
 
@@ -832,9 +865,9 @@ height: 60%;
 
 
 
-<div class="midway">back 9 details here</div>
+<div class="midway" id="midwayback9-2">back 9 details here</div>
  
-<div class="midway">empty space here</div>	
+<div class="midway" id="midwayback9-3">empty space here</div>	
 	
 	<!-- form to construct data prior to submit -->
 	<form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
@@ -1404,6 +1437,10 @@ function toggleDropdown() {
 function submitForm() {
 	// get the relevant info into a form
 	// dont allow submit for an incorrect day
+
+
+/*
+
 	if(compday == "yes") {
 		document.getElementById('mx474474348').value = player;
 		document.getElementById('mx2131369517').value = comp;
@@ -1500,28 +1537,89 @@ function submitForm() {
 			//			document.forms[0].submit();
 			alert("submit")
 				//============================
-				// hide icons to allow tick etc.
-			document.getElementById('limg').style.visibility = "hidden";
-			document.getElementById('rimg').style.visibility = "hidden";
-			document.getElementById('mimgl').style.visibility = "hidden";
-			document.getElementById('mimgr').style.visibility = "hidden";
-			// hide button
-			document.getElementById("submit").style.visibility = "visible";
-			// allow some time for submit then give a completion message
-			// keep user interested by showing icons ???
-			// show sending icon
-			document.getElementById('submit').innerText = "";
-			// show empty text which is placeholder for image
-			document.getElementById('submit').innerHTML = '<img src="uploada.png" style="height: 100px; width: 100px;">'
+			
+			document.getElementById("wrapper").style.display = "none";
+			//document.getElementById("all").style.display = "none";
+			//document.getElementById("submit").style.display = "none";
+			document.getElementById("blackout").style.display = "flex";
+			console.log("here")
+			document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
 			setTimeout(function() {
-				document.getElementById('submit').innerHTML = '<img src="tick1.png" style="height: 100px; width: 100px;">'
+				document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">'
 			}, 6500);
+			// remove the accidental closw "trap"
+			window.removeEventListener("beforeunload",eventl)
+			// return to main menu
+			setTimeout(function() {
+			history.go(-1);
+			}, 9500);
+		}
 			// return to main menu
 			setTimeout(function() {
 				history.go(-1);
 			}, 7500);
 		}
 	}
+	
+	
+*/	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	alert("submit")
+				//============================
+			
+			document.getElementById("frontpage").style.display = "none";
+			document.getElementById("scoringfront9").style.display = "none";
+			document.getElementById("scoringback9").style.display = "none";
+			
+			document.getElementById("midwayfront9").style.display = "none";
+			document.getElementById("midwayback9").style.display = "none";
+			document.getElementById("midwayback9-2").style.display = "none";
+			document.getElementById("midwayback9-3").style.display = "none";
+			
+			
+			
+			document.getElementById("blackout").style.display = "flex";
+			console.log("here")
+			document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
+			setTimeout(function() {
+				document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">'
+			}, 6500);
+			// remove the accidental closw "trap"
+		//	window.removeEventListener("beforeunload",eventl)
+			// return to main menu
+			setTimeout(function() {
+			history.go(-1);
+			}, 9500);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 //=============================================================
 // function incrementScore()
