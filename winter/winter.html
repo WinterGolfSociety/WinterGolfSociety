@@ -702,23 +702,6 @@ window.addEventListener(orientationEvent, function() {
      document.getElementById("warning").style.display = "block";
     }
 }, false);
-	
-	
-	
-	
-	
-	
-	// for testing ...
-	var testingdate="";
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// global arrays
 	var arrPlayers = [];
 	var arrLadies = [];
@@ -1060,24 +1043,6 @@ window.addEventListener(orientationEvent, function() {
 		["November"],
 		["December"]
 	];
-	
-	
-	
-	
-	
-	
-	
-	// for testing ...
-testingdate = "Lakes " + d1 + " " + arrMonths[d2] + " 2024"
-compday="yes";
-
-
-
-
-
-
-	
-	
 	// check to see if a comp exists in localStorage
 	if("wwtodayscomp" in localStorage) {
 		// if today is the same as localStorage.wwtodayscomp then use that data
@@ -1092,17 +1057,6 @@ compday="yes";
 			arrHcps = JSON.parse(localStorage.wwhcpsarray);
 			// comps array
 			arrComps = JSON.parse(localStorage.wwcompsarray);
-
-
-
-
-// for testing ...
-arrComps.push(testingdate)
-compday="yes"
-// see further down
-
-
-			
 			// update todayscomp if today in wwtodayscomp
 			todayscomp = localStorage.wwtodayscomp;
 			compday = "yes"
@@ -1129,23 +1083,9 @@ compday="yes"
                 arrComps = resultsarray.map(d => d.comps);		
                 arrHcps = resultsarray.map(d => d.hcps);		
 
-
-
-// for testing ...
-arrComps.push(testingdate)
-compday="yes";
-
-
-
-
-
                 // add "reset list" option to bottom
                 arrPlayers.push("reset list")
-
-                // today for testing
-                //arrComps.push("Lakes 24 May 2024")
-
-                // remove null items
+              // remove null items
                 arrLadies = arrLadies.filter(function(el) {return el != null;})
                 arrPlayers = arrPlayers.filter(function(el) {return el != null;})
                 arrComps = arrComps.filter(function(el) {return el != null;})

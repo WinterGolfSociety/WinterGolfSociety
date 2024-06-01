@@ -967,11 +967,6 @@ var useRedTees = false;
 
 
 
-// testing
-var course = "Lakes";
-
-
-
 	//==============================================================
 	// data has previously been stored so just retrieve it
 	//==============================================================
@@ -1010,7 +1005,7 @@ var course = "Lakes";
 		// set up arrOldCourseRed
 		setupOldCourseCourse()
 	    }
-}
+      }
 
 
 startNewDay();
@@ -1829,7 +1824,7 @@ console.log("here 1")
 			useRedTees = true;
 		}
 	}
-	console.log("here 2")
+	console.log("here 2 " + course)
 	recalcScores();
 }
 //=============================================================
@@ -1838,7 +1833,7 @@ console.log("here 1")
 // - need 2 options, red and yellow tees
 //=============================================================
 function recalcScores() {
-console.log("here 3")
+console.log("here 3 " + course)
 	// for ladies red tees (useRedTees = true)
 	if(useRedTees) {
 		for(i = 1; i <= 18; i++) {
@@ -1875,7 +1870,7 @@ console.log("here 3")
                             tempscore = 0;
                         }
 			if(course == "Lakes") {
-				temppar = arrLakes[i][1];
+				+-temppar = arrLakes[i][1];
 				tempsi = arrLakes[i][2];
 			}
 			if(course == "Dawson") {
