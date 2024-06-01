@@ -1125,6 +1125,7 @@ window.addEventListener(orientationEvent, function() {
 		dd = new Date(); /* today */
 		dlist = "";
 		dlistcount = 0;
+		var collectdates="no";
 		for(i = 0; i < arrComps.length; i++) {
 		
 		        // change "Lakes 10 January 2024" to "10 January 2024" etc.
@@ -1159,8 +1160,13 @@ window.addEventListener(orientationEvent, function() {
 			if(d4 == 6) {
 				d = "Saturday";
 			}
-			// if compdate = today
+			// if compday = today
+			
+			console.log(darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
+			console.log(dlistcount)
+			
 			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
+			console.log("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
 				// competition today already checked above for stored data
 				// now do for new data				
 				localStorage.setItem("wwtodayscomp", arrComps[i]);
@@ -1178,8 +1184,9 @@ window.addEventListener(orientationEvent, function() {
 				}
 				dlist = dlist + tempd;
 				dlistcount++;
+				collectdates="yes";
 			}
-			if(darr > dd && dlistcount < 4) {
+			if(darr > dd && dlistcount < 4 && collectdates == "yes") {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
 				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
 				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
