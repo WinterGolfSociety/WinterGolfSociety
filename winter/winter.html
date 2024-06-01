@@ -391,9 +391,8 @@
 	
 	#xdcomp1,
 	#qrcode {
-		//	opacity: 0;
-		animation: fadeIn 3s;
-		//animation-delay: 1s;
+	animation-delay: 1s;
+		animation: fadeIn 3s ease-in;
 	}
 	
 	@keyframes fadeIn {
@@ -709,7 +708,8 @@ window.addEventListener(orientationEvent, function() {
 	
 	
 	
-	
+	// for testing ...
+	var testingdate="";
 	
 	
 	
@@ -1060,6 +1060,24 @@ window.addEventListener(orientationEvent, function() {
 		["November"],
 		["December"]
 	];
+	
+	
+	
+	
+	
+	
+	
+	// for testing ...
+testingdate = "Lakes " + d1 + " " + arrMonths[d2] + " 2024"
+compday="yes";
+
+
+
+
+
+
+	
+	
 	// check to see if a comp exists in localStorage
 	if("wwtodayscomp" in localStorage) {
 		// if today is the same as localStorage.wwtodayscomp then use that data
@@ -1074,6 +1092,16 @@ window.addEventListener(orientationEvent, function() {
 			arrHcps = JSON.parse(localStorage.wwhcpsarray);
 			// comps array
 			arrComps = JSON.parse(localStorage.wwcompsarray);
+
+
+
+
+// for testing ...
+arrComps.push(testingdate)
+compday="yes"
+// see further down
+
+
 			
 			// update todayscomp if today in wwtodayscomp
 			todayscomp = localStorage.wwtodayscomp;
@@ -1093,7 +1121,6 @@ window.addEventListener(orientationEvent, function() {
 	// and use in scoreentry
 	//=====================================
 	async function getData() {
-
 		var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
 		var resultsarray = await dataStream.json()
                 // split into separate arrays
@@ -1101,6 +1128,16 @@ window.addEventListener(orientationEvent, function() {
                 arrPlayers = resultsarray.map(d => d.players);
                 arrComps = resultsarray.map(d => d.comps);		
                 arrHcps = resultsarray.map(d => d.hcps);		
+
+
+
+// for testing ...
+arrComps.push(testingdate)
+compday="yes";
+
+
+
+
 
                 // add "reset list" option to bottom
                 arrPlayers.push("reset list")
@@ -1121,7 +1158,7 @@ window.addEventListener(orientationEvent, function() {
                 arrHcps = arrHcps.filter(function(el) {return el != "";})
 				
 		// speech tooltip
-		document.getElementById("tooltip").innerHTML = "New data aquired."
+		document.getElementById("tooltip").innerHTML = "New data downloaded"
 		document.getElementById("tooltip").style.display = "block";
 		setTimeout(function() {
 				document.getElementById("tooltip").style.display = "none";
@@ -1225,19 +1262,7 @@ window.addEventListener(orientationEvent, function() {
 		setTimeout(function() {
 				document.getElementById("tooltip").style.display = "none";
 			}, 3000)
-			
-	/*
-	
-	     document.getElementById('popuppanel').innerHTML = "No Competition<br>today";
-	     document.getElementById('popuppanel').style.display = "block";
-	     setTimeout(function() {
-	          document.getElementById("popuppanel").style.display = "none";
-	     }, 3000)
-	     
-	*/
 	}
-	
-	
 	
 	//===========================================
 	// detect a longpress to allow "secret" reset
@@ -1267,7 +1292,7 @@ window.addEventListener(orientationEvent, function() {
              resetAll()
         }
 
-        // prevent img menu
+        // prevent defalt img menu of options
         document.addEventListener('contextmenu', event => {
              event.preventDefault()
         })
