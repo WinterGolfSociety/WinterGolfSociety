@@ -138,6 +138,14 @@
 		z-index: 4;
 		border: 5px solid white;
 		box-shadow: 10px 10px 25px black;
+		
+		
+		
+		display: none;
+		
+		
+		
+		
 	}
 	
 	.bubble_menu {
@@ -1020,6 +1028,20 @@ window.addEventListener(orientationEvent, function() {
 	// runs on start or refresh
 	//====================================
 	// see if a new download is necessary
+	
+	
+	
+	
+	// speech tooltip
+		document.getElementById("tooltip").innerHTML = "Searching for data"
+		document.getElementById("tooltip").style.display = "block";
+	
+	
+	
+	
+	
+	
+	
 	// get todays date eg 26
 	dd = new Date();
 	// get date number and format it
@@ -1096,10 +1118,20 @@ window.addEventListener(orientationEvent, function() {
                 arrPlayers = arrPlayers.filter(function(el) {return el != "";})
                 arrComps = arrComps.filter(function(el) {return el != "";})
                 arrHcps = arrHcps.filter(function(el) {return el != "";})
+		
+		
+		
+		
+		
+		document.getElementById("nav").style.display = "block";
+		
+		
+		
+		
 				
 		// speech tooltip
 		document.getElementById("tooltip").innerHTML = "New data downloaded"
-		document.getElementById("tooltip").style.display = "block";
+	//	document.getElementById("tooltip").style.display = "block";
 		setTimeout(function() {
 				document.getElementById("tooltip").style.display = "none";
 			}, 3000)
