@@ -505,8 +505,11 @@ var msecnow = Date.parse(today);
 //if (msecnow > msecfrom) {
 
 //window.location.assign("https://docs.google.com/spreadsheets/d/e/2PACX-1vR07SK594NXgQvSYWEPWnvRK5_ZDwbYGyUE2Iqm3WcwpxRB9HFfnssMzC3s01TJXEbAlp9QBIA1BRM5/pubhtml?gid=1308043241&single=true")
-
-window.location.assign("final.html");
+// put menu back then move to final page
+	setTimeout(function() {
+	window.location.assign("final.html");
+		}, 1000);
+//window.location.assign("final.html");
 
 //}
 }
