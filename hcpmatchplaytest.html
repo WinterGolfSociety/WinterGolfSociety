@@ -287,64 +287,84 @@
 				</div>
 				<br>
 				<br>
-				<div class="stxt">player 2 WHS handicap index</div>
-				<div class="demo">
-					<input type="number" id="nhcp2" name="nhcp2" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()"> 
-					<div id="teecolor2" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<br>
+				<div class="stxt">player 2
+				<div id="teecolor2" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 				</div>
+				<br>
+				<div class="demo">
+				<div class="stxt">WHS handicap index</div>
+				        <input type="number" id="nhcp2" name="nhcp2" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">	
+	                       </div>
 				<br>
 				<div class="stxt">slope</div>
 				<div class="demo">
-					<input type="number" id="nslope2" name="nslope2" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()"> </div>
+					<input type="number" id="nslope2" name="nslope2" min="100" max="150" maxlength="3" step="1" oninput="updatehcpMaster()">
+				</div>
 				<br>
 				<div class="stxt">cr</div>
 				<div class="demo">
-					<input type="number" id="ncr2" name="ncr2" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcp()"> </div>
+					<input type="number" id="ncr2" name="ncr2" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcpMaster()">
+				</div>
 				<br>
 				<div class="stxt">par</div>
 				<div class="demo">
-					<input type="number" id="npar2" name="npar2" min="60" max="80" maxlength="2" step="1" oninput="updatehcp()"> </div>
-				<br>
-				<br>
-				<div class="stxt">player 3 WHS handicap index</div>
-				<div class="demo">
-					<input type="number" id="nhcp3" name="nhcp3" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-					<div id="teecolor3" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+					<input type="number" id="npar2" name="npar2" min="60" max="80" maxlength="2" step="1" oninput="updatehcpMaster()">
 				</div>
+				<br>
+				<br>
+				<br>
+				<div class="stxt">player 3
+				<div id="teecolor3" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				</div>
+				<br>
+				<div class="demo">
+				<div class="stxt">WHS handicap index</div>
+				        <input type="number" id="nhcp3" name="nhcp3" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">	
+	                       </div>
 				<br>
 				<div class="stxt">slope</div>
 				<div class="demo">
-					<input type="number" id="nslope3" name="nslope3" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()"> </div>
+					<input type="number" id="nslope3" name="nslope3" min="100" max="150" maxlength="3" step="1" oninput="updatehcpMaster()">
+				</div>
 				<br>
 				<div class="stxt">cr</div>
 				<div class="demo">
-					<input type="number" id="ncr3" name="ncr3" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcp()"> </div>
+					<input type="number" id="ncr3" name="ncr3" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcpMaster()">
+				</div>
 				<br>
 				<div class="stxt">par</div>
 				<div class="demo">
-					<input type="number" id="npar3" name="npar3" min="60" max="80" maxlength="2" step="1" oninput="updatehcp()"> </div>
+					<input type="number" id="npar3" name="npar3" min="60" max="80" maxlength="2" step="1" oninput="updatehcpMaster()">
+				</div>
 				<br>
 				<br>
-				<div class="stxt">player 4 WHS handicap index</div>
+				<br>
+				<div class="stxt">player 4
+				<div id="teecolor4" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				</div>
+				<br>
 				<div class="demo">
-					<input type="number" id="nhcp4" name="nhcp4" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">
-					<div id="teecolor4" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-			</div>
-			</div>
-			<br>
-			<div class="stxt">slope</div>
-			<div class="demo">
-				<input type="number" id="nslope4" name="nslope4" min="100" max="150" maxlength="3" step="1" oninput="updatehcp()"> </div>
-			<br>
-			<div class="stxt">cr</div>
-			<div class="demo">
-				<input type="number" id="ncr4" name="ncr4" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcp()"> </div>
-			<br>
-			<div class="stxt">par</div>
-			<div class="demo">
-				<input type="number" id="npar4" name="npar4" min="60" max="80" maxlength="2" step="1" oninput="updatehcp()"> </div>
-			<br>
-			<br>
+				<div class="stxt">WHS handicap index</div>
+				        <input type="number" id="nhcp4" name="nhcp4" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()">	
+	                       </div>
+				<br>
+				<div class="stxt">slope</div>
+				<div class="demo">
+					<input type="number" id="nslope4" name="nslope4" min="100" max="150" maxlength="3" step="1" oninput="updatehcpMaster()">
+				</div>
+				<br>
+				<div class="stxt">cr</div>
+				<div class="demo">
+					<input type="number" id="ncr4" name="ncr4" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcpMaster()">
+				</div>
+				<br>
+				<div class="stxt">par</div>
+				<div class="demo">
+					<input type="number" id="npar4" name="npar4" min="60" max="80" maxlength="2" step="1" oninput="updatehcpMaster()">
+				</div>
+				<br>
+				<br>
 			<div class="demo">
 				<!-- modal calculations -->
 				<div class="showcalcs" id="showcalcs" onclick="calcclose()"> </div>
