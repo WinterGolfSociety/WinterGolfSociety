@@ -146,6 +146,7 @@
 	}
 	
 	#buttonshowcalcs {
+	        width: 100%;
 		font-size: 30px;
 		color: white;
 		padding: 10px;
@@ -400,8 +401,10 @@
 						<br>course hcp
 						<br>playing hcp
 						<br>strokes </div>
-					<br> </div>
-				<button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
+					<br>
+				
+				        <button type="button" id="buttonshowcalcs" onclick="showcalcs()">Show calculations</button>
+				</div>
 			</div>
 		</div>
 		<br>
@@ -545,6 +548,9 @@
 				document.getElementById("splayinghcp2").style.display = "block";
 				document.getElementById("splayinghcp3").style.display = "block";
 				document.getElementById("splayinghcp4").style.display = "block";
+				
+				document.getElementById("buttonshowcalcs").style.display = "block";
+								
 				let vhcp1 = document.getElementById("nhcp1").value
 				let vhcp2 = document.getElementById("nhcp2").value
 				let vhcp3 = document.getElementById("nhcp3").value
@@ -618,6 +624,8 @@
 				document.getElementById("splayinghcp2").style.display = "none";
 				document.getElementById("splayinghcp3").style.display = "none";
 				document.getElementById("splayinghcp4").style.display = "none";
+				
+				document.getElementById("buttonshowcalcs").style.display = "none";
 			}
 		}
 		// dropdown
