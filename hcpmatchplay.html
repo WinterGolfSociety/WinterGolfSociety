@@ -239,6 +239,14 @@
 	.box {
 		border: 1px solid silver;
 	}
+	
+	.outerbox {
+	        width: 100%;
+		border: 3px solid rgba(255, 255, 255, 0.2);
+		border-radius: 10px;
+		box-shadow: 10px 10px 25px black;
+		background-clip: padding-box;
+	}
 	</style>
 </head>
 
@@ -269,6 +277,7 @@
 		<div class="col-md-12  text-center">
 			<h2>Stroke calculations for Pairs Matchplay</h2>
 			<div class="container">
+			   <div class="outerbox">
 				<div class="box">
 					<br>
 					<div class="tstxt">player 1
@@ -381,6 +390,7 @@
 					<br>
 					<br>
 				</div>
+				</div> <!-- outerbox -->
 				<div class="demo">
 					<!-- modal calculations -->
 					<div class="showcalcs" id="showcalcs" onclick="calcclose()"> </div>
