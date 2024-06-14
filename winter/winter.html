@@ -398,7 +398,8 @@
 	}
 	
 	#xdcomp1,
-	#qrcode {
+	#qrcode,
+	#nav {
 	animation-delay: 1s;
 		animation: fadeIn 3s ease-in;
 	}
@@ -1082,22 +1083,35 @@ window.addEventListener(orientationEvent, function() {
 			// update todayscomp if today in wwtodayscomp
 			todayscomp = localStorage.wwtodayscomp;
 			compday = "yes"
+			
 		        getNextComps();
 		} else {
 		        // if a different date just get some new data
-			getData();
+		        // check for an error 404
+			getData().catch(error => {alert("zzz" + error.message)})
 		}
         } else {
 			// if wwtodayscomp does not exist just get some new data
-			getData();
+			// check for an error 404
+			getData().catch(error => {alert("zzzz" + error.message)})
 	}
 	//=====================================
 	// get data and create arrays
 	// store in localStorage for retrieval
 	// and use in scoreentry
 	//=====================================
+
+	
 	async function getData() {
-		var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
+	        //console.log("here - getdata")
+	        var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
+			
+	        if (!dataStream.ok) {
+                    const message = `An error has occured: ${dataStream.status}`;
+                    //throw new Error(message);
+                    alert("xxxxxxxxxxxxxxxxx" + message)
+                }
+		
 		var resultsarray = await dataStream.json()
                 // split into separate arrays
                 arrLadies = resultsarray.map(d => d.ladies);
@@ -1144,6 +1158,9 @@ window.addEventListener(orientationEvent, function() {
 		localStorage.wwhcpsarray = JSON.stringify(arrHcps);
 		// comps
 		localStorage.wwcompsarray = JSON.stringify(arrComps);
+		// reset compday - this is reset later if it is a compday
+		compday="no"
+		localStorage.wwcompday = "no"
 		// new data because a new day so continue ...
 		getNextComps();
 	}
@@ -1154,10 +1171,16 @@ window.addEventListener(orientationEvent, function() {
 	//=====================================
 	// get list of next comps
 	function getNextComps() {
+	//console.log("here - getnextcomps")
 		dd = new Date(); /* today */
 		dlist = "";
 		dlistcount = 0;
 		var collectdates="no";
+		
+		// reset wwtodayscomp
+		// remove it and put it back (below) if applicable
+		localStorage.removeItem("wwtodayscomp")
+		
 		for(i = 0; i < arrComps.length; i++) {
 		
 		        // change "Lakes 10 January 2024" to "10 January 2024" etc.
@@ -1194,16 +1217,17 @@ window.addEventListener(orientationEvent, function() {
 			}
 			// if compday = today
 			
-			console.log(darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
-			console.log(dlistcount)
+			//console.log(darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
+			//console.log(dlistcount)
 			
 			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
-			console.log("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
-				// competition today already checked above for stored data
-				// now do for new data				
+			// similar to "Sun Jan 20 2025"
+			//console.log("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
+				// competition today so process new data	
 				localStorage.setItem("wwtodayscomp", arrComps[i]);
 				todayscomp = arrComps[i];
 				compday = "yes"
+				localStorage.setItem("wwcompday", "yes");
 				
 				if(arrComps[i].indexOf("Lakes") > -1) {
 					tempd = '<p style="color:white;">Lakes - competition today</p>';
@@ -1218,6 +1242,17 @@ window.addEventListener(orientationEvent, function() {
 				dlistcount++;
 				collectdates="yes";
 			}
+			
+			
+			
+			//console.log("difference = " + parseInt(dd - darr));
+			if(parseInt(dd - darr) < 1) {
+			   collectdates="yes"       
+			}
+			
+			
+			
+			
 			if(darr > dd && dlistcount < 4 && collectdates == "yes") {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
 				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
@@ -1228,6 +1263,18 @@ window.addEventListener(orientationEvent, function() {
 			}
 		}
 		document.getElementById("xdcomp1").innerHTML = dlist;
+		
+		// get rid of bubble
+		document.getElementById("tooltip").style.display = "none";
+		// show menu
+		document.getElementById("nav").style.display = "block";
+		
+		
+		
+		
+		
+		
+		
 	}
 	// resize QRcode
 	function enlarge() {
