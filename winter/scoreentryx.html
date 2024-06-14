@@ -161,7 +161,7 @@ body {
 
 #my-form,
 #my-response-iframe {
- //   display: none;
+    display: none;
     height: 200px;
     width: 600px;
 }
@@ -733,9 +733,9 @@ height: 110vh;
 	<div id="blackout"></div>
 	
 	
-
+<!--
 <div class="midway" id="midwayfront9">above scoring bit here</div>
-
+-->
 
 <!-- score input pages -->
 <div class="wrapper" id="scoringfront9">
@@ -799,9 +799,9 @@ height: 110vh;
 
 
 
-
+<!--
 <div class="midway" id="midwayback9">front 9 details here</div>
- 
+--> 
 
 
 
@@ -809,8 +809,10 @@ height: 110vh;
 
 
 
-<!-- score input pages -->
+
 <div class="wrapper xxxwrapperforscoring" id="scoringback9">
+
+
 
 <div class="child-six">
    <div class="minus" onclick='decrementScore("numscore10")'>-</div>
@@ -869,11 +871,11 @@ height: 110vh;
 </div> <!-- wrapper -->
 
 
-
+<!--
 <div class="midway" id="midwayback9-2">back 9 details here</div>
  
 <div class="midway" id="midwayback9-3">empty space here</div>	
-	
+-->	
 	<!-- form to construct data prior to submit -->
 	<form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
 		<!-- name, hcp, course -->
@@ -1491,6 +1493,7 @@ console.log("compday = " + compday)
 		document.getElementById('mx544180710').value = document.getElementById("pback").innerText;
 		document.getElementById('mx893562950').value = document.getElementById("ptotal").innerText;
 		//document.getElementById('mx335596501').value = document.getElementById("cback9");
+		// start of countback
 		document.getElementById('mx335596501').value = document.getElementById("pback").innerText;
 		tempcb6 = 0;
 		tempcb6 += parseInt(document.getElementById("p18").innerText);
@@ -1503,6 +1506,7 @@ console.log("compday = " + compday)
 		tempcb3 += parseInt(document.getElementById("p18").innerText);
 		tempcb3 += parseInt(document.getElementById("p17").innerText);
 		tempcb3 += parseInt(document.getElementById("p16").innerText);
+		// submit countback
 		document.getElementById('mx1453506389').value = tempcb6;
 		document.getElementById('mx1045870519').value = tempcb3;
 		document.getElementById('mx683300283').value = document.getElementById("p18").innerText;
