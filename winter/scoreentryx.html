@@ -322,7 +322,7 @@ height: 110vh;
 }
 
 .midway {
-    font-size: 80%;
+    font-size: 100%;
     color: white;
     background: black;
     height: 100%;
@@ -1776,6 +1776,11 @@ function totalScore() {
 	document.getElementById("pback").innerText = jp;
 	document.getElementById("htotal").innerText = ih + jh;
 	document.getElementById("ptotal").innerText = ip + jp;
+	
+	
+	document.getElementById("midwayfront9").innerText = "front 9 = " + ih + ", points = " + ip;
+	document.getElementById("midwayback9").innerText = "back 9 = " + jh + ", points = " + jp;
+	
 	cb = "9=" + jp + ", 6=" + c6 + ", 3=" + c3 + ", 1=" + c1;
 	document.getElementById("cback").innerText = cb;
 }
