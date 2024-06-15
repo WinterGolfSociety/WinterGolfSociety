@@ -141,12 +141,20 @@ getData();
 
 // run code ...
 start();
+
+
+
+
+
+
+
+// time for update
 setInterval(start, 35000);
 
 
 
 async function getData() {
-	var dataStream = await fetch("https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard"
+	var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/Leaderboard"
 )
 	
 	var resultsarray = await dataStream.json();
@@ -202,12 +210,66 @@ async function getData() {
 	arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 		// create HTML
 	//createDisplay(arrPlayer.length)
-	if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
+ //       if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
+
+
+
+// for testing
+if (4 > 0) {
+
+
+
+
+
 		// create HTML
 	        createDisplay(arrPlayer.length)
 		// comp day
 		document.getElementById("top1").innerHTML = "<br>" + comp + "<br><br>"
-		for(var i = 0; i < arrPlayer.length; i++) {
+		
+		i = 0;
+
+                // gray out current list	
+                for(var ii = 0; ii < arrPlayer.length; ii++) {
+                    var bbg = '<p style="background:#F8F8FF;color:gray;">'
+                    displaypos    = bbg + arrPos[ii]    + "</p>";
+                    displayplayer = bbg + arrPlayerOld[ii] + "</p>";
+                    displaypoints = bbg + arrPoints[ii] + "</p>";
+                    displaytwos   = bbg + arrTwos[ii]   + "&nbsp;</p>";
+				
+                    document.getElementById("pos"    + ii).innerHTML = displaypos
+                    document.getElementById("player" + ii).innerHTML = displayplayer
+                    document.getElementById("points" + ii).innerHTML = displaypoints
+                    document.getElementById("twos"   + ii).innerHTML = displaytwos
+                    
+                    // add class
+		    document.getElementById("leaderlist").classList.add("grid-container");
+                    
+                    document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
+		document.getElementById("footer").innerHTML = "Updated every 35 seconds.<br>There is a delay before this information is available in 'All results'"
+
+               }	
+	
+	
+	       // step through each entry and rewrite	
+
+  
+  let myPromise = () => new Promise((resolve, reject) => {
+      setTimeout(function(){
+        resolve('Count')
+      }, 150)
+    })
+ 
+   
+    for (let index = 0; index < arrPlayer.length; index++) {
+      let count = await myPromise()
+
+
+
+// code goes here
+  
+  
+  
+    		
 			// old player 
 			if(arrPlayerOld.indexOf(arrPlayer[i]) > -1) {
 			   // odd number 
@@ -229,6 +291,7 @@ async function getData() {
 				document.getElementById("player" + i).innerHTML = displayplayer
 				document.getElementById("points" + i).innerHTML = displaypoints
 				document.getElementById("twos"   + i).innerHTML = displaytwos
+
 			} else {
 				// new player
 				if (i % 2 !== 0) {
@@ -250,10 +313,24 @@ async function getData() {
 				document.getElementById("points" + i).innerHTML = displaypoints
 				document.getElementById("twos"   + i).innerHTML = displaytwos
 			}
-		}
-		console.log(ddhours + " " + ddminutes + " " + ddseconds)
+			
+			
+			i++
+			
+} //end of delay			
+			
+			
+			
+			
+			
+
 		document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
 		document.getElementById("footer").innerHTML = "Updated every 35 seconds.<br>There is a delay before this information is available in 'All results'"
+		
+		
+		
+		
+		
 	} else {
                 createSmallDisplay()
 		// not a comp day or no results
@@ -325,6 +402,7 @@ function createDisplay(num) {
 	
 	// create the right number of holders
 	for(var i = 0; i < num; i++) {
+
 		var el = document.createElement("div");
 		el.id = "pos" + i;
 		el.setAttribute("class", "grid-item-pos");
@@ -341,6 +419,7 @@ function createDisplay(num) {
 		el.id = "twos" + i;
 		el.setAttribute("class", "grid-item");
 		select.appendChild(el);
+
 	}
 	// create footer 
 	

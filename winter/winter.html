@@ -1016,7 +1016,7 @@ window.addEventListener(orientationEvent, function() {
 	     if (compday == "yes") {
 		// put menu back then move to results page
 		setTimeout(function() {
-			window.location.assign("scoreentry4ballx.html");
+			window.location.assign("scoreentry4ball.html");
 		}, 1000);
 	     } else {
                 noCompMsg();
@@ -1132,25 +1132,21 @@ window.addEventListener(orientationEvent, function() {
                 arrPlayers = arrPlayers.filter(function(el) {return el != "";})
                 arrComps = arrComps.filter(function(el) {return el != "";})
                 arrHcps = arrHcps.filter(function(el) {return el != "";})
-		
-		
-		
-		
-		
+
 		document.getElementById("nav").style.display = "block";
-		
-		
-		
-		
-				
+	
 		// speech tooltip
 		document.getElementById("tooltip").innerHTML = "New data downloaded"
 	//	document.getElementById("tooltip").style.display = "block";
 		setTimeout(function() {
 				document.getElementById("tooltip").style.display = "none";
 			}, 3000)
-			// overwrite saved data arrays in localStorage
-			// players
+		
+		// get rid of "old" localStorage
+		localStorage.clear();
+				
+		// overwrite saved data arrays in localStorage
+		// players
 		localStorage.wwplayersarray = JSON.stringify(arrPlayers);
 		// ladies
 		localStorage.wwladiesarray = JSON.stringify(arrLadies);
