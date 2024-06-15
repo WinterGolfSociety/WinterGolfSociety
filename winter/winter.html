@@ -398,9 +398,13 @@
 	}
 	
 	#xdcomp1,
-	#qrcode,
+	#qrcode {
+	        animation-delay: 1s;
+		animation: fadeIn 3s ease-in;
+	}
+	
 	#nav {
-	animation-delay: 1s;
+	        //animation-delay: 1s;
 		animation: fadeIn 3s ease-in;
 	}
 	
@@ -978,7 +982,7 @@ window.addEventListener(orientationEvent, function() {
              if (compday == "yes") {
                  setTimeout(function() {
 		// put menu back then move to score entry page
-		window.location.assign("scoreentryx.html");
+		window.location.assign("scoreentry.html");
 		}, 1000);		
              } else {
                 noCompMsg();
