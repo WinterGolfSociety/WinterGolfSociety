@@ -135,9 +135,10 @@
 	/* highlights selected player */
 	
 	.highlight {
-		color: cyan;
+		color: white;
 		//border: 1px solid black;
-		box-shadow: inset white 0px 0px 60px -12px;
+		//box-shadow: inset white 0px 0px 60px -12px;
+		background: dodgerBlue;
 	}
 	
 	.scorelow {
@@ -158,7 +159,7 @@
 	
 	.scorehigh {
 		font-size: 4vh;
-		color: cyan;
+		color: white;
 		display: inline-block;
 		width: 40%;
 		height: 10vh;
@@ -169,7 +170,8 @@
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 		border-radius: 5px;
-		box-shadow: inset white 0px 0px 60px -12px;
+		//box-shadow: inset white 0px 0px 60px -12px;
+		background: dodgerBlue;
 	}
 	
 	#info {
@@ -221,7 +223,7 @@
 	
 	#my-response-iframe,
 	#my-form {
-//		display: none;
+		display: none;
 	}
 	/* */
 	
@@ -300,7 +302,7 @@
 	#p2name,
 	#p3name,
 	#p4name {
-		font-size: 4vh;
+		font-size: 3vh;
 		display: inline-block;
 		width: calc(100% / 3 * 2);
 		height: 100%; //calc(100% / 9);
@@ -609,9 +611,9 @@
 		font-size: 100%;
 		color: white;
 		background: dodgerBlue;
-		height: 6vh;
-		width: calc(100% / 9);
-		line-height: 6vh;
+		height: calc((100vw - 1px) / 9);
+		width: calc((100vw - 1px) / 9);
+		line-height: calc((100vw - 1px) / 9);
 		text-align: center;
 		border-radius: 50%;
 		//border: 1px solid silver;
@@ -755,16 +757,7 @@
 			</div>
 		</div>
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		<div id="info" onclick="hideInfo()">
 			<div id="x1"></div>
 			<div class="child-three">
@@ -878,22 +871,7 @@
 			
 			</div>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		
 	</div>
 		<!--
@@ -1081,17 +1059,12 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 		var msglist = "";
 		var msglistcount = 0;
 		var player1name = "player 1";
-		var player2name = "player 2";
-		var player3name = "player 3";
-		var player4name = "player 4";
+		
 		var player1hcp = "?";
-		var player2hcp = "?";
-		var player3hcp = "?";
-		var player4hcp = "?";
+		var fullday = "";
+		
 		var player1teecolor = "yellow";
-		var player2teecolor = "yellow";
-		var player3teecolor = "yellow";
-		var player4teecolor = "yellow";
+		
 		var whichhole = 1;
 		var frontp1 = 0
 		var frontp2 = 0
@@ -1105,66 +1078,80 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 		var fronttxt9 = "";
 		var backtxt9 = "";
 		var alltxt18 = "";
-		var frontleaderplayer = "";
-		var frontleaderholes = 0;
-		var frontwincount = 0;
-		var backleaderplayer = "";
-		var backleaderholes = 0;
-		var backwincount = 0;
-		var allleaderplayer = "";
-		var allleaderholes = 0;
-		var allwincount = 0;
+		
 		var scorelist = "";
 		//==============================================================
-		// data has previously been stored so just retrieve it
+		// data may change so retrieve it on each occasion
 		//==============================================================
 		// retrieve arrays
-		// previously downloaded by menu screen
-		if("wwplayersarray" in localStorage) {
-			arrPlayers = JSON.parse(localStorage.wwplayersarray);
-		}
-		if("wwhcpsarray" in localStorage) {
-			arrHcps = JSON.parse(localStorage.wwhcpsarray);
-		}
-		if("wwladiesarray" in localStorage) {
-			arrLadies = JSON.parse(localStorage.wwladiesarray);
-		}
-		// retrieve competition
-		//if("wwtodayscomp" in localStorage) {
-			//todayscomp = localStorage.wwtodayscomp;
-			// global comp
-			//temp = todayscomp.split(" ")
-			//course = temp[0];
-			// set up course arrays here, one for men and one for ladies
-			// saves on the number of arrays being used
-			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 			dd = new Date();
 			day = dd.getDay();
 			
 			if(day == 2) {
 			        console.log(day + " Tuesday")
 			        course = "BurntIsland"
+			        fullday = "Tuesday";
 				setupTuesdayCourse()
 			}
 			if(day == 3) {
 			        console.log(day + " Wednesday")
 			        course = "Dunnikier"
+			        fullday = "Wednesday";
 				setupWednesdayCourse()
 			}
 			if(day == 4) {
 			        console.log(day + " Thursday")
 			        course = "Thornton"
+			        fullday = "Thursday";
 				setupThursdayCourse()
 			}
 			if(day == 5) {
 			        console.log(day + " Friday")
 			        course = "Kircaldy"
+			        fullday = "Friday";
 				setupFridayCourse()
 			}
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			if(day == 6) {
+			        console.log(day + " Friday")
+			        course = "Kircaldy"
+			        fullday = "Friday";
+				setupFridayCourse()
+			}
+			
+			
+			
+			
+			
+			
+			
+			
 		//}
-		startNewDay();
-		start();
+		//startNewDay();
+		//start();
 		//=============================================================
 		// functions - run when called
 		//=============================================================  
@@ -1390,8 +1377,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
                         //===========================
 			// this code runs at startup
 			//===========================
-                var holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][2] + ", si " + arrCourse[whichhole][1];
-		document.getElementById("holedetails").innerText = holedetails
+
                 getData();
 		// need to set up a couple of arrays from the data in google sheets
 		async function getData() {
@@ -1431,29 +1417,42 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
                 }	
 		// overwrite saved data arrays in localStorage
 		// players
-		localStorage.wwplayersarray = JSON.stringify(arrPlayers);
+//		localStorage.wwplayersarray = JSON.stringify(arrPlayers);
 		// ladies
-		localStorage.wwladiesarray = JSON.stringify(arrLadies);
+//		localStorage.wwladiesarray = JSON.stringify(arrLadies);
 		// hcps
-		localStorage.wwhcpsarray = JSON.stringify(arrHcps);
+//		localStorage.wwhcpsarray = JSON.stringify(arrHcps);
 		// comps
-		localStorage.wwcompsarray = JSON.stringify(arrComps);
+//		localStorage.wwcompsarray = JSON.stringify(arrComps);
+	
+	
+	
+	        startNewDay();
+		start();
+	
+	
 	}
+	
+	
+	
+	
 			//==============================================================
 			// data has previously been stored so just retrieve it
 			//==============================================================
 			// retrieve arrays
-		if("wwplayersarray" in localStorage) {
-			arrPlayers = JSON.parse(localStorage.wwplayersarray);
-		}
-		if("wwhcpsarray" in localStorage) {
-			arrHcps = JSON.parse(localStorage.wwhcpsarray);
-		}
+		//if("wwplayersarray" in localStorage) {
+		//	arrPlayers = JSON.parse(localStorage.wwplayersarray);
+		//}
+		//if("wwhcpsarray" in localStorage) {
+		//	arrHcps = JSON.parse(localStorage.wwhcpsarray);
+		//}
 		//=============================================================
 		// functions - run when called
 		//=============================================================  
 		function startNewDay() {
-		
+		                // set first hole details
+		                var holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][2] + ", si " + arrCourse[whichhole][1];
+		document.getElementById("holedetails").innerText = holedetails
 				setupScores()
 		}
 		//=============================================================
@@ -1561,6 +1560,11 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 					//found = true;
 					//pos = k;
 					hcp = arrHcps[k]
+					player1hcp = hcp;
+					
+					//console.log(hcp)
+					//console.log(player1hcp)
+					
 				}
 			}
 			// find player in options list
@@ -1578,14 +1582,14 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 				arrOptions[temppos][1] = tc;
 				// store new order
 				localStorage.wwdropdown = JSON.stringify(arrOptions);
-				// global player
-				player = playerName;
 			}
 			// update player choice
 			player = document.getElementById("myLink" + temppos.toString()).innerText;
 			document.getElementById("p1name").innerText = player
+			// global player
+			player = playerName;
 			//outputPlayers(player)
-				// close dropdown
+			// close dropdown
 			var dropdowns = document.getElementsByClassName("dropdown-content");
 			var i;
 			for(i = 0; i < dropdowns.length; i++) {
@@ -1599,6 +1603,35 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 			for(i = 1; i <= 18; i++) {
 			    localStorage.setItem("wwp1h" + i, "0");
 			}
+			// go to first hole
+			whichhole = 1;
+			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][2] + ", si " + arrCourse[whichhole][1];
+				// get hole details
+			document.getElementById("holedetails").innerText = holedetails
+				// get hole scores
+			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("wwp1h" + whichhole);
+			// reset all player name backgrounds
+			document.getElementById("p1name").classList.remove("highlight");
+			document.getElementById("p1score").innerText = "0"
+			selectedplayer = 1
+			document.getElementById("p1name").classList.add("highlight");
+			
+			getScores();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		}
 		//=============================================================
 		// function toggleDropdown()
@@ -1754,90 +1787,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 					}
 		}
 
-		function outputPlayers(msg) {
-			// msg is player name eg "Bryan Maddison"
-			// find HCP
-			var hcp;
-			for(var i = 0, len = arrPlayers.length; i < len; i++) {
-				if(arrPlayers[i] === msg) {
-					hcp = arrHcps[i];
-					break;
-				}
-			}
-			msglistcount++
-			if(msglistcount > 4) {
-				console.log("too many players")
-			} else {
-				if(hcplist == "") {
-					hcplist = hcp;
-				} else {
-					hcplist += "#" + hcp
-				}
-			}
-			hcplistx = hcplist + "#?#?#?#ho hcp#?"
-			arr2 = hcplistx.split("#");
-			player1hcp = arr2[0];
-			if(msglistcount > 4) {
-				console.log("too many players")
-			} else {
-				if(msglist == "") {
-					msglist = msg;
-					// enable scoring button if player there and course chosen
-					if(compcourse !== "none") {
-						document.getElementById("startscoring").style.display = "block";
-					}
-				} else {
-					msglist += "#" + msg
-				}
-			}
-			msglistx = msglist + "#no player#no player#no player#no player#no player"
-			arr1 = msglistx.split("#");
-			newmsglistplayer = "Player 1:" + "<br>" + "Player 2:" + "<br>" + "Player 3:" + "<br>" + "Player 4:"
-			newmsglistname = arr1[0] + "<br>" + arr1[1] + "<br>" + arr1[2] + "<br>" + arr1[3]
-			newmsglisthcp = player1hcp + "<br>" + player2hcp + "<br>" + player3hcp + "<br>" + player4hcp
-			newmsglist = "Player 1: " + arr1[0] + "<br>" + "Player 2: " + arr1[1] + "<br>" + "Player 3: " + arr1[2] + "<br>" + "Player 4: " + arr1[3]
-			document.getElementById("player4ballplayer").innerHTML = newmsglistplayer
-			document.getElementById("player4ballname").innerHTML = newmsglistname
-			document.getElementById("player4ballhcp").innerHTML = newmsglisthcp
-				// add players names
-			player1name = arr1[0]
-			player2name = arr1[1]
-			player3name = arr1[2]
-			player4name = arr1[3]
-				// find anyone using red tees
-			if(arrLadies.indexOf(player1name) > -1) {
-				player1teecolor = "red";
-			}
-			if(arrLadies.indexOf(player2name) > -1) {
-				player2teecolor = "red";
-			}
-			if(arrLadies.indexOf(player3name) > -1) {
-				player3teecolor = "red";
-			}
-			if(arrLadies.indexOf(player4name) > -1) {
-				player4teecolor = "red";
-			}
-			console.log(player2teecolor)
-			if(arr1[3] == "no player") {
-				txt = "select player 4"
-			}
-			if(arr1[2] == "no player") {
-				txt = "select player 3"
-			}
-			if(arr1[1] == "no player") {
-				txt = "select player 2"
-			}
-			if(arr1[0] == "no player") {
-				txt = "select player 1"
-			}
-			document.getElementById("dropbtn").innerText = txt;
-			// just close it now
-			if(arr1[3] !== "no player") {
-				// hide button
-				document.getElementById("dropbtn").style.display = "none";
-			}
-			body();
-		}
+
 		// helper function to deep copy array
 		function arrDeepCopy(aObject) {
 			// deep copy array
@@ -2124,9 +2074,11 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 		// convert scores to stableford points
 		function pointsCalc(xhcp, xpar, xsi, xscore) {
 			hcp = parseInt(xhcp)
+			hcp = hcp.toFixed()
 			par = parseInt(xpar)
 			si = parseInt(xsi)
 			score = parseInt(xscore)
+			
 			allowance = 0;
 			if(score == 0) {
 				return 0;
@@ -2154,8 +2106,19 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 				if(points < 0) {
 					points = 0;
 				}
+					
+			
+		console.log("hcp="+xhcp + " par=" + xpar + " si=" + xsi + " score=" + xscore + " points= " + points)	
+			
+			
+		
 				return points;
 			}
+			
+			
+			
+			
+			
 		}
 
 
@@ -2239,15 +2202,17 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 					// player1 score entry
 
 
-
+console.log(player)
+console.log(player1hcp);
 
 					//comp = localStorage.wwtodayscomp
 					document.getElementById('mx1433824128').value = player;
 					
-					document.getElementById('mx1064629217').value = "22" //player1hcp;
-					document.getElementById('mx1119360478').value = "Tuesday" //daystring; /* eg. Monday */
+					document.getElementById('mx1064629217').value = player1hcp;
+
+					document.getElementById('mx1119360478').value = fullday;
 					
-                                        document.getElementById('mx83976721').value = "39";				
+                                        //document.getElementById('mx83976721').value = "39"; /* moved down */				
 					
 document.getElementById('mx1724692121').value = document.getElementById("xh1").innerText; 
 document.getElementById('mx1342174744').value = document.getElementById("xh2").innerText;  
@@ -2267,57 +2232,210 @@ document.getElementById('mx1709130776').value = document.getElementById("xh15").
 document.getElementById('mx1199544885').value = document.getElementById("xh16").innerText; 
 document.getElementById('mx1903245588').value = document.getElementById("xh17").innerText; 
 document.getElementById('mx1737150484').value = document.getElementById("xh18").innerText; 
-								
-document.getElementById('mx1766971895').value = document.getElementById("xh1").innerText; 
-document.getElementById('mx1446347715').value = document.getElementById("xh2").innerText; 
-document.getElementById('mx1043639386').value = document.getElementById("xh3").innerText; 
-document.getElementById('mx1058489368').value = document.getElementById("xh4").innerText; 
-document.getElementById('mx984229340').value = document.getElementById("xh5").innerText; 
-document.getElementById('mx888962172').value = document.getElementById("xh6").innerText; 
-document.getElementById('mx662079754').value = document.getElementById("xh7").innerText; 
-document.getElementById('mx857756573').value = document.getElementById("xh8").innerText; 
-document.getElementById('mx213108632').value = document.getElementById("xh9").innerText; 
-document.getElementById('mx965823425').value = document.getElementById("xh10").innerText; 
-document.getElementById('mx1721064168').value = document.getElementById("xh11").innerText; 
-document.getElementById('mx343171143').value = document.getElementById("xh12").innerText; 
-document.getElementById('mx32888434').value = document.getElementById("xh13").innerText; 
-document.getElementById('mx1203648652').value = document.getElementById("xh14").innerText; 
-document.getElementById('mx1811069542').value = document.getElementById("xh15").innerText; 
-document.getElementById('mx410870339').value = document.getElementById("xh16").innerText; 
-document.getElementById('mx488847840').value = document.getElementById("xh17").innerText; 
-document.getElementById('mx2086486082').value = document.getElementById("xh18").innerText; 
-								
+						
+						
+						
+// pointsCalc(hcp, par, si, score)					
+if (player1teecolor == "yellow") {								
+    document.getElementById('mx1766971895').value = 
+    pointsCalc(player1hcp, arrCourse[1][1], arrCourse[1][2], document.getElementById("xh1").innerText); 
+    document.getElementById('mx1446347715').value = 
+    pointsCalc(player1hcp, arrCourse[2][1], arrCourse[2][2], document.getElementById("xh2").innerText); 
+    document.getElementById('mx1043639386').value = 
+    pointsCalc(player1hcp, arrCourse[3][1], arrCourse[3][2], document.getElementById("xh3").innerText);
+    document.getElementById('mx1058489368').value = 
+    pointsCalc(player1hcp, arrCourse[4][1], arrCourse[4][2], document.getElementById("xh4").innerText); 
+    document.getElementById('mx984229340').value = 
+    pointsCalc(player1hcp, arrCourse[5][1], arrCourse[5][2], document.getElementById("xh5").innerText);
+    document.getElementById('mx888962172').value = 
+    pointsCalc(player1hcp, arrCourse[6][1], arrCourse[6][2], document.getElementById("xh6").innerText);
+    document.getElementById('mx662079754').value = 
+    pointsCalc(player1hcp, arrCourse[7][1], arrCourse[7][2], document.getElementById("xh7").innerText); 
+    document.getElementById('mx857756573').value = 
+    pointsCalc(player1hcp, arrCourse[8][1], arrCourse[8][2], document.getElementById("xh8").innerText); 
+    document.getElementById('mx213108632').value = 
+    pointsCalc(player1hcp, arrCourse[9][1], arrCourse[9][2], document.getElementById("xh9").innerText);
+    document.getElementById('mx965823425').value = 
+    pointsCalc(player1hcp, arrCourse[10][1], arrCourse[10][2], document.getElementById("xh10").innerText);
+    document.getElementById('mx1721064168').value = 
+    pointsCalc(player1hcp, arrCourse[11][1], arrCourse[11][2], document.getElementById("xh11").innerText);
+    document.getElementById('mx343171143').value = 
+    pointsCalc(player1hcp, arrCourse[12][1], arrCourse[2][12], document.getElementById("xh12").innerText);
+    document.getElementById('mx32888434').value = 
+    pointsCalc(player1hcp, arrCourse[13][1], arrCourse[13][2], document.getElementById("xh13").innerText);
+    document.getElementById('mx1203648652').value = 
+    pointsCalc(player1hcp, arrCourse[14][1], arrCourse[14][2], document.getElementById("xh14").innerText);
+    document.getElementById('mx1811069542').value = 
+    pointsCalc(player1hcp, arrCourse[15][1], arrCourse[15][2], document.getElementById("xh15").innerText);
+    document.getElementById('mx410870339').value = 
+    pointsCalc(player1hcp, arrCourse[16][1], arrCourse[16][2], document.getElementById("xh16").innerText);
+    document.getElementById('mx488847840').value = 
+    pointsCalc(player1hcp, arrCourse[17][1], arrCourse[17][2], document.getElementById("xh17").innerText);
+    document.getElementById('mx2086486082').value = 
+    pointsCalc(player1hcp, arrCourse[18][1], arrCourse[18][2], document.getElementById("xh18").innerText);
+
+
+
+var front9points = 0								
+front9points += pointsCalc(player1hcp, arrCourse[1][1], arrCourse[1][2],document.getElementById("xh1").innerText);
+front9points += pointsCalc(player1hcp, arrCourse[2][1], arrCourse[2][2],document.getElementById("xh2").innerText);
+front9points += pointsCalc(player1hcp, arrCourse[3][1], arrCourse[3][2],document.getElementById("xh3").innerText);
+front9points += pointsCalc(player1hcp, arrCourse[4][1], arrCourse[4][2],document.getElementById("xh4").innerText);
+front9points += pointsCalc(player1hcp, arrCourse[5][1], arrCourse[5][2],document.getElementById("xh5").innerText);
+front9points += pointsCalc(player1hcp, arrCourse[6][1], arrCourse[6][2],document.getElementById("xh6").innerText);
+front9points += pointsCalc(player1hcp, arrCourse[7][1], arrCourse[7][2],document.getElementById("xh7").innerText);
+front9points += pointsCalc(player1hcp, arrCourse[8][1], arrCourse[8][2],document.getElementById("xh8").innerText);
+front9points += pointsCalc(player1hcp, arrCourse[9][1], arrCourse[9][2],document.getElementById("xh9").innerText);
+
+
 
 var tempcb9 = 0;
-tempcb9 += parseInt(document.getElementById("xh18").innerText);
-tempcb9 += parseInt(document.getElementById("xh17").innerText);
-tempcb9 += parseInt(document.getElementById("xh16").innerText);
-tempcb9 += parseInt(document.getElementById("xh15").innerText);
-tempcb9 += parseInt(document.getElementById("xh14").innerText);
-tempcb9 += parseInt(document.getElementById("xh13").innerText);
-tempcb9 += parseInt(document.getElementById("xh12").innerText);
-tempcb9 += parseInt(document.getElementById("xh11").innerText);
-tempcb9 += parseInt(document.getElementById("xh10").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[18][1], arrCourse[18][2],document.getElementById("xh18").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[17][1], arrCourse[17][2],document.getElementById("xh17").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[16][1], arrCourse[16][2],document.getElementById("xh16").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[15][1], arrCourse[15][2],document.getElementById("xh15").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[14][1], arrCourse[14][2],document.getElementById("xh14").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[13][1], arrCourse[13][2],document.getElementById("xh13").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[12][1], arrCourse[12][2],document.getElementById("xh12").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[11][1], arrCourse[11][2],document.getElementById("xh11").innerText);
+tempcb9 += pointsCalc(player1hcp, arrCourse[10][1], arrCourse[10][2],document.getElementById("xh10").innerText);
 var tempcb6 = 0;
-tempcb6 += parseInt(document.getElementById("xh18").innerText);
-tempcb6 += parseInt(document.getElementById("xh17").innerText);
-tempcb6 += parseInt(document.getElementById("xh16").innerText);
-tempcb6 += parseInt(document.getElementById("xh15").innerText);
-tempcb6 += parseInt(document.getElementById("xh14").innerText);
-tempcb6 += parseInt(document.getElementById("xh13").innerText);
+tempcb6 += pointsCalc(player1hcp, arrCourse[18][1], arrCourse[18][2],document.getElementById("xh18").innerText);
+tempcb6 += pointsCalc(player1hcp, arrCourse[17][1], arrCourse[17][2],document.getElementById("xh17").innerText);
+tempcb6 += pointsCalc(player1hcp, arrCourse[16][1], arrCourse[16][2],document.getElementById("xh16").innerText);
+tempcb6 += pointsCalc(player1hcp, arrCourse[15][1], arrCourse[15][2],document.getElementById("xh15").innerText);
+tempcb6 += pointsCalc(player1hcp, arrCourse[14][1], arrCourse[14][2],document.getElementById("xh14").innerText);
+tempcb6 += pointsCalc(player1hcp, arrCourse[13][1], arrCourse[13][2],document.getElementById("xh13").innerText);
 var tempcb3 = 0;
-tempcb3 += parseInt(document.getElementById("xh18").innerText);
-tempcb3 += parseInt(document.getElementById("xh17").innerText);
-tempcb3 += parseInt(document.getElementById("xh16").innerText);
+tempcb3 += pointsCalc(player1hcp, arrCourse[18][1], arrCourse[18][2],document.getElementById("xh18").innerText);
+tempcb3 += pointsCalc(player1hcp, arrCourse[17][1], arrCourse[17][2],document.getElementById("xh17").innerText);
+tempcb3 += pointsCalc(player1hcp, arrCourse[16][1], arrCourse[16][2],document.getElementById("xh16").innerText);
 			
 /* countbacks */
 document.getElementById('mx717166862').value = tempcb9; 
 document.getElementById('mx1175424116').value = tempcb6; 
 document.getElementById('mx849660193').value = tempcb3; 
-document.getElementById('mx1919564852').value = document.getElementById("xh18").innerText;;	
+document.getElementById('mx1919564852').value = pointsCalc(player1hcp, arrCourse[9][1], arrCourse[9][2],document.getElementById("xh18").innerText);	
 	
 	
+/* total score */	
+document.getElementById('mx83976721').value = (front9points + tempcb9)	
+
+} else {
+   document.getElementById('mx1766971895').value = 
+    pointsCalc(player1hcp, arrCourseRed[1][1], arrCourseRed[1][2], document.getElementById("xh1").innerText); 
+    document.getElementById('mx1446347715').value = 
+    pointsCalc(player1hcp, arrCourseRed[2][1], arrCourseRed[2][2], document.getElementById("xh2").innerText); 
+    document.getElementById('mx1043639386').value = 
+    pointsCalc(player1hcp, arrCourseRed[3][1], arrCourseRed[3][2], document.getElementById("xh3").innerText);
+    document.getElementById('mx1058489368').value = 
+    pointsCalc(player1hcp, arrCourseRed[4][1], arrCourseRed[4][2], document.getElementById("xh4").innerText); 
+    document.getElementById('mx984229340').value = 
+    pointsCalc(player1hcp, arrCourseRed[5][1], arrCourseRed[5][2], document.getElementById("xh5").innerText);
+    document.getElementById('mx888962172').value = 
+    pointsCalc(player1hcp, arrCourseRed[6][1], arrCourseRed[6][2], document.getElementById("xh6").innerText);
+    document.getElementById('mx662079754').value = 
+    pointsCalc(player1hcp, arrCourseRed[7][1], arrCourseRed[7][2], document.getElementById("xh7").innerText); 
+    document.getElementById('mx857756573').value = 
+    pointsCalc(player1hcp, arrCourseRed[8][1], arrCourseRed[8][2], document.getElementById("xh8").innerText); 
+    document.getElementById('mx213108632').value = 
+    pointsCalc(player1hcp, arrCourseRed[9][1], arrCourseRed[9][2], document.getElementById("xh9").innerText);
+    document.getElementById('mx965823425').value = 
+    pointsCalc(player1hcp, arrCourseRed[10][1], arrCourseRed[10][2], document.getElementById("xh10").innerText);
+    document.getElementById('mx1721064168').value = 
+    pointsCalc(player1hcp, arrCourseRed[11][1], arrCourseRed[11][2], document.getElementById("xh11").innerText);
+    document.getElementById('mx343171143').value = 
+    pointsCalc(player1hcp, arrCourseRed[12][1], arrCourseRed[2][12], document.getElementById("xh12").innerText);
+    document.getElementById('mx32888434').value = 
+    pointsCalc(player1hcp, arrCourseRed[13][1], arrCourseRed[13][2], document.getElementById("xh13").innerText);
+    document.getElementById('mx1203648652').value = 
+    pointsCalc(player1hcp, arrCourseRed[14][1], arrCourseRed[14][2], document.getElementById("xh14").innerText);
+    document.getElementById('mx1811069542').value = 
+    pointsCalc(player1hcp, arrCourseRed[15][1], arrCourseRed[15][2], document.getElementById("xh15").innerText);
+    document.getElementById('mx410870339').value = 
+    pointsCalc(player1hcp, arrCourseRed[16][1], arrCourseRed[16][2], document.getElementById("xh16").innerText);
+    document.getElementById('mx488847840').value = 
+    pointsCalc(player1hcp, arrCourseRed[17][1], arrCourseRed[17][2], document.getElementById("xh17").innerText);
+    document.getElementById('mx2086486082').value = 
+    pointsCalc(player1hcp, arrCourseRed[18][1], arrCourseRed[18][2], document.getElementById("xh18").innerText);
+
+
+
+    var front9points = 0								
+    front9points += pointsCalc(player1hcp, arrCourseRed[1][1], arrCourseRed[1][2],document.getElementById("xh1").innerText);
+    front9points += pointsCalc(player1hcp, arrCourseRed[2][1], arrCourseRed[2][2],document.getElementById("xh2").innerText);
+    front9points += pointsCalc(player1hcp, arrCourseRed[3][1], arrCourseRed[3][2],document.getElementById("xh3").innerText);
+    front9points += pointsCalc(player1hcp, arrCourseRed[4][1], arrCourseRed[4][2],document.getElementById("xh4").innerText);
+    front9points += pointsCalc(player1hcp, arrCourseRed[5][1], arrCourseRed[5][2],document.getElementById("xh5").innerText);
+    front9points += pointsCalc(player1hcp, arrCourseRed[6][1], arrCourseRed[6][2],document.getElementById("xh6").innerText);
+    front9points += pointsCalc(player1hcp, arrCourseRed[7][1], arrCourseRed[7][2],document.getElementById("xh7").innerText);
+    front9points += pointsCalc(player1hcp, arrCourseRed[8][1], arrCourseRed[8][2],document.getElementById("xh8").innerText);
+    front9points += pointsCalc(player1hcp, arrCourseRed[9][1], arrCourseRed[9][2],document.getElementById("xh9").innerText);
+
+
+
+    var tempcb9 = 0;
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[18][1], arrCourseRed[18][2],document.getElementById("xh18").innerText);
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[17][1], arrCourseRed[17][2],document.getElementById("xh17").innerText);
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[16][1], arrCourseRed[16][2],document.getElementById("xh16").innerText);
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[15][1], arrCourseRed[15][2],document.getElementById("xh15").innerText);
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[14][1], arrCourseRed[14][2],document.getElementById("xh14").innerText);
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[13][1], arrCourseRed[13][2],document.getElementById("xh13").innerText);
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[12][1], arrCourseRed[12][2],document.getElementById("xh12").innerText);
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[11][1], arrCourseRed[11][2],document.getElementById("xh11").innerText);
+    tempcb9 += pointsCalc(player1hcp, arrCourseRed[10][1], arrCourseRed[10][2],document.getElementById("xh10").innerText);
+    var tempcb6 = 0;
+    tempcb6 += pointsCalc(player1hcp, arrCourseRed[18][1], arrCourseRed[18][2],document.getElementById("xh18").innerText);
+    tempcb6 += pointsCalc(player1hcp, arrCourseRed[17][1], arrCourseRed[17][2],document.getElementById("xh17").innerText);
+    tempcb6 += pointsCalc(player1hcp, arrCourseRed[16][1], arrCourseRed[16][2],document.getElementById("xh16").innerText);
+    tempcb6 += pointsCalc(player1hcp, arrCourseRed[15][1], arrCourseRed[15][2],document.getElementById("xh15").innerText);
+    tempcb6 += pointsCalc(player1hcp, arrCourseRed[14][1], arrCourseRed[14][2],document.getElementById("xh14").innerText);
+    tempcb6 += pointsCalc(player1hcp, arrCourseRed[13][1], arrCourseRed[13][2],document.getElementById("xh13").innerText);
+    var tempcb3 = 0;
+    tempcb3 += pointsCalc(player1hcp, arrCourseRed[18][1], arrCourseRed[18][2],document.getElementById("xh18").innerText);
+    tempcb3 += pointsCalc(player1hcp, arrCourseRed[17][1], arrCourseRed[17][2],document.getElementById("xh17").innerText);
+    tempcb3 += pointsCalc(player1hcp, arrCourseRed[16][1], arrCourseRed[16][2],document.getElementById("xh16").innerText);
+			
+    /* countbacks */
+    document.getElementById('mx717166862').value = tempcb9; 
+    document.getElementById('mx1175424116').value = tempcb6; 
+    document.getElementById('mx849660193').value = tempcb3; 
+    document.getElementById('mx1919564852').value = pointsCalc(player1hcp, arrCourseRed[9][1], arrCourseRed[9][2],document.getElementById("xh18").innerText);	
 	
+	
+    /* total score */	
+    document.getElementById('mx83976721').value = (front9points + tempcb9)	
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 					// check data is complete 
 //					checkBeforeSubmitID = "\n";
