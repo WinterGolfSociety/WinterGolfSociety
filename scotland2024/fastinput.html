@@ -1286,7 +1286,7 @@
                         //===========================
 			// this code runs at startup
 			//===========================
-
+document.getElementById("dropbtn").innerText = "downloading"
                 getData();
 		// need to set up a couple of arrays from the data in google sheets
 		async function getData() {
@@ -1333,6 +1333,10 @@
 //		localStorage.wwhcpsarray = JSON.stringify(arrHcps);
 		// comps
 //		localStorage.wwcompsarray = JSON.stringify(arrComps);
+	
+	
+	
+	document.getElementById("dropbtn").innerText = "select player"
 	
 	
 	
