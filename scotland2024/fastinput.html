@@ -874,105 +874,7 @@
 
 		
 	</div>
-		<!--
-	invisible but necessary for submit of data
-	
-	
-	/*
-https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url
-&entry.1433824128=p
-&entry.1064629217=h
-&entry.1119360478=d
-&entry.717166862=c9
-&entry.1175424116=c6
-&entry.849660193=c3
-&entry.1919564852=c1
-
-&entry.1724692121=1
-&entry.1342174744=2
-&entry.758799387=3
-&entry.2062182607=4
-&entry.1930917032=5
-&entry.1329253100=6
-&entry.737258175=7
-&entry.1107474420=8
-&entry.801125525=9
-&entry.481613746=10
-&entry.375771739=11
-&entry.515491474=12
-&entry.153870929=13
-&entry.534588764=14
-&entry.1709130776=15
-&entry.1199544885=16
-&entry.1903245588=17
-&entry.1737150484=18
-
-
-
-&entry.1766971895=1
-&entry.1446347715=2
-&entry.1043639386=3
-&entry.1058489368=4
-&entry.984229340=5
-&entry.888962172=6
-&entry.662079754=7
-&entry.857756573=8
-&entry.213108632=9
-&entry.965823425=10
-&entry.1721064168=11
-&entry.343171143=12
-&entry.32888434=13
-&entry.1203648652=14
-&entry.1811069542=15
-&entry.410870339=16
-&entry.488847840=17
-&entry.2086486082=18
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url
-&entry.1433824128=p
-&entry.1064629217=h
-&entry.1119360478=d
-&entry.83976721=99
-&entry.717166862=c9&entry.1175424116=c6&entry.849660193=c3&entry.1919564852=c1&entry.1724692121=1&entry.1342174744=2&entry.758799387=3&entry.2062182607=4&entry.1930917032=5&entry.1329253100=6&entry.737258175=7&entry.1107474420=8&entry.801125525=9&entry.481613746=10&entry.375771739=11&entry.515491474=12&entry.153870929=13&entry.534588764=14&entry.1709130776=15&entry.1199544885=16&entry.1903245588=17&entry.1737150484=18&entry.1766971895=1&entry.1446347715=2&entry.1043639386=3&entry.1058489368=4&entry.984229340=5&entry.888962172=6&entry.662079754=7&entry.857756573=8&entry.213108632=9&entry.965823425=10&entry.1721064168=11&entry.343171143=12&entry.32888434=13&entry.1203648652=14&entry.1811069542=15&entry.410870339=16&entry.488847840=17&entry.2086486082=18
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-
-	
-	
-	-->
+		<!-- invisible but necessary for submit of data	-->
 		<!-- form to construct data prior to submit -->
 		<form action="https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
 			<!-- name, hcp, day, total -->
@@ -1037,7 +939,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 		//=================================================================================
 		// declare global variables
 		var selectedplayer = 1;
-		// hilight first player entry
+		// highlight first player entry
 		document.getElementById("p1name").classList.add("highlight");
 		var arrCourse = [];
 		var arrHcps = [];
@@ -1100,6 +1002,13 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 		
 			dd = new Date();
 			day = dd.getDay();
+			
+			
+		
+			
+			
+			
+			
 			
 			if(day == 2) {
 			        console.log(day + " Tuesday")
@@ -1673,6 +1582,12 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 			// id is something like score2
 			// selectedplayer is global 1, 2, 3, 4
 				// id is number button pressed eg. score5
+				
+				
+// indicate the start of a move to next hole				
+document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >";		
+				
+				
 				temppscore = "p1score"
 				temppname = "p1name"
 					// highlight number button for a brief time
