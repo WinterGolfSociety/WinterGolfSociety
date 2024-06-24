@@ -1286,7 +1286,8 @@
                         //===========================
 			// this code runs at startup
 			//===========================
-document.getElementById("dropbtn").innerText = "downloading"
+			//change wording to show downloading, change back when complete
+         document.getElementById("dropbtn").innerText = "searching ..."
                 getData();
 		// need to set up a couple of arrays from the data in google sheets
 		async function getData() {
@@ -1296,7 +1297,7 @@ document.getElementById("dropbtn").innerText = "downloading"
 	        if (!dataStream.ok) {
                     const message = `An error has occured: ${dataStream.status}`;
                     //throw new Error(message);
-                    alert("xxxxxxxxxxxxxxxxx" + message)
+                    alert("error: " + message)
                 }
 		var resultsarray = await dataStream.json()
                 // split into separate arrays
@@ -1334,10 +1335,9 @@ document.getElementById("dropbtn").innerText = "downloading"
 		// comps
 //		localStorage.wwcompsarray = JSON.stringify(arrComps);
 	
+	// put correct wording back - signifies download completed
+	document.getElementById("dropbtn").innerText = "select player"
 	
-	if (arrPlayers.length > 2){
-	   document.getElementById("dropbtn").innerText = "select player"
-	}
 	
 	
 	        startNewDay();
