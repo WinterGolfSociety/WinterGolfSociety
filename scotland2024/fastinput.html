@@ -1335,9 +1335,9 @@ document.getElementById("dropbtn").innerText = "downloading"
 //		localStorage.wwcompsarray = JSON.stringify(arrComps);
 	
 	
-	
-	document.getElementById("dropbtn").innerText = "select player"
-	
+	if (arrPlayers.length > 2){
+	   document.getElementById("dropbtn").innerText = "select player"
+	}
 	
 	
 	        startNewDay();
