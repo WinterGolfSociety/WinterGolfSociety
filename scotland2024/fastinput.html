@@ -1038,29 +1038,7 @@
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			if(day == 6) {
-			        console.log(day + " Friday")
-			        course = "Kircaldy"
-			        fullday = "Friday";
-				setupFridayCourse()
-			}
-			
-			
-			
-			
-			
-			
-			
-			
-		//}
-		//startNewDay();
-		//start();
+		
 		//=============================================================
 		// functions - run when called
 		//=============================================================  
@@ -1262,28 +1240,8 @@
 				[18, 3, 16]
 			];
 		}
-		
-		
-		
-		
-		
-		
-		//======================================
-		// prevent accidental closing
-		//======================================
-/*		function eventl() {
-			// Cancel the event
-			event.preventDefault();
-			event.returnValue = "";
-		}
-		//=====================================
-		window.addEventListener("beforeunload", eventl)
-		var holedetails = course + ", hole " + whichhole
-		document.getElementById("holedetails").innerText = holedetails
-			//===========================
-*/
 
-                        //===========================
+         //===========================
 			// this code runs at startup
 			//===========================
 			//change wording to show downloading, change back when complete
@@ -1291,7 +1249,7 @@
                 getData();
 		// need to set up a couple of arrays from the data in google sheets
 		async function getData() {
-	        //console.log("here - getdata")
+
 	        var dataStream = await fetch("https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/setupcsv")
 			
 	        if (!dataStream.ok) {
@@ -1320,45 +1278,24 @@
 		// get rid of "old" localStorage but keep dropdown options
 		for (var i = 0; i < localStorage.length; i++) {        
                      if (localStorage.key(i).substring(0,2) == "ww") {
-                         if (localStorage.key(i) !== "ww") {
+                         if (localStorage.key(i) !== "wwdropdown") {
                          localStorage.removeItem(localStorage.key(i));
                          } 
                      }       
                 }	
-		// overwrite saved data arrays in localStorage
-		// players
-//		localStorage.wwplayersarray = JSON.stringify(arrPlayers);
-		// ladies
-//		localStorage.wwladiesarray = JSON.stringify(arrLadies);
-		// hcps
-//		localStorage.wwhcpsarray = JSON.stringify(arrHcps);
-		// comps
-//		localStorage.wwcompsarray = JSON.stringify(arrComps);
 	
 	// put correct wording back - signifies download completed
 	document.getElementById("dropbtn").innerText = "select player"
 	
 	
 	
-	        startNewDay();
+	   startNewDay();
 		start();
 	
 	
 	}
 	
-	
-	
-	
-			//==============================================================
-			// data has previously been stored so just retrieve it
-			//==============================================================
-			// retrieve arrays
-		//if("wwplayersarray" in localStorage) {
-		//	arrPlayers = JSON.parse(localStorage.wwplayersarray);
-		//}
-		//if("wwhcpsarray" in localStorage) {
-		//	arrHcps = JSON.parse(localStorage.wwhcpsarray);
-		//}
+
 		//=============================================================
 		// functions - run when called
 		//=============================================================  
@@ -1460,7 +1397,22 @@
 				el.innerText = arrPlayers[i];
 				select.appendChild(el);
 			}
+	
+		// create fresh options array for dropdown 
+		arrOptions = [];
+			for(var i = 0; i < arrPlayers.length; i++) {
+				x = arrPlayers[i]
+				arrOptions.push([x, 0])
+				// get rid of change of color on selection
+		document.getElementById(el.id).style.color = "";
+		document.getElementById(el.id).style.background = "";	
+			}
+		// save new array	
+		localStorage.wwdropdown = JSON.stringify(arrOptions);	
+		// refresh page
+		location.reload();
 		}
+		
 		// name selected, do stuff
 		function dropSelected(playerName) {
 		//console.log(playerName)
@@ -1474,10 +1426,7 @@
 					//pos = k;
 					hcp = arrHcps[k]
 					player1hcp = hcp;
-					
-					//console.log(hcp)
-					//console.log(player1hcp)
-					
+
 				}
 			}
 			// find player in options list
@@ -1501,7 +1450,7 @@
 			document.getElementById("p1name").innerText = player
 			// global player
 			player = playerName;
-			//outputPlayers(player)
+
 			// close dropdown
 			var dropdowns = document.getElementsByClassName("dropdown-content");
 			var i;
@@ -1530,21 +1479,7 @@
 			document.getElementById("p1name").classList.add("highlight");
 			
 			getScores();
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
 		}
 		//=============================================================
 		// function toggleDropdown()
@@ -1777,11 +1712,7 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 			localStorage.setItem("wwplayer1name", player1name)
 				// save player hcps
 			localStorage.setItem("wwplayer1hcp", player1hcp)
-			//localStorage.setItem("wwplayer2hcp", player2hcp)
-			//localStorage.setItem("wwplayer3hcp", player3hcp)
-			//localStorage.setItem("wwplayer4hcp", player4hcp)
-				// save course
-			//localStorage.setItem("wwcompcourse", compcourse)
+			
 				// save date
 			localStorage.setItem("wwcompdate", compdate)
 				// save all scores and points
@@ -1821,76 +1752,6 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 			}
 		}
 
-		function retrieveAllFromLocalStorage() {
-			compcourse = course;
-			// get date and comp
-			compdate = localStorage.getItem("wwcompdate");
-			compcourse = localStorage.getItem("wwcompcourse");
-			// get course details
-			//if(compcourse == "Dawson") {
-			//	arrCourse = arrDeepCopy(arrDawson);
-			//}
-			//if(compcourse == "Lakes") {
-			//	arrCourse = arrDeepCopy(arrLakes);
-			//}
-			//if(compcourse == "OldCourse") {
-			//	arrCourse = arrDeepCopy(arrOldCourse);
-			//}
-			
-			
-			
-			
-				dd = new Date();
-			day = dd.getDay();
-			
-			if(day == 2) {
-			        console.log(day + " Tuesday")
-			        course = "BurntIsland"
-				setupTuesdayCourse()
-			}
-			if(day == 3) {
-			        console.log(day + " Wednesday")
-			        course = "Dunnikier"
-				setupWednesdayCourse()
-			}
-			if(day == 4) {
-			        console.log(day + " Thursday")
-			        course = "Thornton"
-				setupThursdayCourse()
-			}
-			if(day == 5) {
-			        console.log(day + " Friday")
-			        course = "Kircaldy"
-				setupFridayCourse()
-			}
-			   
-			
-			
-			
-			
-			// recover players names and hcps
-			player1name = localStorage.getItem("wwplayer1name");
-			player1hcp = localStorage.getItem("wwplayer1hcp");
-			// do shortnames etc.
-			body();
-			// recover scores, points etc
-			for(i = 1; i <= 18; i++) {
-				// Recorded scores
-				temp1 = localStorage.getItem("wwp1h" + i);
-				if(temp1 !== "0") {
-					temp2 = pointsCalc(arrCourse[1], arrCourse[2], player1hcp, temp1);
-					document.getElementById("p1h" + i).innerText = temp1 + "/" + temp2;
-				} else {
-					document.getElementById("p1h" + i).innerText = "0";
-				}
-				
-				// do scores for first hole
-				document.getElementById("p1score").innerText = localStorage.getItem("wwp1h1");
-				
-			}
-			// redo totals
-			totalsCalc()
-		}
 
 		function totalsCalc() {
 			p1front = 0
@@ -1927,69 +1788,6 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 			
 		}
 
-		function moveToCurrent() {
-			var lastOne = 0;
-			var i = 0;
-			// go backwards
-			for(i = 18; i > 0; i--) {
-				var tempp1txt = document.getElementById("p1h" + i).innerText
-				
-					// find current entry    
-				if(tempp1txt == 0 && tempp2txt == 0 && tempp3txt == 0 && tempp4txt == 0) {
-					lastOne = i;
-				}
-			}
-			//move to last one
-			whichhole = lastOne;
-			// get hole details
-			holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2]
-			document.getElementById("holedetails").innerText = holedetails
-				// get hole scores
-			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("wwp1h" + whichhole);
-			
-			// change highlight colour
-			document.getElementById("p1name").classList.remove("highlight");
-			
-			selectedplayer = 1
-			document.getElementById("p1name").classList.add("highlight");
-			// retrieve scores   
-			getScores()
-		}
-
-		function displayInfo() {
-			saveScores();
-			//saveAllToLocalStorage()
-			// get players, all strokes and points
-			document.getElementById("p1h0").innerText = shortName(player1name);
-			
-			for(var i = 1; i <= 18; i++) {
-				//if(course == "Lakes") {
-					if(player1teecolor == "yellow") {
-						temp = localStorage.getItem("wwp1h" + i)
-						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrCourse[i][1], arrCourse[i][2], temp)
-					} else {
-						temp = localStorage.getItem("wwp1h" + i)
-						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrCourseRed[i][1], arrCourseRed[i][2], temp)
-					}
-					
-				//}
-				
-				
-				
-			}
-			totalScore()
-				//shots()
-				// show screen as overlay
-			if(document.getElementById("info").style.display !== "block") {
-				document.getElementById("info").style.display = "block"
-			} else {
-				document.getElementById("info").style.display = "none"
-			}
-		}
-
-		function hideInfo() {
-			document.getElementById("info").style.display = "none"
-		}
 		// convert scores to stableford points
 		function pointsCalc(xhcp, xpar, xsi, xscore) {
 			hcp = parseInt(xhcp)
@@ -2042,70 +1840,6 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 
 
 
-/*
-https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu6GzCb-WHrw/viewform?usp=pp_url
-&entry.1433824128=p
-&entry.1064629217=h
-&entry.1119360478=d
-&entry.717166862=c9
-&entry.1175424116=c6
-&entry.849660193=c3
-&entry.1919564852=c1
-
-&entry.1724692121=1
-&entry.1342174744=2
-&entry.758799387=3
-&entry.2062182607=4
-&entry.1930917032=5
-&entry.1329253100=6
-&entry.737258175=7
-&entry.1107474420=8
-&entry.801125525=9
-&entry.481613746=10
-&entry.375771739=11
-&entry.515491474=12
-&entry.153870929=13
-&entry.534588764=14
-&entry.1709130776=15
-&entry.1199544885=16
-&entry.1903245588=17
-&entry.1737150484=18
-&entry.1766971895=1
-&entry.1446347715=2
-&entry.1043639386=3
-&entry.1058489368=4
-&entry.984229340=5
-&entry.888962172=6
-&entry.662079754=7
-&entry.857756573=8
-&entry.213108632=9
-&entry.965823425=10
-&entry.1721064168=11
-&entry.343171143=12
-&entry.32888434=13
-&entry.1203648652=14
-&entry.1811069542=15
-&entry.410870339=16
-&entry.488847840=17
-&entry.2086486082=18
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		//=============================================================
 		// function submitForm()
 		// - send info from HTML form to google form
@@ -2114,15 +1848,11 @@ https://docs.google.com/forms/d/e/1FAIpQLSfDPgPRUI6qli0sde-C0UvkQ7HTCC6os9vh1Aqu
 			// get the relevant info into a form
 			// dont allow submit for an incorrect day
 			compday = localStorage.wwcompday;
-		//	if(compday == "yes") {
+
 				// make sure everything is updated
 				finalWrite();
 				if(player1name !== "no player") {
 					// player1 score entry
-
-
-console.log(player)
-console.log(player1hcp);
 
 					//comp = localStorage.wwtodayscomp
 					document.getElementById('mx1433824128').value = player;
@@ -2132,7 +1862,7 @@ console.log(player1hcp);
 					document.getElementById('mx1119360478').value = fullday;
 					
                                         //document.getElementById('mx83976721').value = "39"; /* moved down */				
-					
+// shots for each hole					
 document.getElementById('mx1724692121').value = document.getElementById("xh1").innerText; 
 document.getElementById('mx1342174744').value = document.getElementById("xh2").innerText;  
 document.getElementById('mx758799387').value = document.getElementById("xh3").innerText; 
@@ -2153,7 +1883,7 @@ document.getElementById('mx1903245588').value = document.getElementById("xh17").
 document.getElementById('mx1737150484').value = document.getElementById("xh18").innerText; 
 						
 						
-						
+// points for each hole						
 // pointsCalc(hcp, par, si, score)					
 if (player1teecolor == "yellow") {								
     document.getElementById('mx1766971895').value = 
@@ -2194,7 +1924,7 @@ if (player1teecolor == "yellow") {
     pointsCalc(player1hcp, arrCourse[18][1], arrCourse[18][2], document.getElementById("xh18").innerText);
 
 
-
+// points for countback etc.
 var front9points = 0								
 front9points += pointsCalc(player1hcp, arrCourse[1][1], arrCourse[1][2],document.getElementById("xh1").innerText);
 front9points += pointsCalc(player1hcp, arrCourse[2][1], arrCourse[2][2],document.getElementById("xh2").innerText);
@@ -2331,65 +2061,6 @@ document.getElementById('mx83976721').value = (front9points + tempcb9)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					// check data is complete 
-//					checkBeforeSubmitID = "\n";
-//					err = "no";
-//					for(ii = 1; ii <= 18; ii++) {
-//						if(document.getElementById("p1h" + ii).innerText.split("/")[0] == "2") {
-//							twoscount++;
-//						}
-						// check for no score entered
-						/*
-						if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-							if(checkBeforeSubmitID.length < 50) {
-								checkBeforeSubmitID += "hole " + ii + " not scored\n";
-								err = "yes";
-							}
-						}
-						*/
-//					}
-					//console.log(twoscount)
-						//console.log(document.getElementById("p10").innerText)
-//					document.getElementById('mx967906330').value = twoscount.toString();
-//					document.getElementById('mx789190149').value = comp + player;
-					//		if(player == "select player") {
-					//			checkBeforeSubmitID += "player not set\n"
-					//			err = "yes";
-					//		}
-					//		if(hcp == "0") {
-					//			checkBeforeSubmitID += "hcp not set\n"
-					//			err = "yes";
-					//		}
-					//		if(err == "yes") {
-					//			// error message
-					//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
-					//			showIncompleteSubmitData(checkBeforeSubmitID);
-					//		} else {
 					//===== submit data ==========
 					//============================
 					document.forms[0].submit();
@@ -2400,17 +2071,14 @@ document.getElementById('mx83976721').value = (front9points + tempcb9)
 					top: 0,
 					behavior: 'smooth'
 				})
-//				document.getElementById("blackout").style.display = "flex";
+				document.getElementById("submit").style.background = "blue";
 				//console.log("here")
-//				document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
-//				setTimeout(function() {
-//					document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 100px; width: 100px;">'
-//				}, 6500);
-
-				// return to main menu
+				//document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
 				setTimeout(function() {
-					history.go(-1);
-				}, 9500);
+				document.getElementById("submit").style.background = "dodgerBlue";
+			}, 3000);
+
+				
 		//	}
 		}
 
@@ -2485,7 +2153,36 @@ document.getElementById("recoverclear").style.display = "none";
 		
 		
 		
-		
+	function displayInfo() {
+			saveScores();
+			//saveAllToLocalStorage()
+			// get players, all strokes and points
+			document.getElementById("p1h0").innerText = shortName(player1name);
+			
+			for(var i = 1; i <= 18; i++) {
+				//if(course == "Lakes") {
+					if(player1teecolor == "yellow") {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrCourse[i][1], arrCourse[i][2], temp)
+					} else {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrCourseRed[i][1], arrCourseRed[i][2], temp)
+					}
+					
+				//}
+				
+				
+				
+			}
+			totalScore()
+				//shots()
+				// show screen as overlay
+			if(document.getElementById("info").style.display !== "block") {
+				document.getElementById("info").style.display = "block"
+			} else {
+				document.getElementById("info").style.display = "none"
+			}
+		}	
 		
 		
 		
