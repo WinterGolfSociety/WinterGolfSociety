@@ -1301,7 +1301,7 @@
 		//=============================================================  
 		function startNewDay() {
 		                // set first hole details
-		                var holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][2] + ", si " + arrCourse[whichhole][1];
+		                var holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
 		document.getElementById("holedetails").innerText = holedetails
 				setupScores()
 		}
@@ -1467,7 +1467,7 @@
 			}
 			// go to first hole
 			whichhole = 1;
-			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][2] + ", si " + arrCourse[whichhole][1];
+			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
 				// get hole details
 			document.getElementById("holedetails").innerText = holedetails
 				// get hole scores
@@ -1571,7 +1571,7 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 			if(whichhole > 18) {
 				whichhole = 18;
 			}
-			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][2] + ", si " + arrCourse[whichhole][1];
+			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
 				// get hole details
 			document.getElementById("holedetails").innerText = holedetails
 				// get hole scores
@@ -1601,7 +1601,7 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 				whichhole = 1
 			}
 			// get hole details
-			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][2] + ", si " + arrCourse[whichhole][1];
+			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
 			document.getElementById("holedetails").innerText = holedetails
 				// get hole scores
 			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("wwp1h" + whichhole);
