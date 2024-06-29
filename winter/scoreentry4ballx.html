@@ -623,7 +623,7 @@ display: inline-block;
 		text-align: center;
 		border-radius: 50%;
 		//border: 1px solid silver;
-		margin: 1px;
+		//margin: 1px;
 
 
 
@@ -646,7 +646,7 @@ display: inline-block;
 		text-align: center;
 		border-radius: 50%;
 		//border: 1px solid silver;
-		margin: 1px;
+		//margin: 1px;
 
 
 
@@ -1884,8 +1884,11 @@ function setupOldCourseCourse() {
 		// and move on	
 		//=================================================================================
 		function setupScores() {
+		console.log("setupscores")
 			for(var i = 1; i <= 18; i++) {
 			    for(var j = 1; j <= numberofplayers; j++) {
+console.log("setting " + "wwp" + j + "h" + i)			    
+			    
 				localStorage.setItem("wwp" + j + "h" + i, "0")
 			    }
 			}
@@ -2006,7 +2009,7 @@ function setupOldCourseCourse() {
 			document.getElementById("all").style.display = "initial"
 				// set up for correct number of players
 				// initial save of data
-			saveAllToLocalStorage()
+	//		saveAllToLocalStorage()
 		}
 
 
@@ -2291,35 +2294,47 @@ function setupOldCourseCourse() {
 			var temp1 = "";
 			for(i = 1; i <= 18; i++) {
 				j = 1;
-				temp1 = document.getElementById("p1h" + i).innerText
-				if(temp1.indexOf("/") > -1) {
-					temp1array = temp1.split("/")
-					localStorage.setItem("wwp1h" + i, temp1array[0])
-				} else {
-					localStorage.setItem("wwp1h" + i, "0")
+				if (numberofplayers >= 1) {
+				    temp1 = document.getElementById("p1h" + i).innerText
+				    temp1array = temp1.split("/")
+				    
+ console.log(typeof temp1array[0])				    
+				    
+					 if (typeof temp1array[0] === "number") {
+					
+                   localStorage.setItem("wwp1h" + i, temp1array[0])
+					 }
+            } else {
+                   localStorage.setItem("wwp1h" + i, "-")			
 				}
-				temp1 = document.getElementById("p2h" + i).innerText
-				if(temp1.indexOf("/") > -1) {
-					temp1array = temp1.split("/")
-					localStorage.setItem("wwp2h" + i, temp1array[0])
+				if (numberofplayers >= 2) {
+				    temp1 = document.getElementById("p2h" + i).innerText
+				    temp1array = temp1.split("/")
+					 if (typeof temp1array[0] === "number") {
+				       localStorage.setItem("wwp2h" + i, temp1array[0])
+				    }
 				} else {
-					localStorage.setItem("wwp2h" + i, "0")
-				}
-				temp1 = document.getElementById("p3h" + i).innerText
-				if(temp1.indexOf("/") > -1) {
-					temp1array = temp1.split("/")
-					localStorage.setItem("wwp3h" + i, temp1array[0])
+                   localStorage.setItem("wwp2h" + i, "-")			
+				}    
+				if (numberofplayers >= 3) {
+				    temp1 = document.getElementById("p3h" + i).innerText
+				    temp1array = temp1.split("/")
+					 if (typeof temp1array[0] === "number") {
+					    localStorage.setItem("wwp3h" + i, temp1array[0])
+			 	    }
 				} else {
-					localStorage.setItem("wwp3h" + i, "0")
-				}
-				temp1 = document.getElementById("p4h" + i).innerText
-				if(temp1.indexOf("/") > -1) {
-					temp1array = temp1.split("/")
-					localStorage.setItem("wwp4h" + i, temp1array[0])
-				} else {
-					localStorage.setItem("wwp4h" + i, "0")
-				}
-			}
+                   localStorage.setItem("wwp3h" + i, "-")			
+				} 
+				if (numberofplayers >= 4) {   
+				    temp1 = document.getElementById("p4h" + i).innerText
+				    temp1array = temp1.split("/")
+					 if (typeof temp1array[0] === "number") {
+					    localStorage.setItem("wwp4h" + i, temp1array[0])
+				    }
+			   } else {
+                   localStorage.setItem("wwp4h" + i, "-")			
+				} 
+			}   
 			// save totals
 			// front 9
 			temp1 = document.getElementById("p1hf").innerText
@@ -2646,12 +2661,16 @@ function displayInfo1() {
 			    if (course == "Lakes") {
 		          if (player1teecolor == "yellow") {
 				       temp = localStorage.getItem("wwp1h" + i)
-				       document.getElementById("p1h" + i).innerText = temp + "/" +
-				       pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
+                   if ("0123456789191112".indexOf(temp) > -1) {				       
+				           document.getElementById("p1h" + i).innerText = temp + "/" +
+				           pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
+                   }			       
 			       } else {
 				       temp = localStorage.getItem("wwp1h" + i)
-				       document.getElementById("p1h" + i).innerText = temp + "/" +
-				       pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                   if ("0123456789191112".indexOf(temp) > -1) {				       
+				           document.getElementById("p1h" + i).innerText = temp + "/" +
+				           pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                   }  			       
 			       }
 				
 			   }
@@ -2659,12 +2678,16 @@ function displayInfo1() {
 			   if (course == "Dawson") {
 		         if (player1teecolor == "yellow") {
 				       temp = localStorage.getItem("wwp1h" + i)
-				       document.getElementById("p1h" + i).innerText = temp + "/" +
-				       pointsCalc(player1hcp, arrDawson[i][1], arrDawson[i][2], temp)
+                   if ("0123456789191112".indexOf(temp) > -1) {				       
+				           document.getElementById("p1h" + i).innerText = temp + "/" +
+				           pointsCalc(player1hcp, arrDawson[i][1], arrDawson[i][2], temp)
+                   } 			      
 			      } else {
 				       temp = localStorage.getItem("wwp1h" + i)
-				       document.getElementById("p1h" + i).innerText = temp + "/" +
-				       pointsCalc(player1hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
+                   if ("0123456789191112".indexOf(temp) > -1) {				       
+				           document.getElementById("p1h" + i).innerText = temp + "/" +
+				           pointsCalc(player1hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
+                   }				   
 				   }
 				
 			   }
@@ -2672,15 +2695,24 @@ function displayInfo1() {
 			   if (course == "OldCourse") {
 				   if (player1teecolor == "yellow") {
 				       temp = localStorage.getItem("wwp1h" + i)
-				       document.getElementById("p1h" + i).innerText = temp + "/" +
-				       pointsCalc(player1hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
+                   if ("0123456789191112".indexOf(temp) > -1) {				       
+				           document.getElementById("p1h" + i).innerText = temp + "/" +
+				           pointsCalc(player1hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
+                   }				   
 				   } else {
 				       temp = localStorage.getItem("wwp1h" + i)
-				       document.getElementById("p1h" + i).innerText = temp + "/" +
-				       pointsCalc(player1hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
+                   if ("0123456789191112".indexOf(temp) > -1) {				       
+				           document.getElementById("p1h" + i).innerText = temp + "/" +
+				           pointsCalc(player1hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
+                   }			      
 			      }
 
 			   }
+			   
+document.getElementById("p2h" + i).innerText = "-";
+document.getElementById("p3h" + i).innerText = "-";
+document.getElementById("p4h" + i).innerText = "-";			   
+			   
 
 			}
 
@@ -2709,22 +2741,30 @@ function displayInfo2() {
 			if (course == "Lakes") {
 				if (player1teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp1h" + i)
-				    document.getElementById("p1h" + i).innerText = temp + "/" +
-				    pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
+				    if ("0123456789191112".indexOf(temp) > -1) {
+				        document.getElementById("p1h" + i).innerText = temp + "/" +
+				        pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
+                }                				
 				} else {
 				    temp = localStorage.getItem("wwp1h" + i)
-				    document.getElementById("p1h" + i).innerText = temp + "/" +
-				    pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+				    if ("0123456789191112".indexOf(temp) > -1) {
+				        document.getElementById("p1h" + i).innerText = temp + "/" +
+				        pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                }				
 				}
 				
 				if (player2teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp2h" + i)
-				    document.getElementById("p2h" + i).innerText = temp + "/" +
-				    pointsCalc(player2hcp, arrLakes[i][1], arrLakes[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p2h" + i).innerText = temp + "/" +
+				        pointsCalc(player2hcp, arrLakes[i][1], arrLakes[i][2], temp)
+                }				
 				} else {
 				    temp = localStorage.getItem("wwp2h" + i)
-				    document.getElementById("p2h" + i).innerText = temp + "/" +
-				    pointsCalc(player2hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p2h" + i).innerText = temp + "/" +
+				        pointsCalc(player2hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                }				
 				}
 				
        }
@@ -2732,22 +2772,30 @@ function displayInfo2() {
 	    if (course == "Dawson") {
 				if (player1teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp1h" + i)
-				    document.getElementById("p1h" + i).innerText = temp + "/" +
-				    pointsCalc(player1hcp, arrDawson[i][1], arrDawson[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p1h" + i).innerText = temp + "/" +
+				        pointsCalc(player1hcp, arrDawson[i][1], arrDawson[i][2], temp)
+                } 				
 				} else {
 				    temp = localStorage.getItem("wwp1h" + i)
-				    document.getElementById("p1h" + i).innerText = temp + "/" +
-				    pointsCalc(player1hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p1h" + i).innerText = temp + "/" +
+				        pointsCalc(player1hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
+                }				
 				}
 				
 				if (player2teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp2h" + i)
-				    document.getElementById("p2h" + i).innerText = temp + "/" +
-				    pointsCalc(player2hcp, arrDawson[i][1], arrDawson[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p2h" + i).innerText = temp + "/" +
+				        pointsCalc(player2hcp, arrDawson[i][1], arrDawson[i][2], temp)
+                }				
 				} else {
 				    temp = localStorage.getItem("wwp2h" + i)
-				    document.getElementById("p2h" + i).innerText = temp + "/" +
-				    pointsCalc(player2hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p2h" + i).innerText = temp + "/" +
+				        pointsCalc(player2hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
+                }				
 				}
 				
 			
@@ -2757,25 +2805,39 @@ function displayInfo2() {
 			if (course == "OldCourse") {
 				if (player1teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp1h" + i)
-				    document.getElementById("p1h" + i).innerText = temp + "/" +
-				    pointsCalc(player1hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p1h" + i).innerText = temp + "/" +
+				        pointsCalc(player1hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
+                }				
 				} else {
 				    temp = localStorage.getItem("wwp1h" + i)
-				    document.getElementById("p1h" + i).innerText = temp + "/" +
-				    pointsCalc(player1hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p1h" + i).innerText = temp + "/" +
+				        pointsCalc(player1hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
+                }				
 				}
 				
 				if (player2teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp2h" + i)
-				    document.getElementById("p2h" + i).innerText = temp + "/" +
-				    pointsCalc(player2hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p2h" + i).innerText = temp + "/" +
+				        pointsCalc(player2hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
+                }				
 				} else {
 				    temp = localStorage.getItem("wwp2h" + i)
-				    document.getElementById("p2h" + i).innerText = temp + "/" +
-				    pointsCalc(player2hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p2h" + i).innerText = temp + "/" +
+				        pointsCalc(player2hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
+                }				
 				}
 					
 		   }
+		   
+		   
+document.getElementById("p3h" + i).innerText = "-";
+document.getElementById("p4h" + i).innerText = "-";		   
+		   
+		   
 		}
 
 			    totalScore2()
@@ -2795,6 +2857,9 @@ function displayInfo2() {
 
 
 function displayInfo3() {
+
+
+console.log("display info 3")
 			saveScores();
 			//saveAllToLocalStorage()
 			// get players, all strokes and points
@@ -2804,39 +2869,63 @@ function displayInfo3() {
 						
 			for(var i = 1; i <= 18; i++) {
 			if (course == "Lakes") {
+			if ("wwp1h" + i in localStorage) {
 				if (player1teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp1h" + i)
-				    document.getElementById("p1h" + i).innerText = temp + "/" +
-				    pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
+				    if ("0123456789191112".indexOf(temp) > -1) {
+				        document.getElementById("p1h" + i).innerText = temp + "/" +
+				        pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
+				    }     
 				} else {
 				    temp = localStorage.getItem("wwp1h" + i)
-				    document.getElementById("p1h" + i).innerText = temp + "/" +
-				    pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+				    if ("0123456789191112".indexOf(temp) > -1) {
+				        document.getElementById("p1h" + i).innerText = temp + "/" +
+				        pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+				    }    
 				}
-				
+			}
+			if ("wwp2h" + i in localStorage)	{
 				if (player2teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp2h" + i)
-				    document.getElementById("p2h" + i).innerText = temp + "/" +
-				    pointsCalc(player2hcp, arrLakes[i][1], arrLakes[i][2], temp)
+				    if ("0123456789191112".indexOf(temp) > -1) {
+				        document.getElementById("p2h" + i).innerText = temp + "/" +
+				        pointsCalc(player2hcp, arrLakes[i][1], arrLakes[i][2], temp)
+                }				
 				} else {
 				    temp = localStorage.getItem("wwp2h" + i)
-				    document.getElementById("p2h" + i).innerText = temp + "/" +
-				    pointsCalc(player2hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p2h" + i).innerText = temp + "/" +
+				        pointsCalc(player2hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                }				
 				}
 				
+			}
+			
+			if ("wwp3h" + i in localStorage)	{
 				if (player3teecolor == "yellow") {
 				    temp = localStorage.getItem("wwp3h" + i)
-				    document.getElementById("p3h" + i).innerText = temp + "/" +
-				    pointsCalc(player3hcp, arrLakes[i][1], arrLakes[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p3h" + i).innerText = temp + "/" +
+				        pointsCalc(player3hcp, arrLakes[i][1], arrLakes[i][2], temp)
+                }				
 				} else {
 				    temp = localStorage.getItem("wwp3h" + i)
-				    document.getElementById("p3h" + i).innerText = temp + "/" +
-				    pointsCalc(player3hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                if ("0123456789191112".indexOf(temp) > -1) {				    
+				        document.getElementById("p3h" + i).innerText = temp + "/" +
+				        pointsCalc(player3hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+                }				
 				}
 				
+			}	
 				
+			
+			
+			
+			
+			
+			
 				
-			   }
+			}  // course Lakes
 			   
 			   if (course == "Dawson") {
 				if (player1teecolor == "yellow") {
@@ -2871,7 +2960,10 @@ function displayInfo3() {
 				
 				
 				
-			   }
+				
+				
+				
+			   }    // dawson
 			   
 			   if (course == "OldCourse") {
 				if (player1teecolor == "yellow") {
@@ -2906,7 +2998,11 @@ function displayInfo3() {
 				
 				
 				
-			   }
+				
+			   }   // oldcourse
+			   
+document.getElementById("p4h" + i).innerText = "-";			   
+			   
 			}
 
 			    totalScore3()
