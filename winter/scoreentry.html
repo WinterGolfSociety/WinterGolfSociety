@@ -1393,7 +1393,7 @@ function dropSelected(playerName) {
 		}
 		// replace player button name
 		document.getElementById("dropbtn").innerText = player;
-		// replace hcp buttom number is in doGetHCP()
+		// replace hcp button number is in doGetHCP()
 		// update localStorage
 		localStorage.wwplayer = player;
 		localStorage.wwhcp = hcp;
@@ -1681,16 +1681,7 @@ history.go(-1);
 //=============================================================  
 // + button for hole scores
 function incrementScore(id) {
-	incScore = document.getElementById(id).innerText;
-	// cope with a hole number displayed
-	if(document.getElementById(id).style.color !== "white") {
-		document.getElementById(id).style.color = "white";
-		incScore = 0;
-	} 
-		
-	document.getElementById(id).innerText = ++incScore;
-	document.getElementById(id.replace("numscore", "h")).innerText = incScore;
-	// find points for ladies and men
+// find points for ladies and men
 	if (useRedTees) {
 	        if(course == "Lakes") {
 		      par = arrLakesRed[id.replace("numscore", "")][1];
@@ -1718,6 +1709,20 @@ function incrementScore(id) {
 		     si = arrOldCourse[id.replace("numscore", "")][2];
 	        }
 	}
+
+	incScore = document.getElementById(id).innerText;
+	// cope with a hole number displayed
+	if(document.getElementById(id).style.color !== "white") {
+		document.getElementById(id).style.color = "white";
+		//incScore = 0;
+		// use PAR as the first number shown, so set to PAR - 1 here
+		console.log("par = " + par)
+		incScore = (parseInt(par) - 1)
+	} 
+		
+	document.getElementById(id).innerText = ++incScore;
+	document.getElementById(id.replace("numscore", "h")).innerText = incScore;
+	
 	
 	document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
 	totalScore();
@@ -1782,13 +1787,9 @@ function decrementScore(id) {
 	totalScore();
 	// update local storage
 	// if no score entered, remove key from localStorage else update
-	
-	
-	console.log(document.getElementById(id).style.color)
-	
-	
+
 	if(document.getElementById(id).style.color == "white") {
-	console.log(incscore)
+
 	        //=====LocalStorage.holes===========================================
 		localStorage.setItem("wwhole" + id.replace("numscore", ""), incScore);
 		//==================================================================
