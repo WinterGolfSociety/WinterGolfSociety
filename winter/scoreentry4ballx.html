@@ -1772,26 +1772,43 @@
 			//delay2 = 4000
 			//delay3 = 6000
 			// set up for correct number of players
+			
+console.log(player1name)			
+console.log(player2name)
+console.log(player3name)
+console.log(player4name)
+
+
+localStorage.wwplayer1name = player1name;
+localStorage.wwplayer1hcp = player1hcp;
+localStorage.wwplayer2name = player2name;
+localStorage.wwplayer2hcp = player2hcp;
+localStorage.wwplayer3name = player3name;
+localStorage.wwplayer3hcp = player3hcp;
+localStorage.wwplayer4name = player4name;
+localStorage.wwplayer4hcp = player4hcp;
+localStorage.wwcourse = course;
+
+
+
+
+
+			
 			if(player4name.indexOf("player") > -1) {
-				player4hcp = 99;
-				document.getElementById("p4wrapper").style.display = "none";
-				//document.getElementById("p4score").style.display = "none"
-				document.getElementById("p3wrapper").style.height = "5vh";
-				document.getElementById("p3wrapper").style.height = "10vh";
-				document.getElementById("p3wrapper").style.height = "10vh";
+				//player4hcp = 99;
 			}
 			if(player3name.indexOf("player") > -1) {
-				player3hcp = 99;
+				//player3hcp = 99;
 				document.getElementById("p3wrapper").style.display = "none";
 				//document.getElementById("p3score").style.display = "none"
 			}
 			if(player2name.indexOf("player") > -1) {
-				player2hcp = 99;
+				//player2hcp = 99;
 				document.getElementById("p2wrapper").style.display = "none";
 				//document.getElementById("p2score").style.display = "none"
 			}
 			if(player1name.indexOf("player") > -1) {
-				player1hcp = 99;
+				//player1hcp = 99;
 				document.getElementById("p1wrapper").style.display = "none";
 				//document.getElementById("p1score").style.display = "none"
 			}
@@ -2170,7 +2187,7 @@
 		function retrieveAllFromLocalStorage() {
 			//compcourse = course;
 			// get date and comp
-			compdate = localStorage.getItem("wwcompdate");
+			//compdate = localStorage.getItem("wwcompdate");
 			course = localStorage.getItem("wwcourse");
 			// get course details
 			if(course == "Dawson") {
@@ -2182,7 +2199,7 @@
 			if(course == "OldCourse") {
 				setupOldCourseCourse()
 			}
-			// recover players names and hcps
+			// tagged recover players names and hcps
 			if("wwplayer1name" in localStorage) {
 				player1name = localStorage.getItem("wwplayer1name");
 				player1hcp = localStorage.getItem("wwplayer1hcp");
@@ -2245,10 +2262,13 @@
 				document.getElementById("p3score").innerText = localStorage.getItem("wwp3h1");
 				document.getElementById("p4score").innerText = localStorage.getItem("wwp4h1");
 			}
+			console.log("here 1")
 			// go to scoring screen
 			getScoring()
 				// redo totals
 			totalsCalc()
+			console.log("movetocurrent")
+			moveToCurrent()
 		}
 
 		function totalsCalc() {
@@ -2337,25 +2357,56 @@
 		function moveToCurrent() {
 			var lastOne = 0;
 			var i = 0;
-			// go backwards
-			for(i = 18; i > 0; i--) {
+			// 
+			for(i = 1; i<= 18; i++) {
 				var tempp1txt = document.getElementById("p1h" + i).innerText
-				var tempp2txt = document.getElementById("p2h" + i).innerText
-				var tempp3txt = document.getElementById("p3h" + i).innerText
-				var tempp4txt = document.getElementById("p4h" + i).innerText
+				//var tempp2txt = document.getElementById("p2h" + i).innerText
+				//var tempp3txt = document.getElementById("p3h" + i).innerText
+				//var tempp4txt = document.getElementById("p4h" + i).innerText
 					// find current entry    
-				if(tempp1txt == 0 && tempp2txt == 0 && tempp3txt == 0 && tempp4txt == 0) {
+				//if(tempp1txt == 0 && tempp2txt == 0 && tempp3txt == 0 && tempp4txt == 0) {
 					// cope with movement to previous score
 					//   lastOne = (i - 1);
+					if (containsNumber(tempp1txt)) {
 					lastOne = i;
-				}
+				   }
 			}
 			//move to last one
 			whichhole = lastOne;
 			// get hole details
 			// get hole details
 			// set first hole details
-			if(course == "Lakes") {
+	console.log(whichhole)		
+			
+if(course == "Lakes") {
+var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + 
+arrLakes[whichhole][1] + "</a> <a class='rred'>" + 
+arrLakesRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + 
+arrLakes[whichhole][2] + "</a> <a class='rred'>" + 
+arrLakesRed[whichhole][2] + "</a>";
+
+document.getElementById("holedetails").innerHTML = holedetails
+}			
+
+	// get hole scores
+			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("wwp1h" + whichhole);
+			document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("wwp2h" + whichhole);
+			document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("wwp3h" + whichhole);
+			document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("wwp4h" + whichhole);
+			// change highlight colour
+			document.getElementById("p1name").classList.remove("highlight");
+			document.getElementById("p2name").classList.remove("highlight");
+			document.getElementById("p3name").classList.remove("highlight");
+			document.getElementById("p4name").classList.remove("highlight");
+			selectedplayer = 1
+			document.getElementById("p1name").classList.add("highlight");
+			// retrieve scores   
+			getScores()
+
+			
+			
+			
+/*			if(course == "Lakes") {
 				var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrLakes[whichhole][1] + "</a> <a class='rred'>" + arrLakesRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrLakes[whichhole][2] + "</a> <a class='rred'>" + arrLakesRed[whichhole][2] + "</a>";
 			}
 			if(course == "Dawson") {
@@ -2379,6 +2430,7 @@
 			document.getElementById("p1name").classList.add("highlight");
 			// retrieve scores   
 			getScores()
+*/
 		}
 
 		function displayInfo() {
@@ -3722,8 +3774,10 @@
 
 		function popYes() {
 			// do recovery		
-			retrieveAllFromLocalStorage()
+			
 			document.getElementById("popuppanel1").style.display = "none";
+			retrieveAllFromLocalStorage()
+			
 			// move to correct place in scoring
 		}
 
