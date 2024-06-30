@@ -399,13 +399,13 @@
 	
 	#xdcomp1,
 	#qrcode {
-	        animation-delay: 1s;
-		animation: fadeIn 3s ease-in;
+	        //animation-delay: 1s;
+		animation: fadeIn 2s ease-in;
 	}
 	
 	#nav {
 	        //animation-delay: 1s;
-		animation: fadeIn 3s ease-in;
+		animation: fadeIn 2s ease-in;
 	}
 	
 	@keyframes fadeIn {
@@ -1146,8 +1146,18 @@ window.addEventListener(orientationEvent, function() {
 				document.getElementById("tooltip").style.display = "none";
 			}, 3000)
 		
-		// get rid of "old" localStorage
-		localStorage.clear();
+		// get rid of "old" localStorage but keep dropdown options
+		//localStorage.clear();
+		for (var i = 0; i < localStorage.length; i++) {        
+                     if (localStorage.key(i).substring(0,2) == "ww") {
+                         if (localStorage.key(i) !== "ww") {
+                         localStorage.removeItem(localStorage.key(i));
+                         } 
+                     }       
+                }
+		
+		
+		
 				
 		// overwrite saved data arrays in localStorage
 		// players
