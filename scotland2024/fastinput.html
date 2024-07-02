@@ -1478,6 +1478,18 @@
 			selectedplayer = 1
 			document.getElementById("p1name").classList.add("highlight");
 			
+			// cope with left over highlight that occurs when doing really fast
+			// score input
+			for(m = 0; m <= 9; m++) {
+			   document.getElementById("score" + m).classList.remove("scorehigh");
+			   document.getElementById("score" + m).classList.add("scorelow");
+         }			
+         document.getElementById("scoreprev").classList.remove("scorehigh");
+			document.getElementById("scoreprev").classList.add("scorelow");
+			document.getElementById("scorenext").classList.remove("scorehigh");
+			document.getElementById("scorenext").classList.add("scorelow");
+			
+			
 			getScores();
 
 		}
@@ -1909,7 +1921,7 @@ if (player1teecolor == "yellow") {
     document.getElementById('mx1721064168').value = 
     pointsCalc(player1hcp, arrCourse[11][1], arrCourse[11][2], document.getElementById("xh11").innerText);
     document.getElementById('mx343171143').value = 
-    pointsCalc(player1hcp, arrCourse[12][1], arrCourse[2][12], document.getElementById("xh12").innerText);
+    pointsCalc(player1hcp, arrCourse[12][1], arrCourse[12][2], document.getElementById("xh12").innerText);
     document.getElementById('mx32888434').value = 
     pointsCalc(player1hcp, arrCourse[13][1], arrCourse[13][2], document.getElementById("xh13").innerText);
     document.getElementById('mx1203648652').value = 
@@ -1994,7 +2006,7 @@ document.getElementById('mx83976721').value = (front9points + tempcb9)
     document.getElementById('mx1721064168').value = 
     pointsCalc(player1hcp, arrCourseRed[11][1], arrCourseRed[11][2], document.getElementById("xh11").innerText);
     document.getElementById('mx343171143').value = 
-    pointsCalc(player1hcp, arrCourseRed[12][1], arrCourseRed[2][12], document.getElementById("xh12").innerText);
+    pointsCalc(player1hcp, arrCourseRed[12][1], arrCourseRed[12][2], document.getElementById("xh12").innerText);
     document.getElementById('mx32888434').value = 
     pointsCalc(player1hcp, arrCourseRed[13][1], arrCourseRed[13][2], document.getElementById("xh13").innerText);
     document.getElementById('mx1203648652').value = 
