@@ -1447,7 +1447,7 @@
 			}
 			// update player choice
 			player = document.getElementById("myLink" + temppos.toString()).innerText;
-			document.getElementById("p1name").innerText = player
+			document.getElementById("p1name").innerText = player + " (" + player1hcp + ")";
 			// global player
 			player = playerName;
 
@@ -1511,10 +1511,6 @@
 			return shortPlayername;
 		}
 
-		function body() {
-			y1array = player1name.split(" ")
-			document.getElementById("p1name").innerHTML = shortName(player1name)
-		}
 		//=================================================================================
 		// highlight the current player number
 		// 
