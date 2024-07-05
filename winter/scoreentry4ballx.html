@@ -1506,6 +1506,12 @@ function compareSecondColumn(a, b) {
 				el.setAttribute("href", "#");
 				el.innerText = arrPlayers[i];
 				select.appendChild(el);
+				
+				
+// change color on selection
+			document.getElementById("myLink" + temppos.toString()).style.color = "black";
+			document.getElementById("myLink" + temppos.toString()).style.background = "white";				
+				
 			}
 		}
 		
