@@ -405,7 +405,7 @@
 	
 	#nav {
 	        //animation-delay: 1s;
-		animation: fadeIn 2s ease-in;
+		animation: fadeIn 1s ease-in;
 	}
 	
 	@keyframes fadeIn {
@@ -1070,11 +1070,16 @@ window.addEventListener(orientationEvent, function() {
 		["November"],
 		["December"]
 	];
+	
+/*	
+	
 	// check to see if a comp exists in localStorage
 	if("wwtodayscomp" in localStorage) {
 		// if today is the same as localStorage.wwtodayscomp then use that data
+		// if a different day, clear all old data but keep dropdown info
+		
 		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
-			// retrieve data from local storage
+			// same day, retrieve data from local storage
 			// overwrite data arrays from localStorage
 			// players array
 			arrPlayers = JSON.parse(localStorage.wwplayersarray);
@@ -1092,18 +1097,46 @@ window.addEventListener(orientationEvent, function() {
 		} else {
 		        // if a different date just get some new data
 		        // check for an error 404
-			getData().catch(error => {alert("zzz" + error.message)})
+			getData().catch(error => {alert("error 1: " + error.message)})
 		}
-        } else {
+   } else {
 			// if wwtodayscomp does not exist just get some new data
 			// check for an error 404
-			getData().catch(error => {alert("zzzz" + error.message)})
+			getData().catch(error => {alert("error 2: " + error.message)})
+			
+		
+			
+			
 	}
 	//=====================================
 	// get data and create arrays
 	// store in localStorage for retrieval
 	// and use in scoreentry
 	//=====================================
+
+*/
+
+
+
+
+		
+getData();	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	
 	async function getData() {
@@ -1113,7 +1146,7 @@ window.addEventListener(orientationEvent, function() {
 	        if (!dataStream.ok) {
                     const message = `An error has occured: ${dataStream.status}`;
                     //throw new Error(message);
-                    alert("xxxxxxxxxxxxxxxxx" + message)
+                    alert("error 3: " + message)
                 }
 		
 		var resultsarray = await dataStream.json()
@@ -1147,16 +1180,21 @@ window.addEventListener(orientationEvent, function() {
 			}, 3000)
 		
 		// get rid of "old" localStorage but keep dropdown options
+//		tempdropdown = JSON.parse(localStorage.wwdropdown);
+//		localStorage.clear();
+//		localStorage.wwdropdown = JSON.stringify(tempdropdown);
+		
+		/*
 		//localStorage.clear();
 		for (var i = 0; i < localStorage.length; i++) {        
                      if (localStorage.key(i).substring(0,2) == "ww") {
-                         if (localStorage.key(i) !== "ww") {
+                         if (localStorage.key(i) !== "wwdropdown") {
                          localStorage.removeItem(localStorage.key(i));
                          } 
                      }       
                 }
 		
-		
+*/		
 		
 				
 		// overwrite saved data arrays in localStorage
@@ -1172,6 +1210,9 @@ window.addEventListener(orientationEvent, function() {
 		compday="no"
 		localStorage.wwcompday = "no"
 		// new data because a new day so continue ...
+	
+	
+	
 		getNextComps();
 	}
 
