@@ -637,6 +637,7 @@
 	}
 	
 	#popuppanel1 {
+	   display: none;
 		position: fixed;
 		top: 2vh;
 		left: 2vw;
@@ -983,6 +984,7 @@
 		var comp;
 		var course = "OldCourse";
 		var arrOptions = [];
+		var oldArrOptions = [];
 		var hcplist = "";
 		var msglist = "";
 		var msglistcount = 0;
@@ -1028,7 +1030,6 @@
 		}
 		// testing
 		course = "Lakes";
-		console.log(course)
 			// retrieve competition
 			//        if("wwtodayscomp" in localStorage) {
 			//            todayscomp = localStorage.wwtodayscomp; 
@@ -1053,8 +1054,59 @@
 			setupOldCourseCourse()
 		}
 		//      }
+		//startNewDay();
+		
+		
+		
+		//window.addEventListener("beforeunload", eventl)
+		
+		
+		// set first hole details
+		if(course == "Lakes") {
+			var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrLakes[whichhole][1] + "</a> <a class='rred'>" + arrLakesRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrLakes[whichhole][2] + "</a> <a class='rred'>" + arrLakesRed[whichhole][2] + "</a>";
+		}
+		if(course == "Dawson") {
+			var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrDawson[whichhole][1] + "</a> <a class='rred'>" + arrDawsonRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrDawson[whichhole][2] + "</a> <a class='rred'>" + arrDawsonRed[whichhole][2] + "</a>";
+		}
+		if(course == "OldCourse") {
+			var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrOldCourse[whichhole][1] + "</a> <a class='rred'>" + arrOldCourseRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrOldCourse[whichhole][2] + "</a> <a class='rred'>" + arrOldCourseRed[whichhole][2] + "</a>";
+		}
+		document.getElementById("holedetails").innerHTML = holedetails
+		
+			//==============================================================
+			// data has previously been stored so just retrieve it
+			//==============================================================
+			// retrieve arrays
+		if("wwplayersarray" in localStorage) {
+			arrPlayers = JSON.parse(localStorage.wwplayersarray);
+		}
+		if("wwhcpsarray" in localStorage) {
+			arrHcps = JSON.parse(localStorage.wwhcpsarray);
+		}
+		//showDownloadingInfoMsg();
 		startNewDay();
-		start();
+		//start();
+		getData()
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//=============================================================
 		// functions - run when called
 		//=============================================================  
@@ -1209,42 +1261,20 @@
 		//======================================
 		// prevent accidental closing
 		//======================================
-		function eventl() {
+		//function eventl() {
 			// Cancel the event
-			event.preventDefault();
-			event.returnValue = "";
-		}
+		//	event.preventDefault();
+		//	event.returnValue = "";
+		//}
 		//=====================================
-		window.addEventListener("beforeunload", eventl)
-			// set first hole details
-		if(course == "Lakes") {
-			var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrLakes[whichhole][1] + "</a> <a class='rred'>" + arrLakesRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrLakes[whichhole][2] + "</a> <a class='rred'>" + arrLakesRed[whichhole][2] + "</a>";
-		}
-		if(course == "Dawson") {
-			var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrDawson[whichhole][1] + "</a> <a class='rred'>" + arrDawsonRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrDawson[whichhole][2] + "</a> <a class='rred'>" + arrDawsonRed[whichhole][2] + "</a>";
-		}
-		if(course == "OldCourse") {
-			var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrOldCourse[whichhole][1] + "</a> <a class='rred'>" + arrOldCourseRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrOldCourse[whichhole][2] + "</a> <a class='rred'>" + arrOldCourseRed[whichhole][2] + "</a>";
-		}
-		document.getElementById("holedetails").innerHTML = holedetails
-			//===========================
-			// this code runs at startup
-			//===========================
-			//==============================================================
-			// data has previously been stored so just retrieve it
-			//==============================================================
-			// retrieve arrays
-		if("wwplayersarray" in localStorage) {
-			arrPlayers = JSON.parse(localStorage.wwplayersarray);
-		}
-		if("wwhcpsarray" in localStorage) {
-			arrHcps = JSON.parse(localStorage.wwhcpsarray);
-		}
-		//showDownloadingInfoMsg();
-		startNewDay();
-		getData()
+		
 			//=============================================================
 			// functions - run when called
+			//=============================================================  
+			//=============================================================
+			// function startNewDay()
+			// gets todays date
+			// runs setupScores() - dont do now
 			//=============================================================  
 		function startNewDay() {
 			// get todays date eg 26 June
@@ -1293,32 +1323,49 @@
 				m = "December";
 			}
 			dateToday = d1 + " " + m;
-			//			if(localStorage.wwtodayscomp.indexOf(dateToday) > -1) {
-			//				// create set of local storage items	
-			setupScores()
-				//			}
-				// doublecheck ??    
-			if("xcomp" in localStorage) {
-				// if its a new comp
-				if(localStorage.xcomp.indexOf(dateToday) < 0) {
-					localStorage.removeItem("xcomp");
-					localStorage.removeItem("xcourse");
-					localStorage.removeItem("xplayer");
-					localStorage.removeItem("xhcp");
-					localStorage.setItem("xdstored", dstored);
-				}
-			}
+			
+			// only give option to recover if the same day	
+         if (localStorage.wwtodayscomp.indexOf(dateToday) > -1) {				
+             document.getElementById("popuppanel1").style.display = "block";				
+         }				
+
 		}
+		
+		//=============================================================
+		// function getData()
+		// gets todays data from google setupcsv when required
+		// initially, data has already been downloaded by winter.html
+		// 
+		//=============================================================  
 		async function getData() {
-			var dataStream = await fetch("https://opensheet.elk.sh/1xeS22CrN3Mdq2nRQLACDBN7iaMSBJ7MM1PX7gikWOJM/sweepcsv")
-			var resultsarray = await dataStream.json();
-			// get rid of blanks in array by creating new arrays
-			for(var i = 0; i < resultsarray.length; i++) {
-				if(resultsarray[i].player.length > 2) {
-					arrPlayers.push(resultsarray[i].player);
-					arrHcps.push(resultsarray[i].hcp);
-				}
-			}
+	        var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
+			
+	        if (!dataStream.ok) {
+                    const message = `An error has occured: ${dataStream.status}`;
+                    //throw new Error(message);
+                    alert("error 3: " + message)
+                }
+		
+		var resultsarray = await dataStream.json()
+                // split into separate arrays
+                arrLadies = resultsarray.map(d => d.ladies);
+                arrPlayers = resultsarray.map(d => d.players);
+                arrComps = resultsarray.map(d => d.comps);		
+                arrHcps = resultsarray.map(d => d.hcps);		
+
+                // add "reset list" option to bottom
+                arrPlayers.push("reset list")
+              // remove null items
+                arrLadies = arrLadies.filter(function(el) {return el != null;})
+                arrPlayers = arrPlayers.filter(function(el) {return el != null;})
+                arrComps = arrComps.filter(function(el) {return el != null;})
+                arrHcps = arrHcps.filter(function(el) {return el != null;})
+
+                // remove empty items
+                arrLadies = arrLadies.filter(function(el) {return el != "";})
+                arrPlayers = arrPlayers.filter(function(el) {return el != "";})
+                arrComps = arrComps.filter(function(el) {return el != "";})
+                arrHcps = arrHcps.filter(function(el) {return el != "";})
 			//document.getElementById("popuppanel").style.display = "none";
 			start();
 			//showRecoverChoice()
@@ -1329,34 +1376,55 @@
 		// - initialise everything and do checks etc.
 		//=============================================================  
 		function start() {
-			// bring most commonly selected to the top
-			//arrPlayers.sort(compareSecondColumn);
-			// create player dropdown
-			var select = document.getElementById("playersDropdown");
-			// this is what is created
-			//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-			//
-			for(var i = 0; i < arrPlayers.length; i++) {
-				var el = document.createElement("a");
-				el.id = "myLink" + (i);
-				el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-				el.setAttribute("href", "#");
-				el.innerText = arrPlayers[i];
-				select.appendChild(el);
-			}
-			// Close the dropdown if the user clicks outside of it
-			window.onclick = function(event) {
-				if(!event.target.matches('.dropbtn')) {
-					var dropdowns = document.getElementsByClassName("dropdown-content");
-					var i;
-					for(i = 0; i < dropdowns.length; i++) {
-						var openDropdown = dropdowns[i];
-						if(openDropdown.classList.contains('show')) {
-							openDropdown.classList.remove('show');
-						}
-					}
+	// check for any previous selections
+	// setup local dropdown if not there
+	// get any previous preferred selections 
+	if("wwdropdown" in localStorage) {
+		oldArrOptions = JSON.parse(localStorage.wwdropdown);
+	}
+	// create a new options array for dropdown from latest arrPlayers
+	for(var i = 0; i < arrPlayers.length; i++) {
+		x = arrPlayers[i]
+		arrOptions.push([x, 0])
+	}
+	// update the new Options array with choices info from previous options
+	for(var i = 0; i < oldArrOptions.length; i++) {
+		// if there is a value in oldArrOptions
+		if(oldArrOptions[i][1] > 0) {
+		   // loop through arrOptions to find correct player
+			for(var j = 0; j < arrOptions.length; j++) {
+				// if names match
+				if(arrOptions[j][0] == oldArrOptions[i][0]) {
+				   // update number of times chosen
+					arrOptions[j][1] = oldArrOptions[i][1]
 				}
-			};
+			}
+		}
+	}
+	// bring most commonly selected to the top by sorting
+	// on number of times chosen. It should leave others in alphabetical order
+	arrOptions.sort(compareSecondColumn);
+	// save dropdown info
+	localStorage.wwdropdown = JSON.stringify(arrOptions);
+	
+	// create a new player dropdown
+	var select = document.getElementById("playersDropdown");
+	// this is what is created
+	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+	//
+	for(var i = 0; i < arrOptions.length; i++) {
+		var el = document.createElement("a");
+		el.id = "myLink" + (i);
+		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+		el.setAttribute("href", "#");
+		el.innerText = arrOptions[i][0];
+		select.appendChild(el);
+		// set colors for "favourites"
+		if(arrOptions[i][1] > 0) {
+			document.getElementById("myLink" + (i)).style.color = "blue";
+			document.getElementById("myLink" + (i)).style.background = "lightBlue";
+		}
+	}
 			// get todays date eg 26 June
 			dd = new Date();
 			// get date number and format it
@@ -1404,17 +1472,29 @@
 			}
 			compdate = d1 + " " + m;
 		} // end function start()
+		
+		
 		//=============================================================
-		// functions - run when called
-		//=============================================================  
+// function compareSecondColumn()
+// - sort function to sort by second array item in 2D array
+//=============================================================  
+function compareSecondColumn(a, b) {
+	if(a[1] === b[1]) {
+		return 0;
+	} else {
+		return(a[1] > b[1]) ? -1 : 1;
+	}
+}
+
 		//=============================================================
 		// function resetNames()
-		// - gets rid of "selected" names
+		// get rid of favourites and return to normal alphabetic list
 		//=============================================================  
+
 		function resetNames() {
 			// create player dropdown
 			var select = document.getElementById("playersDropdown");
-			// empty names
+			// empty current names
 			select.innerHTML = "";
 			// redo list for menu
 			// <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
@@ -1428,14 +1508,26 @@
 				select.appendChild(el);
 			}
 		}
+		
+		
+			//=============================================================
+		// function dropSelected(playerName)
+		// select up to 4 players
+		// get handicaps because arrPlayers and arrHcps match up
+		// do color change and increment choices
+		//=============================================================  	
+		
+		
 		// name selected, do stuff
 		function dropSelected(playerName) {
-
-				// retrieve dropdown info
-			for(var k = 0; k < arrPlayers.length; k++) {
+      if(playerName == "reset list") {
+		   resetNames();
+	   } else {
+		  // retrieve dropdown info
+		  for(var k = 0; k < arrPlayers.length; k++) {
 				if(arrPlayers[k] == playerName) {
 					hcp = arrHcps[k];
-					pos = k;
+					//temppos = k;
 					if(document.getElementById("player1selected").innerText == "no player") {
 						document.getElementById("player1selected").innerText = playerName;
 						document.getElementById("player1selectedhcp").innerText = hcp;
@@ -1469,30 +1561,50 @@
 					}
 					break;
 				}
-			}
+			} // end for
+			// find player in options list
+		   for(var k = 0; k < arrOptions.length; k++) {
+			   if(arrOptions[k][0] == playerName) {
+				   temppos = k;
+			   }
+	   	}
 			// change color on selection
-			document.getElementById("myLink" + pos.toString()).style.color = "blue";
-			document.getElementById("myLink" + pos.toString()).style.background = "lightBlue";
-			// update player choice
-			player = document.getElementById("myLink" + pos.toString()).innerText;
+			document.getElementById("myLink" + temppos.toString()).style.color = "blue";
+			document.getElementById("myLink" + temppos.toString()).style.background = "lightBlue";
+
+         if(temppos >= 0) {
+		   	// increment number of times chosen
+		   	var tc = parseInt(arrOptions[temppos][1]) + 1;
+		   	arrOptions[temppos][1] = tc;
+
+// bring most commonly selected to the top by sorting
+	// on number of times chosen. It should leave others in alphabetical order
+	arrOptions.sort(compareSecondColumn);
+
+
+// store new order
+		   	localStorage.wwdropdown = JSON.stringify(arrOptions);
+		   	// global player
+		   	player = playerName;
+
+		   }
+         // update player choice
+			player = document.getElementById("myLink" + temppos.toString()).innerText;
 			//outputPlayers(player)
-				// close dropdown
-				
+			// close dropdown
 				
 body();				
-				
-				
-				
-				
+
 			var dropdowns = document.getElementsByClassName("dropdown-content");
 			var i;
 			for(i = 0; i < dropdowns.length; i++) {
-				var openDropdown = dropdowns[i];
-				if(openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
+			    var openDropdown = dropdowns[i];
+				 if(openDropdown.classList.contains('show')) {
+					 openDropdown.classList.remove('show');
+				 }
 			}
 		}
+	   }
 		//=============================================================
 		// function toggleDropdown()
 		// - show player name choices
@@ -1681,7 +1793,6 @@ body();
 		// and move on	
 		//=================================================================================
 		function setupScores() {
-
 			for(var i = 1; i <= 18; i++) {
 				for(var j = 1; j <= numberofplayers; j++) {
 
@@ -1782,11 +1893,6 @@ body();
 
 			// set up for correct number of players
 			
-console.log(player1name)			
-console.log(player2name)
-console.log(player3name)
-console.log(player4name)
-
 if (player1name.indexOf("player") == -1) {
     localStorage.wwplayer1name = player1name;
     localStorage.wwplayer1hcp = player1hcp;
@@ -2268,12 +2374,10 @@ localStorage.wwcourse = course;
 				document.getElementById("p3score").innerText = localStorage.getItem("wwp3h1");
 				document.getElementById("p4score").innerText = localStorage.getItem("wwp4h1");
 			}
-			console.log("here 1")
 			// go to scoring screen
 			getScoring()
 				// redo totals
 			totalsCalc()
-			console.log("movetocurrent")
 			moveToCurrent()
 		}
 
@@ -3783,6 +3887,8 @@ localStorage.wwcourse = course;
 		function popNo() {
 			document.getElementById("popuppanel1").style.display = "none";
 			// tidy up local storage
+			
+			clearCache();
 		}
 
 		function popYes() {
@@ -3800,13 +3906,32 @@ localStorage.wwcourse = course;
 		}
 		
 function clearCache() {
- for (i=0; i<localStorage.length; i++)  
-    {  
-        key = localStorage.key(i);  
-        if (key.substr(0,2) == "ww") {
-            localStorage.removeItem(key);
-        }
-    }  
+// A simple delete doesn't work so use an overkill approach
+// save current keys, then clear, then put them back
+// sledgehammer and nut spring to mind
+
+// save localStorage to temp variables
+tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
+tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
+tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
+tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
+tempwwdropdown = JSON.parse(localStorage.wwdropdown);
+tempwwtodayscomp = localStorage.wwtodayscomp;
+tempwwcompday = localStorage.wwcompday;
+tempwwcourse = localStorage.wwcourse;
+// clear localStorage
+localStorage.clear();
+// put localStorage back from variables
+//setTimeout(function() {
+localStorage.wwplayersarray = JSON.stringify(tempwwplayersarray);
+localStorage.wwladiesarray = JSON.stringify(tempwwladiesarray);
+localStorage.wwcompsarray = JSON.stringify(tempwwcompsarray);
+localStorage.wwhcpsarray = JSON.stringify(tempwwhcpsarray);
+localStorage.wwdropdown = JSON.stringify(tempwwdropdown);
+localStorage.wwtodayscomp = tempwwtodayscomp;
+localStorage.wwcompday = tempwwcompday;
+localStorage.wwcourse = tempwwcourse;
+//},500);
 }		
 		
 		</script>
