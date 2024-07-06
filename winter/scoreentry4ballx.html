@@ -39,6 +39,7 @@
 		justify-content: center;
 		align-items: center;
 		border: 1px solid Gray;
+		border-radius: 5px;
 	}
 	
 	.dropdown {
@@ -70,7 +71,7 @@
 	}
 	/* end of dropdown */
 	
-	#firstscreen, #sswrapper {
+	#firstscreen, #xxxsswrapper {
 		//height: 50%;
 		width: 100%;
 		background: black;
@@ -129,21 +130,18 @@
 		width: 100%;
 		height: 15vh;
 		font-size: 3vmax;
-		border: 2px solid silver;
+		border: 1px solid silver;
 		background: dodgerBlue;
 		border-radius: 5px;
 	}
 	
-	#startscoring {
-		//display: none;
-		width: 99%;
-	}
+	
 	/* highlights selected player */
 	
 	.highlight {
 		color: white;
 		background: dodgerBlue;
-		border: 10px solid gray;
+		border: 1px solid gray;
 		border-radius: 5px;
 	}
 	
@@ -156,7 +154,7 @@
 		line-height: 10vh;
 		padding-left: 5%;
 		padding-right: 5%;
-		border: 10px solid Gray;
+		border: 1px solid Gray;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 		border-radius: 5px;
@@ -172,7 +170,7 @@
 		line-height: 10vh;
 		padding-left: 5%;
 		padding-right: 5%;
-		border: 5px solid Gray;
+		border: 1px solid Gray;
 		text-align: center;
 		font-family: Arial, Helvetica, sans-serif;
 		border-radius: 5px;
@@ -239,8 +237,8 @@
 		height: 15vh; //10%;
 		text-align: center;
 		font-size: 5vh;
-		border: 2px solid Gray;
-		border-radius: 5px;
+		//border: 1px solid Gray;
+		//border-radius: 5px;
 		width: 99%;
 	}
 	
@@ -399,19 +397,41 @@
 	}
 	
 	.submit {
+	/*
+	
 		font-size: 100%;
 		color: white;
 		background: dodgerBlue;
 		height: 100%;
 		width: 100%;
+*/
+
+
+color: white;
+		background: dodgerBlue; //black;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid Gray;
+		border-radius: 5px;
+
+
+
+
+
+
+
+
 	}
 	
-	#submit {
+	#xxxsubmit {
 	height: 15vh;
 	line-height: 15vh;
 	text-align: center;
 	width: 100%;
 	}
+	
 	.child2 {
 		display: flex;
 		//border: 3px solid cyan;
@@ -738,13 +758,17 @@
 			<div id="player4selected">no player</div>
 			<div id="player4selectedhcp">x</div>
 		</div>
-	</div>
+	
 	
 	<div class="child-one" id="sswrapper">
 		<div>
 			<button id="startscoring" onclick="getScoring()">start scoring</button>
 		</div>
 	</div>
+	
+	</div>
+	
+	
 	</div>
 	<div id="blackout"></div>
 	<!-- scoring screen -->
@@ -946,9 +970,11 @@
 			</div>
 		</div>
 		<div class="child-one">
+	
 			<div class="submit" onclick="submitForm()">
-				<div id="submit">submit</div>
+				<div id="submit">submit</div>	
 			</div>
+		
 		</div>
 		<div class="child-five">
 <!-- 			
