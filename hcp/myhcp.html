@@ -29,6 +29,7 @@
 		text-align: center;
 		font-size: 20px;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+margin-bottom: 2vh;		
 	}
 	
 	h2,
@@ -243,6 +244,10 @@
 		box-shadow: 10px 10px 25px black;
 		background-clip: padding-box;
 	}
+	
+	.demo {
+margin-bottom: 1vh;	
+	}
 	</style>
 </head>
 
@@ -275,13 +280,12 @@
 		<div class="col-md-12  text-center">
 			
 			<div class="container">
-			   <div class="outerbox">
-				<div class="box">
+			
 					<br>
 					<div class="tstxt">tee colour
 						<div id="teecolor1" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 					</div>
-					<br>
+					
 					<div class="demo">
 						<div class="stxt">WHS handicap index</div>
 						<input type="number" id="nhcp1" name="nhcp1" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()"> 
@@ -315,8 +319,7 @@
 						<br>playing hcp
 						<br>rounded playing hcp </div>
        
-				</div>
-			</div>
+			
 		</div>
 
 		<script>
