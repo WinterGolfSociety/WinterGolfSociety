@@ -11,7 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style>
 	body {
-		height: 100vh;
+		//height: 100vh;
 		background-color: Gray;
 		background-attachment: fixed;
 		font-family: 'arial';
@@ -341,19 +341,12 @@
 			["Not Defined",          0,    0,  0,   0,    0,  0]
 		]
 
-		
-
-		
-
-		
-
 		function updatehcp() {
 			// get 4 players hcp's
 			if(document.getElementById("nhcp1").value > 0) {
 				// players hcps entered
 				document.getElementById("splayinghcp1").style.display = "block";
-		
-								
+			
 				let vhcp1 = document.getElementById("nhcp1").value
 		
 					// get globals
@@ -418,20 +411,10 @@
 					document.getElementById("nslope1").value = arrCourses[k][1];
 					document.getElementById("ncr1").value = arrCourses[k][2];
 					document.getElementById("npar1").value = arrCourses[k][3];
-					//document.getElementById("nslope2").value = arrCourses[k][1];
-					//document.getElementById("ncr2").value = arrCourses[k][2];
-					//document.getElementById("npar2").value = arrCourses[k][3];
-					//document.getElementById("nslope3").value = arrCourses[k][1];
-					//document.getElementById("ncr3").value = arrCourses[k][2];
-					//document.getElementById("npar3").value = arrCourses[k][3];
-					//document.getElementById("nslope4").value = arrCourses[k][1];
-					//document.getElementById("ncr4").value = arrCourses[k][2];
-					//document.getElementById("npar4").value = arrCourses[k][3];
+					
 					// set all tees to yellow
 					document.getElementById("teecolor1").style.background = "yellow"
-					//document.getElementById("teecolor2").style.background = "yellow"
-					//document.getElementById("teecolor3").style.background = "yellow"
-					//document.getElementById("teecolor4").style.background = "yellow"
+					
 					updatehcp();
 				}
 			}
