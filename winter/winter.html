@@ -1071,50 +1071,21 @@ window.addEventListener(orientationEvent, function() {
 		["December"]
 	];
 	
-/*	
+alert("before")
 	
 	// check to see if a comp exists in localStorage
 	if("wwtodayscomp" in localStorage) {
 		// if today is the same as localStorage.wwtodayscomp then use that data
-		// if a different day, clear all old data but keep dropdown info
-		
-		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
-			// same day, retrieve data from local storage
-			// overwrite data arrays from localStorage
-			// players array
-			arrPlayers = JSON.parse(localStorage.wwplayersarray);
-			// ladies array
-			arrLadies = JSON.parse(localStorage.wwladiesarray);
-			// hcps array
-			arrHcps = JSON.parse(localStorage.wwhcpsarray);
-			// comps array
-			arrComps = JSON.parse(localStorage.wwcompsarray);
-			// update todayscomp if today in wwtodayscomp
-			todayscomp = localStorage.wwtodayscomp;
-			compday = "yes"
-			
-		        getNextComps();
-		} else {
-		        // if a different date just get some new data
-		        // check for an error 404
-			getData().catch(error => {alert("error 1: " + error.message)})
-		}
-   } else {
-			// if wwtodayscomp does not exist just get some new data
-			// check for an error 404
-			getData().catch(error => {alert("error 2: " + error.message)})
-			
-		
-			
-			
+		// if a different day, clear all old data, set wwfirstrun to "yes"
+		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) == -1) {
+			// different day, set wwfirstrun and clear old data
+         localStorage.clear();			
+			localStorage.wwfirstrun = "yes";
+      }	
 	}
-	//=====================================
-	// get data and create arrays
-	// store in localStorage for retrieval
-	// and use in scoreentry
-	//=====================================
+	
+alert("after")
 
-*/
 
 
 
@@ -1230,7 +1201,7 @@ getData();
 		
 		// reset wwtodayscomp
 		// remove it and put it back (below) if applicable
-		localStorage.removeItem("wwtodayscomp")
+//		localStorage.removeItem("wwtodayscomp")
 		
 		for(i = 0; i < arrComps.length; i++) {
 		
@@ -1271,9 +1242,20 @@ getData();
 			//console.log(darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
 			//console.log(dlistcount)
 			
+			 // if today is already set as a competition day	
+          // this is set below	
+          // check to see if a comp exists in localStorage
+	if("wwtodayscomp" in localStorage) {	
+			 if (localStorage.wwtodayscomp.indexOf(dd.toString().substring(0, 15)) > -1) {
+			     localStorage.wwfirstrun = "no"  
+			 } else {
+              localStorage.wwfirstrun = "yes"			    
+			 }
+	}		
+	alert("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
+					
 			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
 			// similar to "Sun Jan 20 2025"
-			//console.log("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
 				// competition today so process new data	
 				localStorage.setItem("wwtodayscomp", arrComps[i]);
 				todayscomp = arrComps[i];

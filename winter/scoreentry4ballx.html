@@ -1150,9 +1150,12 @@ if ("wwladiesarray" in localStorage) {
 	arrLadies = JSON.parse(localStorage.wwladiesarray);
 }
 
+alert("firstrun = " + localStorage.wwfirstrun)
+
 // dont show recovery option if its the first run
 if ("wwfirstrun" in localStorage) {
 	if (localStorage.wwfirstrun == "yes") {
+	alert("firstrun again = " + localStorage.wwfirstrun)
 	    // hide message
        document.getElementById("popuppanel1").style.display = "none";
        // reset to say not first run any more       
@@ -1160,8 +1163,11 @@ if ("wwfirstrun" in localStorage) {
        // tidy any previous data
        clearCache();	
 	} else {
+	    // if there is any hole data
 	    // show message because no longer first run
-	    document.getElementById("popuppanel1").style.display = "block";	
+	    if ("wwp1h1" in localStorage) {
+	        document.getElementById("popuppanel1").style.display = "block";	
+       }   
    }
 }
 
@@ -1957,6 +1963,7 @@ function nextHole() {
 	whichhole++
 	if (whichhole > 18) {
 		whichhole = 18;
+		gotosubmit = "yes"
 	}
 	// set hole details
 	if (course == "Lakes") {
@@ -1991,7 +1998,7 @@ function nextHole() {
 	getScores()
 	
 	
-	if (whichhole == 18){
+	if (gotosubmit == "yes"){
 	    document.getElementById("all").style.filter = "opacity(40%)";
        document.getElementById("submitbox").style.display = "block";	
 	}
@@ -2013,6 +2020,12 @@ setTimeout(() => {
 		// put number button back
 		document.getElementById("scoreprev").classList.replace("scorehigh", "scorelow");
 }, "150");
+  if (whichhole == 18) {
+      gobackfromsubmit = "yes";  
+  }
+
+
+
 	whichhole--
 	if (whichhole < 1) {
 		whichhole = 1
@@ -2046,7 +2059,7 @@ setTimeout(() => {
 	getScores()
 	
 	// whichhole is 18 but decremented
-	if (whichhole == 17){
+	if (gobackfromsubmit == "yes"){
 	    document.getElementById("all").style.filter = "";
        document.getElementById("submitbox").style.display = "none";	
 	}
@@ -4227,19 +4240,46 @@ function clearCache() {
 	// sledgehammer and nut spring to mind
 
 	// save localStorage to temp variables
-	tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
-	tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
-	tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
-	tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
-	tempwwdropdown = JSON.parse(localStorage.wwdropdown);
-	tempwwtodayscomp = localStorage.wwtodayscomp;
-	tempwwcompday = localStorage.wwcompday;
-	tempwwcourse = localStorage.wwcourse;
-   tempwwfirstrun = localStorage.wwfirstrun;	
+   tempwwplayersarray = "";	
+	tempwwladiesarray = "";
+	tempwwcompsarray = "";
+	tempwwhcpsarray = "";
+	tempwwdropdown = "";
+	tempwwtodayscomp = "";
+	tempwwcompday = "";
+	tempwwcourse = "";
+	tempwwfirstrun = "";
+	
+	if ("wwplayersarray" in localStorage) {
+	    tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
+	}
+	if ("wwladiesarray" in localStorage) {
+	    tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
+   }	
+   if ("wwcompsarray" in localStorage) {
+	    tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
+   }
+   if ("wwhcpsarray" in localStorage) {	
+	    tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
+	}
+   if ("wwdropdown" in localStorage) {	
+	    tempwwdropdown = JSON.parse(localStorage.wwdropdown);
+   }
+   if ("wwtodayscomp" in localStorage) {	
+	    tempwwtodayscomp = localStorage.wwtodayscomp;
+   }
+   if ("wwcompday" in localStorage) {	
+	    tempwwcompday = localStorage.wwcompday;
+	}
+	if ("wwcourse" in localStorage) {
+	    tempwwcourse = localStorage.wwcourse;
+   }
+//   if ("wwfirstrun" in localStorage) {   
+//       tempwwfirstrun = localStorage.wwfirstrun;	
+//	}
 	// clear localStorage
 	localStorage.clear();
 	// put localStorage back from variables
-	//setTimeout(function() {
 	localStorage.wwplayersarray = JSON.stringify(tempwwplayersarray);
 	localStorage.wwladiesarray = JSON.stringify(tempwwladiesarray);
 	localStorage.wwcompsarray = JSON.stringify(tempwwcompsarray);
@@ -4248,8 +4288,10 @@ function clearCache() {
 	localStorage.wwtodayscomp = tempwwtodayscomp;
 	localStorage.wwcompday = tempwwcompday;
 	localStorage.wwcourse = tempwwcourse;
-   localStorage.wwfirstrun = tempwwfirstrun;	
-	//},500);
+//   localStorage.wwfirstrun = tempwwfirstrun;	
+// reset firstrun to start afresh   
+localStorage.wwfirstrun = "yes";   
+
 }
 		
 		</script>
