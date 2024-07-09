@@ -88,6 +88,12 @@
 	/* scoring screen */
 	
 	#all {
+	
+	
+	//filter: blur(5px);
+	
+	
+	
 		display: none;
 -webkit-animation-duration: 1.0s;
 		animation-duration: 1.0s;
@@ -213,7 +219,8 @@
 		font-size: 2vh;
 	}
 	
-	#popuppanel {
+	#xxxpopuppanel {
+	   display: none;
 		position: fixed;
 		top: 10;
 		left: 10;
@@ -733,6 +740,25 @@ color: white;
 		height: 30vh;
 		cursor: pointer;
 	}
+	
+	#submitbox {
+      display: none;	
+      position: absolute;
+      left: 10vw;
+      top: 30vh;
+      height: 30vh;
+      width: 80vw;
+      
+      border-radius: 5px;
+		border: 1px solid gray;
+		box-shadow: 10px 10px 25px gray;
+		
+		
+		
+		
+	}
+	
+	
 	</style>
 </head>
 
@@ -776,10 +802,10 @@ color: white;
 	</div>
 	
 	
-	</div>
+	
 	<div id="blackout"></div>
 	<!-- scoring screen -->
-	<div id="all">
+	<div id="all" tabindex="0">
 		<div class="child-six" onclick="displayInfo()">
 			<div id="holedetails">hole 1 par si etc.</div>
 		</div>
@@ -976,10 +1002,13 @@ color: white;
 				<div id="p4ht" class="box1c">-</div>
 			</div>
 		</div>
-		<div class="child-one">
-	
+</div>		<!-- all-->
+		
+		<div class="child-one" id="submitbox">
+			
 			<div class="submit" onclick="submitForm()">
-				<div id="submit">submit</div>	
+	
+submit	
 			</div>
 		
 		</div>
@@ -993,7 +1022,9 @@ color: white;
 	-->	<!-- coursecard strokes and rules 
 		<div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>-->
 		<div class="showrules" id="showrules" onclick="rclose()"></div>
+<!--
 		<div id="popuppanel"></div>
+-->
 		<!--
 	invisible but necessary for submit of data
 	-->
@@ -1118,14 +1149,34 @@ if ("wwhcpsarray" in localStorage) {
 if ("wwladiesarray" in localStorage) {
 	arrLadies = JSON.parse(localStorage.wwladiesarray);
 }
-// testing
-course = "Lakes";
+
+// dont show recovery option if its the first run
+if ("wwfirstrun" in localStorage) {
+	if (localStorage.wwfirstrun == "yes") {
+	    // hide message
+       document.getElementById("popuppanel1").style.display = "none";
+       // reset to say not first run any more       
+       localStorage.wwfirstrun = "no"
+       // tidy any previous data
+       clearCache();	
+	} else {
+	    // show message because no longer first run
+	    document.getElementById("popuppanel1").style.display = "block";	
+   }
+}
+
 // retrieve competition
-//        if("wwtodayscomp" in localStorage) {
-//            todayscomp = localStorage.wwtodayscomp; 
+        if("wwtodayscomp" in localStorage) {
+            todayscomp = localStorage.wwtodayscomp; 
 // global comp
-//	    temp = todayscomp.split(" ")
-//	    course = temp[0];
+	    temp = todayscomp.split(" ")
+	    course = temp[0];
+}
+
+// testing
+//course = "Lakes";
+
+
 // set up course arrays here, one for men and one for ladies
 // saves on the number of arrays being used
 if (course == "Dawson") {
@@ -1938,6 +1989,17 @@ function nextHole() {
 	document.getElementById("p1name").classList.add("highlight");
 	// get scores  
 	getScores()
+	
+	
+	if (whichhole == 18){
+	    document.getElementById("all").style.filter = "opacity(40%)";
+       document.getElementById("submitbox").style.display = "block";	
+	}
+	
+	
+	
+	
+	
 }
 //=================================================================================
 // move to the previous hole
@@ -1983,6 +2045,11 @@ setTimeout(() => {
 	// retrieve scores  
 	getScores()
 	
+	// whichhole is 18 but decremented
+	if (whichhole == 17){
+	    document.getElementById("all").style.filter = "";
+       document.getElementById("submitbox").style.display = "none";	
+	}
 }
 //=================================================================================
 // create an empty set of local storage score containers
@@ -2468,7 +2535,7 @@ function totalScore4() {
 	document.getElementById("p4ht").innerText = p4f + "/" + p4fp;
 }
 
-function doSomethingRecover() {
+function xxxdoSomethingRecover() {
 	//  compdate = localStorage.date4ball
 	// etc.
 	document.getElementById("popuppanel").style.display = "none";
@@ -3725,6 +3792,31 @@ function submitForm() {
 			top: 0,
 			behavior: 'smooth'
 		})
+
+
+
+
+
+
+
+
+
+
+document.getElementById("submitbox").style.display = "none";
+document.getElementById("all").style.display = "none";
+
+
+
+
+
+
+
+
+
+
+
+
+
 		document.getElementById("blackout").style.display = "flex";
 
 		document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
@@ -3734,16 +3826,23 @@ function submitForm() {
 		// remove the accidental close "trap"
 		// window.removeEventListener("beforeunload",eventl)
 		// return to main menu
+		//setTimeout(function() {
+		//	history.go(-1);
+		//}, 9500);
+		
 		setTimeout(function() {
-			history.go(-1);
-		}, 9500);
+		window.location.assign("winter.html");
+		}, 8000);
+		
+		
+		
 	}
 }
 //=============================================================
 // function showcoursecard()
 // - shows course card info
 //=============================================================  
-function showcoursecard() {
+function xxxshowcoursecard() {
 	var cctxt = ""
 	var abort = "no";
 	var aborttxt = "\nStrokes unavailable\nbecause:\n\n";
@@ -3751,7 +3850,6 @@ function showcoursecard() {
 		abort = "yes";
 		aborttxt += "\nhcp not found\n"
 	}
-	aborttxt
 	if (player == "select player") {
 		abort = "yes"
 		aborttxt += "\nplayer not found\n"
@@ -3760,6 +3858,10 @@ function showcoursecard() {
 		abort = "yes"
 		aborttxt += "\ncourse not found\n"
 	}
+	
+	// show panel
+	document.getElementById("popuppanel").style.display = "block";
+	
 	if (abort == "yes") {
 		document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
 		document.getElementById("popuppanel").style.display = "block";
@@ -3924,6 +4026,9 @@ function showrules() {
 //=============================================================  
 function ccclose() {
 	document.getElementById("showcoursecard").style.visibility = "hidden";
+	
+
+	
 }
 
 function finalWrite() {
@@ -4130,6 +4235,7 @@ function clearCache() {
 	tempwwtodayscomp = localStorage.wwtodayscomp;
 	tempwwcompday = localStorage.wwcompday;
 	tempwwcourse = localStorage.wwcourse;
+   tempwwfirstrun = localStorage.wwfirstrun;	
 	// clear localStorage
 	localStorage.clear();
 	// put localStorage back from variables
@@ -4142,6 +4248,7 @@ function clearCache() {
 	localStorage.wwtodayscomp = tempwwtodayscomp;
 	localStorage.wwcompday = tempwwcompday;
 	localStorage.wwcourse = tempwwcourse;
+   localStorage.wwfirstrun = tempwwfirstrun;	
 	//},500);
 }
 		
