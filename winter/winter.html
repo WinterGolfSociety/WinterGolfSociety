@@ -167,7 +167,8 @@
 	#three,
 	#four,
 	#five,
-	#six {
+	#six,
+	#seven {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -218,6 +219,12 @@
 		justify-content: center;
 	}
 	
+	#seven {
+		background-color: mediumSlateBlue;
+		display: flex;
+		justify-content: center;
+	}
+	
 	.shadow {
 		//	border: 5px solid white;
 		box-shadow: 10px 10px 25px black;
@@ -256,7 +263,8 @@
 	#threetxt,
 	#fourtxt,
 	#fivetxt,
-	#sixtxt {
+	#sixtxt,
+	#seventxt {
 		margin: auto;
 		font-size: 25px;
 		color: blue;
@@ -266,44 +274,53 @@
 	#onetxt {
 		margin: auto;
 		font-size: 30px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#twotxt {
 		margin: auto;
 		font-size: 25px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#threetxt {
 		margin: auto;
 		font-size: 30px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#fourtxt {
 		margin: auto;
 		font-size: 25px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#fivetxt {
 		margin: auto;
 		font-size: 23px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#sixtxt {
 		margin: auto;
 		font-size: 23px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
+	
+#seventxt {
+		margin: auto;
+		font-size: 23px;
+		color: navy; //blue;
+		font-family: 'Kalam';
+	}	
+	
+	
 	
 	#one:active {
 		border: 5px solid white; //salmon;
@@ -327,6 +344,10 @@
 	
 	#six:active {
 		border: 5px solid white; //lightGreen;
+	}
+	
+	#seven:active {
+		border: 5px solid white; //mediumSlateBlue;
 	}
 	
 	nav:active {
@@ -669,6 +690,7 @@
 			<div class="bubble" id="four" onclick="doFour();"> <a id="fourtxt">All results</a> </div>
 			<div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a> </div>
 			<div class="bubble" id="six" onclick="doSix();"> <a id="sixtxt">4ball scoring</a> </div>
+			<div class="bubble" id="seven" onclick="doSeven();"> <a id="seventxt">Rules</a> </div>
 		</nav>
 		<section class="start">
 			<div class="content">
@@ -739,6 +761,7 @@ window.addEventListener(orientationEvent, function() {
 	var four = $('#four');
 	var five = $('#five');
 	var six = $('#six');
+	var seven = $('#seven');
 	// menuIcon.click(function() {
 	bubblemenu.click(function() {
 		if(isTop === true) {
@@ -768,6 +791,8 @@ window.addEventListener(orientationEvent, function() {
 		four.css('opacity', '0.0');
 		five.css('opacity', '0.0');
 		six.css('opacity', '0.0');
+		seven.css('opacity', '0.0');
+		
 		menuIcon.addClass('is-active');
 		one.addClass('shadow');
 		two.addClass('shadow');
@@ -775,7 +800,8 @@ window.addEventListener(orientationEvent, function() {
 		four.addClass('shadow');
 		five.addClass('shadow');
 		six.addClass('shadow');
-
+      seven.addClass('shadow');
+      
 		// Returns a random integer from 200 to 700:
 		//Math.floor(Math.random() * 700) + 200;		
 		setTimeout(function() {
@@ -809,12 +835,19 @@ window.addEventListener(orientationEvent, function() {
 			// Animation complete.
 		})
 		setTimeout(function() {
+			seven.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		
+		setTimeout(function() {
 				one.removeClass('blob');
 				two.removeClass('blob');
 				three.removeClass('blob');
 				four.removeClass('blob');
 				five.removeClass('blob');
 				six.removeClass('blob');
+				seven.removeClass('blob');
 			}, 2000, function() {
 				// Animation complete.
 			})
@@ -860,7 +893,13 @@ window.addEventListener(orientationEvent, function() {
 			left: '140px',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
-		
+		// top right
+		// top
+		seven.animate({
+			top: '140px',
+			left: '-65px',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 400);
 		
 		
 		
@@ -903,6 +942,7 @@ window.addEventListener(orientationEvent, function() {
 			four.removeClass('shadow');
 			five.removeClass('shadow');
 			six.removeClass('shadow');
+			seven.removeClass('shadow');
 		}, 500);
 		setTimeout(function() {
 			// move x icon back to hamburger
@@ -946,12 +986,18 @@ window.addEventListener(orientationEvent, function() {
 		five.animate({
 			left: '50%'
 		}, 200);
+      seven.animate({
+			top: '50%'
+		}, 200);			
 		six.animate({
 			top: '50%'
 		}, 200);
 		six.animate({
 			left: '50%'
 		}, 200);
+      seven.animate({
+			left: '50%'
+		}, 200);	
 		menuIsOpen = false;
 		isTop = true;
 		//one.addClass('blob');
@@ -1026,6 +1072,18 @@ window.addEventListener(orientationEvent, function() {
                 noCompMsg();
              }
 	}
+	
+	function doSeven() {
+	     // if compday then allow input, else disable
+	     if (compday == "yes") {
+		// put menu back then move to results page
+		setTimeout(function() {
+			window.location.assign("rules.html");
+		}, 1000);
+	     } else {
+                noCompMsg();
+             }
+	}
 	//====================================
 	// end of menu code
 	//====================================
@@ -1071,7 +1129,7 @@ window.addEventListener(orientationEvent, function() {
 		["December"]
 	];
 	
-alert("before")
+
 	
 	// check to see if a comp exists in localStorage
 	if("wwtodayscomp" in localStorage) {
@@ -1084,7 +1142,7 @@ alert("before")
       }	
 	}
 	
-alert("after")
+
 
 
 
@@ -1252,7 +1310,7 @@ getData();
               localStorage.wwfirstrun = "yes"			    
 			 }
 	}		
-	alert("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
+	//alert("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
 					
 			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
 			// similar to "Sun Jan 20 2025"
