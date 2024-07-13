@@ -1066,7 +1066,7 @@ window.addEventListener(orientationEvent, function() {
 	     if (compday == "yes") {
 		// put menu back then move to results page
 		setTimeout(function() {
-			window.location.assign("scoreentry4ballx.html");
+			window.location.assign("scoreentry4ballxtest.html");
 		}, 1000);
 	     } else {
                 noCompMsg();
@@ -1091,7 +1091,6 @@ window.addEventListener(orientationEvent, function() {
 	// runs on start or refresh
 	//====================================
 	// see if a new download is necessary
-	
 	
 	
 	
@@ -1131,21 +1130,6 @@ window.addEventListener(orientationEvent, function() {
 	
 
 	
-	// check to see if a comp exists in localStorage
-	if("wwtodayscomp" in localStorage) {
-		// if today is the same as localStorage.wwtodayscomp then use that data
-		// if a different day, clear all old data, set wwfirstrun to "yes"
-		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) == -1) {
-			// different day, set wwfirstrun and clear old data
-         localStorage.clear();			
-			localStorage.wwfirstrun = "yes";
-      }	
-	}
-	
-
-
-
-
 
 
 		
@@ -1303,22 +1287,58 @@ getData();
 			 // if today is already set as a competition day	
           // this is set below	
           // check to see if a comp exists in localStorage
-	if("wwtodayscomp" in localStorage) {	
-			 if (localStorage.wwtodayscomp.indexOf(dd.toString().substring(0, 15)) > -1) {
-			     localStorage.wwfirstrun = "no"  
-			 } else {
-              localStorage.wwfirstrun = "yes"			    
-			 }
-	}		
+	
 	//alert("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
 					
 			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
 			// similar to "Sun Jan 20 2025"
-				// competition today so process new data	
+
+
+
+// if its a competition day, see if it is same as wwtodayscomp
+// if not, clear data and start again
+
+// in scorentry, if there is a wwp1h1 score then show recover message
+
+ 
+
+
+
+				// competition today so do check	
+				//alert("aaaaa")
+	
+	// check to see if a comp exists in localStorage
+	if("wwtodayscomp" in localStorage) {
+		// if today is the same as localStorage.wwtodayscomp do nothing
+		// if a different day, clear all old data but keep arrays etc.
+		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) == -1) {
+			// different day, clear old data
+         clearCache();			
+		}
+	}
+	
+
+
+
+
+
+
+
+
+
+				
+				
+				
+				
+				
 				localStorage.setItem("wwtodayscomp", arrComps[i]);
 				todayscomp = arrComps[i];
 				compday = "yes"
 				localStorage.setItem("wwcompday", "yes");
+				ccourse = arrComps[i].split(" ");
+            localStorage.setItem("wwcourse", ccourse[0]);				
+				
+				
 				
 				if(arrComps[i].indexOf("Lakes") > -1) {
 					tempd = '<p style="color:white;">Lakes - competition today</p>';
@@ -1432,7 +1452,64 @@ getData();
 
 	
 	
+	function clearCache() {
+	// A simple delete doesn't work so use an overkill approach
+	// save current keys, then clear, then put them back
+	// sledgehammer and nut spring to mind
+
+	// save localStorage to temp variables
+   tempwwplayersarray = "";	
+	tempwwladiesarray = "";
+	tempwwcompsarray = "";
+	tempwwhcpsarray = "";
+	tempwwdropdown = "";
+	tempwwtodayscomp = "";
+	tempwwcompday = "";
+	tempwwcourse = "";
+	tempwwfirstrun = "";
 	
+	if ("wwplayersarray" in localStorage) {
+	    tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
+	}
+	if ("wwladiesarray" in localStorage) {
+	    tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
+   }	
+   if ("wwcompsarray" in localStorage) {
+	    tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
+   }
+   if ("wwhcpsarray" in localStorage) {	
+	    tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
+	}
+   if ("wwdropdown" in localStorage) {	
+	    tempwwdropdown = JSON.parse(localStorage.wwdropdown);
+   }
+   if ("wwtodayscomp" in localStorage) {	
+	    tempwwtodayscomp = localStorage.wwtodayscomp;
+   }
+   if ("wwcompday" in localStorage) {	
+	    tempwwcompday = localStorage.wwcompday;
+	}
+	if ("wwcourse" in localStorage) {
+	    tempwwcourse = localStorage.wwcourse;
+   }
+   if ("wwfirstrun" in localStorage) {   
+       tempwwfirstrun = localStorage.wwfirstrun;	
+	}
+	// clear localStorage
+	localStorage.clear();
+	// put localStorage back from variables
+	localStorage.wwplayersarray = JSON.stringify(tempwwplayersarray);
+	localStorage.wwladiesarray = JSON.stringify(tempwwladiesarray);
+	localStorage.wwcompsarray = JSON.stringify(tempwwcompsarray);
+	localStorage.wwhcpsarray = JSON.stringify(tempwwhcpsarray);
+	localStorage.wwdropdown = JSON.stringify(tempwwdropdown);
+	localStorage.wwtodayscomp = tempwwtodayscomp;
+	localStorage.wwcompday = tempwwcompday;
+	localStorage.wwcourse = tempwwcourse;
+   localStorage.wwfirstrun = tempwwfirstrun;	
+ 
+
+}
 	
 	
 	

@@ -1156,29 +1156,16 @@ if ("wwladiesarray" in localStorage) {
 }
 
 
-alert("1")
+
 // don't show recovery option if its the first run
-if ("wwfirstrun" in localStorage) {
-alert("2")
-	if (localStorage.wwfirstrun == "yes") {
-	alert("1 firstrun for popup = " + localStorage.wwfirstrun)
+if ("wwp1h1" in localStorage) {
 	    // hide message
        document.getElementById("popuppanel1").style.display = "none";
-       // reset to say not first run any more       
-       localStorage.wwfirstrun = "no"
-       // tidy any previous data
-       alert("2 firstrun for popup = " + localStorage.wwfirstrun)	
-       clearCache();
-       
-       alert("3 firstrun for popup = " + localStorage.wwfirstrun)	
-	} else {
+} else {
 	    // if there is any hole data
-	    // show message because no longer first run
-	    if ("wwp1h1" in localStorage) {
-	        document.getElementById("popuppanel1").style.display = "block";	
-       }   
-   }
-}
+       document.getElementById("popuppanel1").style.display = "block";	
+}   
+
 
 // retrieve competition
         if("wwtodayscomp" in localStorage) {
