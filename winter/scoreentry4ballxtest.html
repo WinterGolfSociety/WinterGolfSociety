@@ -1490,12 +1490,7 @@ function startNewDay() {
 	}
 	dateToday = d1 + " " + m;
 
-	// only give option to recover if the same day and data is available
-	if (localStorage.wwtodayscomp.indexOf(dateToday) > -1) {
-       if ("0123456789".indexOf(localStorage.wwp1h1) > -1) {
-	   	  document.getElementById("popuppanel1").style.display = "block";
-       }
-	}
+
 
 }
 
@@ -4207,7 +4202,6 @@ function clearCache() {
 	tempwwtodayscomp = "";
 	tempwwcompday = "";
 	tempwwcourse = "";
-	tempwwfirstrun = "";
 	
 	if ("wwplayersarray" in localStorage) {
 	    tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
@@ -4233,9 +4227,7 @@ function clearCache() {
 	if ("wwcourse" in localStorage) {
 	    tempwwcourse = localStorage.wwcourse;
    }
-   if ("wwfirstrun" in localStorage) {   
-       tempwwfirstrun = localStorage.wwfirstrun;	
-	}
+
 	// clear localStorage
 	localStorage.clear();
 	// put localStorage back from variables
@@ -4247,7 +4239,6 @@ function clearCache() {
 	localStorage.wwtodayscomp = tempwwtodayscomp;
 	localStorage.wwcompday = tempwwcompday;
 	localStorage.wwcourse = tempwwcourse;
-   localStorage.wwfirstrun = tempwwfirstrun;	
  
 
 }
