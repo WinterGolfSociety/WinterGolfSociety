@@ -1287,7 +1287,7 @@ getData();
 	if("wwtodayscomp" in localStorage) {
 		// if today is the same as localStorage.wwtodayscomp do nothing
 		// if a different day, clear all old data but keep arrays etc.
-		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) == -1) {
+		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
 			// different day, clear old data
          clearCache();			
 		}
