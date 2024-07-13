@@ -659,12 +659,7 @@
 	font-family: 'Kalam';
 	}
 	
-	#image3 {
-position: absolute;
-top: 80px;
-right: 80px;	
-	}
-	
+
 	
 	
 	
@@ -710,7 +705,7 @@ right: 80px;
 					<br>
 					<br> <a class="dates" id="xdcomp1">searching for competitions ...</a> </div>
 				<br>
-				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="seniorswhite.png" alt="qr"> </div>
+				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 40px; width: 40px;" src="seniorswhite.png" alt="logo"> </div>
 			</div>
 		</section>
 		<div class="tooltip" id="tooltip"></div>
@@ -1313,7 +1308,6 @@ getData();
 		// if today is the same as localStorage.wwtodayscomp do nothing
 		// if a different day, clear all old data but keep arrays etc.
 		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
-		alert("index of = " + localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]))
 			// different day, clear old data
          clearCache();			
 		}
