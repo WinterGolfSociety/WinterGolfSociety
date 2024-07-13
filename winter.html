@@ -6,25 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<title>winter</title>
 	<meta content="Bryan M" name="author" />
-	
+	<meta name="theme-color" content="indigo">
 	<link href="wintericon.png" rel="icon" type="image/x-icon" />
 	<link rel="apple-touch-icon" sizes="180x180" href="wintericon.png" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-	
-	
-	<link rel="manifest" href="/manifest.json">     
-        <meta name="msapplication-TileColor" content="indigo">
-        <meta name="msapplication-TileImage" content="winter.svg">
-        <meta name="theme-color" content="indigo"> 
-	
-	
-	
-	
-	
-	
-	
 	<style>
 	* {
 		margin: 0;
@@ -36,17 +23,11 @@
 	}
 	
 	body {
-		overflow: hidden;
+	        overflow: hidden;
 		/* linear-gradient syntax */
 		background: indigo;
 		background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
                 background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-		
-		
-		
-		
-		
 	}
 	
 	::-webkit-scrollbar {
@@ -157,6 +138,14 @@
 		z-index: 4;
 		border: 5px solid white;
 		box-shadow: 10px 10px 25px black;
+		
+		
+		
+		display: none;
+		
+		
+		
+		
 	}
 	
 	.bubble_menu {
@@ -178,7 +167,8 @@
 	#three,
 	#four,
 	#five,
-	#six {
+	#six,
+	#seven {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -229,6 +219,12 @@
 		justify-content: center;
 	}
 	
+	#seven {
+		background-color: mediumSlateBlue;
+		display: flex;
+		justify-content: center;
+	}
+	
 	.shadow {
 		//	border: 5px solid white;
 		box-shadow: 10px 10px 25px black;
@@ -267,7 +263,8 @@
 	#threetxt,
 	#fourtxt,
 	#fivetxt,
-	#sixtxt {
+	#sixtxt,
+	#seventxt {
 		margin: auto;
 		font-size: 25px;
 		color: blue;
@@ -277,44 +274,53 @@
 	#onetxt {
 		margin: auto;
 		font-size: 30px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#twotxt {
 		margin: auto;
 		font-size: 25px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#threetxt {
 		margin: auto;
 		font-size: 30px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#fourtxt {
 		margin: auto;
 		font-size: 25px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#fivetxt {
 		margin: auto;
 		font-size: 23px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
 	
 	#sixtxt {
 		margin: auto;
 		font-size: 23px;
-		color: blue;
+		color: navy; //blue;
 		font-family: 'Kalam';
 	}
+	
+#seventxt {
+		margin: auto;
+		font-size: 23px;
+		color: navy; //blue;
+		font-family: 'Kalam';
+	}	
+	
+	
 	
 	#one:active {
 		border: 5px solid white; //salmon;
@@ -338,6 +344,10 @@
 	
 	#six:active {
 		border: 5px solid white; //lightGreen;
+	}
+	
+	#seven:active {
+		border: 5px solid white; //mediumSlateBlue;
 	}
 	
 	nav:active {
@@ -389,28 +399,34 @@
 	
 	#popuppanel {
 		position: absolute;
-		top: 10vh;
-		left: 30vw;
+		top: 5vh;
+		right: 2vw;
 		display: none;
 		font-family: 'Kalam';
-		background-color: #ddd;
+		background-color: dodgerBlue;
+		color: white;
+		box-shadow: 10px 10px 25px black;
 		opacity: 0.8;
 		font-size: 3vh;
 		//display: inline-block;
 		border-radius: 10px;
-		border: 1px solid #aaa;
-		padding: 20px;
+		border: 1px solid blue;
+		padding: 10px;
 		text-align: left; //center;
-		width: 20vw;
-		height: 10vw;
+		width: 30vw;
+		height: 15vw;
 		cursor: pointer;
 	}
 	
 	#xdcomp1,
 	#qrcode {
-		//	opacity: 0;
-		animation: fadeIn 3s;
-		//animation-delay: 1s;
+	        //animation-delay: 1s;
+		animation: fadeIn 2s ease-in;
+	}
+	
+	#nav {
+	        //animation-delay: 1s;
+		animation: fadeIn 1s ease-in;
 	}
 	
 	@keyframes fadeIn {
@@ -547,12 +563,13 @@
 		position: absolute;
 		top: 3vh;
 		left: 50vw;
-		color: blue;
+		color: indigo; //blue;
 		font-family: 'Kalam';
-		font-size: 12px;
+		font-size: 3vh; //18px;
+		font-weight: 500;
 		max-width: 10ch;
 		text-align: center;
-		//animation: scale 3s;
+		animation: scale 2s;
 		display: none;
 		
 		
@@ -560,11 +577,11 @@
 	
 	@keyframes scale {
 		0% {
-			opacity: 1;
+			opacity: 0;
 		}
 		100% {
-			opacity: 0;
-			display: "none"
+			opacity: 1;
+			//display: "none"
 		}
 	}
 	
@@ -577,7 +594,7 @@
 		/* the radius */
 		padding: 1em;
 		border-radius: var(--r) var(--r) min(var(--r), 100% - var(--p) - var(--b)/4) min(var(--r), var(--p) - var(--b)/4)/var(--r);
-		background: lightGray;
+		background: MediumSpringGreen;
 		/* the main color */
 		position: relative;
 	}
@@ -593,6 +610,64 @@
 		--g: #000 calc(100% - 1px), #0000;
 		-webkit-mask: radial-gradient(circle closest-side at 12% 88%, var(--g)), radial-gradient(20% 20% at 52% 55%, var(--g)), radial-gradient(25% 25% at 75% 0, var(--g));
 	}
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	#warning {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: indigo;
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+	text-align: center;
+	color: white;
+	padding-top: 40vh;
+	font-size: 6vh;
+	font-family: 'Kalam';
+	}
+	
+	#image3 {
+position: absolute;
+top: 80px;
+right: 80px;	
+	}
+	
+	
+	
+	
 	</style>
 
 	<body>
@@ -601,6 +676,13 @@
 		<div class="marquee"><p>Note: some stroke indexes have changed on the Old Course.</p></div>
 		
 	-->
+		
+		
+		
+		
+		
+		<div id="warning">Not available in landscape orientation</div>
+		
 		
 		<nav id="nav">
 			<div class="bubble_menu" id="icon">
@@ -612,6 +694,7 @@
 			<div class="bubble" id="four" onclick="doFour();"> <a id="fourtxt">All results</a> </div>
 			<div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a> </div>
 			<div class="bubble" id="six" onclick="doSix();"> <a id="sixtxt">4ball scoring</a> </div>
+			<div class="bubble" id="seven" onclick="doSeven();"> <a id="seventxt">Rules</a> </div>
 		</nav>
 		<section class="start">
 			<div class="content">
@@ -627,23 +710,50 @@
 					<br>
 					<br> <a class="dates" id="xdcomp1">searching for competitions ...</a> </div>
 				<br>
-				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrwinter.png" alt="qr"> </div>
+				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="seniorswhite.png" alt="qr"> </div>
 			</div>
 		</section>
 		<div class="tooltip" id="tooltip"></div>
 	</body>
 	<script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// Detect whether device supports orientationchange event, otherwise fall back to
+// the resize event.
+var supportsOrientationChange = "onorientationchange" in window,
+    orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+window.addEventListener(orientationEvent, function() {
+    if(window.orientation==0)
+    {
+    document.getElementById("warning").style.display = "none";
+    }
+    else if(window.orientation==90 || window.orientation==-90)
+    {
+     document.getElementById("warning").style.display = "block";
+    }
+}, false);
 	// global arrays
-	var arrPlayers = []
-	var arrHcps = []
-	var arrComps = []
+	var arrPlayers = [];
+	var arrLadies = [];
+	var arrHcps = [];
+	var arrComps = [];
 	var todayscomp = ""
 	var compday = "no"
-	var sparseArrComps = []
-	var sparseArrPlayers = []
-	var sparseArrHcps = []
-	var arrPlayersOld = []
-	var arrHcpOld = []
+	var sparseArrComps = [];
+	var sparseArrPlayers = [];
+	var sparseArrLadies = [];
+	var sparseArrHcps = [];
+	var arrPlayersOld = [];
+	var arrHcpOld = [];
 		// menu code
 	var isTop = true;
 	var menuIsOpen = false;
@@ -655,6 +765,7 @@
 	var four = $('#four');
 	var five = $('#five');
 	var six = $('#six');
+	var seven = $('#seven');
 	// menuIcon.click(function() {
 	bubblemenu.click(function() {
 		if(isTop === true) {
@@ -684,6 +795,8 @@
 		four.css('opacity', '0.0');
 		five.css('opacity', '0.0');
 		six.css('opacity', '0.0');
+		seven.css('opacity', '0.0');
+		
 		menuIcon.addClass('is-active');
 		one.addClass('shadow');
 		two.addClass('shadow');
@@ -691,7 +804,8 @@
 		four.addClass('shadow');
 		five.addClass('shadow');
 		six.addClass('shadow');
-
+      seven.addClass('shadow');
+      
 		// Returns a random integer from 200 to 700:
 		//Math.floor(Math.random() * 700) + 200;		
 		setTimeout(function() {
@@ -725,12 +839,19 @@
 			// Animation complete.
 		})
 		setTimeout(function() {
+			seven.addClass('blob');
+		}, Math.floor(Math.random() * 700) + 100, function() {
+			// Animation complete.
+		})
+		
+		setTimeout(function() {
 				one.removeClass('blob');
 				two.removeClass('blob');
 				three.removeClass('blob');
 				four.removeClass('blob');
 				five.removeClass('blob');
 				six.removeClass('blob');
+				seven.removeClass('blob');
 			}, 2000, function() {
 				// Animation complete.
 			})
@@ -776,6 +897,40 @@
 			left: '140px',
 			opacity: '1'
 		}, Math.floor(Math.random() * 500) + 400);
+		// top right
+		// top
+		seven.animate({
+			top: '140px',
+			left: '-65px',
+			opacity: '1'
+		}, Math.floor(Math.random() * 500) + 400);
+		
+		
+		
+		
+		if (compday == "no") {
+		// disable 3 buttons
+		two.animate({
+				opacity: '0.2'
+			}, 800);
+		
+		five.animate({
+				opacity: '0.2'
+			}, 800);
+		
+		six.animate({
+				opacity: '0.2'
+			}, 800);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		menuIsOpen = true;
 		// hide pressbutton
 		$("#pressbutton").html("");
@@ -791,6 +946,7 @@
 			four.removeClass('shadow');
 			five.removeClass('shadow');
 			six.removeClass('shadow');
+			seven.removeClass('shadow');
 		}, 500);
 		setTimeout(function() {
 			// move x icon back to hamburger
@@ -834,12 +990,18 @@
 		five.animate({
 			left: '50%'
 		}, 200);
+      seven.animate({
+			top: '50%'
+		}, 200);			
 		six.animate({
 			top: '50%'
 		}, 200);
 		six.animate({
 			left: '50%'
 		}, 200);
+      seven.animate({
+			left: '50%'
+		}, 200);	
 		menuIsOpen = false;
 		isTop = true;
 		//one.addClass('blob');
@@ -866,12 +1028,15 @@
 	}
 
 	function doTwo() {
+             // if compday then allow input, else disable
+             if (compday == "yes") {
+                 setTimeout(function() {
 		// put menu back then move to score entry page
-		if(localStorage.wwtodayscomp) {
-			window.location.assign("scoreentry.html");
-		} else {
-			alert("no comp message")
-		}
+		window.location.assign("scoreentry.html");
+		}, 1000);		
+             } else {
+                noCompMsg();
+             }
 	}
 
 	function doThree() {
@@ -889,17 +1054,39 @@
 	}
 
 	function doFive() {
+	     // if compday then allow display, else disable
+             if (compday == "yes") {	
 		// put menu back then move to results page
 		setTimeout(function() {
 			window.location.assign("leaderboard.html");
 		}, 1000);
-	}
-
+	     } else {
+                noCompMsg();
+             }
+        }
+        
 	function doSix() {
+	     // if compday then allow input, else disable
+	     if (compday == "yes") {
 		// put menu back then move to results page
 		setTimeout(function() {
-			window.location.assign("fourballtestv2.html");
+			window.location.assign("scoreentry4ballxtest.html");
 		}, 1000);
+	     } else {
+                noCompMsg();
+             }
+	}
+	
+	function doSeven() {
+	     // if compday then allow input, else disable
+	     if (compday == "yes") {
+		// put menu back then move to results page
+		setTimeout(function() {
+			window.location.assign("rules.html");
+		}, 1000);
+	     } else {
+                noCompMsg();
+             }
 	}
 	//====================================
 	// end of menu code
@@ -908,6 +1095,19 @@
 	// runs on start or refresh
 	//====================================
 	// see if a new download is necessary
+	
+	
+	
+	// speech tooltip
+		document.getElementById("tooltip").innerHTML = "Searching for data"
+		document.getElementById("tooltip").style.display = "block";
+	
+	
+	
+	
+	
+	
+	
 	// get todays date eg 26
 	dd = new Date();
 	// get date number and format it
@@ -931,97 +1131,109 @@
 		["November"],
 		["December"]
 	];
-	// check to see if a comp exists in localStorage
-	if("wwtodayscomp" in localStorage) {
-		// if today is not the same as localStorage.wwtodayscomp then get the new data
-		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
-			// retrieve data from local storage
-			// overwrite data arrays from localStorage
-			// players
-			arrPlayers = JSON.parse(localStorage.wwplayersarray);
-			// hcps
-			arrHcps = JSON.parse(localStorage.wwhcpsarray);
-			// comps
-			arrComps = JSON.parse(localStorage.wwcompsarray);
-			afterGetData()
-		} else {
-		        // just get some new data
-			getData();
-		}
-        } else {
-			// just get some new data
-			getData();
-	}
-	//=====================================
-	// get data and create arrays
-	// store in localStorage for retrieval
-	// and use in scoreentry
-	//=====================================
+	
+
+	
+
+
+		
+getData();	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	async function getData() {
-		var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
+	        //console.log("here - getdata")
+	        var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
+			
+	        if (!dataStream.ok) {
+                    const message = `An error has occured: ${dataStream.status}`;
+                    //throw new Error(message);
+                    alert("error 3: " + message)
+                }
+		
 		var resultsarray = await dataStream.json()
-			// get rid of blanks in array by creating new arrays
-		for(var i = 0; i < resultsarray.length; i++) {
-			if(resultsarray[i].players.length > 2) {
-			        // comps now contains modified comps
-				// comps is usualy a different length to players and hcps
-				// so contains empty items that need to be removed
-				sparseArrPlayers.push(resultsarray[i].players);
-				sparseArrHcps.push(resultsarray[i].hcp);
-				sparseArrComps.push(resultsarray[i].comps);
-			}
-		}
-		
-		
-		// add "reset list" option to bottom
-		sparseArrPlayers.push("reset list")
-		// remove empty items
-		arrPlayers = sparseArrPlayers.filter(function(el) {
-			return el != null;
-		});
-		arrHcps = sparseArrHcps.filter(function(el) {
-			return el != null;
-		});
-		arrComps = sparseArrComps.filter(function(el) {
-			return el != null;
-		});
-		
-		// get rid of arrays no longer used
-		sparseArrComps = [];
-	        sparseArrPlayers = [];
-	        sparseArrHcps = [];
-		
+                // split into separate arrays
+                arrLadies = resultsarray.map(d => d.ladies);
+                arrPlayers = resultsarray.map(d => d.players);
+                arrComps = resultsarray.map(d => d.comps);		
+                arrHcps = resultsarray.map(d => d.hcps);		
+
+                // add "reset list" option to bottom
+                arrPlayers.push("reset list")
+              // remove null items
+                arrLadies = arrLadies.filter(function(el) {return el != null;})
+                arrPlayers = arrPlayers.filter(function(el) {return el != null;})
+                arrComps = arrComps.filter(function(el) {return el != null;})
+                arrHcps = arrHcps.filter(function(el) {return el != null;})
+
+                // remove empty items
+                arrLadies = arrLadies.filter(function(el) {return el != "";})
+                arrPlayers = arrPlayers.filter(function(el) {return el != "";})
+                arrComps = arrComps.filter(function(el) {return el != "";})
+                arrHcps = arrHcps.filter(function(el) {return el != "";})
+
+		document.getElementById("nav").style.display = "block";
+	
 		// speech tooltip
-		document.getElementById("tooltip").innerHTML = "Data link<br>established."
-		document.getElementById("tooltip").style.display = "block";
+		document.getElementById("tooltip").innerHTML = "New data downloaded"
+	//	document.getElementById("tooltip").style.display = "block";
 		setTimeout(function() {
 				document.getElementById("tooltip").style.display = "none";
 			}, 3000)
-			// overwrite saved data arrays in localStorage
-			// players
+		
+	
+				
+		// overwrite saved data arrays in localStorage
+		// players
 		localStorage.wwplayersarray = JSON.stringify(arrPlayers);
+		// ladies
+		localStorage.wwladiesarray = JSON.stringify(arrLadies);
 		// hcps
 		localStorage.wwhcpsarray = JSON.stringify(arrHcps);
 		// comps
 		localStorage.wwcompsarray = JSON.stringify(arrComps);
-		afterGetData();
-	}
-
-	function afterGetData() {
-		if("wwtodayscomp" in localStorage) {
-			todayscomp = localStorage.wwtodayscomp;
-		}
+		// reset compday - this is reset later if it is a compday
+		compday="no"
+		localStorage.wwcompday = "no"
+		// new data because a new day so continue ...
+	
+	
+	
 		getNextComps();
 	}
+
+
 	//=====================================
 	// functions
 	//=====================================
 	// get list of next comps
 	function getNextComps() {
+	//console.log("here - getnextcomps")
 		dd = new Date(); /* today */
 		dlist = "";
 		dlistcount = 0;
+		var collectdates="no";
+		
+
+		
 		for(i = 0; i < arrComps.length; i++) {
+		
+		        // change "Lakes 10 January 2024" to "10 January 2024" etc.
 			temptest = arrComps[i].replace("Lakes ", "");
 			temptest = temptest.replace("Dawson ", "");
 			temptest = temptest.replace("OldCourse ", "");
@@ -1053,9 +1265,65 @@
 			if(d4 == 6) {
 				d = "Saturday";
 			}
+				
 			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
-					// competition today				
+			// similar to "Sun Jan 20 2025"
+
+
+
+// if its a competition day, see if it is same as wwtodayscomp
+// if not, clear data and start again
+
+// in scorentry, if there is a wwp1h1 score then show recover message
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+				
+				
+				
+				
 				localStorage.setItem("wwtodayscomp", arrComps[i]);
+				todayscomp = arrComps[i];
+				compday = "yes"
+				localStorage.setItem("wwcompday", "yes");
+				ccourse = arrComps[i].split(" ");
+            localStorage.setItem("wwcourse", ccourse[0]);				
+				
+				
+				
+				
+							// competition today so do check	
+
+	
+	// check to see if a comp exists in localStorage
+	if("wwtodayscomp" in localStorage) {
+		// if today is the same as localStorage.wwtodayscomp do nothing
+		// if a different day, clear all old data but keep arrays etc.
+		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
+		alert("index of = " + localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]))
+			// different day, clear old data
+         clearCache();			
+		}
+	}
+		
+				
+				
+				
+				
+				
 				if(arrComps[i].indexOf("Lakes") > -1) {
 					tempd = '<p style="color:white;">Lakes - competition today</p>';
 				}
@@ -1067,8 +1335,20 @@
 				}
 				dlist = dlist + tempd;
 				dlistcount++;
+				collectdates="yes";
 			}
-			if(darr > dd && dlistcount < 4) {
+			
+			
+			
+			//console.log("difference = " + parseInt(dd - darr));
+			if(parseInt(dd - darr) < 1) {
+			   collectdates="yes"       
+			}
+			
+			
+			
+			
+			if(darr > dd && dlistcount < 4 && collectdates == "yes") {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
 				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
 				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
@@ -1078,43 +1358,146 @@
 			}
 		}
 		document.getElementById("xdcomp1").innerHTML = dlist;
+		
+		// get rid of bubble
+		document.getElementById("tooltip").style.display = "none";
+		// show menu
+		document.getElementById("nav").style.display = "block";
+		
+		
+		
+		
+		
+		
+		
 	}
 	// resize QRcode
 	function enlarge() {
 		document.getElementById('img').classList.toggle("half");
 	}
+	
+	function noCompMsg() {
+	// speech tooltip
+		document.getElementById("tooltip").innerHTML = "No Competition today."
+		document.getElementById("tooltip").style.display = "block";
+		setTimeout(function() {
+				document.getElementById("tooltip").style.display = "none";
+			}, 3000)
+	}
+	
+	//===========================================
+	// detect a longpress to allow "secret" reset
+	// use QR #img
+	//===========================================
+	let onlongtouch = false;
+        let timer = false;
+        let duration = 5000;
+
+        function touchStart(){
+             if (!timer) {
+                  timer = setTimeout(onlongtouch, duration);
+             }
+        }
+
+
+        function touchEnd(){
+             if (timer) {
+                 clearTimeout(timer)
+                 timer = false;
+             }
+        }
+
+
+        onlongtouch = function(){
+             //document.querySelector("#img").innerHTML = "Hello";
+             resetAll()
+        }
+
+        // prevent defalt img menu of options
+        document.addEventListener('contextmenu', event => {
+             event.preventDefault()
+        })
+
+        
+        
+        document.addEventListener("DOMContentLoaded", function(){
+             document.querySelector("#img").addEventListener("touchstart", touchStart);
+             document.querySelector("#img").addEventListener("touchend", touchEnd);
+        })
+
+	
+	
+	function resetAll() {
+            if (confirm("Are you sure you wish to reset ?")) {
+                localStorage.clear();
+                location.reload();
+            }
+        }
+
+	
+	
+	function clearCache() {
+	// A simple delete doesn't work so use an overkill approach
+	// save current keys, then clear, then put them back
+	// sledgehammer and nut spring to mind
+
+	// save localStorage to temp variables
+   tempwwplayersarray = "";	
+	tempwwladiesarray = "";
+	tempwwcompsarray = "";
+	tempwwhcpsarray = "";
+	tempwwdropdown = "";
+	tempwwtodayscomp = "";
+	tempwwcompday = "";
+	tempwwcourse = "";
+
+	
+	if ("wwplayersarray" in localStorage) {
+	    tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
+	}
+	if ("wwladiesarray" in localStorage) {
+	    tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
+   }	
+   if ("wwcompsarray" in localStorage) {
+	    tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
+   }
+   if ("wwhcpsarray" in localStorage) {	
+	    tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
+	}
+   if ("wwdropdown" in localStorage) {	
+	    tempwwdropdown = JSON.parse(localStorage.wwdropdown);
+   }
+   if ("wwtodayscomp" in localStorage) {	
+	    tempwwtodayscomp = localStorage.wwtodayscomp;
+   }
+   if ("wwcompday" in localStorage) {	
+	    tempwwcompday = localStorage.wwcompday;
+	}
+	if ("wwcourse" in localStorage) {
+	    tempwwcourse = localStorage.wwcourse;
+   }
+
+	// clear localStorage
+	localStorage.clear();
+	// put localStorage back from variables
+	localStorage.wwplayersarray = JSON.stringify(tempwwplayersarray);
+	localStorage.wwladiesarray = JSON.stringify(tempwwladiesarray);
+	localStorage.wwcompsarray = JSON.stringify(tempwwcompsarray);
+	localStorage.wwhcpsarray = JSON.stringify(tempwwhcpsarray);
+	localStorage.wwdropdown = JSON.stringify(tempwwdropdown);
+	localStorage.wwtodayscomp = tempwwtodayscomp;
+	localStorage.wwcompday = tempwwcompday;
+	localStorage.wwcourse = tempwwcourse;
+ 
+ 
+
+}
+	
+	
+	
+	
+	
 	</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-<script type="text/javascript">
- if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('service-worker.js')
-      .then(function(reg){
-        console.log("Yes, it did.");
-     }).catch(function(err) {
-        console.log("No it didn't. This happened:", err)
-    });
- }
-</script>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	</body>
 
 </html>
