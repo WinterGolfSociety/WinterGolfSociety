@@ -659,7 +659,11 @@
 	font-family: 'Kalam';
 	}
 	
-	
+	#image3 {
+position: absolute;
+top: 80px;
+right: 80px;	
+	}
 	
 	
 	
@@ -706,7 +710,7 @@
 					<br>
 					<br> <a class="dates" id="xdcomp1">searching for competitions ...</a> </div>
 				<br>
-				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="qrwinter.png" alt="qr"> </div>
+				<div class="qrcode" id="qrcode"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 30px; width: 30px;" src="seniorswhite.png" alt="qr"> </div>
 			</div>
 		</section>
 		<div class="tooltip" id="tooltip"></div>
@@ -1192,23 +1196,7 @@ getData();
 				document.getElementById("tooltip").style.display = "none";
 			}, 3000)
 		
-		// get rid of "old" localStorage but keep dropdown options
-//		tempdropdown = JSON.parse(localStorage.wwdropdown);
-//		localStorage.clear();
-//		localStorage.wwdropdown = JSON.stringify(tempdropdown);
-		
-		/*
-		//localStorage.clear();
-		for (var i = 0; i < localStorage.length; i++) {        
-                     if (localStorage.key(i).substring(0,2) == "ww") {
-                         if (localStorage.key(i) !== "wwdropdown") {
-                         localStorage.removeItem(localStorage.key(i));
-                         } 
-                     }       
-                }
-		
-*/		
-		
+	
 				
 		// overwrite saved data arrays in localStorage
 		// players
@@ -1241,9 +1229,7 @@ getData();
 		dlistcount = 0;
 		var collectdates="no";
 		
-		// reset wwtodayscomp
-		// remove it and put it back (below) if applicable
-//		localStorage.removeItem("wwtodayscomp")
+
 		
 		for(i = 0; i < arrComps.length; i++) {
 		
@@ -1279,17 +1265,7 @@ getData();
 			if(d4 == 6) {
 				d = "Saturday";
 			}
-			// if compday = today
-			
-			//console.log(darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
-			//console.log(dlistcount)
-			
-			 // if today is already set as a competition day	
-          // this is set below	
-          // check to see if a comp exists in localStorage
-	
-	//alert("--------------------" + darr.toString().substring(0, 15) +" == " + dd.toString().substring(0, 15))
-					
+				
 			if(darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
 			// similar to "Sun Jan 20 2025"
 
@@ -1305,7 +1281,7 @@ getData();
 
 
 				// competition today so do check	
-				//alert("aaaaa")
+
 	
 	// check to see if a comp exists in localStorage
 	if("wwtodayscomp" in localStorage) {
@@ -1466,7 +1442,7 @@ getData();
 	tempwwtodayscomp = "";
 	tempwwcompday = "";
 	tempwwcourse = "";
-	tempwwfirstrun = "";
+
 	
 	if ("wwplayersarray" in localStorage) {
 	    tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
@@ -1492,9 +1468,7 @@ getData();
 	if ("wwcourse" in localStorage) {
 	    tempwwcourse = localStorage.wwcourse;
    }
-   if ("wwfirstrun" in localStorage) {   
-       tempwwfirstrun = localStorage.wwfirstrun;	
-	}
+
 	// clear localStorage
 	localStorage.clear();
 	// put localStorage back from variables
@@ -1506,7 +1480,7 @@ getData();
 	localStorage.wwtodayscomp = tempwwtodayscomp;
 	localStorage.wwcompday = tempwwcompday;
 	localStorage.wwcourse = tempwwcourse;
-   localStorage.wwfirstrun = tempwwfirstrun;	
+ 
  
 
 }
