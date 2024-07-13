@@ -163,7 +163,7 @@
 		font-size: 4vh;
 		color: lime;
 		display: inline-block;
-		//width: 40%;
+		width: 40%;
 		height: 10vh;
 		line-height: 10vh;
 		padding-left: 5%;
@@ -1024,9 +1024,9 @@ submit
 			<div class="footer" id="mimgr"> <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 4vh;"> </div>
 
 		</div>
-	-->	<!-- coursecard strokes and rules 
-		<div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>-->
-		<div class="showrules" id="showrules" onclick="rclose()"></div>
+	-->	<!-- coursecard strokes and rules -->
+		<div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
+
 <!--
 		<div id="popuppanel"></div>
 -->
@@ -1970,11 +1970,10 @@ function nextHole() {
 		document.getElementById("scorenext").classList.replace("scorehigh", "scorelow");
 	}, "150");
 	whichhole++
+	gotosubmit = "no";
 	if (whichhole > 18) {
 		whichhole = 18;
 		gotosubmit = "yes"
-	} else {
-	   gotosubmit = "no"
 	}
 	// set hole details
 	if (course == "Lakes") {
@@ -4005,46 +4004,7 @@ function xxxshowcoursecard() {
 	document.getElementById("showcoursecard").innerHTML = cctxt;
 	document.getElementById("showcoursecard").style.visibility = "visible";
 }
-//=============================================================
-// function rclose()
-// - closes rules info
-//=============================================================  
-function rclose() {
-	document.getElementById("showrules").style.visibility = "hidden";
-}
-//=============================================================
-// function showrules()
-// - display rules
-//=============================================================
-function showrules() {
-	const d = new Date();
-	var month = d.getMonth();
-	//rules from email 25th September
-	var rulestxt = '<span class="cyanhole"><b>From Oct 1st to Oct 31st inclusive</b><br></b></span>'
-	rulestxt += '<br>'
-	rulestxt += '1. Preferred lies on Fairway and Fringes of Greens (Mark your ball, lift clean and place within 6 inches. No nearer the hole)<br><br>'
-	rulestxt += '2. Semi Rough (Mark your ball, lift Clean and Replace)<br><br>'
-	rulestxt += '3. Rough (Play the ball as it lies)<br><br>'
-	rulestxt += '4. Casual Water (Nearest point of relief no nearer the hole) 1 club length from that point, drop the ball. If your ball is in the rough and in casual water, nearest point of relief no nearer the hole, one club length from that point, drop the ball. The ball may be cleaned if taking relief from casual water in the rough.<br><br>'
-	rulestxt += '<span class="cyanhole"><b>November 1st to 31st March 2025</b><br></b></span>'
-	rulestxt += '<br>'
-	rulestxt += 'As above with additions'
-	rulestxt += '<br><br>'
-	rulestxt += "1. The Seniors Section will be keeping all Par 5's as Par 5's."
-	rulestxt += '<br><br>'
-	rulestxt += "2. Bounce boards, mats and tees may be used on Fairways and Fringes of Greens. These are not to be used in 'Semi Rough' or 'Rough Areas'."
-	rulestxt += '<br><br>'
-	rulestxt += '3. Semi rough will be lift clean and replace. Rough will be (play as it lies)'
-	rulestxt += '<br><br>'
-	rulestxt += '4. Drivers are not to be used on bounce boards, mats or tees after the initial tee shot, they can, however, be used from the grass.'
-	rulestxt += '<br><br>'
-	rulestxt += "5. Bunkers will be 'pick rake and place' Unless otherwise stated on the whiteboard at registration."
-	rulestxt += "<br><br>"
-	rulestxt += "<br> . . . tap to close."
-	rulestxt += "<br><br><br><br>"
-	document.getElementById("showrules").innerHTML = rulestxt;
-	document.getElementById("showrules").style.visibility = "visible";
-}
+
 //=============================================================
 // function ccclose()
 // - closes scorecard
