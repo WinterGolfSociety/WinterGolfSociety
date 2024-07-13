@@ -1280,19 +1280,7 @@ getData();
 
 
 
-				// competition today so do check	
 
-	
-	// check to see if a comp exists in localStorage
-	if("wwtodayscomp" in localStorage) {
-		// if today is the same as localStorage.wwtodayscomp do nothing
-		// if a different day, clear all old data but keep arrays etc.
-		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
-			// different day, clear old data
-         clearCache();			
-		}
-	}
-	
 
 
 
@@ -1313,6 +1301,26 @@ getData();
 				localStorage.setItem("wwcompday", "yes");
 				ccourse = arrComps[i].split(" ");
             localStorage.setItem("wwcourse", ccourse[0]);				
+				
+				
+				
+				
+							// competition today so do check	
+
+	
+	// check to see if a comp exists in localStorage
+	if("wwtodayscomp" in localStorage) {
+		// if today is the same as localStorage.wwtodayscomp do nothing
+		// if a different day, clear all old data but keep arrays etc.
+		if(localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
+		alert("index of = " + localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]))
+			// different day, clear old data
+         clearCache();			
+		}
+	}
+		
+				
+				
 				
 				
 				

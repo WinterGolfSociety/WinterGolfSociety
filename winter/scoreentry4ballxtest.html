@@ -1156,14 +1156,15 @@ if ("wwladiesarray" in localStorage) {
 }
 
 
-
-// don't show recovery option if its the first run
+alert("before wwp1h1 = " + localStorage.wwp1h1)	
+// show recovery option if there is a score in wwp1h1
 if ("wwp1h1" in localStorage) {
+alert("after wwp1h1 = " + localStorage.wwp1h1)	    
 	    // hide message
-       document.getElementById("popuppanel1").style.display = "none";
+       document.getElementById("popuppanel1").style.display = "block";
 } else {
 	    // if there is any hole data
-       document.getElementById("popuppanel1").style.display = "block";	
+       document.getElementById("popuppanel1").style.display = "none";	
 }   
 
 
@@ -1218,7 +1219,7 @@ document.getElementById("holedetails").innerHTML = holedetails
 
 //==============================================================
 // data has previously been stored so just retrieve it
-//==============================================================
+//================================3==============================
 // retrieve arrays
 if ("wwplayersarray" in localStorage) {
 	arrPlayers = JSON.parse(localStorage.wwplayersarray);
@@ -1545,9 +1546,9 @@ async function getData() {
 	arrHcps = arrHcps.filter(function(el) {
 			return el != "";
 		})
-		//document.getElementById("popuppanel").style.display = "none";
+
 	start();
-	//showRecoverChoice()
+
 }
 //=============================================================
 //=============================================================
