@@ -20,22 +20,15 @@
 	
 	html {
 		min-height: 100%;
-		background: indigo;
-		background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-		
-		
-		
-		
+	
 	}
 	
 	body {
 	        overflow: auto; //hidden;
 		/* linear-gradient syntax */
-		//background: indigo;
-		//background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
-     //           background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: indigo;
+		background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, indigo, #1F45FC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
 	
 	::-webkit-scrollbar {
@@ -421,11 +414,20 @@
 		cursor: pointer;
 	}
 	
-	#xdcomp1,
 	#flagicon {
+	position: absolute;
+	bottom: 1vh;
+	right: 1vh;
 	font-size: 3vh;
 		animation: fadeIn 2s ease-in;
 	}
+	
+	#xdcomp1 {
+	font-size: 3vh;
+		animation: fadeIn 2s ease-in;
+	}
+	
+	
 	
 	#nav {
 		animation: fadeIn 1s ease-in;
@@ -1348,7 +1350,7 @@ getData();
 			
 			
 			
-			if(darr > dd && dlistcount < 4 && collectdates == "yes") {
+			if(darr > dd && dlistcount < 3 && collectdates == "yes") {
 				tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
 				tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
 				tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
