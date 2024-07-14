@@ -85,7 +85,7 @@ font-size: 20vw;
 
 
 #player0 {
-width: 60vw;
+//width: 60vw;
 }
 </style>
 <body>
@@ -155,17 +155,21 @@ async function getData() {
    // default to final results
    var dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardFinal"
 
-   if (dd.getDay() == 2) {
+   if (dd.getDay() !== 2) {
        dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardTuesday"
+       //document.getElementById("player0").style.width = "60vw";
    }
    if (dd.getDay() == 3) {
        dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardWednesday"
+       //document.getElementById("player0").style.width = "";   
    }
    if (dd.getDay() == 4) {
        dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardThursday"
+       //document.getElementById("player0").style.width = "";   
    }
    if (dd.getDay() == 5) {
        dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardFriday"
+       //document.getElementById("player0").style.width = "";   
    }
 
 	var dataStream = await fetch(dataStreamLink)
@@ -175,7 +179,8 @@ async function getData() {
 	for(var i = 0; i < resultsarray.length; i++) {
 		if(resultsarray[i].player.length > 2) {
 			arrPos.push(resultsarray[i].pos);
-         // for tuesday get 2 surnames			
+			
+         // for tuesday get 2 names shortened			
          if (dd.getDay() == 2) {			
 			    x = resultsarray[i].player.split(" ");
 			    xx = x[0].substring(0,1) + " " +x[1] + " & " + x[2].substring(0,1) + " " + x[3];
@@ -183,6 +188,7 @@ async function getData() {
 			} else {
 			    arrPlayer.push(resultsarray[i].player);
 			}
+			
 			arrPoints.push(resultsarray[i].points);
 			arrTwos.push(resultsarray[i].twos);
 			
@@ -250,11 +256,16 @@ if (4 > 0) {
 		document.getElementById("footer").innerHTML = "Updated every 60 seconds.<br>There is a delay before this information is available in 'All results'"
 
                }	
-	
-	
+               
+               // if tuesday, make enough room for player names
+               if (dd.getDay() == 2) {
+                   document.getElementById("player0").style.width = "60vw";
+               } else {
+                   document.getElementById("player0").style.width = "";
+               }
+
 	       // step through each entry and rewrite	
 
-  
   let myPromise = () => new Promise((resolve, reject) => {
       setTimeout(function(){
         resolve('Count')
