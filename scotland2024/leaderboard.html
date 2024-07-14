@@ -148,6 +148,7 @@ setInterval(start, 60000);
 async function getData() {
    // default to final results
    var dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardFinal"
+      dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardTuesday"
 
    if (dd.getDay() == 2) {
        dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardTuesday"
@@ -169,7 +170,14 @@ async function getData() {
 	for(var i = 0; i < resultsarray.length; i++) {
 		if(resultsarray[i].player.length > 2) {
 			arrPos.push(resultsarray[i].pos);
-			arrPlayer.push(resultsarray[i].player);
+         // for tuesday get 2 surnames			
+         if (dd.getDay() !== 2) {			
+			    x = resultsarray[i].player.split(" ");
+			    xx = x[0].substring(0,1) + " " +x[1] + " & " + x[2].substring(0,1) + " " + x[3];
+             arrPlayer.push(xx);			
+			} else {
+			    arrPlayer.push(resultsarray[i].player);
+			}
 			arrPoints.push(resultsarray[i].points);
 			arrTwos.push(resultsarray[i].twos);
 			
