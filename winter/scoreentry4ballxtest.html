@@ -1147,6 +1147,13 @@ var numberofplayers = 0;
 // previously downloaded by menu screen
 alert("xxxxx")
 
+for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+  alert( localStorage.getItem( localStorage.key( i ) ) );
+}
+
+
+
+
 if ("wwplayersarray" in localStorage) {
 	arrPlayers = JSON.parse(localStorage.wwplayersarray);
 }
@@ -1156,6 +1163,12 @@ if ("wwhcpsarray" in localStorage) {
 if ("wwladiesarray" in localStorage) {
 	arrLadies = JSON.parse(localStorage.wwladiesarray);
 }
+
+
+
+
+
+
 
 if ("wwp1h1" in localStorage) {
 alert(localStorage.wwp1h1)
