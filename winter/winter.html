@@ -310,39 +310,7 @@
 		font-family: 'Kalam';
 	}	
 	
-	/* need smaller font for menu boxes when using a tablet */
-	@media (min-width: 900px) {
-		/*salmon;*/
-	#onetxt {
-		font-size: 30px;
-	}
-	/*darkKhaki;*/
-	#twotxt {
-		font-size: 25px;
-	}
-	/*orchid;*/
-	#threetxt {
-		font-size: 30px;
-	}
-	/*lightSteelBlue;*/
-	#fourtxt {
-		font-size: 25px;
-	}
-	/*cyan;*/
-	#fivetxt {
-		font-size: 25px;
-	}
-	/*lightGreen;*/
-	#sixtxt {
-		font-size: 25px;
-	}
-	/*mediumSlateBlue;*/
-   #seventxt {
-		font-size: 30px;
-	}	
-	
-   }	/* end media query */
-	
+
 	
 	
 	#one:active {
@@ -768,7 +736,8 @@ text-orientation: mixed;
 
 if(isLocalStorageAvailable()){
     // available
-    alert("local storage available")
+    txt = localStorage.wwplayer1name + "\n" + localStorage.wwp1h1
+    alert("local storage available\n" + txt)
 }else{
     // unavailable
     alert("local storage is not available")
