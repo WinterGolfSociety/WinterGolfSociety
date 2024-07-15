@@ -755,7 +755,24 @@ text-orientation: mixed;
 	<script>
 	
 	
-	
+	function isLocalStorageAvailable(){
+    var test = 'test';
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
+
+if(isLocalStorageAvailable()){
+    // available
+    alert("local storage available")
+}else{
+    // unavailable
+    alert("local storage is not available")
+}
 	
 	
 	
