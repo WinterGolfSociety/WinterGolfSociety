@@ -742,7 +742,7 @@ color: white;
 		margin: 5vw;
 		text-align: center;
 		width: 80vw;
-		height: 30vh;
+		height: 40vh;
 		cursor: pointer;
 	}
 	
@@ -2807,32 +2807,6 @@ function moveToCurrent() {
 
 
 
-
-	/*			if(course == "Lakes") {
-					var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrLakes[whichhole][1] + "</a> <a class='rred'>" + arrLakesRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrLakes[whichhole][2] + "</a> <a class='rred'>" + arrLakesRed[whichhole][2] + "</a>";
-				}
-				if(course == "Dawson") {
-					var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrDawson[whichhole][1] + "</a> <a class='rred'>" + arrDawsonRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrDawson[whichhole][2] + "</a> <a class='rred'>" + arrDawsonRed[whichhole][2] + "</a>";
-				}
-				if(course == "OldCourse") {
-					var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrOldCourse[whichhole][1] + "</a> <a class='rred'>" + arrOldCourseRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" + arrOldCourse[whichhole][2] + "</a> <a class='rred'>" + arrOldCourseRed[whichhole][2] + "</a>";
-				}
-				document.getElementById("holedetails").innerHTML = holedetails
-					// get hole scores
-				document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("wwp1h" + whichhole);
-				document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("wwp2h" + whichhole);
-				document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("wwp3h" + whichhole);
-				document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("wwp4h" + whichhole);
-				// change highlight colour
-				document.getElementById("p1name").classList.remove("highlight");
-				document.getElementById("p2name").classList.remove("highlight");
-				document.getElementById("p3name").classList.remove("highlight");
-				document.getElementById("p4name").classList.remove("highlight");
-				selectedplayer = 1
-				document.getElementById("p1name").classList.add("highlight");
-				// retrieve scores   
-				getScores()
-	*/
 }
 
 function displayInfo() {
@@ -3361,6 +3335,11 @@ function pointsCalc(xhcp, xpar, xsi, xscore) {
 // - send info from HTML form to google form
 //=============================================================  
 function submitForm() {
+err1="player 1"
+err2="player 2"
+err3="player 3"
+err4="player 4"
+
 	// get the relevant info into a form
 	// dont allow submit for an incorrect day
 	compday = localStorage.wwcompday;
@@ -3368,6 +3347,37 @@ function submitForm() {
 	if (compday == "yes") {
 		// make sure everything is updated
 		finalWrite();
+
+
+
+for (ii = 1; ii <= 18; ii++) {
+if (!(containsNumber(document.getElementById("p1h" + ii).innerText))) {
+					err1 += "hole " + ii + " has no score for " + player1name + "\n";
+}	
+if (!(containsNumber(document.getElementById("p2h" + ii).innerText))) {
+					err2 += "hole " + ii + " has no score for " + player2name + "\n";
+}
+if (!(containsNumber(document.getElementById("p3h" + ii).innerText))) {
+					err3 += "hole " + ii + " has no score for " + player3name + "\n";
+}
+if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
+					err4 += "hole " + ii + " has no score for " + player4name + "\n";
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 		if (player1name !== "no player") {
 			// player1 score entry
 			comp = localStorage.wwtodayscomp
@@ -3435,42 +3445,26 @@ function submitForm() {
 			twoscount = 0;
 			// check data is complete 
 			checkBeforeSubmitID = "\n";
-			err = "no";
+			//err = "no";
 			for (ii = 1; ii <= 18; ii++) {
 				if (document.getElementById("p1h" + ii).innerText.split("/")[0] == "2") {
 					twoscount++;
 				}
 				// check for no score entered
-				/*
-				if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-					if(checkBeforeSubmitID.length < 50) {
-						checkBeforeSubmitID += "hole " + ii + " not scored\n";
-						err = "yes";
-					}
-				}
-				*/
+				//alert(document.getElementById("p1h" + ii).innerText)
+            //if (!(containsNumber(document.getElementById("p1h" + ii).innerText))) {
+				//	err1 += "hole " + ii + " has no score for " + player1name + "\n";
+				//}				
 			}
-
-			//console.log(document.getElementById("p10").innerText)
+			//console.log(err)
+         //alert(err)
 			document.getElementById('mx967906330').value = twoscount.toString();
 			document.getElementById('mx789190149').value = comp + player;
-			//		if(player == "select player") {
-			//			checkBeforeSubmitID += "player not set\n"
-			//			err = "yes";
-			//		}
-			//		if(hcp == "0") {
-			//			checkBeforeSubmitID += "hcp not set\n"
-			//			err = "yes";
-			//		}
-			//		if(err == "yes") {
-			//			// error message
-			//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
-			//			showIncompleteSubmitData(checkBeforeSubmitID);
-			//		} else {
 			//===== submit data ==========
 			//============================
-			document.forms[0].submit();
+//			document.forms[0].submit();
 		} /* end of player1 */
+		
 		setTimeout(function() {
 			if (player2name !== "no player") {
 				// player2 score entry
@@ -3537,45 +3531,29 @@ function submitForm() {
 				document.getElementById('mx683300283').value = document.getElementById("p2h18").innerText.split("/")[1];
 				//temp2 = 0;
 				twoscount = 0;
-				// check data is complete 
-				checkBeforeSubmitID = "\n";
-				err = "no";
-				for (ii = 1; ii <= 18; ii++) {
-					if (document.getElementById("p2h" + ii).innerText.split("/")[0] == "2") {
-						twoscount++;
-					}
-					// check for no score entered
-					/*
-					if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-						if(checkBeforeSubmitID.length < 50) {
-							checkBeforeSubmitID += "hole " + ii + " not scored\n";
-							err = "yes";
-						}
-					}
-					*/
+			// check data is complete 
+			checkBeforeSubmitID = "\n";
+			
+			for (ii = 1; ii <= 18; ii++) {
+				if (document.getElementById("p2h" + ii).innerText.split("/")[0] == "2") {
+					twoscount++;
 				}
-
+				// check for no score entered
+            //if (!(containsNumber(document.getElementById("p2h" + ii).innerText))) {
+				//	err2 += "hole " + ii + " has no score for " + player2name + "\n";
+				//}				
+			}
+			//console.log(err)
+			//alert(err)
 				//console.log(document.getElementById("p20").innerText)
 				document.getElementById('mx967906330').value = twoscount.toString();
 				document.getElementById('mx789190149').value = comp + player;
-				//		if(player == "select player") {
-				//			checkBeforeSubmitID += "player not set\n"
-				//			err = "yes";
-				//		}
-				//		if(hcp == "0") {
-				//			checkBeforeSubmitID += "hcp not set\n"
-				//			err = "yes";
-				//		}
-				//		if(err == "yes") {
-				//			// error message
-				//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
-				//			showIncompleteSubmitData(checkBeforeSubmitID);
-				//		} else {
 				//===== submit data ==========
 				//============================
-				document.forms[0].submit();
+//				document.forms[0].submit();
 			} /* end of player2 */
 		}, 2000)
+		
 		setTimeout(function() {
 			if (player3name !== "no player") {
 				// player3 score entry
@@ -3645,43 +3623,30 @@ function submitForm() {
 				twoscount = 0;
 				// check data is complete 
 				checkBeforeSubmitID = "\n";
-				err = "no";
-				for (ii = 1; ii <= 18; ii++) {
-					if (document.getElementById("p3h" + ii).innerText.split("/")[0] == "2") {
-						twoscount++;
-					}
-					// check for no score entered
-					/*
-					if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-						if(checkBeforeSubmitID.length < 50) {
-							checkBeforeSubmitID += "hole " + ii + " not scored\n";
-							err = "yes";
-						}
-					}
-					*/
+			//err = "no";
+			for (ii = 1; ii <= 18; ii++) {
+				if (document.getElementById("p3h" + ii).innerText.split("/")[0] == "2") {
+					twoscount++;
 				}
+				// check for no score entered
+            //if (!(containsNumber(document.getElementById("p3h" + ii).innerText))) {
+				//	err3 += "hole " + ii + " has no score for " + player3name + "\n";
+				//}				
+			}
+			//console.log(err)
+			//alert(err)
 
 				//console.log(document.getElementById("p20").innerText)
 				document.getElementById('mx967906330').value = twoscount.toString();
 				document.getElementById('mx789190149').value = comp + player;
-				//		if(player == "select player") {
-				//			checkBeforeSubmitID += "player not set\n"
-				//			err = "yes";
-				//		}
-				//		if(hcp == "0") {
-				//			checkBeforeSubmitID += "hcp not set\n"
-				//			err = "yes";
-				//		}
-				//		if(err == "yes") {
-				//			// error message
-				//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
-				//			showIncompleteSubmitData(checkBeforeSubmitID);
-				//		} else {
+				
 				//===== submit data ==========
 				//============================
-				document.forms[0].submit();
+//				document.forms[0].submit();
 			} /* end of player3 */
 		}, 4000)
+		
+		
 		setTimeout(function() {
 				if (player4name !== "no player") {
 					// player2 score entry
@@ -3751,50 +3716,37 @@ function submitForm() {
 					twoscount = 0;
 					// check data is complete 
 					checkBeforeSubmitID = "\n";
-					err = "no";
+					
 					for (ii = 1; ii <= 18; ii++) {
 						if (document.getElementById("p4h" + ii).innerText.split("/")[0] == "2") {
 							twoscount++;
 						}
-						// check for no score entered
-						/*
-						if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-							if(checkBeforeSubmitID.length < 50) {
-								checkBeforeSubmitID += "hole " + ii + " not scored\n";
-								err = "yes";
-							}
-						}
-						*/
-					}
+									// check data is complete 
+			
+				// check for no score entered
+            //if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
+				//	err4 += "hole " + ii + " has no score for " + player4name + "\n";
+				//}				
+			}
+			//console.log(err)
+			//alert(err)		
 
 					//console.log(document.getElementById("p40").innerText)
 					document.getElementById('mx967906330').value = twoscount.toString();
 					document.getElementById('mx789190149').value = comp + player;
-					//		if(player == "select player") {
-					//			checkBeforeSubmitID += "player not set\n"
-					//			err = "yes";
-					//		}
-					//		if(hcp == "0") {
-					//			checkBeforeSubmitID += "hcp not set\n"
-					//			err = "yes";
-					//		}
-					//		if(err == "yes") {
-					//			// error message
-					//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
-					//			showIncompleteSubmitData(checkBeforeSubmitID);
-					//		} else {
+					
 					//===== submit data ==========
 					//============================
-					document.forms[0].submit();
+//					document.forms[0].submit();
 				} /* end of player4 */
 			}, 6000)
-			// do some indicator of stuff	
-			//document.getElementById("frontpage").style.display = "none";
-			//document.getElementById("scoringfront9").style.display = "none";
-			//document.getElementById("scoringback9").style.display = "none";
-			//document.getElementById("bb").style.display = "none";
-			//document.getElementById("hcp").style.display = "none";
-			//document.getElementById("submit").style.display = "none";
+alert(err1)	
+alert(err2)	
+alert(err3)	
+alert(err4)	
+
+
+		
 		window.scrollTo({
 			top: 0,
 			behavior: 'smooth'
@@ -4159,25 +4111,17 @@ function finalWrite() {
 	if (numberofplayers == 4) {
 		totalScore4()
 	}
-	//shots()
-	// show screen as overlay
-	//if(document.getElementById("info").style.display !== "block") {
-	//	document.getElementById("info").style.display = "block"
-	//} else {
-	//	document.getElementById("info").style.display = "none"
-	//}
+
 }
 
 function popNo() {
 	document.getElementById("popuppanel1").style.display = "none";
 	// tidy up local storage
-
 	clearCache();
 }
 
 function popYes() {
-	// do recovery		
-
+	// do recovery
 	document.getElementById("popuppanel1").style.display = "none";
 	retrieveAllFromLocalStorage()
 
