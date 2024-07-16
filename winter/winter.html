@@ -419,7 +419,7 @@
 	#flagicon {
 	position: absolute;
 
-	bottom: 25vh;
+	bottom: 2vh;
 	right: 1vh;
 	font-size: 3vh;
 		animation: fadeIn 2s ease-in;
@@ -728,13 +728,9 @@
     }
 }
 
-if(isLocalStorageAvailable()){
-    // available
-    txt = localStorage.wwplayer1name + "\n" + localStorage.wwp1h1
-    alert("local storage available\n" + txt)
-}else{
+if(!isLocalStorageAvailable()){
     // unavailable
-    alert("local storage is not available")
+    alert("local storage is not available so app will not operate.")
 }
 	
 	
