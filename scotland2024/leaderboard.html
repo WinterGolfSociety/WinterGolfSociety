@@ -180,6 +180,12 @@ async function getData() {
          if (dd.getDay() == 2) {			
 			    x = resultsarray[i].player.split(" ");
 			    xx = x[0].substring(0,1) + " " +x[1] + " & " + x[2].substring(0,1) + " " + x[3];
+             // keep Ghost Player name             
+             if (x[2] == "Ghost") {
+                 xx = x[0].substring(0,1) + " " +x[1] + " & " + x[2] + " " + x[3];             
+             }			    
+			    
+			    
              arrPlayer.push(xx);			
 			} else {
 			    arrPlayer.push(resultsarray[i].player);
