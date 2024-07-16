@@ -1145,11 +1145,8 @@ var numberofplayers = 0;
 //==============================================================
 // retrieve arrays
 // previously downloaded by menu screen
-alert("xxxxx " + localStorage.length)
 
-for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-  alert( localStorage.getItem( localStorage.key( i ) ) );
-}
+
 
 
 
@@ -1170,11 +1167,7 @@ if ("wwladiesarray" in localStorage) {
 
 
 
-if ("wwp1h1" in localStorage) {
-alert(localStorage.wwp1h1)
-} else {
-alert("not there")
-}
+
 // show recovery option if there is a score in wwp1h1
 if ("wwp1h1" in localStorage) {
    
@@ -2105,9 +2098,7 @@ function saveScores() {
 	if (numberofplayers >= 1) {
 		if (containsNumber(tempp1)) {
 			localStorage.setItem("wwp1h" + whichhole, tempp1)
-			
-			alert("yyyy = " + localStorage.wwp1h1)
-			
+
 		}
 	}
 	if (numberofplayers >= 2) {
@@ -3761,10 +3752,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 //					document.forms[0].submit();
 				} /* end of player4 */
 			}, 6000)
-alert(err1)	
-alert(err2)	
-alert(err3)	
-alert(err4)	
+
 
 
 		
