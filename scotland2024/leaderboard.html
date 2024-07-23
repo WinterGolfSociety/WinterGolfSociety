@@ -81,7 +81,10 @@ color: dodgerBlue;
 font-size: 20vw;
 }
 
-
+#footer {
+padding-left: 10px;
+padding-right: 10px;
+}
 
 
 #player0 {
@@ -131,13 +134,13 @@ comp = "";
 //ddmonth = dd.getMonth();
 
 
-if (!("lbdatecheck" in localStorage)) {
-    localStorage.lbdatecheck = "0";
+if (!("lbdatecheckscotland" in localStorage)) {
+    localStorage.lbdatecheckscotland = "0";
 }
 
-if (localStorage.lbdatecheck != dddate + "-" + ddmonth) {
-    localStorage.lbdatecheck = dddate + "-" + ddmonth;
-    localStorage.removeItem("lbarray");
+if (localStorage.lbdatecheckscotland != dddate + "-" + ddmonth) {
+    localStorage.lbdatecheckscotland = dddate + "-" + ddmonth;
+    localStorage.removeItem("lbarrayscotland");
 }
 
 getData();
@@ -174,38 +177,62 @@ async function getData() {
 	// get rid of blanks in array by creating new arrays
 	for(var i = 0; i < resultsarray.length; i++) {
 		if(resultsarray[i].player.length > 2) {
-			arrPos.push(resultsarray[i].pos);
 			
-         // for tuesday get 2 names shortened			
+			
+         // manipulate data slightly for readability         
+         // - for tuesday get 2 names shortened	
+         //   but a single name for other days		
+         // - for Ghost Player don't shorten
+         // - for no players put in zero to tidy format
          if (dd.getDay() == 2) {			
 			    x = resultsarray[i].player.split(" ");
-			    xx = x[0].substring(0,1) + " " +x[1] + " & " + x[2].substring(0,1) + " " + x[3];
+			    xx = x[0].substring(0,1) + " " +x[1] + 
+			         "<br>" + x[2].substring(0,1) + " " + x[3] +
+                  "<br>" + x[4].substring(0,1) + " " + x[5] +
+                  "<br>" + x[6].substring(0,1) + " " + x[7]
              // keep Ghost Player name             
              if (x[2] == "Ghost") {
                  xx = x[0].substring(0,1) + " " +x[1] + " & " + x[2] + " " + x[3];             
-             }			    
-			    
-			    
-             arrPlayer.push(xx);			
+             }
+             arrPlayer.push(xx);	
+             
+             yy = "<br>" + resultsarray[i].pos + "<br><br><br>"
+             arrPos.push(yy);             
+             		
+             zz = "<br>" +  resultsarray[i].points +"<br><br><br>"            		
+             arrPoints.push(zz);		
+
+             arrTwos.push("<br><br><br>");
+ 
 			} else {
 			    arrPlayer.push(resultsarray[i].player);
+			    arrPos.push(resultsarray[i].pos);
+			     // cope with no scores recorded
+             if (resultsarray[i].player == "no scores recorded") {
+                 arrPoints.push("0");
+			        arrTwos.push("0"); 			
+			    }	else {
+			       arrPoints.push(resultsarray[i].points);
+			       arrTwos.push(resultsarray[i].twos);
+			    }		    
 			}
 			
-			arrPoints.push(resultsarray[i].points);
-			arrTwos.push(resultsarray[i].twos);
+        			
 			
-			comp = resultsarray[1].comp;
 			
+         comp = resultsarray[1].comp;			
+
 		}
+		arrPlayerOld.push("searching ...")
 	}
 	// retrieve previous data
-	if ("lbarray" in localStorage) {
-	    arrPlayerOld = JSON.parse(localStorage.lbarray);
+	if ("lbarrayscotland" in localStorage) {
+       arrPlayerOld = JSON.parse(localStorage.lbarrayscotland);
 	}
 	// overwrite saved data
 
 	//localStorage.lbarray = JSON.stringify(arrPlayer);
-	localStorage.setItem("lbarray",JSON.stringify(arrPlayer));
+	localStorage.setItem("lbarrayscotland",JSON.stringify(arrPlayer));
 
 	var displaypos
 	var displayplayer
