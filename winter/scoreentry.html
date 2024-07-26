@@ -223,7 +223,7 @@ body {
 
 
 #popuppanel {
-height: 110vh;
+   height: 110vh;
 }
 
 
@@ -361,16 +361,6 @@ height: 110vh;
     height: calc(100% / 3);
 }
 
-.xxxhtestcircle {
-    border-radius: 25px;
-    font-size: 100%;
-    color: silver;
-    text-align: center;
-    background: black;
-    box-shadow: inset 0 0 5px silver;
-    
-}
-
 .htestcircle {
     color: silver;
 }
@@ -425,31 +415,26 @@ height: 110vh;
 		position: absolute;
 		top: 0;
 		left: 0;
-		//display: flex;
-  justify-content: center;
-  padding-top: 40%;
+      justify-content: center;
+      padding-top: 40%;
 
 	}
 	
 	#sending {
 		position: relative;
 		background: black;
-	
-   
-
 	}
 	
 	#done {
 		position: relative;
 		background: black;
 
- -webkit-animation-name: fadeIn;
+      -webkit-animation-name: fadeIn;
 		animation-name: fadeIn;
 		-webkit-animation-duration: 1.5s;
 		animation-duration: 1.5s;
 		-webkit-animation-fill-mode: both;
 		animation-fill-mode: both;
-
 	}
 	
 	/* fade out/in between screens */
@@ -472,9 +457,9 @@ height: 110vh;
 		}
 	}
 
-#spacer1 {
-padding: 3px;
-}
+   #spacer1 {
+      padding: 3px;
+   }
 
 	</style>
 </head>
@@ -643,19 +628,7 @@ padding: 3px;
 			
 			<div class="footer" id="mimgl"> <img src="documents-icon.png" alt="strokes" onclick="showcoursecard()" style="height: 4vh;">&nbsp;strokes</div>
 			
-			
-		<!--	
-			<div class="footer" id="mimgr"> <img src="ruleswhite.png" alt="rules" onclick="showrules()" style="height: 4vh;"> </div>
-		-->	
-			
-	
 	</div>
-	
-
-
-
-
-
 	
 <!-- coursecard strokes and rules -->
 <div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
@@ -664,15 +637,7 @@ padding: 3px;
 <div id="popuppanel"></div>
 </div> <!-- wrapper -->
 
-
-
-
 	<div id="blackout"></div>
-	
-	
-<!--
-<div class="midway" id="midwayfront9">above scoring bit here</div>
--->
 
 <!-- score input pages -->
 <div class="wrapper" id="scoringfront9">
@@ -1373,8 +1338,8 @@ console.log("compday = " + compday)
 	if(compday == "yes") {
 	        comp = localStorage.wwtodayscomp
 	console.log("compday = " + compday + " " + comp)
-		document.getElementById('mx474474348').value = player;
-		document.getElementById('mx2131369517').value = comp; /* eg. Dawson 02 October 2023 */
+		document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
+		document.getElementById('mx2131369517').value = player;
 		document.getElementById('mx477101370').value = hcp;
 		document.getElementById('mx1980297491').value = document.getElementById("h1").innerText;
 		document.getElementById('mx463832232').value = document.getElementById("h2").innerText;
@@ -1477,6 +1442,10 @@ console.log("compday = " + compday)
 			//===== submit data ==========
 			//============================
 			document.forms[0].submit();
+			
+			
+alert(err)			
+			
 //			alert("submit")
 				//============================
 /*			
