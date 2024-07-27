@@ -3397,7 +3397,11 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 
 
 
-		if (player1name.indexOf("player") > -1){
+		if (player1name.indexOf("player") < 0){
+		
+console.log(player1name.indexOf("player"))		
+		
+		
 			// player1 score entry
 			comp = localStorage.wwtodayscomp
 			document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
@@ -3485,7 +3489,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 		} /* end of player1 */
 		
 		setTimeout(function() {
-			if (player2name.indexOf("player") > -1){
+			if (player2name.indexOf("player") < 0){
 				// player2 score entry
 				comp = localStorage.wwtodayscomp
 				document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
@@ -3574,7 +3578,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 		}, 2000)
 		
 		setTimeout(function() {
-			if (player3name.indexOf("player") > -1){
+			if (player3name.indexOf("player") < 0){
 				// player3 score entry
 				comp = localStorage.wwtodayscomp
 
@@ -3667,7 +3671,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 		
 		
 		setTimeout(function() {
-				if (player4name.indexOf("player") > -1){
+				if (player4name.indexOf("player") < 0){
 					// player2 score entry
 					comp = localStorage.wwtodayscomp
 
