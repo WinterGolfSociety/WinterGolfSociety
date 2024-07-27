@@ -1,2235 +1,2210 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<meta name="theme-color" content="rgb(0,0,20)">
-	<title>winter 2023</title>
-	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-	<meta content="score input" name="description">
-	<meta content="Bryan M" name="author">
-	<link href="wintericon.png" rel="icon" type="image/x-icon">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
-	<style>
-	
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    height: 300%;
-    width: 100%;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: black;
-    font-weight: 400;
-    height: 100%;
-    width: 100%;
-}
-
-.holesinfotop {
-    color: white;
-    width: calc(100% / 6);
-    font-size: 100%;;
-    height: 100%;
-}
-
-.holesinfoout {
-    color: lime;
-    width: calc(100% / 6);
-    height: 100%;
-}
-
-.holesinfoback {
-    color: cyan;
-    width: calc(100% / 6);
-    height: 100%;
-}
-
-.holesinfo {
-    color: yellow;
-    width: calc(100% / 4);
-    height: 100%;
-    text-align: left;
-    padding-left: 2%;
-}
-
-.countbackinfo {
-    color: yellow;
-    width: 100%;
-    height: 100%;
-    text-align: left;
-    padding-left: 2%;
-}
-
-#dropbtn {
-    color: white;
-    background: black;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-
-/* dropdown */
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: black;
-    min-width: 160px;
-    overflow: auto;
-    z-index: 1;
-    border-radius: 5px;
-    box-shadow: 10px 10px 25px black;
-    max-height: 90vh;
-}
-
-.dropdown-content a {
-    color: black;
-    font-size: 4vh;
-    background: whiteSmoke;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: 1px solid gray;
-    border-radius: 5px;
-}
-
-.show {
-    display: block;
-}
-
-
-/* end of dropdown */
-
-
-/* hide forms */
-
-#my-form,
-#my-response-iframe {
-    display: none;
-    height: 200px;
-    width: 600px;
-}
-
-
-/* for icon related pages */
-
-#showrules {
-    visibility: hidden;
-    font-family: 'Kalam';
-    font-size: 3vmax;
-    color: white;
-    text-align: left;
-    position: fixed;
-    z-index: 1;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 5px;
-    padding-bottom: 10px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-#showcoursecard {
-    visibility: hidden;
-    font-family: 'Kalam';
-    font-size: 3vmax;
-    color: white;
-    text-align: left;
-    position: fixed;
-    z-index: 1;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 5px;
-    padding-bottom: 10px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.circle1 {
-    font-family: 'Kalam';
-    border-radius: 50%;
-    padding-left: 10px;
-    padding-right: 10px;
-    background: black;
-    border: 3px solid white;
-    color: white;
-    text-align: center;
-    font-size: 3vmax;
-}
-
-.circle2 {
-    font-family: 'Kalam';
-    border-radius: 50%;
-    padding-left: 10px;
-    padding-right: 10px;
-    background: black;
-    border: 4px solid cyan;
-    color: cyan;
-    text-align: center;
-    font-size: 3vmax;
-    font-weight: bold;
-}
-
-.nocircle1 {
-    font-family: 'Kalam';
-    padding-left: 10px;
-    padding-right: 10px;
-    color: lightBlue;
-    text-align: center;
-    font-size: 3vmax;
-}
-
-.cyanhole {
-    color: cyan;
-    font-family: 'Kalam';
-}
-
-
-/* popup box related */
-
-
-#popuppanel {
-   height: 110vh;
-}
-
-
-.hcp {
-    font-size: 80%;
-    color: white;
-    background: black;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.submit {
-    font-size: 100%;
-    color: white;
-    background: dodgerBlue;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.midway {
-    font-size: 2.5vh;
-    color: white;
-    background: black;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid Gray;
-    border-radius: 5px;
-    height: 5%;
-}
-
-.child {
-    width: 100%;
-    background: black;
-}
-
-
-/* 10 60 10 10 10 */
-
-
-/* dropbtn, hcp, submit */
-
-.child-one {
-    height: 10%;
-    font-size: 5vh;
-    border: 2px solid Gray;
-    border-radius: 5px;
-}
-
-
-/* hole info at top*/
-
-.child-two {
-    display: flex;
-    font-family: 'Kalam';
-    color: white;
-    height: calc(100% / 13);
-    text-align: center;
-    flex-grow: 1;
-}
-
-
-/* holes */
-
-.child-three {
-    display: flex;
-    color: white;
-    font-family: 'Kalam';
-    font-weight: bold;
-    height: calc(100% / 13);
-    text-align: center;
-    flex-grow: 1;
-}
-
-
-/* totals countback */
-
-.child-four {
-    display: flex;
-    color: white;
-    font-family: 'Kalam';
-    font-weight: bold;
-    height: calc(100% / 13);
-    text-align: center;
-    flex-grow: 1;
-}
-
-
-/* icons */
-
-.child-five {
-    display: flex;
-    color: white;
-    font-family: 'Kalam';
-    background: green;
-    height: 10%;
-    flex-grow: 1;
-}
-
-
-/* scoring */
-
-.child-six {
-    display: flex;
-    color: white;
-    font-family: 'Kalam';
-    height: calc(100% / 9);
-    text-align: center;
-    width: 100%;
-}
-
-
-/* end of child containers */
-
-
-
-
-#frontpage {
-    background: black;
-    height: calc(100% / 3);
-}
-
-#scoringfront9 {
-    background: black;
-    height: calc(100% / 3);
-}
-
-#scoringback9 {
-    background: black;
-    height: calc(100% / 3);
-}
-
-.htestcircle {
-    color: silver;
-}
-
-.numx {
-    padding-left: 7vmax;
-    padding-right: 7vmax;
-    font-size: 4vmax;
-}
-
-.minus,
-.plus {
-    font-size: 7vh;
-    display: inline-block;
-    width: 40%;
-    height: 10vh;
-    line-height: 10vh;
-    padding-left: 5%;
-    padding-right: 5%;
-    border: 1px solid Gray;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 5px;
-}
-
-.score {
-    font-size: 5vh;
-    display: inline-block;
-    width: 20%;
-    height: 10vh;
-    line-height: 10vh;
-    border: 1px solid Gray;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 5px;
-    color: #4D4D4F;
-}
-
-#bb {
-    height: 60%;
-    font-size: 2.5vh;
-}
-
-
-	#blackout {
-		display: none;
-		color: white;
-		font-size: 2vh;
-		background: rgba(13, 13, 13, 255); //black;
-		height: 100vh;
-		width: 100vw;
-		position: absolute;
-		top: 0;
-		left: 0;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta name="theme-color" content="rgb(0,0,20)">
+    <title>score entry</title>
+    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+    <meta content="score input" name="description">
+    <meta content="Bryan M" name="author">
+    <link href="wintericon.png" rel="icon" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 300%;
+      width: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: black;
+      font-weight: 400;
+      height: 100%;
+      width: 100%;
+    }
+
+    .holesinfotop {
+      color: white;
+      width: calc(100% / 6);
+      font-size: 100%;
+      height: 100%;
+    }
+
+    .holesinfoout {
+      color: lime;
+      width: calc(100% / 6);
+      height: 100%;
+    }
+
+    .holesinfoback {
+      color: cyan;
+      width: calc(100% / 6);
+      height: 100%;
+    }
+
+    .holesinfo {
+      color: yellow;
+      width: calc(100% / 4);
+      height: 100%;
+      text-align: left;
+      padding-left: 2%;
+    }
+
+    .countbackinfo {
+      color: yellow;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      padding-left: 2%;
+    }
+
+    #dropbtn {
+      color: white;
+      background: black;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+
+
+    /* dropdown */
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      overflow: auto;
+      z-index: 1;
+      border-radius: 5px;
+      box-shadow: 10px 10px 25px black;
+      max-height: 90vh;
+    }
+
+    .dropdown-content a {
+      color: black;
+      font-size: 4vh;
+      background: whiteSmoke;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+
+    .show {
+      display: block;
+    }
+
+
+    /* end of dropdown */
+
+
+    /* hide forms */
+
+    #my-form,
+    #my-response-iframe {
+      display: none;
+      height: 200px;
+      width: 600px;
+    }
+
+
+    /* for icon related pages */
+
+    #showrules {
+      visibility: hidden;
+      font-family: 'Kalam';
+      font-size: 3vmax;
+      color: white;
+      text-align: left;
+      position: fixed;
+      z-index: 1;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 5px;
+      padding-bottom: 10px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #showcoursecard {
+      visibility: hidden;
+      font-family: 'Kalam';
+      font-size: 3vmax;
+      color: white;
+      text-align: left;
+      position: fixed;
+      z-index: 1;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 5px;
+      padding-bottom: 10px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .circle1 {
+      font-family: 'Kalam';
+      border-radius: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+      background: black;
+      border: 3px solid white;
+      color: white;
+      text-align: center;
+      font-size: 3vmax;
+    }
+
+    .circle2 {
+      font-family: 'Kalam';
+      border-radius: 50%;
+      padding-left: 10px;
+      padding-right: 10px;
+      background: black;
+      border: 4px solid cyan;
+      color: cyan;
+      text-align: center;
+      font-size: 3vmax;
+      font-weight: bold;
+    }
+
+    .nocircle1 {
+      font-family: 'Kalam';
+      padding-left: 10px;
+      padding-right: 10px;
+      color: lightBlue;
+      text-align: center;
+      font-size: 3vmax;
+    }
+
+    .cyanhole {
+      color: cyan;
+      font-family: 'Kalam';
+    }
+
+
+    /* popup box related */
+
+
+    #popuppanel {
+      height: 110vh;
+    }
+
+
+    .hcp {
+      font-size: 80%;
+      color: white;
+      background: black;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .submit {
+      font-size: 100%;
+      color: white;
+      background: dodgerBlue;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .midway {
+      font-size: 2.5vh;
+      color: white;
+      background: black;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid Gray;
+      border-radius: 5px;
+      height: 5%;
+    }
+
+    .child {
+      width: 100%;
+      background: black;
+    }
+
+
+    /* 10 60 10 10 10 */
+
+
+    /* dropbtn, hcp, submit */
+
+    .child-one {
+      height: 10%;
+      font-size: 5vh;
+      border: 2px solid Gray;
+      border-radius: 5px;
+    }
+
+
+    /* hole info at top*/
+
+    .child-two {
+      display: flex;
+      font-family: 'Kalam';
+      color: white;
+      height: calc(100% / 13);
+      text-align: center;
+      flex-grow: 1;
+    }
+
+
+    /* holes */
+
+    .child-three {
+      display: flex;
+      color: white;
+      font-family: 'Kalam';
+      font-weight: bold;
+      height: calc(100% / 13);
+      text-align: center;
+      flex-grow: 1;
+    }
+
+
+    /* totals countback */
+
+    .child-four {
+      display: flex;
+      color: white;
+      font-family: 'Kalam';
+      font-weight: bold;
+      height: calc(100% / 13);
+      text-align: center;
+      flex-grow: 1;
+    }
+
+
+    /* icons */
+
+    .child-five {
+      display: flex;
+      color: white;
+      font-family: 'Kalam';
+      background: green;
+      height: 10%;
+      flex-grow: 1;
+    }
+
+
+    /* scoring */
+
+    .child-six {
+      display: flex;
+      color: white;
+      font-family: 'Kalam';
+      height: calc(100% / 9);
+      text-align: center;
+      width: 100%;
+    }
+
+
+    /* end of child containers */
+
+
+    #frontpage {
+      background: black;
+      height: calc(100% / 3);
+    }
+
+    #scoringfront9 {
+      background: black;
+      height: calc(100% / 3);
+    }
+
+    #scoringback9 {
+      background: black;
+      height: calc(100% / 3);
+    }
+
+    .htestcircle {
+      color: silver;
+    }
+
+    .numx {
+      padding-left: 7vmax;
+      padding-right: 7vmax;
+      font-size: 4vmax;
+    }
+
+    .minus,
+    .plus {
+      font-size: 7vh;
+      display: inline-block;
+      width: 40%;
+      height: 10vh;
+      line-height: 10vh;
+      padding-left: 5%;
+      padding-right: 5%;
+      border: 1px solid Gray;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 5px;
+    }
+
+    .score {
+      font-size: 5vh;
+      display: inline-block;
+      width: 20%;
+      height: 10vh;
+      line-height: 10vh;
+      border: 1px solid Gray;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      border-radius: 5px;
+      color: #4D4D4F;
+    }
+
+    #bb {
+      height: 60%;
+      font-size: 2.5vh;
+    }
+
+
+    #blackout {
+      display: none;
+      color: white;
+      font-size: 2vh;
+      background: rgba(13, 13, 13, 255); //black;
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
       justify-content: center;
       padding-top: 40%;
 
-	}
-	
-	#sending {
-		position: relative;
-		background: black;
-	}
-	
-	#done {
-		position: relative;
-		background: black;
+    }
+
+    #sending {
+      position: relative;
+      background: black;
+    }
+
+    #done {
+      position: relative;
+      background: black;
 
       -webkit-animation-name: fadeIn;
-		animation-name: fadeIn;
-		-webkit-animation-duration: 1.5s;
-		animation-duration: 1.5s;
-		-webkit-animation-fill-mode: both;
-		animation-fill-mode: both;
-	}
-	
-	/* fade out/in between screens */
-	
-	@-webkit-keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-	
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
+      animation-name: fadeIn;
+      -webkit-animation-duration: 1.5s;
+      animation-duration: 1.5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
 
-   #spacer1 {
-      padding: 3px;
-   }
+    /* fade out/in between screens */
 
-	</style>
-</head>
-
-<body>
-	
-	   <div class="wrapper" id="frontpage">
-	
-	      <div class="child-one">
-	         <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player</div>
-	         <div id="playersDropdown" class="dropdown-content"> </div>
-	     </div>
-<div id="bb">			
-	     <div class="child-two">
-		<div class="holesinfotop">hole</div>
-		<div class="holesinfotop">score</div>
-		<div class="holesinfotop">points</div>
-		<div class="holesinfotop">hole</div>
-		<div class="holesinfotop">score</div>
-		<div class="holesinfotop">points</div>
-	     </div>
-	      	 
-		 
-             <div class="child-three">
-         
-               <div class="holesinfoout htestcircle">1</div>
-               <div class="holesinfoout" id="h1">0</div>
-	       <div class="holesinfoout" id="p1">0</div>
-	       <div class="holesinfoback htestcircle">10</div>
-	       <div class="holesinfoback" id="h10">0</div>
-	       <div class="holesinfoback" id="p10">0</div>
-         
-            </div>
-         
-            <div class="child-three">  
-       
-               <div class="holesinfoout htestcircle">2</div>
-               <div class="holesinfoout" id="h2">0</div>
-	       <div class="holesinfoout" id="p2">0</div>
-	       <div class="holesinfoback htestcircle">11</div>
-	       <div class="holesinfoback" id="h11">0</div>
-	       <div class="holesinfoback" id="p11">0</div>
-	
-	    </div>
-			
-	    <div class="child-three">	
-			
-			<div class="holesinfoout htestcircle">3</div>
-			<div class="holesinfoout" id="h3">0</div>
-			<div class="holesinfoout" id="p3">0</div>
-			<div class="holesinfoback htestcircle">12</div>
-			<div class="holesinfoback" id="h12">0</div>
-			<div class="holesinfoback" id="p12">0</div>
-		
-	</div>	
-		
-	<div class="child-three">
-	
-			<div class="holesinfoout htestcircle">4</div>
-			<div class="holesinfoout" id="h4">0</div>
-			<div class="holesinfoout" id="p4">0</div>
-			<div class="holesinfoback htestcircle">13</div>
-			<div class="holesinfoback" id="h13">0</div>
-			<div class="holesinfoback" id="p13">0</div>
-	
-	</div>	
-		
-	<div class="child-three">
-		
-			<div class="holesinfoout htestcircle">5</div>
-			<div class="holesinfoout" id="h5">0</div>
-			<div class="holesinfoout" id="p5">0</div>
-			<div class="holesinfoback htestcircle">14</div>
-			<div class="holesinfoback" id="h14">0</div>
-			<div class="holesinfoback" id="p14">0</div>
-		
-	</div>	
-		
-	<div class="child-three">	
-		
-			<div class="holesinfoout htestcircle">6</div>
-			<div class="holesinfoout" id="h6">0</div>
-			<div class="holesinfoout" id="p6">0</div>
-			<div class="holesinfoback htestcircle">15</div>
-			<div class="holesinfoback" id="h15">0</div>
-			<div class="holesinfoback" id="p15">0</div>
-		
-	</div>	
-		
-	<div class="child-three">
-	
-			<div class="holesinfoout htestcircle">7</div>
-			<div class="holesinfoout" id="h7">0</div>
-			<div class="holesinfoout" id="p7">0</div>
-			<div class="holesinfoback htestcircle">16</div>
-			<div class="holesinfoback" id="h16">0</div>
-			<div class="holesinfoback" id="p16">0</div>
-		
-	</div>	
-		
-	<div class="child-three">
-		
-			<div class="holesinfoout htestcircle">8</div>
-			<div class="holesinfoout" id="h8">0</div>
-			<div class="holesinfoout" id="p8">0</div>
-			<div class="holesinfoback htestcircle">17</div>
-			<div class="holesinfoback" id="h17">0</div>
-			<div class="holesinfoback" id="p17">0</div>
-		
-	</div>	
-		
-	<div class="child-three">
-		
-			<div class="holesinfoout htestcircle">9</div>
-			<div class="holesinfoout" id="h9">0</div>
-			<div class="holesinfoout" id="p9">0</div>
-			<div class="holesinfoback htestcircle">18</div>
-			<div class="holesinfoback" id="h18">0</div>
-			<div class="holesinfoback" id="p18">0</div>
-	</div>	
-		
-	<div class="child-three">
-		
-			<div class="holesinfoout">front</div>
-			<div class="holesinfoout" id="hfront">0</div>
-			<div class="holesinfoout" id="pfront">0</div>
-			<div class="holesinfoback">back</div>
-			<div class="holesinfoback" id="hback">0</div>
-			<div class="holesinfoback" id="pback">0</div>
-		
-	</div>	
-		
-	<div class="child-four">
-		
-			<div class="holesinfo">score</div>
-			<div class="holesinfo" id="htotal">00</div>
-			<div class="holesinfo">points</div>
-			<div class="holesinfo" id="ptotal">00</div>
-	</div>
-	
-	<div class="child-four">
-			
-			
-			<div class="countbackinfo" id="cback">countback 9=0, 6=0, 3=0, 1=0</div>
-
-	</div>
-</div> <!-- id=bb -->		
-
-
-<div id="spacer1"></div>
-	<div class="child-one">	
-	<div class="hcp" id="hcp">
-	   <span>playing</span> <span class="numx" id="numhcp">?</span> <span>handicap</span>
-	</div>	
-	</div>
-	
-	<div class="child-one">	
-	<div class="submit" onclick="submitForm()">
-	   <div id="submit">submit</div>
-	</div>
-	</div>
-	
-	<div class="child-five">
-	
-			<div class="footer" id="limg" onclick="clearCache()"> <img src="resetwhite.png" alt="cache" style="height: 4vh;">&nbsp;reset</div>
-			
-			<div class="footer" id="mimgl" onclick="showcoursecard()"> <img src="documents-icon.png" alt="strokes" style="height: 4vh;">&nbsp;strokes</div>
-			
-	</div>
-	
-<!-- coursecard strokes and rules -->
-<div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
-<div class="showrules" id="showrules" onclick="rclose()"></div>
-
-<div id="popuppanel"></div>
-</div> <!-- wrapper -->
-
-	<div id="blackout"></div>
-
-<!-- score input pages -->
-<div class="wrapper" id="scoringfront9">
-
-
-
-<div class="child-six">
-   <div class="minus" onclick='decrementScore("numscore1")'>-</div>
-   <div class="score" id="numscore1" onclick="showHole(this.id)">1</div>
-   <div class="plus" onclick='incrementScore("numscore1")'>+</div>
-</div>   
-
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore2")'>-</div>
-   <div class="score" id="numscore2" onclick="showHole(this.id)">2</div>
-   <div class="plus" onclick='incrementScore("numscore2")'>+</div>
-</div>   
- 
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore3")'>-</div>
-   <div class="score" id="numscore3" onclick="showHole(this.id)">3</div>
-   <div class="plus" onclick='incrementScore("numscore3")'>+</div>
-</div>
-
-<div class="child-six">   	
-   <div class="minus" onclick='decrementScore("numscore4")'>-</div>
-   <div class="score" id="numscore4" onclick="showHole(this.id)">4</div>
-   <div class="plus" onclick='incrementScore("numscore4")'>+</div>
-</div>
-
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore5")'>-</div>
-   <div class="score" id="numscore5" onclick="showHole(this.id)">5</div>
-   <div class="plus" onclick='incrementScore("numscore5")'>+</div>
-</div>
-	
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore6")'>-</div>
-   <div class="score" id="numscore6" onclick="showHole(this.id)">6</div>
-   <div class="plus" onclick='incrementScore("numscore6")'>+</div>
-</div>	
-   <div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore7")'>-</div>
-   <div class="score" id="numscore7" onclick="showHole(this.id)">7</div>
-   <div class="plus" onclick='incrementScore("numscore7")'>+</div>
-</div>
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore8")'>-</div>
-   <div class="score" id="numscore8" onclick="showHole(this.id)">8</div>
-   <div class="plus" onclick='incrementScore("numscore8")'>+</div>
-</div>
-
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore9")'>-</div>
-   <div class="score" id="numscore9" onclick="showHole(this.id)">9</div>
-   <div class="plus" onclick='incrementScore("numscore9")'>+</div>
-</div>
-
-</div> <!-- wrapper -->
-
-
-
-
-
-<div class="midway" id="midwayfront9">front 9 details here</div>
-
-
-
-
-
-
-
-
-
-<div class="wrapper xxxwrapperforscoring" id="scoringback9">
-
-
-
-<div class="child-six">
-   <div class="minus" onclick='decrementScore("numscore10")'>-</div>
-   <div class="score" id="numscore10" onclick="showHole(this.id)">10</div>
-   <div class="plus" onclick='incrementScore("numscore10")'>+</div>
-</div>   
-
-
-
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore11")'>-</div>
-   <div class="score" id="numscore11" onclick="showHole(this.id)">11</div>
-   <div class="plus" onclick='incrementScore("numscore11")'>+</div>
-</div>   
- 
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore12")'>-</div>
-   <div class="score" id="numscore12" onclick="showHole(this.id)">12</div>
-   <div class="plus" onclick='incrementScore("numscore12")'>+</div>
-</div>
-
-<div class="child-six">   	
-   <div class="minus" onclick='decrementScore("numscore13")'>-</div>
-   <div class="score" id="numscore13" onclick="showHole(this.id)">13</div>
-   <div class="plus" onclick='incrementScore("numscore13")'>+</div>
-</div>
-
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore14")'>-</div>
-   <div class="score" id="numscore14" onclick="showHole(this.id)">14</div>
-   <div class="plus" onclick='incrementScore("numscore14")'>+</div>
-</div>
-	
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore15")'>-</div>
-   <div class="score" id="numscore15" onclick="showHole(this.id)">15</div>
-   <div class="plus" onclick='incrementScore("numscore15")'>+</div>
-</div>	
-   <div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore16")'>-</div>
-   <div class="score" id="numscore16" onclick="showHole(this.id)">16</div>
-   <div class="plus" onclick='incrementScore("numscore16")'>+</div>
-</div>
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore17")'>-</div>
-   <div class="score" id="numscore17" onclick="showHole(this.id)">17</div>
-   <div class="plus" onclick='incrementScore("numscore17")'>+</div>
-</div>
-
-<div class="child-six">   
-   <div class="minus" onclick='decrementScore("numscore18")'>-</div>
-   <div class="score" id="numscore18" onclick="showHole(this.id)">18</div>
-   <div class="plus" onclick='incrementScore("numscore18")'>+</div>
-</div>
-
-</div> <!-- wrapper -->
-
-
-
-<div class="midway" id="midwayback9">back 9 details here</div>
- <!--
-<div class="midway" id="midwayback9-3">empty space here</div>	
--->	
-	<!-- form to construct data prior to submit -->
-	<form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
-		<!-- name, hcp, course -->
-		<input id='mx474474348' name='entry.474474348' type='text' value='default'>
-		<input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
-		<input id='mx477101370' name='entry.477101370' type='text' value='default'>
-		<input id='mx1980297491' name='entry.1980297491' type='text' value='default'>
-		<input id='mx463832232' name='entry.463832232' type='text' value='default'>
-		<input id='mx205704642' name='entry.205704642' type='text' value='default'>
-		<input id='mx278278589' name='entry.278278589' type='text' value='default'>
-		<input id='mx949547387' name='entry.949547387' type='text' value='default'>
-		<input id='mx703011397' name='entry.703011397' type='text' value='default'>
-		<input id='mx1460583253' name='entry.1460583253' type='text' value='default'>
-		<input id='mx462940045' name='entry.462940045' type='text' value='default'>
-		<input id='mx477691508' name='entry.477691508' type='text' value='default'>
-		<input id='mx413249407' name='entry.413249407' type='text' value='default'>
-		<input id='mx108900453' name='entry.108900453' type='text' value='default'>
-		<input id='mx1841236411' name='entry.1841236411' type='text' value='default'>
-		<input id='mx1864644918' name='entry.1864644918' type='text' value='default'>
-		<input id='mx1538428689' name='entry.1538428689' type='text' value='default'>
-		<input id='mx1449918213' name='entry.1449918213' type='text' value='default'>
-		<input id='mx38761817' name='entry.38761817' type='text' value='default'>
-		<input id='mx247392471' name='entry.247392471' type='text' value='default'>
-		<input id='mx741809181' name='entry.741809181' type='text' value='default'>
-		<input id='mx1362729237' name='entry.1362729237' type='text' value='default'>
-		<input id='mx1372983908' name='entry.1372983908' type='text' value='default'>
-		<input id='mx2002196917' name='entry.2002196917' type='text' value='default'>
-		<input id='mx640802794' name='entry.640802794' type='text' value='default'>
-		<input id='mx2076656246' name='entry.2076656246' type='text' value='default'>
-		<input id='mx486346919' name='entry.486346919' type='text' value='default'>
-		<input id='mx1918313229' name='entry.1918313229' type='text' value='default'>
-		<input id='mx638821' name='entry.638821' type='text' value='default'>
-		<input id='mx737099688' name='entry.737099688' type='text' value='default'>
-		<input id='mx488827232' name='entry.488827232' type='text' value='default'>
-		<input id='mx1203421487' name='entry.1203421487' type='text' value='default'>
-		<input id='mx979421831' name='entry.979421831' type='text' value='default'>
-		<input id='mx929858153' name='entry.929858153' type='text' value='default'>
-		<input id='mx1330487443' name='entry.1330487443' type='text' value='default'>
-		<input id='mx940496448' name='entry.940496448' type='text' value='default'>
-		<input id='mx1127168348' name='entry.1127168348' type='text' value='default'>
-		<input id='mx638332104' name='entry.638332104' type='text' value='default'>
-		<input id='mx1626319908' name='entry.1626319908' type='text' value='default'>
-		<input id='mx362674948' name='entry.362674948' type='text' value='default'>
-		<input id='mx544180710' name='entry.544180710' type='text' value='default'>
-		<input id='mx893562950' name='entry.893562950' type='text' value='default'>
-		<input id='mx335596501' name='entry.335596501' type='text' value='default'>
-		<input id='mx1453506389' name='entry.1453506389' type='text' value='default'>
-		<input id='mx1045870519' name='entry.1045870519' type='text' value='default'>
-		<input id='mx683300283' name='entry.683300283' type='text' value='default'>
-		<input id='mx967906330' name='entry.967906330' type='text' value='default'>
-		<input id='mx789190149' name='entry.789190149' type='text' value='default'>
-		<input type="submit"> </form>
-
-
-
-
-
-	<!-- google iframe inserted here - invisible -->
-	<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/viewform?embedded=true" width="60"></iframe>
-	
-
-	<script>
-	
-//===========================
-// this code runs at startup
-//===========================
-// declare global variables
-var hcp = "0";
-var player = "select player";
-var todayscomp = "";
-var dateToday = "";
-var course = "";
-var comp = "";
-var arrComps = [];
-var arrPlayers = [];
-var arrLadies = []
-var arrHcps = [];
-var arrOptions = [];
-var oldArrOptions = [];
-var arrDawson = [];
-var arrDawsonRed = [];
-var arrLakes = [];
-var arrLakesRed = [];
-var arrOldCourse = [];
-var arrOldCourseRed = [];
-var useRedTees = false;
-
-
-
-	//==============================================================
-	// data has previously been stored so just retrieve it
-	//==============================================================
-	// retrieve arrays
-	// previously downloaded by menu screen
-        if("wwplayersarray" in localStorage) {
-	     arrPlayers = JSON.parse(localStorage.wwplayersarray);
-        }
-        if("wwhcpsarray" in localStorage) {
-	     arrHcps = JSON.parse(localStorage.wwhcpsarray);
-        }
-        // retrieve competition
-        if("wwtodayscomp" in localStorage) {
-            todayscomp = localStorage.wwtodayscomp; 
-	    // global comp
-	    temp = todayscomp.split(" ")
-	    course = temp[0];
-	    // set up course arrays here, one for men and one for ladies
-	    // saves on the number of arrays being used
-	    if(course == "Dawson") {
-		// set up arrDawson
-		// set up arrDawsonRed
-		setupDawsonCourse()
-	    }
-	    if(course == "Lakes") {
-		// set up arrLakes
-		// set up arrLakesRed
-		setupLakesCourse()
-	    }
-	    if(course == "OldCourse") {
-		// set up arrOldCourse
-		// set up arrOldCourseRed
-		setupOldCourseCourse()
-	    }
+    @-webkit-keyframes fadeIn {
+      0% {
+        opacity: 0;
       }
 
+      100% {
+        opacity: 1;
+      }
+    }
 
-startNewDay();
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    #spacer1 {
+      padding: 3px;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="wrapper" id="frontpage">
+
+      <div class="child-one">
+        <div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select player</div>
+        <div id="playersDropdown" class="dropdown-content"> </div>
+      </div>
+      <div id="bb">
+        <div class="child-two">
+          <div class="holesinfotop">hole</div>
+          <div class="holesinfotop">score</div>
+          <div class="holesinfotop">points</div>
+          <div class="holesinfotop">hole</div>
+          <div class="holesinfotop">score</div>
+          <div class="holesinfotop">points</div>
+        </div>
+
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">1</div>
+          <div class="holesinfoout" id="h1">0</div>
+          <div class="holesinfoout" id="p1">0</div>
+          <div class="holesinfoback htestcircle">10</div>
+          <div class="holesinfoback" id="h10">0</div>
+          <div class="holesinfoback" id="p10">0</div>
+
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">2</div>
+          <div class="holesinfoout" id="h2">0</div>
+          <div class="holesinfoout" id="p2">0</div>
+          <div class="holesinfoback htestcircle">11</div>
+          <div class="holesinfoback" id="h11">0</div>
+          <div class="holesinfoback" id="p11">0</div>
+
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">3</div>
+          <div class="holesinfoout" id="h3">0</div>
+          <div class="holesinfoout" id="p3">0</div>
+          <div class="holesinfoback htestcircle">12</div>
+          <div class="holesinfoback" id="h12">0</div>
+          <div class="holesinfoback" id="p12">0</div>
+
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">4</div>
+          <div class="holesinfoout" id="h4">0</div>
+          <div class="holesinfoout" id="p4">0</div>
+          <div class="holesinfoback htestcircle">13</div>
+          <div class="holesinfoback" id="h13">0</div>
+          <div class="holesinfoback" id="p13">0</div>
+
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">5</div>
+          <div class="holesinfoout" id="h5">0</div>
+          <div class="holesinfoout" id="p5">0</div>
+          <div class="holesinfoback htestcircle">14</div>
+          <div class="holesinfoback" id="h14">0</div>
+          <div class="holesinfoback" id="p14">0</div>
+
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">6</div>
+          <div class="holesinfoout" id="h6">0</div>
+          <div class="holesinfoout" id="p6">0</div>
+          <div class="holesinfoback htestcircle">15</div>
+          <div class="holesinfoback" id="h15">0</div>
+          <div class="holesinfoback" id="p15">0</div>
+
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">7</div>
+          <div class="holesinfoout" id="h7">0</div>
+          <div class="holesinfoout" id="p7">0</div>
+          <div class="holesinfoback htestcircle">16</div>
+          <div class="holesinfoback" id="h16">0</div>
+          <div class="holesinfoback" id="p16">0</div>
+
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">8</div>
+          <div class="holesinfoout" id="h8">0</div>
+          <div class="holesinfoout" id="p8">0</div>
+          <div class="holesinfoback htestcircle">17</div>
+          <div class="holesinfoback" id="h17">0</div>
+          <div class="holesinfoback" id="p17">0</div>
+
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout htestcircle">9</div>
+          <div class="holesinfoout" id="h9">0</div>
+          <div class="holesinfoout" id="p9">0</div>
+          <div class="holesinfoback htestcircle">18</div>
+          <div class="holesinfoback" id="h18">0</div>
+          <div class="holesinfoback" id="p18">0</div>
+        </div>
+
+        <div class="child-three">
+
+          <div class="holesinfoout">front</div>
+          <div class="holesinfoout" id="hfront">0</div>
+          <div class="holesinfoout" id="pfront">0</div>
+          <div class="holesinfoback">back</div>
+          <div class="holesinfoback" id="hback">0</div>
+          <div class="holesinfoback" id="pback">0</div>
+
+        </div>
+
+        <div class="child-four">
+
+          <div class="holesinfo">score</div>
+          <div class="holesinfo" id="htotal">00</div>
+          <div class="holesinfo">points</div>
+          <div class="holesinfo" id="ptotal">00</div>
+        </div>
+
+        <div class="child-four">
+
+
+          <div class="countbackinfo" id="cback">countback 9=0, 6=0, 3=0, 1=0</div>
+
+        </div>
+      </div> <!-- id=bb -->
+
+
+      <div id="spacer1"></div>
+      <div class="child-one">
+        <div class="hcp" id="hcp">
+          <span>playing</span> <span class="numx" id="numhcp">?</span> <span>handicap</span>
+        </div>
+      </div>
+
+      <div class="child-one">
+        <div class="submit" onclick="submitForm()">
+          <div id="submit">submit</div>
+        </div>
+      </div>
+
+      <div class="child-five">
+
+        <div class="footer" id="limg" onclick="clearCache()"> <img src="resetwhite.png" alt="cache" style="height: 4vh;">&nbsp;reset</div>
+
+        <div class="footer" id="mimgl" onclick="showcoursecard()"> <img src="documents-icon.png" alt="strokes" style="height: 4vh;">&nbsp;strokes</div>
+
+      </div>
+
+      <!-- coursecard strokes and rules -->
+      <div class="showcoursecard" id="showcoursecard" onclick="ccclose()"></div>
+      <!--
+      <div class="showrules" id="showrules" onclick="rclose()"></div>
+      -->
+      <div id="popuppanel"></div>
+    </div> <!-- wrapper -->
+
+    <div id="blackout"></div>
+
+    <!-- score input pages -->
+    <div class="wrapper" id="scoringfront9">
+
+
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore1")'>-</div>
+        <div class="score" id="numscore1" onclick="showHole(this.id)">1</div>
+        <div class="plus" onclick='incrementScore("numscore1")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore2")'>-</div>
+        <div class="score" id="numscore2" onclick="showHole(this.id)">2</div>
+        <div class="plus" onclick='incrementScore("numscore2")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore3")'>-</div>
+        <div class="score" id="numscore3" onclick="showHole(this.id)">3</div>
+        <div class="plus" onclick='incrementScore("numscore3")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore4")'>-</div>
+        <div class="score" id="numscore4" onclick="showHole(this.id)">4</div>
+        <div class="plus" onclick='incrementScore("numscore4")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore5")'>-</div>
+        <div class="score" id="numscore5" onclick="showHole(this.id)">5</div>
+        <div class="plus" onclick='incrementScore("numscore5")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore6")'>-</div>
+        <div class="score" id="numscore6" onclick="showHole(this.id)">6</div>
+        <div class="plus" onclick='incrementScore("numscore6")'>+</div>
+      </div>
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore7")'>-</div>
+        <div class="score" id="numscore7" onclick="showHole(this.id)">7</div>
+        <div class="plus" onclick='incrementScore("numscore7")'>+</div>
+      </div>
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore8")'>-</div>
+        <div class="score" id="numscore8" onclick="showHole(this.id)">8</div>
+        <div class="plus" onclick='incrementScore("numscore8")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore9")'>-</div>
+        <div class="score" id="numscore9" onclick="showHole(this.id)">9</div>
+        <div class="plus" onclick='incrementScore("numscore9")'>+</div>
+      </div>
+
+    </div> <!-- wrapper -->
 
 
 
 
-start();
+
+    <div class="midway" id="midwayfront9">front 9 details here</div>
 
 
 
 
-//=============================================================
-// functions - run when called
-//=============================================================  
-function setupLakesCourse() {
-	// set up courses with details for calculations etc.
-	// array ["hole num",par,si]
-	// Lakes yellow tees
-	arrLakes = [
-		[0, 0, 0],
-		[1, 4, 15],
-		[2, 4, 7],
-		[3, 5, 3],
-		[4, 4, 1],
-		[5, 3, 17],
-		[6, 3, 11],
-		[7, 4, 9],
-		[8, 4, 5],
-		[9, 4, 13],
-		[10, 3, 16],
-		[11, 4, 18],
-		[12, 4, 10],
-		[13, 4, 6],
-		[14, 3, 14],
-		[15, 3, 4],
-		[16, 5, 12],
-		[17, 4, 2],
-		[18, 5, 8]
-	];
-	// Lakes red tees
-	arrLakesRed = [
-		[0, 0, 0],
-		[1, 4, 15],
-		[2, 4, 1],
-		[3, 5, 3],
-		[4, 4, 5],
-		[5, 3, 17],
-		[6, 3, 9],
-		[7, 4, 11],
-		[8, 4, 7],
-		[9, 4, 13],
-		[10, 3, 16],
-		[11, 4, 18],
-		[12, 4, 4],
-		[13, 4, 12],
-		[14, 3, 14],
-		[15, 3, 10],
-		[16, 5, 6],
-		[17, 4, 2],
-		[18, 5, 8]
-	];
-}
 
-function setupDawsonCourse() {
-	// set up courses with details for calculations etc.
-	// array ["hole num",par,si]
-	// Dawson yellow tees	
-	// array ["hole num",par,si]
-	// Dawson
-	arrDawson = [
-		[0, 0, 0],
-		[1, 5, 13],
-		[2, 4, 15],
-		[3, 3, 17],
-		[4, 4, 3],
-		[5, 4, 1],
-		[6, 5, 11],
-		[7, 4, 7],
-		[8, 4, 9],
-		[9, 5, 5],
-		[10, 4, 16],
-		[11, 5, 14],
-		[12, 3, 18],
-		[13, 4, 2],
-		[14, 4, 4],
-		[15, 4, 12],
-		[16, 3, 6],
-		[17, 4, 10],
-		[18, 4, 8]
-	];
-	// Dawson red tees	
-	arrDawsonRed = [
-		[0, 0, 0],
-		[1, 5, 7],
-		[2, 4, 5],
-		[3, 3, 17],
-		[4, 4, 3],
-		[5, 4, 1],
-		[6, 5, 9],
-		[7, 4, 15],
-		[8, 4, 13],
-		[9, 5, 11],
-		[10, 4, 10],
-		[11, 5, 4],
-		[12, 3, 18],
-		[13, 4, 2],
-		[14, 4, 14],
-		[15, 4, 8],
-		[16, 3, 16],
-		[17, 4, 12],
-		[18, 4, 6]
-	];
-}
 
-function setupOldCourseCourse() {
-	// set up courses with details for calculations etc.
-	// array ["hole num",par,si]
-	// OldCourse yellow tees		
-	// array ["hole num",par,si]
-	arrOldCourse = [
-		[0, 0, 0],
-		[1, 5, 14],
-		[2, 4, 12],
-		[3, 3, 18],
-		[4, 5, 8],
-		[5, 3, 16],
-		[6, 4, 6],
-		[7, 4, 2],
-		[8, 4, 13],
-		[9, 4, 4],
-		[10, 4, 5],
-		[11, 3, 17],
-		[12, 4, 11],
-		[13, 4, 3],
-		[14, 5, 10],
-		[15, 3, 7],
-		[16, 5, 15],
-		[17, 4, 1],
-		[18, 5, 9]
-	];
-	arrOldCourseRed = [
-		[0, 0, 0],
-		[1, 5, 14],
-		[2, 4, 12],
-		[3, 3, 18],
-		[4, 5, 8],
-		[5, 3, 16],
-		[6, 4, 6],
-		[7, 4, 2],
-		[8, 4, 13],
-		[9, 4, 4],
-		[10, 4, 5],
-		[11, 3, 17],
-		[12, 4, 11],
-		[13, 4, 3],
-		[14, 5, 10],
-		[15, 3, 7],
-		[16, 5, 15],
-		[17, 4, 1],
-		[18, 5, 9]
-	];
-}
 
-function startNewDay() {
-	// get todays date eg 26 June
-	dd = new Date();
-	// get date number and format it
-	d1 = dd.getDate();
-	if(d1 < 10) {
-		d1 = "0" + d1;
-	}
-	// get month and format it
-	d2 = dd.getMonth();
-	if(d2 == 0) {
-		m = "January";
-	}
-	if(d2 == 1) {
-		m = "February";
-	}
-	if(d2 == 2) {
-		m = "March";
-	}
-	if(d2 == 3) {
-		m = "April";
-	}
-	if(d2 == 4) {
-		m = "May";
-	}
-	if(d2 == 5) {
-		m = "June";
-	}
-	if(d2 == 6) {
-		m = "July";
-	}
-	if(d2 == 7) {
-		m = "August";
-	}
-	if(d2 == 8) {
-		m = "September";
-	}
-	if(d2 == 9) {
-		m = "October";
-	}
-	if(d2 == 10) {
-		m = "November";
-	}
-	if(d2 == 11) {
-		m = "December";
-	}
-	dateToday = d1 + " " + m;
-	// if its a new comp start over by tidying previous data
-	if(todayscomp.indexOf(dateToday) < 0) {
-	//	localStorage.removeItem("player");
-	//	localStorage.removeItem("hcp");
-		// .... do a tidy up of scores etc.
-		
-	        for(var i=0; i<localStorage.length; i++) {
-                    var key = localStorage.key(i);
-                    // only do local storage for this app
-                    if (key.substr(0, 2) == "ww") {
-                        // remove hole scores
-                        if (key.substr(0, 6) == "wwhole") { 
-                            localStorage.removeItem(key);
-                        } 
-                        // remove previous player info
-                        if (key == "wwplayer" || key == "wwhcp") { 
-                            localStorage.removeItem(key);
-                        }
-                    }
-                }    
+
+
+    <div class="wrapper xxxwrapperforscoring" id="scoringback9">
+
+
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore10")'>-</div>
+        <div class="score" id="numscore10" onclick="showHole(this.id)">10</div>
+        <div class="plus" onclick='incrementScore("numscore10")'>+</div>
+      </div>
+
+
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore11")'>-</div>
+        <div class="score" id="numscore11" onclick="showHole(this.id)">11</div>
+        <div class="plus" onclick='incrementScore("numscore11")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore12")'>-</div>
+        <div class="score" id="numscore12" onclick="showHole(this.id)">12</div>
+        <div class="plus" onclick='incrementScore("numscore12")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore13")'>-</div>
+        <div class="score" id="numscore13" onclick="showHole(this.id)">13</div>
+        <div class="plus" onclick='incrementScore("numscore13")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore14")'>-</div>
+        <div class="score" id="numscore14" onclick="showHole(this.id)">14</div>
+        <div class="plus" onclick='incrementScore("numscore14")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore15")'>-</div>
+        <div class="score" id="numscore15" onclick="showHole(this.id)">15</div>
+        <div class="plus" onclick='incrementScore("numscore15")'>+</div>
+      </div>
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore16")'>-</div>
+        <div class="score" id="numscore16" onclick="showHole(this.id)">16</div>
+        <div class="plus" onclick='incrementScore("numscore16")'>+</div>
+      </div>
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore17")'>-</div>
+        <div class="score" id="numscore17" onclick="showHole(this.id)">17</div>
+        <div class="plus" onclick='incrementScore("numscore17")'>+</div>
+      </div>
+
+      <div class="child-six">
+        <div class="minus" onclick='decrementScore("numscore18")'>-</div>
+        <div class="score" id="numscore18" onclick="showHole(this.id)">18</div>
+        <div class="plus" onclick='incrementScore("numscore18")'>+</div>
+      </div>
+
+    </div> <!-- wrapper -->
+
+
+
+    <div class="midway" id="midwayback9">back 9 details here</div>
+    <!--
+<div class="midway" id="midwayback9-3">empty space here</div>  
+-->
+    <!-- form to construct data prior to submit -->
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+      <!-- name, hcp, course -->
+      <input id='mx474474348' name='entry.474474348' type='text' value='default'>
+      <input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
+      <input id='mx477101370' name='entry.477101370' type='text' value='default'>
+      <input id='mx1980297491' name='entry.1980297491' type='text' value='default'>
+      <input id='mx463832232' name='entry.463832232' type='text' value='default'>
+      <input id='mx205704642' name='entry.205704642' type='text' value='default'>
+      <input id='mx278278589' name='entry.278278589' type='text' value='default'>
+      <input id='mx949547387' name='entry.949547387' type='text' value='default'>
+      <input id='mx703011397' name='entry.703011397' type='text' value='default'>
+      <input id='mx1460583253' name='entry.1460583253' type='text' value='default'>
+      <input id='mx462940045' name='entry.462940045' type='text' value='default'>
+      <input id='mx477691508' name='entry.477691508' type='text' value='default'>
+      <input id='mx413249407' name='entry.413249407' type='text' value='default'>
+      <input id='mx108900453' name='entry.108900453' type='text' value='default'>
+      <input id='mx1841236411' name='entry.1841236411' type='text' value='default'>
+      <input id='mx1864644918' name='entry.1864644918' type='text' value='default'>
+      <input id='mx1538428689' name='entry.1538428689' type='text' value='default'>
+      <input id='mx1449918213' name='entry.1449918213' type='text' value='default'>
+      <input id='mx38761817' name='entry.38761817' type='text' value='default'>
+      <input id='mx247392471' name='entry.247392471' type='text' value='default'>
+      <input id='mx741809181' name='entry.741809181' type='text' value='default'>
+      <input id='mx1362729237' name='entry.1362729237' type='text' value='default'>
+      <input id='mx1372983908' name='entry.1372983908' type='text' value='default'>
+      <input id='mx2002196917' name='entry.2002196917' type='text' value='default'>
+      <input id='mx640802794' name='entry.640802794' type='text' value='default'>
+      <input id='mx2076656246' name='entry.2076656246' type='text' value='default'>
+      <input id='mx486346919' name='entry.486346919' type='text' value='default'>
+      <input id='mx1918313229' name='entry.1918313229' type='text' value='default'>
+      <input id='mx638821' name='entry.638821' type='text' value='default'>
+      <input id='mx737099688' name='entry.737099688' type='text' value='default'>
+      <input id='mx488827232' name='entry.488827232' type='text' value='default'>
+      <input id='mx1203421487' name='entry.1203421487' type='text' value='default'>
+      <input id='mx979421831' name='entry.979421831' type='text' value='default'>
+      <input id='mx929858153' name='entry.929858153' type='text' value='default'>
+      <input id='mx1330487443' name='entry.1330487443' type='text' value='default'>
+      <input id='mx940496448' name='entry.940496448' type='text' value='default'>
+      <input id='mx1127168348' name='entry.1127168348' type='text' value='default'>
+      <input id='mx638332104' name='entry.638332104' type='text' value='default'>
+      <input id='mx1626319908' name='entry.1626319908' type='text' value='default'>
+      <input id='mx362674948' name='entry.362674948' type='text' value='default'>
+      <input id='mx544180710' name='entry.544180710' type='text' value='default'>
+      <input id='mx893562950' name='entry.893562950' type='text' value='default'>
+      <input id='mx335596501' name='entry.335596501' type='text' value='default'>
+      <input id='mx1453506389' name='entry.1453506389' type='text' value='default'>
+      <input id='mx1045870519' name='entry.1045870519' type='text' value='default'>
+      <input id='mx683300283' name='entry.683300283' type='text' value='default'>
+      <input id='mx967906330' name='entry.967906330' type='text' value='default'>
+      <input id='mx789190149' name='entry.789190149' type='text' value='default'>
+      <input type="submit"> </form>
+
+
+
+
+
+    <!-- google iframe inserted here - invisible -->
+    <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/viewform?embedded=true" width="60"></iframe>
+
+
+    <script>
+    //===========================
+    // this code runs at startup
+    //===========================
+    
+    // prevent default img menu of options
+    document.addEventListener('contextmenu', event => {
+      event.preventDefault()
+    })
+    
+    // declare global variables
+    var hcp = "0";
+    var player = "select player";
+    var todayscomp = "";
+    var dateToday = "";
+    var course = "";
+    var comp = "";
+    var useRedTees = false;
+    
+    // array holders
+    var arrComps = [];
+    var arrPlayers = [];
+    var arrLadies = []
+    var arrHcps = [];
+    var arrOptions = [];
+    var oldArrOptions = [];
+    var arrDawson = [];
+    var arrDawsonRed = [];
+    var arrLakes = [];
+    var arrLakesRed = [];
+    var arrOldCourse = [];
+    var arrOldCourseRed = [];
+   
+    //====================================================================
+    // data has previously been stored by winter.html so just retrieve it
+    //====================================================================
+    // retrieve arrays
+    // previously downloaded by menu screen
+    if ("wwplayersarray" in localStorage) {
+      arrPlayers = JSON.parse(localStorage.wwplayersarray);
+    }
+    if ("wwhcpsarray" in localStorage) {
+      arrHcps = JSON.parse(localStorage.wwhcpsarray);
+    }
+    // retrieve competition
+    if ("wwtodayscomp" in localStorage) {
+      todayscomp = localStorage.wwtodayscomp;
+      // global comp
+      temp = todayscomp.split(" ")
+      course = temp[0];
+      // set up course arrays here, one for men and one for ladies
+      // saves on the number of arrays being used
+      if (course == "Dawson") {
+        // set up arrDawson
+        // set up arrDawsonRed
+        setupDawsonCourse()
+      }
+      if (course == "Lakes") {
+        // set up arrLakes
+        // set up arrLakesRed
+        setupLakesCourse()
+      }
+      if (course == "OldCourse") {
+        // set up arrOldCourse
+        // set up arrOldCourseRed
+        setupOldCourseCourse()
+      }
+    }
+
+    startNewDay();
+
+    start();
+
+    //=============================================================
+    // functions - run when called
+    //=============================================================  
+    function setupLakesCourse() {
+      // set up courses with details for calculations etc.
+      // array ["hole num",par,si]
+      // Lakes yellow tees
+      arrLakes = [
+        [0, 0, 0],
+        [1, 4, 15],
+        [2, 4, 7],
+        [3, 5, 3],
+        [4, 4, 1],
+        [5, 3, 17],
+        [6, 3, 11],
+        [7, 4, 9],
+        [8, 4, 5],
+        [9, 4, 13],
+        [10, 3, 16],
+        [11, 4, 18],
+        [12, 4, 10],
+        [13, 4, 6],
+        [14, 3, 14],
+        [15, 3, 4],
+        [16, 5, 12],
+        [17, 4, 2],
+        [18, 5, 8]
+      ];
+      // Lakes red tees
+      arrLakesRed = [
+        [0, 0, 0],
+        [1, 4, 15],
+        [2, 4, 1],
+        [3, 5, 3],
+        [4, 4, 5],
+        [5, 3, 17],
+        [6, 3, 9],
+        [7, 4, 11],
+        [8, 4, 7],
+        [9, 4, 13],
+        [10, 3, 16],
+        [11, 4, 18],
+        [12, 4, 4],
+        [13, 4, 12],
+        [14, 3, 14],
+        [15, 3, 10],
+        [16, 5, 6],
+        [17, 4, 2],
+        [18, 5, 8]
+      ];
+    }
+
+    function setupDawsonCourse() {
+      // set up courses with details for calculations etc.
+      // array ["hole num",par,si]
+      // Dawson yellow tees  
+      // array ["hole num",par,si]
+      // Dawson
+      arrDawson = [
+        [0, 0, 0],
+        [1, 5, 13],
+        [2, 4, 15],
+        [3, 3, 17],
+        [4, 4, 3],
+        [5, 4, 1],
+        [6, 5, 11],
+        [7, 4, 7],
+        [8, 4, 9],
+        [9, 5, 5],
+        [10, 4, 16],
+        [11, 5, 14],
+        [12, 3, 18],
+        [13, 4, 2],
+        [14, 4, 4],
+        [15, 4, 12],
+        [16, 3, 6],
+        [17, 4, 10],
+        [18, 4, 8]
+      ];
+      // Dawson red tees  
+      arrDawsonRed = [
+        [0, 0, 0],
+        [1, 5, 7],
+        [2, 4, 5],
+        [3, 3, 17],
+        [4, 4, 3],
+        [5, 4, 1],
+        [6, 5, 9],
+        [7, 4, 15],
+        [8, 4, 13],
+        [9, 5, 11],
+        [10, 4, 10],
+        [11, 5, 4],
+        [12, 3, 18],
+        [13, 4, 2],
+        [14, 4, 14],
+        [15, 4, 8],
+        [16, 3, 16],
+        [17, 4, 12],
+        [18, 4, 6]
+      ];
+    }
+
+    function setupOldCourseCourse() {
+      // set up courses with details for calculations etc.
+      // array ["hole num",par,si]
+      // OldCourse yellow tees    
+      // array ["hole num",par,si]
+      arrOldCourse = [
+        [0, 0, 0],
+        [1, 5, 14],
+        [2, 4, 12],
+        [3, 3, 18],
+        [4, 5, 8],
+        [5, 3, 16],
+        [6, 4, 6],
+        [7, 4, 2],
+        [8, 4, 13],
+        [9, 4, 4],
+        [10, 4, 5],
+        [11, 3, 17],
+        [12, 4, 11],
+        [13, 4, 3],
+        [14, 5, 10],
+        [15, 3, 7],
+        [16, 5, 15],
+        [17, 4, 1],
+        [18, 5, 9]
+      ];
+      arrOldCourseRed = [
+        [0, 0, 0],
+        [1, 5, 14],
+        [2, 4, 12],
+        [3, 3, 18],
+        [4, 5, 8],
+        [5, 3, 16],
+        [6, 4, 6],
+        [7, 4, 2],
+        [8, 4, 13],
+        [9, 4, 4],
+        [10, 4, 5],
+        [11, 3, 17],
+        [12, 4, 11],
+        [13, 4, 3],
+        [14, 5, 10],
+        [15, 3, 7],
+        [16, 5, 15],
+        [17, 4, 1],
+        [18, 5, 9]
+      ];
+    }
+
+    function startNewDay() {
+      // get todays date eg 26 June
+      dd = new Date();
+      // get date number and format it
+      d1 = dd.getDate();
+      if (d1 < 10) {
+        d1 = "0" + d1;
+      }
+      // get month and format it
+      d2 = dd.getMonth();
+      if (d2 == 0) {
+        m = "January";
+      }
+      if (d2 == 1) {
+        m = "February";
+      }
+      if (d2 == 2) {
+        m = "March";
+      }
+      if (d2 == 3) {
+        m = "April";
+      }
+      if (d2 == 4) {
+        m = "May";
+      }
+      if (d2 == 5) {
+        m = "June";
+      }
+      if (d2 == 6) {
+        m = "July";
+      }
+      if (d2 == 7) {
+        m = "August";
+      }
+      if (d2 == 8) {
+        m = "September";
+      }
+      if (d2 == 9) {
+        m = "October";
+      }
+      if (d2 == 10) {
+        m = "November";
+      }
+      if (d2 == 11) {
+        m = "December";
+      }
+      dateToday = d1 + " " + m;
+      // if its a new comp start over by tidying previous data
+      if (todayscomp.indexOf(dateToday) < 0) {
+        // .... do a tidy up of scores etc.
+
+        for (var i = 0; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+          // only do local storage for this app
+          if (key.substr(0, 2) == "ww") {
+            // remove hole scores
+            if (key.substr(0, 6) == "wwhole") {
+              localStorage.removeItem(key);
+            }
+            // remove previous player info
+            if (key == "wwplayer" || key == "wwhcp") {
+              localStorage.removeItem(key);
+            }
+          }
+        }
+        
+      }
+
+    }
+    
+    
+    //=============================================================
+    // function start()
+    // - initialise everything and do checks etc.
+    //=============================================================  
+    function start() {
+      // check for any previous selections
+      // setup local dropdown if not there
+      if ("wwdropdown" in localStorage) {
+        oldArrOptions = JSON.parse(localStorage.wwdropdown);
+      }
+      
+      // create options array for dropdown 
+      for (var i = 0; i < arrPlayers.length; i++) {
+        x = arrPlayers[i]
+        arrOptions.push([x, 0])
+      }
+      
+      // update Options array with choices info
+      for (var i = 0; i < oldArrOptions.length; i++) {
+        // if there is a value
+        if (oldArrOptions[i][1] > 0) {
+          for (var j = 0; j < arrOptions.length; j++) {
+            // if names match
+            if (arrOptions[j][0] == oldArrOptions[i][0]) {
+              arrOptions[j][1] = oldArrOptions[i][1]
+            }
+          }
+        }
+      }
+      
+      // save dropdown info
+      localStorage.wwdropdown = JSON.stringify(arrOptions);
+      // bring most commonly selected to the top
+      arrOptions.sort(compareSecondColumn);
+      // create player dropdown
+      var select = document.getElementById("playersDropdown");
+      // this is what is created
+      //<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+      //
+      for (var i = 0; i < arrOptions.length; i++) {
+        var el = document.createElement("a");
+        el.id = "myLink" + (i);
+        el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+        el.setAttribute("href", "#");
+        el.innerText = arrOptions[i][0];
+        select.appendChild(el);
+        if (arrOptions[i][1] > 0) {
+          document.getElementById("myLink" + (i)).style.color = "blue";
+          document.getElementById("myLink" + (i)).style.background = "lightBlue";
+        }
+      }
+
+    } // end function start()
+    
+    
+    //=====================================================
+    // Close the dropdown if the user clicks outside of it
+    //=====================================================
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+    
+    
+    //======================================
+    // end of dropdown close procedure
+    //======================================
+    //=============================================
+    // recover data if dates match
+    // this allows data to be kept over refreshes
+    //=============================================
+    if ("wwtodayscomp" in localStorage) {
+      if (todayscomp.indexOf(dateToday) > -1) {
+        // recover
+        recoverFromLocalStorage();
+      }
+    }
+    
+    
+    //=======================================================================
+    // see if it is a comp day and if so find comp and course from array list
+    //=======================================================================
+    //=============================================================
+    // function resetNames()
+    // - gets rid of "selected" names
+    //=============================================================  
+    function resetNames() {
+      // delete arrOptions favourites
+      // run from menu item at bottom of list
+      // create options array for dropdown 
+      var arrOptions = [];
+      for (var i = 0; i < arrPlayers.length; i++) {
+        x = arrPlayers[i]
+        arrOptions.push([x, 0])
+      }
+      
+      
+      // update local storage.dropdown================
+      localStorage.wwdropdown = JSON.stringify(arrOptions);
+      //==============================================
+      // create player dropdown
+      var select = document.getElementById("playersDropdown");
+      // empty names
+      select.innerHTML = "";
+      // redo list for menu
+      // <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+      //
+      for (var i = 0; i < arrOptions.length; i++) {
+        var el = document.createElement("a");
+        el.id = "myLink" + (i + 1);
+        el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+        el.setAttribute("href", "#");
+        el.innerText = arrOptions[i][0];
+        select.appendChild(el);
+      }
+    }
+    
+    
+    //=============================================================
+    // function compareSecondColumn()
+    // - sort function to sort by second array item in 2D array
+    //=============================================================  
+    function compareSecondColumn(a, b) {
+      if (a[1] === b[1]) {
+        return 0;
+      } else {
+        return (a[1] > b[1]) ? -1 : 1;
+      }
+    }
+    
+    
+    //===========================
+    // name selected, do stuff
+    //===========================
+    function dropSelected(playerName) {
+      if (playerName == "reset list") {
+        resetNames();
+      } else {
+        // retrieve player and hcp info for selected playerName
+        for (var k = 0; k < arrPlayers.length; k++) {
+          if (arrPlayers[k] == playerName) {
+            hcp = arrHcps[k]
+          }
+        }
+        
+        // find player in options list
+        for (var k = 0; k < arrOptions.length; k++) {
+          if (arrOptions[k][0] == playerName) {
+            temppos = k;
+          }
+        }
+        
+        // change color on selection
+        document.getElementById("myLink" + temppos.toString()).style.color = "blue";
+        document.getElementById("myLink" + temppos.toString()).style.background = "lightBlue";
+        if (temppos >= 0) {
+          // increment number of times chosen
+          var tc = parseInt(arrOptions[temppos][1]) + 1;
+          arrOptions[temppos][1] = tc;
+          // store new order
+          localStorage.wwdropdown = JSON.stringify(arrOptions);
+          // global player
+          player = playerName;
+        }
+        
+        // replace player button name
+        document.getElementById("dropbtn").innerText = player;
+        // update localStorage
+        localStorage.wwplayer = player;
+        localStorage.wwhcp = hcp;
+        // close dropdown
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+        
+        // show hcp on screen
+        document.getElementById("numhcp").innerText = hcp;
+        
+        // check for red tees by lookup arrLadies
+        checkForRedTees();
+      }
+    }
+    
+    
+    //=============================================================
+    // function toggleDropdown()
+    // - show player name choices
+    //=============================================================  
+    function toggleDropdown() {
+      // When the user clicks on the button, toggle between hiding and showing the dropdown content
+      document.getElementById("playersDropdown").classList.toggle("show");
+    }
+
+
+    //=============================================================
+    // function submitForm()
+    // - send info from HTML form to google form
+    //=============================================================  
+    function submitForm() {
+      // get the relevant info into a form
+      // dont allow submit for an incorrect day
+
+      compday = localStorage.wwcompday;
+
+      if (compday == "yes") {
+        comp = localStorage.wwtodayscomp
+        console.log("compday = " + compday + " " + comp)
+        document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
+        document.getElementById('mx2131369517').value = player;
+        document.getElementById('mx477101370').value = hcp;
+        document.getElementById('mx1980297491').value = document.getElementById("h1").innerText;
+        document.getElementById('mx463832232').value = document.getElementById("h2").innerText;
+        document.getElementById('mx205704642').value = document.getElementById("h3").innerText;
+        document.getElementById('mx278278589').value = document.getElementById("h4").innerText;
+        document.getElementById('mx949547387').value = document.getElementById("h5").innerText;
+        document.getElementById('mx703011397').value = document.getElementById("h6").innerText;
+        document.getElementById('mx1460583253').value = document.getElementById("h7").innerText;
+        document.getElementById('mx462940045').value = document.getElementById("h8").innerText;
+        document.getElementById('mx477691508').value = document.getElementById("h9").innerText;
+        document.getElementById('mx413249407').value = document.getElementById("h10").innerText;
+        document.getElementById('mx108900453').value = document.getElementById("h11").innerText;
+        document.getElementById('mx1841236411').value = document.getElementById("h12").innerText;
+        document.getElementById('mx1864644918').value = document.getElementById("h13").innerText;
+        document.getElementById('mx1538428689').value = document.getElementById("h14").innerText;
+        document.getElementById('mx1449918213').value = document.getElementById("h15").innerText;
+        document.getElementById('mx38761817').value = document.getElementById("h16").innerText;
+        document.getElementById('mx247392471').value = document.getElementById("h17").innerText;
+        document.getElementById('mx741809181').value = document.getElementById("h18").innerText;
+        document.getElementById('mx1362729237').value = document.getElementById("p1").innerText;
+        document.getElementById('mx1372983908').value = document.getElementById("p2").innerText;
+        document.getElementById('mx2002196917').value = document.getElementById("p3").innerText;
+        document.getElementById('mx640802794').value = document.getElementById("p4").innerText;
+        document.getElementById('mx2076656246').value = document.getElementById("p5").innerText;
+        document.getElementById('mx486346919').value = document.getElementById("p6").innerText;
+        document.getElementById('mx1918313229').value = document.getElementById("p7").innerText;
+        document.getElementById('mx638821').value = document.getElementById("p8").innerText;
+        document.getElementById('mx737099688').value = document.getElementById("p9").innerText;
+        document.getElementById('mx488827232').value = document.getElementById("p10").innerText;
+        document.getElementById('mx1203421487').value = document.getElementById("p11").innerText;
+        document.getElementById('mx979421831').value = document.getElementById("p12").innerText;
+        document.getElementById('mx929858153').value = document.getElementById("p13").innerText;
+        document.getElementById('mx1330487443').value = document.getElementById("p14").innerText;
+        document.getElementById('mx940496448').value = document.getElementById("p15").innerText;
+        document.getElementById('mx1127168348').value = document.getElementById("p16").innerText;
+        document.getElementById('mx638332104').value = document.getElementById("p17").innerText;
+        document.getElementById('mx1626319908').value = document.getElementById("p18").innerText;
+        document.getElementById('mx362674948').value = document.getElementById("pfront").innerText;
+        document.getElementById('mx544180710').value = document.getElementById("pback").innerText;
+        document.getElementById('mx893562950').value = document.getElementById("ptotal").innerText;
+        //document.getElementById('mx335596501').value = document.getElementById("cback9");
+        // start of countback
+        document.getElementById('mx335596501').value = document.getElementById("pback").innerText;
+        tempcb6 = 0;
+        tempcb6 += parseInt(document.getElementById("p18").innerText);
+        tempcb6 += parseInt(document.getElementById("p17").innerText);
+        tempcb6 += parseInt(document.getElementById("p16").innerText);
+        tempcb6 += parseInt(document.getElementById("p15").innerText);
+        tempcb6 += parseInt(document.getElementById("p14").innerText);
+        tempcb6 += parseInt(document.getElementById("p13").innerText);
+        tempcb3 = 0;
+        tempcb3 += parseInt(document.getElementById("p18").innerText);
+        tempcb3 += parseInt(document.getElementById("p17").innerText);
+        tempcb3 += parseInt(document.getElementById("p16").innerText);
+        // submit countback
+        document.getElementById('mx1453506389').value = tempcb6;
+        document.getElementById('mx1045870519').value = tempcb3;
+        document.getElementById('mx683300283').value = document.getElementById("p18").innerText;
+
+        twoscount = 0;
+        // check data is complete 
+        checkBeforeSubmitID = "\n";
+        err = "no";
+        for (ii = 1; ii <= 18; ii++) {
+          if (document.getElementById("h" + ii).innerText == "2") {
+            twoscount++;
+          }
+          // check for no score entered
+          /*
+          if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
+            if(checkBeforeSubmitID.length < 50) {
+              checkBeforeSubmitID += "hole " + ii + " not scored\n";
+              err = "yes";
+            }
+          }
+          */
         }
 
-}
-//=============================================================
-// function start()
-// - initialise everything and do checks etc.
-//=============================================================  
-function start() {
-	// check for any previous selections
-	// setup local dropdown if not there
-	if("wwdropdown" in localStorage) {
-		oldArrOptions = JSON.parse(localStorage.wwdropdown);
-	}
-	// create options array for dropdown 
-	for(var i = 0; i < arrPlayers.length; i++) {
-		x = arrPlayers[i]
-		arrOptions.push([x, 0])
-	}
-	// update Options array with choices info
-	for(var i = 0; i < oldArrOptions.length; i++) {
-		// if there is a value
-		if(oldArrOptions[i][1] > 0) {
-			for(var j = 0; j < arrOptions.length; j++) {
-				// if names match
-				if(arrOptions[j][0] == oldArrOptions[i][0]) {
-					arrOptions[j][1] = oldArrOptions[i][1]
-				}
-			}
-		}
-	}
-	// save dropdown info
-	localStorage.wwdropdown = JSON.stringify(arrOptions);
-	// bring most commonly selected to the top
-	arrOptions.sort(compareSecondColumn);
-	// create player dropdown
-	var select = document.getElementById("playersDropdown");
-	// this is what is created
-	//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-	//
-	for(var i = 0; i < arrOptions.length; i++) {
-		var el = document.createElement("a");
-		el.id = "myLink" + (i);
-		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-		el.setAttribute("href", "#");
-		el.innerText = arrOptions[i][0];
-		select.appendChild(el);
-		if(arrOptions[i][1] > 0) {
-			document.getElementById("myLink" + (i)).style.color = "blue";
-			document.getElementById("myLink" + (i)).style.background = "lightBlue";
-		}
-	}
+        document.getElementById('mx967906330').value = twoscount.toString();
+        document.getElementById('mx789190149').value = comp + player;
+       
+        if (player == "select player") {
+          checkBeforeSubmitID += "player not set\n"
+          err = "yes";
+        }
+        if (hcp == "0") {
+          checkBeforeSubmitID += "hcp not set\n"
+          err = "yes";
+        }
+        if (err == "yes") {
+          // error message
+          checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
+          showIncompleteSubmitData(checkBeforeSubmitID);
+        } else {
+          //===== submit data ==========
+          //============================
+          document.forms[0].submit();
 
-} // end function start()
-//=====================================================
-// Close the dropdown if the user clicks outside of it
-//=====================================================
-window.onclick = function(event) {
-	if(!event.target.matches('.dropbtn')) {
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for(i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if(openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
-			}
-		}
-	}
-};
-//======================================
-// end of dropdown close procedure
-//======================================
-//=============================================
-// recover data if dates match
-// this allows data to be kept over refreshes
-//=============================================
-if("wwtodayscomp" in localStorage) {
-	if(todayscomp.indexOf(dateToday) > -1) {
-		// recover
-		recoverFromLocalStorage();
-	}
-}
-//=======================================================================
-// see if it is a comp day and if so find comp and course from array list
-//=======================================================================
-//=============================================================
-// function resetNames()
-// - gets rid of "selected" names
-//=============================================================  
-function resetNames() {
-	// delete arrOptions favourites
-	// run from menu item at bottom of list
-	// create options array for dropdown 
-	var arrOptions = [];
-	for(var i = 0; i < arrPlayers.length; i++) {
-		x = arrPlayers[i]
-		arrOptions.push([x, 0])
-	}
-	// update local storage
-	//=====LocalStorage.dropdown====================
-	localStorage.wwdropdown = JSON.stringify(arrOptions);
-	//==============================================
-	// create player dropdown
-	var select = document.getElementById("playersDropdown");
-	// empty names
-	select.innerHTML = "";
-	// redo list for menu
-	// <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-	//
-	for(var i = 0; i < arrOptions.length; i++) {
-		var el = document.createElement("a");
-		el.id = "myLink" + (i + 1);
-		el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-		el.setAttribute("href", "#");
-		el.innerText = arrOptions[i][0];
-		select.appendChild(el);
-	}
-}
-//=============================================================
-// function compareSecondColumn()
-// - sort function to sort by second array item in 2D array
-//=============================================================  
-function compareSecondColumn(a, b) {
-	if(a[1] === b[1]) {
-		return 0;
-	} else {
-		return(a[1] > b[1]) ? -1 : 1;
-	}
-}
-//===========================
-// name selected, do stuff
-//===========================
-function dropSelected(playerName) {
-	if(playerName == "reset list") {
-		resetNames();
-	} else {
-		// retrieve player and hcp info for selected playerName
-		for(var k = 0; k < arrPlayers.length; k++) {
-			if(arrPlayers[k] == playerName) {
-				hcp = arrHcps[k]
-			}
-		}
-		// find player in options list
-		for(var k = 0; k < arrOptions.length; k++) {
-			if(arrOptions[k][0] == playerName) {
-				temppos = k;
-			}
-		}
-		// change color on selection
-		document.getElementById("myLink" + temppos.toString()).style.color = "blue";
-		document.getElementById("myLink" + temppos.toString()).style.background = "lightBlue";
-		if(temppos >= 0) {
-			// increment number of times chosen
-			var tc = parseInt(arrOptions[temppos][1]) + 1;
-			arrOptions[temppos][1] = tc;
-			// store new order
-			localStorage.wwdropdown = JSON.stringify(arrOptions);
-			// global player
-			player = playerName;
-		}
-		// replace player button name
-		document.getElementById("dropbtn").innerText = player;
-		// update localStorage
-		localStorage.wwplayer = player;
-		localStorage.wwhcp = hcp;
-		// close dropdown
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for(i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if(openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
-			}
-		}
-		// show hcp on screen
-	   document.getElementById("numhcp").innerText = hcp;
-	   // check for red tees by lookup arrLadies
-		checkForRedTees();
-	}
-}
-//=============================================================
-// function toggleDropdown()
-// - show player name choices
-//=============================================================  
-function toggleDropdown() {
-	// When the user clicks on the button, toggle between hiding and showing the dropdown content
-	document.getElementById("playersDropdown").classList.toggle("show");
-}
+          alert(err)
 
-//=============================================================
-// function submitForm()
-// - send info from HTML form to google form
-//=============================================================  
-function submitForm() {
-	// get the relevant info into a form
-	// dont allow submit for an incorrect day
+          //      alert("submit")
+          //============================
+          /*      
+                document.getElementById("wrapper").style.display = "none";
+                //document.getElementById("all").style.display = "none";
+                //document.getElementById("submit").style.display = "none";
+                document.getElementById("blackout").style.display = "flex";
+                console.log("here")
+                document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
+                setTimeout(function() {
+                  document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">'
+                }, 6500);
+                // remove the accidental closw "trap"
+                window.removeEventListener("beforeunload",eventl)
+                // return to main menu
+                setTimeout(function() {
+                history.go(-1);
+                }, 9500);
+              }
+                // return to main menu
+                setTimeout(function() {
+                  history.go(-1);
+                }, 7500);
+              }
+            
+            
+          */
+        }
+      }
 
-compday = localStorage.wwcompday;
+      // do some indicator of stuff  
+      document.getElementById("frontpage").style.display = "none";
+      document.getElementById("scoringfront9").style.display = "none";
+      document.getElementById("scoringback9").style.display = "none";
+      document.getElementById("bb").style.display = "none";
+      document.getElementById("hcp").style.display = "none";
+      document.getElementById("submit").style.display = "none";
 
-//if wwtodayscomp in comp array
+      // move to top of screen
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
 
-console.log("compday = " + compday)
+      document.getElementById("blackout").style.display = "flex";
+      console.log("here")
+      document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
+      setTimeout(function() {
+        document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 200px; width: 200px;">'
+      }, 6500);
+      // remove the accidental close "trap"
+      // window.removeEventListener("beforeunload",eventl)
+      
+      // return to main menu    
+      setTimeout(function() {
+        window.location.assign("winter.html");
+      }, 9500);
 
-	if(compday == "yes") {
-	        comp = localStorage.wwtodayscomp
-	console.log("compday = " + compday + " " + comp)
-		document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
-		document.getElementById('mx2131369517').value = player;
-		document.getElementById('mx477101370').value = hcp;
-		document.getElementById('mx1980297491').value = document.getElementById("h1").innerText;
-		document.getElementById('mx463832232').value = document.getElementById("h2").innerText;
-		document.getElementById('mx205704642').value = document.getElementById("h3").innerText;
-		document.getElementById('mx278278589').value = document.getElementById("h4").innerText;
-		document.getElementById('mx949547387').value = document.getElementById("h5").innerText;
-		document.getElementById('mx703011397').value = document.getElementById("h6").innerText;
-		document.getElementById('mx1460583253').value = document.getElementById("h7").innerText;
-		document.getElementById('mx462940045').value = document.getElementById("h8").innerText;
-		document.getElementById('mx477691508').value = document.getElementById("h9").innerText;
-		document.getElementById('mx413249407').value = document.getElementById("h10").innerText;
-		document.getElementById('mx108900453').value = document.getElementById("h11").innerText;
-		document.getElementById('mx1841236411').value = document.getElementById("h12").innerText;
-		document.getElementById('mx1864644918').value = document.getElementById("h13").innerText;
-		document.getElementById('mx1538428689').value = document.getElementById("h14").innerText;
-		document.getElementById('mx1449918213').value = document.getElementById("h15").innerText;
-		document.getElementById('mx38761817').value = document.getElementById("h16").innerText;
-		document.getElementById('mx247392471').value = document.getElementById("h17").innerText;
-		document.getElementById('mx741809181').value = document.getElementById("h18").innerText;
-		document.getElementById('mx1362729237').value = document.getElementById("p1").innerText;
-		document.getElementById('mx1372983908').value = document.getElementById("p2").innerText;
-		document.getElementById('mx2002196917').value = document.getElementById("p3").innerText;
-		document.getElementById('mx640802794').value = document.getElementById("p4").innerText;
-		document.getElementById('mx2076656246').value = document.getElementById("p5").innerText;
-		document.getElementById('mx486346919').value = document.getElementById("p6").innerText;
-		document.getElementById('mx1918313229').value = document.getElementById("p7").innerText;
-		document.getElementById('mx638821').value = document.getElementById("p8").innerText;
-		document.getElementById('mx737099688').value = document.getElementById("p9").innerText;
-		document.getElementById('mx488827232').value = document.getElementById("p10").innerText;
-		document.getElementById('mx1203421487').value = document.getElementById("p11").innerText;
-		document.getElementById('mx979421831').value = document.getElementById("p12").innerText;
-		document.getElementById('mx929858153').value = document.getElementById("p13").innerText;
-		document.getElementById('mx1330487443').value = document.getElementById("p14").innerText;
-		document.getElementById('mx940496448').value = document.getElementById("p15").innerText;
-		document.getElementById('mx1127168348').value = document.getElementById("p16").innerText;
-		document.getElementById('mx638332104').value = document.getElementById("p17").innerText;
-		document.getElementById('mx1626319908').value = document.getElementById("p18").innerText;
-		document.getElementById('mx362674948').value = document.getElementById("pfront").innerText;
-		document.getElementById('mx544180710').value = document.getElementById("pback").innerText;
-		document.getElementById('mx893562950').value = document.getElementById("ptotal").innerText;
-		//document.getElementById('mx335596501').value = document.getElementById("cback9");
-		// start of countback
-		document.getElementById('mx335596501').value = document.getElementById("pback").innerText;
-		tempcb6 = 0;
-		tempcb6 += parseInt(document.getElementById("p18").innerText);
-		tempcb6 += parseInt(document.getElementById("p17").innerText);
-		tempcb6 += parseInt(document.getElementById("p16").innerText);
-		tempcb6 += parseInt(document.getElementById("p15").innerText);
-		tempcb6 += parseInt(document.getElementById("p14").innerText);
-		tempcb6 += parseInt(document.getElementById("p13").innerText);
-		tempcb3 = 0;
-		tempcb3 += parseInt(document.getElementById("p18").innerText);
-		tempcb3 += parseInt(document.getElementById("p17").innerText);
-		tempcb3 += parseInt(document.getElementById("p16").innerText);
-		// submit countback
-		document.getElementById('mx1453506389').value = tempcb6;
-		document.getElementById('mx1045870519').value = tempcb3;
-		document.getElementById('mx683300283').value = document.getElementById("p18").innerText;
-		//temp2 = 0;
-		twoscount = 0;
-		// check data is complete 
-		checkBeforeSubmitID = "\n";
-		err = "no";
-		for(ii = 1; ii <= 18; ii++) {
-			if(document.getElementById("h" + ii).innerText == "2") {
-				twoscount++;
-			}
-			// check for no score entered
-			/*
-			if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-				if(checkBeforeSubmitID.length < 50) {
-					checkBeforeSubmitID += "hole " + ii + " not scored\n";
-					err = "yes";
-				}
-			}
-			*/
-		}
-		
-		
-		
-		console.log(twoscount)
-		console.log(document.getElementById("p10").innerText)
-		
-		
-		document.getElementById('mx967906330').value = twoscount.toString();
-		document.getElementById('mx789190149').value = comp + player;
-		if(player == "select player") {
-			checkBeforeSubmitID += "player not set\n"
-			err = "yes";
-		}
-		if(hcp == "0") {
-			checkBeforeSubmitID += "hcp not set\n"
-			err = "yes";
-		}
-		if(err == "yes") {
-			// error message
-			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
-			showIncompleteSubmitData(checkBeforeSubmitID);
-		} else {
-			//===== submit data ==========
-			//============================
-			document.forms[0].submit();
-			
-			
-alert(err)			
-			
-//			alert("submit")
-				//============================
-/*			
-			document.getElementById("wrapper").style.display = "none";
-			//document.getElementById("all").style.display = "none";
-			//document.getElementById("submit").style.display = "none";
-			document.getElementById("blackout").style.display = "flex";
-			console.log("here")
-			document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
-			setTimeout(function() {
-				document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">'
-			}, 6500);
-			// remove the accidental closw "trap"
-			window.removeEventListener("beforeunload",eventl)
-			// return to main menu
-			setTimeout(function() {
-			history.go(-1);
-			}, 9500);
-		}
-			// return to main menu
-			setTimeout(function() {
-				history.go(-1);
-			}, 7500);
-		}
-	
-	
-*/	
-}}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
-			
-// do some indicator of stuff	
-document.getElementById("frontpage").style.display = "none";
-document.getElementById("scoringfront9").style.display = "none";
-document.getElementById("scoringback9").style.display = "none";
-document.getElementById("bb").style.display = "none";
-document.getElementById("hcp").style.display = "none";
-document.getElementById("submit").style.display = "none";
+    }
+    
+    
+    //=============================================================
+    // function incrementScore()
+    // - plus button handler
+    //=============================================================  
+    // + button for hole scores
+    function incrementScore(id) {
+      // find points for ladies and men
+      if (useRedTees) {
+        if (course == "Lakes") {
+          par = arrLakesRed[id.replace("numscore", "")][1];
+          si = arrLakesRed[id.replace("numscore", "")][2];
+        }
+        if (course == "Dawson") {
+          par = arrDawsonRed[id.replace("numscore", "")][1];
+          si = arrDawsonRed[id.replace("numscore", "")][2];
+        }
+        if (course == "OldCourse") {
+          par = arrOldCourseRed[id.replace("numscore", "")][1];
+          si = arrOldCourseRed[id.replace("numscore", "")][2];
+        }
+      } else {
+        if (course == "Lakes") {
+          par = arrLakes[id.replace("numscore", "")][1];
+          si = arrLakes[id.replace("numscore", "")][2];
+        }
+        if (course == "Dawson") {
+          par = arrDawson[id.replace("numscore", "")][1];
+          si = arrDawson[id.replace("numscore", "")][2];
+        }
+        if (course == "OldCourse") {
+          par = arrOldCourse[id.replace("numscore", "")][1];
+          si = arrOldCourse[id.replace("numscore", "")][2];
+        }
+      }
 
-window.scrollTo({ top: 0, behavior: 'smooth' })
+      incScore = document.getElementById(id).innerText;
+      // cope with a hole number displayed
+      if (document.getElementById(id).style.color !== "white") {
+        document.getElementById(id).style.color = "white";
+        // incScore = 0;
+        // use PAR as the first number shown, so set to PAR - 1 here
+        console.log("par = " + par)
+        incScore = (parseInt(par) - 1)
+      }
 
+      document.getElementById(id).innerText = ++incScore;
+      document.getElementById(id.replace("numscore", "h")).innerText = incScore;
 
-document.getElementById("blackout").style.display = "flex";
-console.log("here")
-document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
-setTimeout(function() {
-document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 100px; width: 100px;">'
-}, 6500);
-// remove the accidental close "trap"
-// window.removeEventListener("beforeunload",eventl)
-// return to main menu
-setTimeout(function() {
-window.location.assign("winter.html");
-}, 9500);	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	alert("submit")
-				//============================
-			
-/*			document.getElementById("frontpage").style.display = "none";
-			document.getElementById("scoringfront9").style.display = "none";
-			document.getElementById("scoringback9").style.display = "none";
-			
-			document.getElementById("midwayfront9").style.display = "none";
-			document.getElementById("midwayback9").style.display = "none";
-			document.getElementById("midwayback9-2").style.display = "none";
-			document.getElementById("midwayback9-3").style.display = "none";
-			
-			
-			
-			document.getElementById("blackout").style.display = "flex";
-			document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
-			setTimeout(function() {
-				document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">'
-			}, 6500);
-			// remove the accidental closw "trap"
-		//	window.removeEventListener("beforeunload",eventl)
-			// return to main menu
-			setTimeout(function() {
-			history.go(-1);
-			}, 9500);
-	
-	
-	
-*/	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
-//=============================================================
-// function incrementScore()
-// - plus button handler
-//=============================================================  
-// + button for hole scores
-function incrementScore(id) {
-// find points for ladies and men
-	if (useRedTees) {
-	        if(course == "Lakes") {
-		      par = arrLakesRed[id.replace("numscore", "")][1];
-		      si = arrLakesRed[id.replace("numscore", "")][2];
-	        }
-	        if(course == "Dawson") {
-		     par = arrDawsonRed[id.replace("numscore", "")][1];
-		     si = arrDawsonRed[id.replace("numscore", "")][2];
-	        }
-	        if(course == "OldCourse") {
-		     par = arrOldCourseRed[id.replace("numscore", "")][1];
-		     si = arrOldCourseRed[id.replace("numscore", "")][2];
-	        }
-	} else {
-	        if(course == "Lakes") {
-		      par = arrLakes[id.replace("numscore", "")][1];
-		      si = arrLakes[id.replace("numscore", "")][2];
-	        }
-	        if(course == "Dawson") {
-		     par = arrDawson[id.replace("numscore", "")][1];
-		     si = arrDawson[id.replace("numscore", "")][2];
-	        }
-	        if(course == "OldCourse") {
-		     par = arrOldCourse[id.replace("numscore", "")][1];
-		     si = arrOldCourse[id.replace("numscore", "")][2];
-	        }
-	}
+      document.getElementById(id.replace("numscore", "p")).innerText = 
+      pointsCalc(hcp, par, si, incScore);
+      
+      totalScore();
+      // update local storage.holes========================================
+      localStorage.setItem("wwhole" + id.replace("numscore", ""), incScore);
+      //===================================================================
+    }
+    
+    
+    ///============================================================
+    // function decrementScore()
+    // - minus button handler
+    //=============================================================  
+    function decrementScore(id) {
+      incScore = document.getElementById(id).innerText;
+      // if already at 0 say what hole it is
+      if (incScore == 0) {
+        //document.getElementById(id).style.fontSize = "2vmax";
+        holenum = id.replace("numscore", "");
+        document.getElementById(id).innerText = holenum;
+        document.getElementById(id).style.color = "#4D4D4F";
+      } else {
+        // cope with a hole number displayed
+        if (document.getElementById(id).style.color !== "white") {
+          document.getElementById(id).style.color = "white";
+          incScore = 0;
+        } else {
+          --incScore
+        }
+        document.getElementById(id).innerText = incScore;
+        document.getElementById(id.replace("numscore", "h")).innerText = incScore;
+        // find points for ladies and men
+        if (useRedTees) {
+          if (course == "Lakes") {
+            par = arrLakesRed[id.replace("numscore", "")][1];
+            si = arrLakesRed[id.replace("numscore", "")][2];
+          }
+          if (course == "Dawson") {
+            par = arrDawsonRed[id.replace("numscore", "")][1];
+            si = arrDawsonRed[id.replace("numscore", "")][2];
+          }
+          if (course == "OldCourse") {
+            par = arrOldCourseRed[id.replace("numscore", "")][1];
+            si = arrOldCourseRed[id.replace("numscore", "")][2];
+          }
+        } else {
+          if (course == "Lakes") {
+            par = arrLakes[id.replace("numscore", "")][1];
+            si = arrLakes[id.replace("numscore", "")][2];
+          }
+          if (course == "Dawson") {
+            par = arrDawson[id.replace("numscore", "")][1];
+            si = arrDawson[id.replace("numscore", "")][2];
+          }
+          if (course == "OldCourse") {
+            par = arrOldCourse[id.replace("numscore", "")][1];
+            si = arrOldCourse[id.replace("numscore", "")][2];
+          }
+        }
 
-	incScore = document.getElementById(id).innerText;
-	// cope with a hole number displayed
-	if(document.getElementById(id).style.color !== "white") {
-		document.getElementById(id).style.color = "white";
-		//incScore = 0;
-		// use PAR as the first number shown, so set to PAR - 1 here
-		console.log("par = " + par)
-		incScore = (parseInt(par) - 1)
-	} 
-		
-	document.getElementById(id).innerText = ++incScore;
-	document.getElementById(id.replace("numscore", "h")).innerText = incScore;
-	
-	
-	document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
-	totalScore();
-	// update local storage
-	//=====LocalStorage.holes===========================================
-	localStorage.setItem("wwhole" + id.replace("numscore", ""), incScore);
-	//==================================================================
-}
-///=============================================================
-// function decrementScore()
-// - minus button handler
-//=============================================================  
-function decrementScore(id) {
-	incScore = document.getElementById(id).innerText;
-	// if already at 0 say what hole it is
-	if(incScore == 0) {
-		//document.getElementById(id).style.fontSize = "2vmax";
-		holenum = id.replace("numscore", "");
-		document.getElementById(id).innerText = holenum;
-		document.getElementById(id).style.color = "#4D4D4F";
-	} else {
-		// cope with a hole number displayed
-	        if(document.getElementById(id).style.color !== "white") {
-		        document.getElementById(id).style.color = "white";
-		        incScore = 0;
-		} else {
-		        --incScore
-		}	
-		document.getElementById(id).innerText = incScore;
-		document.getElementById(id.replace("numscore", "h")).innerText = incScore;
-		// find points for ladies and men
-	        if (useRedTees) {
-	               if(course == "Lakes") {
-		            par = arrLakesRed[id.replace("numscore", "")][1];
-		            si = arrLakesRed[id.replace("numscore", "")][2];
-	               }
-	               if(course == "Dawson") {
-		            par = arrDawsonRed[id.replace("numscore", "")][1];
-		            si = arrDawsonRed[id.replace("numscore", "")][2];
-	               }
-	               if(course == "OldCourse") {
-		            par = arrOldCourseRed[id.replace("numscore", "")][1];
-		            si = arrOldCourseRed[id.replace("numscore", "")][2];
-	               }
-	        } else {
-	              if(course == "Lakes") {
-		            par = arrLakes[id.replace("numscore", "")][1];
-		            si = arrLakes[id.replace("numscore", "")][2];
-	              }
-	              if(course == "Dawson") {
-		            par = arrDawson[id.replace("numscore", "")][1];
-		            si = arrDawson[id.replace("numscore", "")][2];
-	              }
-	              if(course == "OldCourse") {
-		            par = arrOldCourse[id.replace("numscore", "")][1];
-		            si = arrOldCourse[id.replace("numscore", "")][2];
-	              }
-	        }
-	
-		document.getElementById(id.replace("numscore", "p")).innerText = pointsCalc(hcp, par, si, incScore);
-	}
-	totalScore();
-	// update local storage
-	// if no score entered, remove key from localStorage else update
+        document.getElementById(id.replace("numscore", "p")).innerText = 
+        pointsCalc(hcp, par, si, incScore);
+        
+      }
+      totalScore();
+      // update local storage
+      // if no score entered, remove key from localStorage else update
 
-	if(document.getElementById(id).style.color == "white") {
+      if (document.getElementById(id).style.color == "white") {
 
-	        //=====LocalStorage.holes===========================================
-		localStorage.setItem("wwhole" + id.replace("numscore", ""), incScore);
-		//==================================================================
-	} else {
-		localStorage.removeItem("wwhole" + id.replace("numscore", ""));
-	}
-}
-//=============================================================
-// function totalScore()
-// - total score calculation
-//=============================================================  
-// calculated additional totals, countback etc.
-function totalScore() {
-	var ih = 0;
-	var ip = 0;
-	var c6 = 0;
-	var c3 = 0;
-	var c1 = 0;
-	var cb = 0;
-	var jh = 0;
-	var jp = 0;
-	for(i = 1; i <= 9; i++) {
-		ih += parseInt(document.getElementById("h" + i).innerText);
-		ip += parseInt(document.getElementById("p" + i).innerText);
-	}
-	for(j = 10; j <= 18; j++) {
-		jh += parseInt(document.getElementById("h" + j).innerText);
-		jp += parseInt(document.getElementById("p" + j).innerText);
-		if(j >= 13) {
-			c6 = c6 + parseInt(document.getElementById("p" + j).innerText);
-		}
-		if(j >= 16) {
-			c3 = c3 + parseInt(document.getElementById("p" + j).innerText);
-		}
-		if(j == 18) {
-			c1 = parseInt(document.getElementById("p" + j).innerText);
-		}
-	}
-	document.getElementById("hfront").innerText = ih;
-	document.getElementById("hback").innerText = jh;
-	document.getElementById("pfront").innerText = ip;
-	document.getElementById("pback").innerText = jp;
-	document.getElementById("htotal").innerText = ih + jh;
-	document.getElementById("ptotal").innerText = ip + jp;
-	
-	
-	document.getElementById("midwayfront9").innerText = "front 9 = " + ih + " strokes, " + ip + " points";
-	document.getElementById("midwayback9").innerText = "back 9 = " + jh + " strokes, " + jp + " points";
-	
-	cb = "countback 9=" + jp + ", 6=" + c6 + ", 3=" + c3 + ", 1=" + c1;
-	document.getElementById("cback").innerText = cb;
-}
-//=============================================================
-// function pointsCalc()
-// - convert scores to stableford points
-//=============================================================  
-function pointsCalc(hcp, par, si, score) {
-	allowance = 0;
-	if(score == 0) {
-		return 0;
-	} else {
-		// allowance   
-		if(hcp >= si) {
-			allowance = 1;
-		}
-		if(hcp >= (18 + si)) {
-			allowance = 2;
-		}
-		if(hcp >= (36 + si)) {
-			allowance = 3;
-		}
-		// points
-		var points = (par + allowance + 2) - score;
-		// remove negative numbers
-		if(points < 0) {
-			points = 0;
-		}
-		return points;
-	}
-}
-//=============================================================
-// function checkForRedTees()
-// - hcp now exists in localStorage so much quicker
-//=============================================================  
-function checkForRedTees() {
-	// set useRedTees false as default - for men
-	useRedTees = false;
-	// check to see if included in list of ladies
-	for(var i = 0; i < arrLadies.length; i++) {
-		if(player == arrLadies[i]) {
-			// set useRedTees true if in arrLadies
-			useRedTees = true;
-		}
-	}
-	// recalc scores using correct coloured tees
-	recalcScores();
-}
+        //=====LocalStorage.holes===========================================
+        localStorage.setItem("wwhole" + id.replace("numscore", ""), incScore);
+        //==================================================================
+      } else {
+        localStorage.removeItem("wwhole" + id.replace("numscore", ""));
+      }
+    }
+    
+    
+    //=============================================================
+    // function totalScore()
+    // - total score calculation
+    //=============================================================  
+    // calculated additional totals, countback etc.
+    function totalScore() {
+      var ih = 0;
+      var ip = 0;
+      var c6 = 0;
+      var c3 = 0;
+      var c1 = 0;
+      var cb = 0;
+      var jh = 0;
+      var jp = 0;
+      
+      for (i = 1; i <= 9; i++) {
+        ih += parseInt(document.getElementById("h" + i).innerText);
+        ip += parseInt(document.getElementById("p" + i).innerText);
+      }
+      
+      for (j = 10; j <= 18; j++) {
+        jh += parseInt(document.getElementById("h" + j).innerText);
+        jp += parseInt(document.getElementById("p" + j).innerText);
+        if (j >= 13) {
+          c6 = c6 + parseInt(document.getElementById("p" + j).innerText);
+        }
+        if (j >= 16) {
+          c3 = c3 + parseInt(document.getElementById("p" + j).innerText);
+        }
+        if (j == 18) {
+          c1 = parseInt(document.getElementById("p" + j).innerText);
+        }
+      }
+      
+      document.getElementById("hfront").innerText = ih;
+      document.getElementById("hback").innerText = jh;
+      document.getElementById("pfront").innerText = ip;
+      document.getElementById("pback").innerText = jp;
+      document.getElementById("htotal").innerText = ih + jh;
+      document.getElementById("ptotal").innerText = ip + jp;
 
-//=============================================================
-// function recalcScores()
-// - recalculate scores etc. redo score/points calculations for 18 holes
-// - need 2 options, red and yellow tees
-//=============================================================
-function recalcScores() {
-	// for ladies red tees (useRedTees = true)
-	// cope with 3 courses
-	if(useRedTees) {
-		for(i = 1; i <= 18; i++) {
-			tempscore = document.getElementById("numscore" + i).innerText;
-	                // if no score, only hole number		    
-                        if (document.getElementById("numscore" + i).style.color !== "white") {
-                            tempscore = 0;
-                        }
-			if(course == "Lakes") {
-				temppar = arrLakesRed[i][1];
-				tempsi = arrLakesRed[i][2];
-			}
-			if(course == "Dawson") {
-				temppar = arrDawsonRed[i][1];
-				tempsi = arrDawsonRed[i][2];
-			}
-			if(course == "OldCourse") {
-				temppar = arrOldCourseRed[i][1];
-				tempsi = arrOldCourseRed[i][2];
-			}
-			temppoints = pointsCalc(hcp, temppar, tempsi, tempscore);
-			document.getElementById("h" + i).innerText = tempscore;
-			document.getElementById("p" + i).innerText = temppoints;    
-		}
-		totalscore()
-	} else {
-		// for men yellow tees (useRedTees = false)
-		// cope with 3 courses
-		for(i = 1; i <= 18; i++) {
-		        tempscore = document.getElementById("numscore" + i).innerText;
-	                // if no score, only hole number		    
-                        if (document.getElementById("numscore" + i).style.color !== "white") {
-                            tempscore = 0;
-                        }
-			if(course == "Lakes") {
-				temppar = arrLakes[i][1];
-				tempsi = arrLakes[i][2];
-			}
-			if(course == "Dawson") {
-				temppar = arrDawson[i][1];
-				tempsi = arrDawson[i][2];
-			}
-			if(course == "OldCourse") {
-				temppar = arrOldCourse[i][1];
-				tempsi = arrOldCourse[i][2];
-			}
-			temppoints = pointsCalc(hcp, temppar, tempsi, tempscore);
-			document.getElementById("h" + i).innerText = tempscore;
-			document.getElementById("p" + i).innerText = temppoints;
-		}
-		totalScore();
-	}
-	
-}
+      document.getElementById("midwayfront9").innerText = 
+      "front 9 = " + ih + " strokes, " + ip + " points";
+      document.getElementById("midwayback9").innerText = 
+      "back 9 = " + jh + " strokes, " + jp + " points";
 
-//=============================================================
-// function recoverFromLocalStorage()
-// - retrieves locally saved temp data to retain integrity over refreshes
-//=============================================================  
-function recoverFromLocalStorage() {
-	// put other values back
-	// player
-	if(("wwplayer") in localStorage) {
-		document.getElementById("dropbtn").innerText = localStorage.getItem("wwplayer");
-	} else {
-		document.getElementById("dropbtn").innerText = "select player";
-	}
-	player = document.getElementById("dropbtn").innerText;
-	// hcp
-	if(("wwhcp") in localStorage) {
-		document.getElementById("numhcp").innerText = localStorage.getItem("wwhcp");
-	} else {
-		document.getElementById("numhcp").innerText = "?";
-	}
-	hcp = document.getElementById("numhcp").innerText;
-	if("wwtodayscomp" in localStorage) {
-		//=====LocalStorage.comp============
-		todayscomp = localStorage.getItem("wwtodayscomp");
-		//==================================
-	}
-	// set useRedTees false as default ie yellow tees
-	useRedTees = false;
-	// check to see if included in list of ladies (arrLadies)
-	for(var i = 0; i < arrLadies.length; i++) {
-		if(player == arrLadies[i]) {
-			// set useRedTees true if in arrLadies
-			useRedTees = true;
-		}
-	}
-	//	recalc points etc.
-	for(var i = 1; i <= 18; i++) {
-		// put values for holes back
-		if(("wwhole" + i) in localStorage) {
-			document.getElementById("numscore" + i).innerText = localStorage.getItem("wwhole" + i);
-			document.getElementById("h" + i).innerText = localStorage.getItem("wwhole" + i);
-			document.getElementById("numscore" + i).style.color = "white";
-		} else {
-			// change to (1) etc
-			document.getElementById("h" + i).innerText = "0";
-			document.getElementById("numscore" + i).innerText = i;
-			document.getElementById("numscore" + i).style.color = "#4D4D4F";
-		}
-		
-	}
-	// ladies red tees	
-	if(useRedTees) {
-		for(var i = 1; i <= 18; i++) {
-			// calc points
-			if(course == "Lakes") {
-				par = arrLakesRed[i][1];
-				si = arrLakesRed[i][2];
-			}
-			if(course == "Dawson") {
-				par = arrDawsonRed[i][1];
-				si = arrDawsonRed[i][2];
-			}
-			if(course == "OldCourse") {
-				par = arrOldCourseRed[i][1];
-				si = arrOldCourseRed[i][2];
-			}
-			if(("wwhole" + i) in localStorage) {
-				document.getElementById("p" + i).innerText = pointsCalc(hcp, par, si, localStorage.getItem("wwhole" + i));
-			} else {
-				document.getElementById("p" + i).innerText = "0";
-			}
-		}
-	} else {
-		// men yellow tees	
-		for(var i = 1; i <= 18; i++) {
-			// calc points
-			if(course == "Lakes") {
-				par = arrLakes[i][1];
-				si = arrLakes[i][2];
-			}
-			if(course == "Dawson") {
-				par = arrDawson[i][1];
-				si = arrDawson[i][2];
-			}
-			if(course == "OldCourse") {
-				par = arrOldCourse[i][1];
-				si = arrOldCourse[i][2];
-			}
-			if(("wwhole" + i) in localStorage) {
-				document.getElementById("p" + i).innerText = pointsCalc(hcp, par, si, localStorage.getItem("wwhole" + i));
-			} else {
-				document.getElementById("p" + i).innerText = "0";
-			}
-		}
-	}
-	totalScore();
-}
-//=============================================================
-// function clearCache()
-// - wipe saved local storage but not player list and arrays from winter.html
-//=============================================================  
-function clearCache() {
-	// A simple delete doesn't work so use an overkill approach
-	// save current keys, then clear, then put them back
-	// sledgehammer and nut spring to mind
+      cb = "countback 9=" + jp + ", 6=" + c6 + ", 3=" + c3 + ", 1=" + c1;
+      document.getElementById("cback").innerText = cb;
+    }
+    
+    
+    //=============================================================
+    // function pointsCalc()
+    // - convert scores to stableford points
+    //=============================================================  
+    function pointsCalc(hcp, par, si, score) {
+      allowance = 0;
+      if (score == 0) {
+        return 0;
+      } else {
+        // allowance   
+        if (hcp >= si) {
+          allowance = 1;
+        }
+        if (hcp >= (18 + si)) {
+          allowance = 2;
+        }
+        if (hcp >= (36 + si)) {
+          allowance = 3;
+        }
+        // points
+        var points = (par + allowance + 2) - score;
+        // remove negative numbers
+        if (points < 0) {
+          points = 0;
+        }
+        return points;
+      }
+    }
+    
+    
+    //=============================================================
+    // function checkForRedTees()
+    // - hcp now exists in localStorage so much quicker
+    //=============================================================  
+    function checkForRedTees() {
+      // set useRedTees false as default - for men
+      useRedTees = false;
+      // check to see if included in list of ladies
+      for (var i = 0; i < arrLadies.length; i++) {
+        if (player == arrLadies[i]) {
+          // set useRedTees true if in arrLadies
+          useRedTees = true;
+        }
+      }
+      // recalc scores using correct coloured tees
+      recalcScores();
+    }
 
-	// save localStorage to temp variables
-	tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
-	tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
-	tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
-	tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
-	tempwwdropdown = JSON.parse(localStorage.wwdropdown);
-	tempwwtodayscomp = localStorage.wwtodayscomp;
-	tempwwcompday = localStorage.wwcompday;
-	tempwwcourse = localStorage.wwcourse;
-	// clear localStorage
-	localStorage.clear();
-	// put localStorage back from variables
-	//setTimeout(function() {
-	localStorage.wwplayersarray = JSON.stringify(tempwwplayersarray);
-	localStorage.wwladiesarray = JSON.stringify(tempwwladiesarray);
-	localStorage.wwcompsarray = JSON.stringify(tempwwcompsarray);
-	localStorage.wwhcpsarray = JSON.stringify(tempwwhcpsarray);
-	localStorage.wwdropdown = JSON.stringify(tempwwdropdown);
-	localStorage.wwtodayscomp = tempwwtodayscomp;
-	localStorage.wwcompday = tempwwcompday;
-	localStorage.wwcourse = tempwwcourse;
-	//},500);
-	
-	recoverFromLocalStorage();
-	location.reload();
-	
-}
+    //=============================================================
+    // function recalcScores()
+    // - recalculate scores etc. redo score/points calculations for 18 holes
+    // - need 2 options, red and yellow tees
+    //=============================================================
+    function recalcScores() {
+      // for ladies red tees (useRedTees = true)
+      // cope with 3 courses
+      if (useRedTees) {
+        for (i = 1; i <= 18; i++) {
+          tempscore = document.getElementById("numscore" + i).innerText;
+          // if no score, only hole number        
+          if (document.getElementById("numscore" + i).style.color !== "white") {
+            tempscore = 0;
+          }
+          if (course == "Lakes") {
+            temppar = arrLakesRed[i][1];
+            tempsi = arrLakesRed[i][2];
+          }
+          if (course == "Dawson") {
+            temppar = arrDawsonRed[i][1];
+            tempsi = arrDawsonRed[i][2];
+          }
+          if (course == "OldCourse") {
+            temppar = arrOldCourseRed[i][1];
+            tempsi = arrOldCourseRed[i][2];
+          }
+          temppoints = pointsCalc(hcp, temppar, tempsi, tempscore);
+          document.getElementById("h" + i).innerText = tempscore;
+          document.getElementById("p" + i).innerText = temppoints;
+        }
+        
+        totalscore()
+        
+      } else {
+        // for men yellow tees (useRedTees = false)
+        // cope with 3 courses
+        for (i = 1; i <= 18; i++) {
+          tempscore = document.getElementById("numscore" + i).innerText;
+          // if no score, only hole number        
+          if (document.getElementById("numscore" + i).style.color !== "white") {
+            tempscore = 0;
+          }
+          if (course == "Lakes") {
+            temppar = arrLakes[i][1];
+            tempsi = arrLakes[i][2];
+          }
+          if (course == "Dawson") {
+            temppar = arrDawson[i][1];
+            tempsi = arrDawson[i][2];
+          }
+          if (course == "OldCourse") {
+            temppar = arrOldCourse[i][1];
+            tempsi = arrOldCourse[i][2];
+          }
+          temppoints = pointsCalc(hcp, temppar, tempsi, tempscore);
+          document.getElementById("h" + i).innerText = tempscore;
+          document.getElementById("p" + i).innerText = temppoints;
+        }
+        
+        totalScore();
+        
+      }
+
+    }
 
 
-//=============================================================
-// function showIncompleteSubmitData()
-// - message about not allowing a submit of incomplete data
-//=============================================================  
-function showIncompleteSubmitData(msg) {
-	aborttxt = "\nSubmit for " + comp + "\nfailed - incomplete data.\n" + msg + "\n\n";
-	document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
-	document.getElementById("popuppanel").style.display = "block";
-	setTimeout(function() {
-		document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds"
-	}, 1000)
-	setTimeout(function() {
-		document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds"
-	}, 2000)
-	setTimeout(function() {
-		document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds"
-	}, 3000)
-	setTimeout(function() {
-		document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second"
-	}, 4000)
-	setTimeout(function() {
-		document.getElementById("popuppanel").innerText = ""
-		document.getElementById("popuppanel").style.display = "none"
-	}, 5000);
-}
-//=============================================================
-// function showHole()
-// - shows which hole when score is tapped
-//=============================================================  
-function showHole(id) {
-	tempe = document.getElementById(id);
-	tempsaved = tempe.innerText;
-	tempsavedcolor = tempe.style.color;
-	// only do it if number is obscuring hole number
-		// change to hole 1 etc.
-		tempe.innerText = id.replace("numscore", "");
-		tempe.style.color = "lime";
-		// disable click
-		for(var i = 1; i <= 18; i++) {
-			document.getElementById("numscore" + i).style.pointerEvents = 'none';
-		}
-		// put info back
-		setTimeout(function() {
-			// re-enable click
-			for(var i = 1; i <= 18; i++) {
-				document.getElementById("numscore" + i).style.pointerEvents = '';
-			}
-			tempe.style.color = tempsavedcolor;
-			tempe.innerText = tempsaved;
-		}, 500);
-}
+    //=============================================================
+    // function recoverFromLocalStorage()
+    // - retrieves locally saved temp data to retain integrity over refreshes
+    //=============================================================  
+    function recoverFromLocalStorage() {
+      // put other values back
+      // player
+      if (("wwplayer") in localStorage) {
+        document.getElementById("dropbtn").innerText = localStorage.getItem("wwplayer");
+      } else {
+        document.getElementById("dropbtn").innerText = "select player";
+      }
+      player = document.getElementById("dropbtn").innerText;
+      // hcp
+      if (("wwhcp") in localStorage) {
+        document.getElementById("numhcp").innerText = localStorage.getItem("wwhcp");
+      } else {
+        document.getElementById("numhcp").innerText = "?";
+      }
+      hcp = document.getElementById("numhcp").innerText;
+      if ("wwtodayscomp" in localStorage) {
+        //=====LocalStorage.comp============
+        todayscomp = localStorage.getItem("wwtodayscomp");
+        //==================================
+      }
+      
+      // set useRedTees false as default ie yellow tees
+      useRedTees = false;
+      
+      // check to see if included in list of ladies (arrLadies)
+      for (var i = 0; i < arrLadies.length; i++) {
+        if (player == arrLadies[i]) {
+          // set useRedTees true if in arrLadies
+          useRedTees = true;
+        }
+      }
+      
+      //  recalc points etc.
+      for (var i = 1; i <= 18; i++) {
+        // put values for holes back
+        if (("wwhole" + i) in localStorage) {
+          document.getElementById("numscore" + i).innerText = localStorage.getItem("wwhole" + i);
+          document.getElementById("h" + i).innerText = localStorage.getItem("wwhole" + i);
+          document.getElementById("numscore" + i).style.color = "white";
+        } else {
+          // change to (1) etc
+          document.getElementById("h" + i).innerText = "0";
+          document.getElementById("numscore" + i).innerText = i;
+          document.getElementById("numscore" + i).style.color = "#4D4D4F";
+        }
 
-//=============================================================
-//=============================================================
-// function ccclose()
-// - closes scorecard
-//=============================================================  
-function ccclose() {
-	document.getElementById("showcoursecard").style.visibility = "hidden";
-}
-//=============================================================
-// function showcoursecard()
-// - shows course card info
-//=============================================================  
-function showcoursecard() {
-	abort = "no";
-	aborttxt = "\nStrokes unavailable\nbecause:\n\n";
-	if(!(hcp > 0)) {
-		abort = "yes";
-		aborttxt += "\nhcp not found\n"
-	}
-	aborttxt
-	if(player == "select player") {
-		abort = "yes"
-		aborttxt += "\nplayer not found\n"
-	}
-	if(!(course == "Lakes" || course == "Dawson" || course == "OldCourse")) {
-		abort = "yes"
-		aborttxt += "\ncourse not found\n"
-	}
-	if(abort == "yes") {
-		document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
-		document.getElementById("popuppanel").style.display = "block";
-		setTimeout(function() {
-			document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 4 seconds"
-		}, 1000)
-		setTimeout(function() {
-			document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 3 seconds"
-		}, 2000)
-		setTimeout(function() {
-			document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 2 seconds"
-		}, 3000)
-		setTimeout(function() {
-			document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 1 second"
-		}, 4000)
-		setTimeout(function() {
-			document.getElementById("popuppanel").innerText = ""
-			document.getElementById("popuppanel").style.display = "none"
-		}, 5000);
-	} else {
-		// if lady red tees		
-		if(useRedTees) {
-			cctxt = ""
-			if(course == "Lakes") {
-				cctxt = player + ", Lakes, " + hcp + " hcp"
-				for(var i = 1; i <= 18; i++) {
-					if(hcp >= (arrLakesRed[i][2] + 18)) {
-						cctxt += '<span class="cyanhole"><b><br>hole ' + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si " + '<span class="circle2">' + arrLakesRed[i][2] + "</span></b></span>"
-					} else {
-						if(hcp >= arrLakesRed[i][2]) {
-							cctxt += "<b><br>hole " + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si " + '<span class="circle1">' + arrLakesRed[i][2] + "</span></b>"
-						} else {
-							cctxt += '<span class="nocircle1">' + "<br>hole " + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si  " + arrLakesRed[i][2] + "</span>"
-						}
-					}
-				}
-			}
-			if(course == "Dawson") {
-				cctxt = player + ", Dawson, " + hcp + " hcp"
-				for(var i = 1; i <= 18; i++) {
-					if(hcp >= (arrDawsonRed[i][2] + 18)) {
-						cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si " + '<span class="circle2">' + arrDawsonRed[i][2] + "</span></b></span>"
-					} else {
-						if(hcp >= arrDawsonRed[i][2]) {
-							cctxt += "<b><br>hole " + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si " + '<span class="circle1">' + arrDawsonRed[i][2] + "</span></b>"
-						} else {
-							cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si  " + arrDawsonRed[i][2] + "</span>"
-						}
-					}
-				}
-			}
-			if(course == "OldCourse") {
-				cctxt = player + ", OldCourse, " + hcp + " hcp"
-				for(var i = 1; i <= 18; i++) {
-					if(hcp >= (arrOldCourseRed[i][2] + 18)) {
-						cctxt += '<span class="cyanhole"><b><br>hole ' + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si " + '<span class="circle2">' + arrOldCourseRed[i][2] + "</span></b></span>"
-					} else {
-						if(hcp >= arrOldCourseRed[i][2]) {
-							cctxt += "<b><br>hole " + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si " + '<span class="circle1">' + arrOldCourseRed[i][2] + "</span></b>"
-						} else {
-							cctxt += '<span class="nocircle1">' + "<br>hole " + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si  " + arrOldCourseRed[i][2] + "</span>"
-						}
-					}
-				}
-			}
-		} else {
-			// men use yellow tees
-			cctxt = ""
-			if(course == "Lakes") {
-				cctxt = player + ", Lakes, " + hcp + " hcp"
-				for(var i = 1; i <= 18; i++) {
-					if(hcp >= (arrLakes[i][2] + 18)) {
-						cctxt += '<span class="cyanhole"><b><br>hole ' + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + '<span class="circle2">' + arrLakes[i][2] + "</span></b></span>"
-					} else {
-						if(hcp >= arrLakes[i][2]) {
-							cctxt += "<b><br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + '<span class="circle1">' + arrLakes[i][2] + "</span></b>"
-						} else {
-							cctxt += '<span class="nocircle1">' + "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si  " + arrLakes[i][2] + "</span>"
-						}
-					}
-				}
-			}
-			if(course == "Dawson") {
-				cctxt = player + ", Dawson, " + hcp + " hcp"
-				for(var i = 1; i <= 18; i++) {
-					if(hcp >= (arrDawson[i][2] + 18)) {
-						cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " + '<span class="circle2">' + arrDawson[i][2] + "</span></b></span>"
-					} else {
-						if(hcp >= arrDawson[i][2]) {
-							cctxt += "<b><br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " + '<span class="circle1">' + arrDawson[i][2] + "</span></b>"
-						} else {
-							cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si  " + arrDawson[i][2] + "</span>"
-						}
-					}
-				}
-			}
-			if(course == "OldCourse") {
-				cctxt = player + ", OldCourse, " + hcp + " hcp"
-				for(var i = 1; i <= 18; i++) {
-					if(hcp >= (arrOldCourse[i][2] + 18)) {
-						cctxt += '<span class="cyanhole"><b><br>hole ' + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " + '<span class="circle2">' + arrOldCourse[i][2] + "</span></b></span>"
-					} else {
-						if(hcp >= arrOldCourse[i][2]) {
-							cctxt += "<b><br>hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " + '<span class="circle1">' + arrOldCourse[i][2] + "</span></b>"
-						} else {
-							cctxt += '<span class="nocircle1">' + "<br>hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si  " + arrOldCourse[i][2] + "</span>"
-						}
-					}
-				}
-			}
-		}
-	}
-	cctxt += "<br>"
-	cctxt += "<br> . . . tap to close."
-	cctxt += "<br><br><br><br>"
-	document.getElementById("showcoursecard").innerHTML = cctxt;
-	document.getElementById("showcoursecard").style.visibility = "visible";
-}
-//=============================================================
-// function rclose()
-// - closes rules info
-//=============================================================  
-function rclose() {
-	document.getElementById("showrules").style.visibility = "hidden";
-}
-//=============================================================
-// function showrules()
-// - display rules
-//=============================================================
-function showrules() {
-	const d = new Date();
-	var month = d.getMonth();
-	//rules from email 25th September
-	var rulestxt = '<span class="cyanhole"><b>From Oct 1st to Oct 31st inclusive</b><br></b></span>'
-	rulestxt += '<br>'
-	rulestxt += '1. Preferred lies on Fairway and Fringes of Greens (Mark your ball, lift clean and place within 6 inches. No nearer the hole)<br><br>'
-	rulestxt += '2. Semi Rough (Mark your ball, lift Clean and Replace)<br><br>'
-	rulestxt += '3. Rough (Play the ball as it lies)<br><br>'
-	rulestxt += '4. Casual Water (Nearest point of relief no nearer the hole) 1 club length from that point, drop the ball. If your ball is in the rough and in casual water, nearest point of relief no nearer the hole, one club length from that point, drop the ball. The ball may be cleaned if taking relief from casual water in the rough.<br><br>'
-	rulestxt += '<span class="cyanhole"><b>November 1st to 31st March 2024</b><br></b></span>'
-	rulestxt += '<br>'
-	rulestxt += 'As above with additions'
-	rulestxt += '<br><br>'
-	rulestxt += "1. The Seniors Section will be keeping all Par 5's as Par 5's."
-	rulestxt += '<br><br>'
-	rulestxt += "2. Bounce boards, mats and tees may be used on Fairways and Fringes of Greens. These are not to be used in 'Semi Rough' or 'Rough Areas'."
-	rulestxt += '<br><br>'
-	rulestxt += '3. Semi rough will be lift clean and replace. Rough will be (play as it lies)'
-	rulestxt += '<br><br>'
-	rulestxt += '4. Drivers are not to be used on bounce boards, mats or tees after the initial tee shot, they can, however, be used from the grass.'
-	rulestxt += '<br><br>'
-	rulestxt += "5. Bunkers will be 'pick, rake and place' Unless otherwise stated on the whiteboard at registration."
-	rulestxt += "<br><br>"
-	rulestxt += "<br> . . . tap to close."
-	rulestxt += "<br><br><br><br>"
-	document.getElementById("showrules").innerHTML = rulestxt;
-	document.getElementById("showrules").style.visibility = "visible";
-}
-	</script>
-</body>
+      }
+      
+      // ladies red tees  
+      if (useRedTees) {
+        for (var i = 1; i <= 18; i++) {
+          // calc points
+          if (course == "Lakes") {
+            par = arrLakesRed[i][1];
+            si = arrLakesRed[i][2];
+          }
+          if (course == "Dawson") {
+            par = arrDawsonRed[i][1];
+            si = arrDawsonRed[i][2];
+          }
+          if (course == "OldCourse") {
+            par = arrOldCourseRed[i][1];
+            si = arrOldCourseRed[i][2];
+          }
+          if (("wwhole" + i) in localStorage) {
+            document.getElementById("p" + i).innerText = pointsCalc(hcp, par, si, localStorage.getItem("wwhole" + i));
+          } else {
+            document.getElementById("p" + i).innerText = "0";
+          }
+        }
+      } else {
+        // men yellow tees  
+        for (var i = 1; i <= 18; i++) {
+          // calc points
+          if (course == "Lakes") {
+            par = arrLakes[i][1];
+            si = arrLakes[i][2];
+          }
+          if (course == "Dawson") {
+            par = arrDawson[i][1];
+            si = arrDawson[i][2];
+          }
+          if (course == "OldCourse") {
+            par = arrOldCourse[i][1];
+            si = arrOldCourse[i][2];
+          }
+          if (("wwhole" + i) in localStorage) {
+            document.getElementById("p" + i).innerText = pointsCalc(hcp, par, si, localStorage.getItem("wwhole" + i));
+          } else {
+            document.getElementById("p" + i).innerText = "0";
+          }
+        }
+      }
+      
+      totalScore();
+      
+    }
+    
+    
+    //=============================================================
+    // function clearCache()
+    // - wipe saved local storage but not player list and arrays from winter.html
+    //=============================================================  
+    function clearCache() {
+      // A simple delete doesn't work so use an overkill approach
+      // save current keys, then clear, then put them back
+      // sledgehammer and nut spring to mind
+
+      // save localStorage to temp variables
+      tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
+      tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
+      tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
+      tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
+      tempwwdropdown = JSON.parse(localStorage.wwdropdown);
+      tempwwtodayscomp = localStorage.wwtodayscomp;
+      tempwwcompday = localStorage.wwcompday;
+      tempwwcourse = localStorage.wwcourse;
+      // clear localStorage
+      localStorage.clear();
+      // put localStorage back from variables
+      //setTimeout(function() {
+      localStorage.wwplayersarray = JSON.stringify(tempwwplayersarray);
+      localStorage.wwladiesarray = JSON.stringify(tempwwladiesarray);
+      localStorage.wwcompsarray = JSON.stringify(tempwwcompsarray);
+      localStorage.wwhcpsarray = JSON.stringify(tempwwhcpsarray);
+      localStorage.wwdropdown = JSON.stringify(tempwwdropdown);
+      localStorage.wwtodayscomp = tempwwtodayscomp;
+      localStorage.wwcompday = tempwwcompday;
+      localStorage.wwcourse = tempwwcourse;
+      //},500);
+
+      recoverFromLocalStorage();
+      location.reload();
+
+    }
+
+
+    //=============================================================
+    // function showIncompleteSubmitData()
+    // - message about not allowing a submit of incomplete data
+    //=============================================================  
+    function showIncompleteSubmitData(msg) {
+      aborttxt = "\nSubmit for " + comp + "\nfailed - incomplete data.\n" + msg + "\n\n";
+      document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 5 seconds";
+      document.getElementById("popuppanel").style.display = "block";
+      setTimeout(function() {
+        document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 4 seconds"
+      }, 1000)
+      setTimeout(function() {
+        document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 3 seconds"
+      }, 2000)
+      setTimeout(function() {
+        document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 2 seconds"
+      }, 3000)
+      setTimeout(function() {
+        document.getElementById("popuppanel").innerText = aborttxt + "this message closes in 1 second"
+      }, 4000)
+      setTimeout(function() {
+        document.getElementById("popuppanel").innerText = ""
+        document.getElementById("popuppanel").style.display = "none"
+      }, 5000);
+    }
+    
+    
+    //=============================================================
+    // function showHole()
+    // - shows which hole when score is tapped
+    //=============================================================  
+    function showHole(id) {
+      tempe = document.getElementById(id);
+      tempsaved = tempe.innerText;
+      tempsavedcolor = tempe.style.color;
+      // only do it if number is obscuring hole number
+      // change to hole 1 etc.
+      tempe.innerText = id.replace("numscore", "");
+      tempe.style.color = "lime";
+      // disable click
+      for (var i = 1; i <= 18; i++) {
+        document.getElementById("numscore" + i).style.pointerEvents = 'none';
+      }
+      // put info back
+      setTimeout(function() {
+        // re-enable click
+        for (var i = 1; i <= 18; i++) {
+          document.getElementById("numscore" + i).style.pointerEvents = '';
+        }
+        tempe.style.color = tempsavedcolor;
+        tempe.innerText = tempsaved;
+      }, 500);
+    }
+
+
+    //=============================================================
+    //=============================================================
+    // function ccclose()
+    // - closes scorecard
+    //=============================================================  
+    function ccclose() {
+      document.getElementById("showcoursecard").style.visibility = "hidden";
+    }
+    
+    
+    //=============================================================
+    // function showcoursecard()
+    // - shows course card info
+    //=============================================================  
+    function showcoursecard() {
+      abort = "no";
+      aborttxt = "\nStrokes unavailable\nbecause:\n\n";
+      if (!(hcp > 0)) {
+        abort = "yes";
+        aborttxt += "\nhcp not found\n"
+      }
+      aborttxt
+      if (player == "select player") {
+        abort = "yes"
+        aborttxt += "\nplayer not found\n"
+      }
+      if (!(course == "Lakes" || course == "Dawson" || course == "OldCourse")) {
+        abort = "yes"
+        aborttxt += "\ncourse not found\n"
+      }
+      if (abort == "yes") {
+        document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
+        document.getElementById("popuppanel").style.display = "block";
+        setTimeout(function() {
+          document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 4 seconds"
+        }, 1000)
+        setTimeout(function() {
+          document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 3 seconds"
+        }, 2000)
+        setTimeout(function() {
+          document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 2 seconds"
+        }, 3000)
+        setTimeout(function() {
+          document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 1 second"
+        }, 4000)
+        setTimeout(function() {
+          document.getElementById("popuppanel").innerText = ""
+          document.getElementById("popuppanel").style.display = "none"
+        }, 5000);
+      } else {
+        // if lady red tees    
+        if (useRedTees) {
+          cctxt = ""
+          if (course == "Lakes") {
+            cctxt = player + ", Lakes, " + hcp + " hcp"
+            for (var i = 1; i <= 18; i++) {
+              if (hcp >= (arrLakesRed[i][2] + 18)) {
+                cctxt += '<span class="cyanhole"><b><br>hole ' + 
+                arrLakesRed[i][0] + ", par " + 
+                arrLakesRed[i][1] + ", si " + '<span class="circle2">' + 
+                arrLakesRed[i][2] + "</span></b></span>"
+              } else {
+                if (hcp >= arrLakesRed[i][2]) {
+                  cctxt += "<b><br>hole " + 
+                  arrLakesRed[i][0] + ", par " + 
+                  arrLakesRed[i][1] + ", si " + '<span class="circle1">' + 
+                  arrLakesRed[i][2] + "</span></b>"
+                } else {
+                  cctxt += '<span class="nocircle1">' + "<br>hole " + 
+                  arrLakesRed[i][0] + ", par " + 
+                  arrLakesRed[i][1] + ", si  " + 
+                  arrLakesRed[i][2] + "</span>"
+                }
+              }
+            }
+          }
+          if (course == "Dawson") {
+            cctxt = player + ", Dawson, " + hcp + " hcp"
+            for (var i = 1; i <= 18; i++) {
+              if (hcp >= (arrDawsonRed[i][2] + 18)) {
+                cctxt += '<span class="cyanhole"><b><br>hole ' + 
+                arrDawsonRed[i][0] + ", par " + 
+                arrDawsonRed[i][1] + ", si " + '<span class="circle2">' + 
+                arrDawsonRed[i][2] + "</span></b></span>"
+              } else {
+                if (hcp >= arrDawsonRed[i][2]) {
+                  cctxt += "<b><br>hole " + arrDawsonRed[i][0] + ", par " + 
+                  arrDawsonRed[i][1] + ", si " + '<span class="circle1">' + 
+                  arrDawsonRed[i][2] + "</span></b>"
+                } else {
+                  cctxt += '<span class="nocircle1">' + "<br>hole " + 
+                  arrDawsonRed[i][0] + ", par " + 
+                  arrDawsonRed[i][1] + ", si  " + arrDawsonRed[i][2] + "</span>"
+                }
+              }
+            }
+          }
+          
+          if (course == "OldCourse") {
+            cctxt = player + ", OldCourse, " + hcp + " hcp"
+            for (var i = 1; i <= 18; i++) {
+              if (hcp >= (arrOldCourseRed[i][2] + 18)) {
+                cctxt += '<span class="cyanhole"><b><br>hole ' + 
+                arrOldCourseRed[i][0] + ", par " + 
+                arrOldCourseRed[i][1] + ", si " + '<span class="circle2">' + 
+                arrOldCourseRed[i][2] + "</span></b></span>"
+              } else {
+                if (hcp >= arrOldCourseRed[i][2]) {
+                  cctxt += "<b><br>hole " + arrOldCourseRed[i][0] + ", par " + 
+                  arrOldCourseRed[i][1] + ", si " + '<span class="circle1">' + 
+                  arrOldCourseRed[i][2] + "</span></b>"
+                } else {
+                  cctxt += '<span class="nocircle1">' + "<br>hole " + 
+                  arrOldCourseRed[i][0] + ", par " + 
+                  arrOldCourseRed[i][1] + ", si  " + 
+                  arrOldCourseRed[i][2] + "</span>"
+                }
+              }
+            }
+          }
+        } else {
+          // men use yellow tees
+          cctxt = ""
+          if (course == "Lakes") {
+            cctxt = player + ", Lakes, " + hcp + " hcp"
+            for (var i = 1; i <= 18; i++) {
+              if (hcp >= (arrLakes[i][2] + 18)) {
+                cctxt += '<span class="cyanhole"><b><br>hole ' + 
+                arrLakes[i][0] + ", par " + 
+                arrLakes[i][1] + ", si " + '<span class="circle2">' + 
+                arrLakes[i][2] + "</span></b></span>"
+              } else {
+                if (hcp >= arrLakes[i][2]) {
+                  cctxt += "<b><br>hole " + arrLakes[i][0] + ", par " + 
+                  arrLakes[i][1] + ", si " + '<span class="circle1">' + 
+                  arrLakes[i][2] + "</span></b>"
+                } else {
+                  cctxt += '<span class="nocircle1">' + "<br>hole " + 
+                  arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si  " + 
+                  arrLakes[i][2] + "</span>"
+                }
+              }
+            }
+          }
+          if (course == "Dawson") {
+            cctxt = player + ", Dawson, " + hcp + " hcp"
+            for (var i = 1; i <= 18; i++) {
+              if (hcp >= (arrDawson[i][2] + 18)) {
+                cctxt += '<span class="cyanhole"><b><br>hole ' + 
+                arrDawson[i][0] + ", par " + 
+                arrDawson[i][1] + ", si " + '<span class="circle2">' + 
+                arrDawson[i][2] + "</span></b></span>"
+              } else {
+                if (hcp >= arrDawson[i][2]) {
+                  cctxt += "<b><br>hole " + arrDawson[i][0] + ", par " + 
+                  arrDawson[i][1] + ", si " + '<span class="circle1">' + 
+                  arrDawson[i][2] + "</span></b>"
+                } else {
+                  cctxt += '<span class="nocircle1">' + "<br>hole " + 
+                  arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si  " + 
+                  arrDawson[i][2] + "</span>"
+                }
+              }
+            }
+          }
+          if (course == "OldCourse") {
+            cctxt = player + ", OldCourse, " + hcp + " hcp"
+            for (var i = 1; i <= 18; i++) {
+              if (hcp >= (arrOldCourse[i][2] + 18)) {
+                cctxt += '<span class="cyanhole"><b><br>hole ' + 
+                arrOldCourse[i][0] + ", par " + 
+                arrOldCourse[i][1] + ", si " + '<span class="circle2">' + 
+                arrOldCourse[i][2] + "</span></b></span>"
+              } else {
+                if (hcp >= arrOldCourse[i][2]) {
+                  cctxt += "<b><br>hole " + arrOldCourse[i][0] + ", par " + 
+                  arrOldCourse[i][1] + ", si " + '<span class="circle1">' + 
+                  arrOldCourse[i][2] + "</span></b>"
+                } else {
+                  cctxt += '<span class="nocircle1">' + "<br>hole " + 
+                  arrOldCourse[i][0] + ", par " + 
+                  arrOldCourse[i][1] + ", si  " + arrOldCourse[i][2] + "</span>"
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      cctxt += "<br>"
+      cctxt += "<br> . . . tap to close."
+      cctxt += "<br><br><br><br>"
+      document.getElementById("showcoursecard").innerHTML = cctxt;
+      document.getElementById("showcoursecard").style.visibility = "visible";
+    }
+    
+   
+    </script>
+  </body>
 
 </html>
