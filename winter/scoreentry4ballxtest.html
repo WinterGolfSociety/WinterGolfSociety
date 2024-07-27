@@ -454,11 +454,12 @@ color: white;
 	}
 	
 	#blackout {
+	
 		display: none;
 		color: white;
 		font-size: 2vh;
 		background: rgba(13, 13, 13, 255); //black;
-		height: 100vh;
+		height: 50vh;
 		width: 100vw;
 		position: absolute;
 		top: 0;
@@ -756,7 +757,7 @@ color: white;
       
       border-radius: 5px;
 		border: 1px solid gray;
-		box-shadow: 10px 10px 25px gray;
+		//box-shadow: 10px 10px 25px gray;
 		
 		
 		
@@ -1089,6 +1090,12 @@ submit
 		<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/viewform?embedded=true" width="60"></iframe>
 		<br>
 		<script>
+		
+		
+alert("one")		
+		
+		
+		
 	//=================================================================================
 // this runs on startup or reload
 // 
@@ -1163,7 +1170,7 @@ if ("wwladiesarray" in localStorage) {
 
 
 
-
+alert("two")
 
 
 
@@ -3390,7 +3397,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 
 
 
-		if (player1name !== "no player") {
+		if (player1name.indexOf("player") > -1){
 			// player1 score entry
 			comp = localStorage.wwtodayscomp
 			document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
@@ -3478,7 +3485,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 		} /* end of player1 */
 		
 		setTimeout(function() {
-			if (player2name !== "no player") {
+			if (player2name.indexOf("player") > -1){
 				// player2 score entry
 				comp = localStorage.wwtodayscomp
 				document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
@@ -3567,7 +3574,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 		}, 2000)
 		
 		setTimeout(function() {
-			if (player3name !== "no player") {
+			if (player3name.indexOf("player") > -1){
 				// player3 score entry
 				comp = localStorage.wwtodayscomp
 
@@ -3660,7 +3667,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 		
 		
 		setTimeout(function() {
-				if (player4name !== "no player") {
+				if (player4name.indexOf("player") > -1){
 					// player2 score entry
 					comp = localStorage.wwtodayscomp
 
@@ -3769,6 +3776,7 @@ if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
 
 
 
+document.getElementById("firstscreen").style.display = "none";
 
 document.getElementById("submitbox").style.display = "none";
 document.getElementById("all").style.display = "none";
@@ -3786,6 +3794,9 @@ document.getElementById("all").style.display = "none";
 
 
 		document.getElementById("blackout").style.display = "flex";
+
+
+
 
 		document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
 		setTimeout(function() {
