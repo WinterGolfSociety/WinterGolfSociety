@@ -1150,18 +1150,22 @@ if ("wwladiesarray" in localStorage) {
 	arrLadies = JSON.parse(localStorage.wwladiesarray);
 }
 
-alert("firstrun = " + localStorage.wwfirstrun)
 
-// dont show recovery option if its the first run
+alert("1")
+// don't show recovery option if its the first run
 if ("wwfirstrun" in localStorage) {
+alert("2")
 	if (localStorage.wwfirstrun == "yes") {
-	alert("firstrun again = " + localStorage.wwfirstrun)
+	alert("1 firstrun for popup = " + localStorage.wwfirstrun)
 	    // hide message
        document.getElementById("popuppanel1").style.display = "none";
        // reset to say not first run any more       
        localStorage.wwfirstrun = "no"
        // tidy any previous data
-       clearCache();	
+       alert("2 firstrun for popup = " + localStorage.wwfirstrun)	
+       clearCache();
+       
+       alert("3 firstrun for popup = " + localStorage.wwfirstrun)	
 	} else {
 	    // if there is any hole data
 	    // show message because no longer first run
@@ -4274,9 +4278,9 @@ function clearCache() {
 	if ("wwcourse" in localStorage) {
 	    tempwwcourse = localStorage.wwcourse;
    }
-//   if ("wwfirstrun" in localStorage) {   
-//       tempwwfirstrun = localStorage.wwfirstrun;	
-//	}
+   if ("wwfirstrun" in localStorage) {   
+       tempwwfirstrun = localStorage.wwfirstrun;	
+	}
 	// clear localStorage
 	localStorage.clear();
 	// put localStorage back from variables
@@ -4288,9 +4292,8 @@ function clearCache() {
 	localStorage.wwtodayscomp = tempwwtodayscomp;
 	localStorage.wwcompday = tempwwcompday;
 	localStorage.wwcourse = tempwwcourse;
-//   localStorage.wwfirstrun = tempwwfirstrun;	
-// reset firstrun to start afresh   
-localStorage.wwfirstrun = "yes";   
+   localStorage.wwfirstrun = tempwwfirstrun;	
+ 
 
 }
 		
