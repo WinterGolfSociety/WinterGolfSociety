@@ -161,6 +161,32 @@ async function getData() {
 )
 	
 	var resultsarray = await dataStream.json();
+	
+	//console.log(resultsarray[0].key[0])
+	
+	console.log("pos" in resultsarray)
+	console.log("player" in resultsarray)
+	console.log("points" in resultsarray)
+	console.log("twos" in resultsarray)
+	
+	var dataFound = "no"
+	
+   if(resultsarray[0].hasOwnProperty('player'))
+   {
+        dataFound = "yes";
+   }
+
+
+
+
+console.log(dataFound)
+
+
+
+
+if (dataFound == "yes") {
+
+	
 	// get rid of blanks in array by creating new arrays
 	for(var i = 0; i < resultsarray.length; i++) {
 		if(resultsarray[i].player.length > 2) {
@@ -172,7 +198,23 @@ async function getData() {
 			comp = resultsarray[1].comp;
 			
 		}
+		arrPlayerOld.push("searching ...")
+
 	}
+
+} else {
+
+arrPos.push("&nbsp;");
+arrPlayer.push("no results");
+arrPoints.push("&nbsp;");
+arrTwos.push("&nbsp;")
+
+arrPlayerOld.push("searching ...")
+}
+
+
+
+
 	// retrieve previous data
 	if ("lbarray" in localStorage) {
 	    arrPlayerOld = JSON.parse(localStorage.lbarray);
@@ -232,7 +274,8 @@ if (4 > 0) {
 		i = 0;
 
                 // gray out current list	
-                for(var ii = 0; ii < arrPlayer.length; ii++) {
+                
+                for(var ii = 0; ii < arrPlayer.length; ii++) {                   
                     var bbg = '<p style="background:#F8F8FF;color:gray;">'
                     displaypos    = bbg + arrPos[ii]    + "</p>";
                     displayplayer = bbg + arrPlayerOld[ii] + "</p>";
@@ -251,6 +294,8 @@ if (4 > 0) {
 		document.getElementById("footer").innerHTML = "Updated every 60 seconds.<br>There is a delay before this information is available in 'All results'"
 
                }	
+               
+             
 	// set player width
 	//document.getElementById("player0").style.width = "55vw";
 	       // step through each entry and rewrite	
@@ -282,9 +327,9 @@ if (4 > 0) {
 		           } else {
 		               bg = '<p style="background:#ECEFEF;color:black;">'
 		           } 
-				displaypos    = bg + arrPos[i]    + "</p>";
-				displayplayer = bg + arrPlayer[i] + "</p>";
-				displaypoints = bg + arrPoints[i] + "</p>";
+				displaypos    = bg + arrPos[i]    + "&nbsp;</p>";
+				displayplayer = bg + arrPlayer[i] + "&nbsp;</p>";
+				displaypoints = bg + arrPoints[i] + "&nbsp;</p>";
 				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
 				
 				// add class
@@ -303,9 +348,9 @@ if (4 > 0) {
 		                } else {
 		                    bg = '<p style="background:#ECEFEF; color: blue;">'
 		                } 
-				displaypos    = bg + arrPos[i]    + "</p>";
-				displayplayer = bg + arrPlayer[i] + "</p>";
-				displaypoints = bg + arrPoints[i] + "</p>";
+				displaypos    = bg + arrPos[i]    + "&nbsp;</p>";
+				displayplayer = bg + arrPlayer[i] + "&nbsp;</p>";
+				displaypoints = bg + arrPoints[i] + "&nbsp;</p>";
 				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
 				
 				// add class
@@ -334,30 +379,6 @@ if (4 > 0) {
 		
 		
 		
-	} else {
-                createSmallDisplay()
-		// not a comp day or no results
-		
-		//document.getElementById("footer").innerHTML = '';
-		setTimeout(function() {
-			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 5 seconds"
-		document.getElementById("notyet").innerHTML = '<div id="noresults">No<br>results<br>to<br>Display</div>';		
-		}, 200)
-		setTimeout(function() {
-			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 4 seconds"
-		}, 1200)
-		setTimeout(function() {
-			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 3 seconds"
-		}, 2200)
-		setTimeout(function() {
-			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 2 seconds"
-		}, 3200)
-		setTimeout(function() {
-			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 1 second"
-		}, 4200)
-		setTimeout(function() {
-			history.go(-2)
-		}, 5200);
 	}
 }
 
