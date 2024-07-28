@@ -156,7 +156,8 @@ setInterval(start, 60000);
 
 async function getData() {
    // default to final results
-   var dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardFinal"
+   var dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardFinalcopy"
+   
 
    if (dd.getDay() == 2) {
        dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardTuesday"
@@ -175,8 +176,6 @@ async function getData() {
 
 	var resultsarray = await dataStream.json();
 	
-	
-	
 	var dataFound = "no"
 	
    if(resultsarray[0].hasOwnProperty('player'))
@@ -186,13 +185,6 @@ async function getData() {
 
 if (dataFound == "yes") {
 
-	
-	
-	
-	
-	
-	
-	
 	// get rid of blanks in array by creating new arrays
 	for(var i = 0; i < resultsarray.length; i++) {
 		if(resultsarray[i].player.length > 2) {
@@ -235,24 +227,24 @@ if (dataFound == "yes") {
 			       arrTwos.push(resultsarray[i].twos);
 			    }		    
 			}
-			
-        			
-			
-			
+						
          comp = resultsarray[1].comp;			
 
 		}
+		
 		arrPlayerOld.push("searching ...")
+
 	}
 	
 } else {
 
-arrPos.push("&nbsp;");
-arrPlayer.push("no results");
-arrPoints.push("&nbsp;");
-arrTwos.push("&nbsp;")
+   arrPos.push("&nbsp;");
+   arrPlayer.push("no results");
+   arrPoints.push("&nbsp;");
+   arrTwos.push("&nbsp;")
 
-arrPlayerOld.push("searching ...")
+   arrPlayerOld.push("searching ...")
+
 }
 	
 	
