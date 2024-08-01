@@ -1223,6 +1223,31 @@
                 arrHcps = arrHcps.filter(function(el) {return el != "";})
                 arrComps = arrComps.filter(function(el) {return el != "";})
 
+
+
+
+		          var ind1 = arrPlayers.indexOf("Ghost Player");
+                if (ind1 > -1) {
+                    arrPlayers.splice(ind1,1);
+                    arrHcps.splice(ind1,1);
+                }
+		
+			       dd = new Date();
+			       day = dd.getDay();
+			
+                // if tue or thu remove Eileen			
+                if (day == 2 || day == 4){ 
+                    var ind2 = arrPlayers.indexOf("Eileen Gow");
+                    if (ind2 > -1) {
+                        arrPlayers.splice(ind2,1);
+                        arrHcps.splice(ind2,1);
+                    }
+                }
+
+
+
+
+
 		          // get rid of "old" localStorage but keep dropdown options
 		          for (var i = 0; i < localStorage.length; i++) {        
                      if (localStorage.key(i).substring(0,2) == "ww") {
@@ -1509,53 +1534,6 @@ var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrCourse[
 				
 // indicate the start of a move to next hole				
 document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >";		
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//localStorage.getItem("wwp1h" + i)
-
-whichholex = id.replace("score", "");
-x = parseInt(whichholex)
-console.log("in numberScore " + x)
-console.log(player1teecolor)
-if (player1teecolor == "yellow"){
-    console.log("====="+pointsCalc(player1hcp, arrCourse[whichhole][1], arrCourse[whichhole][2],x));
-} else {
-console.log("====="+pointsCalc(player1hcp, arrCourseRed[whichhole][1], arrCourseRed[whichhole][2],x));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
 				
 				temppscore = "p1score"
 				temppname = "p1name"
@@ -1844,11 +1822,6 @@ var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrCourse[
 
 		// convert scores to stableford points
 		function pointsCalc(xhcp, xpar, xsi, xscore) {
-		
-	console.log("in pointsCalc")	
-	console.log("hole number = " + whichhole)
-	console.log("hcp="+xhcp + " par=" + xpar + " si=" + xsi + " score=" + xscore)
-		
 		
 			hcp = parseInt(xhcp)
 			hcp = hcp.toFixed()
