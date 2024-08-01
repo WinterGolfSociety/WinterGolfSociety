@@ -986,7 +986,7 @@
 		//=============================================================
 		// functions - run when called
 		//=============================================================  
-		// set up each days course wjth the same name so code is easier :-)
+		// set up each days course with the same name so code is easier :-)
 		// BurntIsland
 		// https://burntislandgolfhouseclub.co.uk/about-us/
 		function setupTuesdayCourse() {
@@ -1049,7 +1049,7 @@
 				[2, 4, 4],
 				[3, 3, 16],
 				[4, 4, 14],
-				[5, 5, 2],
+				[5, 4, 2],
 				[6, 3, 18],
 				[7, 4, 8],
 				[8, 4, 6],
@@ -1071,18 +1071,18 @@
 				[2, 4, 4],
 				[3, 3, 16],
 				[4, 4, 14],
-				[5, 5, 8],
+				[5, 4, 8],
 				[6, 3, 18],
 				[7, 4, 2],
 				[8, 4, 6],
-				[9, 5, 12],
+				[9, 5, 5],
 				[10, 4, 11],
 				[11, 3, 17],
 				[12, 4, 3],
 				[13, 4, 7],
 				[14, 3, 13],
 				[15, 4, 1],
-				[16, 4, 15],
+				[16, 4, 4],
 				[17, 4, 5],
 				[18, 5, 9]
 			];
@@ -1138,7 +1138,7 @@
 			];
 		}
 		
-		// Kircaldy
+		// Kirkcaldy
 		// https://kirkcaldygolfclub.co.uk/course-hole-details?HoleId=1294545
 		function setupFridayCourse() {
 			// set up courses with details for calculations etc.
@@ -1375,8 +1375,8 @@
          // cope with ladies tees	
          // change yellow (default) to red	
          // for ladies
+         player1teecolor = "yellow"
          if (playerName == "Eileen Gow"){		
-             //if (playerName == "Tony Smith"){
              player1teecolor = "red"
          }
 
@@ -1921,7 +1921,7 @@ var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrCourse[
 
 					document.getElementById('mx1119360478').value = fullday;
 					
-                                        //document.getElementById('mx83976721').value = "39"; /* moved down */				
+               //document.getElementById('mx83976721').value = "39"; /* moved down */				
 // shots for each hole					
 document.getElementById('mx1724692121').value = document.getElementById("xh1").innerText; 
 document.getElementById('mx1342174744').value = document.getElementById("xh2").innerText;  
@@ -1945,7 +1945,7 @@ document.getElementById('mx1737150484').value = document.getElementById("xh18").
 						
 // points for each hole						
 // pointsCalc(hcp, par, si, score)					
-if (player1teecolor == "yellow") {								
+if (player1teecolor == "yellow") {	
     document.getElementById('mx1766971895').value = 
     pointsCalc(player1hcp, arrCourse[1][1], arrCourse[1][2], document.getElementById("xh1").innerText); 
     document.getElementById('mx1446347715').value = 
@@ -2132,11 +2132,12 @@ document.getElementById('mx83976721').value = (front9points + tempcb9)
 					behavior: 'smooth'
 				})
 				document.getElementById("submit").style.background = "blue";
-				//console.log("here")
-				//document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
+
 				setTimeout(function() {
+				var audio = new Audio('techclip.wav');
+            audio.play();
 				document.getElementById("submit").style.background = "dodgerBlue";
-			}, 3000);
+			}, 2000);
 
 		}
 
