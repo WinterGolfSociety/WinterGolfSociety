@@ -698,10 +698,10 @@
 
 
 
-// check for slow network
+// check for slow network - slower than 3G
 var slowLoad = window.setTimeout( function() {
         alert( "the page is taking its sweet time loading" );
-    }, 1000 );
+    }, 1500 );
 
     window.addEventListener( 'load', function() {
         window.clearTimeout( slowLoad );
