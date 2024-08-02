@@ -691,6 +691,44 @@
     }
 
 
+
+
+
+
+
+
+
+
+// check for slow network
+var slowLoad = window.setTimeout( function() {
+        alert( "the page is taking its sweet time loading" );
+    }, 10 );
+
+    window.addEventListener( 'load', function() {
+        window.clearTimeout( slowLoad );
+    }, false );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Detect whether device supports orientationchange event, otherwise fall back to
     // the resize event.
     var supportsOrientationChange = "onorientationchange" in window,
