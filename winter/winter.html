@@ -700,7 +700,7 @@
 
 // check for slow network - slower than 3G
 var slowLoad = window.setTimeout( function() {
-        alert( "the page is taking its sweet time loading" );
+        document.getElementById("tooltip").innerHTML = "Slow network !"
     }, 1500 );
 
     window.addEventListener( 'load', function() {
