@@ -7,9 +7,7 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>4score</title>
     <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <style>
     * {
       margin: 0;
@@ -141,6 +139,7 @@
     /* start scoring button */
 
     #startscoring {
+      font-family: Arial, Helvetica, sans-serif;
       color: white;
       width: 100%;
       height: 15vh;
@@ -1053,7 +1052,7 @@
    
     // declare global variables
     var selectedplayer = 1;
-    // hilight first player entry
+    // highlight first player entry
     document.getElementById("p1name").classList.add("highlight");
     // array holders for downloaded info    
     var arrCourse = [];
@@ -3450,7 +3449,7 @@
           //console.log(err)
           //alert(err)
           document.getElementById('mx967906330').value = twoscount.toString();
-          document.getElementById('mx789190149').value = comp + player + "x1";
+          document.getElementById('mx789190149').value = comp + player1name + "x1";
           
           //===== submit data ==========
           //============================
@@ -3582,7 +3581,7 @@
             //alert(err)
             //console.log(document.getElementById("p20").innerText)
             document.getElementById('mx967906330').value = twoscount.toString();
-            document.getElementById('mx789190149').value = comp + player + "x2";
+            document.getElementById('mx789190149').value = comp + player2name + "x2";
 
             //===== submit data ==========
             //============================
@@ -3716,7 +3715,7 @@
 
             //console.log(document.getElementById("p20").innerText)
             document.getElementById('mx967906330').value = twoscount.toString();
-            document.getElementById('mx789190149').value = comp + player + "x3";
+            document.getElementById('mx789190149').value = comp + player3name + "x3";
 
             //===== submit data ==========
             //============================
@@ -3852,7 +3851,7 @@
 
             //console.log(document.getElementById("p40").innerText)
             document.getElementById('mx967906330').value = twoscount.toString();
-            document.getElementById('mx789190149').value = comp + player + "x4";
+            document.getElementById('mx789190149').value = comp + player4name + "x4";
 
             //===== submit data ==========
             //============================
