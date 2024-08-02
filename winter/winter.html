@@ -702,7 +702,7 @@
 // check for slow network
 var slowLoad = window.setTimeout( function() {
         alert( "the page is taking its sweet time loading" );
-    }, 5 );
+    }, 10 );
 
     window.addEventListener( 'load', function() {
         window.clearTimeout( slowLoad );
