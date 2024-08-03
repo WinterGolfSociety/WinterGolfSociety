@@ -1213,7 +1213,9 @@ var slowLoad = window.setTimeout( function() {
       dlist = "";
       dlistcount = 0;
       var collectdates = "no";
-
+      var compcurrent = "no";
+      
+      // loop through competitions list
       for (i = 0; i < arrComps.length; i++) {
 
         // change "Lakes 10 January 2024" to "10 January 2024" etc.
@@ -1249,31 +1251,36 @@ var slowLoad = window.setTimeout( function() {
           d = "Saturday";
         }
 
+        // if today is already in localStorage, then its the current competition
+        // so do nothing  
+        // if today is not in localStorage, then its a new competition day
+        // so clear old data and start new
+                
+       // if comp date = today date
         if (darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
           // similar to "Sun Jan 20 2025"
           // if its a competition day, see if it is same as wwtodayscomp
           // if not, clear data and start again
+          // check to see if a comp exists in localStorage
+          if ("wwtodayscomp" in localStorage) {
+              // if today is the same as localStorage.wwtodayscomp do nothing
+              // if a different day, clear all old data but keep arrays etc.
+              if (localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
+                  // same day keep info, so mark as current
+                 compcurrent = "yes";
+              }
 
+          }
+         
+          //===================================================================
           // in scorentry, if there is a wwp1h1 score then show recover message
-
+          //===================================================================
           localStorage.setItem("wwtodayscomp", arrComps[i]);
           todayscomp = arrComps[i];
           compday = "yes"
           localStorage.setItem("wwcompday", "yes");
           ccourse = arrComps[i].split(" ");
           localStorage.setItem("wwcourse", ccourse[0]);
-
-          // competition today so do check  
-          // check to see if a comp exists in localStorage
-          if ("wwtodayscomp" in localStorage) {
-            // if today is the same as localStorage.wwtodayscomp do nothing
-            // if a different day, clear all old data but keep arrays etc.
-            if (localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) == -1) {
-              // different day, clear old data using custom function
-              clearCache();
-            }
-
-          }
 
           if (arrComps[i].indexOf("Lakes") > -1) {
             tempd = '<p style="color:white;">Lakes - competition today</p>';
@@ -1288,7 +1295,7 @@ var slowLoad = window.setTimeout( function() {
           dlistcount++;
           collectdates = "yes";
 
-        } // end of darr.toString().substring(0, 15) ...
+        } // end of if darr.toString().substring(0, 15) ...
 
         if (parseInt(dd - darr) < 1) {
           collectdates = "yes"
@@ -1302,12 +1309,19 @@ var slowLoad = window.setTimeout( function() {
           dlist = dlist + tempd + "<br>";
           dlistcount++;
         }
+
       } // end for loop
+      
       document.getElementById("xdcomp1").innerHTML = dlist;
       // get rid of bubble
       document.getElementById("tooltip").style.display = "none";
       // show menu
       document.getElementById("nav").style.display = "block";
+
+      // only clear data if not the current comp
+      if (compcurrent == "no"){
+          clearCache();
+      }
 
     }
 
@@ -1418,7 +1432,7 @@ var slowLoad = window.setTimeout( function() {
       if ("wwcourse" in localStorage) {
         tempwwcourse = localStorage.wwcourse;
       }
-
+alert(localStorage)
       // clear localStorage
       localStorage.clear();
       // put localStorage back from variables
