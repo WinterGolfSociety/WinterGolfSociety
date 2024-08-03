@@ -3304,70 +3304,94 @@ beforeSubmitForm();
       var err2 = ""
       var err3 = ""
       var err4 = ""
-console.log("1111")
+      var err1count = 0
+      var err2count = 0
+      var err3count = 0
+      var err4count = 0
+
       // make sure everything is updated
       finalWrite();
 
       for (ii = 1; ii <= 18; ii++) {
           if (!(containsNumber(document.getElementById("p1h" + ii).innerText))) {
-            err1 += "hole " + ii + " - no score for " + player1name + "\n";
+            err1count++
+            if (err1count < 3){            
+                err1 += "hole " + ii + " - no score for " + player1name + "<br>";
+            }
           }
           if (!(containsNumber(document.getElementById("p2h" + ii).innerText))) {
-            err2 += "hole " + ii + " - no score for " + player2name + "\n";
+            err2count++
+            if (err2count < 3){            
+                err2 += "hole " + ii + " - no score for " + player2name + "<br>";
+            }          
           }
           if (!(containsNumber(document.getElementById("p3h" + ii).innerText))) {
-            err3 += "hole " + ii + " - no score for " + player3name + "\n";
+            err3count++            
+            if (err3count < 3){            
+                err3 += "hole " + ii + " - no score for " + player3name + "<br>";
+            }          
           }
           if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
-            err4 += "hole " + ii + " - no score for " + player4name + "\n";
+            err4count++            
+            if (err4count < 3){            
+                err4 += "hole " + ii + " - no score for " + player4name + "<br>";
+            }           
           }
 
       }
-console.log("2222")
-      if (err1 !== "" || err2 !== "" || err3 !== "" || err4 !== "" ) {
+
+      if (err1count = 2){
+          err1 += "and more .."
+      }
+      if (err2count = 2){
+          err2 += "and more .."
+      }
+      if (err3count = 2){
+          err3 += "and more .."
+      }
+      if (err4count = 2){
+          err4 += "and more .."
+      }
+
+      if (err1 !== "and more .." || 
+          err2 !== "and more .." || 
+          err3 !== "and more .." || 
+          err4 !== "and more .." ) {
+          
           showseconds = 5;
       
           document.getElementById("popuppanel1").style.fontSize = "2vh";
           document.getElementById("popuppanel1").style.textAlign = "left";
           document.getElementById("popuppanel1").style.display = "block";
-          document.getElementById("popuppanel1").innerHTML = "Some entries need correcting:<br><br>" +
-                                                       err1 + "<br>" + 
-                                                       err2 + "<br>" + 
-                                                       err3 + "<br>" +
-                                                       err4 + "<br>" + 
-                                                       "<br><br>message closes in " + showseconds; 
+          document.getElementById("popuppanel1").innerHTML = err1 + "<br>" + 
+                                                             err2 + "<br>" + 
+                                                             err3 + "<br>" +
+                                                             err4 + "<br>" + 
+                                                             "<br>message closes in " + showseconds; 
                                                        
      
 // Update the count down every 1 second
 var x = setInterval(function() {
 showseconds--
-document.getElementById("popuppanel1").innerHTML = "Some entries need correcting:<br><br>" +
-                                                       err1 + "<br>" + 
-                                                       err2 + "<br>" + 
-                                                       err3 + "<br>" +
-                                                       err4 + "<br>" + 
-                                                       "<br><br>message closes in " + showseconds; 
+document.getElementById("popuppanel1").innerHTML = err1 + "<br>" + 
+                                                             err2 + "<br>" + 
+                                                             err3 + "<br>" +
+                                                             err4 + "<br>" + 
+                                                             "<br>message closes in " + showseconds; 
 if (showseconds < 0) {
     clearInterval(x);
     document.getElementById("popuppanel1").style.display = "none";
   }
 },1000)
-     
-     
-     
-          
- console.log("3333")
+
 } else {
-console.log("4444")
+
 document.getElementById("popuppanel1").style.textAlign = "center";
 document.getElementById("popuppanel1").style.fontSize = "3vh";
 	document.getElementById("all").style.filter = "opacity(40%)";
         document.getElementById("submitbox").style.display = "block";
         submitForm();
 }
-
-
-
 
  }      
     
@@ -3380,75 +3404,14 @@ document.getElementById("popuppanel1").style.fontSize = "3vh";
     // - send info from HTML form to google form
     //=============================================================  
     function submitForm() {
-      var err1 = ""
-      var err2 = ""
-      var err3 = ""
-      var err4 = ""
+   
 
       // get the relevant info into a form
       // dont submit for an incorrect day
       compday = localStorage.wwcompday;
       //if wwtodayscomp in comp array
       if (compday == "yes") {
-      
-        // make sure everything is updated
-        finalWrite();
-
-        for (ii = 1; ii <= 18; ii++) {
-          if (!(containsNumber(document.getElementById("p1h" + ii).innerText))) {
-            err1 += "hole " + ii + " has no score for " + player1name + "\n";
-          }
-          if (!(containsNumber(document.getElementById("p2h" + ii).innerText))) {
-            err2 += "hole " + ii + " has no score for " + player2name + "\n";
-          }
-          if (!(containsNumber(document.getElementById("p3h" + ii).innerText))) {
-            err3 += "hole " + ii + " has no score for " + player3name + "\n";
-          }
-          if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
-            err4 += "hole " + ii + " has no score for " + player4name + "\n";
-          }
-
-        }
-
-err1="xxxxx"
-if (err1 !== "" || err2 !== "" || err3 !== "" || err4 !== "" ) {
-setTimeout(function() {
- console.log("1111")
-    document.getElementById("submitbox").style.display = "none";
-    
-    
-    console.log("2222")
-/*
-    
-    document.getElementById("all").style.filter = "opacity(100%)";
-
-
-
-
-
-document.getElementById("popuppanel1").style.display = "block";
-document.getElementById("popuppanel1").innerHTML = err1 + "<br>" + 
-                                                       err2 + "<br>" + 
-                                                       err3 + "<br>" +
-                                                       err4 + "<br>" ;
-
-
-
-
-
-
-
-
-
-
-
-    //document.getElementById("popuppanel1").style.opacity = "1.0";
-    //document.getElementById("popuppanel1").style.display = "block";
-  */  
- },100)   
-    
-    
-} else {
+ 
 
         if (player1name.indexOf("player") < 0) {
 
@@ -4015,7 +3978,7 @@ document.getElementById("popuppanel1").innerHTML = err1 + "<br>" +
           window.location.assign("winter.html");
         }, 8000);
 
-      } // end of if else (err1 !== "" || err2 !== "" || err3 !== "" || err4 !== "" || ) {
+
       
       } // end of if compday
       
