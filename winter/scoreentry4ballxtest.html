@@ -3329,7 +3329,8 @@
 
 
 if (err1 !== "" || err2 !== "" || err3 !== "" || err4 !== "" ) {
-
+setTimeout(function() {
+ 
     document.getElementById("submitbox").style.display = "none";
 
     
@@ -3357,6 +3358,10 @@ document.getElementById("popuppanel1").innerHTML = err1 + "<br>" +
 
     //document.getElementById("popuppanel1").style.opacity = "1.0";
     document.getElementById("popuppanel1").style.display = "block";
+    
+ },10)   
+    
+    
 } else {
 
         if (player1name.indexOf("player") < 0) {
