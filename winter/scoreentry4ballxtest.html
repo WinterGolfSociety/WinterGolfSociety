@@ -706,6 +706,7 @@
       position: fixed;
       top: 2vh;
       left: 2vw;
+      z-index:99;
       background-color: #ddd;
       font-size: 3vh;
       border-radius: 5px;
@@ -1891,8 +1892,9 @@
       getScores()
 
       if (gotosubmit == "yes") {
-        document.getElementById("all").style.filter = "opacity(40%)";
-        document.getElementById("submitbox").style.display = "block";
+beforeSubmitForm();        
+        //document.getElementById("all").style.filter = "opacity(40%)";
+        //document.getElementById("submitbox").style.display = "block";
         //document.getElementById("scoreprev").style.filter = "opacity(100%)";
       }
 
@@ -3292,6 +3294,87 @@
     }
     
     
+    
+    //=============================================================
+    // function beforeSubmitForm()
+    // - check before sending info from HTML form to google form
+    //=============================================================  
+    function beforeSubmitForm() {
+      var err1 = ""
+      var err2 = ""
+      var err3 = ""
+      var err4 = ""
+console.log("1111")
+      // make sure everything is updated
+      finalWrite();
+
+      for (ii = 1; ii <= 18; ii++) {
+          if (!(containsNumber(document.getElementById("p1h" + ii).innerText))) {
+            err1 += "hole " + ii + " - no score for " + player1name + "\n";
+          }
+          if (!(containsNumber(document.getElementById("p2h" + ii).innerText))) {
+            err2 += "hole " + ii + " - no score for " + player2name + "\n";
+          }
+          if (!(containsNumber(document.getElementById("p3h" + ii).innerText))) {
+            err3 += "hole " + ii + " - no score for " + player3name + "\n";
+          }
+          if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
+            err4 += "hole " + ii + " - no score for " + player4name + "\n";
+          }
+
+      }
+console.log("2222")
+      if (err1 !== "" || err2 !== "" || err3 !== "" || err4 !== "" ) {
+          showseconds = 5;
+      
+          document.getElementById("popuppanel1").style.fontSize = "2vh";
+          document.getElementById("popuppanel1").style.textAlign = "left";
+          document.getElementById("popuppanel1").style.display = "block";
+          document.getElementById("popuppanel1").innerHTML = "Some entries need correcting:<br><br>" +
+                                                       err1 + "<br>" + 
+                                                       err2 + "<br>" + 
+                                                       err3 + "<br>" +
+                                                       err4 + "<br>" + 
+                                                       "<br><br>message closes in " + showseconds; 
+                                                       
+     
+// Update the count down every 1 second
+var x = setInterval(function() {
+showseconds--
+document.getElementById("popuppanel1").innerHTML = "Some entries need correcting:<br><br>" +
+                                                       err1 + "<br>" + 
+                                                       err2 + "<br>" + 
+                                                       err3 + "<br>" +
+                                                       err4 + "<br>" + 
+                                                       "<br><br>message closes in " + showseconds; 
+if (showseconds < 0) {
+    clearInterval(x);
+    document.getElementById("popuppanel1").style.display = "none";
+  }
+},1000)
+     
+     
+     
+          
+ console.log("3333")
+} else {
+console.log("4444")
+document.getElementById("popuppanel1").style.textAlign = "center";
+document.getElementById("popuppanel1").style.fontSize = "3vh";
+	document.getElementById("all").style.filter = "opacity(40%)";
+        document.getElementById("submitbox").style.display = "block";
+        submitForm();
+}
+
+
+
+
+ }      
+    
+    
+    
+    
+    
     //=============================================================
     // function submitForm()
     // - send info from HTML form to google form
@@ -3327,12 +3410,15 @@
 
         }
 
-
+err1="xxxxx"
 if (err1 !== "" || err2 !== "" || err3 !== "" || err4 !== "" ) {
 setTimeout(function() {
- 
+ console.log("1111")
     document.getElementById("submitbox").style.display = "none";
-
+    
+    
+    console.log("2222")
+/*
     
     document.getElementById("all").style.filter = "opacity(100%)";
 
@@ -3357,9 +3443,9 @@ document.getElementById("popuppanel1").innerHTML = err1 + "<br>" +
 
 
     //document.getElementById("popuppanel1").style.opacity = "1.0";
-    document.getElementById("popuppanel1").style.display = "block";
-    
- },10)   
+    //document.getElementById("popuppanel1").style.display = "block";
+  */  
+ },100)   
     
     
 } else {
