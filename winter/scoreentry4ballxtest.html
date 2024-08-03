@@ -3328,15 +3328,14 @@
         }
 
 
-console.log(err1)
-console.log(err2)
-console.log(err3)
-console.log(err4)
 if (err1 !== "" || err2 !== "" || err3 !== "" || err4 !== "" ) {
+    document.getElementById("submitbox").style.display = "none"
+
     document.getElementById("popuppanel1").innerHTML = err1 + "<br>" + 
                                                        err2 + "<br>" + 
                                                        err3 + "<br>" +
-                                                       err4 + "<br>" 
+                                                       err4 + "<br>" ;
+    document.getElementById("popuppanel1").style.opacity = "1.0"
     document.getElementById("popuppanel1").style.display = "block"
 } else {
 
