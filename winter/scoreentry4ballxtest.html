@@ -3370,28 +3370,29 @@ beforeSubmitForm();
                                                              "<br>message closes in " + showseconds; 
                                                        
      
-// Update the count down every 1 second
-var x = setInterval(function() {
-showseconds--
-document.getElementById("popuppanel1").innerHTML = err1 + "<br>" + 
-                                                             err2 + "<br>" + 
-                                                             err3 + "<br>" +
-                                                             err4 + "<br>" + 
+          // Update the count down every 1 second
+          var x = setInterval(function() {
+              showseconds--
+              document.getElementById("popuppanel1").innerHTML = err1 + "<br>" + 
+                                                                 err2 + "<br>" + 
+                                                                 err3 + "<br>" +
+                                                                 err4 + "<br>" + 
                                                              "<br>message closes in " + showseconds; 
-if (showseconds < 0) {
-    clearInterval(x);
-    document.getElementById("popuppanel1").style.display = "none";
+          if (showseconds < 0) {
+              clearInterval(x);
+              document.getElementById("popuppanel1").style.display = "none";
+          }
+     },1000)
+
+   } else {
+
+      document.getElementById("popuppanel1").style.textAlign = "center";
+      document.getElementById("popuppanel1").style.fontSize = "3vh";
+	   document.getElementById("all").style.filter = "opacity(40%)";
+      document.getElementById("submitbox").style.display = "block";
+      //submitForm();
+      
   }
-},1000)
-
-} else {
-
-document.getElementById("popuppanel1").style.textAlign = "center";
-document.getElementById("popuppanel1").style.fontSize = "3vh";
-	document.getElementById("all").style.filter = "opacity(40%)";
-        document.getElementById("submitbox").style.display = "block";
-        submitForm();
-}
 
  }      
     
