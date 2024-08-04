@@ -5,7 +5,7 @@
       <meta charset="UTF-8" />
       
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-      <title>winter 2023</title>
+      <title>winter</title>
       <meta content="Bryan M" name="author" />
       <link href="favicon.ico" rel="icon" type="image/x-icon" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -109,12 +109,53 @@ var dd = new Date();
 var dddate = dd.getDate();
 var ddmonth = dd.getMonth();
 
+// get date number and format it
+d1 = dd.getDate();
+      if (d1 < 10) {
+        d1 = "0" + d1;
+      }
+      // get month and format it
+      d2 = dd.getMonth();
+      if (d2 == 0) {
+        m = "January";
+      }
+      if (d2 == 1) {
+        m = "February";
+      }
+      if (d2 == 2) {
+        m = "March";
+      }
+      if (d2 == 3) {
+        m = "April";
+      }
+      if (d2 == 4) {
+        m = "May";
+      }
+      if (d2 == 5) {
+        m = "June";
+      }
+      if (d2 == 6) {
+        m = "July";
+      }
+      if (d2 == 7) {
+        m = "August";
+      }
+      if (d2 == 8) {
+        m = "September";
+      }
+      if (d2 == 9) {
+        m = "October";
+      }
+      if (d2 == 10) {
+        m = "November";
+      }
+      if (d2 == 11) {
+        m = "December";
+      }
+      var dateToday = d1 + " " + m;
 
 
 function start() {
-dd = new Date();
-dddate = dd.getDate();
-ddmonth = dd.getMonth();
 
 document.getElementById("notyet").innerHTML = "<br>Leaderboard ... <a style='color:blue;'>updating</a><br><br>"
 arrPos = []
@@ -123,10 +164,6 @@ arrPoints = []
 arrTwos = []
 arrPlayerOld = [];
 comp = "";
-//dd = new Date();
-//dddate = dd.getDate();
-//ddmonth = dd.getMonth();
-
 
 if (!("lbdatecheck" in localStorage)) {
     localStorage.lbdatecheck = "0";
@@ -140,21 +177,11 @@ if (localStorage.lbdatecheck != dddate + "-" + ddmonth) {
 getData();
 }
 
-
-
 // run code ...
 start();
 
-
-
-
-
-
-
 // time for update
 setInterval(start, 60000);
-
-
 
 async function getData() {
 	var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/Leaderboard"
@@ -162,30 +189,18 @@ async function getData() {
 	
 	var resultsarray = await dataStream.json();
 	
-	//console.log(resultsarray[0].key[0])
-	
-	console.log("pos" in resultsarray)
-	console.log("player" in resultsarray)
-	console.log("points" in resultsarray)
-	console.log("twos" in resultsarray)
-	
 	var dataFound = "no"
-	
-   if(resultsarray[0].hasOwnProperty('player'))
-   {
-        dataFound = "yes";
+	console.log(resultsarray[0].points)
+	// see if it is todays comp
+	if (resultsarray[0].comp.indexOf(dateToday) > -1) {
+       // see  if there is any results
+       if(resultsarray[0].points > 0) {
+           dataFound = "yes";
+           console.log("here")
+       }
    }
 
-
-
-
-console.log(dataFound)
-
-
-
-
 if (dataFound == "yes") {
-
 	
 	// get rid of blanks in array by creating new arrays
 	for(var i = 0; i < resultsarray.length; i++) {
@@ -204,32 +219,23 @@ if (dataFound == "yes") {
 
 } else {
 
-arrPos.push("&nbsp;");
-arrPlayer.push("no results");
-arrPoints.push("&nbsp;");
-arrTwos.push("&nbsp;")
+   arrPos.push("&nbsp;");
+   arrPlayer.push("no results");
+   arrPoints.push("&nbsp;");
+   arrTwos.push("&nbsp;")
 
-arrPlayerOld.push("searching ...")
+   arrPlayerOld.push("searching ...")
+
 }
-
-
-
 
 	// retrieve previous data
 	if ("lbarray" in localStorage) {
 	    arrPlayerOld = JSON.parse(localStorage.lbarray);
 	}
 	// overwrite saved data
-	
-	
-	
-	
 	//localStorage.lbarray = JSON.stringify(arrPlayer);
 	localStorage.setItem("lbarray",JSON.stringify(arrPlayer));
-	
-	
-	
-	
+
 		//if (arrPlayer.length == arrPlayerOld.length) { // no change
 		//console.log("same")
 		//} else { // change
