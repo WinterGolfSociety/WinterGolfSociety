@@ -136,7 +136,10 @@ opacity: 0.9;
 padding: 2vh;
    }
    
-   
+   #counter {
+color: white;
+font-size: 2vh;   
+   }
    
        </style>
   </head>
@@ -185,7 +188,9 @@ padding: 2vh;
         confirm selection
       </div>
 
-    
+      <div id="counter">
+        
+      </div>
 
  
 
@@ -265,22 +270,22 @@ arrOptions = [
 
 
 
-getData()
-window.setInterval(getData, 35000);
+//getData()
+//window.setInterval(getData, 35000);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+var s = 35;
+setInterval(frame, 1000);
+  
+  function frame() {
+    if (s == 35) {
+      s = 0;
+      getData();
+    } else {
+      s++
+      //console.log("updated in " + (35 - s) + " seconds");
+      document.getElementById("counter").innerText = "next update in " + (35 - s) + " seconds"
+    }
+  }
 
  //=====================================================
     // Close the dropdown if the user clicks outside of it
