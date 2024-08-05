@@ -157,6 +157,9 @@ padding: 2vh;
 
 
    <button class="btn" id="btn0">no one selected to choose breakfast</button>
+   
+<div class="spacer1">&nbsp;</div>   
+   
   <button onclick="myfood(this.id)" class="btn" id="btn1">bacon sandwich £3.50</button>
   
   <button onclick="myfood(this.id)" class="btn" id="btn2">full english breakfast £7.50</button>
@@ -420,7 +423,7 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vRDLdqGJy60FNrnlQeH3XIXOEZAJua0L
 var txt = "";      
       for (i = 0; i < arrNames.length; i++) {
                  
-      txt += arrNames[i] + " " + arrFood[i] + "\n"
+      txt += arrNames[i] + "\n" + arrFood[i] + "\n\n"
       
       }
 
