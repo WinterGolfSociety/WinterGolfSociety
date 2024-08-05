@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>breakfast</title>
+    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      min-height: 100%;
+      width: 100%;
+      min-width: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 3vh;
+      background: black;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* dropdown */
+
+    #dropbtn {
+      color: white;
+      background: dodgerBlue; //black;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      //border: 1px solid Gray;
+      border-radius: 5px;
+      
+      
+      
+      
+      
+      background: dodgerBlue;
+color: white;
+padding: 1vh;
+font-size: 3vh;
+border-radius: 5px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: black;
+      min-width: 160px;
+      overflow: auto;
+      z-index: 1;
+      border-radius: 5px;
+      //box-shadow: 10px 10px 25px black;
+      max-height: 70vh;
+    }
+
+    .dropdown-content a {
+      color: black;
+      font-size: 4vh;
+      background: whiteSmoke;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      border: 1px solid gray;
+      //border-radius: 5px;
+    }
+
+    .show {
+      display: block;
+    }
+    
+    
+#name {
+color: white;
+font-size: 3vh;
+padding: 1vh;
+
+}    
+
+
+.btn {
+background: dodgerBlue;
+color: white;
+padding: 1vh;
+font-size: 3vh;
+border-radius: 5px;
+margin: 1vh;
+}    
+
+
+#txtlist {
+color: yellow;
+font-size: 3vh;
+}
+
+   #my-response-iframe, #my-form {
+   display: none;
+   } 
+   
+   
+   .spacer1 {
+    height: 2vh;   
+   }
+   
+   #msg {
+position: absolute;
+top: 0;
+left: 0;
+color: white;
+height: 100vh;
+background: black;
+opacity: 0.8;   
+padding: 2vh;
+   }
+   
+   
+   
+       </style>
+  </head>
+
+  <body>
+   
+    <div id="msg" onclick="closemsg()">Pre-order breakfast, change your mind as often as you wish. The process takes a couple of seconds but the listing can take up to 30 seconds to change
+<br><br><br><br><br><br>tap to close this message 
+    
+    </div>
+ 
+
+<div>
+        <div onclick="toggleDropdown()" class="dropbtn btn" id="dropbtn">
+        select your name
+        </div>
+        <div id="playersDropdown" class="dropdown-content"></div>
+</div>
+      <div id="name"></div>
+<div class="spacer1">&nbsp;</div>
+
+
+   <button class="btn" id="btn0">no one selected to choose breakfast</button>
+  <button onclick="myfood(this.id)" class="btn" id="btn1">bacon sandwich £3.50</button>
+  
+  <button onclick="myfood(this.id)" class="btn" id="btn2">full english breakfast £7.50</button>
+  
+</div>
+
+
+
+
+
+  <div class="spacer1">&nbsp;</div>
+
+      <div class="btn" id="submitbutton"onclick="submitForm()">
+        confirm selection
+      </div>
+
+    
+
+ 
+
+    <!-- invisible but necessary for submit of data
+         form to construct data prior to submit -->
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLScnURRwj4s2rnJag2LegqbUXzcjASUI1SltYMcOgJQRud4wrw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+      <!-- name, food -->
+      <input id='mx3455305' name='entry.3455305' type='text' value='default'>
+      <input id='mx1713138291' name='entry.1713138291' type='text' value='default'>
+      
+      <input type="submit"> </form>
+    <!-- google iframe inserted here - invisible -->
+    <iframe height="200" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScnURRwj4s2rnJag2LegqbUXzcjASUI1SltYMcOgJQRud4wrw/viewform?embedded=true" width="600"></iframe>
+    <br>
+
+
+
+
+<a id="txtlist"></a>
+
+<!--
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRDLdqGJy60FNrnlQeH3XIXOEZAJua0LpDIbZmppl_2tYT4Vzy2Nf1qDnGUxS14HIwUcFNNBb21AEQ5/pubhtml?gid=435825355&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+-->
+
+
+
+    <script>
+
+
+/*
+
+pre filled form
+
+
+https://docs.google.com/forms/d/e/1FAIpQLScnURRwj4s2rnJag2LegqbUXzcjASUI1SltYMcOgJQRud4wrw/viewform?usp=pp_url&entry.3455305=namex&entry.1713138291=foodx
+
+*/
+
+
+
+
+var playername ="";
+var foodname = "";
+
+
+
+
+
+
+
+arrOptions = [
+"Stephen Alldridge",
+"Keith Belshaw",
+"Paul Burt",
+"Trevor Charlton",
+"Chris Chelton",
+"Ken Clark",
+"Andy Clough",
+"Bryan Craggs",
+"Andy Davison",
+"John Dean",
+"Peter Dodds",
+"Eileen Gow",
+"Graeme Gow",
+"Clive Herbert",
+"Eddie Hicks",
+"Barry Hill",
+"Peter Holleran",
+"Martin Leonard",
+"Bryan Maddison",
+"Bob Nicholas",
+"Dean Pearson",
+"Dean Phillips",
+"Gary Scott",
+"Tony Smith"
+]
+
+
+
+getData()
+window.setInterval(getData, 35000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //=====================================================
+    // Close the dropdown if the user clicks outside of it
+    //=====================================================
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+
+
+
+
+
+
+
+  // create a new player dropdown
+      var select = document.getElementById("playersDropdown");
+      // this is what is created
+      //<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Bryan Maddison</a>
+      //
+      for (var i = 0; i < arrOptions.length; i++) {
+        var el = document.createElement("a");
+        el.id = "myLink" + (i);
+        el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+        el.setAttribute("href", "#");
+        el.innerText = arrOptions[i];
+        select.appendChild(el);
+        
+      }
+
+
+ //=============================================================
+    // function toggleDropdown()
+    // - show player name choices
+    //=============================================================  
+    function toggleDropdown() {
+      // When the user clicks on the button, toggle between hiding and showing the dropdown content
+      document.getElementById("playersDropdown").classList.toggle("show");
+    }
+
+   // name selected, do stuff
+    function dropSelected(playerNamex) {
+    // update global var
+    playername = playerNamex;
+     document.getElementById("btn0").innerText = playerNamex + " choosing breakfast"
+     document.getElementById("btn0").style.background = "blue";
+  }
+
+
+
+
+//=============================================================
+    // function submitForm()
+    // - send info from HTML form to google form
+    //=============================================================  
+    function submitForm() {
+     
+     
+          document.getElementById('mx3455305').value = playername;
+          document.getElementById('mx1713138291').value = foodname;
+     
+          
+          //===== submit data ==========
+          //============================
+          document.forms[0].submit();
+          document.getElementById("submitbutton").style.background = "blue";
+          setTimeout(function() {
+             document.getElementById("submitbutton").style.background = "dodgerBlue";
+          }, 1000)
+          
+// reset all
+ document.getElementById("btn0").style.background = "dodgerBlue";          
+  document.getElementById("btn1").style.background = "dodgerBlue";  
+  document.getElementById("btn2").style.background = "dodgerBlue";  
+  //document.getElementById("btn3").style.background = "dodgerBlue";          
+          
+   document.getElementById("btn0").innerText = "no one selected to choose breakfast";       
+    
+playername ="";
+foodname = "";
+      
+          
+          
+}
+
+
+function myfood(id) {
+   // update global var
+   foodname = document.getElementById(id).innerText
+document.getElementById(id).style.background = "blue";  
+}
+
+
+
+
+
+
+
+
+/*
+shared csv link
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRDLdqGJy60FNrnlQeH3XIXOEZAJua0LpDIbZmppl_2tYT4Vzy2Nf1qDnGUxS14HIwUcFNNBb21AEQ5/pub?gid=435825355&single=true&output=csv
+*/
+    async function getData() {
+      console.log("here - getdata")
+      var dataStream = await fetch("https://opensheet.elk.sh/1WCMMo2dd0TSZ8Lts8ymmPXmmXSdNibDBWRZVUnb4LOs/selectedcsv")
+
+      if (!dataStream.ok) {
+        const message = `An error has occured: ${dataStream.status}`;
+        //throw new Error(message);
+        alert("error 3: " + message)
+      }
+
+      var resultsarray = await dataStream.json()
+      // split into separate arrays
+      arrNames = resultsarray.map(d => d.names);
+      arrFood = resultsarray.map(d => d.food);
+      
+      // remove null items
+      arrNames = arrNames.filter(function(el) {
+        return el != null;
+      })
+      arrFood = arrFood.filter(function(el) {
+        return el != null;
+      })
+      
+
+      // remove empty items
+      arrNames = arrNames.filter(function(el) {
+        return el != "";
+      })
+      arrFood = arrFood.filter(function(el) {
+        return el != "";
+      })
+      
+
+
+
+
+// loop through competitions list
+var txt = "";      
+      for (i = 0; i < arrNames.length; i++) {
+                 
+      txt += arrNames[i] + " " + arrFood[i] + "\n"
+      
+      }
+
+
+document.getElementById("txtlist").innerText = txt;
+
+
+    }
+    
+
+
+function closemsg() {
+document.getElementById("msg").style.display = "none";
+}
+
+
+
+
+
+
+
+</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
