@@ -147,7 +147,7 @@ padding: 1vh;
 
   <body>
    
-    <div id="msg" onclick="closemsg()">Pre-order breakfast, change your mind as often as you wish. The process takes a couple of seconds but the listing can take up to 35 seconds to display a new selection.
+    <div id="msg" onclick="closemsg()">Pre-order breakfast, change your selection as often as you wish. The process takes a couple of seconds but the listing can take up to a minute or so to display your selection.
     <br><br>
     1. Select name
     <br>
@@ -283,11 +283,7 @@ setInterval(frame, 1000);
       getData();
     } else {
       s++
-      if (s > 25) {
-          document.getElementById("counter").innerText = "working ..."
-      } else {
-          document.getElementById("counter").innerText = "next list update in " + (35 - s) + " seconds"
-      }
+      document.getElementById("counter").innerText = "next list update in " + (35 - s) + " seconds"
     }
   }
 
