@@ -283,8 +283,11 @@ setInterval(frame, 1000);
       getData();
     } else {
       s++
-      //console.log("updated in " + (35 - s) + " seconds");
+      if (s < 8) {
+          document.getElementById("counter").innerText = "working ..."
+      } else {
       document.getElementById("counter").innerText = "next list update in " + (35 - s) + " seconds"
+      }
     }
   }
 
