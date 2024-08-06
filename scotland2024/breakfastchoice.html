@@ -31,8 +31,8 @@
          }
          /* dropdown */
          #dropbtn {
-         color: white;
-         background: dodgerBlue; //black;
+         color: yellow; //white;
+         background: dodgerBlue;
          height: 100%;
          display: flex;
          justify-content: center;
@@ -98,20 +98,31 @@
          }
          #msg {
          position: absolute;
-         top: 0;
-         left: 0;
+         top: 2vh;
+         left: 2vw;
+         width: 96vw;
          font-size: 4vh;
          color: white;
-         height: 100%;
-         background: black;
-         opacity: 0.9;   
-         padding: 2vh 1vh;
+         background: dodgerBlue;
+         padding: 10vh 2vw;
+         box-shadow: 10px 10px 25px black;
+         border-radius: 5px;
          }
          #counter {
          color: white;
          font-size: 2.5vh;   
          padding: 2vh 1vh;
          }
+         
+.title {
+font-size: 3vh;
+color: white;
+}         
+
+#submitbutton, #dropbtn {
+color: yellow;
+}
+         
       </style>
    </head>
    <body>
@@ -125,15 +136,17 @@
          <br><br><br><br>tap to close this message 
       </div>
       <div>
-         <div onclick="toggleDropdown()" class="dropbtn btn" id="dropbtn">
-            select your name
-         </div>
+      <div class="title">1 - Select your name</div>
+         <button onclick="toggleDropdown()" class="dropbtn btn" id="dropbtn">
+            Select your name
+         </button>
          <div id="playersDropdown" class="dropdown-content"></div>
       </div>
       <div id="name"></div>
       <div class="spacer1">&nbsp;</div>
       <button class="btn" id="btn0">no one selected to choose breakfast</button>
       <div class="spacer1">&nbsp;</div>
+      <div class="title">2 - Select any items from below</div>
       <button onclick="myfood(this.id)" class="btn" id="btn1">breakfast bap - bacon £4.00</button>
       <button onclick="myfood(this.id)" class="btn" id="btn2">breakfast bap - sausage £4.00</button>
       <button onclick="myfood(this.id)" class="btn" id="btn3">breakfast bap - egg £4.00</button>
@@ -152,12 +165,13 @@
       <button onclick="myfood(this.id)" class="btn" id="btn16">toast & raspberry jam £2.00</button>
       <button onclick="myfood(this.id)" class="btn" id="btn17">toast & blackcurrant jam £2.00</button>
       <button onclick="myfood(this.id)" class="btn" id="btn18">coffee £1.90</button>
-      <button onclick="myfood(this.id)" class="btn" id="btn3">no breakfast</button>
+      <button onclick="myfood(this.id)" class="btn" id="btn19">no breakfast</button>
       </div>
       <div class="spacer1">&nbsp;</div>
-      <div class="btn" id="submitbutton"onclick="submitForm()">
-         confirm selection
-      </div>
+      <div class="title">3 - Confirm selection</div>
+      <button class="btn" id="submitbutton"onclick="submitForm()">
+         confirm breakfast selection
+      </button>
       <div id="counter">
       </div>
       <!-- invisible but necessary for submit of data
@@ -296,9 +310,20 @@
              //=============================================================  
              function submitForm() {
               // reset all food choices       
-              for (i = 0; i <= 18; i++) {
-                   document.getElementById("btn" + i).style.background = "dodgerBlue";          
+              for (i = 1; i <= 19; i++) {
+                   if (document.getElementById("btn" + i).style.background == "blue"){
+                       // update global food list var
+                       if (foodname == "") {
+                           foodname += document.getElementById("btn" + i).innerText
+                       } else {
+                           foodname += "#" + document.getElementById("btn" + i).innerText
+                       }
+                       // reset background color
+                       document.getElementById("btn" + i).style.background = "dodgerBlue";          
+                   }
               }
+              
+                   document.getElementById("btn0").style.background = "dodgerBlue"; 
               
                    document.getElementById('mx3455305').value = playername;
                    document.getElementById('mx1713138291').value = foodname;
@@ -310,12 +335,13 @@
                    document.getElementById("submitbutton").style.background = "blue";
                    setTimeout(function() {
                       document.getElementById("submitbutton").style.background = "dodgerBlue";
+                      getData();
                    }, 1000)
                    
          // reset all
-         for (i = 0; i <= 17; i++) {
-          document.getElementById("btn" + i).style.background = "dodgerBlue";          
-         }         
+         //for (i = 0; i <= 18; i++) {
+         // document.getElementById("btn" + i).style.background = "dodgerBlue";          
+         //}         
                    
          document.getElementById("btn0").innerText = "no one selected to choose breakfast";       
              
@@ -328,14 +354,14 @@
          var id = setInterval(frame, 1000);
            
            function frame() {
-             if (s == 31) {
+             if (s == 30) {
                s = 0;
                getData();
                clearInterval(id);       
                document.getElementById("counter").innerText = "";
              } else {
                s++
-               document.getElementById("counter").innerText = "next list update in " + (31 - s) + " seconds"
+               document.getElementById("counter").innerText = "next list update in " + (30 - s) + " seconds"
              }
            }
                    
@@ -343,22 +369,16 @@
          
          
          function myfood(id) {
-            // update global var
-            if (foodname == "") {
-                foodname += document.getElementById(id).innerText
-            } else {
-                foodname += "#" + document.getElementById(id).innerText
-            }
-            
-            
-          
-           
-           // update selected choice       
-         document.getElementById(id).style.background = "blue";  
+         
+         // update selected choice  
+         if (document.getElementById(id).style.background == "blue") {       
+              document.getElementById(id).style.background = "dodgerBlue";  
+         } else {
+              document.getElementById(id).style.background = "blue";
          }
          
          
-         
+         }
          
          
          
