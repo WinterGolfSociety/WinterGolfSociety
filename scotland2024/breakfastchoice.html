@@ -138,7 +138,7 @@ padding: 2vh;
    
    #counter {
 color: white;
-font-size: 2vh;   
+font-size: 2.5vh;   
 padding: 1vh;
    }
    
@@ -147,7 +147,7 @@ padding: 1vh;
 
   <body>
    
-    <div id="msg" onclick="closemsg()">Pre-order breakfast, change your selection as often as you wish. The process takes a couple of seconds but the listing can take up to a minute or so to display your selection.
+    <div id="msg" onclick="closemsg()">Pre-order breakfast, change your selection as often as you wish. The process takes a couple of seconds but the listing will take about 30 seconds to display your selection.
     <br><br>
     1. Select name
     <br>
@@ -271,21 +271,10 @@ arrOptions = [
 
 
 
-//getData()
-//window.setInterval(getData, 35000);
+// get the current list
+getData()
 
-var s = 35;
-setInterval(frame, 1000);
-  
-  function frame() {
-    if (s == 35) {
-      s = 0;
-      getData();
-    } else {
-      s++
-      document.getElementById("counter").innerText = "next list update in " + (35 - s) + " seconds"
-    }
-  }
+
 
  //=====================================================
     // Close the dropdown if the user clicks outside of it
@@ -375,7 +364,22 @@ setInterval(frame, 1000);
 playername ="";
 foodname = "";
       
-          
+  
+   
+var s = 0;
+var id = setInterval(frame, 1000);
+  
+  function frame() {
+    if (s == 31) {
+      s = 0;
+      getData();
+      clearInterval(id);       
+      document.getElementById("counter").innerText = "";
+    } else {
+      s++
+      document.getElementById("counter").innerText = "next list update in " + (31 - s) + " seconds"
+    }
+  }
           
 }
 
