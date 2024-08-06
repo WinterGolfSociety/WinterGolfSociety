@@ -173,9 +173,37 @@ padding: 1vh;
    
 <div class="spacer1">&nbsp;</div>   
    
-  <button onclick="myfood(this.id)" class="btn" id="btn1">bacon sandwich £3.50</button>
+   
+<button onclick="myfood(this.id)" class="btn" id="btn1">breakfast bap - bacon £4.00</button>
+<button onclick="myfood(this.id)" class="btn" id="btn2">breakfast bap - sausage £4.00</button>
+<button onclick="myfood(this.id)" class="btn" id="btn3">breakfast bap - egg £4.00</button>
+
+<button onclick="myfood(this.id)" class="btn" id="btn4">breakfast bap - bacon & mushroom £4.75</button>
+<button onclick="myfood(this.id)" class="btn" id="btn5">breakfast bap - sausage & mushroom £4.75</button>
+<button onclick="myfood(this.id)" class="btn" id="btn6">breakfast bap - egg & mushroom £4.75</button>
+
+<button onclick="myfood(this.id)" class="btn" id="btn7">breakfast bap - bacon & tomato £4.75</button>
+<button onclick="myfood(this.id)" class="btn" id="btn8">breakfast bap - sausage & tomato £4.75</button>
+<button onclick="myfood(this.id)" class="btn" id="btn9">breakfast bap - egg & tomato 4.75</button>
+
+<button onclick="myfood(this.id)" class="btn" id="btn10">tower bap - bacon, sausage, egg & hash brown £6.00</button>
+ <button onclick="myfood(this.id)" class="btn" id="btn11">9 hole breakfast - bacon, egg, potato waffle & beans £5.50</button>
+ <button onclick="myfood(this.id)" class="btn" id="btn12">18 hole breakfast - bacon, sausage, egg, tomato, black pudding, potato waffle, beans & toast £8.00</button>
+ 
+ <button onclick="myfood(this.id)" class="btn" id="btn13">beans on toast £3.00</button>
+ <button onclick="myfood(this.id)" class="btn" id="btn14">scrambled egg on toast £3.00</button>
+ <button onclick="myfood(this.id)" class="btn" id="btn15">toast & strawberry jam £2.00</button>
+ <button onclick="myfood(this.id)" class="btn" id="btn16">toast & raspberry jam £2.00</button>
+ <button onclick="myfood(this.id)" class="btn" id="btn17">toast & blackcurrant jam £2.00</button>
+ 
+
   
-  <button onclick="myfood(this.id)" class="btn" id="btn2">full english breakfast £7.50</button>
+  
+  
+  
+  
+  
+  
   <button onclick="myfood(this.id)" class="btn" id="btn3">no breakfast</button>
 </div>
 
@@ -354,12 +382,11 @@ getData()
           }, 1000)
           
 // reset all
- document.getElementById("btn0").style.background = "dodgerBlue";          
-  document.getElementById("btn1").style.background = "dodgerBlue";  
-  document.getElementById("btn2").style.background = "dodgerBlue";  
-  document.getElementById("btn3").style.background = "dodgerBlue";          
+for (i = 0; i <= 17; i++) {
+ document.getElementById("btn" + i).style.background = "dodgerBlue";          
+}         
           
-   document.getElementById("btn0").innerText = "no one selected to choose breakfast";       
+document.getElementById("btn0").innerText = "no one selected to choose breakfast";       
     
 playername ="";
 foodname = "";
@@ -392,9 +419,9 @@ function myfood(id) {
    
  // reset all food choices
          
-  document.getElementById("btn1").style.background = "dodgerBlue";  
-  document.getElementById("btn2").style.background = "dodgerBlue";  
-  document.getElementById("btn3").style.background = "dodgerBlue";    
+  for (i = 0; i <= 17; i++) {
+       document.getElementById("btn" + i).style.background = "dodgerBlue";          
+  }
   
   // update selected choice       
 document.getElementById(id).style.background = "blue";  
