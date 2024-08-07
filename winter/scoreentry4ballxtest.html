@@ -2045,47 +2045,49 @@ beforeSubmitForm();
 
 
     function getScoring() {
-      // set up for correct number of players
-      if (player1name.indexOf("player") == -1) {
-        localStorage.wwplayer1name = player1name;
-        localStorage.wwplayer1hcp = player1hcp;
-      } else {
-        document.getElementById("p1wrapper").style.display = "none";
+      // only start when at least one player has been selected
+      if (player1name.indexOf("player") > -1) {
+          // set up for correct number of players
+          if (player1name.indexOf("player") == -1) {
+              localStorage.wwplayer1name = player1name;
+              localStorage.wwplayer1hcp = player1hcp;
+          } else {
+              document.getElementById("p1wrapper").style.display = "none";
+          }
+
+          if (player2name.indexOf("player") == -1) {
+              localStorage.wwplayer2name = player2name;
+              localStorage.wwplayer2hcp = player2hcp;
+          } else {
+              document.getElementById("p2wrapper").style.display = "none";
+          }
+
+          if (player3name.indexOf("player") == -1) {
+              localStorage.wwplayer3name = player3name;
+              localStorage.wwplayer3hcp = player3hcp;
+          } else {
+              document.getElementById("p3wrapper").style.display = "none";
+          }
+
+          if (player4name.indexOf("player") == -1) {
+              localStorage.wwplayer4name = player4name;
+              localStorage.wwplayer4hcp = player4hcp;
+          } else {
+              document.getElementById("p4wrapper").style.display = "none";
+          }
+
+          localStorage.wwcourse = course;
+
+          // swap to scoring screen using fade out/in
+          document.getElementById("firstscreen").classList.add("fadeOut");
+          document.getElementById("sswrapper").classList.add("fadeOut");
+
+          document.getElementById("firstscreen").style.display = "none";
+          document.getElementById("sswrapper").style.display = "none"
+
+          document.getElementById("all").classList.add("fadeIn");
+          document.getElementById("all").style.display = "block"
       }
-
-      if (player2name.indexOf("player") == -1) {
-        localStorage.wwplayer2name = player2name;
-        localStorage.wwplayer2hcp = player2hcp;
-      } else {
-        document.getElementById("p2wrapper").style.display = "none";
-      }
-
-      if (player3name.indexOf("player") == -1) {
-        localStorage.wwplayer3name = player3name;
-        localStorage.wwplayer3hcp = player3hcp;
-      } else {
-        document.getElementById("p3wrapper").style.display = "none";
-      }
-
-      if (player4name.indexOf("player") == -1) {
-        localStorage.wwplayer4name = player4name;
-        localStorage.wwplayer4hcp = player4hcp;
-      } else {
-        document.getElementById("p4wrapper").style.display = "none";
-      }
-
-      localStorage.wwcourse = course;
-
-      // swap to scoring screen using fade out/in
-      document.getElementById("firstscreen").classList.add("fadeOut");
-      document.getElementById("sswrapper").classList.add("fadeOut");
-
-      document.getElementById("firstscreen").style.display = "none";
-      document.getElementById("sswrapper").style.display = "none"
-
-      document.getElementById("all").classList.add("fadeIn");
-      document.getElementById("all").style.display = "block"
-
     }
     
     
