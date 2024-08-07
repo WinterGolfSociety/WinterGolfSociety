@@ -2044,9 +2044,9 @@ beforeSubmitForm();
     }
 
 
-    function getScoring() {
+    function getScoring() {  
       // only start when at least one player has been selected
-      if (player1name.indexOf("player") > -1) {
+      if (player1name.indexOf("player") == -1) {
           // set up for correct number of players
           if (player1name.indexOf("player") == -1) {
               localStorage.wwplayer1name = player1name;
