@@ -564,58 +564,7 @@
       }
     }
 
-    /* tooltip stuff */
-    /* HTML: <div class="tooltip">This is a Speech Bubble with a solid coloration and with border radius </div> */
 
-    .tooltip {
-      position: absolute;
-      top: 3vh;
-      left: 50vw;
-      color: indigo;
-      font-family: 'Kalam';
-      font-size: 3vh;
-      font-weight: 500;
-      max-width: 10ch;
-      text-align: center;
-      animation: scale 2s;
-      display: none;
-    }
-
-    @keyframes scale {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
-
-    .tooltip {
-      --b: 3em;
-      /* tail dimension */
-      --p: 16%;
-      /* main position (0%:left 100%:right) */
-      --r: 1.5em;
-      /* the radius */
-      padding: 1em;
-      border-radius: var(--r) var(--r) min(var(--r), 100% - var(--p) - var(--b)/4) min(var(--r), var(--p) - var(--b)/4)/var(--r);
-      background: MediumSpringGreen;
-      /* the main color */
-      position: relative;
-    }
-
-    .tooltip:before {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: clamp(var(--b)/-2, var(--p) - 3*var(--b)/4, 100% - var(--b));
-      width: var(--b);
-      aspect-ratio: 1;
-      background: inherit;
-      --g: #000 calc(100% - 1px), #0000;
-      -webkit-mask: radial-gradient(circle closest-side at 12% 88%, var(--g)), radial-gradient(20% 20% at 52% 55%, var(--g)), radial-gradient(25% 25% at 75% 0, var(--g));
-    }
 
     #warning {
       display: none;
@@ -672,7 +621,8 @@
         <div class="flagicon" id="flagicon"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 40px; width: 40px;" src="seniorswhite.png" alt="logo"></div>
       </div>
     </section>
-    <div class="tooltip" id="tooltip"></div>
+
+    <img id="tooltip" style="padding-right: 20px; float: right; border: 0; height: 100px; width: 100px;" src="speech.gif" alt="speech">
 
     <script>
     function isLocalStorageAvailable() {
@@ -690,44 +640,6 @@
       // unavailable
       alert("local storage is not available so app will not operate.")
     }
-
-
-
-
-
-
-
-
-
-
-// check for slow network - slower than 3G
-var slowLoad = window.setTimeout( function() {
-        document.getElementById("tooltip").innerHTML = "Slow network !"
-    }, 1500 );
-
-    window.addEventListener( 'load', function() {
-        window.clearTimeout( slowLoad );
-    }, false );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     // Detect whether device supports orientationchange event, otherwise fall back to
@@ -1134,7 +1046,8 @@ var slowLoad = window.setTimeout( function() {
       ["December"]
     ];
 
-    getData();
+    // delay to show tooltip
+    setTimeout(getData,1000)
 
     async function getData() {
       //console.log("here - getdata")
