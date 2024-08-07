@@ -1151,8 +1151,9 @@
       ["December"]
     ];
 
-    getData();
-
+    // delay to show tooltip
+    setTimeout(getData,2000)
+    
     async function getData() {
       //console.log("here - getdata")
       var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
@@ -1203,10 +1204,11 @@
       document.getElementById("nav").style.display = "block";
 
       // speech tooltip
-      document.getElementById("tooltip").innerHTML = "New data downloaded"
-      setTimeout(function() {
-        document.getElementById("tooltip").style.display = "none";
-      }, 3000)
+      //document.getElementById("tooltip").innerHTML = "New data downloaded"
+      //setTimeout(function() {
+      //  document.getElementById("tooltip").style.display = "none";
+      //  console.log("started")
+      //}, 3000)
 
       // overwrite saved data arrays in localStorage
       // players
@@ -1350,6 +1352,13 @@
       if (compcurrent == "no"){
           clearCache();
       }
+
+
+// clear tooltip
+document.getElementById("tooltip").style.display = "none";
+
+
+
 
     }
 
