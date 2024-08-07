@@ -688,6 +688,10 @@
     </div>
 
     <script>
+    // show animation
+    document.getElementById("tooltip").style.display = "block";
+    
+    
     function isLocalStorageAvailable() {
       var test = 'test';
       try {
@@ -714,13 +718,13 @@
 
 
 // check for slow network - slower than 3G
-var slowLoad = window.setTimeout( function() {
-        document.getElementById("tooltip").innerHTML = "Slow network !"
-    }, 1500 );
+//var slowLoad = window.setTimeout( function() {
+//        document.getElementById("tooltip").innerHTML = "Slow network !"
+//    }, 1500 );
 
-    window.addEventListener( 'load', function() {
-        window.clearTimeout( slowLoad );
-    }, false );
+//    window.addEventListener( 'load', function() {
+//        window.clearTimeout( slowLoad );
+//    }, false );
 
 
 
@@ -1116,10 +1120,10 @@ var slowLoad = window.setTimeout( function() {
     //====================================
     // runs on start or refresh
     //====================================
-
+    // moved to top
     // speech tooltip
     //document.getElementById("tooltip").innerHTML = "Searching for data"
-    document.getElementById("tooltip").style.display = "block";
+    //document.getElementById("tooltip").style.display = "block";
     
     // global code
     // see if a new download is necessary
