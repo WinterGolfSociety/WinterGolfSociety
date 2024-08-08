@@ -592,9 +592,9 @@
         <div class="child-four">
 
           <div class="holesinfo">score</div>
-          <div class="holesinfo" id="htotal">00</div>
+          <div class="holesinfo" id="htotal">0</div>
           <div class="holesinfo">points</div>
-          <div class="holesinfo" id="ptotal">00</div>
+          <div class="holesinfo" id="ptotal">0</div>
         </div>
 
         <div class="child-four">
@@ -614,7 +614,7 @@
       </div>
 
       <div class="child-one">
-        <div class="submit" onclick="submitForm()">
+        <div class="submit" onclick="beforeSubmitForm()">
           <div id="submit">submit</div>
         </div>
       </div>
@@ -639,8 +639,6 @@
 
     <!-- score input pages -->
     <div class="wrapper" id="scoringfront9">
-
-
 
       <div class="child-six">
         <div class="minus" onclick='decrementScore("numscore1")'>-</div>
@@ -696,19 +694,7 @@
 
     </div> <!-- wrapper -->
 
-
-
-
-
     <div class="midway" id="midwayfront9">front 9 details here</div>
-
-
-
-
-
-
-
-
 
     <div class="wrapper xxxwrapperforscoring" id="scoringback9">
 
@@ -770,12 +756,8 @@
 
     </div> <!-- wrapper -->
 
-
-
     <div class="midway" id="midwayback9">back 9 details here</div>
-    <!--
-<div class="midway" id="midwayback9-3">empty space here</div>  
--->
+
     <!-- form to construct data prior to submit -->
     <form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
       <!-- name, hcp, course -->
@@ -1340,6 +1322,88 @@
     }
 
 
+    
+    
+    
+    //=============================================================
+    // function beforeSubmitForm()
+    // - check before sending info from HTML form to google form
+    //=============================================================  
+    function beforeSubmitForm() {
+      var err1 = ""
+      var err1count = 0
+
+      // make sure everything is updated
+      //finalWrite();
+
+      for (ii = 1; ii <= 18; ii++) {
+          if (!(localStorage.getItem("wwhole" + ii))) {
+            err1count++
+            if (err1count < 3){            
+                err1 += "hole " + ii + " - no score for " + player1name + "<br>";
+            }
+          }
+      }
+
+      if (err1count = 2){
+          err1 += "and more .."
+      }
+      
+      if (err1 !== "and more ..") {          
+          showseconds = 5;
+          document.getElementById("popuppanel1").style.fontSize = "2vh";
+          document.getElementById("popuppanel1").style.textAlign = "left";
+          document.getElementById("popuppanel1").style.display = "block";
+          document.getElementById("popuppanel1").innerHTML = err1 + "<br>" + 
+                                                           "<br>message closes in " + showseconds; 
+
+          // Update the count down every 1 second
+          var x = setInterval(function() {
+              showseconds--
+              document.getElementById("popuppanel1").innerHTML = err1 + "<br>" + 
+                                                               "<br>message closes in " + showseconds; 
+          if (showseconds < 0) {
+              clearInterval(x);
+              document.getElementById("popuppanel1").style.display = "none";
+          }
+     },1000)
+
+   } else {
+
+      document.getElementById("popuppanel1").style.textAlign = "center";
+      document.getElementById("popuppanel1").style.fontSize = "3vh";
+	   document.getElementById("all").style.filter = "opacity(40%)";
+      document.getElementById("submitbox").style.display = "block";
+      
+  }
+
+ }      
+    
+    
+    
+    
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //=============================================================
     // function submitForm()
     // - send info from HTML form to google form
@@ -1352,7 +1416,7 @@
 
       if (compday == "yes") {
         comp = localStorage.wwtodayscomp
-        console.log("compday = " + compday + " " + comp)
+        //console.log("compday = " + compday + " " + comp)
         document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
         document.getElementById('mx2131369517').value = player;
         document.getElementById('mx477101370').value = hcp;
@@ -1423,14 +1487,10 @@
             twoscount++;
           }
           // check for no score entered
-          /*
-          if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
-            if(checkBeforeSubmitID.length < 50) {
-              checkBeforeSubmitID += "hole " + ii + " not scored\n";
-              err = "yes";
-            }
-          }
-          */
+          if (!(localStorage.getItem("wwhole" + i))) {
+             checkBeforeSubmitID += "hole " + ii + " not scored\n";
+             err = "yes";          
+          }       
         }
 
         document.getElementById('mx967906330').value = twoscount.toString();
@@ -1452,11 +1512,8 @@
           //===== submit data ==========
           //============================
           document.forms[0].submit();
-
- 
-
-          //      alert("submit")
           //============================
+
           /*      
                 document.getElementById("wrapper").style.display = "none";
                 //document.getElementById("all").style.display = "none";
@@ -1482,6 +1539,9 @@
             
             
           */
+
+
+
         }
       }
 
