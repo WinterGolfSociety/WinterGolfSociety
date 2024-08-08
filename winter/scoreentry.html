@@ -31,6 +31,12 @@
       font-weight: 400;
       height: 100%;
       width: 100%;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     .holesinfotop {
@@ -458,11 +464,40 @@
     #spacer1 {
       padding: 3px;
     }
+
+    #popuppanel1 {
+      display: none;
+      position: fixed;
+      top: 2vh;
+      left: 2vw;
+      z-index:99;
+      background-color: #ddd;
+      font-size: 3vh;
+      border-radius: 5px;
+      border: 1px solid gray;
+      padding: 10px;
+      margin: 5vw;
+      text-align: center;
+      width: 80vw;
+      height: 20vh;
+      cursor: pointer;
+    }
+
+
+
+
+
+
+
+
+
+
+
     </style>
   </head>
 
   <body oncontextmenu="return false;">
-
+    <div id="popuppanel1"></div>
     <div class="wrapper" id="frontpage">
 
       <div class="child-one">
@@ -1340,16 +1375,25 @@
           if (!(localStorage.getItem("wwhole" + ii))) {
             err1count++
             if (err1count < 3){            
-                err1 += "hole " + ii + " - no score for " + player1name + "<br>";
+                err1 += "hole " + ii + " - no score for " + player + "<br>";
             }
           }
       }
 
+      if (player == "select player") {
+          err1 += "player not set<br>"
+          err1count++
+      }
+      if (hcp == "?") {
+          err1 += "hcp not set<br>"
+          err1count++
+      }
+
       if (err1count = 2){
-          err1 += "and more .."
+          err1 += "and more ..?"
       }
       
-      if (err1 !== "and more ..") {          
+      if (err1 !== "and more ..?") {          
           showseconds = 5;
           document.getElementById("popuppanel1").style.fontSize = "2vh";
           document.getElementById("popuppanel1").style.textAlign = "left";
@@ -1370,9 +1414,9 @@
 
    } else {
 
-      document.getElementById("popuppanel1").style.textAlign = "center";
-      document.getElementById("popuppanel1").style.fontSize = "3vh";
-	   document.getElementById("all").style.filter = "opacity(40%)";
+      //document.getElementById("popuppanel1").style.textAlign = "center";
+      //document.getElementById("popuppanel1").style.fontSize = "3vh";
+	   //document.getElementById("all").style.filter = "opacity(40%)";
       document.getElementById("submitbox").style.display = "block";
       
   }
@@ -1479,70 +1523,23 @@
         document.getElementById('mx683300283').value = document.getElementById("p18").innerText;
 
         twoscount = 0;
-        // check data is complete 
-        checkBeforeSubmitID = "\n";
-        err = "no";
+        
         for (ii = 1; ii <= 18; ii++) {
           if (document.getElementById("h" + ii).innerText == "2") {
             twoscount++;
-          }
-          // check for no score entered
-          if (!(localStorage.getItem("wwhole" + i))) {
-             checkBeforeSubmitID += "hole " + ii + " not scored\n";
-             err = "yes";          
-          }       
+          }   
         }
 
         document.getElementById('mx967906330').value = twoscount.toString();
         document.getElementById('mx789190149').value = comp + player;
        
-        if (player == "select player") {
-          checkBeforeSubmitID += "player not set\n"
-          err = "yes";
-        }
-        if (hcp == "0") {
-          checkBeforeSubmitID += "hcp not set\n"
-          err = "yes";
-        }
-        if (err == "yes") {
-          // error message
-          checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
-          showIncompleteSubmitData(checkBeforeSubmitID);
-        } else {
           //===== submit data ==========
           //============================
           document.forms[0].submit();
           //============================
 
-          /*      
-                document.getElementById("wrapper").style.display = "none";
-                //document.getElementById("all").style.display = "none";
-                //document.getElementById("submit").style.display = "none";
-                document.getElementById("blackout").style.display = "flex";
-                console.log("here")
-                document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
-                setTimeout(function() {
-                  document.getElementById('blackout').innerHTML = '<img src="done.png" id="done"  style="height: 100px; width: 100px;">'
-                }, 6500);
-                // remove the accidental closw "trap"
-                window.removeEventListener("beforeunload",eventl)
-                // return to main menu
-                setTimeout(function() {
-                history.go(-1);
-                }, 9500);
-              }
-                // return to main menu
-                setTimeout(function() {
-                  history.go(-1);
-                }, 7500);
-              }
-            
-            
-          */
-
-
-
-        }
+ 
+        
       }
 
       // do some indicator of stuff  

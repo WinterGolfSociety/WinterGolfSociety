@@ -29,6 +29,12 @@
       background: black;
       height: 100%;
       width: 100%;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     /* dropdown */
@@ -3343,22 +3349,22 @@ beforeSubmitForm();
       }
 
       if (err1count = 2){
-          err1 += "and more .."
+          err1 += "and more ..?"
       }
       if (err2count = 2){
-          err2 += "and more .."
+          err2 += "and more ..?"
       }
       if (err3count = 2){
-          err3 += "and more .."
+          err3 += "and more ..?"
       }
       if (err4count = 2){
-          err4 += "and more .."
+          err4 += "and more ..?"
       }
 
-      if (err1 !== "and more .." || 
-          err2 !== "and more .." || 
-          err3 !== "and more .." || 
-          err4 !== "and more .." ) {
+      if (err1 !== "and more ..?" || 
+          err2 !== "and more ..?" || 
+          err3 !== "and more ..?" || 
+          err4 !== "and more ..?" ) {
           
           showseconds = 5;
       
@@ -3392,8 +3398,7 @@ beforeSubmitForm();
       document.getElementById("popuppanel1").style.fontSize = "3vh";
 	   document.getElementById("all").style.filter = "opacity(40%)";
       document.getElementById("submitbox").style.display = "block";
-      //submitForm();
-      
+     
   }
 
  }      
@@ -3530,15 +3535,9 @@ beforeSubmitForm();
           for (ii = 1; ii <= 18; ii++) {
             if (document.getElementById("p1h" + ii).innerText.split("/")[0] == "2") {
               twoscount++;
-            }
-            // check for no score entered
-            //alert(document.getElementById("p1h" + ii).innerText)
-            //if (!(containsNumber(document.getElementById("p1h" + ii).innerText))) {
-            //  err1 += "hole " + ii + " has no score for " + player1name + "\n";
-            //}        
+            }     
           }
-          //console.log(err)
-          //alert(err)
+
           document.getElementById('mx967906330').value = twoscount.toString();
           document.getElementById('mx789190149').value = comp + player1name + "x1";
           
@@ -3662,15 +3661,9 @@ beforeSubmitForm();
             for (ii = 1; ii <= 18; ii++) {
               if (document.getElementById("p2h" + ii).innerText.split("/")[0] == "2") {
                 twoscount++;
-              }
-              // check for no score entered
-              //if (!(containsNumber(document.getElementById("p2h" + ii).innerText))) {
-              //  err2 += "hole " + ii + " has no score for " + player2name + "\n";
-              //}        
+              }    
             }
-            //console.log(err)
-            //alert(err)
-            //console.log(document.getElementById("p20").innerText)
+
             document.getElementById('mx967906330').value = twoscount.toString();
             document.getElementById('mx789190149').value = comp + player2name + "x2";
 
@@ -3796,15 +3789,9 @@ beforeSubmitForm();
               if (document.getElementById("p3h" + ii).innerText.split("/")[0] == "2") {
                 twoscount++;
               }
-              // check for no score entered
-              //if (!(containsNumber(document.getElementById("p3h" + ii).innerText))) {
-              //  err3 += "hole " + ii + " has no score for " + player3name + "\n";
-              //}        
+     
             }
-            //console.log(err)
-            //alert(err)
 
-            //console.log(document.getElementById("p20").innerText)
             document.getElementById('mx967906330').value = twoscount.toString();
             document.getElementById('mx789190149').value = comp + player3name + "x3";
 
@@ -3930,17 +3917,9 @@ beforeSubmitForm();
               if (document.getElementById("p4h" + ii).innerText.split("/")[0] == "2") {
                 twoscount++;
               }
-              // check data is complete 
-
-              // check for no score entered
-              //if (!(containsNumber(document.getElementById("p4h" + ii).innerText))) {
-              //  err4 += "hole " + ii + " has no score for " + player4name + "\n";
-              //}        
+   
             }
-            //console.log(err)
-            //alert(err)    
 
-            //console.log(document.getElementById("p40").innerText)
             document.getElementById('mx967906330').value = twoscount.toString();
             document.getElementById('mx789190149').value = comp + player4name + "x4";
 
@@ -3969,13 +3948,6 @@ beforeSubmitForm();
           document.getElementById('blackout').innerHTML = 
           '<img src="done.png" id="done" style="height: 100px; width: 100px;">'
         }, 6500);
-
-        // remove the accidental close "trap"
-        // window.removeEventListener("beforeunload",eventl)
-        // return to main menu
-        //setTimeout(function() {
-        //  history.go(-1);
-        //}, 9500);
 
         setTimeout(function() {
           window.location.assign("winter.html");
