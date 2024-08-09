@@ -1554,7 +1554,6 @@
       })
 
       document.getElementById("blackout").style.display = "flex";
-      console.log("here")
       document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
       setTimeout(function() {
         document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 200px; width: 200px;">'
@@ -1610,7 +1609,6 @@
         document.getElementById(id).style.color = "white";
         // incScore = 0;
         // use PAR as the first number shown, so set to PAR - 1 here
-        console.log("par = " + par)
         incScore = (parseInt(par) - 1)
       }
 
