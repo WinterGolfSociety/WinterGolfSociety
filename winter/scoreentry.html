@@ -1414,10 +1414,7 @@
 
    } else {
 
-      //document.getElementById("popuppanel1").style.textAlign = "center";
-      //document.getElementById("popuppanel1").style.fontSize = "3vh";
-	   //document.getElementById("all").style.filter = "opacity(40%)";
-      document.getElementById("submitbox").style.display = "block";
+      submitForm()
       
   }
 
@@ -1562,8 +1559,7 @@
       setTimeout(function() {
         document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 200px; width: 200px;">'
       }, 6500);
-      // remove the accidental close "trap"
-      // window.removeEventListener("beforeunload",eventl)
+
       
       // return to main menu    
       setTimeout(function() {
