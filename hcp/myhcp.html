@@ -6,12 +6,11 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
 	<meta content="Bryan M" name="author">
-	<title>hcp calc</title>
+	<title>myhcp</title>
 	<link href="favicon.ico" rel="icon" type="image/x-icon">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style>
 	body {
-		//height: 100vh;
 		background-color: Gray;
 		background-attachment: fixed;
 		font-family: 'arial';
@@ -55,22 +54,10 @@
 	}
 	
 	#nslope1,
-	#nslope2,
-	#nslope3,
-	#nslope4,
 	#ncr1,
-	#ncr2,
-	#ncr3,
-	#ncr4,
 	#npar1,
-	#npar2,
-	#npar3,
-	#npar4,
 	#nhcpallowance,
-	#nhcp1,
-	#nhcp2,
-	#nhcp3,
-	#nhcp4 {
+	#nhcp1 {
 		font-size: 30px;
 		color: white;
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
@@ -83,29 +70,8 @@
 		width: 40vw;
 	}
 	
-	#nslope2,
-	#ncr2,
-	#npar2,
-	#nhcp2 {
-		background-color: mediumSeaGreen;
-	}
-	
-	#nslope3,
-	#ncr3,
-	#npar3,
-	#nhcp3 {
-		background-color: steelBlue;
-	}
-	
-	#nslope4,
-	#ncr4,
-	#npar4,
-	#nhcp4 {
-		background-color: rebeccaPurple;
-	}
-	
 	.score {
-		font-size: 25px;
+		font-size: 20px;
 		color: white;
 		background-color: dodgerBlue;
 		text-align: center;
@@ -120,19 +86,7 @@
 	#splayinghcp1 {
 		background-color: dodgerBlue;
 	}
-	
-	#splayinghcp2 {
-		background-color: mediumSeaGreen;
-	}
-	
-	#splayinghcp3 {
-		background-color: steelBlue;
-	}
-	
-	#splayinghcp4 {
-		background-color: rebeccaPurple;
-	}
-	
+
 	#splayinghcpcalc,
 	#txt {
 		font-size: 20px;
@@ -140,50 +94,11 @@
 		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
 	}
 	
-	#showcalcs {
-		visibility: hidden;
-		font-size: 13px;
-		text-align: left;
-		position: fixed;
-		z-index: 1;
-		padding-top: 10px;
-		padding-left: 5px;
-		padding-bottom: 5px;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		overflow: scroll;
-		background-color: dodgerBlue;
-		background-color: rgba(0, 0, 0, 0.7);
-	}
-	
-	#buttonshowcalcs {
-	        width: 100%;
-		font-size: 30px;
-		color: white;
-		padding: 10px;
-		background-color: rgba(0, 0, 0, 0.2);
-		text-align: center;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		border-radius: 10px;
-		box-shadow: 10px 10px 25px black;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background-clip: padding-box;
-	}
-	
 	#footnote {
 		color: white;
 		font-size: 15px;
 		font-style: italic;
 		padding-left: 10px;
-	}
-	
-	#xclose {
-		color: lightgray;
-		text-align: center;
-		font-size: 15px;
-		font-style: italic;
 	}
 	
 	.yellow {
@@ -284,13 +199,7 @@ display: inline-block;
 		background-clip: padding-box;
 		width: 20vw;
 }	
-	
-	
-	
-	
-	
-	
-	
+
 	</style>
 </head>
 
@@ -316,7 +225,7 @@ display: inline-block;
 </div>
 	
 	<div class="row">
-		<div class="col-md-12  text-center">
+		<div>
 			
 			<div class="container">
 			
@@ -326,33 +235,15 @@ display: inline-block;
 
 allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 										
-					
-					
 					</div>
 					
 					<div class="demo">
 						<div class="stxt">WHS handicap index</div>
-						
-						
-<div class="plusminus" onclick="decrement()">-</div>						
-					
-					
-<div class="plusminus" id="nhcp1">0</div>					
-					
-						
-				<!--		
-						<input type="number" id="nhcp1" name="nhcp1" min="0" max="50" maxlength="3" step="0.1" oninput="updatehcp()"> 
-				-->
-	<div class="plusminus" onclick="increment()">+</div>			
-				
-				
+                  <div class="plusminus" onclick="decrement()">-</div>						
+                  <div class="plusminus" id="nhcp1">0</div>					
+	               <div class="plusminus" onclick="increment()">+</div>			
 					</div>
 
-
-
-
-
-				
 					<div class="stxt">slope</div>
 					<div class="demo">
 						<input type="number" id="nslope1" name="nslope1" min="100" max="150" maxlength="3" step="1" oninput="updatehcpMaster()">
@@ -368,37 +259,36 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 						<input type="number" id="npar1" name="npar1" min="60" max="80" maxlength="2" step="1" oninput="updatehcpMaster()">
 					</div>
 					<br>
-				</div>
+		   </div>
 
 				</div>
-				</div> <!-- outerbox -->
+	</div> <!-- outerbox -->
 				
 			
-				<div id="txt">
+	<div id="txt">
 					
-					<div id="splayinghcp1" class="score">
-						course hcp
-						<br>playing hcp
-						<br>rounded playing hcp </div>
-       
-			
-		</div>
-<div id="hcpa">
-<br><br>
-HCP allowances<br><br>		
-Individual Medal: 95%<br>
-Individual Stableford: 95%<br>
-Individual Par/Bogey: 95%<br>
-Fourball stroke play: 85%<br>
-Fourball Stableford: 85%<br>
-Fourball Par/Bogey: 90%<br>
-Matchplay Individual: 100%<br>
-Matchplay Pairs: 90%<br>
-Best 2 of 4 stroke play: 85%<br>
-Best 3 of 4 stroke play: 100%<br>
-Best 4 of 4 stroke play: 100%<br>
-</div>
-<br><br>
+		<div id="splayinghcp1" class="score">
+		course hcp
+		<br>playing hcp
+		<br>rounded playing hcp </div>	
+	</div>
+		
+   <div id="hcpa">
+      <br><br>
+      HCP allowances<br><br>		
+      Individual Medal: 95%<br>
+      Individual Stableford: 95%<br>
+      Individual Par/Bogey: 95%<br>
+      Fourball stroke play: 85%<br>
+      Fourball Stableford: 85%<br>
+      Fourball Par/Bogey: 90%<br>
+      Matchplay Individual: 100%<br>
+      Matchplay Pairs: 90%<br>
+      Best 2 of 4 stroke play: 85%<br>
+      Best 3 of 4 stroke play: 100%<br>
+      Best 4 of 4 stroke play: 100%<br>
+   </div>
+      <br><br>
 
 
 		<script>
