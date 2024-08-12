@@ -303,23 +303,23 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 		var par;
 		var globalcourse = "";
 		var globalallowance;
-		// name, yellow slope, yellow cr, yellow par, red slope, red cr, red par
+		// name, white slope, white cr, white par, yellow slope, yellow cr, yellow par, red slope, red cr, red par
 		arrCourses = [
-			["Longhirst Dawson",   120, 71.1, 73, 121, 72.5, 73],
-			["Longhirst Lakes",    116, 67.6, 70, 117, 69.1, 70],
-			["Bellingham",         125, 69.1, 70, 122, 71.6, 71],
-			["Blyth",              128, 68.1, 70, 122, 69.6, 71],
-			["Foxton",             129, 69.9, 71, 135, 73.8, 74],
-			["High Gosforth Park", 130, 68.3, 71, 135, 73.1, 73],
-			["Morpeth",            120, 68.7, 71, 130, 73.4, 73],
-			["Newbiggin",          130, 70.9, 72, 133, 73.7, 73],
-			["Ravensworth",        111, 67.9, 69, 130, 71.6, 72],
-			["Rothbury",           121, 67.5, 71, 128, 71.2, 73],
-			["Sharpley",           125, 67.9, 71, 132, 69.7, 71],
-			["South Shields",      121, 69.5, 71, 126, 74.1, 74],
-			["Stocksfield",        124, 67.7, 70, 131, 72.0, 72],
-			["Warkworth",          115, 68.3, 70, 119, 70.8, 71],
-			["Not Defined",          0,    0,  0,   0,    0,  0]
+			["Longhirst Dawson",   120, 72.3, 73, 120, 71.1, 73, 121, 72.5, 73],
+			["Longhirst Lakes",    121, 69.7, 70, 116, 67.6, 70, 117, 69.1, 70],
+			["Bellingham",         128, 70.3, 70, 125, 69.1, 70, 122, 71.6, 71],
+			["Blyth",              132, 69.3, 70, 128, 68.1, 70, 122, 69.6, 71],
+			["Foxton",             132, 72.1, 71, 129, 69.9, 71, 135, 73.8, 74],
+			["High Gosforth Park", 136, 69.7, 71, 130, 68.3, 71, 135, 73.1, 73],
+			["Morpeth",            123, 70.6, 71, 120, 68.7, 71, 130, 73.4, 73],
+			["Newbiggin",          135, 72.4, 72, 130, 70.9, 72, 133, 73.7, 73],
+			["Ravensworth",        117, 69.8, 69, 111, 67.9, 69, 130, 71.6, 72],
+			["Rothbury",           125, 70.4, 71, 121, 67.5, 71, 128, 71.2, 73],
+			["Sharpley",           132, 69.4, 71, 125, 67.9, 71, 132, 69.7, 71],
+			["South Shields",      126, 70.9, 71, 121, 69.5, 71, 126, 74.1, 74],
+			["Stocksfield",        125, 69.9, 70, 124, 67.7, 70, 131, 72.0, 72],
+			["Warkworth",          113, 69.8, 70, 115, 68.3, 70, 119, 70.8, 71],
+			["Not Defined",          0,    0,  0,   0,    0,  0,   0,    0,  0]
 		]
 		
       // retrieve last hcp if available, else put 18 in
@@ -397,15 +397,15 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 			globalcourse = course;
 			for(var k = 0; k < arrCourses.length; k++) {
 				if(arrCourses[k][0] == course) {
-					console.log("arrCourse = " + arrCourses[k])
-					slope = arrCourses[k][1];
-					cr = arrCourses[k][2];
-					par = arrCourses[k][3];
-					document.getElementById("nslope1").value = arrCourses[k][1];
-					document.getElementById("ncr1").value = arrCourses[k][2];
-					document.getElementById("npar1").value = arrCourses[k][3];
+               // default to yellow
+					slope = arrCourses[k][4];
+					cr = arrCourses[k][5];
+					par = arrCourses[k][6];
+					document.getElementById("nslope1").value = arrCourses[k][4];
+					document.getElementById("ncr1").value = arrCourses[k][5];
+					document.getElementById("npar1").value = arrCourses[k][6];
 					
-					// set all tees to yellow
+					// set tees to yellow
 					document.getElementById("teecolor1").style.background = "yellow"
 					
 					updatehcp();
@@ -425,11 +425,23 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 		}
 
 		function changetee(id) {
-			//console.log(id)
 			// change dot color
+			// red to white, white to yellow, yellow to red
+         if(document.getElementById(id).style.background == "red") {			
+            redtowhite(id);
+         } else if (document.getElementById(id).style.background == "white") {			
+            whitetoyellow(id);
+         } else if (document.getElementById(id).style.background == "yellow") {			
+            yellowtored(id);
+         } else {
+            console.log("error: no tee color")
+         }
+     }    
+         
+     function redtowhite(id) {   
 			if(document.getElementById(id).style.background == "red") {
-				document.getElementById(id).style.background = "yellow"
-				document.getElementById(id).style.color = "yellow"
+				document.getElementById(id).style.background = "white"
+				document.getElementById(id).style.color = "white"
 					// insert new slope, cr and par in correct place
 				var teenum = id.replace("teecolor", "");
 				for(var k = 0; k < arrCourses.length; k++) {
@@ -439,9 +451,15 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 						document.getElementById("npar" + teenum).value = arrCourses[k][3];
 					}
 				}
-			} else {
-				document.getElementById(id).style.background = "red"
-				document.getElementById(id).style.background = "red"
+		   }
+        updatehcp();
+     }		
+				
+	
+	function whitetoyellow(id) {  
+			if(document.getElementById(id).style.background == "white") {
+				document.getElementById(id).style.background = "yellow"
+				document.getElementById(id).style.color = "yellow"
 					// insert new slope, cr and par in correct place
 				var teenum = id.replace("teecolor", "");
 				for(var k = 0; k < arrCourses.length; k++) {
@@ -451,12 +469,26 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 						document.getElementById("npar" + teenum).value = arrCourses[k][6];
 					}
 				}
-			}
-			updatehcp()
-		}
+		   }
+        updatehcp();
+     }	
 		
-		
-		
+		function yellowtored(id) {  
+			if(document.getElementById(id).style.background == "yellow") {
+				document.getElementById(id).style.background = "red"
+				document.getElementById(id).style.color = "red"
+					// insert new slope, cr and par in correct place
+				var teenum = id.replace("teecolor", "");
+				for(var k = 0; k < arrCourses.length; k++) {
+					if(arrCourses[k][0] == globalcourse) {
+						document.getElementById("nslope" + teenum).value = arrCourses[k][7];
+						document.getElementById("ncr" + teenum).value = arrCourses[k][8];
+						document.getElementById("npar" + teenum).value = arrCourses[k][9];
+					}
+				}
+		   }
+        updatehcp();
+     }	
 		
 		
 			function changeallowance(id) {
