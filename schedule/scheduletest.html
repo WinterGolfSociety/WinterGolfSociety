@@ -536,6 +536,7 @@ document.getElementById(elementToScroll).scrollIntoView();
 setTimeout(function() {
 document.getElementById("header").classList.add("header-visible"); 
 document.getElementById("header").classList.remove("header-hidden"); 
+document.getElementById(elementToScroll).scrollBy(0.10);
 },1000)
 
 
