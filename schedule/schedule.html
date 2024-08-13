@@ -28,8 +28,7 @@
         
         
         
-width:150vw;         
-        
+width:120vw;        
         
         
         
@@ -45,8 +44,8 @@ width:150vw;
 }
 .grid-item {
       background-color: rgba(255, 255, 255, 0.85);
-      padding: 2px; //20px;
-      font-size: 3.5vw; //14px;
+      padding: 2px;
+      font-size: 3.5vw;
       text-align: left;
 }
 
@@ -56,29 +55,18 @@ width:150vw;
 
 .bluemonth {
       background-color: dodgerBlue;
-      color: white; //rgba(255, 255, 255, 0.8);
-      font-size: 3.5vw; //14px;
-      
-    //  padding-left: 1vw;
+      color: white;
+      font-size: 3.5vw;
+
 }
 
-.older {
-      text-decoration: line-through;
-      text-decoration-thickness: 2px;
-      color: blue; //slategray;
-}
-.olderx {
-      text-decoration: line-through;
-      text-decoration-thickness: 2px;
-      color: Cyan;
-}
 #title {
       font-size: 7vw;
-   //   padding-left: 1vw;
+
       color: white;
       font-weight: bold;
       margin-top: 2vh;
-      //margin-bottom: 2vh;
+
       width: 97vw;
 }     
 
@@ -95,8 +83,7 @@ font-weight: normal;
 
 #shortlist {
 font-weight: bold;
-//padding-left: 1vw;
-//padding-top: 20vmax;
+
 }
 
 #header {
@@ -105,7 +92,7 @@ top: 1;
 left: 1;
 background: dodgerBlue;
 width: 95%; //90vw; //100%;
-height: 19vmax;
+height: 15vh;
 font-size: 5vw;
 padding-left: 1vw;
 color: white;
@@ -123,7 +110,7 @@ border-radius:5px;
 }
 
 #content {
-padding-top: 20vmax;
+padding-top: 20vh;
 //width: 98vw;
 }
 .topgray {
@@ -141,6 +128,63 @@ background: dodgerBlue;
   transform: translateY(0); 
   transition: transform 0.3s ease; 
 } 
+
+
+
+
+
+
+.row {
+    display: -ms-flex: // Vendor prefixes required for flexbox
+    display: -webkit-flex; 
+    display: flex:
+   
+    
+    
+    
+}
+.columna {    
+    width: 9ch;
+    display: -ms-inline-flex;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    color: white;
+}
+
+.columnb {    
+    width: 11ch;
+    display: -ms-inline-flex;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    color: white;
+}
+
+.columnd {    
+    display: -ms-inline-flex;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
 </style>
     <link rel="preload" as="image" href="cal.png">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=yes" name="viewport">
@@ -150,19 +194,23 @@ background: dodgerBlue;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
+
+
+
+
+
 <div id="page">  
 
 
 
 <header id="header" class="header-visible"> 
 
-  <p id="title"><img src="cal.png" alt="cal" onclick="swapview()" width="70px" height="70px" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events
-  <br>
-  <a id="sub">&nbsp;&nbsp;&nbsp;tap icon to toggle between full and partial list</a></p>
+  <p id="title"><img src="cal.png" alt="cal"width="70px" height="70px" style="vertical-align:middle;">&nbsp;&nbsp;&nbsp;Seniors events</p>
+  
 
 </header>
 
-<br>
+
 
 <div id="content">
 
@@ -182,268 +230,9 @@ background: dodgerBlue;
 </div> <!-- page -->
  
 <script>
-var currentMonth = ""
-var arrInfo = [
-/*
-["Apr 2023","",""],      
-["Mon 3rd","Dawson","Captains Drive In stableford"],
-["Tue 11th","Dawson","Team Game 4BBB"],
-["Wed 12th","Dawson","Friendly Warkworth"],
-["Mon 17th","Dawson","LT1 strokeplay 3 Balls"],
-["Mon 24th","Dawson","Individual stableford"],
-["Thu 27th","Lakes","Friendly Morpeth"],
-["May 2023","",""],
-["Tue 2nd","Lakes","Individual stableford"],
-["Tue 9th","Lakes","Individual stableford"],
-["Thu 11th","S Shields","Friendly South Shields"],
-["Mon 15th","Lakes","LT2 strokeplay 3 Balls"],
-["Mon 15th","Morpeth","Friendly Morpeth"],
-["Mon 22nd","Rothbury","Friendly Rothbury"],
-["Thu 25th","tba","Spring Cup stableford"],
-["Tue 30th","Lakes","Team Traffic Lights 3 balls"],
-["Jun 2023","",""],
-["Mon 5th","Dawson","Individual stableford"],
-["Wed 7th","Warkworth","Friendly Warkworth"],
-["Mon 12th","Dawson","LT 3 strokeplay"],
-["Thu 15th","Lakes","Friendly Foxton"],
-["Mon 19th","Dawson","Individual stableford"],
-["Mon 26th","Dawson","Individual stableford"],
-["Thu 29th","Dawson","Friendly Rothbury"],
-["Jul 2023","",""],
-["Mon 3rd","Lakes","Individual stableford"],
-["Thu 6th","Gosforth","Friendly High Gosforth Park"],
-["Mon 10th","Lakes","Team 2 Best from 4"],
-["Thu 13th","tba","Summer Cup stableford"],
-["Mon 17th","Lakes","Individual stableford"],
-["Wed 19th","Lakes","Friendly South Shields"],
-["Mon 24th","Lakes","Individual stableford"],
-["Thu 27th","Dawson","Friendly High Gosforth Park"],
-["Mon 31st","Lakes","LT4 strokeplay 3 balls"],
-["Mon 31st","Lakes","CC1 strokeplay 3 balls"],
-["Aug 2023","",""],
-["Tue 1st","Newbiggin","Friendly Newbiggin"],
-["Mon 7th","Dawson","LT5 strokeplay 3 balls"],
-["Mon 7th","Dawson","CC2 strokeplay 3 balls"],
-["Mon 14th","Dawson","Team Game tba"],
-["Tue 15th","Dawson","Friendly Newbiggin"],
-["Mon 21st","Dawson","Invitation Day 4bbb"],
-["Tue 29th","Dawson","Bogey Matchplay"],
-["Thu 31st","Dawson","Friendly Bellingham"],
-["Sep 2023","",""],
-["Mon 4th","Lakes","LT 6 stableford"],
-["Thu 7th","Bellingham","Friendly Bellingham"],
-["Tue 12th","Dawson","Stenhouse Cup Ladies"],
-["Mon 18th","Lakes","Individual stableford"],
-["Wed 20th","Blyth","Friendly Blyth"],
-["Mon 25th","tba","Autumn Cup stableford"],
-["Wed 27th","Lakes","Friendly Blyth"],
-["Oct 2023","",""],
-["Mon 2nd","Dawson","LT 7 strokeplay"],
-["Mon 2nd","Dawson","Winter stableford"],
-["Fri 6th","Lakes","Winter stableford"],
-["Mon 9th","Dawson","Team Game stableford"],
-["Mon 9th","Dawson","Winter stableford"],
-["Fri 13th","Lakes","Winter stableford"],
-["Mon 16th","Dawson","Individual Stableford"],
-["Mon 16th","Dawson","Winter stableford"],
-["Fri 20th","Lakes","Winter stableford"],
-["Mon 23rd","Dawson","Captain vs Vice Captain"],
-["Mon 23rd","Dawson","Winter stableford"],
-["Fri 27th","Lakes","Winter stableford"],
-["Mon 30th","Dawson","Individual stableford"],
-["Mon 30th","Dawson","Winter stableford"],
-["Nov 2023","",""],
-["Fri 3rd","Lakes","Winter stableford"],
-["Mon 6th","OldCourse","Winter stableford"],
-["Fri 10th","OldCourse","Winter stableford"],
-["Mon 13th","OldCourse","Winter stableford"],
-["Fri 17th","OldCourse","Winter stableford"],
-["Mon 20th","OldCourse","Winter stableford"],
-["Fri 24th","OldCourse","Winter stableford"],
-["Mon 27th","Lakes","Winter stableford"],
-["Dec 2023","",""],
-["Fri 1st","Closed","Winter stableford"],
-["Mon 4th","Closed","Winter stableford"],
-["Fri 8th","OldCourse","Winter stableford"],
-["Mon 11th","OldCourse","shotgun 9 hole Texas"],
-["Mon 11th","Clubhouse","Christmas Dinner"],
-["Fri 15th","OldCourse","Winter stableford"],
-["Mon 18th","OldCourse","Winter stableford"],
-["Fri 22nd","OldCourse","Winter stableford"],
-["Mon 25th","Closed","??? Winter stableford ???"],
-["Fri 29th","OldCourse","Winter stableford"],
-["Jan 2024","",""],
-["Fri 5th","OldCourse","Winter stableford"],
-["Mon 8th","OldCourse","Winter stableford"],
-["Fri 12th","OldCourse","Winter stableford"],
-["Mon 15th","OldCourse","Winter stableford"],
-["Fri 17th","OldCourse","Winter stableford"],
-["Mon 22th","OldCourse","Winter stableford"],
-["Fri 24th","OldCourse","Winter stableford"],
-["Mon 29th","OldCourse","Winter stableford"],
-["Feb 2024","",""],
-["Fri 2nd","OldCourse","Winter stableford"],
-["Mon 5th","OldCourse","Winter stableford"],
-["Fri 9th","OldCourse","Winter stableford"],
-["Mon 12th","OldCourse","Winter stableford"],
-["Fri 16th","OldCourse","Winter stableford"],
-["Mon 19th","OldCourse","Winter stableford"],
-["Fri 23rd","OldCourse","Winter stableford"],
-["Mon 26th","OldCourse","Winter stableford"],
-*/
-["Mar 2024","",""],      
-["Fri 1st","OldCourse","Winter stableford"],
-["Mon 4th","OldCourse","Winter stableford"],
-["Fri 8th","OldCourse","Winter stableford"],
-["Mon 11th","OldCourse","Winter stableford"],
-["Fri 15th","OldCourse","Winter stableford"],
-["Mon 18th","OldCourse","Winter stableford"],
-["Fri 22nd","OldCourse","Winter stableford"],
-["Mon 25th","OldCourse","Winter stableford"],
-["Fri 29th","Dawson","Winter stableford"],
-["Apr 2024","",""],
-["Tue 2nd","Dawson","stableford"],
-["Fri 5th","Dawson","stableford"],
-["Mon 8th","Lakes","Captains Drive In"],
-["Wed 10th","away","Warkworth friendly 9:30"],
-["Fri 12th","Dawson","stableford"],
-["Mon 15th","Lakes","LT1 medal 3balls"],
-["Fri 19th","Dawson","stableford"],
-["Mon 22nd","Lakes","stableford"],
-["Thu 25th","Dawson","Morpeth friendly 9:45"],
-["Fri 26th","Dawson","stableford"],
-["Mon 29th","Lakes","stableford"],
-["May 2024","",""],
-["Thu 2nd","away","South Shields friendly 9:30"],
-["Fri 3rd","Lakes","stableford"],
-["Tue 7th","Lakes","Tony's 80th texas"],
-["Fri 10th","Lakes","stableford"],
-["Mon 13th","Dawson","LT2 medal 3balls"],
-["Tue 14th","Dawson","Blyth friendly 9:45"],
-["Fri 17th","Lakes","stableford"],
-["Mon 20th","Dawson","stableford"],
-["Tue 21st","away","Blyth friendly 10:00"],
-["Thu 23rd","Stocksfield","Spring Cup cancelled"],
-["Fri 24th","Lakes","stableford"],
-["Tue 28th","Lakes","stableford"],
-["Thu 30th","away","Morpeth friendly 10:00"],
-["Fri 31st","Lakes","stableford"],
-["Jun 2024","",""],
-["Mon 3rd","Lakes","4 club stableford"],
-["Wed 5th","Dawson","Warkworth friendly 9:30"],
-["Fri 7th","Dawson","stableford"],
-["Mon 10th","Lakes","LT3 medal 3balls"],
-["Thu 13th","away","Foxton friendly 10:00"],
-["Fri 14th","Dawson","stableford"],
-["Mon 17th","Lakes","stableford"],
-["Fri 21th","Dawson","stableford"],
-["Mon 24th","Lakes","stableford"],
-["Tues 25th","Stocksfield","Spring Cup rescheduled"],
-["Thu 27th","Lakes","HGP friendly 9:30"],
-["Fri 28th","Dawson","stableford"],
-["Jul 2024","",""],
-["Mon 1st","Dawson","Traffic Lights"],
-["Thu 4th","away","HGP friendly 9:30"],
-["Fri 5th","Lakes","stableford"],
-["Mon 8th","Dawson","stableford"],
-["Fri 12th","Dawson","stableford"],
-["Mon 15th","Dawson","stableford"],
-["Wed 17th","Dawson","South Shields friendly 9:30"],
-["Fri 19th","Lakes","stableford"],
-["Mon 22nd","Dawson","stableford"],
-["Wed 24th","Sharpley","Summer Cup"],
-["Fri 26th","Lakes","stableford"],
-["Mon 29th","Dawson","LT4 & CC1 medal 3balls"],
-["Tue 30th","away","Newbiggin friendly 10:00"],
-["Aug 2024","",""],
-["Fri 2nd","Dawson","stableford"],
-["Mon 5th","away","Rothbury friendly 10:00"],
-["Tue 6th","Lakes","Team best 1 from ??"],
-["Fri 9th","Dawson","stableford"],
-["Mon 12th","Lakes","LT5 & CC2 medal 3balls"],
-["Tue 13th","Dawson","Newbiggin friendly 9:30"],
-["Fri 16th","Dawson","stableford"],
-["Mon 19th","Lakes","Invitation Day 4BBB"],
-["Fri 23th","Dawson","stableford"],
-["Tue 27th","Lakes","stableford"],
-["Thu 29th","Lakes","Bellingham friendly 11:00"],
-["Fri 30th","Dawson","stableford"],
-["Sep 2024","",""],
-["Mon 2nd","Dawson","Team 1-2-3"],
-["Tue 3rd","Burntisland","Scotland trip"],
-["Wed 4th","Dunnikier","Scotland trip"],
-["Thu 5th","away","Bellingham friendly 11:00"],
-["Thu 5th","Thornton","Scotland trip"],
-["Fri 6th","Kirkcaldy","Scotland trip"],
-["Fri 6th","Lakes","stableford"],
-["Mon 9th","Dawson","LT6 medal 3balls"],
-["Tue 10th","Lakes","Men vs Ladies TBD"],
-["Fri 13th","Lakes","stableford"],
-["Mon 16th","Dawson","stableford"],
-["Mon 16th","Dawson","Rothbury friendly 9:45"],
-["Fri 20th","Lakes","stableford"],
-["Mon 23rd","Dawson","stableford"],
-["Wed 25th","Ravensworth","Autumn Cup"],
-["Mon 30th","Dawson","LT7 medal 3balls"],
-["Oct 2024","",""],
-["Fri 4th","OldCourse","Winter stableford"],
-["Mon 7th","OldCourse","Winter stableford"],
-["Fri 11th","OldCourse","Winter stableford"],
-["Mon 14th","OldCourse","Winter stableford"],
-["Fri 18th","OldCourse","Winter stableford"],
-["Mon 21st","OldCourse","Winter stableford"],
-["Fri 25th","OldCourse","Winter stableford"],
-["Mon 28th","OldCourse","Winter stableford"],
-["Nov 2024","",""],
-["Fri 1st","OldCourse","Winter stableford"],
-["Mon 4th","OldCourse","Winter stableford"],
-["Fri 8th","OldCourse","Winter stableford"],
-["Mon 11th","OldCourse","Winter stableford"],
-["Fri 15th","OldCourse","Winter stableford"],
-["Mon 18th","OldCourse","Winter stableford"],
-["Fri 22nd","OldCourse","Winter stableford"],
-["Mon 25th","OldCourse","Winter stableford"],
-["Fri 29th","OldCourse","Winter stableford"],
-["Dec 2024","",""],
-["Mon 2nd","OldCourse","Winter stableford"],
-["Fri 6th","OldCourse","Winter stableford"],
-["Mon 9th","OldCourse","Winter stableford"],
-["Fri 13th","OldCourse","Winter stableford"],
-["Mon 16th","OldCourse","Winter stableford"],
-["Fri 20th","OldCourse","Winter stableford"],
-["Mon 23rd","OldCourse","Winter stableford"],
-["Fri 27th","OldCourse","Winter stableford"],
-["Mon 30th","OldCourse","Winter stableford"],
-["Jan 2025","",""],
-["Fri 3rd","OldCourse","Winter stableford"],
-["Mon 6th","OldCourse","Winter stableford"],
-["Fri 10th","OldCourse","Winter stableford"],
-["Mon 13th","OldCourse","Winter stableford"],
-["Fri 17th","OldCourse","Winter stableford"],
-["Mon 20th","OldCourse","Winter stableford"],
-["Fri 24th","OldCourse","Winter stableford"],
-["Mon 27th","OldCourse","Winter stableford"],
-["Fri 31st","OldCourse","Winter stableford"],
-["Feb 2025","",""],
-["Mon 3rd","OldCourse","Winter stableford"],
-["Fri 7th","OldCourse","Winter stableford"],
-["Mon 10th","OldCourse","Winter stableford"],
-["Fri 14th","OldCourse","Winter stableford"],
-["Mon 17th","OldCourse","Winter stableford"],
-["Fri 21st","OldCourse","Winter stableford"],
-["Mon 24th","OldCourse","Winter stableford"],
-["Fri 28th","OldCourse","Winter stableford"],
-["Mar 2025","",""],
-["Mon 3rd","OldCourse","Winter stableford"],
-["Fri 7th","OldCourse","Winter stableford"],
-["Mon 10th","OldCourse","Winter stableford"],
-["Fri 14th","OldCourse","Winter stableford"],
-["Mon 17th","OldCourse","Winter stableford"],
-["Fri 21st","OldCourse","Winter stableford"],
-["Mon 24th","OldCourse","Winter stableford"],
-["Fri 28th","OldCourse","Winter stableford"],
-["Mon 31st","OldCourse","Winter stableford"]
-]
+
+
+
 
 
 var prevScrollPos = window.pageYOffset; 
@@ -476,211 +265,295 @@ window.onscroll = function() {
 
 
 
-// set up title bar
-lineFull  = '<div class="grid-item topgray">Date</div>'
-lineFull += '<div class="grid-item topgray">Venue</div>'
-lineFull += '<div class="grid-item topgray">Details</div>'
-const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var dname              = new Date();
-var tempmonth          = month[dname.getMonth()];
-var tempdate           = dname.getDate();
-var currentMonthNumber = dname.getMonth();
-var tempyear           = dname.getFullYear();
-var nextyear           = 0;
-// do latest set of events
-var lookup    = tempmonth.substring(0,3) + " " + tempyear
-var templist1 = "<br>" + lookup + "<br>"
-var templist2 = "<br><br>"
-var templist3 = "<br><br>"
-var switchon  = ""
-var s = 0;
-var ss = 0;
-
-for(i = 0; i < arrInfo.length; i++) {
-        if(arrInfo[i][0].indexOf(tempyear - 1) > -1) {
-           // last year
-           nextyear = -12
-        }
-
-        if(arrInfo[i][0].indexOf(tempyear) > -1) {
-           // this year
-           nextyear = 0
-        }
-        if(arrInfo[i][0].indexOf(tempyear + 1) > -1) {
-           // next year
-           nextyear = 12
-        }
-        if(arrInfo[i][0].indexOf(tempyear + 2) > -1) {
-           // year after next
-           nextyear = 24
-        }
-
-	if(arrInfo[i][0].indexOf("Jan") > -1) {
-		oldMonthNumber = 0
-	}
-	if(arrInfo[i][0].indexOf("Feb") > -1) {
-		oldMonthNumber = 1
-	}
-	if(arrInfo[i][0].indexOf("Mar") > -1) {
-		oldMonthNumber = 2
-	}
-	if(arrInfo[i][0].indexOf("Apr") > -1) {
-		oldMonthNumber = 3
-	}
-	if(arrInfo[i][0].indexOf("May") > -1) {
-		oldMonthNumber = 4
-	}
-	if(arrInfo[i][0].indexOf("Jun") > -1) {
-		oldMonthNumber = 5
-	}
-	if(arrInfo[i][0].indexOf("Jul") > -1) {
-		oldMonthNumber = 6
-	}
-	if(arrInfo[i][0].indexOf("Aug") > -1) {
-		oldMonthNumber = 7
-	}
-	if(arrInfo[i][0].indexOf("Sep") > -1) {
-		oldMonthNumber = 8
-	}
-	if(arrInfo[i][0].indexOf("Oct") > -1) {
-		oldMonthNumber = 9
-	}
-	if(arrInfo[i][0].indexOf("Nov") > -1) {
-		oldMonthNumber = 10
-	}
-	if(arrInfo[i][0].indexOf("Dec") > -1) {
-		oldMonthNumber = 11
-	}
-	var older = "no";
-	if(currentMonthNumber > (oldMonthNumber + nextyear)) {
-		older = "yes";
-	}
-	
-	// do this months
-	if(currentMonthNumber == (oldMonthNumber + nextyear) && arrInfo[i][1] !== "" && arrInfo[i][2] !== "") {
-		olddate = arrInfo[i][0].match(/\d/g);
-		olddate = olddate.join("");
-
-		if(olddate < tempdate) {
-			older = "yes"
-		} else {
-			older = "no"
-		}
-	}
-
-	if(arrInfo[i][1] == "" && arrInfo[i][2] == "") {
-		line  = '<div class="grid-item bluemonth">' + arrInfo[i][0] + '</div>'
-		line += '<div class="grid-item bluemonth">' + arrInfo[i][1] + '</div>'
-		line += '<div class="grid-item bluemonth">' + arrInfo[i][2] + '</div>'
-		lineFull += line
-		
-	        if (lookup == arrInfo[i][0]) {
-                    switchon = "yes"
-                    
-                }		
-		
-	        if (switchon == "yes") {
-	           ss++
-		}	
-			
-	} else {
-		if(older == "yes") {
-			if(i % 2 == 0) {
-				line  = '<div class="grid-item older">' + arrInfo[i][0] + '</div>'
-				line += '<div class="grid-item older">' + arrInfo[i][1] + '</div>'
-				line += '<div class="grid-item older">' + arrInfo[i][2] + '</div>'
-			} else {
-				line  = '<div class="grid-item gray older">' + arrInfo[i][0] + '</div>'
-				line += '<div class="grid-item gray older">' + arrInfo[i][1] + '</div>'
-				line += '<div class="grid-item gray older">' + arrInfo[i][2] + '</div>'
-			}
-			
-			
-			
-			if (switchon == "yes") {
-                           if (ss < 3) {
-                              templist1 += '<div class="olderx">' + arrInfo[i][0] + "<br></div>"
-                              templist2 += '<div class="olderx">' + arrInfo[i][1] + "<br></div>"
-                              templist3 += '<div class="olderx">' + arrInfo[i][2] + "<br></div>"	
-			   }
-			}
-			
-			
-						
-		} else {
-			if(i % 2 == 0) {
-				line  = '<div class="grid-item">' + arrInfo[i][0] + '</div>'
-				line += '<div class="grid-item">' + arrInfo[i][1] + '</div>'
-				line += '<div class="grid-item">' + arrInfo[i][2] + '</div>'
-			} else {
-				line  = '<div class="grid-item gray">' + arrInfo[i][0] + '</div>'
-				line += '<div class="grid-item gray">' + arrInfo[i][1] + '</div>'
-				line += '<div class="grid-item gray">' + arrInfo[i][2] + '</div>'
-			}
-   
-                        if (switchon == "yes") {
-                           if (ss < 3) {	
-	                      templist1 += '<div>' + arrInfo[i][0] + "<br></div>"
-                              templist2 += '<div>' + arrInfo[i][1] + "<br></div>"
-                              templist3 += '<div>' + arrInfo[i][2] + "<br></div>"
-		           } 
-		        }	
-		}
-		lineFull += line
-	}
-
-        if (lookup !== arrInfo[i][0] &&  arrInfo[i][1] == "" && arrInfo[i][2] == "") {
-           if (switchon == "yes") {
-              s++
-              if (s > 1) {
-                 switchon = ""
-              } else {
-                 templist1 += "<br>" + arrInfo[i][0] + "<br>"
-                 templist2 += "<br><br>"
-                 templist3 += "<br><br>"
-           
-                 templist1 += "<br>Date<br><br>"
-                 templist2 += "<br>Venue<br><br>"
-                 templist3 += "<br>Details<br><br>"
-             }
-           }
-        }
-        if (lookup == arrInfo[i][0]) {
-           templist1 += "<br>Date<br><br>"
-           templist2 += "<br>Venue<br><br>"
-           templist3 += "<br>Details<br><br>"
-        }
-}  // end of for
-
-//footer
-lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
-lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
-lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
-
-lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
-lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
-lineFull += '<div class="grid-item bluemonth">&nbsp;</div>'
-
-// hide full list
-document.getElementById("eventlist").style.display="none";
-
-document.getElementById("eventlist").innerHTML = lineFull
-
-document.getElementById("latestinfo1").innerHTML = templist1
-document.getElementById("latestinfo2").innerHTML = templist2
-document.getElementById("latestinfo3").innerHTML = templist3
 
 
-function swapview() {
-if (document.getElementById("eventlist").style.display == "none") {
-    document.getElementById("eventlist").style.display  = "grid";
-    document.getElementById("shortlist").style.display  = "none";
+
+
+
+
+
+
+
+
+var arrInfo = [
+["Mar 2024","-","-"],      
+["Fri 1st","OldCourse","Winter stableford"],
+["Mon 4th","OldCourse","Winter stableford"],
+["Fri 8th","OldCourse","Winter stableford"],
+["Mon 11th","OldCourse","Winter stableford"],
+["Fri 15th","OldCourse","Winter stableford"],
+["Mon 18th","OldCourse","Winter stableford"],
+["Fri 22nd","OldCourse","Winter stableford"],
+["Mon 25th","OldCourse","Winter stableford"],
+["Fri 29th","Dawson","Winter stableford"],
+["Apr 2024","-","-"],
+["Tue 2nd","Dawson","stableford"],
+["Fri 5th","Dawson","stableford"],
+["Mon 8th","Lakes","Captains Drive In"],
+["Wed 10th","away","Warkworth friendly 9:30"],
+["Fri 12th","Dawson","stableford"],
+["Mon 15th","Lakes","LT1 medal 3balls"],
+["Fri 19th","Dawson","stableford"],
+["Mon 22nd","Lakes","stableford"],
+["Thu 25th","Dawson","Morpeth friendly 9:45"],
+["Fri 26th","Dawson","stableford"],
+["Mon 29th","Lakes","stableford"],
+["May 2024","-","-"],
+["Thu 2nd","away","South Shields friendly 9:30"],
+["Fri 3rd","Lakes","stableford"],
+["Tue 7th","Lakes","Tony's 80th texas"],
+["Fri 10th","Lakes","stableford"],
+["Mon 13th","Dawson","LT2 medal 3balls"],
+["Tue 14th","Dawson","Blyth friendly 9:45"],
+["Fri 17th","Lakes","stableford"],
+["Mon 20th","Dawson","stableford"],
+["Tue 21st","away","Blyth friendly 10:00"],
+["Thu 23rd","Stocksfield","Spring Cup cancelled"],
+["Fri 24th","Lakes","stableford"],
+["Tue 28th","Lakes","stableford"],
+["Thu 30th","away","Morpeth friendly 10:00"],
+["Fri 31st","Lakes","stableford"],
+["Jun 2024","-","-"],
+["Mon 3rd","Lakes","4 club stableford"],
+["Wed 5th","Dawson","Warkworth friendly 9:30"],
+["Fri 7th","Dawson","stableford"],
+["Mon 10th","Lakes","LT3 medal 3balls"],
+["Thu 13th","away","Foxton friendly 10:00"],
+["Fri 14th","Dawson","stableford"],
+["Mon 17th","Lakes","stableford"],
+["Fri 21th","Dawson","stableford"],
+["Mon 24th","Lakes","stableford"],
+["Tues 25th","Stocksfield","Spring Cup rescheduled"],
+["Thu 27th","Lakes","HGP friendly 9:30"],
+["Fri 28th","Dawson","stableford"],
+["Jul 2024","-","-"],
+["Mon 1st","Dawson","Traffic Lights"],
+["Thu 4th","away","HGP friendly 9:30"],
+["Fri 5th","Lakes","stableford"],
+["Mon 8th","Dawson","stableford"],
+["Fri 12th","Dawson","stableford"],
+["Mon 15th","Dawson","stableford"],
+["Wed 17th","Dawson","South Shields friendly 9:30"],
+["Fri 19th","Lakes","stableford"],
+["Mon 22nd","Dawson","stableford"],
+["Wed 24th","Sharpley","Summer Cup"],
+["Fri 26th","Lakes","stableford"],
+["Mon 29th","Dawson","LT4 & CC1 medal 3balls"],
+["Tue 30th","away","Newbiggin friendly 10:00"],
+["Aug 2024","-","-"],
+["Fri 2nd","Dawson","stableford"],
+["Mon 5th","away","Rothbury friendly 10:00"],
+["Tue 6th","Lakes","Team best 1 from ??"],
+["Fri 9th","Dawson","stableford"],
+["Mon 12th","Lakes","LT5 & CC2 medal 3balls"],
+["Tue 13th","Dawson","Newbiggin friendly 9:30"],
+["Fri 16th","Dawson","stableford"],
+["Mon 19th","Lakes","Invitation Day 4BBB"],
+["Fri 23th","Dawson","stableford"],
+["Tue 27th","Lakes","stableford"],
+["Thu 29th","Lakes","Bellingham friendly 11:00"],
+["Fri 30th","Dawson","stableford"],
+["Sep 2024","-","-"],
+["Mon 2nd","Dawson","Team 1-2-3"],
+["Tue 3rd","Burntisland","Scotland trip"],
+["Wed 4th","Dunnikier","Scotland trip"],
+["Thu 5th","away","Bellingham friendly 11:00"],
+["Thu 5th","Thornton","Scotland trip"],
+["Fri 6th","Kirkcaldy","Scotland trip"],
+["Fri 6th","Lakes","stableford"],
+["Mon 9th","Dawson","LT6 medal 3balls"],
+["Tue 10th","Lakes","Men vs Ladies TBD"],
+["Fri 13th","Lakes","stableford"],
+["Mon 16th","Dawson","stableford"],
+["Mon 16th","Dawson","Rothbury friendly 9:45"],
+["Fri 20th","Lakes","stableford"],
+["Mon 23rd","Dawson","stableford"],
+["Wed 25th","Ravensworth","Autumn Cup"],
+["Mon 30th","Dawson","LT7 medal 3balls"],
+["Oct 2024","-","-"],
+["Fri 4th","OldCourse","Winter stableford"],
+["Mon 7th","OldCourse","Winter stableford"],
+["Fri 11th","OldCourse","Winter stableford"],
+["Mon 14th","OldCourse","Winter stableford"],
+["Fri 18th","OldCourse","Winter stableford"],
+["Mon 21st","OldCourse","Winter stableford"],
+["Fri 25th","OldCourse","Winter stableford"],
+["Mon 28th","OldCourse","Winter stableford"],
+["Nov 2024","-","-"],
+["Fri 1st","OldCourse","Winter stableford"],
+["Mon 4th","OldCourse","Winter stableford"],
+["Fri 8th","OldCourse","Winter stableford"],
+["Mon 11th","OldCourse","Winter stableford"],
+["Fri 15th","OldCourse","Winter stableford"],
+["Mon 18th","OldCourse","Winter stableford"],
+["Fri 22nd","OldCourse","Winter stableford"],
+["Mon 25th","OldCourse","Winter stableford"],
+["Fri 29th","OldCourse","Winter stableford"],
+["Dec 2024","-","-"],
+["Mon 2nd","OldCourse","Winter stableford"],
+["Fri 6th","OldCourse","Winter stableford"],
+["Mon 9th","OldCourse","Winter stableford"],
+["Fri 13th","OldCourse","Winter stableford"],
+["Mon 16th","OldCourse","Winter stableford"],
+["Fri 20th","OldCourse","Winter stableford"],
+["Mon 23rd","OldCourse","Winter stableford"],
+["Fri 27th","OldCourse","Winter stableford"],
+["Mon 30th","OldCourse","Winter stableford"],
+["Jan 2025","-","-"],
+["Fri 3rd","OldCourse","Winter stableford"],
+["Mon 6th","OldCourse","Winter stableford"],
+["Fri 10th","OldCourse","Winter stableford"],
+["Mon 13th","OldCourse","Winter stableford"],
+["Fri 17th","OldCourse","Winter stableford"],
+["Mon 20th","OldCourse","Winter stableford"],
+["Fri 24th","OldCourse","Winter stableford"],
+["Mon 27th","OldCourse","Winter stableford"],
+["Fri 31st","OldCourse","Winter stableford"],
+["Feb 2025","-","-"],
+["Mon 3rd","OldCourse","Winter stableford"],
+["Fri 7th","OldCourse","Winter stableford"],
+["Mon 10th","OldCourse","Winter stableford"],
+["Fri 14th","OldCourse","Winter stableford"],
+["Mon 17th","OldCourse","Winter stableford"],
+["Fri 21st","OldCourse","Winter stableford"],
+["Mon 24th","OldCourse","Winter stableford"],
+["Fri 28th","OldCourse","Winter stableford"],
+["Mar 2025","-","-"],
+["Mon 3rd","OldCourse","Winter stableford"],
+["Fri 7th","OldCourse","Winter stableford"],
+["Mon 10th","OldCourse","Winter stableford"],
+["Fri 14th","OldCourse","Winter stableford"],
+["Mon 17th","OldCourse","Winter stableford"],
+["Fri 21st","OldCourse","Winter stableford"],
+["Mon 24th","OldCourse","Winter stableford"],
+["Fri 28th","OldCourse","Winter stableford"],
+["Mon 31st","OldCourse","Winter stableford"]
+]
+
+for (var i = 0; i < arrInfo.length; i++) {
+     var select = document.getElementById("page");
+        var el1 = document.createElement("div");
+        el1.id = "row" + i;
+        el1.className = 'row';
+        select.appendChild(el1);
+        // eg. Fri 22nd or March 2024
+        var testday = arrInfo[i][0]
+       
+        if (testday.slice(-4) > "2000"){
+            var yyyy = testday.slice(-4); /* eg 2024 */
+            arrMonths = ["dummy","Jan","Feb","Mar","Apr","May","Jun",
+                         "Jul","Aug","Sep","Oct","Nov","Dec"];
+            for (var j = 0; j < arrMonths.length; j++) {
+                 if (testday.slice(0,3) == arrMonths[j]) {
+                     var mm = j;  /* eg 9 */
+                     // make sure of mm format                 
+                     if (j < 10) {
+                         mm = ("0" + j)                 
+                     }  
+                 } 
+            }
+       } else {
+            // get day of month
+            dd = testday.replace("st","").replace("nd","").replace("rd","").replace("th","")
+            dd = dd.replace("Mon ","").replace("Tue ","").replace("Wed ","").replace("Thu ","").replace("Fri ","").replace("Sat ","").replace("Sun ","") 
+            // adjust date by 1 day for calculation
+            dd++                               
+            if (dd < 10) {
+                dd = ("0" + dd)                 
+            } 
+            var formatteddate = yyyy + "-" + mm + "-" + dd;
+}
+
+
+
+
+
+
+
+datetotest = new Date(formatteddate); 
+today    = new Date(); 
+if (today > datetotest) {
+    // strikethrough
+    var strikethrough = "yes";                  
 } else {
-    document.getElementById("eventlist").style.display  = "none";
-    document.getElementById("shortlist").style.display  = "grid";
-}
+    var strikethrough = "no";  
 }
 
-    </script>
+var select = document.getElementById("row" + i);
+        
+var el1 = document.createElement("div");
+el1.id = "a" + i;
+el1.className = 'columna';
+el1.innerHTML = arrInfo[i][0];
+select.appendChild(el1);
+if (arrInfo[i][1] == "-") {
+    document.getElementById("a" + i).style.color = "blue";
+    document.getElementById("a" + i).style.background = "lightBlue"; 
+} else {
+    if (strikethrough == "yes") {
+        // strikethrough  
+        ttt = document.getElementById("a" + i).innerText;
+        document.getElementById("a" + i).style.textDecoration = "line-through";  
+        document.getElementById("a" + i).style.color = "yellow";        
+        var elementToScroll = ("a" + (i - 6))
+
+    }        
+}
+        
+  
+var el2 = document.createElement("div");
+el2.id = "b" + i;
+el2.className = 'columnb';
+el2.innerHTML = arrInfo[i][1];
+select.appendChild(el2);
+if (arrInfo[i][1] == "-") {
+    document.getElementById("b" + i).style.color = "lightBlue";
+    document.getElementById("b" + i).style.background = "lightBlue";
+}  else {
+    if (strikethrough == "yes") {
+        // strikethrough  
+        document.getElementById("b" + i).style.textDecoration = "line-through"; 
+        document.getElementById("b" + i).style.color = "yellow"; 
+    }        
+}
+      
+var el3 = document.createElement("div");
+el3.id = "d" + i;
+el3.className = 'columnd';
+el3.innerHTML = arrInfo[i][2];
+select.appendChild(el3);
+if (arrInfo[i][1] == "-") {
+    document.getElementById("d" + i).style.color = "lightBlue";
+    document.getElementById("d" + i).style.background = "lightBlue";
+    document.getElementById("d" + i).style.width = "50%";
+}  else {
+    if (strikethrough == "yes") {
+        // strikethrough  
+        document.getElementById("d" + i).style.textDecoration = "line-through"; 
+        document.getElementById("d" + i).style.color = "yellow";  
+    }        
+}
+
+
+} // end for loop
+
+// move screen to show today
+document.getElementById(elementToScroll).scrollIntoView();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
   </body>
 </html>
