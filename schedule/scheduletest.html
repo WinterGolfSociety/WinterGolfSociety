@@ -455,7 +455,9 @@ for (var i = 0; i < arrInfo.length; i++) {
        } else {
             // get day of month
             dd = testday.replace("st","").replace("nd","").replace("rd","").replace("th","")
-            dd = dd.replace("Mon ","").replace("Tue ","").replace("Wed ","").replace("Thu ","").replace("Fri ","").replace("Sat ","").replace("Sun ","")                                
+            dd = dd.replace("Mon ","").replace("Tue ","").replace("Wed ","").replace("Thu ","").replace("Fri ","").replace("Sat ","").replace("Sun ","") 
+            // adjust date by 1 day
+            dd++                               
             if (dd < 10) {
                 dd = ("0" + dd)                 
             } 
@@ -470,11 +472,11 @@ for (var i = 0; i < arrInfo.length; i++) {
 
 datetotest = new Date(formatteddate); 
 today    = new Date(); 
-if (today >= datetotest) {
+if (today > datetotest) {
     // strikethrough
-    var strikethrough = "no";                  
+    var strikethrough = "yes";                  
 } else {
-    var strikethrough = "yes";  
+    var strikethrough = "no";  
 }
 
 var select = document.getElementById("row" + i);
@@ -488,11 +490,12 @@ if (arrInfo[i][1] == "-") {
     document.getElementById("a" + i).style.color = "blue";
     document.getElementById("a" + i).style.background = "lightBlue"; 
 } else {
-    if (strikethrough == "no") {
+    if (strikethrough == "yes") {
         // strikethrough  
         ttt = document.getElementById("a" + i).innerText;
         document.getElementById("a" + i).style.textDecoration = "line-through";  
-        var elementToScroll = ("a" + (i - 8))
+        document.getElementById("a" + i).style.color = "yellow";        
+        var elementToScroll = ("a" + (i - 6))
 
     }        
 }
@@ -507,9 +510,10 @@ if (arrInfo[i][1] == "-") {
     document.getElementById("b" + i).style.color = "lightBlue";
     document.getElementById("b" + i).style.background = "lightBlue";
 }  else {
-    if (strikethrough == "no") {
+    if (strikethrough == "yes") {
         // strikethrough  
-        document.getElementById("b" + i).style.textDecoration = "line-through";  
+        document.getElementById("b" + i).style.textDecoration = "line-through"; 
+        document.getElementById("b" + i).style.color = "yellow"; 
     }        
 }
       
@@ -523,9 +527,10 @@ if (arrInfo[i][1] == "-") {
     document.getElementById("d" + i).style.background = "lightBlue";
     document.getElementById("d" + i).style.width = "50%";
 }  else {
-    if (strikethrough == "no") {
+    if (strikethrough == "yes") {
         // strikethrough  
-        document.getElementById("d" + i).style.textDecoration = "line-through";   
+        document.getElementById("d" + i).style.textDecoration = "line-through"; 
+        document.getElementById("d" + i).style.color = "yellow";  
     }        
 }
 
@@ -535,9 +540,10 @@ if (arrInfo[i][1] == "-") {
 // move screen to show today
 document.getElementById(elementToScroll).scrollIntoView();
 
-document.getElementById("header").classList.add("header-visible"); 
+//document.getElementById("header").classList.add("header-visible"); 
+setTimeout(function() {
     document.getElementById("header").classList.remove("header-hidden"); 
-
+},500)
 
 
 
