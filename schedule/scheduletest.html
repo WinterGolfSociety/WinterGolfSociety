@@ -456,7 +456,7 @@ for (var i = 0; i < arrInfo.length; i++) {
             // get day of month
             dd = testday.replace("st","").replace("nd","").replace("rd","").replace("th","")
             dd = dd.replace("Mon ","").replace("Tue ","").replace("Wed ","").replace("Thu ","").replace("Fri ","").replace("Sat ","").replace("Sun ","") 
-            // adjust date by 1 day
+            // adjust date by 1 day for calculation
             dd++                               
             if (dd < 10) {
                 dd = ("0" + dd)                 
@@ -543,7 +543,7 @@ document.getElementById(elementToScroll).scrollIntoView();
 //document.getElementById("header").classList.add("header-visible"); 
 setTimeout(function() {
     document.getElementById("header").classList.remove("header-hidden"); 
-},500)
+},1500)
 
 
 
