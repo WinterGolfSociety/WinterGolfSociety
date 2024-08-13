@@ -493,6 +493,7 @@ if (arrInfo[i][1] == "-") {
         ttt = document.getElementById("a" + i).innerText;
         document.getElementById("a" + i).style.textDecoration = "line-through";  
         var elementToScroll = ("a" + (i - 8))
+        var elementToScroll2 = "a" + i
     }        
 }
         
@@ -533,10 +534,9 @@ if (arrInfo[i][1] == "-") {
 
 // move screen to show today
 document.getElementById(elementToScroll).scrollIntoView();
+
 setTimeout(function() {
-document.getElementById("header").classList.add("header-visible"); 
-document.getElementById("header").classList.remove("header-hidden"); 
-document.getElementById("page").scrollTo = 0;
+document.getElementById(elementToScroll2).scrollIntoView();
 },1000)
 
 
