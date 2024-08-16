@@ -628,7 +628,6 @@ $("#nhcp1").keydown(function (e) {
          // set new allowance and recalculate
 			updatehcp()
 		}
-	
 		
 		function increment(){
          var count = document.getElementById('nhcp1');
@@ -647,27 +646,22 @@ $("#nhcp1").keydown(function (e) {
       }		
 		
 		function editNumber() {
-document.getElementById("myRange1").value = document.getElementById("nhcp1").innerText
-document.getElementById("demo1").innerText = document.getElementById("nhcp1").innerText
-		document.getElementById("hcpeditpopuppanel").style.display = "inline-block";
+         document.getElementById("myRange1").value = document.getElementById("nhcp1").innerText
+         document.getElementById("demo1").innerText = document.getElementById("nhcp1").innerText
+		   document.getElementById("hcpeditpopuppanel").style.display = "inline-block";
     
-}
+      }
 		
-function closeslider() {
-document.getElementById("hcpeditpopuppanel").style.display = "none";
-document.getElementById("nhcp1").innerText = document.getElementById("myRange1").value;
-updatehcp();
-
-
-}
-
-function finishHcpEdit() {
-document.getElementById("hcpeditpopuppanel").style.display = "none";
-}	
+      function closeslider() {
+         document.getElementById("hcpeditpopuppanel").style.display = "none";
+         document.getElementById("nhcp1").innerText = document.getElementById("myRange1").value;
+         localStorage.whshcp = document.getElementById("myRange1").value;
+         updatehcp();
+      }
 	
-function hcpvalue() {
-document.getElementById("demo1").innerText = document.getElementById("myRange1").value;
-}	
+      function hcpvalue() {
+         document.getElementById("demo1").innerText = document.getElementById("myRange1").value;
+      }	
 	
 	
 	
