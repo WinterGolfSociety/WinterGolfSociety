@@ -545,9 +545,9 @@ if (arrInfo[i][1] == "-") {
 // move screen to show today
 //document.getElementById(elementToScroll).scrollIntoView();
 setTimeout(function(){
-
+console.log(document.getElementById(elementToScroll).innerText)
 console.log(elementToScroll)
-document.getElementById(elementToScroll).scrollIntoView({ block: 'end',  behavior: 'smooth' });
+document.getElementById(elementToScroll).scrollIntoView({ block: 'start',  behavior: 'smooth' });
 
 },4000)
 
