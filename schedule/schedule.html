@@ -500,7 +500,7 @@ if (arrInfo[i][1] == "-") {
         ttt = document.getElementById("a" + i).innerText;
         document.getElementById("a" + i).style.textDecoration = "line-through";  
         document.getElementById("a" + i).style.color = "yellow";        
-        var elementToScroll = ("a" + (i - 7))
+        var elementToScroll = ("a" + (i - 4))
 
     }        
 }
@@ -548,8 +548,7 @@ setTimeout(function(){
 console.log(document.getElementById(elementToScroll).innerText)
 console.log(elementToScroll)
 document.getElementById(elementToScroll).scrollIntoView({ block: 'start',  behavior: 'smooth' });
-
-},4000)
+},500)
 
 
 
