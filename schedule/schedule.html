@@ -198,7 +198,7 @@ width: calc(130vw - 20ch);
     <title>schedule</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
-  <body>
+  <body onscroll="displayHeader()">
 
 
 
@@ -239,7 +239,7 @@ width: calc(130vw - 20ch);
 
 var prevScrollPos = window.pageYOffset; 
  
-window.onscroll = function() { 
+function displayHeader() { 
   var currentScrollPos = window.pageYOffset; 
  
   // Scroll down 
@@ -542,9 +542,9 @@ if (arrInfo[i][1] == "-") {
 
 // move screen to show today
 //document.getElementById(elementToScroll).scrollIntoView();
-setTimeout(function(){
-document.getElementById(elementToScroll).scrollIntoView();
-},1000)
+//setTimeout(function(){
+//document.getElementById(elementToScroll).scrollIntoView();
+//},1000)
 
 
 
