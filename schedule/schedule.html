@@ -87,7 +87,9 @@ font-weight: bold;
 }
 
 #header {
-position: fixed;
+//position: fixed;
+ position: sticky;
+  top: 0;
 //top: 1;
 //left: 1;
 background: dodgerBlue;
@@ -198,7 +200,7 @@ width: calc(130vw - 20ch);
     <title>schedule</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
-  <body onscroll="displayHeader()">
+  <body>
 
 
 
@@ -236,7 +238,7 @@ width: calc(130vw - 20ch);
  
 <script>
 
-
+/*
 var prevScrollPos = window.pageYOffset; 
  
 function displayHeader() { 
@@ -261,7 +263,7 @@ function displayHeader() {
 
 
 
-
+*/
 
 
 
@@ -498,7 +500,7 @@ if (arrInfo[i][1] == "-") {
         ttt = document.getElementById("a" + i).innerText;
         document.getElementById("a" + i).style.textDecoration = "line-through";  
         document.getElementById("a" + i).style.color = "yellow";        
-        var elementToScroll = ("a" + (i - 6))
+        var elementToScroll = ("a" + (i - 7))
 
     }        
 }
@@ -542,15 +544,15 @@ if (arrInfo[i][1] == "-") {
 
 // move screen to show today
 //document.getElementById(elementToScroll).scrollIntoView();
-setTimeout(function(){
+//setTimeout(function(){
+//document.getElementById(elementToScroll).scrollIntoView();
+//},1000)
+
+
+
+
+
 document.getElementById(elementToScroll).scrollIntoView();
-},1000)
-
-
-
-
-
-
 
 
 
