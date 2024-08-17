@@ -262,15 +262,6 @@ font-size: 5.5vh; //6vh; //30px;
 padding-top: 5vh;
 }
 
-
-
-
-
-
-
-
-
-
 	</style>
 </head>
 
@@ -389,25 +380,6 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 		<script>
 		
 		
-$("#nhcp1").keydown(function (e) {
-
-        if (e.keyCode == 13 && e.Enter) {
-            e.preventDefault();
-            return;
-        }
-    });
-
-    //key up handles all keypress events.
-    $("#nhcp1").keyup(function (e) {
-
-        if (e.keyCode == 13 && e.Enter) {
-            e.preventDefault();
-            return;
-        }		
-		
-	   });	
-		
-		
 		
 		var slope;
 		var cr;
@@ -434,8 +406,15 @@ $("#nhcp1").keydown(function (e) {
 		]
 		
       // retrieve last hcp if available, else put 18 in
-      if (localStorage.whshcp){      
-         document.getElementById("nhcp1").innerText = localStorage.whshcp;
+      // do a change over
+      if (localStorage.whshcp){       
+          localStorage.myhcp = localStorage.whshcp
+      }
+      // hcp should now be stored in new place
+      
+      
+      if (localStorage.myhcp){      
+         document.getElementById("nhcp1").innerText = localStorage.myhcp;
          updatehcp()		
 		} else {
          document.getElementById("nhcp1").innerText = "18";	
