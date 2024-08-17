@@ -409,6 +409,7 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
       // do a change over
       if (localStorage.whshcp){       
           localStorage.myhcp = localStorage.whshcp
+          localStorage.removeItem("whshcp");
       }
       // hcp should now be stored in new place
       
