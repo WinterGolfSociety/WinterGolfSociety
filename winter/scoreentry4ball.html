@@ -4196,10 +4196,9 @@ beforeSubmitForm();
 
 
     function clearCache() {
-      // A simple delete doesn't work so use an overkill approach
+// A simple delete doesn't work so use an overkill approach
       // save current keys, then clear, then put them back
       // sledgehammer and nut spring to mind
-
       // save localStorage to temp variables
       tempwwplayersarray = "";
       tempwwladiesarray = "";
@@ -4234,6 +4233,10 @@ beforeSubmitForm();
       if ("wwcourse" in localStorage) {
         tempwwcourse = localStorage.wwcourse;
       }
+      // from myhcp
+      if ("myhcp" in localStorage) {
+        tempmyhcp = localStorage.myhcp;
+      }
 
       // clear localStorage
       localStorage.clear();
@@ -4246,6 +4249,10 @@ beforeSubmitForm();
       localStorage.wwtodayscomp = tempwwtodayscomp;
       localStorage.wwcompday = tempwwcompday;
       localStorage.wwcourse = tempwwcourse;
+      // from myhcp.html      
+      localStorage.myhcp = tempmyhcp;
+      
+      location.reload();
 
     }
     

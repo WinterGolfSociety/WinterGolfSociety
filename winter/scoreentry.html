@@ -1973,20 +1973,48 @@
       // A simple delete doesn't work so use an overkill approach
       // save current keys, then clear, then put them back
       // sledgehammer and nut spring to mind
-
       // save localStorage to temp variables
-      tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
-      tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
-      tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
-      tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
-      tempwwdropdown = JSON.parse(localStorage.wwdropdown);
-      tempwwtodayscomp = localStorage.wwtodayscomp;
-      tempwwcompday = localStorage.wwcompday;
-      tempwwcourse = localStorage.wwcourse;
+      tempwwplayersarray = "";
+      tempwwladiesarray = "";
+      tempwwcompsarray = "";
+      tempwwhcpsarray = "";
+      tempwwdropdown = "";
+      tempwwtodayscomp = "";
+      tempwwcompday = "";
+      tempwwcourse = "";
+
+      if ("wwplayersarray" in localStorage) {
+        tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
+      }
+      if ("wwladiesarray" in localStorage) {
+        tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
+      }
+      if ("wwcompsarray" in localStorage) {
+        tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
+      }
+      if ("wwhcpsarray" in localStorage) {
+        tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
+      }
+      if ("wwdropdown" in localStorage) {
+        tempwwdropdown = JSON.parse(localStorage.wwdropdown);
+      }
+      if ("wwtodayscomp" in localStorage) {
+        tempwwtodayscomp = localStorage.wwtodayscomp;
+      }
+      if ("wwcompday" in localStorage) {
+        tempwwcompday = localStorage.wwcompday;
+      }
+      if ("wwcourse" in localStorage) {
+        tempwwcourse = localStorage.wwcourse;
+      }
+      // from myhcp
+      if ("myhcp" in localStorage) {
+        tempmyhcp = localStorage.myhcp;
+      }
+
       // clear localStorage
       localStorage.clear();
       // put localStorage back from variables
-      //setTimeout(function() {
       localStorage.wwplayersarray = JSON.stringify(tempwwplayersarray);
       localStorage.wwladiesarray = JSON.stringify(tempwwladiesarray);
       localStorage.wwcompsarray = JSON.stringify(tempwwcompsarray);
@@ -1995,9 +2023,9 @@
       localStorage.wwtodayscomp = tempwwtodayscomp;
       localStorage.wwcompday = tempwwcompday;
       localStorage.wwcourse = tempwwcourse;
-      //},500);
-
-      recoverFromLocalStorage();
+      // from myhcp.html      
+      localStorage.myhcp = tempmyhcp;
+      
       location.reload();
 
     }
