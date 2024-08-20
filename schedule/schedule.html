@@ -261,7 +261,73 @@ function displayHeader() {
 
 
 
+["Fri 4th","OldCourse","Winter stableford"],
+["Fri 4th","Dawson","Winter stableford"],
+[Mon 7th","Lakes","Winter stableford"],
+["Fri 11th","Dawson","Winter stableford"],
+["Mon 14th","Lakes","Winter stableford"],
+["Fri 18th","Dawson","Winter stableford"],
+["Mon 21st","Lakes","Winter stableford"],
+["Fri 25th,"Dawson","Winter stableford"],
+["Mon 28th","Lakes","Winter stableford"],
 
+["Fri 1st","Lakes","Winter stableford"],
+["Mon 4th","Dawson","Winter stableford"],
+["Fri 8th","Lakes","Winter stableford"],
+["Mon 11th","Dawson","Winter stableford"],
+["Fri 15th","Lakes","Winter stableford"],
+["Mon 18th","Dawson","Winter stableford"],
+["Fri 22nd","Lakes","Winter stableford"],
+["Mon 25th","Dawson","Winter stableford"],
+["Fri 29th","Lakes","Winter stableford"],
+
+["Mon 2nd","Lakes","Winter stableford"],
+["Fri 6th","Dawson","Winter stableford"],
+["Mon 9th","Lakes","Winter stableford"],
+["Fri 13th","Dawson","Winter stableford"],
+["Mon 16th","Lakes","Winter stableford"],
+["Fri 20th","Dawson","Winter stableford"],
+["Mon 23rd","Lakes","Winter stableford"],
+["Fri 27th","Dawson","Winter stableford"],
+["Mon 30th","Lakes","Winter stableford"],
+
+["Fri 3rd","Lakes","Winter stableford"],
+["Mon 6th","Dawson","Winter stableford"],
+["Fri 10th","Lakes","Winter stableford"],
+["Mon 13th","Dawson","Winter stableford"],
+["Fri 17th","Lakes","Winter stableford"],
+["Mon 20th","Dawson","Winter stableford"],
+["Fri 24th","Lakes","Winter stableford"],
+["Mon 27th","Dawson","Winter stableford"],
+["Fri 31st","Lakes","Winter stableford"],
+
+["Mon 3rd","Lakes","Winter stableford"],
+["Fri 7th","Dawson","Winter stableford"],
+["Mon 10th","Lakes","Winter stableford"],
+["Fri 14th","Dawson","Winter stableford"],
+["Mon 17th","Lakes","Winter stableford"],
+["Fri 21st","Dawson","Winter stableford"],
+["Mon 24th","Lakes","Winter stableford"],
+["Fri 28th","Dawson","Winter stableford"],
+
+["Mon 3rd","Dawson","Winter stableford"],
+["Fri 7th","Lakes","Winter stableford"],
+["Mon 19th","Dawson","Winter stableford"],
+["Fri 14th","Lakes","Winter stableford"],
+["Mon 17th","Dawson","Winter stableford"],
+["Fri 21st","Lakes","Winter stableford"],
+["Mon 24th","Dawson","Winter stableford"],
+["Fri 28th","Lakes","Winter stableford"],
+["Mon 31st","Dawson","Winter stableford"],
+
+["Fri 4th","Dawson","Winter stableford"],
+["Mon 7th","Lakes","Winter stableford"],
+["Fri 11th","Dawson","Winter stableford"],
+["Mon 14th","Lakes","Winter stableford"],
+["Fri 18th","Dawson","Winter stableford"],
+["Mon 21st","Lakes","Winter stableford"],
+["Fri 25th","Dawson","Winter stableford"],
+["Mon 28th",Lakes","Winter stableford"]
 
 */
 
@@ -353,7 +419,7 @@ var arrInfo = [
 ["Tue 13th","Dawson","Newbiggin friendly 9:30"],
 ["Fri 16th","Dawson","stableford"],
 ["Mon 19th","Lakes","Invitation Day 4BBB"],
-["Fri 23th","Dawson","stableford"],
+["Fri 23rd","Dawson","stableford"],
 ["Tue 27th","Lakes","stableford"],
 ["Thu 29th","Lakes","Bellingham friendly 11:00"],
 ["Fri 30th","Dawson","stableford"],
@@ -443,8 +509,7 @@ for (var i = 0; i < arrInfo.length; i++) {
         select.appendChild(el1);
         // eg. Fri 22nd or March 2024
         var testday = arrInfo[i][0]
-       
-        if (testday.slice(-4) > "2000"){
+        if (containsOnlyDigits(testday.slice(-4))) {
             var yyyy = testday.slice(-4); /* eg 2024 */
             arrMonths = ["dummy","Jan","Feb","Mar","Apr","May","Jun",
                          "Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -461,21 +526,17 @@ for (var i = 0; i < arrInfo.length; i++) {
             // get day of month
             dd = testday.replace("st","").replace("nd","").replace("rd","").replace("th","")
             dd = dd.replace("Mon ","").replace("Tue ","").replace("Wed ","").replace("Thu ","").replace("Fri ","").replace("Sat ","").replace("Sun ","") 
-            // adjust date by 1 day for calculation
-            dd++                               
+            // adjust date by 1 day for calculation - not now
+            // dd++                          
             if (dd < 10) {
                 dd = ("0" + dd)                 
-            } 
+            }    
             var formatteddate = yyyy + "-" + mm + "-" + dd;
 }
 
-
-
-
-
-
-
 datetotest = new Date(formatteddate); 
+// add 1 day for calculations
+datetotest.setDate(datetotest.getDate() + 1);
 today    = new Date(); 
 if (today > datetotest) {
     // strikethrough
@@ -501,7 +562,6 @@ if (arrInfo[i][1] == "-") {
         document.getElementById("a" + i).style.textDecoration = "line-through";  
         document.getElementById("a" + i).style.color = "yellow";        
         var elementToScroll = ("a" + (i - 4))
-
     }        
 }
         
@@ -545,8 +605,6 @@ if (arrInfo[i][1] == "-") {
 // move screen to show today
 //document.getElementById(elementToScroll).scrollIntoView();
 setTimeout(function(){
-console.log(document.getElementById(elementToScroll).innerText)
-console.log(elementToScroll)
 document.getElementById(elementToScroll).scrollIntoView({ block: 'start',  behavior: 'smooth' });
 },500)
 
@@ -554,7 +612,9 @@ document.getElementById(elementToScroll).scrollIntoView({ block: 'start',  behav
 
 
 
-
+function containsOnlyDigits(str) {
+    return /^\d+$/.test(str);
+}
 
 
 
