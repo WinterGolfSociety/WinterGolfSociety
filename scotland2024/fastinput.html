@@ -7,9 +7,7 @@
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
 	<title>faster score entry</title>
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 	<style>
 	* {
 		margin: 0;
@@ -18,7 +16,7 @@
 	}
 	
 	html {
-		height: 100vh; //100%;
+		height: 100vh;
 		width: 100vw; //100%;
 	}
 	
@@ -896,7 +894,7 @@
 		var hcp = "0";
 		var player = "select player";
 		var comp;
-		var course = "OldCourse";
+		var course = "";
 		var arrOptions = [];
 		var hcplist = "";
 		var msglist = "";
@@ -974,7 +972,7 @@
 			}
 			if(day == 5) {
 			        console.log(day + " Friday")
-			        course = "Kircaldy"
+			        course = "Kirkcaldy"
 			        fullday = "Friday";
 				setupFridayCourse()
 			}
@@ -1273,9 +1271,7 @@
 		// functions - run when called
 		//=============================================================  
 		function startNewDay() {
-		                // set first hole details
-		                // var holedetails = course + ", hole " + whichhole + ", par " +
-		                // arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
+		
 
       var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrCourse[whichhole][1] +
       "</a> <a class='rred'>" + arrCourseRed[whichhole][1] + "</a>" + ", si <a class='yyellow'>" +
@@ -1396,6 +1392,10 @@
 		
 		// name selected, do stuff
 		function dropSelected(playerName) {
+// change "select player to course
+document.getElementById("dropbtn").innerText = course;
+
+
 
          // cope with ladies tees	
          // change yellow (default) to red	
@@ -1457,7 +1457,7 @@
 			}
 			// go to first hole
 			whichhole = 1;
-			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
+			//holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
 
 
 
@@ -1579,7 +1579,7 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 			if(whichhole > 18) {
 				whichhole = 18;
 			}
-			holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
+			//holedetails = course + ", hole " + whichhole + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2];
 
 
 
@@ -2111,47 +2111,15 @@ document.getElementById('mx83976721').value = (front9points + tempcb9)
             audio.play();
 				document.getElementById("submit").style.background = "dodgerBlue";
 			}, 2000);
-
+         // change course to prompt select player 
+         document.getElementById("dropbtn").innerText = "select player";
 		}
 
 
 		function finalWrite() {
 		console.log("in finalWrite")
+		console.log(course)
 			saveScores();
-			//saveAllToLocalStorage()
-			// get players, all strokes and points
-			for(var i = 1; i <= 18; i++) {
-				if(course == "Lakes") {
-					if(player1teecolor == "yellow") {
-						temp = localStorage.getItem("wwp1h" + i)
-						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
-					} else {
-						temp = localStorage.getItem("wwp1h" + i)
-						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
-					}
-					
-				}
-				if(course == "Dawson") {
-					if(player1teecolor == "yellow") {
-						temp = localStorage.getItem("wwp1h" + i)
-						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrDawson[i][1], arrDawson[i][2], temp)
-					} else {
-						temp = localStorage.getItem("wwp1h" + i)
-						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
-					}
-					
-				}
-				if(course == "OldCourse") {
-					if(player1teecolor == "yellow") {
-						temp = localStorage.getItem("wwp1h" + i)
-						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
-					} else {
-						temp = localStorage.getItem("wwp1h" + i)
-						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
-					}
-					
-				}
-			}
 			totalScore()
 		}
 		//=============================================================
