@@ -1129,10 +1129,10 @@
 
     // show recovery option if there is a score in wwp1h1 (ie. some data)
     if ("wwp1h1" in localStorage) {
-      // hide message
+      // show message if there is any hole data
       document.getElementById("popuppanel1").style.display = "block";
     } else {
-      // if there is any hole data
+      // if there is no hole data don't show message
       document.getElementById("popuppanel1").style.display = "none";
     }
 
@@ -3694,7 +3694,7 @@ beforeSubmitForm();
             //============================
             document.forms[0].submit();
           } /* end of player2 */
-        }, 2000)
+        }, 2500)
 
         // delay player 3 update so it follows on from player 2 update
         setTimeout(function() {
@@ -3822,7 +3822,7 @@ beforeSubmitForm();
             //============================
             document.forms[0].submit();
           } /* end of player3 */
-        }, 4000)
+        }, 5000)
 
         // delay player 4 update so it follows on from player 3 update
         setTimeout(function() {
@@ -3950,7 +3950,7 @@ beforeSubmitForm();
             //============================
             document.forms[0].submit();
           } /* end of player4 */
-        }, 6000)
+        }, 7500)
 
         // move screen up
         window.scrollTo({
@@ -3970,11 +3970,11 @@ beforeSubmitForm();
         setTimeout(function() {
           document.getElementById('blackout').innerHTML = 
           '<img src="done.png" id="done" style="height: 100px; width: 100px;">'
-        }, 6500);
+        }, 8000);
 
         setTimeout(function() {
           window.location.assign("winter.html");
-        }, 8000);
+        }, 9500);
 
 
       
