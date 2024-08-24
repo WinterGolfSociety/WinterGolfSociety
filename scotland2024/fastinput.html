@@ -1561,7 +1561,7 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 		nextHole();			
 					
 					
-				}, "200");
+				}, "100");
 		}
 		//=================================================================================
 		// move to next hole
@@ -1574,7 +1574,7 @@ document.getElementById("holedetails").innerText = ">  >  >  >  >  >  >  >  >  >
 			setTimeout(function() {
 				// put number button back
 				document.getElementById("scorenext").classList.replace("scorehigh", "scorelow");
-			}, "250");
+			}, "150");
 			whichhole++
 			if(whichhole > 18) {
 				whichhole = 18;
@@ -1622,7 +1622,7 @@ var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrCourse[
 			setTimeout(function() {
 				// put number button back
 				document.getElementById("scoreprev").classList.replace("scorehigh", "scorelow");
-			}, "250");
+			}, "150");
 			whichhole--
 			if(whichhole < 1) {
 				whichhole = 1
