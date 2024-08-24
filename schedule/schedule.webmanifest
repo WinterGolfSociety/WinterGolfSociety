@@ -1,0 +1,9 @@
+{
+    "icons": [
+        {
+            "src": "/scheduleicon.png",
+            "sizes": "any",
+            "type": "image/x-icon"
+        }
+    ]
+}
