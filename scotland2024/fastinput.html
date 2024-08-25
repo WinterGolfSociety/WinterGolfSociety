@@ -12,6 +12,9 @@
 	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style>
+
+	/* icon color #bef081 */
+	
 	* {
 		margin: 0;
 		padding: 0;
@@ -948,9 +951,13 @@
 			dd = new Date();
 			day = dd.getDay();
 			
-			
-		
-			
+		  //============================================	
+		  // default
+		  console.log(day + " using Tuesday as default")
+		  course = "BurntIsland"
+		  fullday = "Tuesday";
+		  setupTuesdayCourse()
+		  //============================================	
 			
 			
 			
@@ -1861,7 +1868,7 @@ var holedetails = "hole " + whichhole + ", par <a class='yyellow'>" + arrCourse[
 				}
 					
 			
-	console.log("hcp="+xhcp + " par=" + xpar + " si=" + xsi + " score=" + xscore + " points= " + points)		
+	//console.log("hcp="+xhcp + " par=" + xpar + " si=" + xsi + " score=" + xscore + " points= " + points)		
 			
 			
 		
@@ -2120,8 +2127,8 @@ document.getElementById('mx83976721').value = (front9points + tempcb9)
 
 
 		function finalWrite() {
-		console.log("in finalWrite")
-		console.log(course)
+		//console.log("in finalWrite")
+		//console.log(course)
 			saveScores();
 			totalScore()
 		}
@@ -2148,7 +2155,7 @@ document.getElementById("recoverclear").style.display = "none";
  }		
 
 	function displayInfo() {
-	console.log("in displayInfo")
+	//console.log("in displayInfo")
 			saveScores();
 			//saveAllToLocalStorage()
 			// get players, all strokes and points
