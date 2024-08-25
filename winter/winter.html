@@ -1337,7 +1337,7 @@
       tempwwtodayscomp = "";
       tempwwcompday = "";
       tempwwcourse = "";
-
+      tempmyhcp = "";
 
       if ("wwplayersarray" in localStorage) {
         tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
@@ -1363,6 +1363,11 @@
       if ("wwcourse" in localStorage) {
         tempwwcourse = localStorage.wwcourse;
       }
+      // from myhcp
+      if ("myhcp" in localStorage) {
+        tempmyhcp = localStorage.myhcp;
+      }
+
 
       // clear localStorage
       localStorage.clear();
@@ -1375,7 +1380,8 @@
       localStorage.wwtodayscomp = tempwwtodayscomp;
       localStorage.wwcompday = tempwwcompday;
       localStorage.wwcourse = tempwwcourse;
-
+      // from myhcp.html      
+      localStorage.myhcp = tempmyhcp;
     }
     
     </script>
