@@ -5,7 +5,7 @@
       <meta charset="UTF-8" />
       
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-      <title>winter</title>
+      <title>scotland 2024</title>
       <meta content="Bryan M" name="author" />
       <link href="favicon.ico" rel="icon" type="image/x-icon" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -21,13 +21,13 @@ body {
       background-color: white; //darkSlateGray;
       font-family: Arial, Helvetica, sans-serif;
      // overflow-y: hidden; 
-     padding-left: 5px;
-     padding-right: 5px;
+     padding-left: 20px;
+     padding-right: 20px;
 }
  
     .grid-container {
       display: grid;
-      grid-template-columns: 15vw 50vw 15vw 15vw;
+      grid-template-columns: 15vw auto 15vw 15vw;
    //   padding-left: 20px;
    border: 1px solid lightGray; //#E5E4E2;
    //border-radius: 5px;
@@ -56,6 +56,11 @@ body {
         text-align: left;           
    }
    
+   .grid-item, .grid-item-pos, .grid-container, #footer, #top1, #top2, #bottom1, #bottom2 {
+      //animation: fadein 3s linear forwards;
+      //animation-delay: 2s;
+   }
+
    @keyframes fadein{
       0% { opacity: 0.0; }
       100% { opacity: 1.0; }
@@ -64,7 +69,7 @@ body {
 #secs {
        font-family: arial;
        font-size: 13px;
-       color: darkSlateGray;
+       color: darkSlateGray; //#C3CCCC;
 }
 
 #notyet, #nocomp {
@@ -76,13 +81,14 @@ color: dodgerBlue;
 font-size: 20vw;
 }
 
-#player0 {
-width: 55vw;
-}
-
 #footer {
 padding-left: 10px;
 padding-right: 10px;
+}
+
+
+#player0 {
+//width: 60vw;
 }
 </style>
 <body>
@@ -109,53 +115,12 @@ var dd = new Date();
 var dddate = dd.getDate();
 var ddmonth = dd.getMonth();
 
-// get date number and format it
-d1 = dd.getDate();
-      if (d1 < 10) {
-        d1 = "0" + d1;
-      }
-      // get month and format it
-      d2 = dd.getMonth();
-      if (d2 == 0) {
-        m = "January";
-      }
-      if (d2 == 1) {
-        m = "February";
-      }
-      if (d2 == 2) {
-        m = "March";
-      }
-      if (d2 == 3) {
-        m = "April";
-      }
-      if (d2 == 4) {
-        m = "May";
-      }
-      if (d2 == 5) {
-        m = "June";
-      }
-      if (d2 == 6) {
-        m = "July";
-      }
-      if (d2 == 7) {
-        m = "August";
-      }
-      if (d2 == 8) {
-        m = "September";
-      }
-      if (d2 == 9) {
-        m = "October";
-      }
-      if (d2 == 10) {
-        m = "November";
-      }
-      if (d2 == 11) {
-        m = "December";
-      }
-      var dateToday = d1 + " " + m;
 
 
 function start() {
+dd = new Date();
+dddate = dd.getDate();
+ddmonth = dd.getMonth();
 
 document.getElementById("notyet").innerHTML = "<br>Leaderboard ... <a style='color:blue;'>updating</a><br><br>"
 arrPos = []
@@ -164,59 +129,113 @@ arrPoints = []
 arrTwos = []
 arrPlayerOld = [];
 comp = "";
+//dd = new Date();
+//dddate = dd.getDate();
+//ddmonth = dd.getMonth();
 
-if (!("lbdatecheck" in localStorage)) {
-    localStorage.lbdatecheck = "0";
+
+if (!("lbdatecheckscotland" in localStorage)) {
+    localStorage.lbdatecheckscotland = "0";
 }
 
-if (localStorage.lbdatecheck != dddate + "-" + ddmonth) {
-    localStorage.lbdatecheck = dddate + "-" + ddmonth;
-    localStorage.removeItem("lbarray");
+if (localStorage.lbdatecheckscotland != dddate + "-" + ddmonth) {
+    localStorage.lbdatecheckscotland = dddate + "-" + ddmonth;
+    localStorage.removeItem("lbarrayscotland");
 }
 
 getData();
 }
 
-// run code ...
-start();
 
+
+// initially run code ...
+start();
+// then run at intervals
 // time for update
 setInterval(start, 60000);
 
 async function getData() {
-	var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/Leaderboard"
-)
-	
+   // default to final results
+   var dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardFinalcopy"
+   
+
+   if (dd.getDay() == 2) {
+       dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardTuesday"
+   }
+   if (dd.getDay() == 3) {
+       dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardWednesdaycopy"
+   }
+   if (dd.getDay() == 4) {
+       dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardThursday"
+   }
+   if (dd.getDay() == 5) {
+       dataStreamLink = "https://opensheet.elk.sh/1Dce-Tqbhb3nye6ASMqMBnCATVc8YFCZ3I9HZKG5ndN4/LeaderboardFridaycopy"
+   }
+
+	var dataStream = await fetch(dataStreamLink)
+
 	var resultsarray = await dataStream.json();
 	
 	var dataFound = "no"
-	console.log(resultsarray[0].points)
-	// see if it is todays comp
-	if (resultsarray[0].comp.indexOf(dateToday) > -1) {
-       // see  if there is any results
-       if(resultsarray[0].points > 0) {
-           dataFound = "yes";
-           console.log("here")
-       }
+	
+   if((resultsarray[0].points) > 0)
+   {
+        dataFound = "yes";
    }
 
 if (dataFound == "yes") {
-	
+
 	// get rid of blanks in array by creating new arrays
 	for(var i = 0; i < resultsarray.length; i++) {
 		if(resultsarray[i].player.length > 2) {
-			arrPos.push(resultsarray[i].pos);
-			arrPlayer.push(resultsarray[i].player);
-			arrPoints.push(resultsarray[i].points);
-			arrTwos.push(resultsarray[i].twos);
 			
-			comp = resultsarray[0].comp;
 			
+         // manipulate data slightly for readability         
+         // - for tuesday get 2 names shortened	
+         //   but a single name for other days		
+         // - for Ghost Player don't shorten
+         // - for no players put in zero to tidy format
+         if (dd.getDay() == 2) {			
+			    x = resultsarray[i].player.split(" ");
+			    xx = x[0].substring(0,1) + " " +x[1] + 
+			         "<br>" + x[2].substring(0,1) + " " + x[3] +
+                  "<br>" + x[4].substring(0,1) + " " + x[5] +
+                  "<br>" + x[6].substring(0,1) + " " + x[7]
+             // keep Ghost Player name             
+             if (x[2] == "Ghost") {
+                 xx = x[0].substring(0,1) + " " +x[1] + " & " + x[2] + " " + x[3];             
+             }
+             arrPlayer.push(xx);	
+             
+             yy = "<br>" + resultsarray[i].pos + "<br><br><br>"
+             arrPos.push(yy);             
+             		
+             zz = "<br>" +  resultsarray[i].points +"<br><br><br>"            		
+             arrPoints.push(zz);		
+
+             arrTwos.push("<br><br><br>");
+ 
+			} else {
+			    arrPlayer.push(resultsarray[i].player);
+			    arrPos.push(resultsarray[i].pos);
+			     // cope with no scores recorded
+             if (resultsarray[i].player == "no scores recorded") {
+                 arrPoints.push("0");
+			        arrTwos.push("0"); 			
+			    }	else {
+			       arrPoints.push(resultsarray[i].points);
+			       arrTwos.push(resultsarray[i].twos);
+			    }		    
+			}
+						
+         comp = resultsarray[1].comp;			
+
 		}
+		
 		arrPlayerOld.push("searching ...")
 
 	}
-
+	
 } else {
 
    arrPos.push("&nbsp;");
@@ -227,25 +246,25 @@ if (dataFound == "yes") {
    arrPlayerOld.push("searching ...")
 
 }
-
+	
+	
+	
+	
+	
+	
 	// retrieve previous data
-	if ("lbarray" in localStorage) {
-	    arrPlayerOld = JSON.parse(localStorage.lbarray);
+	if ("lbarrayscotland" in localStorage) {
+       arrPlayerOld = JSON.parse(localStorage.lbarrayscotland);
 	}
 	// overwrite saved data
-	//localStorage.lbarray = JSON.stringify(arrPlayer);
-	localStorage.setItem("lbarray",JSON.stringify(arrPlayer));
 
-		//if (arrPlayer.length == arrPlayerOld.length) { // no change
-		//console.log("same")
-		//} else { // change
-	//var numberofresults = resultsarray.length;
+	//localStorage.lbarray = JSON.stringify(arrPlayer);
+	localStorage.setItem("lbarrayscotland",JSON.stringify(arrPlayer));
+
 	var displaypos
 	var displayplayer
 	var displaypoints
 	var displaytwos
-
-		// if not a comp day show message and return to menu
 
 	var ddhours = dd.getHours();
 	var ddminutes = dd.getMinutes();
@@ -257,6 +276,15 @@ if (dataFound == "yes") {
 		ddseconds = "0" + ddseconds
 	}
 	arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	
+ //       if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
+// for testing
+if (4 > 0) {
+
+
+
+
+
 		// create HTML
 	        createDisplay(arrPlayer.length)
 		// comp day
@@ -265,8 +293,7 @@ if (dataFound == "yes") {
 		i = 0;
 
                 // gray out current list	
-                
-                for(var ii = 0; ii < arrPlayer.length; ii++) {                   
+                for(var ii = 0; ii < arrPlayer.length; ii++) {
                     var bbg = '<p style="background:#F8F8FF;color:gray;">'
                     displaypos    = bbg + arrPos[ii]    + "</p>";
                     displayplayer = bbg + arrPlayerOld[ii] + "</p>";
@@ -281,17 +308,20 @@ if (dataFound == "yes") {
                     // add class
 		    document.getElementById("leaderlist").classList.add("grid-container");
                     
-                    document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
-		document.getElementById("footer").innerHTML = "Updated every 60 seconds.<br>There is a delay before this information is available in 'All results'"
+                    document.getElementById("notyet").innerHTML = "Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
+		document.getElementById("footer").innerHTML = "Updated every 60 seconds.<br>There is a delay before this information is available in the daily results"
 
                }	
                
-             
-	// set player width
-	//document.getElementById("player0").style.width = "55vw";
+               // if tuesday, make enough room for player names
+               if (dd.getDay() == 2) {
+                   document.getElementById("player0").style.width = "60vw";
+               } else {
+                   document.getElementById("player0").style.width = "";
+               }
+
 	       // step through each entry and rewrite	
 
-  
   let myPromise = () => new Promise((resolve, reject) => {
       setTimeout(function(){
         resolve('Count')
@@ -318,9 +348,9 @@ if (dataFound == "yes") {
 		           } else {
 		               bg = '<p style="background:#ECEFEF;color:black;">'
 		           } 
-				displaypos    = bg + arrPos[i]    + "&nbsp;</p>";
-				displayplayer = bg + arrPlayer[i] + "&nbsp;</p>";
-				displaypoints = bg + arrPoints[i] + "&nbsp;</p>";
+				displaypos    = bg + arrPos[i]    + "</p>";
+				displayplayer = bg + arrPlayer[i] + "</p>";
+				displaypoints = bg + arrPoints[i] + "</p>";
 				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
 				
 				// add class
@@ -339,9 +369,9 @@ if (dataFound == "yes") {
 		                } else {
 		                    bg = '<p style="background:#ECEFEF; color: blue;">'
 		                } 
-				displaypos    = bg + arrPos[i]    + "&nbsp;</p>";
-				displayplayer = bg + arrPlayer[i] + "&nbsp;</p>";
-				displaypoints = bg + arrPoints[i] + "&nbsp;</p>";
+				displaypos    = bg + arrPos[i]    + "</p>";
+				displayplayer = bg + arrPlayer[i] + "</p>";
+				displaypoints = bg + arrPoints[i] + "</p>";
 				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
 				
 				// add class
@@ -363,14 +393,38 @@ if (dataFound == "yes") {
 			
 			
 
-		document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
-		document.getElementById("footer").innerHTML = "Updated every 60 seconds.<br>There is a delay before this information is available in 'All results'"
+		document.getElementById("notyet").innerHTML = "Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
+		document.getElementById("footer").innerHTML = "Updated every 60 seconds.<br>There is a delay before this information is available in the daily results'"
 		
 		
 		
 		
 		
-	
+	} else {
+                createSmallDisplay()
+		// not a comp day or no results
+		
+		//document.getElementById("footer").innerHTML = '';
+		setTimeout(function() {
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 5 seconds"
+		document.getElementById("notyet").innerHTML = '<div id="noresults">No<br>results<br>to<br>Display</div>';		
+		}, 200)
+		setTimeout(function() {
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 4 seconds"
+		}, 1200)
+		setTimeout(function() {
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 3 seconds"
+		}, 2200)
+		setTimeout(function() {
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 2 seconds"
+		}, 3200)
+		setTimeout(function() {
+			document.getElementById("nocomp").innerHTML = "<br><br><br>No results recorded<br>returning to menu in 1 second"
+		}, 4200)
+      setTimeout(function() {
+          window.location.assign("scotland2024.html");
+      }, 5200);		
+	}
 }
 
 function createSmallDisplay() {
