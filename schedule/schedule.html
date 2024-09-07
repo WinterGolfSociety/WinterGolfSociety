@@ -148,12 +148,32 @@
     color: white;
 }
 
+#loadericon {
+   position: fixed;
+   top: 60vh;
+   left: 40vw;
+}
 
 </style>
 </head>
 <body>
 
    <div id="page">  
+
+
+
+<div id="loadericon">
+
+  <img src="speech.gif" 
+              alt="load" 
+              width="50vw"
+              height="50vw" 
+              style="vertical-align:middle;">
+
+</div>
+
+
+
 
       <div id="header" class="xheader-visible"> 
 
@@ -200,10 +220,9 @@
 
    var arrInfo = new Array();
    var testday
-getData()
-// need to set up array from the data in google sheets
+   getData()
+   // need to set up array from the data in google sheets
 async function getData() {
-// https://docs.google.com/spreadsheets/d/e/2PACX-1vQ02YmayaQHeKHzrZkefm4WGXa4OAELQXQfV8VohBwmulkI1hveVChOHd00xkchosBVd0Ten_uBVPq-/pub?gid=0&single=true&output=csv
    var dataStream = await fetch("https://opensheet.elk.sh/1qThlJ2x6LWzO82_KGzrUwSevNb2KwXqsl_qEdf-IVpU/info")
 			
    if (!dataStream.ok) {
@@ -213,209 +232,31 @@ async function getData() {
    }
 	var resultsarray = await dataStream.json()
    // split into array
+   arrInfo = resultsarray.map(function(inf) {
+      return inf;
+   })
 
-   
-arrInfo = resultsarray.map(function(number) {
-    return number;
-  })
-
-console.log(arrInfo)
-
-
-
+   // remove null items
+   arrInfo = arrInfo.filter(function(el) {return el != null;})
+   // remove empty items
+   arrInfo = arrInfo.filter(function(el) {return el != "";})
 
 
 
 
-/*
-
- arrPlayers = resultsarray.map(d => d.col1);
+document.getElementById("loadericon").style.display = "none";
 
 
 
 
-for (var i = 0; i < arrInfo.length; i++) {
-  arrInfo[i] = new Array(3);
-  arrInfo[i][0] = resultsarray.col1;
-  arrInfo[i][1] = resultsarray.col2;
-  arrInfo[i][2] = resultsarray.col3; 
-}
-*/  
-// remove null items
-arrInfo = arrInfo.filter(function(el) {return el != null;})
-// remove empty items
-arrInfo = arrInfo.filter(function(el) {return el != "";})
-
-console.log(arrInfo)
-
-main()
+   // run main script now
+   main()
 
 }
-/*
-var arrInfo = [
 
-["Apr 2024","-","-"],
-["Tue 2nd","Dawson","stableford"],
-["Fri 5th","Dawson","stableford"],
-["Mon 8th","Lakes","Captains Drive In"],
-["Wed 10th","away","Warkworth friendly 9:30"],
-["Fri 12th","Dawson","stableford"],
-["Mon 15th","Lakes","LT1 medal 3balls"],
-["Fri 19th","Dawson","stableford"],
-["Mon 22nd","Lakes","stableford"],
-["Thu 25th","Dawson","Morpeth friendly 9:45"],
-["Fri 26th","Dawson","stableford"],
-["Mon 29th","Lakes","stableford"],
-["May 2024","-","-"],
-["Thu 2nd","away","South Shields friendly 9:30"],
-["Fri 3rd","Lakes","stableford"],
-["Tue 7th","Lakes","Tony's 80th texas"],
-["Fri 10th","Lakes","stableford"],
-["Mon 13th","Dawson","LT2 medal 3balls"],
-["Tue 14th","Dawson","Blyth friendly 9:45"],
-["Fri 17th","Lakes","stableford"],
-["Mon 20th","Dawson","stableford"],
-["Tue 21st","away","Blyth friendly 10:00"],
-["Thu 23rd","Stocksfield","Spring Cup cancelled"],
-["Fri 24th","Lakes","stableford"],
-["Tue 28th","Lakes","stableford"],
-["Thu 30th","away","Morpeth friendly 10:00"],
-["Fri 31st","Lakes","stableford"],
-["Jun 2024","-","-"],
-["Mon 3rd","Lakes","4 club stableford"],
-["Wed 5th","Dawson","Warkworth friendly 9:30"],
-["Fri 7th","Dawson","stableford"],
-["Mon 10th","Lakes","LT3 medal 3balls"],
-["Thu 13th","away","Foxton friendly 10:00"],
-["Fri 14th","Dawson","stableford"],
-["Mon 17th","Lakes","stableford"],
-["Fri 21th","Dawson","stableford"],
-["Mon 24th","Lakes","stableford"],
-["Tue 25th","Stocksfield","Spring Cup rescheduled"],
-["Thu 27th","Lakes","HGP friendly 9:30"],
-["Fri 28th","Dawson","stableford"],
-["Jul 2024","-","-"],
-["Mon 1st","Dawson","Traffic Lights"],
-["Thu 4th","away","HGP friendly 9:30"],
-["Fri 5th","Lakes","stableford"],
-["Mon 8th","Dawson","stableford"],
-["Fri 12th","Dawson","stableford"],
-["Mon 15th","Dawson","stableford"],
-["Wed 17th","Dawson","South Shields friendly 9:30"],
-["Fri 19th","Lakes","stableford"],
-["Mon 22nd","Dawson","stableford"],
-["Wed 24th","Sharpley","Summer Cup"],
-["Fri 26th","Lakes","stableford"],
-["Mon 29th","Dawson","LT4 & CC1 medal 3balls"],
-["Tue 30th","away","Newbiggin friendly 10:00"],
-["Aug 2024","-","-"],
-["Fri 2nd","Dawson","stableford"],
-["Mon 5th","away","Rothbury friendly 10:00"],
-["Tue 6th","Lakes","Team best 1 from ??"],
-["Fri 9th","Dawson","stableford"],
-["Mon 12th","Lakes","LT5 & CC2 medal 3balls"],
-["Tue 13th","Dawson","Newbiggin friendly 9:30"],
-["Fri 16th","Dawson","stableford"],
-["Mon 19th","Lakes","Invitation Day 4BBB"],
-["Fri 23rd","Lakes","stableford"],
-["Tue 27th","Lakes","stableford"],
-["Thu 29th","Lakes","Bellingham friendly 11:00"],
-["Fri 30th","Dawson","stableford"],
-["Sep 2024","-","-"],
-["Mon 2nd","Dawson","Team 1-2-3"],
-["Tue 3rd","Burntisland","Scotland trip"],
-["Wed 4th","Dunnikier","Scotland trip"],
-["Thu 5th","away","Bellingham friendly cancelled"],
-["Thu 5th","Thornton","Scotland trip"],
-["Fri 6th","Kirkcaldy","Scotland trip"],
-["Fri 6th","Lakes","stableford"],
-["Mon 9th","Dawson","LT6 medal 3balls"],
-["Tue 10th","Lakes","Men vs Ladies TBD"],
-["Thu 12th","away","Bellingham friendly rescheduled"],
-["Fri 13th","Lakes","stableford"],
-["Mon 16th","Dawson","stableford"],
-["Mon 16th","Dawson","Rothbury friendly 9:45"],
-["Fri 20th","Lakes","stableford"],
-["Mon 23rd","Dawson","stableford"],
-["Wed 25th","Ravensworth","Autumn Cup"],
-["Mon 30th","Dawson","LT7 medal 3balls"],
-["Oct 2024","-","-"],
-["Fri 4th","Dawson","Winter stableford"],
-["Mon 7th","Lakes","Winter stableford"],
-["Fri 11th","Dawson","Winter stableford"],
-["Mon 14th","Lakes","Winter stableford"],
-["Fri 18th","Dawson","Winter stableford"],
-["Mon 21st","Lakes","Winter stableford"],
-["Fri 25th","Dawson","Winter stableford"],
-["Mon 28th","Lakes","Winter stableford"],
-["Nov 2024","-","-"],
-["Fri 1st","Lakes","Winter stableford"],
-["Mon 4th","Dawson","Winter stableford"],
-["Fri 8th","Lakes","Winter stableford"],
-["Mon 11th","Dawson","Winter stableford"],
-["Fri 15th","Lakes","Winter stableford"],
-["Mon 18th","Dawson","Winter stableford"],
-["Fri 22nd","Lakes","Winter stableford"],
-["Mon 25th","Dawson","Winter stableford"],
-["Fri 29th","Lakes","Winter stableford"],
-["Dec 2024","-","-"],
-["Mon 2nd","Lakes","Winter stableford"],
-["Fri 6th","Dawson","Winter stableford"],
-["Mon 9th","Lakes","Winter stableford"],
-["Fri 13th","Dawson","Winter stableford"],
-["Fri 13th","Longhirst","Christmas lunch"],
-["Mon 16th","Lakes","Winter stableford"],
-["Fri 20th","Dawson","Winter stableford"],
-["Mon 23rd","Lakes","Winter stableford"],
-["Fri 27th","Dawson","Winter stableford"],
-["Mon 30th","Lakes","Winter stableford"],
-["Jan 2025","-","-"],
-["Fri 3rd","Lakes","Winter stableford"],
-["Mon 6th","Dawson","Winter stableford"],
-["Fri 10th","Lakes","Winter stableford"],
-["Mon 13th","Dawson","Winter stableford"],
-["Fri 17th","Lakes","Winter stableford"],
-["Mon 20th","Dawson","Winter stableford"],
-["Fri 24th","Lakes","Winter stableford"],
-["Mon 27th","Dawson","Winter stableford"],
-["Fri 31st","Lakes","Winter stableford"],
-["Feb 2025","-","-"],
-["Mon 3rd","Lakes","Winter stableford"],
-["Fri 7th","Dawson","Winter stableford"],
-["Mon 10th","Lakes","Winter stableford"],
-["Fri 14th","Dawson","Winter stableford"],
-["Mon 17th","Lakes","Winter stableford"],
-["Fri 21st","Dawson","Winter stableford"],
-["Mon 24th","Lakes","Winter stableford"],
-["Fri 28th","Dawson","Winter stableford"],
-["Mar 2025","-","-"],
-["Mon 3rd","Dawson","Winter stableford"],
-["Fri 7th","Lakes","Winter stableford"],
-["Mon 10th","Dawson","Winter stableford"],
-["Fri 14th","Lakes","Winter stableford"],
-["Mon 17th","Dawson","Winter stableford"],
-["Fri 21st","Lakes","Winter stableford"],
-["Mon 24th","Dawson","Winter stableford"],
-["Fri 28th","Lakes","Winter stableford"],
-["Mon 31st","Dawson","Winter stableford"]
-
-]
-*/
-
-
-/*    ===================================
-      No changes required below this line
-      ===================================
-*/
 
 
 function main() {
-
-
-
-console.log("main")
-
-
 
 for (var i = 0; i < arrInfo.length; i++) {
 
@@ -567,12 +408,6 @@ setTimeout(function () {
    });
 
 }, 500)
-
-
-
-
-
-
 
 }
 
