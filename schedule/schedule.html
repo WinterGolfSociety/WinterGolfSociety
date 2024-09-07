@@ -240,14 +240,9 @@ async function getData() {
    arrInfo = arrInfo.filter(function(el) {return el != null;})
    // remove empty items
    arrInfo = arrInfo.filter(function(el) {return el != "";})
-
-
-
-
-document.getElementById("loadericon").style.display = "none";
-
-
-
+   
+   // hide loader icon
+   document.getElementById("loadericon").style.display = "none";
 
    // run main script now
    main()
