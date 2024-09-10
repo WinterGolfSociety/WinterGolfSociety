@@ -279,6 +279,7 @@ font-weight: bold;
 function clicked(id) {
    // resize
    document.getElementById(id).classList.toggle("half");
+   navigator.vibrate(200); 
    setTimeout(function() {document.getElementById(id).classList.toggle("half")},500 )
 }
 </script>
