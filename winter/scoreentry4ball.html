@@ -3332,7 +3332,7 @@ beforeSubmitForm();
       var err2count = 0
       var err3count = 0
       var err4count = 0
-
+           
       // make sure everything is updated
       finalWrite();
 
@@ -3436,6 +3436,8 @@ beforeSubmitForm();
     //=============================================================  
     function submitForm() {
    
+      // give some feedback
+      navigator.vibrate(50);
 
       // get the relevant info into a form
       // dont submit for an incorrect day
