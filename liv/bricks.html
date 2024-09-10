@@ -73,6 +73,11 @@ font-family: Kalam;
   justify-content: left;
   align-items: center;
   background: #2B547E; /* blue jay */
+  
+  
+ transition-duration: 0.3s;  
+  
+  
 }
 
 #onetwo {
@@ -160,6 +165,17 @@ font-weight: bold;
  // background: dodgerBlue;  
 }
 
+#twoone.half {
+   transform: scale(0.95);
+   background: gray;
+}
+
+
+
+
+
+
+
 /*
 #12E193 aqua green
 #737CA1 slate blue gray
@@ -192,7 +208,7 @@ font-weight: bold;
   </a>  
   </div>
   <!-- row 2, col 1 -->
-  <div class="item" id="twoone">
+  <div class="item" id="twoone" onclick="clicktwoone()">
   <a>
   <span class="white">another</span>
   <br>this is another one
@@ -251,12 +267,14 @@ font-weight: bold;
 </div>
 
 <script>
-
+function clicktwoone() {
+   // resize
+   document.getElementById('twoone').classList.toggle("half");
+   setTimeout(function() {document.getElementById('twoone').classList.toggle("half")},500 )
+}
 </script>
 </body>
 
 </html>
-
-
 
 
