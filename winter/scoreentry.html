@@ -1560,6 +1560,8 @@
       document.getElementById("blackout").style.display = "flex";
       document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
       setTimeout(function() {
+        // give some feedback
+        navigator.vibrate(50);
         document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 200px; width: 200px;">'
       }, 3500);
 
