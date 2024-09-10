@@ -203,21 +203,21 @@ font-weight: bold;
 </style>
 <div class="container">
   <!-- row 1, col 1 -->
-  <div class="item" id="oneone">
+  <div class="item" id="oneone" onclick="clicked(this.id)">
   <a>
   <span class="white">Winter app</span>
   <br>score input, results, handicaps, twos and leaderboard for the winter
   </a>  
   </div>
   <!-- row 1, col 2 -->
-  <div class="item" id="onetwo">
+  <div class="item" id="onetwo" onclick="clicked(this.id)">
   <a>
   <span class="white">myHcp</span>
   <br>calculate playing handicap for courses
   </a>  
   </div>
   <!-- row 2, col 1 -->
-  <div class="item" id="twoone" onclick="clicktwoone()">
+  <div class="item" id="twoone" onclick="clicked(this.id)">
   <a>
   <span class="white">another</span>
   <br>this is another one
@@ -225,49 +225,49 @@ font-weight: bold;
   </div>
   
   <!-- row 2, col 2 -->
-  <div class="item" id="twotwo">
+  <div class="item" id="twotwo" onclick="clicked(this.id)">
   <a>
   <span class="white">another</span>
   <br>this is another one
   </a>  
   </div>
   <!-- row 3, col 1 -->
-  <div class="item" id="threeone">
+  <div class="item" id="threeone" onclick="clicked(this.id)">
   <a>
   <span class="white">another</span>
   <br>this is another one
   </a>
   </div>
   <!-- row 3, col 2 -->
-  <div class="item" id="threetwo">
+  <div class="item" id="threetwo" onclick="clicked(this.id)">
   <a>
   <span class="white">another</span>
   <br>this is another one
   </a>
   </div>
   <!-- row 4, col 1 -->
-  <div class="item" id="fourone">
+  <div class="item" id="fourone" onclick="clicked(this.id)">
   <a>
   <span class="white">another</span>
   <br>this is another one
   </a>
   </div>
   <!-- row 4, col 2 -->
-  <div class="item" id="fourtwo">
+  <div class="item" id="fourtwo" onclick="clicked(this.id)">
   <a>
   <span class="white">another</span>
   <br>this is another one
   </a>
   </div>
   <!-- row 5, col 1 -->
-  <div class="item" id="fiveone">
+  <div class="item" id="fiveone" onclick="clicked(this.id)">
   <a>
   <span class="white">another</span>
   <br>this is another one
   </a>
   </div>
   <!-- row 5, col 2 -->
-  <div class="item" id="fivetwo">
+  <div class="item" id="fivetwo" onclick="clicked(this.id)">
   <a>
   <span class="white">another</span>
   <br>this is another one
@@ -276,10 +276,10 @@ font-weight: bold;
 </div>
 
 <script>
-function clicktwoone() {
+function clicked(id) {
    // resize
-   document.getElementById('twoone').classList.toggle("half");
-   setTimeout(function() {document.getElementById('twoone').classList.toggle("half")},500 )
+   document.getElementById(id).classList.toggle("half");
+   setTimeout(function() {document.getElementById(id).classList.toggle("half")},500 )
 }
 </script>
 </body>
