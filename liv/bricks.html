@@ -30,8 +30,8 @@
 }
 
 .item {
-font-family: sans-serif;
-
+//font-family: sans-serif;
+font-family: Kalam;
   width: 49%;
   /* Optional */
   position: relative;
@@ -48,10 +48,10 @@ font-family: sans-serif;
   box-sizing: border-box;
 }
 
-.item::before {
-  counter-increment: items;
-  content: counter(items);
-}
+//.item::before {
+//  counter-increment: items;
+//  content: counter(items);
+//}
 
 /* Re-order items into 3 rows */
 .item:nth-child(odd) { order: 1; }
@@ -94,7 +94,16 @@ font-family: sans-serif;
 }
 
 
-
+#white {
+font-family: sans-serif;
+font-weight: bold;
+//font-size: calc(1vw + 1vh + 2vmin);
+ // display: inline;
+ // height: 37vh;
+ // justify-content: center;
+ // align-items: center;
+ // background: dodgerBlue;  
+}
 
 /*
 #12E193 aqua green
@@ -114,10 +123,14 @@ font-family: sans-serif;
 </style>
 <div class="container">
   <div class="item" id="oneone">
-  Winter app<br>score input, results, handicaps, twos and leaderboard for the winter
+  <a>
+  <span id="white">Winter app</span><br>score input, results, handicaps, twos and leaderboard for the winter
+  </a>  
   </div>
   <div class="item" id="onetwo">
-  myHcp<br>calculate playing handicap for courses
+  <a>
+  <span id="white">myHcp</span><br>calculate playing handicap for courses
+  </a>  
   </div>
   <div class="item" id="twoone">
   another<br>this is another one
