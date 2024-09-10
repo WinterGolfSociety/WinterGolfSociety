@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+      <title>league</title>
+      <meta content="Bryan M" name="author" />
+      <link rel="manifest" href="league.webmanifest">
+      <link href="leagueicon.png" rel="icon" type="image/x-icon" />
+      <link rel="apple-touch-icon" sizes="180x180" href="leagueicon.png" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+<style>
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-between;
+  /* Your container needs a fixed height, and it 
+   * needs to be taller than your tallest column. */
+  height: 1000px;
+  
+  /* Optional */
+  // background-color: #f7f7f7;
+  // border-radius: 3px;
+  padding: 1vw; //20px;
+  //width: 60%;
+  margin: 1vw auto; //40px auto;
+  counter-reset: items;
+}
+
+.item {
+//font-family: sans-serif;
+font-family: Kalam;
+  width: 49%;
+  /* Optional */
+  position: relative;
+  margin-bottom: 2%;
+  border-radius: 5px; //3px;
+  background-color: dodgerBlue; //#a1cbfa;
+  border: 1px solid blue; //#4290e2;
+  box-shadow: 0 2px 2px rgba(0,90,250,0.05),
+    0 4px 4px rgba(0,90,250,0.05),
+    0 8px 8px rgba(0,90,250,0.05),
+    0 16px 16px rgba(0,90,250,0.05);
+  color: #fff;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+//.item::before {
+//  counter-increment: items;
+//  content: counter(items);
+//}
+
+/* Re-order items into 3 rows */
+.item:nth-child(odd) { order: 1; }
+.item:nth-child(even) { order: 2; }
+
+#oneone {
+  font-size: calc(1vw + 1vh + 2vmin);
+  display: flex;
+  height: 30vh;
+  justify-content: center;
+  align-items: center;
+  background: dodgerBlue;  
+}
+
+#twoone {
+  font-size: calc(1vw + 1vh + 2vmin);
+  display: flex;
+  height: 27vh;
+  justify-content: left;
+  align-items: center;
+  background: #2B547E; /* blue jay */
+}
+
+#onetwo {
+  font-size: calc(1vw + 1vh + 2vmin);
+  display: flex;
+  height: 27vh;
+  justify-content: left;
+  align-items: center;
+  background: #737CA1; /* slate blue gray */
+}
+
+#twotwo {
+  font-size: calc(1vw + 1vh + 2vmin);
+  display: flex;
+  height: 30vh;
+  justify-content: center;
+  align-items: left;
+  background: #4863A0; /* azure blue */
+}
+
+
+#white {
+font-family: sans-serif;
+font-weight: bold;
+//font-size: calc(1vw + 1vh + 2vmin);
+ // display: inline;
+ // height: 37vh;
+ // justify-content: center;
+ // align-items: center;
+ // background: dodgerBlue;  
+}
+
+/*
+#12E193 aqua green
+#737CA1 slate blue gray
+#4863A0 azure blue
+#007C80 teal blue
+#1B8A6B elf green
+#C36241 rust
+#C24641 cherry red
+#A74AC7 purple flower
+#663399 rebeccapurple
+#2B547E blue jay
+
+
+*/
+
+</style>
+<div class="container">
+  <div class="item" id="oneone">
+  <a>
+  <span id="white">Winter app</span>
+  <br>score input, results, handicaps, twos and leaderboard for the winter
+  </a>  
+  </div>
+  
+  <div class="item" id="onetwo">
+  <a>
+  <span id="white">myHcp</span>
+  <br>calculate playing handicap for courses
+  </a>  
+  </div>
+
+  <div class="item" id="twoone">
+  another<br>this is another one
+  </div>
+  <div class="item" id="twotwo" style="height: 120px">
+  second<br>second item in the second column  
+  </div>
+  <div class="item" style="height: 160px"></div>
+  <div class="item" style="height: 180px"></div>
+  <div class="item" style="height: 140px"></div>
+  <div class="item" style="height: 150px"></div>
+  <div class="item" style="height: 170px"></div>
+  <div class="item" style="height: 170px"></div>
+</div>
+
+<script>
+
+</script>
+</body>
+
+</html>
+
+
+
+
