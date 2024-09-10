@@ -23,9 +23,9 @@
   /* Optional */
   // background-color: #f7f7f7;
   // border-radius: 3px;
-  padding: 20px;
+  padding: 1vw; //20px;
   //width: 60%;
-  margin: 40px auto;
+  margin: 1vw auto; //40px auto;
   counter-reset: items;
 }
 
@@ -58,26 +58,33 @@ font-family: sans-serif;
 .item:nth-child(even) { order: 2; }
 
 #oneone {
-//   font-size: calc(4vw + 4vh + 2vmin);
-  //font-size: calc(1.3vw + 1.3vh + (2vmin / 3));
   font-size: calc(1vw + 1vh + 2vmin);
-  
-  
   display: flex;
   height: 37vh;
   justify-content: center;
-  align-items: center; 
-  
-  
-  
+  align-items: center;
+  background: dodgerBlue;  
 }
+
+#twoone {
+  font-size: calc(1vw + 1vh + 2vmin);
+  display: flex;
+  height: 37vh;
+  justify-content: center;
+  align-items: center;
+  background: indigo;  
+}
+
+
+
+
 
 </style>
 <div class="container">
   <div class="item" id="oneone" style="height: 190px">
   Winter app<br>score input, results, handicaps, twos and leaderboard for the winter</div>
   <div class="item" style="height: 190px"></div>
-  <div class="item" style="height: 120px"></div>
+  <div class="item" id="twoone" style="height: 120px"></div>
   <div class="item" style="height: 120px"></div>
   <div class="item" style="height: 160px"></div>
   <div class="item" style="height: 180px"></div>
