@@ -3437,7 +3437,9 @@ beforeSubmitForm();
     function submitForm() {
    
       // give some feedback
-      navigator.vibrate(50);
+      // vibrate if android phone   
+      const canVibrate = window.navigator.vibrate
+      if (canVibrate) window.navigator.vibrate(50)
 
       // get the relevant info into a form
       // dont submit for an incorrect day
@@ -3971,7 +3973,9 @@ beforeSubmitForm();
 
         setTimeout(function() {
           // give some feedback
-          navigator.vibrate(50);
+          // vibrate if android phone   
+          const canVibrate = window.navigator.vibrate
+          if (canVibrate) window.navigator.vibrate(50)
           document.getElementById('blackout').innerHTML = 
           '<img src="done.png" id="done" style="height: 100px; width: 100px;">'
         }, 8000);
