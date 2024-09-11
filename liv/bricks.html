@@ -13,7 +13,7 @@
       <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
 <style>
 .container {
-  display: flex;
+  display: none; //flex;
   flex-flow: column wrap;
   align-content: space-between;
   /* Your container needs a fixed height, and it 
@@ -21,14 +21,31 @@
   height: 1000px;
   
   /* Optional */
-  // background-color: #f7f7f7;
+  //background: gray;
   // border-radius: 3px;
   padding: 1vw; //20px;
   //width: 60%;
   margin: 1vw auto; //40px auto;
   counter-reset: items;
+  
+  
+
+  
+  
 }
 
+.firstscreen {
+height: 100vh;
+width: 100vw;
+background: white; 
+display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.firstscreen.splash {
+background: white;
+}
 .item {
 //font-family: sans-serif;
 font-family: Kalam;
@@ -201,7 +218,10 @@ font-weight: bold;
 */
 
 </style>
-<div class="container">
+
+<div class="firstscreen" id="firstscreen"><img src="liv.jpeg" style="border: 0; height: 5vw; width: 20vw;"></div>
+
+<div class="container" id="container">
   <!-- row 1, col 1 -->
   <div class="item" id="oneone" onclick="clicked(this.id)">
   <a>
@@ -276,6 +296,17 @@ font-weight: bold;
 </div>
 
 <script>
+// intro splash
+document.getElementById("firstscreen").classList.toggle("splash")
+//leave on for 2.5 seconds
+setTimeout(function() {document.getElementById("firstscreen").classList.toggle("splash")
+document.getElementById("container").style.display = "flex"
+document.getElementById("firstscreen").style.display = "none"
+},2500 )
+
+
+
+
 function clicked(id) {
    // resize
    document.getElementById(id).classList.toggle("half");
