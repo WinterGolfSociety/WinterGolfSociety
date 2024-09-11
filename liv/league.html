@@ -89,14 +89,15 @@ text-align: center;
 
 
 <script>
-setTimeout(start,2500 )
+
+document.onreadystatechange = function () {
+   if (document.readyState == "complete") {
+       start()
+   }
+};
 
 
-
-
-
-
-
+//setTimeout(start,2500)
 
 
 function start() {
