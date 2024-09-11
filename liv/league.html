@@ -49,34 +49,61 @@ body {
 @-webkit-keyframes s7 {to{-webkit-transform: rotate(.5turn);}}
 
 
+.txttop {
+     font-family: 'Kalam';
+      transform: rotate(-5deg);
+width: 100vw;
+font-size: 10vw;
+padding-bottom: 5vh;
+padding-top:10vh;
+padding-left: 10vw;
+text-align: left;
+}
+
+.txttop.img {
+display: block;
+margin: 0 auto;
+}
+
+.txtbottom {
+     font-family: 'Kalam';
+      transform: rotate(-5deg);
+width: 100vw;
+font-size: 10vw;
+padding-top: 5vh;
+padding-left: 5vh;
+text-align: center;
+}
+
 
 
 </style>
 </head>
 <body>
-<div class="holder">
-<div class="loading" id="loading"></div>
+
+<div class="firstscreen" id="firstscreen">
+   <div class="txttop">Not the</div>
+      <img src="liv.jpeg" style="border: 0; height: 15vw; width: 60vw; padding-left: 20vw; padding-right: 20vw;">
+   <div class="txtbottom">Winter League</div>
 </div>
 
-<script>
 
-document.onreadystatechange = function () {
-   if (document.readyState !== "complete") {
-       document.querySelector("body").style.visibility = "hidden";
-       document.getElementById("loading").style.visibility = "visible";
-   } else {
-       //setTimeout(() => {
-       document.getElementById("loading").style.visibility ="none";
-       document.querySelector("body").style.visibility = "visible";
-       //}, 1000)
-   }
-};
+<script>
+setTimeout(start,2500 )
+
+
+
+
+
+
+
+
 
 function start() {
 window.location.assign("https://docs.google.com/spreadsheets/d/e/2PACX-1vTTSLM778KovPiE1nStUDKqtnq-dCml2VN73HDr1Fq-NQ7QMCXYXgNTPUjPNdi4ctjcVYqGt_8hArm9/pubhtml?gid=1368085608&single=true&chrome=false")
 }
 
-start();
+//start();
 
 </script>
 </body>
