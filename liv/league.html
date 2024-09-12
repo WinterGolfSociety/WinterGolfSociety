@@ -98,7 +98,9 @@ animation: fadeIn 0.5s ease-in;
         opacity: 1;
       }
     }
-
+#secondscreen {
+   display: none;
+}
 </style>
 </head>
 <body>
@@ -108,6 +110,28 @@ animation: fadeIn 0.5s ease-in;
       <img src="liv.jpeg" style="border: 0; height: 15vw; width: 60vw; padding-left: 20vw; padding-right: 20vw;">
    <div class="txtbottom">Winter League</div>
 </div>
+
+
+<div class="secondscreen" id="secondscreen">
+<iframe
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTSLM778KovPiE1nStUDKqtnq-dCml2VN73HDr1Fq-NQ7QMCXYXgNTPUjPNdi4ctjcVYqGt_8hArm9/pubhtml?gid=1368085608&single=true&chrome=false"
+  style="
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: 999999;
+    height: 100%;
+  ">
+</iframe>
+
+</div>
+
 
 
 <script>
@@ -123,9 +147,13 @@ animation: fadeIn 0.5s ease-in;
 
 
 function clicked() {
-   start();
+//   start();
+// vibrate if android phone   
+   const canVibrate = window.navigator.vibrate
+   if (canVibrate) window.navigator.vibrate(50)
+document.getElementById("firstscreen").style.display = "none"  
+document.getElementById("secondscreen").style.display = "block"
 }
-
 
 
 function start() {
