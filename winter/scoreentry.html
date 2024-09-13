@@ -1570,13 +1570,13 @@
       setTimeout(function() {
         // give some feedback
         // vibrate if android phone or "pop" for anything else 
-        const canVibrate = window.navigator.vibrate
-        if (canVibrate) {
-           window.navigator.vibrate(50)
-        } else {
-           var audio = new Audio('pop.wav');
-           audio.play();   
-        }  
+        //const canVibrate = window.navigator.vibrate
+        //if (canVibrate) {
+        //   window.navigator.vibrate(50)
+        //} else {
+        //   var audio = new Audio('pop.wav');
+        //   audio.play();   
+        //}  
         document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 200px; width: 200px;">'
       }, 3500);
 
