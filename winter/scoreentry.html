@@ -1370,9 +1370,15 @@
       var err1count = 0
 
       // give some feedback
-      // vibrate if android phone   
+      // vibrate if android phone or "pop" for anything else 
       const canVibrate = window.navigator.vibrate
-      if (canVibrate) window.navigator.vibrate(50)
+      if (canVibrate) {
+         window.navigator.vibrate(50)
+      } else {
+         var audio = new Audio('pop.wav');
+         audio.play();   
+      }  
+      
 
       // make sure everything is updated
       //finalWrite();
@@ -1563,9 +1569,14 @@
       document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
       setTimeout(function() {
         // give some feedback
-        // vibrate if android phone   
+        // vibrate if android phone or "pop" for anything else 
         const canVibrate = window.navigator.vibrate
-        if (canVibrate) window.navigator.vibrate(50)
+        if (canVibrate) {
+           window.navigator.vibrate(50)
+        } else {
+           var audio = new Audio('pop.wav');
+           audio.play();   
+        }  
         document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 200px; width: 200px;">'
       }, 3500);
 

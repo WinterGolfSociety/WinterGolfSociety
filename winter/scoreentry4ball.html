@@ -3437,9 +3437,14 @@ beforeSubmitForm();
     function submitForm() {
    
       // give some feedback
-      // vibrate if android phone   
-      const canVibrate = window.navigator.vibrate
-      if (canVibrate) window.navigator.vibrate(50)
+      // vibrate if android phone or "pop" for anything else 
+   const canVibrate = window.navigator.vibrate
+   if (canVibrate) {
+      window.navigator.vibrate(50)
+   } else {
+      var audio = new Audio('pop.wav');
+      audio.play();   
+   }  
 
       // get the relevant info into a form
       // dont submit for an incorrect day
@@ -3973,9 +3978,14 @@ beforeSubmitForm();
 
         setTimeout(function() {
           // give some feedback
-          // vibrate if android phone   
-          const canVibrate = window.navigator.vibrate
-          if (canVibrate) window.navigator.vibrate(50)
+          // vibrate if android phone or "pop" for anything else 
+   const canVibrate = window.navigator.vibrate
+   if (canVibrate) {
+      window.navigator.vibrate(50)
+   } else {
+      var audio = new Audio('pop.wav');
+      audio.play();   
+   }  
           document.getElementById('blackout').innerHTML = 
           '<img src="done.png" id="done" style="height: 100px; width: 100px;">'
         }, 8000);
