@@ -347,7 +347,16 @@ function clicked(id) {
    document.getElementById(id).classList.toggle("half");
    // vibrate if android phone   
    const canVibrate = window.navigator.vibrate
-   if (canVibrate) window.navigator.vibrate(50)
+   if (canVibrate) {
+      window.navigator.vibrate(50)
+   } else {
+      var audio = new Audio('pop.wav');
+      audio.play();   
+   }   
+   
+   
+   
+   
    setTimeout(function() {document.getElementById(id).classList.toggle("half")},500 )
 }
 </script>
