@@ -4,11 +4,11 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-      <title>league</title>
+      <title>bricks</title>
       <meta content="Bryan M" name="author" />
-      <link rel="manifest" href="league.webmanifest">
-      <link href="leagueicon.png" rel="icon" type="image/x-icon" />
-      <link rel="apple-touch-icon" sizes="180x180" href="leagueicon.png" />
+      <link rel="manifest" href="bricks.webmanifest">
+      <link href="bricksicon.png" rel="icon" type="image/x-icon" />
+      <link rel="apple-touch-icon" sizes="180x180" href="bricksicon.png" />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
       <link href='https://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet'>
@@ -345,7 +345,7 @@ text-align: center;
 function clicked(id) {
    // resize
    document.getElementById(id).classList.toggle("half");
-   // vibrate if android phone   
+   // vibrate if android phone or "pop" for anything else 
    const canVibrate = window.navigator.vibrate
    if (canVibrate) {
       window.navigator.vibrate(50)
