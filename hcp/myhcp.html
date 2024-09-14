@@ -378,26 +378,28 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 		var globalcourse = "";
 		var globalallowance;
 		// name, white slope, white cr, white par, yellow slope, yellow cr, yellow par, red slope, red cr, red par
-		xarrCourses = [
-			["Longhirst Dawson",   120, 72.3, 73, 120, 71.1, 73, 121, 72.5, 73],
-			["Longhirst Lakes",    121, 69.7, 70, 116, 67.6, 70, 117, 69.1, 70],
-			["Bellingham",         128, 70.3, 70, 125, 69.1, 70, 122, 71.6, 71],
-			["Blyth",              132, 69.3, 70, 128, 68.1, 70, 122, 69.6, 71],
-			["Foxton",             132, 72.1, 71, 129, 69.9, 71, 135, 73.8, 74],
-			["High Gosforth Park", 136, 69.7, 71, 130, 68.3, 71, 135, 73.1, 73],
-			["Morpeth",            123, 70.6, 71, 120, 68.7, 71, 130, 73.4, 73],
-			["Newbiggin",          135, 72.4, 72, 130, 70.9, 72, 133, 73.7, 73],
-			["Ravensworth",        117, 69.8, 69, 111, 67.9, 69, 130, 71.6, 72],
-			["Rothbury",           125, 70.4, 71, 121, 67.5, 71, 128, 71.2, 73],
-			["Sharpley",           132, 69.4, 71, 125, 67.9, 71, 132, 69.7, 71],
-			["South Shields",      126, 70.9, 71, 121, 69.5, 71, 126, 74.1, 74],
-			["Stocksfield",        125, 69.9, 70, 124, 67.7, 70, 131, 72.0, 72],
-			["Warkworth",          113, 69.8, 70, 115, 68.3, 70, 119, 70.8, 71],
-			["Not Defined",          0,    0,  0,   0,    0,  0,   0,    0,  0]
-		]
+
 	
 	
-	
+	  // retrieve last hcp if available, else put 18 in
+      // do a change over
+      if (localStorage.whshcp){       
+          localStorage.myhcp = localStorage.whshcp
+          localStorage.removeItem("whshcp");
+      }
+      // hcp should now be stored in new place
+      
+      
+      if (localStorage.myhcp){      
+         document.getElementById("nhcp1").innerText = localStorage.myhcp;
+         updatehcp()		
+		} else {
+         document.getElementById("nhcp1").innerText = "18";
+         localStorage.myhcp = "18";	
+         updatehcp()
+		}
+		
+		
 	
      //===========================
      // this code runs at startup
