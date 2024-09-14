@@ -382,13 +382,13 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 	
 	
 	  // retrieve last hcp if available, else put 18 in
-      // do a change over
+      // do a change over. leave in place until all changed
       if (localStorage.whshcp){       
           localStorage.myhcp = localStorage.whshcp
           localStorage.removeItem("whshcp");
       }
       // hcp should now be stored in new place
-      
+      // if new, start with 18 else get previous hcp
       
       if (localStorage.myhcp){      
          document.getElementById("nhcp1").innerText = localStorage.myhcp;
