@@ -201,7 +201,7 @@
       margin-top: 1vh;	
 	}
 	
-	#hcpa {
+	#hcpa, #hcpc {
 	padding-left: 10vw;
 	text-align: left;
 	}
@@ -365,7 +365,9 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
       Best 3 of 4 stroke play: 100%<br>
       Best 4 of 4 stroke play: 100%<br>
    </div>
-      <br><br>
+   <br><br>
+      <div id="hcpc"></div>
+   <br><br>
 
 
 		<script>
@@ -533,8 +535,9 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 				"course hcp = " + vcoursehcp1.toFixed(4) + "..." +
 				"<br>playing hcp = " + vcoursehcp1adjusted.toFixed(4) + "..." +
 				'<br><a id="bighcp">Your playing hcp = ' + vcoursehcp1adjusted.toFixed() + '</a>';
-				
-				
+						
+             doHcpc()				
+	
 			}
 		}
 		
@@ -729,7 +732,25 @@ console.log(course + " " + arrCourse[0])
          document.getElementById("demo1").innerText = document.getElementById("myRange1").value;
       }	
 	
+	function doHcpc() {
+     var temphcp =  document.getElementById("nhcp1").innerText	
+	  var tempslope = document.getElementById("nslope1").value	
+	  var tempcr = document.getElementById("ncr1").value	
+	  var temppar = document.getElementById("npar1").value	
+	  var vcoursehcp1 = (temphcp * (tempslope / 113)) + (tempcr - temppar)	  
+     var gallowance = document.getElementById("allowance100").innerText.replace("%","");	
+     var callowance = parseInt(gallowance);
+     var ch = (temphcp * (tempslope/113)) + (tempcr - temppar)
+     var ph = ch * (callowance/100)			  
+	  var tempcalctxt = "calculation ...<br><br>" +
+	  "course handicap<br>= (" + temphcp + " x " + "(" + tempslope + " / 113))" +
+	   " + (" + tempcr + " - " + temppar + ")<br>" +
+	  "= " + ch.toFixed(4) + "...<br><br>" +
+	  "playing handicap<br>= (" + vcoursehcp1 + " x " + gallowance + "%<br>" +
+	  "= " + ph.toFixed(4) + "..."
+	  document.getElementById("hcpc").innerHTML = 	tempcalctxt
 	
+	}
 	
 		</script>
 </body>
