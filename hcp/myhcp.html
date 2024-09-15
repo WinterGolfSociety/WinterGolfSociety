@@ -532,8 +532,8 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 				
 				document.getElementById("splayinghcp1").innerHTML = 
 				
-				"course hcp = " + vcoursehcp1.toFixed(4) + "..." +
-				"<br>playing hcp = " + vcoursehcp1adjusted.toFixed(4) + "..." +
+				"course hcp = " + vcoursehcp1.toString().substring(0,7) + "..." +
+				"<br>playing hcp = " + vcoursehcp1adjusted.toString().substring(0,7) + "..." +
 				'<br><a id="bighcp">Your playing hcp = ' + vcoursehcp1adjusted.toFixed() + '</a>';
 						
              doHcpc()				
@@ -717,8 +717,7 @@ console.log(course + " " + arrCourse[0])
 		function editNumber() {
          document.getElementById("myRange1").value = document.getElementById("nhcp1").innerText
          document.getElementById("demo1").innerText = document.getElementById("nhcp1").innerText
-		   document.getElementById("hcpeditpopuppanel").style.display = "inline-block";
-    
+		   document.getElementById("hcpeditpopuppanel").style.display = "inline-block"; 
       }
 		
       function closeslider() {
@@ -745,11 +744,11 @@ console.log(course + " " + arrCourse[0])
 	  var tempcalctxt = "calculation ...<br><br>" +
 	  "course handicap<br>= (" + temphcp + " x " + "(" + tempslope + " / 113))" +
 	   " + (" + tempcr + " - " + temppar + ")<br>" +
-	  "= " + ch.toFixed(4) + "...<br><br>" +
+	  "= " + ch.toString().substring(0,7) + "...<br><br>" +
 	  "playing handicap<br>= (" + vcoursehcp1 + " x " + gallowance + "%<br>" +
-	  "= " + ph.toFixed(4) + "..."
+	  "= " + ph.toString().substring(0,7) + "..."
 	  document.getElementById("hcpc").innerHTML = 	tempcalctxt
-	
+		
 	}
 	
 		</script>
