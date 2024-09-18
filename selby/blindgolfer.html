@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+font-family: Arial, Helvetica, sans-serif;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+button {
+//display: block;
+  background-color: #3498DB;
+  color: white;
+  padding: 1vw;
+  //font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 4vw;
+  width: 25vw;
+}
+
+.one {
+display: inline-block;
+}
+
+</style>
+</head>
+<body style="background-color:white;">
+
+<h2>Blind golfer</h2>
+
+<div class="dropdown">
+  <button onclick="clickedFunction()" class="dropbtn">player</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#Andy"     id="Andy"     onclick="optionClicked(this.id)">Andy</a>
+    <a href="#Barry"    id="Barry"    onclick="optionClicked(this.id)">Barry</a>
+    <a href="#Bryan"    id="Bryan"    onclick="optionClicked(this.id)">Bryan</a>
+    <a href="#Dale"     id="Dale"     onclick="optionClicked(this.id)">Dale</a>
+    <a href="#Dean"     id="Dean"     onclick="optionClicked(this.id)">Dean</a>
+    <a href="#Gus"      id="Gus"      onclick="optionClicked(this.id)">Gus</a>
+    <a href="#Joe"      id="Joe"      onclick="optionClicked(this.id)">Joe</a>
+    <a href="#John"     id="John"     onclick="optionClicked(this.id)">John</a>
+    <a href="#StephenA" id="StephenA" onclick="optionClicked(this.id)">Stephen A</a>
+    <a href="#StephenM" id="StephenM" onclick="optionClicked(this.id)">Stephen M</a>
+    <a href="#Tom"      id="Tom"      onclick="optionClicked(this.id)">Tom</a>     
+  </div>
+</div>
+<br>
+
+<br>
+<div class="one">
+   <button id="andybutton" onclick="buttonClicked(this.id)">Andy</button>
+   <div class="one" id="pair1"></div>
+</div>
+
+<br>
+
+<br>
+<div class="one">
+   <button id="barrybutton" onclick="buttonClicked(this.id)">Barry</button>
+   <div  class="one" id="pair2"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="bryanbutton" onclick="buttonClicked(this.id)">Bryan</button>
+   <div  class="one" id="pair3"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="dalebutton" onclick="buttonClicked(this.id)">Dale</button>
+   <div  class="one" id="pair4"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="deanbutton" onclick="buttonClicked(this.id)">Dean</button>
+   <div  class="one" id="pair5"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="gusbutton" onclick="buttonClicked(this.id)">Gus</button>
+   <div  class="one" id="pair6"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="joebutton" onclick="buttonClicked(this.id)">Joe</button>
+   <div  class="one" id="pair7"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="johnbutton" onclick="buttonClicked(this.id)">John</button>
+   <div  class="one" id="pair8"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="stephenabutton" onclick="buttonClicked(this.id)">Stephen A</button>
+   <div  class="one" id="pair9"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="stephenmbutton" onclick="buttonClicked(this.id)">Stephen M</button>
+   <div  class="one" id="pair10"></div>
+</div>
+<br>
+
+<br>
+
+<div class="one">
+   <button id="tombutton" onclick="buttonClicked(this.id)">Tom</button>
+   <div  class="one" id="pair11"></div>
+</div>
+<br>
+
+<br>
+
+<br>
+<a id="pair1"></a>
+<br>
+<a id="pair2"></a>
+<br>
+<a id="pair3"></a>
+<br>
+<a id="pair4"></a>
+<br>
+<a id="pair5"></a>
+<br>
+<a id="pair6"></a>
+<br>
+<a id="pair7"></a>
+<br>
+<a id="pair8"></a>
+<br>
+<a id="pair9"></a>
+<br>
+<a id="pair10"></a>
+<br>
+<a id="pair11"></a>
+<br>
+
+
+
+
+
+
+
+<br><br>
+<script>
+// globals
+var pair1 = "";
+var pair2 = "";
+var pair3 = "";
+var pair4 = "";
+var pair5 = "";
+var pair6 = "";
+var pair7 = "";
+var pair8 = "";
+var pair9 = "";
+var pair10 = "";
+var pair11 = "";
+var currentSelection = "";
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function clickedFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+function buttonClicked(id){
+
+   if (id == "andybutton"){
+      pair1 = "Andy has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair1").innerText = pair1;
+      currentSelection = "pair1"
+   }
+   if (id == "barrybutton"){
+      pair2 = "Barry has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair2").innerText = pair2;
+      currentSelection = "pair2"
+   }
+   if (id == "bryanbutton"){
+      pair3 = "Bryan has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair3").innerText = pair3;
+      currentSelection = "pair3"
+   }
+   if (id == "dalebutton"){
+      pair4 = "Dale has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair4").innerText = pair4;
+      currentSelection = "pair4"
+   }
+   if (id == "deanbutton"){
+      pair5 = "Dean has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair5").innerText = pair5;
+      currentSelection = "pair5"
+   }
+   if (id == "gusbutton"){
+      pair6 = "Gus has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair6").innerText = pair6;
+      currentSelection = "pair6"
+   }   
+   if (id == "joebutton"){
+      pair7 = "Joe has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair7").innerText = pair7;
+      currentSelection = "pair7"
+   }
+   if (id == "johnbutton"){
+      pair8 = "John has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair8").innerText = pair8;
+      currentSelection = "pair8"
+   }
+   if (id == "stephenabutton"){
+      pair9 = "Stephen A has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair9").innerText = pair9;
+      currentSelection = "pair9"
+   }
+   if (id == "stephenmbutton"){
+      pair10 = "Stephen M has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair10").innerText = pair10;
+      currentSelection = "pair10"
+   }
+   if (id == "tombutton"){
+      pair11 = "Tom has"
+      console.log("buttonClicked = " + id)
+      document.getElementById("pair11").innerText = pair11;
+      currentSelection = "pair11"
+   }
+   
+}
+
+function optionClicked(id) {
+   // first select blind golfer
+   // then select who has him
+      if (currentSelection == "pair1"){
+            document.getElementById(currentSelection).innerText = pair1 + " " + id;
+      }
+      if (currentSelection == "pair2"){
+            document.getElementById(currentSelection).innerText = pair2 + " " + id;
+      }
+      if (currentSelection == "pair3"){
+            document.getElementById(currentSelection).innerText = pair3 + " " + id;
+      }
+      if (currentSelection == "pair4"){
+            document.getElementById(currentSelection).innerText = pair4 + " " + id;
+      }
+      if (currentSelection == "pair5"){
+            document.getElementById(currentSelection).innerText = pair5 + " " + id;
+      }
+      if (currentSelection == "pair6"){
+            document.getElementById(currentSelection).innerText = pair6 + " " + id;
+      }
+      if (currentSelection == "pair7"){
+            document.getElementById(currentSelection).innerText = pair7 + " " + id;
+      }
+      if (currentSelection == "pair8"){
+            document.getElementById(currentSelection).innerText = pair8 + " " + id;
+      }
+      if (currentSelection == "pair9"){
+            document.getElementById(currentSelection).innerText = pair9 + " " + id;
+      }
+      if (currentSelection == "pair10"){
+            document.getElementById(currentSelection).innerText = pair10 + " " + id;
+      }
+      if (currentSelection == "pair11"){
+            document.getElementById(currentSelection).innerText = pair11 + " " + id;
+      }
+      
+      
+      
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
