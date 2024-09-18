@@ -8,12 +8,17 @@ font-family: Arial, Helvetica, sans-serif;
 font-size: 5vw;
 }
 .dropbtn {
+display: inline-block;
   background-color: #3498DB;
   color: white;
   padding: 1vw;
+  padding-top: 2vh;
+padding-bottom: 2vh;
+margin-left: 20vw; 
   //font-size: 6vw;
   border: none;
   cursor: pointer;
+ 
 }
 
 
@@ -50,22 +55,28 @@ button {
   background-color: #3498DB;
   color: white;
   padding: 1vw;
+padding-top: 2vh;
+padding-bottom: 2vh;  
   //font-size: 16px;
   border: none;
   cursor: pointer;
   //font-size: 6vw;
   width: 30vw;
+  
 }
 
 .one {
 display: inline-block;
 }
 
+#screenshot {
+
+}
 </style>
 </head>
 <body style="background-color:white;">
 
-<h2>Blind golfer</h2>
+<div class="one">Blind golfer</div>
 
 <div class="dropdown">
   <button onclick="clickedFunction()" class="dropbtn">player</button>
@@ -83,7 +94,7 @@ display: inline-block;
     <a href="#Tom"      id="Tom"      onclick="optionClicked(this.id)">Tom</a>     
   </div>
 </div>
-<br>
+
 
 <br>
 <div class="one">
@@ -196,9 +207,9 @@ display: inline-block;
 <a id="pair10"></a>
 <br>
 <a id="pair11"></a>
-<br>
+<br><br>
 
-
+<div id="screenshot"></div>
 
 
 
@@ -229,67 +240,56 @@ function buttonClicked(id){
 
    if (id == "andybutton"){
       pair1 = "Andy has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair1").innerText = pair1;
       currentSelection = "pair1"
    }
    if (id == "barrybutton"){
       pair2 = "Barry has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair2").innerText = pair2;
       currentSelection = "pair2"
    }
    if (id == "bryanbutton"){
       pair3 = "Bryan has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair3").innerText = pair3;
       currentSelection = "pair3"
    }
    if (id == "dalebutton"){
       pair4 = "Dale has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair4").innerText = pair4;
       currentSelection = "pair4"
    }
    if (id == "deanbutton"){
       pair5 = "Dean has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair5").innerText = pair5;
       currentSelection = "pair5"
    }
    if (id == "gusbutton"){
       pair6 = "Gus has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair6").innerText = pair6;
       currentSelection = "pair6"
    }   
    if (id == "joebutton"){
       pair7 = "Joe has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair7").innerText = pair7;
       currentSelection = "pair7"
    }
    if (id == "johnbutton"){
       pair8 = "John has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair8").innerText = pair8;
       currentSelection = "pair8"
    }
    if (id == "stephenabutton"){
       pair9 = "Stephen A has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair9").innerText = pair9;
       currentSelection = "pair9"
    }
    if (id == "stephenmbutton"){
       pair10 = "Stephen M has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair10").innerText = pair10;
       currentSelection = "pair10"
    }
    if (id == "tombutton"){
       pair11 = "Tom has"
-      console.log("buttonClicked = " + id)
       document.getElementById("pair11").innerText = pair11;
       currentSelection = "pair11"
    }
@@ -333,7 +333,7 @@ function optionClicked(id) {
             document.getElementById(currentSelection).innerText = pair11 + " " + id;
       }
       
-      
+      doScreenShot()
       
 }
 
@@ -350,6 +350,18 @@ window.onclick = function(event) {
     }
   }
 }
+
+function doScreenShot() {
+   var txt = "";   
+   for (i = 1; i <= 11; i++) {
+       txt += document.getElementById("pair" + i).innerText + "<br>"
+   }
+document.getElementById("screenshot").innerHTML = txt;
+}
+
+
+
+
 </script>
 
 </body>
