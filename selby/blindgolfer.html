@@ -297,8 +297,18 @@ function buttonClicked(id){
 }
 
 function optionClicked(id) {
-   // first select blind golfer
-   // then select who has him
+   // first select golfer
+   // then select who their blind golfer is
+
+      // change id to name
+      if (id == "StephenA"){
+         id = "Stephen A"      
+      } 
+      if (id == "StephenM"){
+         id = "Stephen M"      
+      }
+ 
+      // create pairs
       if (currentSelection == "pair1"){
             document.getElementById(currentSelection).innerText = pair1 + " " + id;
       }
