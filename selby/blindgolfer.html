@@ -70,7 +70,7 @@ display: inline-block;
 }
 
 #screenshot {
-
+font-size: 7vw;
 }
 </style>
 </head>
@@ -354,7 +354,7 @@ window.onclick = function(event) {
 function doScreenShot() {
    var txt = "";   
    for (i = 1; i <= 11; i++) {
-       txt += document.getElementById("pair" + i).innerText + "<br>"
+       txt += document.getElementById("pair" + i).innerText + "<br><br>"
    }
 document.getElementById("screenshot").innerHTML = txt;
 }
