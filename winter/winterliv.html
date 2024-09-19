@@ -171,7 +171,8 @@
     #four,
     #five,
     #six,
-    #seven {
+    #seven,
+    #eight {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -224,6 +225,12 @@
 
     #seven {
       background-color: mediumSlateBlue;
+      display: flex;
+      justify-content: center;
+    }
+    
+    #eight {
+      background-color: #C83F49;
       display: flex;
       justify-content: center;
     }
@@ -315,6 +322,14 @@
       color: navy;
       font-family: 'Kalam';
     }
+    
+    /*#C83F49;*/
+    #eighttxt {
+      margin: auto;
+      font-size: 24px;
+      color: navy;
+      font-family: 'Kalam';
+    }
 
     #one:active {
       border: 5px solid white; //salmon;
@@ -342,6 +357,10 @@
 
     #seven:active {
       border: 5px solid white; //mediumSlateBlue;
+    }
+
+    #eight:active {
+      border: 5px solid white; //#C83F49
     }
 
     nav:active {
@@ -612,6 +631,7 @@
       <div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a></div>
       <div class="bubble" id="six" onclick="doSix();"> <a id="sixtxt">4ball scoring</a></div>
       <div class="bubble" id="seven" onclick="doSeven();"> <a id="seventxt">Rules</a> </div>
+      <div class="bubble" id="eight" onclick="doEight();"> <a id="eighttxt">League</a> </div>
     </nav>
     <section class="start">
       <div class="content">
@@ -691,6 +711,7 @@
     var five = $('#five');
     var six = $('#six');
     var seven = $('#seven');
+    var eight = $('#eight');
     // menuIcon.click(function() {
     bubblemenu.click(function() {
       if (isTop === true) {
@@ -722,6 +743,7 @@
       five.css('opacity', '0.0');
       six.css('opacity', '0.0');
       seven.css('opacity', '0.0');
+      eight.css('opacity', '0.0');
 
       menuIcon.addClass('is-active');
       one.addClass('shadow');
@@ -731,6 +753,7 @@
       five.addClass('shadow');
       six.addClass('shadow');
       seven.addClass('shadow');
+      eight.addClass('shadow');
 
       // Returns a random integer from 200 to 700:
       //Math.floor(Math.random() * 700) + 200;    
@@ -769,6 +792,12 @@
       }, Math.floor(Math.random() * 700) + 100, function() {
         // Animation complete.
       })
+      setTimeout(function() {
+        eight.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+
 
       setTimeout(function() {
         one.removeClass('blob');
@@ -778,12 +807,12 @@
         five.removeClass('blob');
         six.removeClass('blob');
         seven.removeClass('blob');
+        eight.removeClass('blob');
+        
       }, 2000, function() {
         // Animation complete.
       })
-      // middle right
-      // right
-      one.animate({
+one.animate({
         top: '37px',
         left: '140px',
         opacity: '1'
@@ -830,7 +859,13 @@
         left: '-65px',
         opacity: '1'
       }, Math.floor(Math.random() * 500) + 400);
-
+      // top right
+      // top
+      eight.animate({
+        top: '140px',
+        left: '140px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
 
 
       // grayout score entry and leaderboard if not a comp day
@@ -866,6 +901,8 @@
         five.removeClass('shadow');
         six.removeClass('shadow');
         seven.removeClass('shadow');
+        eight.removeClass('shadow');
+        
       }, 500);
       setTimeout(function() {
         // move x icon back to hamburger
@@ -921,6 +958,13 @@
       seven.animate({
         left: '50%'
       }, 200);
+      eight.animate({
+        top: '50%'
+      }, 200);
+      eight.animate({
+        left: '50%'
+      }, 200);
+      
       menuIsOpen = false;
       isTop = true;
       //one.addClass('blob');
@@ -1008,6 +1052,17 @@
         window.location.assign("rules.html");
       }, 1000);
     }
+    
+    function doEight() {
+      // put menu back then move to results page
+      setTimeout(function() {
+        window.location.assign("league.html");
+      }, 1000);
+    }
+    
+    
+    
+    
     //====================================
     // end of menu code
     //====================================
