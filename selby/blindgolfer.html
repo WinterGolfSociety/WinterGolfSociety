@@ -81,7 +81,7 @@ font-size: 7vw;
 <div class="dropdown">
   <button onclick="clickedFunction()" class="dropbtn">player</button>
   <div id="myDropdown" class="dropdown-content">
-    <a href="#Andy"     id="Andy"     onclick="optionClicked(this.id)">Andy</a>
+    <a href="#Andy"     id="Andy"     onclick="optionClicked(this.id)">Andy</a> 
     <a href="#Barry"    id="Barry"    onclick="optionClicked(this.id)">Barry</a>
     <a href="#Bryan"    id="Bryan"    onclick="optionClicked(this.id)">Bryan</a>
     <a href="#Dale"     id="Dale"     onclick="optionClicked(this.id)">Dale</a>
@@ -99,7 +99,7 @@ font-size: 7vw;
 <br>
 <div class="one">
    <button id="andybutton" onclick="buttonClicked(this.id)">Andy</button>
-   <div class="one" id="pair1"></div>
+   <div class="one" id="pair1">Andy has</div>
 </div>
 
 <br>
@@ -107,7 +107,7 @@ font-size: 7vw;
 <br>
 <div class="one">
    <button id="barrybutton" onclick="buttonClicked(this.id)">Barry</button>
-   <div  class="one" id="pair2"></div>
+   <div  class="one" id="pair2">Barry has</div>
 </div>
 <br>
 
@@ -115,7 +115,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="bryanbutton" onclick="buttonClicked(this.id)">Bryan</button>
-   <div  class="one" id="pair3"></div>
+   <div  class="one" id="pair3">Bryan has</div>
 </div>
 <br>
 
@@ -123,7 +123,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="dalebutton" onclick="buttonClicked(this.id)">Dale</button>
-   <div  class="one" id="pair4"></div>
+   <div  class="one" id="pair4">Dale has</div>
 </div>
 <br>
 
@@ -131,7 +131,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="deanbutton" onclick="buttonClicked(this.id)">Dean</button>
-   <div  class="one" id="pair5"></div>
+   <div  class="one" id="pair5">Dean has</div>
 </div>
 <br>
 
@@ -139,7 +139,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="gusbutton" onclick="buttonClicked(this.id)">Gus</button>
-   <div  class="one" id="pair6"></div>
+   <div  class="one" id="pair6">Gus has</div>
 </div>
 <br>
 
@@ -147,7 +147,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="joebutton" onclick="buttonClicked(this.id)">Joe</button>
-   <div  class="one" id="pair7"></div>
+   <div  class="one" id="pair7">Joe has</div>
 </div>
 <br>
 
@@ -155,7 +155,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="johnbutton" onclick="buttonClicked(this.id)">John</button>
-   <div  class="one" id="pair8"></div>
+   <div  class="one" id="pair8">John has</div>
 </div>
 <br>
 
@@ -163,7 +163,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="stephenabutton" onclick="buttonClicked(this.id)">Stephen A</button>
-   <div  class="one" id="pair9"></div>
+   <div  class="one" id="pair9">Stephen A has</div>
 </div>
 <br>
 
@@ -171,7 +171,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="stephenmbutton" onclick="buttonClicked(this.id)">Stephen M</button>
-   <div  class="one" id="pair10"></div>
+   <div  class="one" id="pair10">Stephen M has</div>
 </div>
 <br>
 
@@ -179,7 +179,7 @@ font-size: 7vw;
 
 <div class="one">
    <button id="tombutton" onclick="buttonClicked(this.id)">Tom</button>
-   <div  class="one" id="pair11"></div>
+   <div  class="one" id="pair11">Tom has</div>
 </div>
 <br>
 
@@ -237,60 +237,83 @@ function clickedFunction() {
 }
 
 function buttonClicked(id){
+   // reset all button colors
+   document.getElementById("andybutton").style.background = "#3498DB";
+   document.getElementById("barrybutton").style.background = "#3498DB";
+   document.getElementById("bryanbutton").style.background = "#3498DB";
+   document.getElementById("dalebutton").style.background = "#3498DB";
+   document.getElementById("deanbutton").style.background = "#3498DB";
+   document.getElementById("gusbutton").style.background = "#3498DB";
+   document.getElementById("joebutton").style.background = "#3498DB";
+   document.getElementById("johnbutton").style.background = "#3498DB";
+   document.getElementById("stephenabutton").style.background = "#3498DB";
+   document.getElementById("stephenmbutton").style.background = "#3498DB";
+   document.getElementById("tombutton").style.background = "#3498DB";
 
    if (id == "andybutton"){
       pair1 = "Andy has"
       document.getElementById("pair1").innerText = pair1;
+      document.getElementById("andybutton").style.background = "blue";
       currentSelection = "pair1"
    }
    if (id == "barrybutton"){
       pair2 = "Barry has"
       document.getElementById("pair2").innerText = pair2;
+      document.getElementById("barrybutton").style.background = "blue";
       currentSelection = "pair2"
    }
    if (id == "bryanbutton"){
       pair3 = "Bryan has"
       document.getElementById("pair3").innerText = pair3;
+      document.getElementById("bryanbutton").style.background = "blue";
       currentSelection = "pair3"
    }
    if (id == "dalebutton"){
       pair4 = "Dale has"
       document.getElementById("pair4").innerText = pair4;
+      document.getElementById("dalebutton").style.background = "blue";
       currentSelection = "pair4"
    }
    if (id == "deanbutton"){
       pair5 = "Dean has"
       document.getElementById("pair5").innerText = pair5;
+      document.getElementById("deanbutton").style.background = "blue";
       currentSelection = "pair5"
    }
    if (id == "gusbutton"){
       pair6 = "Gus has"
       document.getElementById("pair6").innerText = pair6;
+      document.getElementById("gusbutton").style.background = "blue";
       currentSelection = "pair6"
    }   
    if (id == "joebutton"){
       pair7 = "Joe has"
       document.getElementById("pair7").innerText = pair7;
+      document.getElementById("joebutton").style.background = "blue";
       currentSelection = "pair7"
    }
    if (id == "johnbutton"){
       pair8 = "John has"
       document.getElementById("pair8").innerText = pair8;
+      document.getElementById("johnbutton").style.background = "blue";
       currentSelection = "pair8"
    }
    if (id == "stephenabutton"){
       pair9 = "Stephen A has"
       document.getElementById("pair9").innerText = pair9;
+      document.getElementById("stephenabutton").style.background = "blue";
       currentSelection = "pair9"
    }
    if (id == "stephenmbutton"){
       pair10 = "Stephen M has"
       document.getElementById("pair10").innerText = pair10;
+      document.getElementById("stephenmbutton").style.background = "blue";
       currentSelection = "pair10"
    }
    if (id == "tombutton"){
       pair11 = "Tom has"
       document.getElementById("pair11").innerText = pair11;
+      document.getElementById("tombutton").style.background = "blue";
       currentSelection = "pair11"
    }
    
