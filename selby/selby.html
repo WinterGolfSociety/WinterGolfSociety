@@ -355,6 +355,21 @@ function clicked(id) {
       audio.play();   
    }   
    
+   if (document.getElementById("oneone").classList.contains("half")) {
+      document.getElementById(id).classList.remove("half")
+   }
+   if (document.getElementById("twoone").classList.contains("half")) {
+      document.getElementById(id).classList.remove("half")
+   }
+   if (document.getElementById("threeone").classList.contains("half")) {
+      document.getElementById(id).classList.remove("half")
+   }
+   if (document.getElementById("fourone").classList.contains("half")) {
+      document.getElementById(id).classList.remove("half")
+   }
+   
+   
+   
    if (id = "oneone"){
       setTimeout(function() {
       document.getElementById(id).classList.toggle("half")
