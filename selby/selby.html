@@ -260,21 +260,21 @@ text-align: center;
   <!-- row 1, col 1 -->
   <div class="item" id="oneone" onclick="clicked(this.id)">
   <a>
-  <span class="white">Monday</span>
+  <span class="white" id="monday">Monday</span>
   <br>Catterick results, handicaps, par 3 results, prizes.
   </a>  
   </div>
   <!-- row 1, col 2 -->
   <div class="item" id="onetwo" onclick="clicked(this.id)">
   <a>
-  <span class="white">Tuesday</span>
+  <span class="white" id="tuesday">Tuesday</span>
   <br>
   </a>  
   </div>
   <!-- row 2, col 1 -->
   <div class="item" id="twoone" onclick="clicked(this.id)">
   <a>
-  <span class="white">Tuesday</span>
+  <span class="white" id="wednesday">Tuesday</span>
   <br>Selby results, handicaps, par 3 results, prizes.
   </a>
   </div>
@@ -355,41 +355,22 @@ function clicked(id) {
       audio.play();   
    }   
    
-   if (document.getElementById("oneone").classList.contains("half")) {
-      document.getElementById(id).classList.remove("half")
-   }
-   if (document.getElementById("twoone").classList.contains("half")) {
-      document.getElementById(id).classList.remove("half")
-   }
-   if (document.getElementById("threeone").classList.contains("half")) {
-      document.getElementById(id).classList.remove("half")
-   }
-   if (document.getElementById("fourone").classList.contains("half")) {
-      document.getElementById(id).classList.remove("half")
-   }
+   document.getElementById(id).classList.toggle("half")
    
-   
-   
-   if (id = "oneone"){
+  
+  
       setTimeout(function() {
-      document.getElementById(id).classList.add("half")
-      window.location.assign("monday.html");   
+      document.getElementById(id).classList.toggle("half")
+      if (id == "oneone") {
+         window.location.assign("monday.html");   
+      }
+      if (id == "twoone") {
+         window.location.assign("tuesday.html");
+      }
+      if (id == "threeone") {   
+         window.location.assign("wednesday.html");   
       },500 )
-   }
-   
-   if (id = "twoone"){
-      setTimeout(function() {
-      document.getElementById(id).classList.add("half")
-      window.location.assign("tuesday.html");   
-      },500 )
-   }
-   
-   if (id = "threeone"){
-      setTimeout(function() {
-      document.getElementById(id).classList.add("half")
-      window.location.assign("wednesday.html");   
-      },500 )
-   }
+  
    
    
    
