@@ -78,19 +78,20 @@ font-family: Kalam;
 .item:nth-child(odd) { order: 1; }
 .item:nth-child(even) { order: 2; }
 
+/* monday */
 #oneone {
   font-size: calc(1vw + 1vh + 2vmin);
   display: flex;
-  height: 30vh;
+  height: 25vh;
   justify-content: center;
   align-items: center;
   background: dodgerBlue;  
 }
-
+/* tuesday */
 #twoone {
   font-size: calc(1vw + 1vh + 2vmin);
   display: flex;
-  height: 20vh;
+  height: 25vh;
   justify-content: left;
   align-items: center;
   background: #2B547E; /* blue jay */
@@ -118,7 +119,7 @@ font-family: Kalam;
   align-items: left;
   background: #4863A0; /* azure blue */
 }
-
+/* wednesday */
 #threeone {
   font-size: calc(1vw + 1vh + 2vmin);
   display: flex;
@@ -136,7 +137,7 @@ font-family: Kalam;
   align-items: left;
   background: #4863A0; /* azure blue */
 }
-
+/* thursday */
 #fourone {
   font-size: calc(1vw + 1vh + 2vmin);
   display: flex;
@@ -265,30 +266,30 @@ text-align: center;
   <!-- row 1, col 2 -->
   <div class="item" id="onetwo" onclick="clicked(this.id)">
   <a>
-  <span class="white">myHcp</span>
-  <br>calculate playing handicap for courses
+  <span class="white">Tuesday</span>
+  <br>Selby results, handicaps, par 3 results, prizes.
   </a>  
   </div>
   <!-- row 2, col 1 -->
   <div class="item" id="twoone" onclick="clicked(this.id)">
   <a>
-  <span class="white">another</span>
-  <br>this is another one
+  <span class="white">Wednesday</span>
+  <br>
   </a>
   </div>
   
   <!-- row 2, col 2 -->
   <div class="item" id="twotwo" onclick="clicked(this.id)">
   <a>
-  <span class="white">another</span>
-  <br>this is another one
+  <span class="white">not Thursday</span>
+  <br>not Richmond results, handicaps, par 3 results, prizes.
   </a>  
   </div>
   <!-- row 3, col 1 -->
   <div class="item" id="threeone" onclick="clicked(this.id)">
   <a>
-  <span class="white">another</span>
-  <br>this is another one
+  <span class="white">Wednesday</span>
+  <br>Oaks results, handicaps, par 3 results, prizes.
   </a>
   </div>
   <!-- row 3, col 2 -->
@@ -301,8 +302,8 @@ text-align: center;
   <!-- row 4, col 1 -->
   <div class="item" id="fourone" onclick="clicked(this.id)">
   <a>
-  <span class="white">another</span>
-  <br>this is another one
+  <span class="white">Thursday</span>
+  <br>Richmond results, handicaps, par 3 results, prizes.
   </a>
   </div>
   <!-- row 4, col 2 -->
@@ -353,13 +354,30 @@ function clicked(id) {
       audio.play();   
    }   
    
+   if (id = "oneone"){
+      setTimeout(function() {
+      document.getElementById(id).classList.toggle("half")
+      window.location.assign("monday.html");   
+      },500 )
+   }
+   
+   if (id = "oneone"){
+      setTimeout(function() {
+      document.getElementById(id).classList.toggle("half")
+      window.location.assign("monday.html");   
+      },500 )
+   }
+   
+   if (id = "oneone"){
+      setTimeout(function() {
+      document.getElementById(id).classList.toggle("half")
+      window.location.assign("monday.html");   
+      },500 )
+   }
    
    
    
-   setTimeout(function() {
-   document.getElementById(id).classList.toggle("half")
-   window.location.assign("monday.html");   
-   },500 )
+      
 }
 
 
