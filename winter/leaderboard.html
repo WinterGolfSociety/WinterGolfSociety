@@ -191,6 +191,25 @@ async function getData() {
 	
 	var dataFound = "no"
 	console.log(resultsarray[0].points)
+
+
+
+if (resultsarray[0].points == "") {
+document.getElementById("notyet").innerHTML = "<br>Leaderboard ... <a style='color:blue;'>no results available</a><br><br>"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// see if it is todays comp
 	if (resultsarray[0].comp.indexOf(dateToday) > -1) {
        // see  if there is any results
@@ -210,7 +229,7 @@ if (dataFound == "yes") {
 			arrPoints.push(resultsarray[i].points);
 			arrTwos.push(resultsarray[i].twos);
 			
-			comp = resultsarray[1].comp;
+			comp = resultsarray[0].comp;
 			
 		}
 		arrPlayerOld.push("searching ...")
@@ -244,11 +263,9 @@ if (dataFound == "yes") {
 	var displayplayer
 	var displaypoints
 	var displaytwos
-	//var comp
+
 		// if not a comp day show message and return to menu
-	//dd = new Date();
-	//dddate = dd.getDate();
-	//ddmonth = dd.getMonth();
+
 	var ddhours = dd.getHours();
 	var ddminutes = dd.getMinutes();
 	if(ddminutes < 10) {
@@ -259,19 +276,6 @@ if (dataFound == "yes") {
 		ddseconds = "0" + ddseconds
 	}
 	arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-		// create HTML
-	//createDisplay(arrPlayer.length)
- //       if(resultsarray[0].comp.indexOf(dddate + " " + arrMonths[ddmonth]) > -1) {
-
-
-
-// for testing
-if (4 > 0) {
-
-
-
-
-
 		// create HTML
 	        createDisplay(arrPlayer.length)
 		// comp day
@@ -385,7 +389,7 @@ if (4 > 0) {
 		
 		
 		
-	}
+	
 }
 
 function createSmallDisplay() {

@@ -7,6 +7,8 @@
     <title>winter</title>
     <meta content="Bryan M" name="author" />
     <meta name="theme-color" content="indigo">
+    <meta name="robots" content="noindex">
+    <link rel="manifest" href="winter.webmanifest">
     <link href="wintericon.png" rel="icon" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="wintericon.png" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -147,7 +149,7 @@
       z-index: 4;
       border: 5px solid white;
       box-shadow: 10px 10px 25px black;
-      display: none;
+  //    display: none;
     }
 
     .bubble_menu {
@@ -378,12 +380,13 @@
     }
 
     #img.half {
-      background: dodgerBlue;
+      background: white; //dodgerBlue;
       padding: 3px;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
       box-shadow: 10px 10px 10px black;
       transform: scale(4) translateX(-25%) translateY(-80%);
+      content: url(winterqrcode.png);
     }
 
     .spacer1 {
@@ -424,7 +427,7 @@
     }
 
     #xdcomp1 {
-      font-size: 3vh;
+      font-size: 2.7vh;
       animation: fadeIn 2s ease-in;
     }
 
@@ -1001,15 +1004,10 @@
 
 
     function doSeven() {
-      // if compday then allow input, else disable
-      if (compday == "yes") {
-        // put menu back then move to results page
-        setTimeout(function() {
-          window.location.assign("rules.html");
-        }, 1000);
-      } else {
-        noCompMsg();
-      }
+      // put menu back then move to results page
+      setTimeout(function() {
+        window.location.assign("rules.html");
+      }, 1000);
     }
     //====================================
     // end of menu code
@@ -1259,6 +1257,9 @@
     // resize flagicon
     function enlarge() {
       document.getElementById('img').classList.toggle("half");
+      //x = document.getElementById('flagicon').innerHTML
+     // document.getElementById('flagicon').innerHTML =
+     //    x.replace("seniorswhite.png","winterqrcode.png");
     }
 
 
@@ -1336,7 +1337,7 @@
       tempwwtodayscomp = "";
       tempwwcompday = "";
       tempwwcourse = "";
-
+      tempmyhcp = "";
 
       if ("wwplayersarray" in localStorage) {
         tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
@@ -1362,6 +1363,11 @@
       if ("wwcourse" in localStorage) {
         tempwwcourse = localStorage.wwcourse;
       }
+      // from myhcp
+      if ("myhcp" in localStorage) {
+        tempmyhcp = localStorage.myhcp;
+      }
+
 
       // clear localStorage
       localStorage.clear();
@@ -1374,7 +1380,8 @@
       localStorage.wwtodayscomp = tempwwtodayscomp;
       localStorage.wwcompday = tempwwcompday;
       localStorage.wwcourse = tempwwcourse;
-
+      // from myhcp.html      
+      localStorage.myhcp = tempmyhcp;
     }
     
     </script>

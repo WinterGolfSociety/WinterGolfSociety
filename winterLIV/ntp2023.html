@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <meta name="theme-color" content="#2F4F4F">
+  <title>winter 2023</title>
+  <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    body {
+      color: white;
+      background-color: darkSlateGray;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-y: hidden;
+    }
+    
+  
+    
+    #dropbtn {
+      color: white;
+      cursor: pointer;
+      width: 100vw;
+      height: 10vh;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 3px;
+      border: none;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 3px;
+      box-shadow: 10px 10px 25px black;
+      max-height: 70vh;
+    }
+    
+    .dropdown-content a {
+      color: gray;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .show {
+      display: block;
+    }
+    
+    #my-form,
+    #my-response-iframe {
+      display: none;
+      height: 20px;
+      width: 60px;
+    }
+    
+    .yellow {
+      font-size: 20px;
+      color: yellow;
+    }
+    
+    .cyan {
+      font-size: 20px;
+      color: cyan;
+    }
+    
+    .wrapper {
+      width: 100vw;
+    }
+    
+    .submitwrapper {
+      color: white;
+      background: dodgerBlue;
+      width: 100vw;
+      height: 9vh;
+      text-align: center;
+      font-size: 20px;
+      padding-top: 2vh;
+      border-radius: 5px;
+      border: 5px solid white;
+    }
+    
+    #submitwrapper {
+      //	  filter: blur(5px);
+      visibility: hidden;
+    }
+    
+ 
+ 
+    
+    #submitwrapper {
+      opacity: 1;
+      transition: opacity 0.7s;
+    }
+    
+     #submitbutton {
+      color: white;
+      cursor: pointer;
+      width: 100vw;
+      height: 10vh;
+      font-size: 20px;
+      background: dodgerBlue;
+      border-radius: 3px;
+      border: none;
+      visibility: hidden;
+    }
+ 
+ #txtwrapper {
+    padding: 20px;
+    color: lightGray;
+    font-style: italic;
+ }
+ 
+ #txt {
+    color: cyan;
+    font-style: normal;
+ }
+ 
+ #ok {
+ text-align: center;
+ }
+ 
+  </style>
+  <meta content="ntp input" name="description">
+  <meta content="Bryan M" name="author">
+  <link href="wintericon.png" rel="icon" type="image/x-icon">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+</head>
+
+<body>
+      <div class="wrapper">
+      <button onclick="myFunction();" class="dropbtn" id="dropbtn">select player</button>
+      <div id="myDropdown" class="dropdown-content"> </div>
+      </div>
+   <br>
+   <br>
+   <br>   
+   <div id="txtwrapper">     
+      To register nearest the pin (NTP), select the player from the dropdown and Submit.
+      <br>
+      <br>
+      <div id="txt"></div>
+  </div>
+  <br>
+  <br>
+  <div id = "ok">
+  <button id="submitbutton" onclick="submitForm()">submit</button>
+  </div> 
+  <br>
+  <br>
+  <!-- form to construct data prior to submit -->
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSfPbrsbDfEH5sWbsJVeZJ_bJzqcgpvxI9wbFN2867mH1ByOPg/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+    <!-- name, course -->
+    <input id='mx748590492' name='entry.748590492' type='text' value='default'>
+    <input id='mx882727706' name='entry.882727706' type='text' value='default'>
+    <input type="submit"> </form>
+  <!-- google iframe inserted here - invisible -->
+  <iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfPbrsbDfEH5sWbsJVeZJ_bJzqcgpvxI9wbFN2867mH1ByOPg/viewform?embedded=true" width="60"></iframe>
+  <br>
+  <br>
+  <br>
+  <br>
+  <script>
+    //===========================
+    // this code runs at startup
+    //===========================
+    // declare global variables
+  console.log("pppppppgg")       
+    player = "none"; 
+    comp = "none";
+// allow a delay to get data
+async function getData() {
+console.log("gg")
+document.getElementById("dropbtn").innerHTML = 'Requesting player data ... 5'
+setTimeout(function() {document.getElementById("dropbtn").innerHTML = 'Requesting player data ... 1'},4000)
+setTimeout(function() {document.getElementById("dropbtn").innerHTML = 'Requesting player data ... 2'},3000)
+setTimeout(function() {document.getElementById("dropbtn").innerHTML = 'Requesting player data ... 3'},2000)
+setTimeout(function() {document.getElementById("dropbtn").innerHTML = 'Requesting player data ... 4'},1000)
+setTimeout(function() {document.getElementById("dropbtn").innerHTML = 'Select player'},5000)
+
+var dataStream = await fetch(
+  "https://opensheet.elk.sh/1W8j2wAuweR0B0fK8cLJZcb2c6cEiOJimFmKdIMcliw4/Leaderboard"
+)
+var resultsarray = await dataStream.json();
+// create player dropdown
+var select = document.getElementById("myDropdown");
+// this is what is created
+//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+var j=0;
+for (var i = 0; i < 50; i++) { 
+     if (resultsarray[i].pos > 0) {
+         var el = document.createElement("a");
+         el.id = "myLink" + (i + 1);
+         el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+         el.setAttribute("href", "#");
+         el.innerText = resultsarray[j].player;
+         select.appendChild(el);
+         j++
+         comp = resultsarray[i].comp
+    }
+}
+}
+// run the function
+
+getData()
+ 
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    };
+
+    //=============================================================
+    // functions - run when called
+    //=============================================================     
+ 
+
+      // name selected, do stuff
+    function dropSelected(playerName) {
+ 
+        // global player
+        player = playerName;
+        // replace player name and comp
+       // document.getElementById("h1").innerText = player;
+      //  document.getElementById("h2").innerText = comp;
+      if (comp == "none") {
+        document.getElementById("txt").innerText = "";
+        document.getElementById('ok').innerHTML =
+              '<img src="quit.png" style="height: 100px; width: 100px;"><br><br>No competition found - not updated'
+
+      } else {   
+        document.getElementById("txt").innerText = "This will record " + player + " as nearest the pin (NTP) for " + comp; 
+      }  
+       
+       // show submit button with player name
+        document.getElementById("dropbtn").innerText = player;
+        document.getElementById("submitbutton").style.visibility = "visible";
+
+        // close dropdown
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }  
+      }
+    }
+
+    // show menu of names
+    function myFunction() {
+      // When the user clicks on the button, toggle between hiding and showing the dropdown content
+      document.getElementById("myDropdown").classList.toggle("show");
+
+    }
+
+
+
+    // send info from HTML form to google form	
+    function submitForm() {
+      // get the relevant info into a form  
+          
+        document.getElementById('mx748590492').value = player;      
+        document.getElementById('mx882727706').value = comp;
+        //===== submit data
+        document.forms[0].submit();
+        document.getElementById('submitbutton').innerText = "updating ... 3";
+        setTimeout(function() {document.getElementById('submitbutton').innerText = "updating ... 2"},1000);
+        setTimeout(function() {document.getElementById('submitbutton').innerText = "updating ... 1"},2000);
+        setTimeout(function() {
+            document.getElementById('ok').innerHTML =
+              '<img src="tick1.png" style="height: 100px; width: 100px;">'
+          }, 3000);
+    
+   }
+
+  </script>
+</body>
+
+</html>

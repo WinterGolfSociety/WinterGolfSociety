@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>winter</title>
+    <meta content="Bryan M" name="author" />
+    <meta name="theme-color" content="indigo">
+    <link rel="manifest" href="winter.webmanifest">
+    <link href="wintericon.png" rel="icon" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="wintericon.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      height: 100vh;
+
+    }
+
+    body {
+      overflow: hidden;
+      height: 100vh;
+      /* linear-gradient syntax */
+      background: indigo;
+      background: -webkit-linear-gradient(to bottom, indigo, #1F45FC);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to bottom, indigo, #1F45FC);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .square_menu_icon {
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      width: 45px;
+      height: 45px;
+      font-size: 0;
+      text-indent: -9999px;
+      appearance: none;
+      box-shadow: none;
+      border-radius: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      top: 57%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      z-index: 99;
+    }
+
+    .square_menu_icon:focus {
+      outline: none;
+    }
+
+    .square_menu_icon span {
+      display: block;
+      position: absolute;
+      top: 15px;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: #fff;
+    }
+
+    .square_menu_icon span:before,
+    .square_menu_icon span:after {
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: 7px;
+      background-color: #fff;
+      content: "";
+    }
+
+    .square_menu_icon span:before {
+      top: -14px;
+    }
+
+    .square_menu_icon span:after {
+      bottom: -14px;
+    }
+
+    .square_menu_icon-X span {
+      transition: background 0s 0.3s;
+    }
+
+    .square_menu_icon-X span:before,
+    .square_menu_icon-X span:after {
+      transition-duration: 0.3s, 0.3s;
+      transition-delay: 0.3s, 0s;
+    }
+
+    .square_menu_icon-X span:before {
+      transition-property: top, transform;
+    }
+
+    .square_menu_icon-X span:after {
+      transition-property: bottom, transform;
+    }
+
+    .square_menu_icon-X.is-active span {
+      background: none;
+    }
+
+    .square_menu_icon-X.is-active span:before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .square_menu_icon-X.is-active span:after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+
+    .square_menu_icon-X.is-active span:before,
+    .square_menu_icon-X.is-active span:after {
+      transition-delay: 0s, 0.3s;
+    }
+
+    nav {
+      position: absolute;
+      top: 9vh;
+      left: 9vh;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+      width: 75px;
+      height: 75px;
+      z-index: 4;
+      border: 5px solid white;
+      box-shadow: 10px 10px 25px black;
+  //    display: none;
+    }
+
+    .bubble_menu {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: dodgerBlue;
+      width: 75px;
+      height: 75px;
+      z-index: 4;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 5px solid white;
+    }
+
+    #one,
+    #two,
+    #three,
+    #four,
+    #five,
+    #six,
+    #seven,
+    #eight {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+      width: 75px;
+      height: 75px;
+      z-index: 3;
+      text-align: center;
+      border: 5px solid white;
+      cursor: pointer;
+      opacity: 0.0;
+    }
+
+    #one {
+      background-color: salmon;
+      display: flex;
+      justify-content: center;
+    }
+
+    #two {
+      background-color: darkKhaki;
+      display: flex;
+      justify-content: center;
+    }
+
+    #three {
+      background-color: orchid;
+      display: flex;
+      justify-content: center;
+    }
+
+    #four {
+      background-color: lightSteelBlue;
+      display: flex;
+      justify-content: center;
+    }
+
+    #five {
+      background-color: cyan;
+      display: flex;
+      justify-content: center;
+    }
+
+    #six {
+      background-color: lightGreen;
+      display: flex;
+      justify-content: center;
+    }
+
+    #seven {
+      background-color: mediumSlateBlue;
+      display: flex;
+      justify-content: center;
+    }
+    
+    #eight {
+      background-color: darkOrange;
+      display: flex;
+      justify-content: center;
+    }
+
+    .shadow {
+      box-shadow: 10px 10px 25px black;
+      opacity: 0.0;
+    }
+
+    section {
+      width: 100vw;
+      position: absolute;
+    }
+
+    .startxxx {
+      top: 0;
+      left: 0;
+      text-align: center;
+    }
+
+    .content {
+      width: 90%;
+      opacity: 1;
+      margin: 0 auto;
+    }
+
+    .title {
+      color: white;
+      font-family: 'Kalam';
+      font-size: 7vh;
+      font-weight: bold;
+      margin-top: 20vh;
+      height: 13vh;
+    }
+
+
+    /*salmon;*/
+    #onetxt {
+      margin: auto;
+      font-size: 30px;
+      color: navy;
+      font-family: 'Kalam';
+    }
+
+    /*darkKhaki;*/
+    #twotxt {
+      margin: auto;
+      font-size: 25px;
+      color: navy;
+      font-family: 'Kalam';
+    }
+
+    /*orchid;*/
+    #threetxt {
+      margin: auto;
+      font-size: 30px;
+      color: navy;
+      font-family: 'Kalam';
+    }
+
+    /*lightSteelBlue;*/
+    #fourtxt {
+      margin: auto;
+      font-size: 25px;
+      color: navy;
+      font-family: 'Kalam';
+    }
+
+    /*cyan;*/
+    #fivetxt {
+      margin: auto;
+      font-size: 25px;
+      color: navy;
+      font-family: 'Kalam';
+    }
+
+    /*lightGreen;*/
+    #sixtxt {
+      margin: auto;
+      font-size: 25px;
+      color: navy;
+      font-family: 'Kalam';
+    }
+
+    /*mediumSlateBlue;*/
+    #seventxt {
+      margin: auto;
+      font-size: 30px;
+      color: navy;
+      font-family: 'Kalam';
+    }
+    
+    /*#C83F49;*/
+    #eighttxt {
+      margin: auto;
+      font-size: 24px;
+      color: navy;
+      font-family: 'Kalam';
+    }
+
+    #one:active {
+      border: 5px solid white; //salmon;
+    }
+
+    #two:active {
+      border: 5px solid white; //darkKhaki;
+    }
+
+    #three:active {
+      border: 5px solid white; //orchid;
+    }
+
+    #four:active {
+      border: 5px solid white; //lightSteelBlue;
+    }
+
+    #five:active {
+      border: 5px solid white; //cyan;
+    }
+
+    #six:active {
+      border: 5px solid white; //lightGreen;
+    }
+
+    #seven:active {
+      border: 5px solid white; //mediumSlateBlue;
+    }
+
+    #eight:active {
+      border: 5px solid white; //#C83F49
+    }
+
+    nav:active {
+      border: 5px solid white; //dodgerBlue;
+    }
+
+    .dates {
+      font-family: 'Kalam';
+      color: darkGray;
+      font-size: 18px;
+    }
+
+    .pretitle {
+      font-family: 'Kalam';
+      transform: rotate(-5deg);
+      height: 2vh;
+      color: white;
+      font-size: 3vh;
+      float: left;
+    }
+
+    #scheduled {
+      float: left;
+      padding-top: 1vh;
+      width: 100%;
+    }
+
+    #dcomp1 {
+      float: left;
+      padding left: 5vw;
+    }
+
+    #img {
+      transition-duration: 0.4s;
+    }
+
+    #img.half {
+      background: white; //dodgerBlue;
+      padding: 3px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      box-shadow: 10px 10px 10px black;
+      transform: scale(4) translateX(-25%) translateY(-80%);
+      content: url(winterqrcode.png);
+    }
+
+    .spacer1 {
+      height: 4vh;
+    }
+
+    .contentinfo {
+      font-family: 'Kalam';
+      color: silver;
+      font-size: 2vh;
+    }
+
+    #popuppanel {
+      position: absolute;
+      top: 5vh;
+      right: 2vw;
+      display: none;
+      font-family: 'Kalam';
+      background-color: dodgerBlue;
+      color: white;
+      box-shadow: 10px 10px 25px black;
+      opacity: 0.8;
+      font-size: 3vh;
+      border-radius: 10px;
+      border: 1px solid blue;
+      padding: 10px;
+      text-align: left;
+      width: 30vw;
+      height: 15vw;
+      cursor: pointer;
+    }
+
+    #flagicon {
+      position: absolute;
+      right: 1vh;
+      font-size: 3vh;
+      animation: fadeIn 2s ease-in;
+    }
+
+    #xdcomp1 {
+      font-size: 2.7vh;
+      animation: fadeIn 2s ease-in;
+    }
+
+
+
+    #nav {
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* marquee CSS */
+
+    .marquee {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-style: italic;
+      height: 40px;
+      overflow: hidden;
+      position: relative;
+      background: darkSlateGray;
+      color: white;
+    }
+
+    .marquee p {
+      color: yellow;
+      font-weight: 400;
+      position: absolute;
+      width: 150%;
+      height: 100%;
+      margin: 0;
+      line-height: 40px;
+      text-align: center;
+      -moz-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+      -moz-animation: scroll-left 15s linear 1;
+      -webkit-animation: scroll-left 15s linear 1;
+      animation: scroll-left 15s linear 1;
+    }
+
+    @-moz-keyframes scroll-left {
+      0% {
+        -moz-transform: translateX(100%);
+      }
+
+      100% {
+        -moz-transform: translateX(-100%);
+      }
+    }
+
+    @-webkit-keyframes scroll-left {
+      0% {
+        -webkit-transform: translateX(100%);
+      }
+
+      100% {
+        -webkit-transform: translateX(-100%);
+      }
+    }
+
+    @keyframes scroll-left {
+      0% {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+      }
+
+      100% {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+      }
+    }
+
+    /* end of marque CSS */
+
+    .blob {
+      -webkit-animation: blob 0.5s linear;
+      -moz-animation: blob 0.5s linear;
+      -o-animation: blob 0.5s linear;
+      animation: blob 0.5s linear;
+    }
+
+    @-webkit-keyframes blob {
+      50% {
+        width: 85px;
+        height: 85px;
+      }
+
+      100% {
+        width: 75px;
+        height: 75px;
+        )
+      }
+    }
+
+    @-moz-keyframes blob {
+      50% {
+        width: 85px;
+        height: 85px;
+      }
+
+      100% {
+        width: 75px;
+        height: 75px;
+        )
+      }
+    }
+
+    @-o-keyframes blob {
+      50% {
+        width: 85px;
+        height: 85px;
+      }
+
+      100% {
+        width: 75px;
+        height: 75px;
+        )
+      }
+    }
+
+    @keyframes blob {
+      50% {
+        width: 85px;
+        height: 85px;
+        )
+      }
+
+      100% {
+        width: 75px;
+        height: 75px;
+        )
+      }
+    }
+
+
+
+    #warning {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: indigo;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999;
+      text-align: center;
+      color: white;
+      padding-top: 40vh;
+      font-size: 6vh;
+      font-family: 'Kalam';
+    }
+    </style>
+
+  <body oncontextmenu="return false;">
+    <!-- remove when not required 100% is about 40 characters 
+    
+    <div class="marquee"><p>Note: some stroke indexes have changed on the Old Course.</p></div>
+    
+  -->
+
+    <div id="warning">Not available in landscape orientation</div>
+
+
+    <nav id="nav">
+      <div class="bubble_menu" id="icon">
+        <button class="square_menu_icon square_menu_icon-X"> <span></span> </button>
+      </div>
+      <div class="bubble" id="one" onclick="doOne();"> <a id="onetxt">HCPs</a> </div>
+      <div class="bubble" id="two" onclick="doTwo();"> <a id="twotxt">Score entry</a> </div>
+      <div class="bubble" id="three" onclick="doThree();"> <a id="threetxt">Twos</a> </div>
+      <div class="bubble" id="four" onclick="doFour();"> <a id="fourtxt">All results</a> </div>
+      <div class="bubble" id="five" onclick="doFive();"> <a id="fivetxt">Leader board</a></div>
+      <div class="bubble" id="six" onclick="doSix();"> <a id="sixtxt">4ball scoring</a></div>
+      <div class="bubble" id="seven" onclick="doSeven();"> <a id="seventxt">Rules</a> </div>
+      <div class="bubble" id="eight" onclick="doEight();"> <a id="eighttxt">League</a> </div>
+    </nav>
+    <section class="start">
+      <div class="content">
+        <div class="title">
+          <div class="pretitle">Longhirst seniors society</div>
+          <div class="spacer1"></div>
+          <div>Winter golf</div>
+        </div>
+        <div id="popuppanel"></div>
+        <div class="contentinfo"> hcps, score entry, twos, results, leaderboard </div>
+        <div class="datescontent"> <a class="dates" id="scheduled"></a>
+          <br>
+          <br> <a class="dates" id="xdcomp1">searching for competitions ...</a> </div>
+        <br>
+        <div class="flagicon" id="flagicon"> <img id="img" onclick="enlarge(this.id);" style="padding-right: 20px; float: right; border: 0; height: 40px; width: 40px; " src="seniorswhite.png" alt="logo"></div>
+      </div>
+    </section>
+
+    <img id="tooltip" style="padding-right: 20px; float: right; border: 0; height: 100px; width: 100px;" src="speech.gif" alt="speech">
+
+    <script>
+    function isLocalStorageAvailable() {
+      var test = 'test';
+      try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    if (!isLocalStorageAvailable()) {
+      // unavailable
+      alert("local storage is not available so app will not operate.")
+    }
+
+
+    // Detect whether device supports orientationchange event, otherwise fall back to
+    // the resize event.
+    var supportsOrientationChange = "onorientationchange" in window,
+      orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+
+    window.addEventListener(orientationEvent, function() {
+      if (window.orientation == 0) {
+        document.getElementById("warning").style.display = "none";
+      } else if (window.orientation == 90 || window.orientation == -90) {
+        document.getElementById("warning").style.display = "block";
+      }
+    }, false);
+    
+    // global arrays
+    var arrPlayers = [];
+    var arrLadies = [];
+    var arrHcps = [];
+    var arrComps = [];
+    var sparseArrComps = [];
+    var sparseArrPlayers = [];
+    var sparseArrLadies = [];
+    var sparseArrHcps = [];
+    var arrPlayersOld = [];
+    var arrHcpOld = [];
+    
+    // global variables
+    var todayscomp = ""
+    var compday = "no"
+    var grayedout = "yes";
+    // menu code
+    var isTop = true;
+    var menuIsOpen = false;
+    var menuIcon = $('.square_menu_icon');
+    var bubblemenu = $('.bubble_menu');
+    var one = $('#one');
+    var two = $('#two');
+    var three = $('#three');
+    var four = $('#four');
+    var five = $('#five');
+    var six = $('#six');
+    var seven = $('#seven');
+    var eight = $('#eight');
+    // menuIcon.click(function() {
+    bubblemenu.click(function() {
+      if (isTop === true) {
+        $('#nav').animate({
+          top: '50%',
+          left: '50%'
+        }, 400);
+        $('.content').animate({
+          opacity: '0'
+        }, 700);
+        showBubbles();
+        isTop = false;
+      } else {
+        if (menuIsOpen === false) {
+          showBubbles();
+        } else {
+          hideBubbles();
+        }
+      }
+    });
+
+
+    function showBubbles() {
+      //
+      one.css('opacity', '0.0');
+      two.css('opacity', '0.0');
+      three.css('opacity', '0.0');
+      four.css('opacity', '0.0');
+      five.css('opacity', '0.0');
+      six.css('opacity', '0.0');
+      seven.css('opacity', '0.0');
+      eight.css('opacity', '0.0');
+
+      menuIcon.addClass('is-active');
+      one.addClass('shadow');
+      two.addClass('shadow');
+      three.addClass('shadow');
+      four.addClass('shadow');
+      five.addClass('shadow');
+      six.addClass('shadow');
+      seven.addClass('shadow');
+      eight.addClass('shadow');
+
+      // Returns a random integer from 200 to 700:
+      //Math.floor(Math.random() * 700) + 200;    
+      setTimeout(function() {
+        one.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+      setTimeout(function() {
+        two.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+      setTimeout(function() {
+        three.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+      setTimeout(function() {
+        four.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+      setTimeout(function() {
+        five.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+      setTimeout(function() {
+        six.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+      setTimeout(function() {
+        seven.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+      setTimeout(function() {
+        eight.addClass('blob');
+      }, Math.floor(Math.random() * 700) + 100, function() {
+        // Animation complete.
+      })
+
+
+      setTimeout(function() {
+        one.removeClass('blob');
+        two.removeClass('blob');
+        three.removeClass('blob');
+        four.removeClass('blob');
+        five.removeClass('blob');
+        six.removeClass('blob');
+        seven.removeClass('blob');
+        eight.removeClass('blob');
+        
+      }, 2000, function() {
+        // Animation complete.
+      })
+one.animate({
+        top: '37px',
+        left: '140px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
+      // bottom middle
+      // bottom  
+      two.animate({
+        top: '140px',
+        left: '37px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
+      // middle left
+      // top
+      three.animate({
+        top: '37px',
+        left: '-65px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
+      // top middle
+      // top
+      four.animate({
+        top: '-65px',
+        left: '37px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
+      // top left
+      // top
+      five.animate({
+        top: '-65px',
+        left: '-65px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
+      // top right
+      // top
+      six.animate({
+        top: '-65px',
+        left: '140px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
+      // top right
+      // top
+      seven.animate({
+        top: '140px',
+        left: '-65px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
+      // top right
+      // top
+      eight.animate({
+        top: '140px',
+        left: '140px',
+        opacity: '1'
+      }, Math.floor(Math.random() * 500) + 400);
+
+
+      // grayout score entry and leaderboard if not a comp day
+      if (grayedout == "yes") {
+        // disable 3 buttons
+        two.animate({
+          opacity: '0.2'
+        }, 800);
+
+        five.animate({
+          opacity: '0.2'
+        }, 800);
+
+        six.animate({
+          opacity: '0.2'
+        }, 800);
+      }
+
+      menuIsOpen = true;
+      // hide pressbutton
+      $("#pressbutton").html("");
+    }
+
+
+    function hideBubbles() {
+      // add 500ms delay to change X to hamburger
+      setTimeout(function() {
+        menuIcon.removeClass('is-active');
+        one.removeClass('shadow');
+        two.removeClass('shadow');
+        three.removeClass('shadow');
+        four.removeClass('shadow');
+        five.removeClass('shadow');
+        six.removeClass('shadow');
+        seven.removeClass('shadow');
+        eight.removeClass('shadow');
+        
+      }, 500);
+      setTimeout(function() {
+        // move x icon back to hamburger
+        $('#nav').animate({
+          top: '9vh', //80px',
+          left: '9vh' //80px'
+        }, 400);
+        // fade background title
+        $('.content').animate({
+          opacity: '1'
+        }, 1500);
+      }, 400);
+      // move menu items
+      one.animate({
+        top: '50%'
+      }, 200);
+      one.animate({
+        left: '50%'
+      }, 200);
+      two.animate({
+        top: '50%'
+      }, 200);
+      two.animate({
+        left: '50%'
+      }, 200);
+      three.animate({
+        top: '50%'
+      }, 200);
+      three.animate({
+        left: '50%'
+      }, 200);
+      four.animate({
+        top: '50%'
+      }, 200);
+      four.animate({
+        left: '50%'
+      }, 200);
+      five.animate({
+        top: '50%'
+      }, 200);
+      five.animate({
+        left: '50%'
+      }, 200);
+      seven.animate({
+        top: '50%'
+      }, 200);
+      six.animate({
+        top: '50%'
+      }, 200);
+      six.animate({
+        left: '50%'
+      }, 200);
+      seven.animate({
+        left: '50%'
+      }, 200);
+      eight.animate({
+        top: '50%'
+      }, 200);
+      eight.animate({
+        left: '50%'
+      }, 200);
+      
+      menuIsOpen = false;
+      isTop = true;
+      //one.addClass('blob');
+    }
+    $('.bubble').click(function() {
+      menuIcon.removeClass('is-active');
+      hideBubbles();
+      // change 400, 500 to 900, 500
+      setTimeout(function() {
+        $('#nav').animate({
+          top: '9vh', //80px',
+          left: '9vh' //80px'
+        }, 900);
+      }, 500);
+      isTop = true;
+    });
+
+
+    function doOne() {
+      // put menu back then move to hcp page
+      setTimeout(function() {
+        window.location.assign("hcp.html");
+      }, 1000);
+    }
+
+
+    function doTwo() {
+      // if compday then allow input, else disable
+      if (grayedout == "no") {
+        setTimeout(function() {
+          // put menu back then move to score entry page
+          window.location.assign("scoreentry.html");
+        }, 1000);
+      } else {
+        noCompMsg();
+      }
+    }
+
+
+    function doThree() {
+      // put menu back then move to twos page
+      setTimeout(function() {
+        window.location.assign("twos.html");
+      }, 1000);
+    }
+
+
+    function doFour() {
+      // put menu back then move to results page
+      setTimeout(function() {
+        window.location.assign("results.html");
+      }, 1000);
+    }
+
+
+    function doFive() {
+      // if compday then allow display, else disable
+      if (grayedout == "no") {
+        // put menu back then move to results page
+        setTimeout(function() {
+          window.location.assign("leaderboard.html");
+        }, 1000);
+      } else {
+        noCompMsg();
+      }
+    }
+
+
+    function doSix() {
+      // if compday then allow input, else disable
+      if (grayedout == "no") {
+        // put menu back then move to results page
+        setTimeout(function() {
+          window.location.assign("scoreentry4ball.html");
+        }, 1000);
+      } else {
+        noCompMsg();
+      }
+    }
+
+
+    function doSeven() {
+      // put menu back then move to results page
+      setTimeout(function() {
+        window.location.assign("rules.html");
+      }, 1000);
+    }
+    
+    function doEight() {
+      // put menu back then move to results page
+      setTimeout(function() {
+        window.location.assign("league.html");
+      }, 1000);
+    }
+    
+    
+    
+    
+    //====================================
+    // end of menu code
+    //====================================
+   
+   
+   
+   
+    //====================================
+    // runs on start or refresh
+    //====================================
+
+    // speech tooltip
+    document.getElementById("tooltip").innerHTML = "Searching for data"
+    document.getElementById("tooltip").style.display = "block";
+    
+    // global code
+    // see if a new download is necessary
+    // get todays date eg 26
+    dd = new Date();
+    // get date number and format it
+    d1 = dd.getDate();
+    if (d1 < 10) {
+      d1 = "0" + d1;
+    }
+    // get todays month number eg 2
+    d2 = dd.getMonth();
+    arrMonths = [
+      ["January"],
+      ["February"],
+      ["March"],
+      ["April"],
+      ["May"],
+      ["June"],
+      ["July"],
+      ["August"],
+      ["September"],
+      ["October"],
+      ["November"],
+      ["December"]
+    ];
+
+    // delay to allow showing tooltip
+    setTimeout(getData,1200)
+
+    async function getData() {
+      //console.log("here - getdata")
+      var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/setupcsv")
+
+      if (!dataStream.ok) {
+        const message = `An error has occured: ${dataStream.status}`;
+        //throw new Error(message);
+        alert("error 3: " + message)
+      }
+
+      var resultsarray = await dataStream.json()
+      // split into separate arrays
+      arrLadies = resultsarray.map(d => d.ladies);
+      arrPlayers = resultsarray.map(d => d.players);
+      arrComps = resultsarray.map(d => d.comps);
+      arrHcps = resultsarray.map(d => d.hcps);
+
+      // add "reset list" option to bottom
+      arrPlayers.push("reset list")
+      // remove null items
+      arrLadies = arrLadies.filter(function(el) {
+        return el != null;
+      })
+      arrPlayers = arrPlayers.filter(function(el) {
+        return el != null;
+      })
+      arrComps = arrComps.filter(function(el) {
+        return el != null;
+      })
+      arrHcps = arrHcps.filter(function(el) {
+        return el != null;
+      })
+
+      // remove empty items
+      arrLadies = arrLadies.filter(function(el) {
+        return el != "";
+      })
+      arrPlayers = arrPlayers.filter(function(el) {
+        return el != "";
+      })
+      arrComps = arrComps.filter(function(el) {
+        return el != "";
+      })
+      arrHcps = arrHcps.filter(function(el) {
+        return el != "";
+      })
+
+      document.getElementById("nav").style.display = "block";
+
+      // speech tooltip
+      document.getElementById("tooltip").innerHTML = "New data downloaded"
+      setTimeout(function() {
+        document.getElementById("tooltip").style.display = "none";
+      }, 3000)
+
+      // overwrite saved data arrays in localStorage
+      // players
+      localStorage.wwplayersarray = JSON.stringify(arrPlayers);
+      // ladies
+      localStorage.wwladiesarray = JSON.stringify(arrLadies);
+      // hcps
+      localStorage.wwhcpsarray = JSON.stringify(arrHcps);
+      // comps
+      localStorage.wwcompsarray = JSON.stringify(arrComps);
+      // reset compday - this is reset later if it is a compday
+      compday = "no"
+      localStorage.wwcompday = "no"
+      // new data because a new day so continue ...
+
+      getNextComps();
+    }
+
+
+    //=====================================
+    // functions
+    //=====================================
+    // get list of next comps
+    function getNextComps() {
+      dd = new Date(); /* today */
+      dlist = "";
+      dlistcount = 0;
+      var collectdates = "no";
+      var compcurrent = "no";
+      
+      // loop through competitions list
+      for (i = 0; i < arrComps.length; i++) {
+
+        // change "Lakes 10 January 2024" to "10 January 2024" etc.
+        temptest = arrComps[i].replace("Lakes ", "");
+        temptest = temptest.replace("Dawson ", "");
+        temptest = temptest.replace("OldCourse ", "");
+        // should give something like: 03 June 2023
+        darr = new Date(temptest);
+        d1 = darr.getDate();
+        if (d1 < 10) {
+          d1 = "0" + d1;
+        }
+        d4 = darr.getDay();
+        if (d4 == 0) {
+          d = "Sunday";
+        }
+        if (d4 == 1) {
+          d = "Monday";
+        }
+        if (d4 == 2) {
+          d = "Tuesday";
+        }
+        if (d4 == 3) {
+          d = "Wednesday";
+        }
+        if (d4 == 4) {
+          d = "Thursday";
+        }
+        if (d4 == 5) {
+          d = "Friday";
+        }
+        if (d4 == 6) {
+          d = "Saturday";
+        }
+
+       // setup the global variable to test if grayed out 
+       if (darr.toString().substring(0, 15) == dd.toString().substring(0, 15)) {
+           grayedout = "no"
+       }      
+       
+
+        // if today is already in localStorage, then its the current competition
+        // so do nothing  
+        // if today is not in localStorage, then its a new competition day
+        // so clear old data and start new
+                
+       // if comp date = today date
+        if (darr.toString().substring(0, 15) == dd.toString().substring(0, 15) && dlistcount < 4) {
+          // similar to "Sun Jan 20 2025"
+          // if its a competition day, see if it is same as wwtodayscomp
+          // if not, clear data and start again
+          // check to see if a comp exists in localStorage
+          if ("wwtodayscomp" in localStorage) {
+              // if today is the same as localStorage.wwtodayscomp do nothing
+              // if a different day, clear all old data but keep arrays etc.
+              if (localStorage.wwtodayscomp.indexOf(d1 + " " + arrMonths[d2]) > -1) {
+                  // same day keep info, so mark as current
+                 compcurrent = "yes";
+              }
+
+          }
+         
+          //===================================================================
+          // in scorentry, if there is a wwp1h1 score then show recover message
+          //===================================================================
+          localStorage.setItem("wwtodayscomp", arrComps[i]);
+          todayscomp = arrComps[i];
+          compday = "yes"
+          localStorage.setItem("wwcompday", "yes");
+          ccourse = arrComps[i].split(" ");
+          localStorage.setItem("wwcourse", ccourse[0]);
+
+          if (arrComps[i].indexOf("Lakes") > -1) {
+            tempd = '<p style="color:white;">Lakes - competition today</p>';
+          }
+          if (arrComps[i].indexOf("Dawson") > -1) {
+            tempd = '<p style="color:white;">Dawson - competition today</p>';
+          }
+          if (arrComps[i].indexOf("OldCourse") > -1) {
+            tempd = '<p style="color:white;">OldCourse - competition today</p>';
+          }
+          dlist = dlist + tempd;
+          dlistcount++;
+          collectdates = "yes";
+
+        } // end of if darr.toString().substring(0, 15) ...
+
+        if (parseInt(dd - darr) < 1) {
+          collectdates = "yes"
+        }
+
+        if (darr > dd && dlistcount < 3 && collectdates == "yes") {
+          tempd = arrComps[i].replace("Lakes ", "Lakes - " + d + " ");
+          tempd = tempd.replace("Dawson ", "Dawson - " + d + " ");
+          tempd = tempd.replace("OldCourse ", "OldCourse - " + d + " ");
+          tempd = tempd.slice(0, -5)
+          dlist = dlist + tempd + "<br>";
+          dlistcount++;
+        }
+
+      } // end for loop
+      
+      document.getElementById("xdcomp1").innerHTML = dlist;
+      // get rid of bubble
+      document.getElementById("tooltip").style.display = "none";
+      // show menu
+      document.getElementById("nav").style.display = "block";
+
+      // only clear data if not the current comp
+      if (compcurrent == "no"){
+          clearCache();
+      }
+
+    }
+
+
+    // resize flagicon
+    function enlarge() {
+      document.getElementById('img').classList.toggle("half");
+      //x = document.getElementById('flagicon').innerHTML
+     // document.getElementById('flagicon').innerHTML =
+     //    x.replace("seniorswhite.png","winterqrcode.png");
+    }
+
+
+    function noCompMsg() {
+      // speech tooltip
+      document.getElementById("tooltip").innerHTML = "No Competition today."
+      document.getElementById("tooltip").style.display = "block";
+      setTimeout(function() {
+        document.getElementById("tooltip").style.display = "none";
+      }, 3000)
+    }
+
+
+    //===========================================
+    // detect a longpress to allow "secret" reset
+    // use flagicon #img
+    //===========================================
+    let onlongtouch = false;
+    let timer = false;
+    let duration = 5000;
+
+
+    function touchStart() {
+      if (!timer) {
+        timer = setTimeout(onlongtouch, duration);
+      }
+    }
+
+
+    function touchEnd() {
+      if (timer) {
+        clearTimeout(timer)
+        timer = false;
+      }
+    }
+
+
+    onlongtouch = function() {
+      resetAll()
+    }
+
+
+    // prevent default img menu of options
+    document.addEventListener('contextmenu', event => {
+      event.preventDefault()
+    })
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelector("#img").addEventListener("touchstart", touchStart);
+      document.querySelector("#img").addEventListener("touchend", touchEnd);
+    })
+
+
+    function resetAll() {
+      if (confirm("Are you sure you wish to reset ?")) {
+        localStorage.clear();
+        location.reload();
+      }
+    }
+
+
+    function clearCache() {
+      // A simple delete doesn't work so use an overkill approach
+      // save current keys, then clear, then put them back
+      // sledgehammer and nut spring to mind
+
+      // save localStorage to temp variables
+      tempwwplayersarray = "";
+      tempwwladiesarray = "";
+      tempwwcompsarray = "";
+      tempwwhcpsarray = "";
+      tempwwdropdown = "";
+      tempwwtodayscomp = "";
+      tempwwcompday = "";
+      tempwwcourse = "";
+      tempmyhcp = "";
+
+      if ("wwplayersarray" in localStorage) {
+        tempwwplayersarray = JSON.parse(localStorage.wwplayersarray);
+      }
+      if ("wwladiesarray" in localStorage) {
+        tempwwladiesarray = JSON.parse(localStorage.wwladiesarray);
+      }
+      if ("wwcompsarray" in localStorage) {
+        tempwwcompsarray = JSON.parse(localStorage.wwcompsarray);
+      }
+      if ("wwhcpsarray" in localStorage) {
+        tempwwhcpsarray = JSON.parse(localStorage.wwhcpsarray);
+      }
+      if ("wwdropdown" in localStorage) {
+        tempwwdropdown = JSON.parse(localStorage.wwdropdown);
+      }
+      if ("wwtodayscomp" in localStorage) {
+        tempwwtodayscomp = localStorage.wwtodayscomp;
+      }
+      if ("wwcompday" in localStorage) {
+        tempwwcompday = localStorage.wwcompday;
+      }
+      if ("wwcourse" in localStorage) {
+        tempwwcourse = localStorage.wwcourse;
+      }
+      // from myhcp
+      if ("myhcp" in localStorage) {
+        tempmyhcp = localStorage.myhcp;
+      }
+
+
+      // clear localStorage
+      localStorage.clear();
+      // put localStorage back from variables
+      localStorage.wwplayersarray = JSON.stringify(tempwwplayersarray);
+      localStorage.wwladiesarray = JSON.stringify(tempwwladiesarray);
+      localStorage.wwcompsarray = JSON.stringify(tempwwcompsarray);
+      localStorage.wwhcpsarray = JSON.stringify(tempwwhcpsarray);
+      localStorage.wwdropdown = JSON.stringify(tempwwdropdown);
+      localStorage.wwtodayscomp = tempwwtodayscomp;
+      localStorage.wwcompday = tempwwcompday;
+      localStorage.wwcourse = tempwwcourse;
+      // from myhcp.html      
+      localStorage.myhcp = tempmyhcp;
+    }
+    
+    </script>
+  </body>
+
+</html>

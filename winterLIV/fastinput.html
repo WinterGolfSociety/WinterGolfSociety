@@ -1,0 +1,3005 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>faster score entry</title>
+	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	html {
+		height: 100%;
+		width: 100%;
+	}
+	
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 3vh;
+		background: black;
+		height: 100%;
+		width: 100%;
+	}
+	/* dropdown */
+	
+	#dropbtn {
+		color: white;
+		background: black;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid Gray;
+	}
+	
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: black;
+		min-width: 160px;
+		overflow: auto;
+		z-index: 1;
+		border-radius: 5px;
+		box-shadow: 10px 10px 25px black;
+		max-height: 90vh;
+	}
+	
+	.dropdown-content a {
+		color: black;
+		font-size: 4vh;
+		background: whiteSmoke;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+		border: 1px solid gray;
+		border-radius: 5px;
+	}
+	
+	.show {
+		display: block;
+	}
+	/* end of dropdown */
+	
+	#firstscreen {
+		height: 100%;
+		width: 100%;
+		background: black;
+		color: white;
+		-webkit-animation-duration: 1.5s;
+		animation-duration: 1.5s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	/* scoring screen */
+	
+	#all {
+		//display: none;
+	}
+	/* fade out/in between screens */
+	
+	@-webkit-keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	
+	.fadeOut {
+		-webkit-animation-name: fadeOut;
+		animation-name: fadeOut;
+	}
+	
+	.spacer1 {
+		height: 5vh;
+	}
+	/* start scoring button */
+	
+	#startscoring {
+		color: white;
+		width: 100%;
+		height: 15vh;
+		font-size: 3vmax;
+		border: 2px solid silver;
+		background: dodgerBlue;
+		border-radius: 5px;
+	}
+	
+	#startscoring {
+		//display: none;
+	}
+	/* highlights selected player */
+	
+	.highlight {
+		color: cyan;
+		//border: 1px solid black;
+		box-shadow: inset white 0px 0px 60px -12px;
+	}
+	
+	.scorelow {
+		font-size: 4vh;
+		color: lime;
+		display: inline-block;
+		width: 40%;
+		height: 10vh;
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	/* highlights keyboard score pressed */
+	
+	.scorehigh {
+		font-size: 4vh;
+		color: cyan;
+		display: inline-block;
+		width: 40%;
+		height: 10vh;
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 5px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+		box-shadow: inset white 0px 0px 60px -12px;
+	}
+	
+	#info {
+		display: none;
+		overflow: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		color: white;
+		background-color: black; //dimGray;
+		//opacity: 0.95;
+		//border-radius: 10px;
+		padding-left: 1px;
+		padding-right: 1px;
+		padding-bottom: 1px;
+		//box-shadow: inset black 0px 0px 60px -12px;
+	}
+	
+	#p1h0,
+	#p2h0,
+	#p3h0,
+	#p4h0 {
+		padding-top: 5px;
+		font-size: 2vh;
+		padding-bottom: 5px;
+	}
+	
+	#x1 {
+		color: yellow;
+		font-size: 2vh;
+	}
+	
+	#popuppanel {
+		background-color: #ddd;
+		font-size: 3vh;
+		display: inline-block;
+		border-radius: 3px;
+		border: 1px solid #aaa;
+		padding: 10px;
+		margin: 5vw;
+		text-align: center;
+		width: 80vw;
+		//height: 50px;
+		cursor: pointer;
+	}
+	/* hide forms */
+	
+	#my-response-iframe,
+	#my-form {
+		display: none;
+	}
+	/* */
+	
+	.child-one {
+		height: 10%;
+		font-size: 5vh;
+		border: 2px solid Gray;
+		border-radius: 5px;
+	}
+	
+	.child-two {
+		display: flex;
+		color: white;
+		background: black;
+		font-family: 'Kalam';
+		//font-weight: bold;
+		height: 100%;
+		text-align: center;
+		flex-grow: 1;
+	}
+	/* holes */
+	
+	.child-three {
+		display: flex;
+		color: white;
+		font-family: 'Kalam';
+		font-weight: bold;
+		height: calc(100% / 22);
+		text-align: center;
+		flex-grow: 1;
+	}
+	
+	.child-six {
+		display: flex;
+		background: black;
+		color: white;
+		font-family: 'Kalam';
+		height: calc(100% / 9);
+		text-align: center;
+		width: 100%;
+	}
+	
+	.child-seven {
+		display: flex;
+		background: black;
+		color: white;
+		font-family: 'Kalam';
+		height: calc(100% / 9);
+		text-align: center;
+		width: 100%;
+	}
+	
+	.child-eight {
+		display: flex;
+		background: black;
+		color: white;
+		font-family: 'Kalam';
+		height: calc(100% / 9);
+		text-align: center;
+		width: 100%;
+	}
+	
+	.child-nine {
+		display: flex;
+		background: black;
+		color: white;
+		font-family:  Arial, Helvetica, sans-serif; //'Kalam';
+		//height: 8%;
+		text-align: center;
+		width: 100%;
+	}
+	
+	/* player names */
+	
+	#p1name,
+	#p2name,
+	#p3name,
+	#p4name {
+		font-size: 4vh;
+		display: inline-block;
+		width: calc(100% / 3 * 2);
+		height: 100%; //calc(100% / 9);
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	/* player scores */
+	
+	#p1score,
+	#p2score,
+	#p3score,
+	#p4score {
+		font-size: 4vh;
+		display: inline-block;
+		width: calc(100% / 3);
+		height: 100%; //calc(100% / 9);
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	/* default "keyboard" */
+	
+	.small {
+		font-size: 4vh;
+		display: inline-block;
+		width: calc(100% / 3);
+		height: 10vh;
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	/* banner hole details */
+	
+	#holedetails {
+		color: white;
+		background: black;
+		font-size: 4vh;
+		display: inline-block;
+		width: 100%;
+		height: calc(100% / 9);
+		line-height: 10vh;
+		padding-left: 5%;
+		padding-right: 5%;
+		border: 1px solid Gray;
+		text-align: center;
+		font-family: Arial, Helvetica, sans-serif;
+		border-radius: 5px;
+	}
+	
+	#bb {
+		height: 60%;
+	}
+	
+	.box1 {
+		width: calc(100% / 5);
+		text-align: center;
+	}
+	
+	.box1c {
+		color: lime;
+		width: calc(100% / 5);
+		text-align: center;
+	}
+	
+	#player4ballplayer {
+		width: 30%;
+		padding: 1vw;
+		//border: 3px solid cyan;
+	}
+	
+	#player4ballname {
+		width: 55%;
+		padding: 1vw;
+		//border: 3px solid cyan;
+	}
+	
+	#player4ballhcp {
+		width: 15%;
+		padding: 1vw;
+		//border: 3px solid cyan;
+	}
+	
+	.submit {
+		font-size: 100%;
+		color: white;
+		background: dodgerBlue;
+		height: 100%;
+		line-height: 10vh;
+		text-align: center;
+	}
+	
+	.child2 {
+		display: flex;
+		//border: 3px solid cyan;
+		//background: cyan;
+	}
+	
+	#blackout {
+		display: none;
+		color: white;
+		font-size: 2vh;
+		background: rgba(13, 13, 13, 255); //black;
+		height: 100vh;
+		width: 100vw;
+		position: absolute;
+		top: 0;
+		left: 0;
+		//display: flex;
+		justify-content: center;
+		padding-top: 40%;
+	}
+	
+	#sending {
+		position: relative;
+		background: black;
+	}
+	
+	#done {
+		position: relative;
+		background: black;
+		-webkit-animation-name: fadeIn;
+		animation-name: fadeIn;
+		-webkit-animation-duration: 1.5s;
+		animation-duration: 1.5s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	/* fade out/in between screens */
+	
+	@-webkit-keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	/* icons */
+	
+	.child-five {
+		display: flex;
+		color: white;
+		font-family: 'Kalam';
+		background: green;
+		height: 10%;
+		flex-grow: 1;
+	}
+	
+	.footer {
+		background-color: black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+	}
+	
+	#showcoursecard {
+		visibility: hidden;
+		font-family: 'Kalam';
+		font-size: 3vmax;
+		color: white;
+		text-align: left;
+		position: fixed;
+		z-index: 1;
+		padding-top: 10px;
+		padding-left: 10px;
+		padding-right: 5px;
+		padding-bottom: 10px;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+	/* for icon related pages */
+	
+	#showrules {
+		visibility: hidden;
+		font-family: 'Kalam';
+		font-size: 3vmax;
+		color: white;
+		text-align: left;
+		position: fixed;
+		z-index: 1;
+		padding-top: 10px;
+		padding-left: 10px;
+		padding-right: 5px;
+		padding-bottom: 10px;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+	
+	#showcoursecard {
+		visibility: hidden;
+		font-family: 'Kalam';
+		font-size: 3vmax;
+		color: white;
+		text-align: left;
+		position: fixed;
+		z-index: 1;
+		padding-top: 10px;
+		padding-left: 10px;
+		padding-right: 5px;
+		padding-bottom: 10px;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+	
+	.circle1 {
+		font-family: 'Kalam';
+		border-radius: 50%;
+		padding-left: 10px;
+		padding-right: 10px;
+		background: black;
+		border: 3px solid white;
+		color: white;
+		text-align: center;
+		font-size: 3vmax;
+	}
+	
+	.circle2 {
+		font-family: 'Kalam';
+		border-radius: 50%;
+		padding-left: 10px;
+		padding-right: 10px;
+		background: black;
+		border: 4px solid cyan;
+		color: cyan;
+		text-align: center;
+		font-size: 3vmax;
+		font-weight: bold;
+	}
+	
+	.nocircle1 {
+		font-family: 'Kalam';
+		padding-left: 10px;
+		padding-right: 10px;
+		color: lightBlue;
+		text-align: center;
+		font-size: 3vmax;
+	}
+	
+	.cyanhole {
+		color: cyan;
+		font-family: 'Kalam';
+	}
+	
+	#recoverclear {
+	position: absolute;
+//	        display: none;
+	   //border: 1px solid white;     
+	   background: black;
+	   height: 100%;
+	   width: 100%;
+	   color: white;
+	   padding-left: 15%;
+	   padding-right: 15%;
+	   padding-top: 50%;
+	}
+	
+	#recover, #clear {
+	        height: 50%;
+	        width: 45%;
+	        font-size: 2vh;
+	        background: dodgerBlue;
+	        color: white;
+	        padding-left: 5%;
+	   padding-right: 5%;
+	   padding-top: 10%;
+	   border-radius: 5px;
+	}
+	
+	.sm {
+		font-size: 100%;
+		color: white;
+		background: dodgerBlue;
+		height: 6vh;
+		width: calc(100% / 9);
+		line-height: 6vh;
+		text-align: center;
+		border-radius: 50%;
+		border: 1px solid silver;
+	}
+	
+	.smc {
+		font-size: 4vh;
+		font-family: 'Kalam';
+		color: cyan;
+		background: black;
+		height: 8vh;
+		width: calc(100% / 9);
+		line-height: 8vh;
+		text-align: center;
+		
+	}
+	
+	.sml {
+		font-size: 4vh;
+		font-family: 'Kalam';
+		color: lime;
+		background: black;
+		height: 8vh;
+		width: calc(100% / 9);
+		line-height: 8vh;
+		text-align: center;
+		
+		
+	}
+	
+	.spacer {
+		display: flex;
+		color: white;
+		font-family: 'Kalam';
+		background: black;
+		height: 2vh;
+		flex-grow: 1;
+	}
+	
+	
+	</style>
+</head>
+
+<body>
+
+	<!-- scoring screen -->
+	<div id="all">
+		<div class="child-one">
+			<div onclick="toggleDropdown()" class="dropbtn" id="dropbtn">select player 1</div>
+			<div id="playersDropdown" class="dropdown-content"></div>
+		</div>
+		<div class="child-six" onclick="displayInfo()">
+			<div id="holedetails">hole 1 par si etc.</div>
+		</div>
+		<div class="child-seven">
+			<div id="p1name" onclick="selected(this.id)">player 1</div>
+			<div id="p1score" onclick="selected(this.id)">0</div>
+		</div>
+		
+		<div class="child-eight">
+			<div class="small scorelow" id="score1" onclick="numberScore(this.id)">1</div>
+			<div class="small scorelow" id="score2" onclick="numberScore(this.id)">2</div>
+			<div class="small scorelow" id="score3" onclick="numberScore(this.id)">3</div>
+		</div>
+		<div class="child-eight">
+			<div class="small scorelow" id="score4" onclick="numberScore(this.id)">4</div>
+			<div class="small scorelow" id="score5" onclick="numberScore(this.id)">5</div>
+			<div class="small scorelow" id="score6" onclick="numberScore(this.id)">6</div>
+		</div>
+		<div class="child-eight">
+			<div class="small scorelow" id="score7" onclick="numberScore(this.id)">7</div>
+			<div class="small scorelow" id="score8" onclick="numberScore(this.id)">8</div>
+			<div class="small scorelow" id="score9" onclick="numberScore(this.id)">9</div>
+		</div>
+		<div class="child-eight">
+			<div class="small scorelow" id="scoreprev" onclick="prevHole()">prev</div>
+			<div class="small scorelow" id="score0" onclick="numberScore(this.id)">0</div>
+			<div class="small scorelow" id="scorenext" onclick="nextHole()">next</div>
+		</div>
+		
+		<div class="spacer"></div>
+		
+		
+		
+		<div class="child-nine">
+			<div class="sm">1</div>
+			<div class="sm">2</div>
+			<div class="sm">3</div>
+			<div class="sm">4</div>
+			<div class="sm">5</div>
+			<div class="sm">6</div>
+			<div class="sm">7</div>
+			<div class="sm">8</div>
+			<div class="sm">9</div>
+		</div>
+		
+		<div class="child-nine">
+			<div class="sml" id="xh1">0</div>
+			<div class="sml" id="xh2">0</div>
+			<div class="sml" id="xh3">0</div>
+			<div class="sml" id="xh4">0</div>
+			<div class="sml" id="xh5">0</div>
+			<div class="sml" id="xh6">0</div>
+			<div class="sml" id="xh7">0</div>
+			<div class="sml" id="xh8">0</div>
+			<div class="sml" id="xh9">0</div>
+			
+		</div>
+		
+		<div class="child-nine">
+			<div class="sm">10</div>
+			<div class="sm">11</div>
+			<div class="sm">12</div>
+			<div class="sm">13</div>
+			<div class="sm">14</div>
+			<div class="sm">15</div>
+			<div class="sm">16</div>
+			<div class="sm">17</div>
+			<div class="sm">18</div>
+		</div>
+		
+		<div class="child-nine">
+			<div class="smc" id="xh10">0</div>
+			<div class="smc" id="xh11">0</div>
+			<div class="smc" id="xh12">0</div>
+			<div class="smc" id="xh13">0</div>
+			<div class="smc" id="xh14">0</div>
+			<div class="smc" id="xh15">0</div>
+			<div class="smc" id="xh16">0</div>
+			<div class="smc" id="xh17">0</div>
+			<div class="smc" id="xh18">0</div>
+			
+		</div>
+		
+		
+		
+		<div class="child-one">
+			<div class="submit" onclick="submitForm()">
+				<div id="submit">submit</div>
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div id="info" onclick="hideInfo()">
+			<div id="x1"></div>
+			<div class="child-three">
+				<div id="h0" class="box1c">hole</div>
+				<div id="p1h0" class="box1c">player 1</div>
+			
+			</div>
+			<div class="child-three">
+				<div id="h1" class="box1">1</div>
+				<div id="p1h1" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h2" class="box1">2</div>
+				<div id="p1h2" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h3" class="box1">3</div>
+				<div id="p1h3" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h4" class="box1">4</div>
+				<div id="p1h4" class="box1">-</div>
+			
+			</div>
+			<div class="child-three">
+				<div id="h5" class="box1">5</div>
+				<div id="p1h5" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h6" class="box1">6</div>
+				<div id="p1h6" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h7" class="box1">7</div>
+				<div id="p1h7" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h8" class="box1">8</div>
+				<div id="p1h8" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h9" class="box1">9</div>
+				<div id="p1h9" class="box1">-</div>
+			
+			</div>
+			<div class="child-three">
+				<div id="front" class="box1c">front</div>
+				<div id="p1hf" class="box1c">-</div>
+			
+			</div>
+			<div class="child-three">
+				<div id="h10" class="box1">10</div>
+				<div id="p1h10" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h11" class="box1">11</div>
+				<div id="p1h11" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h12" class="box1">12</div>
+				<div id="p1h12" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h13" class="box1">13</div>
+				<div id="p1h13" class="box1">-</div>
+			
+			</div>
+			<div class="child-three">
+				<div id="h14" class="box1">14</div>
+				<div id="p1h14" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h15" class="box1">15</div>
+				<div id="p1h15" class="box1">-</div>
+			
+			</div>
+			<div class="child-three">
+				<div id="h16" class="box1">16</div>
+				<div id="p1h16" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h17" class="box1">17</div>
+				<div id="p1h17" class="box1">-</div>
+				
+			</div>
+			<div class="child-three">
+				<div id="h18" class="box1">18</div>
+				<div id="p1h18" class="box1">-</div>
+			
+			</div>
+			<div class="child-three">
+				<div id="back" class="box1c">back</div>
+				<div id="p1hb" class="box1c">-</div>
+			
+			</div>
+			<div class="child-three">
+				<div id="total" class="box1c">total</div>
+				<div id="p1ht" class="box1c">-</div>
+			
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+		<!--
+	invisible but necessary for submit of data
+	-->
+		<!-- form to construct data prior to submit -->
+		<form action="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/formResponse" id="my-form" method="post" name="my-form" target="my-response-iframe">
+			<!-- name, hcp, course -->
+			<input id='mx474474348' name='entry.474474348' type='text' value='default'>
+			<input id='mx2131369517' name='entry.2131369517' type='text' value='default'>
+			<input id='mx477101370' name='entry.477101370' type='text' value='default'>
+			<input id='mx1980297491' name='entry.1980297491' type='text' value='default'>
+			<input id='mx463832232' name='entry.463832232' type='text' value='default'>
+			<input id='mx205704642' name='entry.205704642' type='text' value='default'>
+			<input id='mx278278589' name='entry.278278589' type='text' value='default'>
+			<input id='mx949547387' name='entry.949547387' type='text' value='default'>
+			<input id='mx703011397' name='entry.703011397' type='text' value='default'>
+			<input id='mx1460583253' name='entry.1460583253' type='text' value='default'>
+			<input id='mx462940045' name='entry.462940045' type='text' value='default'>
+			<input id='mx477691508' name='entry.477691508' type='text' value='default'>
+			<input id='mx413249407' name='entry.413249407' type='text' value='default'>
+			<input id='mx108900453' name='entry.108900453' type='text' value='default'>
+			<input id='mx1841236411' name='entry.1841236411' type='text' value='default'>
+			<input id='mx1864644918' name='entry.1864644918' type='text' value='default'>
+			<input id='mx1538428689' name='entry.1538428689' type='text' value='default'>
+			<input id='mx1449918213' name='entry.1449918213' type='text' value='default'>
+			<input id='mx38761817' name='entry.38761817' type='text' value='default'>
+			<input id='mx247392471' name='entry.247392471' type='text' value='default'>
+			<input id='mx741809181' name='entry.741809181' type='text' value='default'>
+			<input id='mx1362729237' name='entry.1362729237' type='text' value='default'>
+			<input id='mx1372983908' name='entry.1372983908' type='text' value='default'>
+			<input id='mx2002196917' name='entry.2002196917' type='text' value='default'>
+			<input id='mx640802794' name='entry.640802794' type='text' value='default'>
+			<input id='mx2076656246' name='entry.2076656246' type='text' value='default'>
+			<input id='mx486346919' name='entry.486346919' type='text' value='default'>
+			<input id='mx1918313229' name='entry.1918313229' type='text' value='default'>
+			<input id='mx638821' name='entry.638821' type='text' value='default'>
+			<input id='mx737099688' name='entry.737099688' type='text' value='default'>
+			<input id='mx488827232' name='entry.488827232' type='text' value='default'>
+			<input id='mx1203421487' name='entry.1203421487' type='text' value='default'>
+			<input id='mx979421831' name='entry.979421831' type='text' value='default'>
+			<input id='mx929858153' name='entry.929858153' type='text' value='default'>
+			<input id='mx1330487443' name='entry.1330487443' type='text' value='default'>
+			<input id='mx940496448' name='entry.940496448' type='text' value='default'>
+			<input id='mx1127168348' name='entry.1127168348' type='text' value='default'>
+			<input id='mx638332104' name='entry.638332104' type='text' value='default'>
+			<input id='mx1626319908' name='entry.1626319908' type='text' value='default'>
+			<input id='mx362674948' name='entry.362674948' type='text' value='default'>
+			<input id='mx544180710' name='entry.544180710' type='text' value='default'>
+			<input id='mx893562950' name='entry.893562950' type='text' value='default'>
+			<input id='mx335596501' name='entry.335596501' type='text' value='default'>
+			<input id='mx1453506389' name='entry.1453506389' type='text' value='default'>
+			<input id='mx1045870519' name='entry.1045870519' type='text' value='default'>
+			<input id='mx683300283' name='entry.683300283' type='text' value='default'>
+			<input id='mx967906330' name='entry.967906330' type='text' value='default'>
+			<input id='mx789190149' name='entry.789190149' type='text' value='default'>
+			<input type="submit"> </form>
+		<!-- google iframe inserted here - invisible -->
+		<iframe height="20" id="my-response-iframe" name="my-response-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScqGsnDEmEIemPatOoRe8WNNqZVgfM-cYPqf3NpXRMjavq8iw/viewform?embedded=true" width="60"></iframe>
+		<br>
+		<script>
+		//=================================================================================
+		// this runs on startup or reload
+		// 
+		//=================================================================================
+		// declare global variables
+		var selectedplayer = 1;
+		// hilight first player entry
+		document.getElementById("p1name").classList.add("highlight");
+		var arrCourse = [];
+		var arrHcps = [];
+		var arrPlayers = [];
+		var arrOptions = [];
+		var oldArrOptions = [];
+		var compcourse = "none";
+		var compdate = "";
+		var shotsscore = "";
+		var currenthole = 0;
+		// declare global variables
+		var hcp = "0";
+		var player = "select player";
+		var comp;
+		var course = "OldCourse";
+		var arrOptions = [];
+		var hcplist = "";
+		var msglist = "";
+		var msglistcount = 0;
+		var player1name = "player 1";
+		var player2name = "player 2";
+		var player3name = "player 3";
+		var player4name = "player 4";
+		var player1hcp = "?";
+		var player2hcp = "?";
+		var player3hcp = "?";
+		var player4hcp = "?";
+		var player1teecolor = "yellow";
+		var player2teecolor = "yellow";
+		var player3teecolor = "yellow";
+		var player4teecolor = "yellow";
+		var whichhole = 1;
+		var frontp1 = 0
+		var frontp2 = 0
+		var frontp3 = 0
+		var backp1 = 0
+		var backp2 = 0
+		var backp3 = 0
+		var allp1 = 0
+		var allp2 = 0
+		var allp3 = 0
+		var fronttxt9 = "";
+		var backtxt9 = "";
+		var alltxt18 = "";
+		var frontleaderplayer = "";
+		var frontleaderholes = 0;
+		var frontwincount = 0;
+		var backleaderplayer = "";
+		var backleaderholes = 0;
+		var backwincount = 0;
+		var allleaderplayer = "";
+		var allleaderholes = 0;
+		var allwincount = 0;
+		var scorelist = "";
+		//==============================================================
+		// data has previously been stored so just retrieve it
+		//==============================================================
+		// retrieve arrays
+		// previously downloaded by menu screen
+		if("wwplayersarray" in localStorage) {
+			arrPlayers = JSON.parse(localStorage.wwplayersarray);
+		}
+		if("wwhcpsarray" in localStorage) {
+			arrHcps = JSON.parse(localStorage.wwhcpsarray);
+		}
+		if("wwladiesarray" in localStorage) {
+			arrLadies = JSON.parse(localStorage.wwladiesarray);
+		}
+		// retrieve competition
+		if("wwtodayscomp" in localStorage) {
+			todayscomp = localStorage.wwtodayscomp;
+			// global comp
+			temp = todayscomp.split(" ")
+			course = temp[0];
+			// set up course arrays here, one for men and one for ladies
+			// saves on the number of arrays being used
+			if(course == "Dawson") {
+				// set up arrDawson
+				// set up arrDawsonRed
+				setupDawsonCourse()
+			}
+			if(course == "Lakes") {
+				// set up arrLakes
+				// set up arrLakesRed
+				setupLakesCourse()
+			}
+			if(course == "OldCourse") {
+				// set up arrOldCourse
+				// set up arrOldCourseRed
+				setupOldCourseCourse()
+			}
+		}
+		startNewDay();
+		start();
+		//=============================================================
+		// functions - run when called
+		//=============================================================  
+		function setupLakesCourse() {
+			// set up courses with details for calculations etc.
+			// array ["hole num",par,si]
+			// Lakes yellow tees
+			arrLakes = [
+				[0, 0, 0],
+				[1, 4, 15],
+				[2, 4, 7],
+				[3, 5, 3],
+				[4, 4, 1],
+				[5, 3, 17],
+				[6, 3, 11],
+				[7, 4, 9],
+				[8, 4, 5],
+				[9, 4, 13],
+				[10, 3, 16],
+				[11, 4, 18],
+				[12, 4, 10],
+				[13, 4, 6],
+				[14, 3, 14],
+				[15, 3, 4],
+				[16, 5, 12],
+				[17, 4, 2],
+				[18, 5, 8]
+			];
+			// Lakes red tees
+			arrLakesRed = [
+				[0, 0, 0],
+				[1, 4, 15],
+				[2, 4, 1],
+				[3, 5, 3],
+				[4, 4, 5],
+				[5, 3, 17],
+				[6, 3, 9],
+				[7, 4, 11],
+				[8, 4, 7],
+				[9, 4, 13],
+				[10, 3, 16],
+				[11, 4, 18],
+				[12, 4, 4],
+				[13, 4, 12],
+				[14, 3, 14],
+				[15, 3, 10],
+				[16, 5, 6],
+				[17, 4, 2],
+				[18, 5, 8]
+			];
+		}
+
+		function setupDawsonCourse() {
+			// set up courses with details for calculations etc.
+			// array ["hole num",par,si]
+			// Dawson yellow tees	
+			arrDawson = [
+				[0, 0, 0],
+				[1, 5, 13],
+				[2, 4, 15],
+				[3, 3, 17],
+				[4, 4, 3],
+				[5, 4, 1],
+				[6, 5, 11],
+				[7, 4, 7],
+				[8, 4, 9],
+				[9, 5, 5],
+				[10, 4, 16],
+				[11, 5, 14],
+				[12, 3, 18],
+				[13, 4, 2],
+				[14, 4, 4],
+				[15, 4, 12],
+				[16, 3, 6],
+				[17, 4, 10],
+				[18, 4, 8]
+			];
+			// Dawson red tees	
+			arrDawsonRed = [
+				[0, 0, 0],
+				[1, 5, 7],
+				[2, 4, 5],
+				[3, 3, 17],
+				[4, 4, 3],
+				[5, 4, 1],
+				[6, 5, 9],
+				[7, 4, 15],
+				[8, 4, 13],
+				[9, 5, 11],
+				[10, 4, 10],
+				[11, 5, 4],
+				[12, 3, 18],
+				[13, 4, 2],
+				[14, 4, 14],
+				[15, 4, 8],
+				[16, 3, 16],
+				[17, 4, 12],
+				[18, 4, 6]
+			];
+		}
+
+		function setupOldCourseCourse() {
+			// set up courses with details for calculations etc.
+			// array ["hole num",par,si]
+			// OldCourse yellow tees		
+			// array ["hole num",par,si]
+			arrOldCourse = [
+				[0, 0, 0],
+				[1, 5, 14],
+				[2, 4, 12],
+				[3, 3, 18],
+				[4, 5, 8],
+				[5, 3, 16],
+				[6, 4, 6],
+				[7, 4, 2],
+				[8, 4, 13],
+				[9, 4, 4],
+				[10, 4, 5],
+				[11, 3, 17],
+				[12, 4, 11],
+				[13, 4, 3],
+				[14, 5, 10],
+				[15, 3, 7],
+				[16, 5, 15],
+				[17, 4, 1],
+				[18, 5, 9]
+			];
+			arrOldCourseRed = [
+				[0, 0, 0],
+				[1, 5, 14],
+				[2, 4, 12],
+				[3, 3, 18],
+				[4, 5, 8],
+				[5, 3, 16],
+				[6, 4, 6],
+				[7, 4, 2],
+				[8, 4, 13],
+				[9, 4, 4],
+				[10, 4, 5],
+				[11, 3, 17],
+				[12, 4, 11],
+				[13, 4, 3],
+				[14, 5, 10],
+				[15, 3, 7],
+				[16, 5, 15],
+				[17, 4, 1],
+				[18, 5, 9]
+			];
+		}
+		//======================================
+		// prevent accidental closing
+		//======================================
+		function eventl() {
+			// Cancel the event
+			event.preventDefault();
+			event.returnValue = "";
+		}
+		//=====================================
+		window.addEventListener("beforeunload", eventl)
+		var holedetails = course + ", hole " + whichhole
+		document.getElementById("holedetails").innerText = holedetails
+			//===========================
+			// this code runs at startup
+			//===========================
+			//==============================================================
+			// data has previously been stored so just retrieve it
+			//==============================================================
+			// retrieve arrays
+		if("wwplayersarray" in localStorage) {
+			arrPlayers = JSON.parse(localStorage.wwplayersarray);
+		}
+		if("wwhcpsarray" in localStorage) {
+			arrHcps = JSON.parse(localStorage.wwhcpsarray);
+		}
+		//showDownloadingInfoMsg();
+		//startNewDay();
+		//getData()
+		//=============================================================
+		// functions - run when called
+		//=============================================================  
+		function startNewDay() {
+			// get todays date eg 26 June
+			dd = new Date();
+			// get date number and format it
+			d1 = dd.getDate();
+			if(d1 < 10) {
+				d1 = "0" + d1;
+			}
+			// get month and format it
+			d2 = dd.getMonth();
+			if(d2 == 0) {
+				m = "January";
+			}
+			if(d2 == 1) {
+				m = "February";
+			}
+			if(d2 == 2) {
+				m = "March";
+			}
+			if(d2 == 3) {
+				m = "April";
+			}
+			if(d2 == 4) {
+				m = "May";
+			}
+			if(d2 == 5) {
+				m = "June";
+			}
+			if(d2 == 6) {
+				m = "July";
+			}
+			if(d2 == 7) {
+				m = "August";
+			}
+			if(d2 == 8) {
+				m = "September";
+			}
+			if(d2 == 9) {
+				m = "October";
+			}
+			if(d2 == 10) {
+				m = "November";
+			}
+			if(d2 == 11) {
+				m = "December";
+			}
+			dateToday = d1 + " " + m;
+			if(localStorage.wwtodayscomp.indexOf(dateToday) > -1) {
+				// create set of local storage items	
+				setupScores()
+			}
+		}
+		//=============================================================
+		//=============================================================
+		// function start()
+		// - initialise everything and do checks etc.
+		//=============================================================  
+		function start() {
+			// check for any previous selections
+			// setup local dropdown if not there
+			if("wwdropdown" in localStorage) {
+				oldArrOptions = JSON.parse(localStorage.wwdropdown);
+			}
+			// create options array for dropdown 
+			for(var i = 0; i < arrPlayers.length; i++) {
+				x = arrPlayers[i]
+				arrOptions.push([x, 0])
+			}
+			// update Options array with choices info
+			for(var i = 0; i < oldArrOptions.length; i++) {
+				// if there is a value
+				if(oldArrOptions[i][1] > 0) {
+					for(var j = 0; j < arrOptions.length; j++) {
+						// if names match
+						if(arrOptions[j][0] == oldArrOptions[i][0]) {
+							arrOptions[j][1] = oldArrOptions[i][1]
+						}
+					}
+				}
+			}
+			// save dropdown info
+			localStorage.wwdropdown = JSON.stringify(arrOptions);
+			// bring most commonly selected to the top
+			arrOptions.sort(compareSecondColumn);
+			console.log("oldArrOptions = " + oldArrOptions.length + " - arrOptions = " + arrOptions.length)
+				// bring most commonly selected to the top
+				//arrPlayers.sort(compareSecondColumn);
+				// create player dropdown
+			var select = document.getElementById("playersDropdown");
+			// this is what is created
+			//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+			//
+			for(var i = 0; i < arrOptions.length; i++) {
+				var el = document.createElement("a");
+				el.id = "myLink" + (i);
+				el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+				el.setAttribute("href", "#");
+				el.innerText = arrOptions[i][0];
+				select.appendChild(el);
+				if(arrOptions[i][1] > 0) {
+					console.log(arrOptions[i][0] + " " + arrOptions[i][1])
+					document.getElementById("myLink" + (i)).style.color = "blue";
+					document.getElementById("myLink" + (i)).style.background = "lightBlue";
+				}
+			}
+			console.log("oldArrOptions = " + oldArrOptions.length + " - arrOptions = " + arrOptions.length)
+		} // end function start()	
+		// Close the dropdown if the user clicks outside of it
+		window.onclick = function(event) {
+			if(!event.target.matches('.dropbtn')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for(i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if(openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+		};
+		// get todays date eg 26 June
+		dd = new Date();
+		// get date number and format it
+		d1 = dd.getDate();
+		if(d1 < 10) {
+			d1 = "0" + d1;
+		}
+		// get month and format it
+		d2 = dd.getMonth();
+		if(d2 == 0) {
+			m = "January";
+		}
+		if(d2 == 1) {
+			m = "February";
+		}
+		if(d2 == 2) {
+			m = "March";
+		}
+		if(d2 == 3) {
+			m = "April";
+		}
+		if(d2 == 4) {
+			m = "May";
+		}
+		if(d2 == 5) {
+			m = "June";
+		}
+		if(d2 == 6) {
+			m = "July";
+		}
+		if(d2 == 7) {
+			m = "August";
+		}
+		if(d2 == 8) {
+			m = "September";
+		}
+		if(d2 == 9) {
+			m = "October";
+		}
+		if(d2 == 10) {
+			m = "November";
+		}
+		if(d2 == 11) {
+			m = "December";
+		}
+		compdate = d1 + " " + m;
+		//=============================================================
+		// functions - run when called
+		//=============================================================  
+		//=============================================================
+		// function resetNames()
+		// - gets rid of "selected" names
+		//=============================================================  
+		function resetNames() {
+			// create player dropdown
+			var select = document.getElementById("playersDropdown");
+			// empty names
+			select.innerHTML = "";
+			// redo list for menu
+			// <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+			//
+			for(var i = 0; i < arrPlayers.length; i++) {
+				var el = document.createElement("a");
+				el.id = "myLink" + (i + 1);
+				el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+				el.setAttribute("href", "#");
+				el.innerText = arrPlayers[i];
+				select.appendChild(el);
+			}
+		}
+		// name selected, do stuff
+		function dropSelected(playerName) {
+		console.log(playerName)
+			if(playerName == "reset list") {
+		           resetNames();
+	                } else {
+				// retrieve dropdown info
+			for(var k = 0; k < arrPlayers.length; k++) {
+				if(arrPlayers[k] == playerName) {
+					//found = true;
+					//pos = k;
+					hcp = arrHcps[k]
+				}
+			}
+			// find player in options list
+			for(var k = 0; k < arrOptions.length; k++) {
+				if(arrOptions[k][0] == playerName) {
+					temppos = k;
+				}
+			}
+			// change color on selection
+			document.getElementById("myLink" + temppos.toString()).style.color = "blue";
+			document.getElementById("myLink" + temppos.toString()).style.background = "lightBlue";
+			if(temppos >= 0) {
+				// increment number of times chosen
+				var tc = parseInt(arrOptions[temppos][1]) + 1;
+				arrOptions[temppos][1] = tc;
+				// store new order
+				localStorage.wwdropdown = JSON.stringify(arrOptions);
+				// global player
+				player = playerName;
+			}
+			// update player choice
+			player = document.getElementById("myLink" + temppos.toString()).innerText;
+			document.getElementById("p1name").innerText = player
+			//outputPlayers(player)
+				// close dropdown
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for(i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if(openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+			}
+			// new player so reset scores
+			for(i = 1; i <= 18; i++) {
+			    localStorage.setItem("wwp1h" + i, "0");
+			}
+		}
+		//=============================================================
+		// function toggleDropdown()
+		// - show player name choices
+		//=============================================================  
+		function toggleDropdown() {
+			// When the user clicks on the button, toggle between hiding and showing the dropdown content
+			document.getElementById("playersDropdown").classList.toggle("show");
+		}
+
+		function shortName(nom) {
+			// shorten player name
+			s1 = nom.split(" ")
+			shortPlayername = s1[0] + " " + s1[1].substring(0, 1);
+			shortPlayername = shortPlayername.replace("Stephen", "Steve")
+			shortPlayername = shortPlayername.replace("Malcolm", "Mal")
+			return shortPlayername;
+		}
+
+		function body() {
+			y1array = player1name.split(" ")
+			//y2array = player2name.split(" ")
+			//y3array = player3name.split(" ")
+			//y4array = player4name.split(" ")
+				// if 3 ball (or less)
+			document.getElementById("p1name").innerHTML = shortName(player1name)
+			//document.getElementById("p2name").innerHTML = shortName(player2name)
+			//document.getElementById("p3name").innerHTML = shortName(player3name)
+			//document.getElementById("p4name").innerHTML = shortName(player4name)
+		}
+		//=================================================================================
+		// highlight the current player number
+		// 
+		//=================================================================================	
+		function selected(id) {
+			// reset all player names
+			document.getElementById("p1name").classList.remove("highlight");
+			// highlight selected
+			document.getElementById("p1name").classList.add("highlight");
+		}
+		//=================================================================================
+		// put score in the selected player
+		// and move on	
+		//=================================================================================
+		function numberScore(id) {
+			// id is something like score2
+			// selectedplayer is global 1, 2, 3, 4
+			//if(("1234").indexOf(selectedplayer) > -1) {
+				// id is number button pressed eg. score5
+				temppscore = "p1score"
+				temppname = "p1name"
+					// highlight number button for a brief time
+				tempid = document.getElementById(id)
+				temppscoreid = document.getElementById(temppscore)
+				temppnameid = document.getElementById(temppname)
+					// do number button
+				tempid.classList.replace("scorelow", "scorehigh");
+				// do score entered
+				temppscoreid.classList.add("highlight");
+				// do player name
+				temppnameid.classList.add("highlight");
+				// delay putting everything back
+				setTimeout(function() {
+					// put number button back
+					tempid.classList.replace("scorehigh", "scorelow");
+					// put score back
+					temppscoreid.classList.remove("highlight");
+					// put player name back
+					temppnameid.classList.remove("highlight");
+					// update score
+					document.getElementById(temppscore).innerText = id.replace("score", "")
+					
+		nextHole();			
+					
+					
+				}, "200");
+			//}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}
+		//=================================================================================
+		// move to next hole
+		// 
+		//=================================================================================
+		function nextHole() {
+			saveScores()
+			document.getElementById("scorenext").classList.replace("scorelow", "scorehigh");
+			// delay putting everything back
+			setTimeout(function() {
+				// put number button back
+				document.getElementById("scorenext").classList.replace("scorehigh", "scorelow");
+			}, "250");
+			whichhole++
+			if(whichhole > 18) {
+				whichhole = 18;
+			}
+			holedetails = course + ", hole " + whichhole
+				// get hole details
+			document.getElementById("holedetails").innerText = holedetails
+				// get hole scores
+			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("wwp1h" + whichhole);
+			//document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("wwp2h" + whichhole);
+			//document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("wwp3h" + whichhole);
+			//document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("wwp4h" + whichhole);
+			// reset all player name backgrounds
+			document.getElementById("p1name").classList.remove("highlight");
+			//document.getElementById("p2name").classList.remove("highlight");
+			//document.getElementById("p3name").classList.remove("highlight");
+			//document.getElementById("p4name").classList.remove("highlight");
+			document.getElementById("p1score").innerText = "0"
+			//document.getElementById("p2score").innerText = "0"
+			//document.getElementById("p3score").innerText = "0"
+			//document.getElementById("p4score").innerText = "0"
+			selectedplayer = 1
+			document.getElementById("p1name").classList.add("highlight");
+			// get scores  
+			getScores()
+		}
+		//=================================================================================
+		// move to the previous hole
+		//
+		//=================================================================================
+		function prevHole() {
+			saveScores()
+			document.getElementById("scoreprev").classList.replace("scorelow", "scorehigh");
+			// delay putting everything back
+			setTimeout(function() {
+				// put number button back
+				document.getElementById("scoreprev").classList.replace("scorehigh", "scorelow");
+			}, "250");
+			whichhole--
+			if(whichhole < 1) {
+				whichhole = 1
+			}
+			// get hole details
+			holedetails = course + ", hole " + whichhole
+			document.getElementById("holedetails").innerText = holedetails
+				// get hole scores
+			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("wwp1h" + whichhole);
+			//document.getElementById("p2h" + whichhole).innerText = localStorage.getItem("wwp2h" + whichhole);
+			//document.getElementById("p3h" + whichhole).innerText = localStorage.getItem("wwp3h" + whichhole);
+			//document.getElementById("p4h" + whichhole).innerText = localStorage.getItem("wwp4h" + whichhole);
+			// change highlight colour
+			document.getElementById("p1name").classList.remove("highlight");
+			//document.getElementById("p2name").classList.remove("highlight");
+			//document.getElementById("p3name").classList.remove("highlight");
+			//document.getElementById("p4name").classList.remove("highlight");
+			selectedplayer = 1
+			document.getElementById("p1name").classList.add("highlight");
+			// retrieve scores   
+			getScores()
+		}
+		//=================================================================================
+		// create an empty set of local storage score containers
+		// and move on	
+		//=================================================================================
+		function setupScores() {
+			for(var i = 1; i <= 18; i++) {
+				for(var j = 1; j <= 4; j++) {
+					localStorage.setItem("wwp" + j + "h" + i, "0")
+				}
+			}
+		}
+		//=================================================================================
+		// save scores for a single page to local storage
+		// 
+		//=================================================================================
+		function saveScores() {
+			// if all 0 tidy up, else, only save if scores are there
+			//if(document.getElementById("p1score").innerText == "0") {
+				// dont save and reset info page value and localStorage
+			//	document.getElementById("p1h" + whichhole).innerText = "0/0";
+				
+			//	localStorage.setItem("wwp1h" + whichhole, "0")
+				
+			//} else {
+				localStorage.setItem("wwp1h" + whichhole, document.getElementById("p1score").innerText)
+	
+			//}
+		}
+		//=================================================================================
+		// get scores for a single page from local storage
+		// 
+		//=================================================================================
+		function getScores() {
+			document.getElementById("p1score").innerText = localStorage.getItem("wwp1h" + whichhole)
+                                        // update all holes
+					for(i = 1; i <= 18; i++) {
+					    document.getElementById("xh" + i).innerText = 
+					    localStorage.getItem("wwp1h" + i)
+					}
+		}
+
+		function outputPlayers(msg) {
+			// msg is player name eg "Bryan Maddison"
+			// find HCP
+			var hcp;
+			for(var i = 0, len = arrPlayers.length; i < len; i++) {
+				if(arrPlayers[i] === msg) {
+					hcp = arrHcps[i];
+					break;
+				}
+			}
+			msglistcount++
+			if(msglistcount > 4) {
+				console.log("too many players")
+			} else {
+				if(hcplist == "") {
+					hcplist = hcp;
+				} else {
+					hcplist += "#" + hcp
+				}
+			}
+			hcplistx = hcplist + "#?#?#?#ho hcp#?"
+			arr2 = hcplistx.split("#");
+			player1hcp = arr2[0];
+			//player2hcp = arr2[1];
+			//player3hcp = arr2[2];
+			//player4hcp = arr2[3];
+			if(msglistcount > 4) {
+				console.log("too many players")
+			} else {
+				if(msglist == "") {
+					msglist = msg;
+					// enable scoring button if player there and course chosen
+					if(compcourse !== "none") {
+						document.getElementById("startscoring").style.display = "block";
+					}
+				} else {
+					msglist += "#" + msg
+				}
+			}
+			msglistx = msglist + "#no player#no player#no player#no player#no player"
+			arr1 = msglistx.split("#");
+			newmsglistplayer = "Player 1:" + "<br>" + "Player 2:" + "<br>" + "Player 3:" + "<br>" + "Player 4:"
+			newmsglistname = arr1[0] + "<br>" + arr1[1] + "<br>" + arr1[2] + "<br>" + arr1[3]
+			newmsglisthcp = player1hcp + "<br>" + player2hcp + "<br>" + player3hcp + "<br>" + player4hcp
+			newmsglist = "Player 1: " + arr1[0] + "<br>" + "Player 2: " + arr1[1] + "<br>" + "Player 3: " + arr1[2] + "<br>" + "Player 4: " + arr1[3]
+			document.getElementById("player4ballplayer").innerHTML = newmsglistplayer
+			document.getElementById("player4ballname").innerHTML = newmsglistname
+			document.getElementById("player4ballhcp").innerHTML = newmsglisthcp
+				// add players names
+			player1name = arr1[0]
+			player2name = arr1[1]
+			player3name = arr1[2]
+			player4name = arr1[3]
+				// find anyone using red tees
+			if(arrLadies.indexOf(player1name) > -1) {
+				player1teecolor = "red";
+			}
+			if(arrLadies.indexOf(player2name) > -1) {
+				player2teecolor = "red";
+			}
+			if(arrLadies.indexOf(player3name) > -1) {
+				player3teecolor = "red";
+			}
+			if(arrLadies.indexOf(player4name) > -1) {
+				player4teecolor = "red";
+			}
+			console.log(player2teecolor)
+			if(arr1[3] == "no player") {
+				txt = "select player 4"
+			}
+			if(arr1[2] == "no player") {
+				txt = "select player 3"
+			}
+			if(arr1[1] == "no player") {
+				txt = "select player 2"
+			}
+			if(arr1[0] == "no player") {
+				txt = "select player 1"
+			}
+			document.getElementById("dropbtn").innerText = txt;
+			// just close it now
+			if(arr1[3] !== "no player") {
+				// hide button
+				document.getElementById("dropbtn").style.display = "none";
+			}
+			body();
+		}
+		// helper function to deep copy array
+		function arrDeepCopy(aObject) {
+			// deep copy array
+			// Prevent undefined objects
+			// if (!aObject) return aObject;
+			var bObject = Array.isArray(aObject) ? [] : {};
+			var value;
+			for(const key in aObject) {
+				// Prevent self-references to parent object
+				// if (Object.is(aObject[key], aObject)) continue;
+				value = aObject[key];
+				bObject[key] = (typeof value === "object") ? arrDeepCopy(value) : value;
+			}
+			return bObject;
+		}
+
+		function getScoring() {
+			// save new hcps
+			// submit new data - asychronous after first so does not cause a delay
+			//delay1 = 2000
+			//delay2 = 4000
+			//delay3 = 6000
+				// set up for correct number of players
+		//	if(player4name == "no player") {
+		//		player4hcp = 99;
+		//		document.getElementById("p4name").style.display = "none";
+		//		document.getElementById("p4score").style.display = "none"
+		//	}
+		//	if(player3name == "no player") {
+		//		player3hcp = 99;
+		//		document.getElementById("p3name").style.display = "none";
+		//		document.getElementById("p3score").style.display = "none"
+		//	}
+		//	if(player2name == "no player") {
+		//		player2hcp = 99;
+		//		document.getElementById("p2name").style.display = "none";
+		//		document.getElementById("p2score").style.display = "none"
+		//	}
+		//	if(player1name == "no player") {
+		//		player1hcp = 99;
+		//		document.getElementById("p1name").style.display = "none";
+		//		document.getElementById("p1score").style.display = "none"
+		//	}
+		//	document.getElementById("firstscreen").classList.add("fadeOut");
+		//	setTimeout(function() {
+		//		document.getElementById("firstscreen").style.display = "none";
+		//	}, "1000");
+		//	document.getElementById("all").style.display = "initial"
+				// set up for correct number of players
+				// initial save of data
+			saveAllToLocalStorage()
+		}
+		// calculated additional totals, countback etc.
+		function totalScore() {
+			// front 9 scores
+			var p1ih = 0;
+			//var p2ih = 0;
+			//var p3ih = 0;
+			//var p4ih = 0;
+			// front 9 points
+			var p1ip = 0;
+			//var p2ip = 0;
+			//var p3ip = 0;
+			//var p4ip = 0;
+			// back 9 scores
+			var p1jh = 0;
+			//var p2jh = 0;
+			//var p3jh = 0;
+			//var p4jh = 0;
+			// back 9 points
+			var p1jp = 0;
+			//var p2jp = 0;
+			//var p3jp = 0;
+			//var p4jp = 0;
+			// totals
+			var p1f = 0;
+			var p1b = 0;
+			var p1t = 0;
+			//var p2f = 0;
+			//var p2b = 0;
+			//var p2t = 0;
+			//var p3f = 0;
+			//var p3b = 0;
+			//var p3t = 0;
+			//var p4f = 0;
+			//var p4b = 0;
+			//var p4t = 0;
+			// do scores and points
+			for(i = 1; i <= 9; i++) {
+				//const [name, street, unit, city, state, zip] = input.split("/");
+				var [tempp1ih, tempp1ip] = document.getElementById("p1h" + i).innerText.split("/");
+				//var [tempp2ih, tempp2ip] = document.getElementById("p2h" + i).innerText.split("/");
+				//var [tempp3ih, tempp3ip] = document.getElementById("p3h" + i).innerText.split("/");
+				//var [tempp4ih, tempp4ip] = document.getElementById("p4h" + i).innerText.split("/");
+				p1ih += parseInt(tempp1ih)
+				//p2ih += parseInt(tempp2ih)
+				//p3ih += parseInt(tempp3ih)
+				//p4ih += parseInt(tempp4ih)
+				p1ip += parseInt(tempp1ip)
+				//p2ip += parseInt(tempp2ip)
+				//p3ip += parseInt(tempp3ip)
+				//p4ip += parseInt(tempp4ip)
+			}
+			for(j = 10; j <= 18; j++) {
+				//const [name, street, unit, city, state, zip] = input.split("/");
+				var [tempp1jh, tempp1jp] = document.getElementById("p1h" + j).innerText.split("/");
+				//var [tempp2jh, tempp2jp] = document.getElementById("p2h" + j).innerText.split("/");
+				//var [tempp3jh, tempp3jp] = document.getElementById("p3h" + j).innerText.split("/");
+				//var [tempp4jh, tempp4jp] = document.getElementById("p4h" + j).innerText.split("/");
+				p1jh += parseInt(tempp1jh)
+				//p2jh += parseInt(tempp2jh)
+				//p3jh += parseInt(tempp3jh)
+				//p4jh += parseInt(tempp4jh)
+				p1jp += parseInt(tempp1jp)
+				//p2jp += parseInt(tempp2jp)
+				//p3jp += parseInt(tempp3jp)
+				//p4jp += parseInt(tempp4jp)
+			}
+			p1f = p1ih + p1jh;
+			//p2f = p2ih + p2jh;
+			//p3f = p3ih + p3jh;
+			//p4f = p4ih + p4jh;
+			p1fp = p1ip + p1jp;
+			//p2fp = p2ip + p2jp;
+			//p3fp = p3ip + p3jp;
+			//p4fp = p4ip + p4jp;
+			document.getElementById("p1hf").innerText = p1ih + "/" + p1ip;
+			//document.getElementById("p2hf").innerText = p2ih + "/" + p2ip;
+			//document.getElementById("p3hf").innerText = p3ih + "/" + p3ip;
+			//document.getElementById("p4hf").innerText = p4ih + "/" + p4ip;
+			document.getElementById("p1hb").innerText = p1jh + "/" + p1jp;
+			//document.getElementById("p2hb").innerText = p2jh + "/" + p2jp;
+			//document.getElementById("p3hb").innerText = p3jh + "/" + p3jp;
+			//document.getElementById("p4hb").innerText = p4jh + "/" + p4jp;
+			document.getElementById("p1ht").innerText = p1f + "/" + p1fp;
+			//document.getElementById("p2ht").innerText = p2f + "/" + p2fp;
+			//document.getElementById("p3ht").innerText = p3f + "/" + p3fp;
+			//document.getElementById("p4ht").innerText = p4f + "/" + p4fp;
+		}
+
+		function doSomethingRecover() {
+			//  compdate = localStorage.date4ball
+			// etc.
+			document.getElementById("popuppanel").style.display = "none";
+			// get all the data back and put in right places
+			retrieveAllFromLocalStorage()
+				// setup number of players and proceed
+			getScoring();
+			moveToCurrent();
+		}
+
+		function saveAllToLocalStorage() {
+			// save player names
+			localStorage.setItem("wwplayer1name", player1name)
+			//localStorage.setItem("wwplayer2name", player2name)
+			//localStorage.setItem("wwplayer3name", player3name)
+			//localStorage.setItem("wwplayer4name", player4name)
+				// save player hcps
+			localStorage.setItem("wwplayer1hcp", player1hcp)
+			//localStorage.setItem("wwplayer2hcp", player2hcp)
+			//localStorage.setItem("wwplayer3hcp", player3hcp)
+			//localStorage.setItem("wwplayer4hcp", player4hcp)
+				// save course
+			//localStorage.setItem("wwcompcourse", compcourse)
+				// save date
+			localStorage.setItem("wwcompdate", compdate)
+				// save all scores and points
+			var temp1 = "";
+			for(i = 1; i <= 18; i++) {
+				j = 1;
+				temp1 = document.getElementById("p1h" + i).innerText
+				if(temp1.indexOf("/") > -1) {
+					temp1array = temp1.split("/")
+					localStorage.setItem("wwp1h" + i, temp1array[0])
+				} else {
+					localStorage.setItem("wwp1h" + i, "0")
+				}
+				//temp1 = document.getElementById("p2h" + i).innerText
+				//if(temp1.indexOf("/") > -1) {
+				//	temp1array = temp1.split("/")
+				//	localStorage.setItem("wwp2h" + i, temp1array[0])
+				//} else {
+				//	localStorage.setItem("wwp2h" + i, "0")
+				//}
+				//temp1 = document.getElementById("p3h" + i).innerText
+				//if(temp1.indexOf("/") > -1) {
+				//	temp1array = temp1.split("/")
+				//	localStorage.setItem("wwp3h" + i, temp1array[0])
+				//} else {
+				//	localStorage.setItem("wwp3h" + i, "0")
+				//}
+				//temp1 = document.getElementById("p4h" + i).innerText
+				//if(temp1.indexOf("/") > -1) {
+				//	temp1array = temp1.split("/")
+				//	localStorage.setItem("wwp4h" + i, temp1array[0])
+				//} else {
+				//	localStorage.setItem("wwp4h" + i, "0")
+				//}
+			}
+			// save totals
+			// front 9
+			temp1 = document.getElementById("p1hf").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("wwp1hf", temp1array[0])
+			} else {
+				localStorage.setItem("wwp1hf", "0")
+			}
+			//temp1 = document.getElementById("p2hf").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp2hf", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp2hf", "0")
+			//}
+			//temp1 = document.getElementById("p3hf").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp3hf", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp3hf", "0")
+			//}
+			//temp1 = document.getElementById("p4hf").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp4hf", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp4hf", "0")
+			//}
+			// back 9
+			temp1 = document.getElementById("p1hb").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("wwp1hb", temp1array[0])
+			} else {
+				localStorage.setItem("wwp1hb", "0")
+			}
+			//temp1 = document.getElementById("p2hb").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp2hb", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp2hb", "0")
+			//}
+			//temp1 = document.getElementById("p3hb").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp3hb", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp3hb", "0")
+			//}
+			//temp1 = document.getElementById("p4hb").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp4hb", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp4hb", "0")
+			//}
+			// total
+			temp1 = document.getElementById("p1ht").innerText
+			if(temp1.indexOf("/") > -1) {
+				temp1array = temp1.split("/")
+				localStorage.setItem("wwp1ht", temp1array[0])
+			} else {
+				localStorage.setItem("wwp1ht", "0")
+			}
+			//temp1 = document.getElementById("p2ht").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp2ht", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp2ht", "0")
+			//}
+			//temp1 = document.getElementById("p3ht").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp3ht", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp3ht", "0")
+			//}
+			//temp1 = document.getElementById("p4ht").innerText
+			//if(temp1.indexOf("/") > -1) {
+			//	temp1array = temp1.split("/")
+			//	localStorage.setItem("wwp4ht", temp1array[0])
+			//} else {
+			//	localStorage.setItem("wwp4ht", "0")
+			//}
+		}
+
+		function retrieveAllFromLocalStorage() {
+			compcourse = course;
+			// get date and comp
+			compdate = localStorage.getItem("wwcompdate");
+			compcourse = localStorage.getItem("wwcompcourse");
+			// get course details
+			if(compcourse == "Dawson") {
+				arrCourse = arrDeepCopy(arrDawson);
+			}
+			if(compcourse == "Lakes") {
+				arrCourse = arrDeepCopy(arrLakes);
+			}
+			if(compcourse == "OldCourse") {
+				arrCourse = arrDeepCopy(arrOldCourse);
+			}
+			// recover players names and hcps
+			player1name = localStorage.getItem("wwplayer1name");
+			//player2name = localStorage.getItem("wwplayer2name");
+			//player3name = localStorage.getItem("wwplayer3name");
+			//player4name = localStorage.getItem("wwplayer4name");
+			player1hcp = localStorage.getItem("wwplayer1hcp");
+			//player2hcp = localStorage.getItem("wwplayer2hcp");
+			//player3hcp = localStorage.getItem("wwplayer3hcp");
+			//player4hcp = localStorage.getItem("wwplayer4hcp");
+			// do shortnames etc.
+			body();
+			// recover scores, points etc
+			for(i = 1; i <= 18; i++) {
+				// Recorded scores
+				temp1 = localStorage.getItem("wwp1h" + i);
+				if(temp1 !== "0") {
+					temp2 = pointsCalc(arrCourse[1], arrCourse[2], player1hcp, temp1);
+					document.getElementById("p1h" + i).innerText = temp1 + "/" + temp2;
+				} else {
+					document.getElementById("p1h" + i).innerText = "0";
+				}
+				
+				// do scores for first hole
+				document.getElementById("p1score").innerText = localStorage.getItem("wwp1h1");
+				
+			}
+			// redo totals
+			totalsCalc()
+		}
+
+		function totalsCalc() {
+			p1front = 0
+			
+			p1frontpoints = 0
+			
+			p1back = 0
+			
+			p1backpoints = 0
+			
+			for(var i = 1; i <= 9; i++) {
+				var tempp1txt = document.getElementById("p1h" + i).innerText
+				if(!(tempp1txt == "0")) {
+					tempp1 = tempp1txt.split("/");
+					p1front += parseInt(tempp1[0])
+					p1frontpoints += parseInt(tempp1[1])
+				}
+				
+			}
+			for(var i = 10; i <= 18; i++) {
+				var tempp1txt = document.getElementById("p1h" + i).innerText
+				if(!(tempp1txt == "0")) {
+					tempp1 = tempp1txt.split("/");
+					p1back += parseInt(tempp1[0])
+					p1backpoints += parseInt(tempp1[1])
+				}
+				
+			}
+			document.getElementById("p1hf").innerText = p1front.toString() + "/" + p1frontpoints.toString();
+			
+			document.getElementById("p1hb").innerText = p1back.toString() + "/" + p1backpoints.toString();
+			
+			document.getElementById("p1ht").innerText = (p1front + p1back).toString() + "/" + (p1frontpoints + p1backpoints).toString();
+			
+		}
+
+		function moveToCurrent() {
+			var lastOne = 0;
+			var i = 0;
+			// go backwards
+			for(i = 18; i > 0; i--) {
+				var tempp1txt = document.getElementById("p1h" + i).innerText
+				
+					// find current entry    
+				if(tempp1txt == 0 && tempp2txt == 0 && tempp3txt == 0 && tempp4txt == 0) {
+					lastOne = i;
+				}
+			}
+			//move to last one
+			whichhole = lastOne;
+			// get hole details
+			holedetails = "hole " + arrCourse[whichhole][0] + ", par " + arrCourse[whichhole][1] + ", si " + arrCourse[whichhole][2]
+			document.getElementById("holedetails").innerText = holedetails
+				// get hole scores
+			document.getElementById("p1h" + whichhole).innerText = localStorage.getItem("wwp1h" + whichhole);
+			
+			// change highlight colour
+			document.getElementById("p1name").classList.remove("highlight");
+			
+			selectedplayer = 1
+			document.getElementById("p1name").classList.add("highlight");
+			// retrieve scores   
+			getScores()
+		}
+
+		function displayInfo() {
+			saveScores();
+			//saveAllToLocalStorage()
+			// get players, all strokes and points
+			document.getElementById("p1h0").innerText = shortName(player1name);
+			
+			for(var i = 1; i <= 18; i++) {
+				if(course == "Lakes") {
+					if(player1teecolor == "yellow") {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
+					} else {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+					}
+					
+				}
+				if(course == "Dawson") {
+					if(player1teecolor == "yellow") {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrDawson[i][1], arrDawson[i][2], temp)
+					} else {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
+					}
+					
+				}
+				if(course == "OldCourse") {
+					if(player1teecolor == "yellow") {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
+					} else {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
+					}
+					
+				}
+			}
+			totalScore()
+				//shots()
+				// show screen as overlay
+			if(document.getElementById("info").style.display !== "block") {
+				document.getElementById("info").style.display = "block"
+			} else {
+				document.getElementById("info").style.display = "none"
+			}
+		}
+
+		function hideInfo() {
+			document.getElementById("info").style.display = "none"
+		}
+		// convert scores to stableford points
+		function pointsCalc(xhcp, xpar, xsi, xscore) {
+			hcp = parseInt(xhcp)
+			par = parseInt(xpar)
+			si = parseInt(xsi)
+			score = parseInt(xscore)
+			allowance = 0;
+			if(score == 0) {
+				return 0;
+			} else {
+				// cope with minus hcp
+				if(hcp < 0) {
+					// 18 plus a minus hcp
+					if((18 + parseInt(hcp)) < si) {
+						allowance = -1;
+					}
+				}
+				// allowance   
+				if(hcp >= si) {
+					allowance = 1;
+				}
+				if(hcp >= (18 + si)) {
+					allowance = 2;
+				}
+				if(hcp >= (36 + si)) {
+					allowance = 3;
+				}
+				// points
+				var points = (par + allowance + 2) - score;
+				// remove negative numbers
+				if(points < 0) {
+					points = 0;
+				}
+				return points;
+			}
+		}
+		//=============================================================
+		// function submitForm()
+		// - send info from HTML form to google form
+		//=============================================================  
+		function submitForm() {
+			// get the relevant info into a form
+			// dont allow submit for an incorrect day
+			compday = localStorage.wwcompday;
+			//if wwtodayscomp in comp array
+			console.log("compday = " + compday)
+			if(compday == "yes") {
+				// make sure everything is updated
+				finalWrite();
+				if(player1name !== "no player") {
+					// player1 score entry
+					comp = localStorage.wwtodayscomp
+					console.log("compday = " + compday + " " + comp)
+					document.getElementById('mx474474348').value = player1name;
+					document.getElementById('mx2131369517').value = comp; /* eg. Dawson 02 October 2023 */
+					document.getElementById('mx477101370').value = player1hcp;
+					document.getElementById('mx1980297491').value = document.getElementById("p1h1").innerText.split("/")[0];
+					document.getElementById('mx463832232').value = document.getElementById("p1h2").innerText.split("/")[0];
+					document.getElementById('mx205704642').value = document.getElementById("p1h3").innerText.split("/")[0];
+					document.getElementById('mx278278589').value = document.getElementById("p1h4").innerText.split("/")[0];
+					document.getElementById('mx949547387').value = document.getElementById("p1h5").innerText.split("/")[0];
+					document.getElementById('mx703011397').value = document.getElementById("p1h6").innerText.split("/")[0];
+					document.getElementById('mx1460583253').value = document.getElementById("p1h7").innerText.split("/")[0];
+					document.getElementById('mx462940045').value = document.getElementById("p1h8").innerText.split("/")[0];
+					document.getElementById('mx477691508').value = document.getElementById("p1h9").innerText.split("/")[0];
+					document.getElementById('mx413249407').value = document.getElementById("p1h10").innerText.split("/")[0];
+					document.getElementById('mx108900453').value = document.getElementById("p1h11").innerText.split("/")[0];
+					document.getElementById('mx1841236411').value = document.getElementById("p1h12").innerText.split("/")[0];
+					document.getElementById('mx1864644918').value = document.getElementById("p1h13").innerText.split("/")[0];
+					document.getElementById('mx1538428689').value = document.getElementById("p1h14").innerText.split("/")[0];
+					document.getElementById('mx1449918213').value = document.getElementById("p1h15").innerText.split("/")[0];
+					document.getElementById('mx38761817').value = document.getElementById("p1h16").innerText.split("/")[0];
+					document.getElementById('mx247392471').value = document.getElementById("p1h17").innerText.split("/")[0];
+					document.getElementById('mx741809181').value = document.getElementById("p1h18").innerText.split("/")[0];
+					document.getElementById('mx1362729237').value = document.getElementById("p1h1").innerText.split("/")[1];
+					document.getElementById('mx1372983908').value = document.getElementById("p1h2").innerText.split("/")[1];
+					document.getElementById('mx2002196917').value = document.getElementById("p1h3").innerText.split("/")[1];
+					document.getElementById('mx640802794').value = document.getElementById("p1h4").innerText.split("/")[1];
+					document.getElementById('mx2076656246').value = document.getElementById("p1h5").innerText.split("/")[1];
+					document.getElementById('mx486346919').value = document.getElementById("p1h6").innerText.split("/")[1];
+					document.getElementById('mx1918313229').value = document.getElementById("p1h7").innerText.split("/")[1];
+					document.getElementById('mx638821').value = document.getElementById("p1h8").innerText.split("/")[1];
+					document.getElementById('mx737099688').value = document.getElementById("p1h9").innerText.split("/")[1];
+					document.getElementById('mx488827232').value = document.getElementById("p1h10").innerText.split("/")[1];
+					document.getElementById('mx1203421487').value = document.getElementById("p1h11").innerText.split("/")[1];
+					document.getElementById('mx979421831').value = document.getElementById("p1h12").innerText.split("/")[1];
+					document.getElementById('mx929858153').value = document.getElementById("p1h13").innerText.split("/")[1];
+					document.getElementById('mx1330487443').value = document.getElementById("p1h14").innerText.split("/")[1];
+					document.getElementById('mx940496448').value = document.getElementById("p1h15").innerText.split("/")[1];
+					document.getElementById('mx1127168348').value = document.getElementById("p1h16").innerText.split("/")[1];
+					document.getElementById('mx638332104').value = document.getElementById("p1h17").innerText.split("/")[1];
+					document.getElementById('mx1626319908').value = document.getElementById("p1h18").innerText.split("/")[1];
+					document.getElementById('mx362674948').value = document.getElementById("p1hf").innerText.split("/")[1];
+					document.getElementById('mx544180710').value = document.getElementById("p1hb").innerText.split("/")[1];
+					document.getElementById('mx893562950').value = document.getElementById("p1ht").innerText.split("/")[1];
+					//document.getElementById('mx335596501').value = document.getElementById("cback9");
+					// start of countback
+					document.getElementById('mx335596501').value = document.getElementById("p1hb").innerText.split("/")[1];
+					tempcb6 = 0;
+					tempcb6 += parseInt(document.getElementById("p1h18").innerText.split("/")[1]);
+					tempcb6 += parseInt(document.getElementById("p1h17").innerText.split("/")[1]);
+					tempcb6 += parseInt(document.getElementById("p1h16").innerText.split("/")[1]);
+					tempcb6 += parseInt(document.getElementById("p1h15").innerText.split("/")[1]);
+					tempcb6 += parseInt(document.getElementById("p1h14").innerText.split("/")[1]);
+					tempcb6 += parseInt(document.getElementById("p1h13").innerText.split("/")[1]);
+					tempcb3 = 0;
+					tempcb3 += parseInt(document.getElementById("p1h18").innerText.split("/")[1]);
+					tempcb3 += parseInt(document.getElementById("p1h17").innerText.split("/")[1]);
+					tempcb3 += parseInt(document.getElementById("p1h16").innerText.split("/")[1]);
+					// submit countback
+					document.getElementById('mx1453506389').value = tempcb6;
+					document.getElementById('mx1045870519').value = tempcb3;
+					document.getElementById('mx683300283').value = document.getElementById("p1h18").innerText.split("/")[1];
+					//temp2 = 0;
+					twoscount = 0;
+					// check data is complete 
+					checkBeforeSubmitID = "\n";
+					err = "no";
+					for(ii = 1; ii <= 18; ii++) {
+						if(document.getElementById("p1h" + ii).innerText.split("/")[0] == "2") {
+							twoscount++;
+						}
+						// check for no score entered
+						/*
+						if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
+							if(checkBeforeSubmitID.length < 50) {
+								checkBeforeSubmitID += "hole " + ii + " not scored\n";
+								err = "yes";
+							}
+						}
+						*/
+					}
+					console.log(twoscount)
+						//console.log(document.getElementById("p10").innerText)
+					document.getElementById('mx967906330').value = twoscount.toString();
+					document.getElementById('mx789190149').value = comp + player;
+					//		if(player == "select player") {
+					//			checkBeforeSubmitID += "player not set\n"
+					//			err = "yes";
+					//		}
+					//		if(hcp == "0") {
+					//			checkBeforeSubmitID += "hcp not set\n"
+					//			err = "yes";
+					//		}
+					//		if(err == "yes") {
+					//			// error message
+					//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
+					//			showIncompleteSubmitData(checkBeforeSubmitID);
+					//		} else {
+					//===== submit data ==========
+					//============================
+					document.forms[0].submit();
+				} /* end of player1 */
+				setTimeout(function() {
+					if(player2name !== "no player") {
+						// player2 score entry
+						comp = localStorage.wwtodayscomp
+						console.log("compday = " + compday + " " + comp)
+						document.getElementById('mx474474348').value = comp; /* eg. Dawson 02 October 2023 */
+						document.getElementById('mx2131369517').value = player2name;
+						document.getElementById('mx477101370').value = player2hcp;
+						document.getElementById('mx1980297491').value = document.getElementById("p2h1").innerText.split("/")[0];
+						document.getElementById('mx463832232').value = document.getElementById("p2h2").innerText.split("/")[0];
+						document.getElementById('mx205704642').value = document.getElementById("p2h3").innerText.split("/")[0];
+						document.getElementById('mx278278589').value = document.getElementById("p2h4").innerText.split("/")[0];
+						document.getElementById('mx949547387').value = document.getElementById("p2h5").innerText.split("/")[0];
+						document.getElementById('mx703011397').value = document.getElementById("p2h6").innerText.split("/")[0];
+						document.getElementById('mx1460583253').value = document.getElementById("p2h7").innerText.split("/")[0];
+						document.getElementById('mx462940045').value = document.getElementById("p2h8").innerText.split("/")[0];
+						document.getElementById('mx477691508').value = document.getElementById("p2h9").innerText.split("/")[0];
+						document.getElementById('mx413249407').value = document.getElementById("p2h10").innerText.split("/")[0];
+						document.getElementById('mx108900453').value = document.getElementById("p2h11").innerText.split("/")[0];
+						document.getElementById('mx1841236411').value = document.getElementById("p2h12").innerText.split("/")[0];
+						document.getElementById('mx1864644918').value = document.getElementById("p2h13").innerText.split("/")[0];
+						document.getElementById('mx1538428689').value = document.getElementById("p2h14").innerText.split("/")[0];
+						document.getElementById('mx1449918213').value = document.getElementById("p2h15").innerText.split("/")[0];
+						document.getElementById('mx38761817').value = document.getElementById("p2h16").innerText.split("/")[0];
+						document.getElementById('mx247392471').value = document.getElementById("p2h17").innerText.split("/")[0];
+						document.getElementById('mx741809181').value = document.getElementById("p2h18").innerText.split("/")[0];
+						document.getElementById('mx1362729237').value = document.getElementById("p2h1").innerText.split("/")[1];
+						document.getElementById('mx1372983908').value = document.getElementById("p2h2").innerText.split("/")[1];
+						document.getElementById('mx2002196917').value = document.getElementById("p2h3").innerText.split("/")[1];
+						document.getElementById('mx640802794').value = document.getElementById("p2h4").innerText.split("/")[1];
+						document.getElementById('mx2076656246').value = document.getElementById("p2h5").innerText.split("/")[1];
+						document.getElementById('mx486346919').value = document.getElementById("p2h6").innerText.split("/")[1];
+						document.getElementById('mx1918313229').value = document.getElementById("p2h7").innerText.split("/")[1];
+						document.getElementById('mx638821').value = document.getElementById("p2h8").innerText.split("/")[1];
+						document.getElementById('mx737099688').value = document.getElementById("p2h9").innerText.split("/")[1];
+						document.getElementById('mx488827232').value = document.getElementById("p2h10").innerText.split("/")[1];
+						document.getElementById('mx1203421487').value = document.getElementById("p2h11").innerText.split("/")[1];
+						document.getElementById('mx979421831').value = document.getElementById("p2h12").innerText.split("/")[1];
+						document.getElementById('mx929858153').value = document.getElementById("p2h13").innerText.split("/")[1];
+						document.getElementById('mx1330487443').value = document.getElementById("p2h14").innerText.split("/")[1];
+						document.getElementById('mx940496448').value = document.getElementById("p2h15").innerText.split("/")[1];
+						document.getElementById('mx1127168348').value = document.getElementById("p2h16").innerText.split("/")[1];
+						document.getElementById('mx638332104').value = document.getElementById("p2h17").innerText.split("/")[1];
+						document.getElementById('mx1626319908').value = document.getElementById("p2h18").innerText.split("/")[1];
+						document.getElementById('mx362674948').value = document.getElementById("p2hf").innerText.split("/")[1];
+						document.getElementById('mx544180710').value = document.getElementById("p2hb").innerText.split("/")[1];
+						document.getElementById('mx893562950').value = document.getElementById("p2ht").innerText.split("/")[1];
+						//document.getElementById('mx335596501').value = document.getElementById("cback9");
+						// start of countback
+						document.getElementById('mx335596501').value = document.getElementById("p2hb").innerText.split("/")[1];
+						tempcb6 = 0;
+						tempcb6 += parseInt(document.getElementById("p2h18").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p2h17").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p2h16").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p2h15").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p2h14").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p2h13").innerText.split("/")[1]);
+						tempcb3 = 0;
+						tempcb3 += parseInt(document.getElementById("p2h18").innerText.split("/")[1]);
+						tempcb3 += parseInt(document.getElementById("p2h17").innerText.split("/")[1]);
+						tempcb3 += parseInt(document.getElementById("p2h16").innerText.split("/")[1]);
+						// submit countback
+						document.getElementById('mx1453506389').value = tempcb6;
+						document.getElementById('mx1045870519').value = tempcb3;
+						document.getElementById('mx683300283').value = document.getElementById("p2h18").innerText.split("/")[1];
+						//temp2 = 0;
+						twoscount = 0;
+						// check data is complete 
+						checkBeforeSubmitID = "\n";
+						err = "no";
+						for(ii = 1; ii <= 18; ii++) {
+							if(document.getElementById("p2h" + ii).innerText.split("/")[0] == "2") {
+								twoscount++;
+							}
+							// check for no score entered
+							/*
+							if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
+								if(checkBeforeSubmitID.length < 50) {
+									checkBeforeSubmitID += "hole " + ii + " not scored\n";
+									err = "yes";
+								}
+							}
+							*/
+						}
+						console.log(twoscount)
+							//console.log(document.getElementById("p20").innerText)
+						document.getElementById('mx967906330').value = twoscount.toString();
+						document.getElementById('mx789190149').value = comp + player;
+						//		if(player == "select player") {
+						//			checkBeforeSubmitID += "player not set\n"
+						//			err = "yes";
+						//		}
+						//		if(hcp == "0") {
+						//			checkBeforeSubmitID += "hcp not set\n"
+						//			err = "yes";
+						//		}
+						//		if(err == "yes") {
+						//			// error message
+						//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
+						//			showIncompleteSubmitData(checkBeforeSubmitID);
+						//		} else {
+						//===== submit data ==========
+						//============================
+						document.forms[0].submit();
+					} /* end of player2 */
+				}, 2000)
+				setTimeout(function() {
+					if(player3name !== "no player") {
+						// player3 score entry
+						comp = localStorage.wwtodayscomp
+						console.log("compday = " + compday + " " + comp)
+						document.getElementById('mx474474348').value = player3name;
+						document.getElementById('mx2131369517').value = comp; /* eg. Dawson 02 October 2023 */
+						document.getElementById('mx477101370').value = player3hcp;
+						document.getElementById('mx1980297491').value = document.getElementById("p3h1").innerText.split("/")[0];
+						document.getElementById('mx463832232').value = document.getElementById("p3h2").innerText.split("/")[0];
+						document.getElementById('mx205704642').value = document.getElementById("p3h3").innerText.split("/")[0];
+						document.getElementById('mx278278589').value = document.getElementById("p3h4").innerText.split("/")[0];
+						document.getElementById('mx949547387').value = document.getElementById("p3h5").innerText.split("/")[0];
+						document.getElementById('mx703011397').value = document.getElementById("p3h6").innerText.split("/")[0];
+						document.getElementById('mx1460583253').value = document.getElementById("p3h7").innerText.split("/")[0];
+						document.getElementById('mx462940045').value = document.getElementById("p3h8").innerText.split("/")[0];
+						document.getElementById('mx477691508').value = document.getElementById("p3h9").innerText.split("/")[0];
+						document.getElementById('mx413249407').value = document.getElementById("p3h10").innerText.split("/")[0];
+						document.getElementById('mx108900453').value = document.getElementById("p3h11").innerText.split("/")[0];
+						document.getElementById('mx1841236411').value = document.getElementById("p3h12").innerText.split("/")[0];
+						document.getElementById('mx1864644918').value = document.getElementById("p3h13").innerText.split("/")[0];
+						document.getElementById('mx1538428689').value = document.getElementById("p3h14").innerText.split("/")[0];
+						document.getElementById('mx1449918213').value = document.getElementById("p3h15").innerText.split("/")[0];
+						document.getElementById('mx38761817').value = document.getElementById("p3h16").innerText.split("/")[0];
+						document.getElementById('mx247392471').value = document.getElementById("p3h17").innerText.split("/")[0];
+						document.getElementById('mx741809181').value = document.getElementById("p3h18").innerText.split("/")[0];
+						document.getElementById('mx1362729237').value = document.getElementById("p3h1").innerText.split("/")[1];
+						document.getElementById('mx1372983908').value = document.getElementById("p3h2").innerText.split("/")[1];
+						document.getElementById('mx2002196917').value = document.getElementById("p3h3").innerText.split("/")[1];
+						document.getElementById('mx640802794').value = document.getElementById("p3h4").innerText.split("/")[1];
+						document.getElementById('mx2076656246').value = document.getElementById("p3h5").innerText.split("/")[1];
+						document.getElementById('mx486346919').value = document.getElementById("p3h6").innerText.split("/")[1];
+						document.getElementById('mx1918313229').value = document.getElementById("p3h7").innerText.split("/")[1];
+						document.getElementById('mx638821').value = document.getElementById("p3h8").innerText.split("/")[1];
+						document.getElementById('mx737099688').value = document.getElementById("p3h9").innerText.split("/")[1];
+						document.getElementById('mx488827232').value = document.getElementById("p3h10").innerText.split("/")[1];
+						document.getElementById('mx1203421487').value = document.getElementById("p3h11").innerText.split("/")[1];
+						document.getElementById('mx979421831').value = document.getElementById("p3h12").innerText.split("/")[1];
+						document.getElementById('mx929858153').value = document.getElementById("p3h13").innerText.split("/")[1];
+						document.getElementById('mx1330487443').value = document.getElementById("p3h14").innerText.split("/")[1];
+						document.getElementById('mx940496448').value = document.getElementById("p3h15").innerText.split("/")[1];
+						document.getElementById('mx1127168348').value = document.getElementById("p3h16").innerText.split("/")[1];
+						document.getElementById('mx638332104').value = document.getElementById("p3h17").innerText.split("/")[1];
+						document.getElementById('mx1626319908').value = document.getElementById("p3h18").innerText.split("/")[1];
+						document.getElementById('mx362674948').value = document.getElementById("p3hf").innerText.split("/")[1];
+						document.getElementById('mx544180710').value = document.getElementById("p3hb").innerText.split("/")[1];
+						document.getElementById('mx893562950').value = document.getElementById("p3ht").innerText.split("/")[1];
+						//document.getElementById('mx335596501').value = document.getElementById("cback9");
+						// start of countback
+						document.getElementById('mx335596501').value = document.getElementById("p3hb").innerText.split("/")[1];
+						tempcb6 = 0;
+						tempcb6 += parseInt(document.getElementById("p3h18").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p3h17").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p3h16").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p3h15").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p3h14").innerText.split("/")[1]);
+						tempcb6 += parseInt(document.getElementById("p3h13").innerText.split("/")[1]);
+						tempcb3 = 0;
+						tempcb3 += parseInt(document.getElementById("p3h18").innerText.split("/")[1]);
+						tempcb3 += parseInt(document.getElementById("p3h17").innerText.split("/")[1]);
+						tempcb3 += parseInt(document.getElementById("p3h16").innerText.split("/")[1]);
+						// submit countback
+						document.getElementById('mx1453506389').value = tempcb6;
+						document.getElementById('mx1045870519').value = tempcb3;
+						document.getElementById('mx683300283').value = document.getElementById("p3h18").innerText.split("/")[1];
+						//temp2 = 0;
+						twoscount = 0;
+						// check data is complete 
+						checkBeforeSubmitID = "\n";
+						err = "no";
+						for(ii = 1; ii <= 18; ii++) {
+							if(document.getElementById("p3h" + ii).innerText.split("/")[0] == "2") {
+								twoscount++;
+							}
+							// check for no score entered
+							/*
+							if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
+								if(checkBeforeSubmitID.length < 50) {
+									checkBeforeSubmitID += "hole " + ii + " not scored\n";
+									err = "yes";
+								}
+							}
+							*/
+						}
+						console.log(twoscount)
+							//console.log(document.getElementById("p20").innerText)
+						document.getElementById('mx967906330').value = twoscount.toString();
+						document.getElementById('mx789190149').value = comp + player;
+						//		if(player == "select player") {
+						//			checkBeforeSubmitID += "player not set\n"
+						//			err = "yes";
+						//		}
+						//		if(hcp == "0") {
+						//			checkBeforeSubmitID += "hcp not set\n"
+						//			err = "yes";
+						//		}
+						//		if(err == "yes") {
+						//			// error message
+						//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
+						//			showIncompleteSubmitData(checkBeforeSubmitID);
+						//		} else {
+						//===== submit data ==========
+						//============================
+						document.forms[0].submit();
+					} /* end of player3 */
+				}, 4000)
+				setTimeout(function() {
+						if(player4name !== "no player") {
+							// player2 score entry
+							comp = localStorage.wwtodayscomp
+							console.log("compday = " + compday + " " + comp)
+							document.getElementById('mx474474348').value = player4name;
+							document.getElementById('mx2131369517').value = comp; /* eg. Dawson 02 October 2023 */
+							document.getElementById('mx477101370').value = player4hcp;
+							document.getElementById('mx1980297491').value = document.getElementById("p4h1").innerText.split("/")[0];
+							document.getElementById('mx463832232').value = document.getElementById("p4h2").innerText.split("/")[0];
+							document.getElementById('mx205704642').value = document.getElementById("p4h3").innerText.split("/")[0];
+							document.getElementById('mx278278589').value = document.getElementById("p4h4").innerText.split("/")[0];
+							document.getElementById('mx949547387').value = document.getElementById("p4h5").innerText.split("/")[0];
+							document.getElementById('mx703011397').value = document.getElementById("p4h6").innerText.split("/")[0];
+							document.getElementById('mx1460583253').value = document.getElementById("p4h7").innerText.split("/")[0];
+							document.getElementById('mx462940045').value = document.getElementById("p4h8").innerText.split("/")[0];
+							document.getElementById('mx477691508').value = document.getElementById("p4h9").innerText.split("/")[0];
+							document.getElementById('mx413249407').value = document.getElementById("p4h10").innerText.split("/")[0];
+							document.getElementById('mx108900453').value = document.getElementById("p4h11").innerText.split("/")[0];
+							document.getElementById('mx1841236411').value = document.getElementById("p4h12").innerText.split("/")[0];
+							document.getElementById('mx1864644918').value = document.getElementById("p4h13").innerText.split("/")[0];
+							document.getElementById('mx1538428689').value = document.getElementById("p4h14").innerText.split("/")[0];
+							document.getElementById('mx1449918213').value = document.getElementById("p4h15").innerText.split("/")[0];
+							document.getElementById('mx38761817').value = document.getElementById("p4h16").innerText.split("/")[0];
+							document.getElementById('mx247392471').value = document.getElementById("p4h17").innerText.split("/")[0];
+							document.getElementById('mx741809181').value = document.getElementById("p4h18").innerText.split("/")[0];
+							document.getElementById('mx1362729237').value = document.getElementById("p4h1").innerText.split("/")[1];
+							document.getElementById('mx1372983908').value = document.getElementById("p4h2").innerText.split("/")[1];
+							document.getElementById('mx2002196917').value = document.getElementById("p4h3").innerText.split("/")[1];
+							document.getElementById('mx640802794').value = document.getElementById("p4h4").innerText.split("/")[1];
+							document.getElementById('mx2076656246').value = document.getElementById("p4h5").innerText.split("/")[1];
+							document.getElementById('mx486346919').value = document.getElementById("p4h6").innerText.split("/")[1];
+							document.getElementById('mx1918313229').value = document.getElementById("p4h7").innerText.split("/")[1];
+							document.getElementById('mx638821').value = document.getElementById("p4h8").innerText.split("/")[1];
+							document.getElementById('mx737099688').value = document.getElementById("p4h9").innerText.split("/")[1];
+							document.getElementById('mx488827232').value = document.getElementById("p4h10").innerText.split("/")[1];
+							document.getElementById('mx1203421487').value = document.getElementById("p4h11").innerText.split("/")[1];
+							document.getElementById('mx979421831').value = document.getElementById("p4h12").innerText.split("/")[1];
+							document.getElementById('mx929858153').value = document.getElementById("p4h13").innerText.split("/")[1];
+							document.getElementById('mx1330487443').value = document.getElementById("p4h14").innerText.split("/")[1];
+							document.getElementById('mx940496448').value = document.getElementById("p4h15").innerText.split("/")[1];
+							document.getElementById('mx1127168348').value = document.getElementById("p4h16").innerText.split("/")[1];
+							document.getElementById('mx638332104').value = document.getElementById("p4h17").innerText.split("/")[1];
+							document.getElementById('mx1626319908').value = document.getElementById("p4h18").innerText.split("/")[1];
+							document.getElementById('mx362674948').value = document.getElementById("p4hf").innerText.split("/")[1];
+							document.getElementById('mx544180710').value = document.getElementById("p4hb").innerText.split("/")[1];
+							document.getElementById('mx893562950').value = document.getElementById("p4ht").innerText.split("/")[1];
+							//document.getElementById('mx335596501').value = document.getElementById("cback9");
+							// start of countback
+							document.getElementById('mx335596501').value = document.getElementById("p4hb").innerText.split("/")[1];
+							tempcb6 = 0;
+							tempcb6 += parseInt(document.getElementById("p4h18").innerText.split("/")[1]);
+							tempcb6 += parseInt(document.getElementById("p4h17").innerText.split("/")[1]);
+							tempcb6 += parseInt(document.getElementById("p4h16").innerText.split("/")[1]);
+							tempcb6 += parseInt(document.getElementById("p4h15").innerText.split("/")[1]);
+							tempcb6 += parseInt(document.getElementById("p4h14").innerText.split("/")[1]);
+							tempcb6 += parseInt(document.getElementById("p4h13").innerText.split("/")[1]);
+							tempcb3 = 0;
+							tempcb3 += parseInt(document.getElementById("p4h18").innerText.split("/")[1]);
+							tempcb3 += parseInt(document.getElementById("p4h17").innerText.split("/")[1]);
+							tempcb3 += parseInt(document.getElementById("p4h16").innerText.split("/")[1]);
+							// submit countback
+							document.getElementById('mx1453506389').value = tempcb6;
+							document.getElementById('mx1045870519').value = tempcb3;
+							document.getElementById('mx683300283').value = document.getElementById("p4h18").innerText.split("/")[1];
+							//temp2 = 0;
+							twoscount = 0;
+							// check data is complete 
+							checkBeforeSubmitID = "\n";
+							err = "no";
+							for(ii = 1; ii <= 18; ii++) {
+								if(document.getElementById("p4h" + ii).innerText.split("/")[0] == "2") {
+									twoscount++;
+								}
+								// check for no score entered
+								/*
+								if(document.getElementById("numscore" + ii).innerText.indexOf("hole") > -1) {
+									if(checkBeforeSubmitID.length < 50) {
+										checkBeforeSubmitID += "hole " + ii + " not scored\n";
+										err = "yes";
+									}
+								}
+								*/
+							}
+							console.log(twoscount)
+								//console.log(document.getElementById("p40").innerText)
+							document.getElementById('mx967906330').value = twoscount.toString();
+							document.getElementById('mx789190149').value = comp + player;
+							//		if(player == "select player") {
+							//			checkBeforeSubmitID += "player not set\n"
+							//			err = "yes";
+							//		}
+							//		if(hcp == "0") {
+							//			checkBeforeSubmitID += "hcp not set\n"
+							//			err = "yes";
+							//		}
+							//		if(err == "yes") {
+							//			// error message
+							//			checkBeforeSubmitID = checkBeforeSubmitID + "\n... maybe more.\n";
+							//			showIncompleteSubmitData(checkBeforeSubmitID);
+							//		} else {
+							//===== submit data ==========
+							//============================
+							document.forms[0].submit();
+						} /* end of player4 */
+					}, 6000)
+					// do some indicator of stuff	
+				window.scrollTo({
+					top: 0,
+					behavior: 'smooth'
+				})
+				document.getElementById("blackout").style.display = "flex";
+				console.log("here")
+				document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
+				setTimeout(function() {
+					document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 100px; width: 100px;">'
+				}, 6500);
+				// remove the accidental close "trap"
+				// window.removeEventListener("beforeunload",eventl)
+				// return to main menu
+				setTimeout(function() {
+					history.go(-1);
+				}, 9500);
+			}
+		}
+		//=============================================================
+		// function showcoursecard()
+		// - shows course card info
+		//=============================================================  
+		function showcoursecard() {
+			var cctxt = ""
+			var abort = "no";
+			var aborttxt = "\nStrokes unavailable\nbecause:\n\n";
+			if(!(hcp > 0)) {
+				abort = "yes";
+				aborttxt += "\nhcp not found\n"
+			}
+			aborttxt
+			if(player == "select player") {
+				abort = "yes"
+				aborttxt += "\nplayer not found\n"
+			}
+			if(!(course == "Lakes" || course == "Dawson" || course == "OldCourse")) {
+				abort = "yes"
+				aborttxt += "\ncourse not found\n"
+			}
+			if(abort == "yes") {
+				document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 5 seconds";
+				document.getElementById("popuppanel").style.display = "block";
+				setTimeout(function() {
+					document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 4 seconds"
+				}, 1000)
+				setTimeout(function() {
+					document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 3 seconds"
+				}, 2000)
+				setTimeout(function() {
+					document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 2 seconds"
+				}, 3000)
+				setTimeout(function() {
+					document.getElementById("popuppanel").innerText = aborttxt + "\n\nthis message closes in 1 second"
+				}, 4000)
+				setTimeout(function() {
+					document.getElementById("popuppanel").innerText = ""
+					document.getElementById("popuppanel").style.display = "none"
+				}, 5000);
+			} else {
+				// if lady red tees		
+				if(useRedTees) {
+					cctxt = ""
+					if(course == "Lakes") {
+						cctxt = player + ", Lakes, " + hcp + " hcp"
+						for(var i = 1; i <= 18; i++) {
+							if(hcp >= (arrLakesRed[i][2] + 18)) {
+								cctxt += '<span class="cyanhole"><b><br>hole ' + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si " + '<span class="circle2">' + arrLakesRed[i][2] + "</span></b></span>"
+							} else {
+								if(hcp >= arrLakesRed[i][2]) {
+									cctxt += "<b><br>hole " + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si " + '<span class="circle1">' + arrLakesRed[i][2] + "</span></b>"
+								} else {
+									cctxt += '<span class="nocircle1">' + "<br>hole " + arrLakesRed[i][0] + ", par " + arrLakesRed[i][1] + ", si  " + arrLakesRed[i][2] + "</span>"
+								}
+							}
+						}
+					}
+					if(course == "Dawson") {
+						cctxt = player + ", Dawson, " + hcp + " hcp"
+						for(var i = 1; i <= 18; i++) {
+							if(hcp >= (arrDawsonRed[i][2] + 18)) {
+								cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si " + '<span class="circle2">' + arrDawsonRed[i][2] + "</span></b></span>"
+							} else {
+								if(hcp >= arrDawsonRed[i][2]) {
+									cctxt += "<b><br>hole " + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si " + '<span class="circle1">' + arrDawsonRed[i][2] + "</span></b>"
+								} else {
+									cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawsonRed[i][0] + ", par " + arrDawsonRed[i][1] + ", si  " + arrDawsonRed[i][2] + "</span>"
+								}
+							}
+						}
+					}
+					if(course == "OldCourse") {
+						cctxt = player + ", OldCourse, " + hcp + " hcp"
+						for(var i = 1; i <= 18; i++) {
+							if(hcp >= (arrOldCourseRed[i][2] + 18)) {
+								cctxt += '<span class="cyanhole"><b><br>hole ' + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si " + '<span class="circle2">' + arrOldCourseRed[i][2] + "</span></b></span>"
+							} else {
+								if(hcp >= arrOldCourseRed[i][2]) {
+									cctxt += "<b><br>hole " + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si " + '<span class="circle1">' + arrOldCourseRed[i][2] + "</span></b>"
+								} else {
+									cctxt += '<span class="nocircle1">' + "<br>hole " + arrOldCourseRed[i][0] + ", par " + arrOldCourseRed[i][1] + ", si  " + arrOldCourseRed[i][2] + "</span>"
+								}
+							}
+						}
+					}
+				} else {
+					// men use yellow tees
+					cctxt = ""
+					if(course == "Lakes") {
+						cctxt = player + ", Lakes, " + hcp + " hcp"
+						for(var i = 1; i <= 18; i++) {
+							if(hcp >= (arrLakes[i][2] + 18)) {
+								cctxt += '<span class="cyanhole"><b><br>hole ' + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + '<span class="circle2">' + arrLakes[i][2] + "</span></b></span>"
+							} else {
+								if(hcp >= arrLakes[i][2]) {
+									cctxt += "<b><br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si " + '<span class="circle1">' + arrLakes[i][2] + "</span></b>"
+								} else {
+									cctxt += '<span class="nocircle1">' + "<br>hole " + arrLakes[i][0] + ", par " + arrLakes[i][1] + ", si  " + arrLakes[i][2] + "</span>"
+								}
+							}
+						}
+					}
+					if(course == "Dawson") {
+						cctxt = player + ", Dawson, " + hcp + " hcp"
+						for(var i = 1; i <= 18; i++) {
+							if(hcp >= (arrDawson[i][2] + 18)) {
+								cctxt += '<span class="cyanhole"><b><br>hole ' + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " + '<span class="circle2">' + arrDawson[i][2] + "</span></b></span>"
+							} else {
+								if(hcp >= arrDawson[i][2]) {
+									cctxt += "<b><br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si " + '<span class="circle1">' + arrDawson[i][2] + "</span></b>"
+								} else {
+									cctxt += '<span class="nocircle1">' + "<br>hole " + arrDawson[i][0] + ", par " + arrDawson[i][1] + ", si  " + arrDawson[i][2] + "</span>"
+								}
+							}
+						}
+					}
+					if(course == "OldCourse") {
+						cctxt = player + ", OldCourse, " + hcp + " hcp"
+						for(var i = 1; i <= 18; i++) {
+							if(hcp >= (arrOldCourse[i][2] + 18)) {
+								cctxt += '<span class="cyanhole"><b><br>hole ' + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " + '<span class="circle2">' + arrOldCourse[i][2] + "</span></b></span>"
+							} else {
+								if(hcp >= arrOldCourse[i][2]) {
+									cctxt += "<b><br>hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si " + '<span class="circle1">' + arrOldCourse[i][2] + "</span></b>"
+								} else {
+									cctxt += '<span class="nocircle1">' + "<br>hole " + arrOldCourse[i][0] + ", par " + arrOldCourse[i][1] + ", si  " + arrOldCourse[i][2] + "</span>"
+								}
+							}
+						}
+					}
+				}
+			}
+			cctxt += "<br>"
+			cctxt += "<br> . . . tap to close."
+			cctxt += "<br><br><br><br>"
+			document.getElementById("showcoursecard").innerHTML = cctxt;
+			document.getElementById("showcoursecard").style.visibility = "visible";
+		}
+		//=============================================================
+		// function rclose()
+		// - closes rules info
+		//=============================================================  
+		function rclose() {
+			document.getElementById("showrules").style.visibility = "hidden";
+		}
+		//=============================================================
+		// function showrules()
+		// - display rules
+		//=============================================================
+		function showrules() {
+			const d = new Date();
+			var month = d.getMonth();
+			//rules from email 25th September
+			var rulestxt = '<span class="cyanhole"><b>From Oct 1st to Oct 31st inclusive</b><br></b></span>'
+			rulestxt += '<br>'
+			rulestxt += '1. Preferred lies on Fairway and Fringes of Greens (Mark your ball, lift clean and place within 6 inches. No nearer the hole)<br><br>'
+			rulestxt += '2. Semi Rough (Mark your ball, lift Clean and Replace)<br><br>'
+			rulestxt += '3. Rough (Play the ball as it lies)<br><br>'
+			rulestxt += '4. Casual Water (Nearest point of relief no nearer the hole) 1 club length from that point, drop the ball. If your ball is in the rough and in casual water, nearest point of relief no nearer the hole, one club length from that point, drop the ball. The ball may be cleaned if taking relief from casual water in the rough.<br><br>'
+			rulestxt += '<span class="cyanhole"><b>November 1st to 31st March 2025</b><br></b></span>'
+			rulestxt += '<br>'
+			rulestxt += 'As above with additions'
+			rulestxt += '<br><br>'
+			rulestxt += "1. The Seniors Section will be keeping all Par 5's as Par 5's."
+			rulestxt += '<br><br>'
+			rulestxt += "2. Bounce boards, mats and tees may be used on Fairways and Fringes of Greens. These are not to be used in 'Semi Rough' or 'Rough Areas'."
+			rulestxt += '<br><br>'
+			rulestxt += '3. Semi rough will be lift clean and replace. Rough will be (play as it lies)'
+			rulestxt += '<br><br>'
+			rulestxt += '4. Drivers are not to be used on bounce boards, mats or tees after the initial tee shot, they can, however, be used from the grass.'
+			rulestxt += '<br><br>'
+			rulestxt += "5. Bunkers will be 'pick rake and place' Unless otherwise stated on the whiteboard at registration."
+			rulestxt += "<br><br>"
+			rulestxt += "<br> . . . tap to close."
+			rulestxt += "<br><br><br><br>"
+			document.getElementById("showrules").innerHTML = rulestxt;
+			document.getElementById("showrules").style.visibility = "visible";
+		}
+		//=============================================================
+		// function ccclose()
+		// - closes scorecard
+		//=============================================================  
+		function ccclose() {
+			document.getElementById("showcoursecard").style.visibility = "hidden";
+		}
+
+		function finalWrite() {
+			saveScores();
+			//saveAllToLocalStorage()
+			// get players, all strokes and points
+			for(var i = 1; i <= 18; i++) {
+				if(course == "Lakes") {
+					if(player1teecolor == "yellow") {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrLakes[i][1], arrLakes[i][2], temp)
+					} else {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrLakesRed[i][1], arrLakesRed[i][2], temp)
+					}
+					
+				}
+				if(course == "Dawson") {
+					if(player1teecolor == "yellow") {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrDawson[i][1], arrDawson[i][2], temp)
+					} else {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrDawsonRed[i][1], arrDawsonRed[i][2], temp)
+					}
+					
+				}
+				if(course == "OldCourse") {
+					if(player1teecolor == "yellow") {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrOldCourse[i][1], arrOldCourse[i][2], temp)
+					} else {
+						temp = localStorage.getItem("wwp1h" + i)
+						document.getElementById("p1h" + i).innerText = temp + "/" + pointsCalc(player1hcp, arrOldCourseRed[i][1], arrOldCourseRed[i][2], temp)
+					}
+					
+				}
+			}
+			totalScore()
+		}
+		//=============================================================
+		// function compareSecondColumn()
+		// - sort function to sort by second array item in 2D array
+		//=============================================================  
+		function compareSecondColumn(a, b) {
+			if(a[1] === b[1]) {
+				return 0;
+			} else {
+				return(a[1] > b[1]) ? -1 : 1;
+			}
+		}
+		
+		
+		
+		
+function recover() {
+document.getElementById("recoverclear").style.display = "none"; 
+
+
+
+
+
+}		
+ 
+ 
+ function clear() {
+ document.getElementById("recoverclear").style.display = "none";
+ }		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</script>
+</body>
+
+</html>

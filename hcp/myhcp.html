@@ -7,9 +7,14 @@
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
 	<meta content="Bryan M" name="author">
 	<title>myhcp</title>
-	<link href="favicon.ico" rel="icon" type="image/x-icon">
+   <link rel="manifest" href="myhcp.webmanifest">
+	<link href="myhcpicon.png" rel="icon" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="180x180" href="myhcpicon.png" />	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<style>
+	
+	/* icon color #87e3f2 */
+	
 	body {
 		background-color: Gray;
 		background-attachment: fixed;
@@ -196,7 +201,7 @@
       margin-top: 1vh;	
 	}
 	
-	#hcpa {
+	#hcpa, #hcpc {
 	padding-left: 10vw;
 	text-align: left;
 	}
@@ -269,25 +274,11 @@ padding-top: 5vh;
 <body>
 	<div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select course</div>
 	<div id="playersDropdown" class="dropdown-content">
- <a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Dawson</a>
- <a id="myLink2" href="#" onclick='dropSelected(this.innerText);return false;'>Longhirst Lakes</a>
- <a id="myLink3" href="#" onclick='dropSelected(this.innerText);return false;'>Bellingham</a>
- <a id="myLink4" href="#" onclick='dropSelected(this.innerText);return false;'>Blyth</a>
- <a id="myLink5" href="#" onclick='dropSelected(this.innerText);return false;'>Foxton</a>
- <a id="myLink6" href="#" onclick='dropSelected(this.innerText);return false;'>High Gosforth Park</a>
- <a id="myLink7" href="#" onclick='dropSelected(this.innerText);return false;'>Morpeth</a>
- <a id="myLink8" href="#" onclick='dropSelected(this.innerText);return false;'>Newbiggin</a>
- <a id="myLink9" href="#" onclick='dropSelected(this.innerText);return false;'>Ravensworth</a>
- <a id="myLink10" href="#" onclick='dropSelected(this.innerText);return false;'>Rothbury</a>
- <a id="myLink11" href="#" onclick='dropSelected(this.innerText);return false;'>Sharpley</a>
- <a id="myLink12" href="#" onclick='dropSelected(this.innerText);return false;'>South Shields</a>
- <a id="myLink13" href="#" onclick='dropSelected(this.innerText);return false;'>Stocksfield</a>
- <a id="myLink14" href="#" onclick='dropSelected(this.innerText);return false;'>Warkworth</a>
- <a id="myLink15" href="#" onclick='dropSelected(this.innerText);return false;'>Not defined</a>	
+ 
 </div>
 	
 
-
+<!-- created by script -->
 
 
 <div id="hcpeditpopuppanel">
@@ -374,7 +365,9 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
       Best 3 of 4 stroke play: 100%<br>
       Best 4 of 4 stroke play: 100%<br>
    </div>
-      <br><br>
+   <br><br>
+      <div id="hcpc"></div>
+   <br><br>
 
 
 		<script>
@@ -387,32 +380,17 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 		var globalcourse = "";
 		var globalallowance;
 		// name, white slope, white cr, white par, yellow slope, yellow cr, yellow par, red slope, red cr, red par
-		arrCourses = [
-			["Longhirst Dawson",   120, 72.3, 73, 120, 71.1, 73, 121, 72.5, 73],
-			["Longhirst Lakes",    121, 69.7, 70, 116, 67.6, 70, 117, 69.1, 70],
-			["Bellingham",         128, 70.3, 70, 125, 69.1, 70, 122, 71.6, 71],
-			["Blyth",              132, 69.3, 70, 128, 68.1, 70, 122, 69.6, 71],
-			["Foxton",             132, 72.1, 71, 129, 69.9, 71, 135, 73.8, 74],
-			["High Gosforth Park", 136, 69.7, 71, 130, 68.3, 71, 135, 73.1, 73],
-			["Morpeth",            123, 70.6, 71, 120, 68.7, 71, 130, 73.4, 73],
-			["Newbiggin",          135, 72.4, 72, 130, 70.9, 72, 133, 73.7, 73],
-			["Ravensworth",        117, 69.8, 69, 111, 67.9, 69, 130, 71.6, 72],
-			["Rothbury",           125, 70.4, 71, 121, 67.5, 71, 128, 71.2, 73],
-			["Sharpley",           132, 69.4, 71, 125, 67.9, 71, 132, 69.7, 71],
-			["South Shields",      126, 70.9, 71, 121, 69.5, 71, 126, 74.1, 74],
-			["Stocksfield",        125, 69.9, 70, 124, 67.7, 70, 131, 72.0, 72],
-			["Warkworth",          113, 69.8, 70, 115, 68.3, 70, 119, 70.8, 71],
-			["Not Defined",          0,    0,  0,   0,    0,  0,   0,    0,  0]
-		]
-		
-      // retrieve last hcp if available, else put 18 in
-      // do a change over
+
+	
+	
+	  // retrieve last hcp if available, else put 18 in
+      // do a change over. leave in place until all changed
       if (localStorage.whshcp){       
           localStorage.myhcp = localStorage.whshcp
           localStorage.removeItem("whshcp");
       }
       // hcp should now be stored in new place
-      
+      // if new, start with 18 else get previous hcp
       
       if (localStorage.myhcp){      
          document.getElementById("nhcp1").innerText = localStorage.myhcp;
@@ -422,6 +400,110 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
          localStorage.myhcp = "18";	
          updatehcp()
 		}
+		
+		
+	
+     //===========================
+     // this code runs at startup
+	  //===========================
+	  //change wording to show downloading, change back when complete
+     document.getElementById("dropbtn").innerText = "searching ..."
+     getData();
+	  // need to set up a couple of arrays from the data in google sheets
+	  async function getData() {
+        var dataStream = await fetch("https://opensheet.elk.sh/1EHmPE7L12qDgnORfskbnE3jpaoZAcrc5q7JZNRHkQTc/setupcsv")
+			
+	     if (!dataStream.ok) {
+           const message = `An error has occured: ${dataStream.status}`;
+           //throw new Error(message);
+           alert("error: " + message)
+        }
+	     var resultsarray = await dataStream.json()
+	     
+	     
+	     
+//console.log(resultsarray)	     
+	     
+	     
+        // split into separate arrays
+        arrCourse = resultsarray.map(d => d.course);
+                
+        arrWhiteSlope = resultsarray.map(d => d.whiteslope);
+        arrWhiteRating = resultsarray.map(d => d.whiterating);
+        arrWhitePar = resultsarray.map(d => d.whitepar);		
+        
+        arrYellowSlope = resultsarray.map(d => d.yellowslope);
+        arrYellowRating = resultsarray.map(d => d.yellowrating);
+        arrYellowPar = resultsarray.map(d => d.yellowpar);		
+
+        arrRedSlope = resultsarray.map(d => d.redslope);
+        arrRedRating = resultsarray.map(d => d.redrating);
+        arrRedPar = resultsarray.map(d => d.redpar);		
+        
+        // remove null items
+        arrCourse = arrCourse.filter(function(el) {return el != null;})
+                
+        arrWhiteSlope = arrWhiteSlope.filter(function(el) {return el != null;})
+        arrWhiteRating = arrWhiteRating.filter(function(el) {return el != null;})
+        arrWhitePar = arrWhitePar.filter(function(el) {return el != null;})		
+        
+        arrYellowSlope = arrYellowSlope.filter(function(el) {return el != null;})
+        arrYellowRating = arrYellowRating.filter(function(el) {return el != null;})
+        arrYellowPar = arrYellowPar.filter(function(el) {return el != null;})	
+
+        arrRedSlope = arrRedSlope.filter(function(el) {return el != null;})
+        arrRedRating = arrRedRating.filter(function(el) {return el != null;})
+        arrRedPar = arrRedPar.filter(function(el) {return el != null;})
+        	
+        // remove empty items
+        arrCourse = arrCourse.filter(function(el) {return el != "";})
+                
+        arrWhiteSlope = arrWhiteSlope.filter(function(el) {return el != "";})
+        arrWhiteRating = arrWhiteRating.filter(function(el) {return el != "";})
+        arrWhitePar = arrWhitePar.filter(function(el) {return el != "";})		
+        
+        arrYellowSlope = arrYellowSlope.filter(function(el) {return el != "";})
+        arrYellowRating = arrYellowRating.filter(function(el) {return el != "";})
+        arrYellowPar = arrYellowPar.filter(function(el) {return el != "";})	
+
+        arrRedSlope = arrRedSlope.filter(function(el) {return el != "";})
+        arrRedRating = arrRedRating.filter(function(el) {return el != "";})
+        arrRedPar = arrRedPar.filter(function(el) {return el != "";})
+        
+        // put correct wording back - signifies download completed
+	     document.getElementById("dropbtn").innerText = "select course"
+	
+		
+		
+//console.log("here "+arrCourse[0])		
+						// create course dropdown
+			var select = document.getElementById("playersDropdown");
+			// this is what is created
+			//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
+			//
+			for(var i = 0; i < arrCourse.length; i++) {
+				var el = document.createElement("a");
+				el.id = "myLink" + (i);
+				el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
+				el.setAttribute("href", "#");
+				el.innerText = arrCourse[i];
+				select.appendChild(el);
+			}
+		
+	}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 		
 
@@ -450,13 +532,15 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 				
 				document.getElementById("splayinghcp1").innerHTML = 
 				
-				"course hcp = " + vcoursehcp1.toFixed(4) + "..." +
-				"<br>playing hcp = " + vcoursehcp1adjusted.toFixed(4) + "..." +
+				"course hcp = " + vcoursehcp1.toString().substring(0,7) + "..." +
+				"<br>playing hcp = " + vcoursehcp1adjusted.toString().substring(0,7) + "..." +
 				'<br><a id="bighcp">Your playing hcp = ' + vcoursehcp1adjusted.toFixed() + '</a>';
-				
-				
+						
+             doHcpc()				
+	
 			}
 		}
+		
 		// dropdown
 		//=============================================================
 		// function toggleDropdown()
@@ -487,15 +571,19 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 		function dropSelected(course) {
 			// set a global course var
 			globalcourse = course;
-			for(var k = 0; k < arrCourses.length; k++) {
-				if(arrCourses[k][0] == course) {
+			
+			
+console.log(course + " " + arrCourse[0])			
+			
+			for(var k = 0; k < arrCourse.length; k++) {
+				if(arrCourse[k] == course) {
                // default to yellow
-					slope = arrCourses[k][4];
-					cr = arrCourses[k][5];
-					par = arrCourses[k][6];
-					document.getElementById("nslope1").value = arrCourses[k][4];
-					document.getElementById("ncr1").value = arrCourses[k][5];
-					document.getElementById("npar1").value = arrCourses[k][6];
+					slope = arrYellowSlope[k];
+					cr = arrYellowRating[k];
+					par = arrYellowPar[k];
+					document.getElementById("nslope1").value = arrYellowSlope[k];
+					document.getElementById("ncr1").value = arrYellowRating[k];
+					document.getElementById("npar1").value = arrYellowPar[k];
 					
 					// set tees to yellow
 					document.getElementById("teecolor1").style.background = "yellow"
@@ -536,11 +624,11 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 				document.getElementById(id).style.color = "white"
 					// insert new slope, cr and par in correct place
 				var teenum = id.replace("teecolor", "");
-				for(var k = 0; k < arrCourses.length; k++) {
-					if(arrCourses[k][0] == globalcourse) {
-						document.getElementById("nslope" + teenum).value = arrCourses[k][1];
-						document.getElementById("ncr" + teenum).value = arrCourses[k][2];
-						document.getElementById("npar" + teenum).value = arrCourses[k][3];
+				for(var k = 0; k < arrCourse.length; k++) {
+					if(arrCourse[k] == globalcourse) {
+						document.getElementById("nslope" + teenum).value = arrWhiteSlope[k];
+						document.getElementById("ncr" + teenum).value = arrWhiteRating[k];
+						document.getElementById("npar" + teenum).value = arrWhitePar[k];
 					}
 				}
 		   }
@@ -554,11 +642,11 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 				document.getElementById(id).style.color = "yellow"
 					// insert new slope, cr and par in correct place
 				var teenum = id.replace("teecolor", "");
-				for(var k = 0; k < arrCourses.length; k++) {
-					if(arrCourses[k][0] == globalcourse) {
-						document.getElementById("nslope" + teenum).value = arrCourses[k][4];
-						document.getElementById("ncr" + teenum).value = arrCourses[k][5];
-						document.getElementById("npar" + teenum).value = arrCourses[k][6];
+				for(var k = 0; k < arrCourse.length; k++) {
+					if(arrCourse[k] == globalcourse) {
+						document.getElementById("nslope" + teenum).value = arrYellowSlope[k];
+						document.getElementById("ncr" + teenum).value = arrYellowRating[k];
+						document.getElementById("npar" + teenum).value = arrYellowPar[k];
 					}
 				}
 		   }
@@ -571,11 +659,11 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 				document.getElementById(id).style.color = "red"
 					// insert new slope, cr and par in correct place
 				var teenum = id.replace("teecolor", "");
-				for(var k = 0; k < arrCourses.length; k++) {
-					if(arrCourses[k][0] == globalcourse) {
-						document.getElementById("nslope" + teenum).value = arrCourses[k][7];
-						document.getElementById("ncr" + teenum).value = arrCourses[k][8];
-						document.getElementById("npar" + teenum).value = arrCourses[k][9];
+				for(var k = 0; k < arrCourse.length; k++) {
+					if(arrCourse[k] == globalcourse) {
+						document.getElementById("nslope" + teenum).value = arrRedSlope[k];
+						document.getElementById("ncr" + teenum).value = arrRedRating[k];
+						document.getElementById("npar" + teenum).value = arrRedPar[k];
 					}
 				}
 		   }
@@ -629,8 +717,7 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
 		function editNumber() {
          document.getElementById("myRange1").value = document.getElementById("nhcp1").innerText
          document.getElementById("demo1").innerText = document.getElementById("nhcp1").innerText
-		   document.getElementById("hcpeditpopuppanel").style.display = "inline-block";
-    
+		   document.getElementById("hcpeditpopuppanel").style.display = "inline-block"; 
       }
 		
       function closeslider() {
@@ -644,7 +731,25 @@ allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
          document.getElementById("demo1").innerText = document.getElementById("myRange1").value;
       }	
 	
-	
+	function doHcpc() {
+     var temphcp =  document.getElementById("nhcp1").innerText	
+	  var tempslope = document.getElementById("nslope1").value	
+	  var tempcr = document.getElementById("ncr1").value	
+	  var temppar = document.getElementById("npar1").value	
+	  var vcoursehcp1 = (temphcp * (tempslope / 113)) + (tempcr - temppar)	  
+     var gallowance = document.getElementById("allowance100").innerText.replace("%","");	
+     var callowance = parseInt(gallowance);
+     var ch = (temphcp * (tempslope/113)) + (tempcr - temppar)
+     var ph = ch * (callowance/100)			  
+	  var tempcalctxt = "calculation ...<br><br>" +
+	  "course handicap<br>= (" + temphcp + " x " + "(" + tempslope + " / 113))" +
+	   " + (" + tempcr + " - " + temppar + ")<br>" +
+	  "= " + ch.toString().substring(0,7) + "...<br><br>" +
+	  "playing handicap<br>= (" + vcoursehcp1 + " x " + gallowance + "%<br>" +
+	  "= " + ph.toString().substring(0,7) + "..."
+	  document.getElementById("hcpc").innerHTML = 	tempcalctxt
+		
+	}
 	
 		</script>
 </body>

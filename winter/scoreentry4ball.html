@@ -436,13 +436,13 @@
       color: white;
       font-size: 2vh;
       background: rgba(13, 13, 13, 255);
-      height: 50vh;
+      height: 100vh;
       width: 100vw;
       position: absolute;
       top: 0;
       left: 0;
       justify-content: center;
-      padding-top: 10%;
+      padding-top: 30vh;
     }
 
     #sending {
@@ -3332,7 +3332,7 @@ beforeSubmitForm();
       var err2count = 0
       var err3count = 0
       var err4count = 0
-
+           
       // make sure everything is updated
       finalWrite();
 
@@ -3436,6 +3436,15 @@ beforeSubmitForm();
     //=============================================================  
     function submitForm() {
    
+      // give some feedback
+      // vibrate if android phone or "pop" for anything else 
+   const canVibrate = window.navigator.vibrate
+   if (canVibrate) {
+      window.navigator.vibrate(50)
+   } else {
+      var audio = new Audio('pop.wav');
+      audio.play();   
+   }  
 
       // get the relevant info into a form
       // dont submit for an incorrect day
@@ -3968,6 +3977,15 @@ beforeSubmitForm();
         '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
 
         setTimeout(function() {
+          // give some feedback
+          // vibrate if android phone or "pop" for anything else 
+   //const canVibrate = window.navigator.vibrate
+   //if (canVibrate) {
+   //   window.navigator.vibrate(50)
+   //} else {
+   //   var audio = new Audio('pop.wav');
+   //   audio.play();   
+   //}  
           document.getElementById('blackout').innerHTML = 
           '<img src="done.png" id="done" style="height: 100px; width: 100px;">'
         }, 8000);

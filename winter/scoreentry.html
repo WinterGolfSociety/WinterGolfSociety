@@ -412,13 +412,13 @@
       color: white;
       font-size: 2vh;
       background: rgba(13, 13, 13, 255); //black;
-      height: 100vh;
+      height: 300%; //100vh;
       width: 100vw;
       position: absolute;
       top: 0;
       left: 0;
       justify-content: center;
-      padding-top: 10%;
+      padding-top: 30vh;
 
     }
 
@@ -429,7 +429,7 @@
 
     #done {
       position: relative;
-      background: black;
+      //background: black;
 
       -webkit-animation-name: fadeIn;
       animation-name: fadeIn;
@@ -1126,6 +1126,11 @@
         m = "December";
       }
       dateToday = d1 + " " + m;
+      
+    
+    //=======================================================================
+    // see if it is a comp day and if so find comp and course from array list
+    //=======================================================================
       // if its a new comp start over by tidying previous data
       if (todayscomp.indexOf(dateToday) < 0) {
         // .... do a tidy up of scores etc.
@@ -1236,10 +1241,6 @@
       }
     }
     
-    
-    //=======================================================================
-    // see if it is a comp day and if so find comp and course from array list
-    //=======================================================================
     //=============================================================
     // function resetNames()
     // - gets rid of "selected" names
@@ -1367,6 +1368,17 @@
     function beforeSubmitForm() {
       var err1 = ""
       var err1count = 0
+
+      // give some feedback
+      // vibrate if android phone or "pop" for anything else 
+      const canVibrate = window.navigator.vibrate
+      if (canVibrate) {
+         window.navigator.vibrate(50)
+      } else {
+         var audio = new Audio('pop.wav');
+         audio.play();   
+      }  
+      
 
       // make sure everything is updated
       //finalWrite();
@@ -1556,14 +1568,23 @@
       document.getElementById("blackout").style.display = "flex";
       document.getElementById("blackout").innerHTML = '<img src = "sending.gif" id="sending" style="height: 300px; width: 400px;">'
       setTimeout(function() {
+        // give some feedback
+        // vibrate if android phone or "pop" for anything else 
+        //const canVibrate = window.navigator.vibrate
+        //if (canVibrate) {
+        //   window.navigator.vibrate(50)
+        //} else {
+        //   var audio = new Audio('pop.wav');
+        //   audio.play();   
+        //}  
         document.getElementById('blackout').innerHTML = '<img src="done.png" id="done" style="height: 200px; width: 200px;">'
-      }, 4500);
+      }, 3500);
 
       
       // return to main menu    
       setTimeout(function() {
         window.location.assign("winter.html");
-      }, 9500);
+      }, 5500);
 
     }
     

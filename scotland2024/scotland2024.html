@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <title>Scotland 2024</title>
         <meta content="Bryan M" name="author" />
+        <link rel="manifest" href="scotland2024.webmanifest">
         <link href="scotland.png" rel="icon" type="image/x-icon" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
@@ -13,7 +14,7 @@
 
 <style>
 	
-	
+/* icon color #bef081 */	
 
 * {
     margin: 0;
@@ -281,17 +282,26 @@ h2 {
 
 
 #onetxt, #twotxt, #threetxt, #fourtxt, #fivetxt {
-    line-height: 80px;
-    font-size: 35px;
+height: 75px;
+    //line-height: 75px; //80px;
+    font-size: 5vh; //35px;
     color: blue;
     font-family: 'Kalam';
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #sixtxt {
-font-size: 22px;
-line-height: 20px;
+height: 75px;
+font-size: 3vh; //22px;
+//line-height: 15px; //20px;
 color: blue;
     font-family: 'Kalam';
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 110%;
 }
 
 .title {
@@ -384,7 +394,7 @@ color: blue;
   </div>
   
   <div class="bubble" id="six">
-    <a id="sixtxt" onclick="doSix()"><br>leader board</a>  
+    <a id="sixtxt" onclick="doSix()">leader board</a>  
   </div>
 </nav>
 
