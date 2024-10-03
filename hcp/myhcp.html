@@ -1,757 +1,98 @@
-<!doctype html>
-<html>
-
-<head>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="ie=edge" http-equiv="X-UA-Compatible">
-	<meta content="Bryan M" name="author">
-	<title>myhcp</title>
-   <link rel="manifest" href="myhcp.webmanifest">
-	<link href="myhcpicon.png" rel="icon" type="image/x-icon">
-	<link rel="apple-touch-icon" sizes="180x180" href="myhcpicon.png" />	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<style>
-	
-	/* icon color #87e3f2 */
-	
-	body {
-		background-color: Gray;
-		background-attachment: fixed;
-		font-family: 'arial';
-		color: white;
-		text-align: center;
-		-webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-	}
-	
-	.stxt {
-		text-align: center;
-		font-size: 2.5vh; //4vh; //20px;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-	}
-	
-	.tstxt {
-		text-align: center;
-		font-size: 2.5vh; //4vh; //20px;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2vh;		
-	}
-	
-	h2,
-	.dropbtn {
-		text-align: center;
-		padding-top: 1%;
-		padding-bottom: 1%;
-		color: white;
-		font-size: 4vh; //6vh; //30px;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		border-radius: 10px;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-		font-weight: 400;
-		background-color: rgba(0, 0, 0, 0.2);
-	}
-	
-	#nhcp1 {
-		font-size: 4vh; //6vh; //30px;
-		color: white;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background-color: dodgerBlue;
-		text-align: center;
-		border-radius: 10px;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-		width: 40vw;
-		padding-top: 1vh;
-		padding-bottom: 1vh;
-	}
-	
-#nslope1,
-	#ncr1,
-	#npar1,
-	#nhcpallowance {
-		font-size: 4vh; //3.5vh; //6vh; //30px;
-		color: white;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background-color: dodgerBlue;
-		text-align: center;
-		border-radius: 10px;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-		width: 40vw;
-		padding-top: 1vh;
-		padding-bottom: 1vh;
-	}	
-	
-	.score {
-		font-size: 3.5vh; //4vh; //20px;
-		color: white;
-		background-color: dodgerBlue;
-		text-align: center;
-		padding-top: 3px;
-		padding-bottom: 5px;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		border-radius: 10px;
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-	}
-	
-	#splayinghcp1 {
-		background-color: dodgerBlue;
-	}
-
-	#splayinghcpcalc,
-	#txt {
-		font-size: 3.5vh; //4vh; //20px;
-		color: white;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-	}
-	
-	#footnote {
-		color: white;
-		font-size: 3vh; //15px;
-		font-style: italic;
-		padding-left: 10px;
-	}
-	
-	.yellow {
-		color: yellow;
-	}
-	
-	.dropdown {
-		position: relative;
-		display: inline-block;
-	}
-	
-	.dropdown-content {
-		display: none;
-		position: absolute;
-		background-color: whiteSmoke;
-		min-width: 160px;
-		overflow: auto;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-		z-index: 1;
-		border-radius: 5px;
-		box-shadow: 10px 10px 25px black;
-		max-height: 75vh;
-	}
-	
-	.dropdown-content a {
-		font-family: Arial, Helvetica, sans-serif;
-		color: gray;
-		padding: 10px 16px;
-		text-decoration: none;
-		display: block;
-		font-size: 3.5vh; //4vh;
-		border: 1px solid silver;
-	}
-	
-	.show {
-		display: block;
-	}
-	
-	#teecolor1
-	 {
-		display: inline;
-		font-size: 3.5vh; //4vh; //20px;
-		color: gray;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background-color: rgba(0, 0, 0, 0.2);
-		text-align: center;
-		border-radius: 50%; //10px;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-		margin-left: 0.5vw;
-		margin-right: 5vw;
-		width: 40px;
-		height: 40px;
-	}
-
-	#allowance100
-	 {
-		display: inline;
-		font-size: 3.5vh; //4vh; //20px;
-		//font-weight: bold;
-		color: yellow;
-		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
-		background-color: rgba(0, 0, 0, 0.2);
-		text-align: center;
-		border-radius: 5px; //10px;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-		padding: 5px;
-		margin-left: 2vw;
-		margin-right: 0.5vw;
-		width: 40px;
-		height: 40px;
-	}
-	
-   .demo {
-      margin-bottom: 1vh;
-      margin-top: 1vh;	
-	}
-	
-	#hcpa, #hcpc {
-	padding-left: 10vw;
-	text-align: left;
-	}
-	
-.plusminus {
-display: inline-block;
-	font-size: 4vh; //6vh; //30px;
-		color: white;
-		background-color: dodgerBlue;
-		text-align: center;
-		padding-top: 1vh;
-		padding-bottom: 1vh;
-		border: 3px solid rgba(255, 255, 255, 0.2);
-		border-radius: 10px;
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-		width: 20vw;
-}	
-
-#bighcp {
-font-size: 4vh; //5vh; //25px;
-color: white;
-font-weight: bold;
-}
-
-
-
-#hcpeditpopuppanel {
-position: absolute;
-top: 10vh;
-left: 0;
-height: 35vh;
-display: none;
-    background-color: dodgerBlue;
-      font-size: 3vh;
-      border-radius: 3px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-		border-radius: 10px;
-		box-shadow: 10px 10px 25px black;
-		background-clip: padding-box;
-      padding: 10px;
-      margin: 3vw;
-      text-align: center;
-      width: 87vw;
-      cursor: pointer;
-    }     
-
-
-#myRange1 {
-         width: 90%;
-         padding-top: 15px;
-         accent-color:blue;
-         }
-
-
-
-#demo1 {
-font-size: 5.5vh; //6vh; //30px;
-}
-
-
-#closeicon1 {
-padding-top: 5vh;
-}
-
-	</style>
-</head>
-
-
-<body>
-	<div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select course</div>
-	<div id="playersDropdown" class="dropdown-content">
- 
-</div>
-	
-
-<!-- created by script -->
-
-
-<div id="hcpeditpopuppanel">
-<!-- hcp adjustment -->
-<p><span id="demo1"></span></p>
-<input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange1" oninput="hcpvalue()">
-
-
-<div class="closeiconcontainer" id="closeicon1">
-<img src="close.png" alt="close" onclick='closeslider("slidecontainer1")' style="height: 30px; width: 30px;">
-</div>
-
-
-</div>
-   
-
-
-
-
-
-
-
-	<div class="row">
-		<div>
-			
-			<div class="container">
-			
-					<br>
-					<div class="tstxt">tee
-						<div id="teecolor1" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-
-allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div>
-										
-					</div>
-					
-					<div class="demo">
-						<div class="stxt">WHS handicap index</div>
-                  <div class="plusminus" onclick="decrement()">-</div>						
-                  <div class="plusminus" id="nhcp1" onclick="editNumber()">0</div>					
-	               <div class="plusminus" onclick="increment()">+</div>			
-					</div>
-
-					<div class="stxt">slope</div>
-					<div class="demo">
-						<input type="number" id="nslope1" name="nslope1" min="100" max="150" maxlength="3" step="1" oninput="updatehcpMaster()">
-					</div>
-					
-					<div class="stxt">course rating</div>
-					<div class="demo">
-						<input type="number" id="ncr1" name="ncr1" min="60" max="80" maxlength="3" step="0.1" oninput="updatehcpMaster()">
-					</div>
-				
-					<div class="stxt">par</div>
-					<div class="demo">
-						<input type="number" id="npar1" name="npar1" min="60" max="80" maxlength="2" step="1" oninput="updatehcpMaster()">
-					</div>
-					<br>
-		   </div>
-
-				</div>
-	</div> <!-- outerbox -->
-				
-			
-	<div id="txt">
-					
-		<div id="splayinghcp1" class="score">
-		course hcp
-		<br>playing hcp
-		<br>rounded playing hcp </div>	
-	</div>
-		
-   <div id="hcpa">
-      <br><br>
-      HCP allowances<br><br>		
-      Individual Medal: 95%<br>
-      Individual Stableford: 95%<br>
-      Individual Par/Bogey: 95%<br>
-      Fourball stroke play: 85%<br>
-      Fourball Stableford: 85%<br>
-      Fourball Par/Bogey: 90%<br>
-      Matchplay Individual: 100%<br>
-      Matchplay Pairs: 90%<br>
-      Best 2 of 4 stroke play: 85%<br>
-      Best 3 of 4 stroke play: 100%<br>
-      Best 4 of 4 stroke play: 100%<br>
-   </div>
-   <br><br>
-      <div id="hcpc"></div>
-   <br><br>
-
-
-		<script>
-		
-		
-		
-		var slope;
-		var cr;
-		var par;
-		var globalcourse = "";
-		var globalallowance;
-		// name, white slope, white cr, white par, yellow slope, yellow cr, yellow par, red slope, red cr, red par
-
-	
-	
-	  // retrieve last hcp if available, else put 18 in
-      // do a change over. leave in place until all changed
-      if (localStorage.whshcp){       
-          localStorage.myhcp = localStorage.whshcp
-          localStorage.removeItem("whshcp");
-      }
-      // hcp should now be stored in new place
-      // if new, start with 18 else get previous hcp
-      
-      if (localStorage.myhcp){      
-         document.getElementById("nhcp1").innerText = localStorage.myhcp;
-         updatehcp()		
-		} else {
-         document.getElementById("nhcp1").innerText = "18";
-         localStorage.myhcp = "18";	
-         updatehcp()
-		}
-		
-		
-	
-     //===========================
-     // this code runs at startup
-	  //===========================
-	  //change wording to show downloading, change back when complete
-     document.getElementById("dropbtn").innerText = "searching ..."
-     getData();
-	  // need to set up a couple of arrays from the data in google sheets
-	  async function getData() {
-        var dataStream = await fetch("https://opensheet.elk.sh/1EHmPE7L12qDgnORfskbnE3jpaoZAcrc5q7JZNRHkQTc/setupcsv")
-			
-	     if (!dataStream.ok) {
-           const message = `An error has occured: ${dataStream.status}`;
-           //throw new Error(message);
-           alert("error: " + message)
-        }
-	     var resultsarray = await dataStream.json()
-	     
-	     
-	     
-//console.log(resultsarray)	     
-	     
-	     
-        // split into separate arrays
-        arrCourse = resultsarray.map(d => d.course);
-                
-        arrWhiteSlope = resultsarray.map(d => d.whiteslope);
-        arrWhiteRating = resultsarray.map(d => d.whiterating);
-        arrWhitePar = resultsarray.map(d => d.whitepar);		
-        
-        arrYellowSlope = resultsarray.map(d => d.yellowslope);
-        arrYellowRating = resultsarray.map(d => d.yellowrating);
-        arrYellowPar = resultsarray.map(d => d.yellowpar);		
-
-        arrRedSlope = resultsarray.map(d => d.redslope);
-        arrRedRating = resultsarray.map(d => d.redrating);
-        arrRedPar = resultsarray.map(d => d.redpar);		
-        
-        // remove null items
-        arrCourse = arrCourse.filter(function(el) {return el != null;})
-                
-        arrWhiteSlope = arrWhiteSlope.filter(function(el) {return el != null;})
-        arrWhiteRating = arrWhiteRating.filter(function(el) {return el != null;})
-        arrWhitePar = arrWhitePar.filter(function(el) {return el != null;})		
-        
-        arrYellowSlope = arrYellowSlope.filter(function(el) {return el != null;})
-        arrYellowRating = arrYellowRating.filter(function(el) {return el != null;})
-        arrYellowPar = arrYellowPar.filter(function(el) {return el != null;})	
-
-        arrRedSlope = arrRedSlope.filter(function(el) {return el != null;})
-        arrRedRating = arrRedRating.filter(function(el) {return el != null;})
-        arrRedPar = arrRedPar.filter(function(el) {return el != null;})
-        	
-        // remove empty items
-        arrCourse = arrCourse.filter(function(el) {return el != "";})
-                
-        arrWhiteSlope = arrWhiteSlope.filter(function(el) {return el != "";})
-        arrWhiteRating = arrWhiteRating.filter(function(el) {return el != "";})
-        arrWhitePar = arrWhitePar.filter(function(el) {return el != "";})		
-        
-        arrYellowSlope = arrYellowSlope.filter(function(el) {return el != "";})
-        arrYellowRating = arrYellowRating.filter(function(el) {return el != "";})
-        arrYellowPar = arrYellowPar.filter(function(el) {return el != "";})	
-
-        arrRedSlope = arrRedSlope.filter(function(el) {return el != "";})
-        arrRedRating = arrRedRating.filter(function(el) {return el != "";})
-        arrRedPar = arrRedPar.filter(function(el) {return el != "";})
-        
-        // put correct wording back - signifies download completed
-	     document.getElementById("dropbtn").innerText = "select course"
-	
-		
-		
-//console.log("here "+arrCourse[0])		
-						// create course dropdown
-			var select = document.getElementById("playersDropdown");
-			// this is what is created
-			//<a id="myLink1" href="#" onclick='dropSelected(this.innerText);return false;'>Graham Airey</a>
-			//
-			for(var i = 0; i < arrCourse.length; i++) {
-				var el = document.createElement("a");
-				el.id = "myLink" + (i);
-				el.setAttribute("onclick", "dropSelected(this.innerText);return false;");
-				el.setAttribute("href", "#");
-				el.innerText = arrCourse[i];
-				select.appendChild(el);
-			}
-		
-	}
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
-		
-
-		function updatehcp() {
-			// get players hcp
-			if(globalcourse != "") {
-				// players hcps entered
-				document.getElementById("splayinghcp1").style.display = "block";
-			
-				let vhcp1 = document.getElementById("nhcp1").innerText
-		
-					// get globals
-				globalallowance = document.getElementById("allowance100").innerText.replace("%","");	
-				let vhcpallowance = parseInt(globalallowance);
-				let vslope1 = document.getElementById("nslope1").value
-		
-				let ncr1 = document.getElementById("ncr1").value
-			
-				let npar1 = document.getElementById("npar1").value
-	
-				let vcoursehcp1 = (vhcp1 * (vslope1 / 113)) + (ncr1 - npar1)
-				let vcoursehcp1adjusted = (vcoursehcp1 * vhcpallowance/100); 
-				
-				
-				
-				
-				document.getElementById("splayinghcp1").innerHTML = 
-				
-				"course hcp = " + vcoursehcp1.toString().substring(0,7) + "..." +
-				"<br>playing hcp = " + vcoursehcp1adjusted.toString().substring(0,7) + "..." +
-				'<br><a id="bighcp">Your playing hcp = ' + vcoursehcp1adjusted.toFixed() + '</a>';
-						
-             doHcpc()				
-	
-			}
-		}
-		
-		// dropdown
-		//=============================================================
-		// function toggleDropdown()
-		// - show player name choices
-		//=============================================================  
-		function toggleDropdown() {
-			// When the user clicks on the button, toggle between hiding and showing the dropdown content
-			document.getElementById("playersDropdown").classList.toggle("show");
-		}
-		//=====================================================
-		// Close the dropdown if the user clicks outside of it
-		//=====================================================
-		window.onclick = function(event) {
-			if(!event.target.matches('.dropbtn')) {
-				var dropdowns = document.getElementsByClassName("dropdown-content");
-				var i;
-				for(i = 0; i < dropdowns.length; i++) {
-					var openDropdown = dropdowns[i];
-					if(openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-				}
-			}
-		};
-		//===========================
-		// name selected, do stuff
-		//===========================
-		function dropSelected(course) {
-			// set a global course var
-			globalcourse = course;
-			
-			
-console.log(course + " " + arrCourse[0])			
-			
-			for(var k = 0; k < arrCourse.length; k++) {
-				if(arrCourse[k] == course) {
-               // default to yellow
-					slope = arrYellowSlope[k];
-					cr = arrYellowRating[k];
-					par = arrYellowPar[k];
-					document.getElementById("nslope1").value = arrYellowSlope[k];
-					document.getElementById("ncr1").value = arrYellowRating[k];
-					document.getElementById("npar1").value = arrYellowPar[k];
-					
-					// set tees to yellow
-					document.getElementById("teecolor1").style.background = "yellow"
-					
-					updatehcp();
-				}
-			}
-			document.getElementById("dropbtn").innerText = course;
-			// replace button text
-			// close dropdown
-			var dropdowns = document.getElementsByClassName("dropdown-content");
-			var i;
-			for(i = 0; i < dropdowns.length; i++) {
-				var openDropdown = dropdowns[i];
-				if(openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
-			}
-		}
-
-		function changetee(id) {
-			// change dot color
-			// red to white, white to yellow, yellow to red
-         if(document.getElementById(id).style.background == "red") {			
-            redtowhite(id);
-         } else if (document.getElementById(id).style.background == "white") {			
-            whitetoyellow(id);
-         } else if (document.getElementById(id).style.background == "yellow") {			
-            yellowtored(id);
-         } else {
-            console.log("error: no tee color")
-         }
-     }    
-         
-     function redtowhite(id) {   
-			if(document.getElementById(id).style.background == "red") {
-				document.getElementById(id).style.background = "white"
-				document.getElementById(id).style.color = "white"
-					// insert new slope, cr and par in correct place
-				var teenum = id.replace("teecolor", "");
-				for(var k = 0; k < arrCourse.length; k++) {
-					if(arrCourse[k] == globalcourse) {
-						document.getElementById("nslope" + teenum).value = arrWhiteSlope[k];
-						document.getElementById("ncr" + teenum).value = arrWhiteRating[k];
-						document.getElementById("npar" + teenum).value = arrWhitePar[k];
-					}
-				}
-		   }
-        updatehcp();
-     }		
-				
-	
-	function whitetoyellow(id) {  
-			if(document.getElementById(id).style.background == "white") {
-				document.getElementById(id).style.background = "yellow"
-				document.getElementById(id).style.color = "yellow"
-					// insert new slope, cr and par in correct place
-				var teenum = id.replace("teecolor", "");
-				for(var k = 0; k < arrCourse.length; k++) {
-					if(arrCourse[k] == globalcourse) {
-						document.getElementById("nslope" + teenum).value = arrYellowSlope[k];
-						document.getElementById("ncr" + teenum).value = arrYellowRating[k];
-						document.getElementById("npar" + teenum).value = arrYellowPar[k];
-					}
-				}
-		   }
-        updatehcp();
-     }	
-		
-		function yellowtored(id) {  
-			if(document.getElementById(id).style.background == "yellow") {
-				document.getElementById(id).style.background = "red"
-				document.getElementById(id).style.color = "red"
-					// insert new slope, cr and par in correct place
-				var teenum = id.replace("teecolor", "");
-				for(var k = 0; k < arrCourse.length; k++) {
-					if(arrCourse[k] == globalcourse) {
-						document.getElementById("nslope" + teenum).value = arrRedSlope[k];
-						document.getElementById("ncr" + teenum).value = arrRedRating[k];
-						document.getElementById("npar" + teenum).value = arrRedPar[k];
-					}
-				}
-		   }
-        updatehcp();
-     }	
-		
-		
-			function changeallowance(id) {
-			//console.log(id)
-			// change allowance
-			if(document.getElementById(id).innerText == "100%") {
-            // change to 95%				
-				document.getElementById(id).innerText = "95%";
-			} else if (document.getElementById(id).innerText == "95%") {
-			   // change to 90%
-			   document.getElementById(id).innerText = "90%";
-         } else if (document.getElementById(id).innerText == "90%") {
-            // change to 85%
-			   document.getElementById(id).innerText = "85%";
-			} else if (document.getElementById(id).innerText == "85%") {
-			   // change to 80%
-			   document.getElementById(id).innerText = "80%";
-			} else if (document.getElementById(id).innerText == "80%") {
-			   // change to 75%
-			   document.getElementById(id).innerText = "75%";     
-			}  else {
-				// change to 100%
-			   document.getElementById(id).innerText = "100%";
-			}	
-			//alert(document.getElementById(id).innerText)
-         // set new allowance and recalculate
-			updatehcp()
-		}
-		
-		function increment(){
-         var count = document.getElementById('nhcp1');
-         whshcp = +count.innerText + 0.1;
-         count.innerText = whshcp.toFixed(1);	
-         localStorage.whshcp = whshcp.toFixed(1);
-         updatehcp();	
-		}
-
-      function decrement() {
-         var count = document.getElementById('nhcp1');
-         whshcp = +count.innerText - 0.1;
-         count.innerText = whshcp.toFixed(1);	
-         localStorage.whshcp = whshcp.toFixed(1);
-         updatehcp();
-      }		
-		
-		function editNumber() {
-         document.getElementById("myRange1").value = document.getElementById("nhcp1").innerText
-         document.getElementById("demo1").innerText = document.getElementById("nhcp1").innerText
-		   document.getElementById("hcpeditpopuppanel").style.display = "inline-block"; 
-      }
-		
-      function closeslider() {
-         document.getElementById("hcpeditpopuppanel").style.display = "none";
-         document.getElementById("nhcp1").innerText = document.getElementById("myRange1").value;
-         localStorage.whshcp = document.getElementById("myRange1").value;
-         updatehcp();
-      }
-	
-      function hcpvalue() {
-         document.getElementById("demo1").innerText = document.getElementById("myRange1").value;
-      }	
-	
-	function doHcpc() {
-     var temphcp =  document.getElementById("nhcp1").innerText	
-	  var tempslope = document.getElementById("nslope1").value	
-	  var tempcr = document.getElementById("ncr1").value	
-	  var temppar = document.getElementById("npar1").value	
-	  var vcoursehcp1 = (temphcp * (tempslope / 113)) + (tempcr - temppar)	  
-     var gallowance = document.getElementById("allowance100").innerText.replace("%","");	
-     var callowance = parseInt(gallowance);
-     var ch = (temphcp * (tempslope/113)) + (tempcr - temppar)
-     var ph = ch * (callowance/100)			  
-	  var tempcalctxt = "calculation ...<br><br>" +
-	  "course handicap<br>= (" + temphcp + " x " + "(" + tempslope + " / 113))" +
-	   " + (" + tempcr + " - " + temppar + ")<br>" +
-	  "= " + ch.toString().substring(0,7) + "...<br><br>" +
-	  "playing handicap<br>= (" + vcoursehcp1 + " x " + gallowance + "%<br>" +
-	  "= " + ph.toString().substring(0,7) + "..."
-	  document.getElementById("hcpc").innerHTML = 	tempcalctxt
-		
-	}
-	
-		</script>
-</body>
-
-</html>
+<!doctype html><html><head><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="ie=edge" http-equiv="X-UA-Compatible"><meta content="Bryan M" name="author"><title>myhcp</title><link rel="manifest" href="myhcp.webmanifest"><link href="myhcpicon.png" rel="icon" type="image/x-icon"><link rel="apple-touch-icon" sizes="180x180" href="myhcpicon.png" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><style>/* icon color #87e3f2 */
+body{background-color:Gray;background-attachment:fixed;font-family:'arial';color:#fff;text-align:center;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.stxt{text-align:center;font-size:2.5vh;text-shadow:0 4px 3px rgb(0 0 0 / .4),0 8px 13px rgb(0 0 0 / .1),0 18px 23px rgb(0 0 0 / .1)}.tstxt{text-align:center;font-size:2.5vh;text-shadow:0 4px 3px rgb(0 0 0 / .4),0 8px 13px rgb(0 0 0 / .1),0 18px 23px rgb(0 0 0 / .1);margin-bottom:2vh}h2,.dropbtn{text-align:center;padding-top:1%;padding-bottom:1%;color:#fff;font-size:4vh;text-shadow:0 4px 3px rgb(0 0 0 / .4),0 8px 13px rgb(0 0 0 / .1),0 18px 23px rgb(0 0 0 / .1);border-radius:10px;border:3px solid rgb(255 255 255 / .2);box-shadow:10px 10px 25px #000;background-clip:padding-box;font-weight:400;background-color:rgb(0 0 0 / .2)}#nhcp1{font-size:4vh;color:#fff;text-shadow:0 4px 3px rgb(0 0 0 / .4),0 8px 13px rgb(0 0 0 / .1),0 18px 23px rgb(0 0 0 / .1);background-color:dodgerBlue;text-align:center;border-radius:10px;border:3px solid rgb(255 255 255 / .2);box-shadow:10px 10px 25px #000;background-clip:padding-box;width:40vw;padding-top:1vh;padding-bottom:1vh}#nslope1,#ncr1,#npar1,#nhcpallowance{font-size:4vh;color:#fff;text-shadow:0 4px 3px rgb(0 0 0 / .4),0 8px 13px rgb(0 0 0 / .1),0 18px 23px rgb(0 0 0 / .1);background-color:dodgerBlue;text-align:center;border-radius:10px;border:3px solid rgb(255 255 255 / .2);box-shadow:10px 10px 25px #000;background-clip:padding-box;width:40vw;padding-top:1vh;padding-bottom:1vh}.score{font-size:3.5vh;color:#fff;background-color:dodgerBlue;text-align:center;padding-top:3px;padding-bottom:5px;border:3px solid rgb(255 255 255 / .2);border-radius:10px;box-shadow:10px 10px 25px #000;background-clip:padding-box}#splayinghcp1{background-color:dodgerBlue}#splayinghcpcalc,#txt{font-size:3.5vh;color:#fff;text-shadow:0 4px 3px rgb(0 0 0 / .4),0 8px 13px rgb(0 0 0 / .1),0 18px 23px rgb(0 0 0 / .1)}#footnote{color:#fff;font-size:3vh;font-style:italic;padding-left:10px}.yellow{color:#ff0}.dropdown{position:relative;display:inline-block}.dropdown-content{display:none;position:absolute;background-color:whiteSmoke;min-width:160px;overflow:auto;box-shadow:0 8px 16px 0 rgb(0 0 0 / .2);z-index:1;border-radius:5px;box-shadow:10px 10px 25px #000;max-height:75vh}.dropdown-content a{font-family:Arial,Helvetica,sans-serif;color:gray;padding:10px 16px;text-decoration:none;display:block;font-size:3.5vh;border:1px solid silver}.show{display:block}#teecolor1{display:inline;font-size:3.5vh;color:gray;text-shadow:0 4px 3px rgb(0 0 0 / .4),0 8px 13px rgb(0 0 0 / .1),0 18px 23px rgb(0 0 0 / .1);background-color:rgb(0 0 0 / .2);text-align:center;border-radius:50%;border:3px solid rgb(255 255 255 / .2);box-shadow:10px 10px 25px #000;background-clip:padding-box;margin-left:.5vw;margin-right:5vw;width:40px;height:40px}#allowance100{display:inline;font-size:3.5vh;color:#ff0;text-shadow:0 4px 3px rgb(0 0 0 / .4),0 8px 13px rgb(0 0 0 / .1),0 18px 23px rgb(0 0 0 / .1);background-color:rgb(0 0 0 / .2);text-align:center;border-radius:5px;border:3px solid rgb(255 255 255 / .2);box-shadow:10px 10px 25px #000;background-clip:padding-box;padding:5px;margin-left:2vw;margin-right:.5vw;width:40px;height:40px}.demo{margin-bottom:1vh;margin-top:1vh}#hcpa,#hcpc{padding-left:10vw;text-align:left}.plusminus{display:inline-block;font-size:4vh;color:#fff;background-color:dodgerBlue;text-align:center;padding-top:1vh;padding-bottom:1vh;border:3px solid rgb(255 255 255 / .2);border-radius:10px;box-shadow:10px 10px 25px #000;background-clip:padding-box;width:20vw}#bighcp{font-size:4vh;color:#fff;font-weight:700}#hcpeditpopuppanel{position:absolute;top:10vh;left:0;height:35vh;display:none;background-color:dodgerBlue;font-size:3vh;border-radius:3px;border:3px solid rgb(255 255 255 / .2);border-radius:10px;box-shadow:10px 10px 25px #000;background-clip:padding-box;padding:10px;margin:3vw;text-align:center;width:87vw;cursor:pointer}#myRange1{width:90%;padding-top:15px;accent-color:blue}#demo1{font-size:5.5vh}#closeicon1{padding-top:5vh}
+</style></head><body><div onclick="toggleDropdown();" class="dropbtn" id="dropbtn">select course</div>
+<div id="playersDropdown" class="dropdown-content"></div><!-- created by script -->
+<div id="hcpeditpopuppanel"><!-- hcp adjustment --><p><span id="demo1"></span></p>
+<input type="range" min="0.0" max="40.0" value="0" class="slider" step="0.1" id="myRange1"
+oninput="hcpvalue()"><div class="closeiconcontainer" id="closeicon1">
+<img src="close.png" alt="close" onclick='closeslider("slidecontainer1")' style="height: 30px; 
+width: 30px;"></div></div><div class="row"><div><div class="container"><br><div class="tstxt">tee
+<div id="teecolor1" onclick="changetee(this.id)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+allowance<div id="allowance100" onclick="changeallowance(this.id)">95%</div></div><div class="demo">
+<div class="stxt">WHS handicap index</div><div class="plusminus" onclick="decrement()">-</div>						
+<div class="plusminus" id="nhcp1" onclick="editNumber()">0</div><div class="plusminus"
+onclick="increment()">+</div></div><div class="stxt">slope</div><div class="demo">
+<input type="number" id="nslope1" name="nslope1" min="100" max="150" maxlength="3" step="1"
+oninput="updatehcpMaster()"></div><div class="stxt">course rating</div><div class="demo">
+<input type="number" id="ncr1" name="ncr1" min="60" max="80" maxlength="3" step="0.1"
+oninput="updatehcpMaster()"></div><div class="stxt">par</div><div class="demo">
+<input type="number" id="npar1" name="npar1" min="60" max="80" maxlength="2" step="1"
+oninput="updatehcpMaster()"></div><br></div></div></div> <!-- outerbox --><div id="txt">
+<div id="splayinghcp1" class="score">course hcp<br>playing hcp<br>rounded playing hcp </div>	
+</div><div id="hcpa"><br><br>HCP allowances<br><br>Individual Medal: 95%<br>
+Individual Stableford: 95%<br>Individual Par/Bogey: 95%<br>Fourball stroke play: 85%<br>
+Fourball Stableford: 85%<br>Fourball Par/Bogey: 90%<br>Matchplay Individual: 100%<br>
+Matchplay Pairs: 90%<br>Best 2 of 4 stroke play: 85%<br>Best 3 of 4 stroke play: 100%<br>
+Best 4 of 4 stroke play: 100%<br></div><br><br><div id="hcpc"></div><br><br><script>
+var slope;var cr;var par;var globalcourse="";var globalallowance;if(localStorage.whshcp){localStorage.myhcp=localStorage.whshcp
+localStorage.removeItem("whshcp")}
+if(localStorage.myhcp){document.getElementById("nhcp1").innerText=localStorage.myhcp;updatehcp()}else{document.getElementById("nhcp1").innerText="18";localStorage.myhcp="18";updatehcp()}
+document.getElementById("dropbtn").innerText="searching ..."
+getData();async function getData(){var dataStream=await fetch("https://opensheet.elk.sh/1EHmPE7L12qDgnORfskbnE3jpaoZAcrc5q7JZNRHkQTc/setupcsv")
+if(!dataStream.ok){const message=`An error has occured: ${dataStream.status}`;alert("error: "+message)}
+var resultsarray=await dataStream.json()
+arrCourse=resultsarray.map(d=>d.course);arrWhiteSlope=resultsarray.map(d=>d.whiteslope);arrWhiteRating=resultsarray.map(d=>d.whiterating);arrWhitePar=resultsarray.map(d=>d.whitepar);arrYellowSlope=resultsarray.map(d=>d.yellowslope);arrYellowRating=resultsarray.map(d=>d.yellowrating);arrYellowPar=resultsarray.map(d=>d.yellowpar);arrRedSlope=resultsarray.map(d=>d.redslope);arrRedRating=resultsarray.map(d=>d.redrating);arrRedPar=resultsarray.map(d=>d.redpar);arrCourse=arrCourse.filter(function(el){return el!=null})
+arrWhiteSlope=arrWhiteSlope.filter(function(el){return el!=null})
+arrWhiteRating=arrWhiteRating.filter(function(el){return el!=null})
+arrWhitePar=arrWhitePar.filter(function(el){return el!=null})
+arrYellowSlope=arrYellowSlope.filter(function(el){return el!=null})
+arrYellowRating=arrYellowRating.filter(function(el){return el!=null})
+arrYellowPar=arrYellowPar.filter(function(el){return el!=null})
+arrRedSlope=arrRedSlope.filter(function(el){return el!=null})
+arrRedRating=arrRedRating.filter(function(el){return el!=null})
+arrRedPar=arrRedPar.filter(function(el){return el!=null})
+arrCourse=arrCourse.filter(function(el){return el!=""})
+arrWhiteSlope=arrWhiteSlope.filter(function(el){return el!=""})
+arrWhiteRating=arrWhiteRating.filter(function(el){return el!=""})
+arrWhitePar=arrWhitePar.filter(function(el){return el!=""})
+arrYellowSlope=arrYellowSlope.filter(function(el){return el!=""})
+arrYellowRating=arrYellowRating.filter(function(el){return el!=""})
+arrYellowPar=arrYellowPar.filter(function(el){return el!=""})
+arrRedSlope=arrRedSlope.filter(function(el){return el!=""})
+arrRedRating=arrRedRating.filter(function(el){return el!=""})
+arrRedPar=arrRedPar.filter(function(el){return el!=""})
+document.getElementById("dropbtn").innerText="select course"
+var select=document.getElementById("playersDropdown");for(var i=0;i<arrCourse.length;i++){var el=document.createElement("a");el.id="myLink"+(i);el.setAttribute("onclick","dropSelected(this.innerText);return false;");el.setAttribute("href","#");el.innerText=arrCourse[i];select.appendChild(el)}}
+function updatehcp(){if(globalcourse!=""){document.getElementById("splayinghcp1").style.display="block";let vhcp1=document.getElementById("nhcp1").innerText
+globalallowance=document.getElementById("allowance100").innerText.replace("%","");let vhcpallowance=parseInt(globalallowance);let vslope1=document.getElementById("nslope1").value
+let ncr1=document.getElementById("ncr1").value
+let npar1=document.getElementById("npar1").value
+let vcoursehcp1=(vhcp1*(vslope1/113))+(ncr1-npar1)
+let vcoursehcp1adjusted=(vcoursehcp1*vhcpallowance/100);document.getElementById("splayinghcp1").innerHTML="course hcp = "+vcoursehcp1.toString().substring(0,7)+"..."+"<br>playing hcp = "+vcoursehcp1adjusted.toString().substring(0,7)+"..."+'<br><a id="bighcp">Your playing hcp = '+vcoursehcp1adjusted.toFixed()+'</a>';doHcpc()}}
+function toggleDropdown(){document.getElementById("playersDropdown").classList.toggle("show")}
+window.onclick=function(event){if(!event.target.matches('.dropbtn')){var dropdowns=document.getElementsByClassName("dropdown-content");var i;for(i=0;i<dropdowns.length;i++){var openDropdown=dropdowns[i];if(openDropdown.classList.contains('show')){openDropdown.classList.remove('show')}}}};function dropSelected(course){globalcourse=course;console.log(course+" "+arrCourse[0])
+for(var k=0;k<arrCourse.length;k++){if(arrCourse[k]==course){slope=arrYellowSlope[k];cr=arrYellowRating[k];par=arrYellowPar[k];document.getElementById("nslope1").value=arrYellowSlope[k];document.getElementById("ncr1").value=arrYellowRating[k];document.getElementById("npar1").value=arrYellowPar[k];document.getElementById("teecolor1").style.background="yellow"
+updatehcp()}}
+document.getElementById("dropbtn").innerText=course;var dropdowns=document.getElementsByClassName("dropdown-content");var i;for(i=0;i<dropdowns.length;i++){var openDropdown=dropdowns[i];if(openDropdown.classList.contains('show')){openDropdown.classList.remove('show')}}}
+function changetee(id){if(document.getElementById(id).style.background=="red"){redtowhite(id)}else if(document.getElementById(id).style.background=="white"){whitetoyellow(id)}else if(document.getElementById(id).style.background=="yellow"){yellowtored(id)}else{console.log("error: no tee color")}}
+function redtowhite(id){if(document.getElementById(id).style.background=="red"){document.getElementById(id).style.background="white"
+document.getElementById(id).style.color="white"
+var teenum=id.replace("teecolor","");for(var k=0;k<arrCourse.length;k++){if(arrCourse[k]==globalcourse){document.getElementById("nslope"+teenum).value=arrWhiteSlope[k];document.getElementById("ncr"+teenum).value=arrWhiteRating[k];document.getElementById("npar"+teenum).value=arrWhitePar[k]}}}
+updatehcp()}
+function whitetoyellow(id){if(document.getElementById(id).style.background=="white"){document.getElementById(id).style.background="yellow"
+document.getElementById(id).style.color="yellow"
+var teenum=id.replace("teecolor","");for(var k=0;k<arrCourse.length;k++){if(arrCourse[k]==globalcourse){document.getElementById("nslope"+teenum).value=arrYellowSlope[k];document.getElementById("ncr"+teenum).value=arrYellowRating[k];document.getElementById("npar"+teenum).value=arrYellowPar[k]}}}
+updatehcp()}
+function yellowtored(id){if(document.getElementById(id).style.background=="yellow"){document.getElementById(id).style.background="red"
+document.getElementById(id).style.color="red"
+var teenum=id.replace("teecolor","");for(var k=0;k<arrCourse.length;k++){if(arrCourse[k]==globalcourse){document.getElementById("nslope"+teenum).value=arrRedSlope[k];document.getElementById("ncr"+teenum).value=arrRedRating[k];document.getElementById("npar"+teenum).value=arrRedPar[k]}}}
+updatehcp()}
+function changeallowance(id){if(document.getElementById(id).innerText=="100%"){document.getElementById(id).innerText="95%"}else if(document.getElementById(id).innerText=="95%"){document.getElementById(id).innerText="90%"}else if(document.getElementById(id).innerText=="90%"){document.getElementById(id).innerText="85%"}else if(document.getElementById(id).innerText=="85%"){document.getElementById(id).innerText="80%"}else if(document.getElementById(id).innerText=="80%"){document.getElementById(id).innerText="75%"}else{document.getElementById(id).innerText="100%"}
+updatehcp()}
+function increment(){var count=document.getElementById('nhcp1');whshcp=+count.innerText+0.1;count.innerText=whshcp.toFixed(1);localStorage.whshcp=whshcp.toFixed(1);updatehcp()}
+function decrement(){var count=document.getElementById('nhcp1');whshcp=+count.innerText-0.1;count.innerText=whshcp.toFixed(1);localStorage.whshcp=whshcp.toFixed(1);updatehcp()}
+function editNumber(){document.getElementById("myRange1").value=document.getElementById("nhcp1").innerText
+document.getElementById("demo1").innerText=document.getElementById("nhcp1").innerText
+document.getElementById("hcpeditpopuppanel").style.display="inline-block"}
+function closeslider(){document.getElementById("hcpeditpopuppanel").style.display="none";document.getElementById("nhcp1").innerText=document.getElementById("myRange1").value;localStorage.whshcp=document.getElementById("myRange1").value;updatehcp()}
+function hcpvalue(){document.getElementById("demo1").innerText=document.getElementById("myRange1").value}
+function doHcpc(){var temphcp=document.getElementById("nhcp1").innerText
+var tempslope=document.getElementById("nslope1").value
+var tempcr=document.getElementById("ncr1").value
+var temppar=document.getElementById("npar1").value
+var vcoursehcp1=(temphcp*(tempslope/113))+(tempcr-temppar)
+var gallowance=document.getElementById("allowance100").innerText.replace("%","");var callowance=parseInt(gallowance);var ch=(temphcp*(tempslope/113))+(tempcr-temppar)
+var ph=ch*(callowance/100)
+var tempcalctxt="calculation ...<br><br>"+"course handicap<br>= ("+temphcp+" x "+"("+tempslope+" / 113))"+" + ("+tempcr+" - "+temppar+")<br>"+"= "+ch.toString().substring(0,7)+"...<br><br>"+"playing handicap<br>= ("+vcoursehcp1+" x "+gallowance+"%<br>"+"= "+ph.toString().substring(0,7)+"..."
+document.getElementById("hcpc").innerHTML=tempcalctxt}
+</script></body></html>
