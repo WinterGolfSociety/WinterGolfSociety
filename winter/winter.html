@@ -17,8 +17,7 @@
 <br> <a class=dates id=xdcomp1>searching for competitions ...</a> </div><br>
 <div class=flagicon id=flagicon> <img id=img onclick=enlarge(this.id) 
 style=padding-right:20px;float:right;border:0;height:40px;width:40px src=seniorswhite.png 
-alt=logo></div></div></section><img id=tooltip style=padding-right:20px;float:right;border:0;
-height:100px;width:100px src=speech.gif alt=speech><script>
+alt=logo></div></div></section><img id=tooltip style=height:100px;width:100px;padding-right:20px;float:right;border:0; src=speech.gif alt=speech><script>
 function isLocalStorageAvailable(){var test='test';try{localStorage.setItem(test,test);localStorage.removeItem(test);return!0}catch(e){return!1}}
 if(!isLocalStorageAvailable()){alert("local storage is not available so app will not operate.")}
 var supportsOrientationChange="onorientationchange" in window,orientationEvent=supportsOrientationChange?"orientationchange":"resize";window.addEventListener(orientationEvent,function(){if(window.orientation==0){document.getElementById("warning").style.display="none"}else if(window.orientation==90||window.orientation==-90){document.getElementById("warning").style.display="block"}},!1);var arrPlayers=[];var arrLadies=[];var arrHcps=[];var arrComps=[];var sparseArrComps=[];var sparseArrPlayers=[];var sparseArrLadies=[];var sparseArrHcps=[];var arrPlayersOld=[];var arrHcpOld=[];var todayscomp=""
