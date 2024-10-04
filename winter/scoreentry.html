@@ -252,7 +252,7 @@
     }
 
     .midway {
-      font-size: 3vh;
+      font-size: 2.5vh;
       color: white;
       background: dodgerBlue;
       height: 100%;
@@ -1723,21 +1723,211 @@
     // calculated additional totals, countback etc.
     function totalScore() {
       var ih = 0;
+      var ihadjusted = 0;
       var ip = 0;
       var c6 = 0;
       var c3 = 0;
       var c1 = 0;
       var cb = 0;
       var jh = 0;
+      var ihadjusted = 0;
+      var jhadjusted = 0;
       var jp = 0;
       
       for (i = 1; i <= 9; i++) {
         ih += parseInt(document.getElementById("h" + i).innerText);
+        // do stableford adjustment on strokes        
+        if (document.getElementById("h" + i).innerText == "0"){
+           // Daeson course 
+           if (course == "Dawson"){ 
+              if (useRedTees) {
+                 if (hcp >= arrDawsonRed[i][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arrDawsonRed[i][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arrDawsonRed[i][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arrDawsonRed[i][1] + 2     
+                 console.log("tempscore = "+tempscore)     
+               } else {
+                 if (hcp >= arrDawson[i][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arrDawson[i][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arrDawson[i][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arrDawson[i][1] + 2  
+               }             
+            }              
+            // Lakes course  
+            if (course == "Lakes"){ 
+              if (useRedTees) {
+                 if (hcp >= arrLakesRed[i][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arrLakesRed[i][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arrLakesRed[i][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arrLakesRed[i][1] + 2     
+                 console.log("tempscore = "+tempscore)     
+               } else {
+                 if (hcp >= arrLakes[i][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arrLakes[i][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arrLakes[i][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arrLakes[i][1] + 2  
+               }             
+            }      
+            // oldCourse
+            if (course == "oldCourse"){ 
+              if (useRedTees) {
+                 if (hcp >= arroldCourseRed[i][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arroldCourseRed[i][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arroldCourseRed[i][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arroldCourseRed[i][1] + 2     
+                 console.log("tempscore = "+tempscore)     
+               } else {
+                 if (hcp >= arroldCourse[i][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arroldCourse[i][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arroldCourse[i][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arroldCourse[i][1] + 2  
+               }             
+            }  
+              ihadjusted += tempscore;  
+        } else {
+           ihadjusted += parseInt(document.getElementById("h" + i).innerText);        
+        }
         ip += parseInt(document.getElementById("p" + i).innerText);
       }
-      
+      // back 9
       for (j = 10; j <= 18; j++) {
         jh += parseInt(document.getElementById("h" + j).innerText);
+        // do stableford adjustment on strokes        
+        if (document.getElementById("h" + j).innerText == "0"){
+           // Dawson course           
+           if (course == "Dawson"){ 
+              if (useRedTees) {
+                 if (hcp >= arrDawsonRed[j][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arrDawsonRed[j][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arrDawsonRed[j][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arrDawsonRed[j][1] + 2     
+                 console.log("tempscore = "+tempscore)     
+               } else {
+                 if (hcp >= arrDawson[j][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arrDawson[j][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arrDawson[j][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arrDawson[j][1] + 2  
+               }             
+            }              
+            // Lakes course  
+            if (course == "Lakes"){ 
+              if (useRedTees) {
+                 if (hcp >= arrLakesRed[j][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arrLakesRed[j][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arrLakesRed[j][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arrLakesRed[j][1] + 2     
+                 console.log("tempscore = "+tempscore)     
+               } else {
+                 if (hcp >= arrLakes[j][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arrLakes[j][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arrLakes[j][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arrLakes[j][1] + 2  
+               }             
+            }      
+            // oldCourse course
+            if (course == "oldCourse"){ 
+              if (useRedTees) {
+                 if (hcp >= arroldCourseRed[j][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arroldCourseRed[j][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arroldCourseRed[j][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arroldCourseRed[j][1] + 2     
+                 console.log("tempscore = "+tempscore)     
+               } else {
+                 if (hcp >= arroldCourse[j][2]) {
+                    tempadj = 1;           
+                 }        
+                 if ((hcp - 18) >= arroldCourse[j][2]) {
+                    tempadj = 2;           
+                 } 
+                 if ((hcp - 36) >= arroldCourse[j][2]) {
+                    tempadj = 3;           
+                 }
+                 // par + hcp adj + 2 over
+                 tempscore = tempadj + arroldCourse[j][1] + 2  
+               }             
+            }  
+              jhadjusted += tempscore;  
+        } else {
+           jhadjusted += parseInt(document.getElementById("h" + j).innerText);        
+        }
+
         jp += parseInt(document.getElementById("p" + j).innerText);
         if (j >= 13) {
           c6 = c6 + parseInt(document.getElementById("p" + j).innerText);
@@ -1758,9 +1948,9 @@
       document.getElementById("ptotal").innerText = ip + jp;
 
       document.getElementById("midwayfront9").innerText = 
-      "front 9 = " + ih + " strokes, " + ip + " points";
+      "front 9 = " + ih + " (" + ihadjusted +" adj) strokes, " + ip + " points";
       document.getElementById("midwayback9").innerText = 
-      "back 9 = " + jh + " strokes, " + jp + " points";
+      "back 9 = " + jh  + " (" + jhadjusted +" adj) strokes, " + jp + " points";
 
       cb = "countback 9=" + jp + ", 6=" + c6 + ", 3=" + c3 + ", 1=" + c1;
       document.getElementById("cback").innerText = cb;
