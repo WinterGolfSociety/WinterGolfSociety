@@ -1,499 +1,81 @@
 
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-      <title>winter</title>
-      <meta content="Bryan M" name="author" />
-      <link href="favicon.ico" rel="icon" type="image/x-icon" />
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'>
-<style>
-
-* {
-    margin: 0;
-    padding: 0;  
-}
-body {
-       color: white;
-      background-color: white; //darkSlateGray;
-      font-family: Arial, Helvetica, sans-serif;
-     // overflow-y: hidden; 
-     padding-left: 5px;
-     padding-right: 5px;
-}
- 
-    .grid-container {
-      display: grid;
-      grid-template-columns: 15vw 50vw 15vw 15vw;
-   //   padding-left: 20px;
-   border: 1px solid lightGray; //#E5E4E2;
-   //border-radius: 5px;
-    }
-   
-    .grid-item {
-     // padding: 2px;
-      font-family: arial;
-      font-size: 15px; //2vmin;
-      text-align: left;
-    }
-    
-   .grid-item-pos {
-  //    padding: 2px;
-      font-family: arial;
-      font-size: 15px; //2vmin;
-      text-align: center;
-    }
-    
-     .grid-item-top {
-        display: grid;
-        grid-column: 1 / 5;
-        //padding: 2px;
-        font-family: arial;
-        font-size: 15px; //2vmin;
-        text-align: left;           
-   }
-   
-   @keyframes fadein{
-      0% { opacity: 0.0; }
-      100% { opacity: 1.0; }
-}
-
-#secs {
-       font-family: arial;
-       font-size: 13px;
-       color: darkSlateGray;
-}
-
-#notyet, #nocomp {
-color: darkSlateGray;
-        padding-left: 10px;
-}
-#noresults {
-color: dodgerBlue;
-font-size: 20vw;
-}
-
-#player0 {
-width: 55vw;
-}
-
-#footer {
-padding-left: 10px;
-padding-right: 10px;
-}
-</style>
-<body>
-<div id="notyet"></div>
-
- <div id="leaderlist">
-
- <!-- created by script --> 
-     
- </div>
-
-</body>
-<script>
-
-
-document.getElementById("notyet").innerHTML = "Leaderboard refreshing ...<br>";
-var arrPos = []
-var arrPlayer = []
-var arrPoints = []
-var arrTwos = []
-var arrPlayerOld = [];
-var comp = "";
-var dd = new Date();
-var dddate = dd.getDate();
-var ddmonth = dd.getMonth();
-
-// get date number and format it
-d1 = dd.getDate();
-      if (d1 < 10) {
-        d1 = "0" + d1;
-      }
-      // get month and format it
-      d2 = dd.getMonth();
-      if (d2 == 0) {
-        m = "January";
-      }
-      if (d2 == 1) {
-        m = "February";
-      }
-      if (d2 == 2) {
-        m = "March";
-      }
-      if (d2 == 3) {
-        m = "April";
-      }
-      if (d2 == 4) {
-        m = "May";
-      }
-      if (d2 == 5) {
-        m = "June";
-      }
-      if (d2 == 6) {
-        m = "July";
-      }
-      if (d2 == 7) {
-        m = "August";
-      }
-      if (d2 == 8) {
-        m = "September";
-      }
-      if (d2 == 9) {
-        m = "October";
-      }
-      if (d2 == 10) {
-        m = "November";
-      }
-      if (d2 == 11) {
-        m = "December";
-      }
-      var dateToday = d1 + " " + m;
-
-
-function start() {
-
-document.getElementById("notyet").innerHTML = "<br>Leaderboard ... <a style='color:blue;'>updating</a><br><br>"
-arrPos = []
-arrPlayer = []
-arrPoints = []
-arrTwos = []
-arrPlayerOld = [];
-comp = "";
-
-if (!("lbdatecheck" in localStorage)) {
-    localStorage.lbdatecheck = "0";
-}
-
-if (localStorage.lbdatecheck != dddate + "-" + ddmonth) {
-    localStorage.lbdatecheck = dddate + "-" + ddmonth;
-    localStorage.removeItem("lbarray");
-}
-
-getData();
-}
-
-// run code ...
-start();
-
-// time for update
-setInterval(start, 60000);
-
-async function getData() {
-	var dataStream = await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/Leaderboard"
-)
-	
-	var resultsarray = await dataStream.json();
-	
-	var dataFound = "no"
-	console.log(resultsarray[0].points)
-
-
-
-if (resultsarray[0].points == "") {
-document.getElementById("notyet").innerHTML = "<br>Leaderboard ... <a style='color:blue;'>no results available</a><br><br>"
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// see if it is todays comp
-	if (resultsarray[0].comp.indexOf(dateToday) > -1) {
-       // see  if there is any results
-       if(resultsarray[0].points > 0) {
-           dataFound = "yes";
-           console.log("here")
-       }
-   }
-
-if (dataFound == "yes") {
-	
-	// get rid of blanks in array by creating new arrays
-	for(var i = 0; i < resultsarray.length; i++) {
-		if(resultsarray[i].player.length > 2) {
-			arrPos.push(resultsarray[i].pos);
-			arrPlayer.push(resultsarray[i].player);
-			arrPoints.push(resultsarray[i].points);
-			arrTwos.push(resultsarray[i].twos);
-			
-			comp = resultsarray[0].comp;
-			
-		}
-		arrPlayerOld.push("searching ...")
-
-	}
-
-} else {
-
-   arrPos.push("&nbsp;");
-   arrPlayer.push("no results");
-   arrPoints.push("&nbsp;");
-   arrTwos.push("&nbsp;")
-
-   arrPlayerOld.push("searching ...")
-
-}
-
-	// retrieve previous data
-	if ("lbarray" in localStorage) {
-	    arrPlayerOld = JSON.parse(localStorage.lbarray);
-	}
-	// overwrite saved data
-	//localStorage.lbarray = JSON.stringify(arrPlayer);
-	localStorage.setItem("lbarray",JSON.stringify(arrPlayer));
-
-		//if (arrPlayer.length == arrPlayerOld.length) { // no change
-		//console.log("same")
-		//} else { // change
-	//var numberofresults = resultsarray.length;
-	var displaypos
-	var displayplayer
-	var displaypoints
-	var displaytwos
-
-		// if not a comp day show message and return to menu
-
-	var ddhours = dd.getHours();
-	var ddminutes = dd.getMinutes();
-	if(ddminutes < 10) {
-		ddminutes = "0" + ddminutes
-	}
-	var ddseconds = dd.getSeconds();
-	if(ddseconds < 10) {
-		ddseconds = "0" + ddseconds
-	}
-	arrMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-		// create HTML
-	        createDisplay(arrPlayer.length)
-		// comp day
-		document.getElementById("top1").innerHTML = "<br>" + comp + "<br><br>"
-		
-		i = 0;
-
-                // gray out current list	
-                
-                for(var ii = 0; ii < arrPlayer.length; ii++) {                   
-                    var bbg = '<p style="background:#F8F8FF;color:gray;">'
-                    displaypos    = bbg + arrPos[ii]    + "</p>";
-                    displayplayer = bbg + arrPlayerOld[ii] + "</p>";
-                    displaypoints = bbg + arrPoints[ii] + "</p>";
-                    displaytwos   = bbg + arrTwos[ii]   + "&nbsp;</p>";
-				
-                    document.getElementById("pos"    + ii).innerHTML = displaypos
-                    document.getElementById("player" + ii).innerHTML = displayplayer
-                    document.getElementById("points" + ii).innerHTML = displaypoints
-                    document.getElementById("twos"   + ii).innerHTML = displaytwos
-                    
-                    // add class
-		    document.getElementById("leaderlist").classList.add("grid-container");
-                    
-                    document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
-		document.getElementById("footer").innerHTML = "Updated every 60 seconds.<br>There is a delay before this information is available in 'All results'"
-
-               }	
-               
-             
-	// set player width
-	//document.getElementById("player0").style.width = "55vw";
-	       // step through each entry and rewrite	
-
-  
-  let myPromise = () => new Promise((resolve, reject) => {
-      setTimeout(function(){
-        resolve('Count')
-      }, 250)
-    })
- 
-   
-    for (let index = 0; index < arrPlayer.length; index++) {
-      let count = await myPromise()
-
-
-
-// code goes here
-  
-  
-  
-    		
-			// old player 
-			if(arrPlayerOld.indexOf(arrPlayer[i]) > -1) {
-			   // odd number 
-                           if (i % 2 !== 0) {
-		               // light background
-		               bg = '<p style="background:#F8F8FF;color:black;">'
-		           } else {
-		               bg = '<p style="background:#ECEFEF;color:black;">'
-		           } 
-				displaypos    = bg + arrPos[i]    + "&nbsp;</p>";
-				displayplayer = bg + arrPlayer[i] + "&nbsp;</p>";
-				displaypoints = bg + arrPoints[i] + "&nbsp;</p>";
-				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
-				
-				// add class
-				document.getElementById("leaderlist").classList.add("grid-container");
-				
-				document.getElementById("pos"    + i).innerHTML = displaypos
-				document.getElementById("player" + i).innerHTML = displayplayer
-				document.getElementById("points" + i).innerHTML = displaypoints
-				document.getElementById("twos"   + i).innerHTML = displaytwos
-
-			} else {
-				// new player
-				if (i % 2 !== 0) {
-		                    // light background
-		                    bg = '<p style="background:#F8F8FF; color:blue;">'
-		                } else {
-		                    bg = '<p style="background:#ECEFEF; color: blue;">'
-		                } 
-				displaypos    = bg + arrPos[i]    + "&nbsp;</p>";
-				displayplayer = bg + arrPlayer[i] + "&nbsp;</p>";
-				displaypoints = bg + arrPoints[i] + "&nbsp;</p>";
-				displaytwos   = bg + arrTwos[i]   + "&nbsp;</p>";
-				
-				// add class
-				document.getElementById("leaderlist").classList.add("grid-container");
-				
-				document.getElementById("pos"    + i).innerHTML = displaypos
-				document.getElementById("player" + i).innerHTML = displayplayer
-				document.getElementById("points" + i).innerHTML = displaypoints
-				document.getElementById("twos"   + i).innerHTML = displaytwos
-			}
-			
-			
-			i++
-			
-} //end of delay			
-			
-			
-			
-			
-			
-
-		document.getElementById("notyet").innerHTML = "<br>Leaderboard for today at " + ddhours + ":" + ddminutes + '<a id="secs">' + ":" + ddseconds + "</a><br><br>";
-		document.getElementById("footer").innerHTML = "Updated every 60 seconds.<br>There is a delay before this information is available in 'All results'"
-		
-		
-		
-		
-		
-	
-}
-
-function createSmallDisplay() {
-	// create HTML to hold results
-	var select = document.getElementById("leaderlist");
-	select.classList.remove("grid-container")
-	select.innerHTML = "";
-	var el = document.createElement("div");
-	el.id = "nocomp";
-	select.appendChild(el);
-
-	
-
-}
-
-function createDisplay(num) {
-	// create HTML to hold results
-	var select = document.getElementById("leaderlist");
-	// empty names
-	select.innerHTML = "";
-	// create comp holder
-	var el = document.createElement("div");
-	el.id = "comp";
-	el.setAttribute("class", "grid-item-top");
-	select.appendChild(el);
-	
-	
-	var el = document.createElement("div");
-	el.id = "top1";
-	el.setAttribute("class", "grid-item-top");
-	select.appendChild(el);
-	document.getElementById("top1").style.textAlign = "center";
-	document.getElementById("top1").innerHTML = "<br>" + comp + "<br><br>"
-	document.getElementById("top1").style.background = "lightGray";
-	document.getElementById("top1").style.color = "blue";
-	
-	var el = document.createElement("div");
-	el.id = "top2";
-	el.setAttribute("class", "grid-item-top");
-	select.appendChild(el);
-	document.getElementById("top2").innerHTML = "&nbsp;"
-	document.getElementById("top2").style.background = "#F8F8FF";
-	document.getElementById("top2").style.color = "cyan";
-	
-	// create the right number of holders
-	for(var i = 0; i < num; i++) {
-
-		var el = document.createElement("div");
-		el.id = "pos" + i;
-		el.setAttribute("class", "grid-item-pos");
-		select.appendChild(el);
-		var el = document.createElement("div");
-		el.id = "player" + i;
-		el.setAttribute("class", "grid-item");
-		select.appendChild(el);
-		var el = document.createElement("div");
-		el.id = "points" + i;
-		el.setAttribute("class", "grid-item");
-		select.appendChild(el);
-		var el = document.createElement("div");
-		el.id = "twos" + i;
-		el.setAttribute("class", "grid-item");
-		select.appendChild(el);
-
-	}
-	// create footer 
-	
-	
-	
-	if (arrPlayer.length % 2 !== 0) {
-	var el = document.createElement("div");
-	el.id = "bottom1";
-	el.setAttribute("class", "grid-item-top");
-	select.appendChild(el);
-	document.getElementById("bottom1").innerHTML = "&nbsp;"
-	document.getElementById("bottom1").style.background = "#F8F8FF";
-	document.getElementById("bottom1").style.color = "cyan";
-	}
-	
-	var el = document.createElement("div");
-	el.id = "bottom2";
-	el.setAttribute("class", "grid-item-top");
-	select.appendChild(el);
-	document.getElementById("bottom2").innerHTML = "&nbsp;"
-	document.getElementById("bottom2").style.background = "#ECEFEF";
-	document.getElementById("bottom2").style.color = "cyan";
-	
-	
-	var el = document.createElement("div");
-	el.id = "footer";
-	el.setAttribute("class", "grid-item-top");
-	select.appendChild(el);
-	document.getElementById("footer").innerHTML = "&nbsp;"
-	document.getElementById("footer").style.background = "#F8F8FF";
-	document.getElementById("footer").style.color = "darkSlateGray";
-	document.getElementById("footer").style.fontStyle = "italic";
-	
-}
-
-</script>
-</body>
-</html>
-
-
-
-
-
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>winter</title><meta content="Bryan M" name="author" />
+<link href="favicon.ico" rel="icon" type="image/x-icon" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Kalam' rel='stylesheet'><style>
+*{margin:0;padding:0}body{color:#fff;background-color:#fff;//darkSlateGray;font-family:Arial,Helvetica,sans-serif;// overflow-y:hidden;padding-left:5px;padding-right:5px}.grid-container{display:grid;grid-template-columns:15vw 50vw 15vw 15vw;// padding-left:20px;border:1px solid lightGray;//#E5E4E2;//border-radius:5px}.grid-item{// padding:2px;font-family:arial;font-size:15px;//2vmin;text-align:left}.grid-item-pos{// padding:2px;font-family:arial;font-size:15px;//2vmin;text-align:center}.grid-item-top{display:grid;grid-column:1 / 5;//padding:2px;font-family:arial;font-size:15px;//2vmin;text-align:left}@keyframes fadein{0%{opacity:0}100%{opacity:1}}#secs{font-family:arial;font-size:13px;color:darkSlateGray}#notyet,#nocomp{color:darkSlateGray;padding-left:10px}#noresults{color:dodgerBlue;font-size:20vw}#player0{width:55vw}#footer{padding-left:10px;padding-right:10px}</style><body><div id="notyet"></div><div id="leaderlist"></div></body><script>
+document.getElementById("notyet").innerHTML="Leaderboard refreshing ...<br>";var arrPos=[]
+var arrPlayer=[]
+var arrPoints=[]
+var arrTwos=[]
+var arrPlayerOld=[];var comp="";var dd=new Date();var dddate=dd.getDate();var ddmonth=dd.getMonth();d1=dd.getDate();if(d1<10){d1="0"+d1}
+d2=dd.getMonth();if(d2==0){m="January"}
+if(d2==1){m="February"}
+if(d2==2){m="March"}
+if(d2==3){m="April"}
+if(d2==4){m="May"}
+if(d2==5){m="June"}
+if(d2==6){m="July"}
+if(d2==7){m="August"}
+if(d2==8){m="September"}
+if(d2==9){m="October"}
+if(d2==10){m="November"}
+if(d2==11){m="December"}
+var dateToday=d1+" "+m;function start(){document.getElementById("notyet").innerHTML="<br>Leaderboard ... <a style='color:blue;'>updating</a><br><br>"
+arrPos=[]
+arrPlayer=[]
+arrPoints=[]
+arrTwos=[]
+arrPlayerOld=[];comp="";if(!("lbdatecheck" in localStorage)){localStorage.lbdatecheck="0"}
+if(localStorage.lbdatecheck!=dddate+"-"+ddmonth){localStorage.lbdatecheck=dddate+"-"+ddmonth;localStorage.removeItem("lbarray")}
+getData()}
+start();setInterval(start,60000);async function getData(){var dataStream=await fetch("https://opensheet.elk.sh/1fmkEGlTXzrLu1jOgY6-qCIvfko-minhwfXTS1SpJXeY/Leaderboard")
+var resultsarray=await dataStream.json();var dataFound="no"
+console.log(resultsarray[0].points)
+if(resultsarray[0].points==""){document.getElementById("notyet").innerHTML="<br>Leaderboard ... <a style='color:blue;'>no results available</a><br><br>"}
+if(resultsarray[0].comp.indexOf(dateToday)>-1){if(resultsarray[0].points>0){dataFound="yes";console.log("here")}}
+if(dataFound=="yes"){for(var i=0;i<resultsarray.length;i++){if(resultsarray[i].player.length>2){arrPos.push(resultsarray[i].pos);arrPlayer.push(resultsarray[i].player);arrPoints.push(resultsarray[i].points);arrTwos.push(resultsarray[i].twos);comp=resultsarray[0].comp}
+arrPlayerOld.push("searching ...")}}else{arrPos.push("&nbsp;");arrPlayer.push("no results");arrPoints.push("&nbsp;");arrTwos.push("&nbsp;")
+arrPlayerOld.push("searching ...")}
+if("lbarray" in localStorage){arrPlayerOld=JSON.parse(localStorage.lbarray)}
+localStorage.setItem("lbarray",JSON.stringify(arrPlayer));var displaypos
+var displayplayer
+var displaypoints
+var displaytwos
+var ddhours=dd.getHours();var ddminutes=dd.getMinutes();if(ddminutes<10){ddminutes="0"+ddminutes}
+var ddseconds=dd.getSeconds();if(ddseconds<10){ddseconds="0"+ddseconds}
+arrMonths=["January","February","March","April","May","June","July","August","September","October","November","December"]
+createDisplay(arrPlayer.length)
+document.getElementById("top1").innerHTML="<br>"+comp+"<br><br>"
+i=0;for(var ii=0;ii<arrPlayer.length;ii++){var bbg='<p style="background:#F8F8FF;color:gray;">'
+displaypos=bbg+arrPos[ii]+"</p>";displayplayer=bbg+arrPlayerOld[ii]+"</p>";displaypoints=bbg+arrPoints[ii]+"</p>";displaytwos=bbg+arrTwos[ii]+"&nbsp;</p>";document.getElementById("pos"+ii).innerHTML=displaypos
+document.getElementById("player"+ii).innerHTML=displayplayer
+document.getElementById("points"+ii).innerHTML=displaypoints
+document.getElementById("twos"+ii).innerHTML=displaytwos
+document.getElementById("leaderlist").classList.add("grid-container");document.getElementById("notyet").innerHTML="<br>Leaderboard for today at "+ddhours+":"+ddminutes+'<a id="secs">'+":"+ddseconds+"</a><br><br>";document.getElementById("footer").innerHTML="Updated every 60 seconds.<br>There is a delay before this information is available in 'All results'"}
+let myPromise=()=>new Promise((resolve,reject)=>{setTimeout(function(){resolve('Count')},250)})
+for(let index=0;index<arrPlayer.length;index++){let count=await myPromise()
+if(arrPlayerOld.indexOf(arrPlayer[i])>-1){if(i%2!==0){bg='<p style="background:#F8F8FF;color:black;">'}else{bg='<p style="background:#ECEFEF;color:black;">'}
+displaypos=bg+arrPos[i]+"&nbsp;</p>";displayplayer=bg+arrPlayer[i]+"&nbsp;</p>";displaypoints=bg+arrPoints[i]+"&nbsp;</p>";displaytwos=bg+arrTwos[i]+"&nbsp;</p>";document.getElementById("leaderlist").classList.add("grid-container");document.getElementById("pos"+i).innerHTML=displaypos
+document.getElementById("player"+i).innerHTML=displayplayer
+document.getElementById("points"+i).innerHTML=displaypoints
+document.getElementById("twos"+i).innerHTML=displaytwos}else{if(i%2!==0){bg='<p style="background:#F8F8FF; color:blue;">'}else{bg='<p style="background:#ECEFEF; color: blue;">'}
+displaypos=bg+arrPos[i]+"&nbsp;</p>";displayplayer=bg+arrPlayer[i]+"&nbsp;</p>";displaypoints=bg+arrPoints[i]+"&nbsp;</p>";displaytwos=bg+arrTwos[i]+"&nbsp;</p>";document.getElementById("leaderlist").classList.add("grid-container");document.getElementById("pos"+i).innerHTML=displaypos
+document.getElementById("player"+i).innerHTML=displayplayer
+document.getElementById("points"+i).innerHTML=displaypoints
+document.getElementById("twos"+i).innerHTML=displaytwos}
+i++}
+document.getElementById("notyet").innerHTML="<br>Leaderboard for today at "+ddhours+":"+ddminutes+'<a id="secs">'+":"+ddseconds+"</a><br><br>";document.getElementById("footer").innerHTML="Updated every 60 seconds.<br>There is a delay before this information is available in 'All results'"}
+function createSmallDisplay(){var select=document.getElementById("leaderlist");select.classList.remove("grid-container")
+select.innerHTML="";var el=document.createElement("div");el.id="nocomp";select.appendChild(el)}
+function createDisplay(num){var select=document.getElementById("leaderlist");select.innerHTML="";var el=document.createElement("div");el.id="comp";el.setAttribute("class","grid-item-top");select.appendChild(el);var el=document.createElement("div");el.id="top1";el.setAttribute("class","grid-item-top");select.appendChild(el);document.getElementById("top1").style.textAlign="center";document.getElementById("top1").innerHTML="<br>"+comp+"<br><br>"
+document.getElementById("top1").style.background="lightGray";document.getElementById("top1").style.color="blue";var el=document.createElement("div");el.id="top2";el.setAttribute("class","grid-item-top");select.appendChild(el);document.getElementById("top2").innerHTML="&nbsp;"
+document.getElementById("top2").style.background="#F8F8FF";document.getElementById("top2").style.color="cyan";for(var i=0;i<num;i++){var el=document.createElement("div");el.id="pos"+i;el.setAttribute("class","grid-item-pos");select.appendChild(el);var el=document.createElement("div");el.id="player"+i;el.setAttribute("class","grid-item");select.appendChild(el);var el=document.createElement("div");el.id="points"+i;el.setAttribute("class","grid-item");select.appendChild(el);var el=document.createElement("div");el.id="twos"+i;el.setAttribute("class","grid-item");select.appendChild(el)}
+if(arrPlayer.length%2!==0){var el=document.createElement("div");el.id="bottom1";el.setAttribute("class","grid-item-top");select.appendChild(el);document.getElementById("bottom1").innerHTML="&nbsp;"
+document.getElementById("bottom1").style.background="#F8F8FF";document.getElementById("bottom1").style.color="cyan"}
+var el=document.createElement("div");el.id="bottom2";el.setAttribute("class","grid-item-top");select.appendChild(el);document.getElementById("bottom2").innerHTML="&nbsp;"
+document.getElementById("bottom2").style.background="#ECEFEF";document.getElementById("bottom2").style.color="cyan";var el=document.createElement("div");el.id="footer";el.setAttribute("class","grid-item-top");select.appendChild(el);document.getElementById("footer").innerHTML="&nbsp;"
+document.getElementById("footer").style.background="#F8F8FF";document.getElementById("footer").style.color="darkSlateGray";document.getElementById("footer").style.fontStyle="italic"}
+</script></body></html>
