@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+    <style>
+html, body {margin: 0; height: 100%; overflow: auto;}
+
+#drop_zone1,  #drop_zone2, #drop_zone3 {
+    background-color: #eee;
+    border: #999 1px solid ;
+    width: 280px;
+    height: 100px;
+    padding: 8px;
+    font-size: 19px;
+  }
+  
+  .objects {
+    display: inline-block;
+    background-color: #FFF3CC;
+    border: #DFBC6A 1px solid;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    padding: 8px;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 2px 2px 2px #999;
+    cursor: move;
+  }
+    </style>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Drag and Drop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <a id="app_status">Drag status: </a>
+    <a>Drop Zone1</a>
+    <div id="drop_zone1" ondragover="return false"></div>
+    <a>Drop Zone2</a>
+    <div id="drop_zone2" ondragover="return false"></div>
+    <a>Drop Zone3</a>
+    <div id="drop_zone3" ondragover="return false"></div>
+    <div id="object1" class="objects" draggable="true">Object 1</div>
+    <div id="object2" class="objects" draggable="true">Object 2</div>
+    <div id="object3" class="objects" draggable="true">Object 3</div>
+
+    <script>
+//     function _(id) {
+//    return document.getElementById(id);
+//}
+
+var droppedIn = false;
+
+
+    // Drag zone functionality
+    var dropZone1 = document.getElementById('drop_zone1');
+    var dropZone2 = document.getElementById('drop_zone2');
+    var dropZone3 = document.getElementById('drop_zone3');
+    
+    dropZone1.addEventListener('dragenter', handleDragEnter, false);
+    dropZone1.addEventListener('dragleave', handleDragLeave, false);
+    dropZone1.addEventListener('drop', handleDragDrop, false);
+
+    dropZone2.addEventListener('dragenter', handleDragEnter, false);
+    dropZone2.addEventListener('dragleave', handleDragLeave, false);
+    dropZone2.addEventListener('drop', handleDragDrop, false);
+    
+    dropZone3.addEventListener('dragenter', handleDragEnter, false);
+    dropZone3.addEventListener('dragleave', handleDragLeave, false);
+    dropZone3.addEventListener('drop', handleDragDrop, false);
+    
+    
+    
+    function handleDragEnter(e) {
+        document.getElementById('app_status').innerHTML = "You are dragging over the " + e
+            .target
+            .getAttribute('id');
+    }
+
+    function handleDragLeave(e) {
+        document.getElementById('app_status').innerHTML = "You left the " + e
+            .target
+            .getAttribute('id');
+    }
+
+    function handleDragDrop(e) {
+        e.preventDefault();
+        var element_id = e
+            .dataTransfer
+            .getData("text");
+        e
+            .target
+            .appendChild(document.getElementById(element_id));
+        document.getElementById(element_id).removeAttribute("draggable")
+        document.getElementById(element_id).style.cursor = "default";
+        droppedIn = true;
+        document.getElementById('app_status').innerHTML = "You dropped " + element_id + " into drop zone";
+    }
+
+    // Draggable element functionality
+    var object1 = document.getElementById('object1');
+    var object2 = document.getElementById('object2');
+    var object3 = document.getElementById('object3');
+
+    var activeEvent = '';
+    var originalX = '';
+    var originalY = '';
+
+    object1.addEventListener('dragstart', handleDragStart, false);
+    object1.addEventListener('dragend', handleDragEnd, false);
+    object1.addEventListener('touchstart', handleTouchStart, false);
+    object1.addEventListener('touchmove', handleTouchMove, false);
+    object1.addEventListener('touchend', handleTouchEnd, false);
+
+    object2.addEventListener('dragstart', handleDragStart, false);
+    object2.addEventListener('dragend', handleDragEnd, false);
+    object2.addEventListener('touchstart', handleTouchStart, false);
+    object2.addEventListener('touchmove', handleTouchMove, false);
+    object2.addEventListener('touchend', handleTouchEnd, false);
+
+    object3.addEventListener('dragstart', handleDragStart, false);
+    object3.addEventListener('dragend', handleDragEnd, false);
+    object3.addEventListener('touchstart', handleTouchStart, false);
+    object3.addEventListener('touchmove', handleTouchMove, false);
+    object3.addEventListener('touchend', handleTouchEnd, false);
+
+    function handleDragStart(e) {
+        document.getElementById('app_status').innerHTML = "Dragging the element " + e
+            .target
+            .getAttribute('id');
+        e.dataTransfer.dropEffect = "move";
+        e
+            .dataTransfer
+            .setData("text", e.target.getAttribute('id'));
+    }
+
+    function handleDragEnd(e) {
+        if (droppedIn == false) {
+            document.getElementById('app_status').innerHTML = "You let the " + e
+                .target
+                .getAttribute('id') + " go.";
+        }
+        droppedIn = false;
+    }
+
+    function handleTouchStart(e) {
+        document.getElementById('app_status').innerHTML = "Touch start with element " + e
+            .target
+            .getAttribute('id');
+        originalX = (e.target.offsetLeft - 10) + "px";
+        originalY = (e.target.offsetTop - 10) + "px";
+        activeEvent = 'start';
+    }
+
+    function handleTouchMove(e) {
+        var touchLocation = e.targetTouches[0];
+        var pageX = (touchLocation.pageX - 50) + "px";
+        var pageY = (touchLocation.pageY - 50) + "px";
+        document.getElementById('app_status').innerHTML = "Touch x " + pageX + " Touch y " + pageY;
+        e.target.style.position = "absolute";
+        e.target.style.left = pageX;
+        e.target.style.top = pageY;
+        activeEvent = 'move';
+    }
+
+    function handleTouchEndx(e) {
+        
+        console.log("handleTouchEnd(" + e + ")")
+        
+        e.preventDefault();
+        if (activeEvent === 'move') {
+            var pageX = (parseInt(e.target.style.left) - 50);
+            var pageY = (parseInt(e.target.style.top) - 50);
+   
+     //       if (document.getElementById("drop_zone1").querySelector("#object1") ||
+     //           document.getElementById("drop_zone1").querySelector("#object2") ||
+     //           document.getElementById("drop_zone1").querySelector("#object3") ) {
+                // Yes, it's inside it
+            
+                console.log("1")          
+            
+                if (detectTouchEnd(dropZone1.offsetLeft, dropZone1.offsetTop, pageX, pageY, dropZone1.offsetWidth, dropZone1.offsetHeight)) {
+                  
+                    dropZone1.appendChild(e.target);
+                    e.target.style.position = "initial";
+                    droppedIn = true;
+                    document.getElementById('app_status').innerHTML = "You dropped " + e
+                        .target
+                        .getAttribute('id') + " into drop zone";
+
+                }
+       //     }
+     
+     
+         //   if (document.getElementById("drop_zone2").querySelector("#object1") ||
+         //       document.getElementById("drop_zone2").querySelector("#object2") ||
+         //       document.getElementById("drop_zone2").querySelector("#object3") ) {
+                // Yes, it's inside it
+      
+               console.log("2")
+                   
+               if (detectTouchEnd(dropZone2.offsetLeft, dropZone2.offsetTop, pageX, pageY, dropZone2.offsetWidth, dropZone2.offsetHeight)) {
+                   dropZone2.appendChild(e.target);
+                   e.target.style.position = "initial";
+                   droppedIn = true;
+                   document.getElementById('app_status').innerHTML = "You dropped " + e
+                   .target
+                   .getAttribute('id') + " into drop zone";
+
+               }
+            
+           // }
+        
+            //if (document.getElementById("drop_zone3").querySelector("#object1") ||
+            //    document.getElementById("drop_zone3").querySelector("#object2") ||
+            //    document.getElementById("drop_zone3").querySelector("#object3") ) {
+                // Yes, it's inside it
+               console.log("3")
+
+               if (detectTouchEnd(dropZone3.offsetLeft, dropZone3.offsetTop, pageX, pageY, dropZone3.offsetWidth, dropZone3.offsetHeight)) {
+                   dropZone3.appendChild(e.target);
+                   e.target.style.position = "initial";
+                   droppedIn = true;
+                   document.getElementById('app_status').innerHTML = "You dropped " + e
+                   .target
+                   .getAttribute('id') + " into drop zone";
+
+               }
+           // }
+        }  
+    }
+    // detectTouchEnd(dropZone3.offsetLeft, dropZone3.offsetTop, pageX, pageY, dropZone3.offsetWidth, dropZone3.offsetHeight)
+    function detectTouchEnd(x1, y1, x2, y2, w, h) {
+        //Very simple detection here
+        if (x2 - x1 > w) {
+            return false;
+        }    
+        if (y2 - y1 > h) { 
+            return false;
+        }    
+        return true;
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        function handleTouchEnd(e) {
+        
+        //var pageY = (parseInt(e.target.style.top) - 50);
+        
+        
+        
+        e.preventDefault();
+        if (activeEvent === 'move') {
+           // var pageX = (parseInt(e.target.style.left) - 50);
+           // var pageY = (parseInt(e.target.style.top) - 50);
+   //var touchLocation = e.targetTouches[0];
+   //          var pageY = (touchLocation.pageY - 50);
+            
+            
+           var x = e.targetTouches[0].target.id; 
+            
+            console.log("x = "+x)
+            
+            
+     //       if (document.getElementById("drop_zone1").querySelector("#object1") ||
+     //           document.getElementById("drop_zone1").querySelector("#object2") ||
+     //           document.getElementById("drop_zone1").querySelector("#object3") ) {
+                // Yes, it's inside it
+            
+                //console.log("test2")          
+            
+               // if (document.getElementById("drop_zone2").querySelector("#object1")) {
+            
+          
+                var rect1 = document.getElementById("drop_zone1").getBoundingClientRect();
+                var top1 = (rect1.top + window.pageYOffset)
+                var bottom1 = (rect1.bottom - window.pageYOffset)
+                
+                var rect2 = document.getElementById("drop_zone2").getBoundingClientRect();
+                var top2 = (rect2.top + window.pageYOffset)
+                var bottom2 = (rect2.bottom - window.pageYOffset)
+                
+                var rect3 = document.getElementById("drop_zone3").getBoundingClientRect();
+                var top3 = (rect3.top + window.pageYOffset)
+                var bottom3 = (rect3.bottom - window.pageYOffset)
+                
+                
+
+console.log("pageY = " + pageY)
+console.log("top1 = " + top1)
+console.log("top2 = " + top2)
+console.log("top3 = " + top3)
+                
+              
+          if (pageY < top1 && pageY > bottom1) {      
+              console.log("test1true")    
+              document.getElementById("drop_zone1").appendChild(e.target);
+              e.target.style.position = "initial";
+              droppedIn = true;
+              document.getElementById('app_status').innerHTML = "You dropped " + e
+                      .target
+                      .getAttribute('id') + " into drop zone";
+          }
+          if (pageY < top2 && pageY > bottom2) {      
+              console.log("test2true")    
+              document.getElementById("drop_zone2").appendChild(e.target);
+              e.target.style.position = "initial";
+              droppedIn = true;
+              document.getElementById('app_status').innerHTML = "You dropped " + e
+                      .target
+                      .getAttribute('id') + " into drop zone";
+          }
+          if (pageY < top3 && pageY > bottom3) {      
+              console.log("test3true")    
+              document.getElementById("drop_zone3").appendChild(e.target);
+              e.target.style.position = "initial";
+              droppedIn = true;
+              document.getElementById('app_status').innerHTML = "You dropped " + e
+                      .target
+                      .getAttribute('id') + " into drop zone";
+          }  
+     }
+        }       
+        
+    </script>
+    
+    
+    
+    </body>
+
+</html>
