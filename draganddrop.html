@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    
+ <script
+  src="https://drag-drop-touch-js.github.io/dragdroptouch/dist/drag-drop-touch.esm.min.js"
+  type="module"
+></script>
+    
+    
+<style>
+* {
+     font-family: 'arial';
+    font-size: 5vh;
+    }
+#div1, #div2 {
+  width: 350px;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  background: gray;  
+}
+    
+    
+#drag1, #drag2, #drag3, #drag4 {
+    
+    border: 1px solid cyan;
+    border-radius: 25px;
+    padding: 1vh;
+background: lightGray;
+    margin: 10px;
+    }
+    
+    
+    
+    
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<p>Drag and drop into rectangles:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    
+    
+<br>
+    vs
+    <br><br>
+    
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    
+    <br>
+<!--
+<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+-->
+    <div id="drag1" draggable="true" ondragstart="drag(event)">some text one</div>
+    
+     <div id="drag2" draggable="true" ondragstart="drag(event)">some text two</div>
+     <div id="drag3" draggable="true" ondragstart="drag(event)">some text three</div>
+     <div id="drag4" draggable="true" ondragstart="drag(event)">some text four</div>
+</body>
+</html>
