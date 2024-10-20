@@ -1,38 +1,29 @@
-<!doctype html>
-<html>
-
-  <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <meta content="Bryan M" name="author">
-    <title>hcp calc</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <meta content="Bryan M" name="author">
-    <title>hcp calc</title>
-    <link rel="manifest" href="hcpmatchplay.webmanifest">
-    <link href="favicon.png" rel="icon" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
-    <style>
-    
-    #notavailable {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: lightGray;
-      width: 100vw;
-      height: 100vh;
-      z-index: 999;
-      text-align: center;
-    }
-    </style>
-  </head>
-
-  <body>
-  <div id="notavailable"><img id="img" style="padding-top: 10vh;margin: 0; border: 0; height: 50vw; width: 60vw; " src="notavailable.png" alt="na">
-  </div>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" /><title>schedule</title><meta content="Bryan M" name="author" /><link rel="manifest" href="schedule.webmanifest"><meta name="theme-color" content="dodgerBlue"><link href="scheduleicon.png" rel="icon" type="image/x-icon" /><link rel="apple-touch-icon" sizes="180x180" href="scheduleicon.png" /><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script><style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#000;transition: all 3s;background:dodgerBlue;margin:1vw;width:130vw}.grid-container{display:grid;grid-template-columns:auto auto auto;column-gap:0;row-gap:0;padding-left:2px;padding-right:2px}.grid-item{background-color:rgb(255 255 255 / .85);padding:2px;font-size:3.5vw;text-align:left}.gray{background-color:rgb(255 255 255 / .9)}.bluemonth{background-color:dodgerBlue;color:#fff;font-size:3.5vw}#title{font-size:7vw;color:#fff;font-weight:700;width:97vw}.grayx{color:lightYellow}#sub{color:#fff;font-size:3vw;font-style:italic;font-weight:400}#shortlist{font-weight:700}.h{opacity:0;}#header{position:fixed;top:0;background:dodgerBlue;width:92vw;height:11vh;font-size:4vh;padding:2px;color:#fff;font-weight:700;border-radius:5px;border:2px solid darkSlateGray;box-shadow:10px 10px 25px #000}#content{padding-top:12vh}.topgray{color:#fff;background:dodgerBlue}.header-hidden{transform:translateY(-100%);transition:transform 0.3s ease}.header-visible{transform:translateY(0);transition:transform 0.3s ease}.header-start{transform:translateY(+100%);transition:transform 0.3s ease}.row{display:-ms-flex:// Vendor prefixes required for flexbox display:-webkit-flex;display:flex}.columna{width:9ch;display:-ms-inline-flex;display:-webkit-inline-flex;display:inline-flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;color:#fff}.columnb{width:11ch;display:-ms-inline-flex;display:-webkit-inline-flex;display:inline-flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;color:#fff}.columnd{width:calc(130vw - 20ch);display:-ms-inline-flex;display:-webkit-inline-flex;display:inline-flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;color:#fff}#loadericon{height:30vw;width:30vw;position:fixed;top:35vh;left:50vw}#loadertxt{font-family:Arial,Helvetica,sans-serif;color:#fff;font-size:3.5vw;padding-top:2vh;width:100vw;text-align:center}</style></head><body><div id=page><div id=loadericon>
+<img src=throbber.gif alt=load height=30vw style=vertical-align:middle></div>
+<div id=header class=xheader-visible><img src=cal.png alt=cal height=100% style=vertical-align:middle>
+&nbsp;&nbsp;&nbsp;Seniors events</div><div id=content><div class=grid-container id=eventlist>
+</div></div><div class=grid-container id=shortlist><div id=latestinfo1 class=bluemonth></div>
+<div id=latestinfo2 class=bluemonth></div><div id=latestinfo3 class=bluemonth></div>
+</div><div id=bottomspace><br></div></div><script>
+var arrInfo=new Array();var testday;setTimeout(function(){document.body.classList.add("h")},1000);
+getData()
+async function getData(){var dataStream=await fetch("https://opensheet.elk.sh/1qThlJ2x6LWzO82_KGzrUwSevNb2KwXqsl_qEdf-IVpU/info")
+if(!dataStream.ok){const message=`An error has occured: ${dataStream.status}`;alert("error: "+message)}
+var resultsarray=await dataStream.json()
+arrInfo=resultsarray.map(function(inf){return inf})
+arrInfo=arrInfo.filter(function(el){return el!=null})
+arrInfo=arrInfo.filter(function(el){return el!=""})
+document.getElementById("loadericon").style.display="none";main()}
+function main(){for(var i=0;i<arrInfo.length;i++){var select=document.getElementById("page");var el1=document.createElement("div");el1.id="row"+i;el1.className='row';select.appendChild(el1);var testday=arrInfo[i].col1
+if(containsOnlyDigits(testday.slice(-4))){var yyyy=testday.slice(-4);arrMonths=["dummy","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];for(var j=0;j<arrMonths.length;j++){if(testday.slice(0,3)==arrMonths[j]){var mm=j;if(j<10){mm=("0"+j)}}}}else{dd=testday.replace("st","").replace("nd","").replace("rd","").replace("th","")
+dd=dd.replace("Mon ","").replace("Tue ","").replace("Wed ","").replace("Thu ","").replace("Fri ","").replace("Sat ","").replace("Sun ","")
+if(dd<10){dd=("0"+dd)}
+var formatteddate=yyyy+"-"+mm+"-"+dd}
+datetotest=new Date(formatteddate);datetotest.setDate(datetotest.getDate()+1);today=new Date();if(today>datetotest){var strikethrough="yes"}else{var strikethrough="no"}
+var select=document.getElementById("row"+i);var el1=document.createElement("div");el1.id="a"+i;el1.className='columna';el1.innerHTML=arrInfo[i].col1;select.appendChild(el1);if(arrInfo[i].col2=="-"){document.getElementById("a"+i).style.color="blue";document.getElementById("a"+i).style.background="lightBlue"}else{if(strikethrough=="yes"){ttt=document.getElementById("a"+i).innerText;document.getElementById("a"+i).style.textDecoration="line-through";document.getElementById("a"+i).style.color="yellow";var elementToScroll=("a"+(i-4))}}
+var el2=document.createElement("div");el2.id="b"+i;el2.className='columnb';el2.innerHTML=arrInfo[i].col2;select.appendChild(el2);if(arrInfo[i].col2=="-"){document.getElementById("b"+i).style.color="lightBlue";document.getElementById("b"+i).style.background="lightBlue"}else{if(strikethrough=="yes"){document.getElementById("b"+i).style.textDecoration="line-through";document.getElementById("b"+i).style.color="yellow"}}
+var el3=document.createElement("div");el3.id="d"+i;el3.className='columnd';el3.innerHTML=arrInfo[i].col3;select.appendChild(el3);if(arrInfo[i].col2=="-"){document.getElementById("d"+i).style.color="lightBlue";document.getElementById("d"+i).style.background="lightBlue";document.getElementById("d"+i).style.width="50%"}else{if(strikethrough=="yes"){document.getElementById("d"+i).style.textDecoration="line-through";document.getElementById("d"+i).style.color="yellow"}}}
+setTimeout(function(){document.getElementById(elementToScroll).scrollIntoView({block:'start',behavior:'smooth'})},500)}
+function containsOnlyDigits(str){return/^\d+$/.test(str)}
+</script></body></html>
